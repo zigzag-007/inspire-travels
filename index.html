@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Inspire Travels & Tours | Discover Sri Lanka</title>
+		<meta name="description" content="Experience the beauty and culture of Sri Lanka with our expertly crafted tours and travel experiences. From ancient temples to pristine beaches, create memories that last a lifetime.">
+		<meta name="keywords" content="Sri Lanka tours, travel Sri Lanka, Ceylon tours, cultural tours, adventure travel, wildlife safari, beach tours, tea plantation tours">
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon/favicon-64x64.png">
+		<link rel="icon" type="image/png" sizes="128x128" href="assets/img/favicon/favicon-128x128.png">
+		<link rel="icon" type="image/png" href="assets/img/favicon/favicon.png">
+		<link rel="apple-touch-icon" href="assets/img/favicon/favicon-128x128.png">
+		<!-- Tailwind CSS CDN -->
+		<script src="https://cdn.tailwindcss.com"></script>
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+		<!-- Lucide Icons -->
+		<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<!-- AOS Animation Library -->
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="assets/css/custom.css">
+		<!-- Custom Tailwind Config -->
+		<script>tailwind.config = {theme: {extend: {fontFamily: {'sans': ['Inter', 'system-ui', 'sans-serif'], 'serif': ['Poppins', 'sans-serif']}, colors: {primary: {DEFAULT: 'oklch(0.35 0.15 195)', foreground: 'oklch(0.98 0.01 85)'}, secondary: {DEFAULT: 'oklch(0.65 0.12 35)', foreground: 'oklch(0.98 0.01 85)'}, accent: {DEFAULT: 'oklch(0.75 0.15 75)', foreground: 'oklch(0.15 0.02 45)'}, background: 'oklch(0.98 0.035 105)', foreground: 'oklch(0.15 0.02 45)', muted: {DEFAULT: 'oklch(0.95 0.01 85)', foreground: 'oklch(0.45 0.02 45)'}, card: {DEFAULT: 'oklch(1 0 0)', foreground: 'oklch(0.15 0.02 45)'}, border: 'oklch(0.9 0.01 85)'}, animation: {'spin-slow': 'spin 3s linear infinite', 'fade-in': 'fadeIn 1s ease-out forwards', 'float': 'float 3s ease-in-out infinite', 'bounce-slow': 'bounce 2s infinite'}, keyframes: {fadeIn: {'0%': {opacity: '0', transform: 'translateY(20px)'}, '100%': {opacity: '1', transform: 'translateY(0)'}}, float: {'0%, 100%': {transform: 'translateY(0px)'}, '50%': {transform: 'translateY(-10px)'}}}}}}</script>
+	</head>
+	<body class="font-sans antialiased bg-background text-foreground">
+		<!-- Loading Animation Preloader -->
+		<div id="loading" class="fixed inset-0 z-[100] transition-all duration-700">
+			<div class="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-accent">
+				<!-- Background layers -->
+				<div class="absolute inset-0 bg-[url('assets/img/bg/old-temple-1.jpg')] bg-cover bg-center opacity-20"></div>
+				<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+				<!-- Floating elements - Refined sizing -->
+				<div class="absolute top-14 md:top-16 left-14 md:left-16 w-32 md:w-36 h-32 md:h-36 bg-white/10 rounded-full blur-xl animate-pulse"></div>
+				<div class="absolute bottom-24 md:bottom-28 right-24 md:right-28 w-24 md:w-28 h-24 md:h-28 bg-accent/20 rounded-full blur-lg animate-bounce"></div>
+				<div class="absolute top-1/2 left-1/4 w-16 md:w-20 h-16 md:h-20 bg-secondary/15 rounded-full blur-md animate-ping"></div>
+			</div>
+			<div class="relative z-10 flex items-center justify-center min-h-screen">
+				<div class="text-center max-w-lg mx-auto px-6 sm:px-8">
+					<!-- Logo - Refined sizing -->
+					<div class="relative mb-8 md:mb-10">
+						<div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mx-auto mb-4 border border-white/30 shadow-2xl">
+							<div class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 bg-gradient-to-br from-white to-white/80 rounded-full flex items-center justify-center p-2 md:p-3">
+								<img src="assets/img/logo.png" alt="Inspire Travels Logo" class="w-full h-full object-contain drop-shadow-sm">
+							</div>
+						</div>
+						<div class="absolute -inset-4 md:-inset-6 bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-full animate-pulse"></div>
+					</div>
+					<!-- Text Content - Refined typography -->
+					<div class="space-y-4 md:space-y-5 mb-8 md:mb-10">
+						<h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white drop-shadow-lg tracking-tight">Inspire Travels</h2>
+						<p class="text-white/95 text-lg sm:text-xl font-medium drop-shadow-lg leading-relaxed">Discover the Pearl of the Indian Ocean</p>
+						<p class="text-white/80 text-sm sm:text-base font-light drop-shadow-md">Preparing your Sri Lankan adventure...</p>
+					</div>
+					<!-- Progress Bar Section - Refined -->
+					<div class="space-y-4 md:space-y-6">
+						<!-- Progress Bar -->
+						<div class="w-full bg-white/20 rounded-full h-2 md:h-3 backdrop-blur-sm border border-white/30 shadow-lg">
+							<div id="loading-progress"
+								class="bg-gradient-to-r from-white via-accent to-accent h-2 md:h-3 rounded-full transition-all duration-500 shadow-lg"
+								style="width: 0%;">
+							</div>
+						</div>
+						<!-- Loading Dots - Refined -->
+						<div class="flex justify-center space-x-2 md:space-x-3">
+							<div class="w-3 h-3 md:w-4 md:h-4 bg-white/90 rounded-full animate-bounce shadow-lg" style="animation-delay:0ms"></div>
+							<div class="w-3 h-3 md:w-4 md:h-4 bg-white/90 rounded-full animate-bounce shadow-lg" style="animation-delay:200ms"></div>
+							<div class="w-3 h-3 md:w-4 md:h-4 bg-white/90 rounded-full animate-bounce shadow-lg" style="animation-delay:400ms"></div>
+							<div class="w-3 h-3 md:w-4 md:h-4 bg-white/90 rounded-full animate-bounce shadow-lg" style="animation-delay:600ms"></div>
+							<div class="w-3 h-3 md:w-4 md:h-4 bg-white/90 rounded-full animate-bounce shadow-lg" style="animation-delay:800ms"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Blur Overlay for Mobile Menu -->
+		<div id="blur-overlay" class="fixed inset-0 z-30 backdrop-blur-sm bg-black/30 opacity-0 hidden transition-opacity duration-300"></div>
+		<!-- Top Bar -->
+		<div class="bg-primary text-primary-foreground py-2 px-4 text-sm">
+			<div class="max-w-7xl mx-auto flex justify-between items-center">
+				<!-- Left Side: Contact Information -->
+				<div class="flex items-center gap-6">
+					<!-- Phone -->
+					<div class="flex items-center gap-2">
+						<i data-lucide="phone" class="w-4 h-4"></i>
+						<span>+94 78 595 9333</span>
+					</div>
+					<!-- Email -->
+					<div class="flex items-center gap-2">
+						<i data-lucide="mail" class="w-4 h-4"></i>
+						<span>travelerinspire@gmail.com</span>
+					</div>
+				</div>
+				<!-- Right Side: Tagline (Hidden on Small Screens) -->
+				<div class="hidden md:block">
+					<span>Experience the Pearl of the Indian Ocean</span>
+				</div>
+			</div>
+		</div>
+		<!-- Main Navigation -->
+		<nav id="navbar" class="fixed top-auto left-0 right-0 z-40 transition-all duration-300 bg-white/10 shadow-md liquid-glass">
+			<div class="max-w-[1400px] mx-auto px-6 md:px-8 lg:px-12 xl:px-16 relative">
+				<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-30"></div>
+				<div class="relative flex justify-between items-center h-16 transform transition-transform duration-200">
+					<!-- Logo - Left Corner -->
+					<div class="flex items-center flex-shrink-0">
+						<a href="#home" class="flex items-center">
+						<img src="assets/img/logo.png" alt="Inspire Travels & Tours" class="nav-logo h-40 w-auto object-contain">
+						</a>
+					</div>
+					<!-- Desktop Navigation - Center -->
+					<div class="hidden lg:flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2">
+						<a href="#home" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Home</a>
+						<a href="#tours" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Tours</a>
+						<a href="#about" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">About</a>
+						<a href="#gallery" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Gallery</a>
+						<a href="#adventure" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Adventure</a>
+						<a href="#reviews" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Reviews</a>
+						<a href="#footer" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Contact</a>
+					</div>
+					<!-- Book Now Button and Mobile Menu - Right Corner -->
+					<div class="flex items-center space-x-4">
+						<button class="hidden lg:block bg-black/20 backdrop-blur-md border border-white/20 text-white px-6 py-2 rounded-full font-medium transition-all duration-300 hover:bg-black/30 hover:border-white/30 hover:scale-105 shadow-lg" onclick="window.location.href='#footer'">Contact Now</button>
+						<!-- Mobile menu button -->
+						<button id="mobile-menu-btn" class="lg:hidden p-2" aria-label="Open mobile menu" title="Open navigation menu">
+						<i data-lucide="menu" class="w-6 h-6"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<!-- Mobile Navigation -->
+		<div id="mobile-menu" class="mobile-menu fixed top-0 left-0 h-full w-80 bg-white backdrop-blur-md shadow-2xl z-50 lg:hidden transform -translate-x-full transition-transform duration-300 ease-in-out">
+			<div class="p-6 pt-8">
+				<!-- Header with Logo and Close Button -->
+				<div class="flex justify-between items-center mb-8">
+					<div class="flex items-center gap-3">
+						<img src="assets/img/logo.png" alt="Inspire Travels" class="w-12 h-12">
+						<h3 class="text-xl font-serif font-bold text-slate-800">Inspire Travels</h3>
+					</div>
+					<button id="mobile-menu-close" class="p-2 text-slate-600 hover:text-slate-800 transition-colors rounded-lg hover:bg-slate-100" aria-label="Close mobile menu" title="Close navigation menu">
+						<i data-lucide="x" class="w-6 h-6"></i>
+					</button>
+				</div>
+
+				<!-- Navigation Links -->
+				<div class="space-y-1">
+					<a href="#home" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 active-mobile-nav bg-gradient-to-r from-emerald-500 to-emerald-600 text-white transition-all duration-200 font-semibold py-4 px-4 rounded-xl" data-section="home">
+						<i data-lucide="home" class="w-5 h-5"></i>
+						<span>Home</span>
+					</a>
+					<a href="#tours" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl" data-section="tours">
+						<i data-lucide="map" class="w-5 h-5"></i>
+						<span>Tours</span>
+					</a>
+					<a href="#about" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl" data-section="about">
+						<i data-lucide="users" class="w-5 h-5"></i>
+						<span>About</span>
+					</a>
+					<a href="#gallery" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl" data-section="gallery">
+						<i data-lucide="image" class="w-5 h-5"></i>
+						<span>Gallery</span>
+					</a>
+					<a href="#adventure" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl" data-section="adventure">
+						<i data-lucide="mountain" class="w-5 h-5"></i>
+						<span>Adventure</span>
+					</a>
+					<a href="#reviews" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl" data-section="reviews">
+						<i data-lucide="star" class="w-5 h-5"></i>
+						<span>Reviews</span>
+					</a>
+					<a href="#footer" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl" data-section="footer">
+						<i data-lucide="phone" class="w-5 h-5"></i>
+						<span>Contact</span>
+					</a>
+				</div>
+
+				<!-- Social Media Links -->
+				<div class="mt-8 pt-6 border-t border-slate-200">
+					<p class="text-sm text-slate-600 mb-4 text-center">Follow us on:</p>
+					<div class="flex justify-center gap-4">
+						<a href="https://facebook.com/inspiretravels" title="Follow us on Facebook" aria-label="Facebook" class="flex items-center justify-center w-10 h-10 bg-slate-100 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 text-slate-600 hover:text-white rounded-full transition-all duration-200">
+							<i data-lucide="facebook" class="w-5 h-5"></i>
+						</a>
+						<a href="https://instagram.com/inspiretravels" title="Follow us on Instagram" aria-label="Instagram" class="flex items-center justify-center w-10 h-10 bg-slate-100 hover:bg-gradient-to-r hover:from-pink-500 hover:to-pink-600 text-slate-600 hover:text-white rounded-full transition-all duration-200">
+							<i data-lucide="instagram" class="w-5 h-5"></i>
+						</a>
+						<a href="https://tiktok.com/@inspiretravels" title="Follow us on TikTok" aria-label="TikTok" class="flex items-center justify-center w-10 h-10 bg-slate-100 hover:bg-gradient-to-r hover:from-gray-800 hover:to-black text-slate-600 hover:text-white rounded-full transition-all duration-200">
+							<i data-lucide="music" class="w-5 h-5"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Hero Section (arrow back, sentinel kept, dots removed; mobile buttons balanced) -->
+		<section id="home" class="relative isolate min-h-[100svh] flex items-center bg-cover bg-center bg-no-repeat overflow-hidden pt-8 sm:pt-16 md:pt-20 lg:pt-24 xl:pt-27 pb-8 sm:pb-12 md:pb-16 lg:pb-20 grid grid-cols-1 place-items-center" style="background-image:url('assets/img/bg/tropical-beach-1.jpg'); transition:background-image 1s ease-in-out;">
+			<!-- Readability overlay -->
+			<div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60"></div>
+
+			<!-- Content -->
+			<div class="relative z-10 w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+				<div class="text-center">
+					<!-- Heading -->
+					<h1 class="font-serif font-bold leading-tight tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-2 sm:mb-3 md:mb-4 lg:mb-6" data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-out-quart" data-aos-delay="200">
+						<span class="block">Discover the</span>
+						<span class="block bg-gradient-to-r from-accent to-white/90 bg-clip-text text-transparent">Pearl of the Ocean</span>
+					</h1>
+
+					<!-- Subtitle -->
+					<p class="mt-2 sm:mt-3 md:mt-4 lg:mt-5 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl max-w-3xl mx-auto leading-relaxed text-white/90 mb-4 sm:mb-6 md:mb-8 lg:mb-10" data-aos="fade-up" data-aos-duration="600" data-aos-delay="900" data-aos-easing="ease-out-quart">
+						Experience the enchanting beauty of Sri Lanka through our carefully curated tours. From ancient temples to pristine beaches, create memories that last a lifetime.
+					</p>
+
+					<!-- CTAs (mobile: balanced width & height, rounded) -->
+					<div class="mt-6 sm:mt-8 mb-6 sm:mb-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+						<button class="liquid-glass text-white px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 flex items-center justify-center" aria-label="Explore our tour packages" data-aos="fade-up" data-aos-duration="500" data-aos-delay="1100" data-aos-easing="ease-out-back" onclick="window.location.href='#tours'">Explore Tours</button>
+
+						<button class="liquid-glass text-white px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2" aria-label="Watch promotional video" data-aos="fade-up" data-aos-duration="500" data-aos-delay="1250" data-aos-easing="ease-out-back" onclick="window.ModalModule?.openVideoModal?.()">
+							<i data-lucide="play" class="w-5 h-5"></i>Watch Video
+						</button>
+					</div>
+
+					<!-- Stats (always visible; tidy 3-up) -->
+					<div class="grid grid-cols-3 gap-2 sm:gap-4 max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto" data-aos="fade-up" data-aos-duration="500" data-aos-delay="1400" data-aos-easing="ease-out-quart">
+						<div class="liquid-glass rounded-2xl p-3 sm:p-5">
+							<div class="text-center">
+								<i data-lucide="map-pin" class="w-6 h-6 sm:w-7 sm:h-7 mx-auto mb-2 text-accent"></i>
+								<div class="text-xl sm:text-2xl font-bold font-serif">50+</div>
+								<div class="mt-0.5 text-[10px] sm:text-xs text-white/80">Destinations</div>
+							</div>
+						</div>
+						<div class="liquid-glass rounded-2xl p-3 sm:p-5">
+							<div class="text-center">
+								<i data-lucide="calendar" class="w-6 h-6 sm:w-7 sm:h-7 mx-auto mb-2 text-accent"></i>
+								<div class="text-xl sm:text-2xl font-bold font-serif">1000+</div>
+								<div class="mt-0.5 text-[10px] sm:text-xs text-white/80">Tours Completed</div>
+							</div>
+						</div>
+						<div class="liquid-glass rounded-2xl p-3 sm:p-5">
+							<div class="text-center">
+								<i data-lucide="users" class="w-6 h-6 sm:w-7 sm:h-7 mx-auto mb-2 text-accent"></i>
+								<div class="text-xl sm:text-2xl font-bold font-serif">5000+</div>
+								<div class="mt-0.5 text-[10px] sm:text-xs text-white/80">Happy Travelers</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Scroll arrow (visible on mobile & desktop, clear of stats) -->
+			<div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
+				<div class="animate-bounce motion-reduce:animate-none inline-block">
+					<i data-lucide="chevron-down" class="w-7 h-7 sm:w-8 sm:h-8 text-white/70"></i>
+				</div>
+			</div>
+			<!-- Sentinel (for observers) -->
+			<div id="home-end-sentinel" class="absolute bottom-0 left-0 w-px h-px"></div>
+		</section>
+		<!-- Tours Section -->
+		<section id="tours" class="pt-20 bg-background">
+			<div class="max-w-[1600px] mx-auto px-6 md:px-8 lg:px-12 xl:px-16">
+			<!-- Section Header with Split Animation -->
+			<div class="text-center mb-16">
+				<h2 class="font-serif text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up, fade-right, fade-left" data-aos-duration="700,500,500" data-aos-delay="100,300,450" data-aos-easing="ease-out-quart,ease-out-back,ease-out-back">
+					<span>Most Popular</span> 
+					<span class="gradient-text">Tours</span>
+				</h2>
+				<p class="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-easing="ease-out-quart">
+					Discover our most sought-after tour packages, carefully crafted to showcase the best of Sri Lanka's beauty and culture.
+				</p>
+			</div>
+			<!-- Tours Grid with Card Animations -->
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<!-- Tour Card 1 -->
+				<div class="bg-white rounded-2xl shadow-lg transition-all duration-300 hover:scale-105 overflow-hidden" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
+					<div class="relative h-56 overflow-hidden">
+						<img src="assets/img/gallery/sigiriya.jpg" alt="Ceylon City & Beach Escape"
+							class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+						<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+						<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
+							<i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-current"></i>
+							<span class="text-gray-800 text-sm font-semibold">8.0 Superb</span>
+						</div>
+						<button class="absolute top-4 right-4 w-10 h-10 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:text-red-500 transition-all duration-200 hover:scale-110" title="Add to favorites">
+						<i data-lucide="heart" class="w-5 h-5"></i>
+						</button>
+					</div>
+					<div class="p-6">
+						<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">Ceylon City & Beach Escape</h3>
+						<div class="text-sm text-gray-600 mb-4">
+							<div class="flex items-center gap-2 mb-1">
+								<i data-lucide="clock" class="w-4 h-4 text-emerald-600"></i><span class="font-medium">3 Days</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<i data-lucide="map-pin" class="w-4 h-4 text-emerald-600"></i><span>Colombo & Bentota</span>
+							</div>
+						</div>
+						<button onclick="openTourModal(0)" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95">View Details</button>
+					</div>
+				</div>
+				<!-- Tour Card 2 -->
+				<div class="bg-white rounded-2xl shadow-lg transition-all duration-300 hover:scale-105 overflow-hidden" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
+					<div class="relative h-56 overflow-hidden">
+						<img src="assets/img/gallery/beach-sunset.jpg" alt="City to Sea Adventure"
+							class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+						<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+						<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
+							<i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-current"></i>
+							<span class="text-gray-800 text-sm font-semibold">8.0 Superb</span>
+						</div>
+						<button class="absolute top-4 right-4 w-10 h-10 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:text-red-500 transition-all duration-200 hover:scale-110" title="Add to favorites">
+						<i data-lucide="heart" class="w-5 h-5"></i>
+						</button>
+					</div>
+					<div class="p-6">
+						<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">City to Sea Adventure</h3>
+						<div class="text-sm text-gray-600 mb-4">
+							<div class="flex items-center gap-2 mb-1">
+								<i data-lucide="clock" class="w-4 h-4 text-emerald-600"></i><span class="font-medium">4 Days</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<i data-lucide="map-pin" class="w-4 h-4 text-emerald-600"></i><span>Colombo to Mirissa</span>
+							</div>
+						</div>
+						<button onclick="openTourModal(1)" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95">View Details</button>
+					</div>
+				</div>
+				<!-- Tour Card 3 -->
+				<div class="bg-white rounded-2xl shadow-lg transition-all duration-300 hover:scale-105 overflow-hidden" data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">
+					<div class="relative h-56 overflow-hidden">
+						<img src="assets/img/gallery/galle-fort.jpg" alt="Hills to Coast Escape"
+							class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+						<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+						<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
+							<i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-current"></i>
+							<span class="text-gray-800 text-sm font-semibold">8.0 Superb</span>
+						</div>
+						<button class="absolute top-4 right-4 w-10 h-10 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:text-red-500 transition-all duration-200 hover:scale-110" title="Add to favorites">
+						<i data-lucide="heart" class="w-5 h-5"></i>
+						</button>
+					</div>
+					<div class="p-6">
+						<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">Hills to Coast Escape</h3>
+						<div class="text-sm text-gray-600 mb-4">
+							<div class="flex items-center gap-2 mb-1">
+								<i data-lucide="clock" class="w-4 h-4 text-emerald-600"></i><span class="font-medium">5 Days</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<i data-lucide="map-pin" class="w-4 h-4 text-emerald-600"></i><span>Kandy to Mirissa</span>
+							</div>
+						</div>
+						<button onclick="openTourModal(2)" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95">View Details</button>
+					</div>
+				</div>
+				<!-- Tour Card 4 -->
+				<div class="bg-white rounded-2xl shadow-lg transition-all duration-300 hover:scale-105 overflow-hidden" data-aos="fade-up" data-aos-duration="700" data-aos-delay="400">
+					<div class="relative h-56 overflow-hidden">
+						<img src="assets/img/gallery/temple-visit.jpg" alt="Golden Triangle & Beyond"
+							class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+						<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+						<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
+							<i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-current"></i>
+							<span class="text-gray-800 text-sm font-semibold">8.0 Superb</span>
+						</div>
+						<button class="absolute top-4 right-4 w-10 h-10 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:text-red-500 transition-all duration-200 hover:scale-110" title="Add to favorites">
+						<i data-lucide="heart" class="w-5 h-5"></i>
+						</button>
+					</div>
+					<div class="p-6">
+						<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">Golden Triangle & Beyond</h3>
+						<div class="text-sm text-gray-600 mb-4">
+							<div class="flex items-center gap-2 mb-1">
+								<i data-lucide="clock" class="w-4 h-4 text-emerald-600"></i><span class="font-medium">7 Days, 6 Nights</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<i data-lucide="map-pin" class="w-4 h-4 text-emerald-600"></i><span>Sigiriya to Galle</span>
+							</div>
+						</div>
+						<button onclick="openTourModal(3)" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95">View Details</button>
+					</div>
+				</div>
+				<!-- Tour Card 5 -->
+				<div class="bg-white rounded-2xl shadow-lg transition-all duration-300 hover:scale-105 overflow-hidden" data-aos="fade-up" data-aos-duration="700" data-aos-delay="500">
+					<div class="relative h-56 overflow-hidden">
+						<img src="assets/img/gallery/adams-peak.jpg" alt="Pearl of Asia Journey"
+							class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+						<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+						<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
+							<i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-current"></i>
+							<span class="text-gray-800 text-sm font-semibold">8.0 Superb</span>
+						</div>
+						<button class="absolute top-4 right-4 w-10 h-10 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:text-red-500 transition-all duration-200 hover:scale-110" title="Add to favorites">
+						<i data-lucide="heart" class="w-5 h-5"></i>
+						</button>
+					</div>
+					<div class="p-6">
+						<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">Pearl of Asia Journey</h3>
+						<div class="text-sm text-gray-600 mb-4">
+							<div class="flex items-center gap-2 mb-1">
+								<i data-lucide="clock" class="w-4 h-4 text-emerald-600"></i><span class="font-medium">10 Days, 9 Nights</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<i data-lucide="map-pin" class="w-4 h-4 text-emerald-600"></i><span>Comprehensive Tour</span>
+							</div>
+						</div>
+						<button onclick="openTourModal(4)" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95">View Details</button>
+					</div>
+				</div>
+				<!-- Tour Card 6 -->
+				<div class="bg-white rounded-2xl shadow-lg transition-all duration-300 hover:scale-105 overflow-hidden" data-aos="fade-up" data-aos-duration="700" data-aos-delay="600">
+					<div class="relative h-56 overflow-hidden">
+						<img src="assets/img/gallery/whale-watching.jpg" alt="Sri Lanka Grand Tour"
+							class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+						<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+						<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
+							<i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-current"></i>
+							<span class="text-gray-800 text-sm font-semibold">8.0 Superb</span>
+						</div>
+						<button class="absolute top-4 right-4 w-10 h-10 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:text-red-500 transition-all duration-200 hover:scale-110" title="Add to favorites">
+						<i data-lucide="heart" class="w-5 h-5"></i>
+						</button>
+					</div>
+					<div class="p-6">
+						<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">Sri Lanka Grand Tour</h3>
+						<div class="text-sm text-gray-600 mb-4">
+							<div class="flex items-center gap-2 mb-1">
+								<i data-lucide="clock" class="w-4 h-4 text-emerald-600"></i><span class="font-medium">14 Days, 13 Nights</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<i data-lucide="map-pin" class="w-4 h-4 text-emerald-600"></i><span>Complete Sri Lanka</span>
+							</div>
+						</div>
+						<button onclick="openTourModal(5)" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95">View Details</button>
+					</div>
+				</div>
+			</div>
+			<!-- Customization Notice -->
+			<div class="text-center bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-10 mb-12" data-aos="fade-up" data-aos-duration="800" data-aos-delay="700">
+				<h3 class="font-serif text-3xl md:text-4xl font-bold mb-6 text-gray-800">Fully Customizable Packages</h3>
+				<p class="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+					All our packages are liable to be customized. Whether you want beaches, hill stations, adventure, wildlife, or a romantic honeymoon – we design your itinerary around your interests and budget. Contact us to create your perfect Sri Lankan adventure!
+				</p>
+			</div>
+		</section>
+		<!-- About Section -->
+		<section id="about" class="pt-20 pb-16 gowilds-footer">
+			<div class="max-w-[1600px] mx-auto px-6 md:px-8 lg:px-12 xl:px-16">
+				<!-- Section Header -->
+				<div class="text-center mb-6" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
+					<h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">
+						About <span class="gradient-text">Inspire Travels</span>
+					</h2>
+					<p class="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+						For over 5 years, we've been crafting unforgettable journeys that showcase the authentic beauty and rich culture of Sri Lanka.
+					</p>
+				</div>
+				<!-- Main Content -->
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-12 lg:mb-16">
+					<!-- Left Content -->
+					<div data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
+						<!-- Tabs -->
+						<div class="flex gap-4 mb-8 justify-center sm:justify-start">
+							<button id="story-tab" class="tab-btn liquid-glass text-white rounded-full px-6 py-2 transition-all duration-300 hover:scale-105">Our Story</button>
+							<button id="mission-tab" class="tab-btn liquid-glass text-white rounded-full px-6 py-2 transition-all duration-300 hover:scale-105">Our Mission</button>
+						</div>
+						<!-- Story Tab -->
+						<div id="story-content" class="tab-content space-y-4 sm:space-y-6">
+							<h3 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-center sm:text-left">Born from a Passion for Sri Lanka</h3>
+							<p class="text-muted-foreground leading-relaxed text-base sm:text-lg md:text-xl mb-3 sm:mb-4">
+								Inspire Travels, we are passionate storytellers of the world's wonders. Founded in 2020 by Kalum Ranathunga, we are driven by a deep love for exploration and a commitment to delivering extraordinary experiences. We specialize in crafting journeys that inspire, with meticulous attention to detail and a dedication to customer satisfaction, curating itineraries that cater to every traveler's dreams.
+							</p>
+							<p class="text-muted-foreground leading-relaxed text-base sm:text-lg md:text-xl mb-6 sm:mb-8">
+								From breathtaking landscapes to cultural immersions, our mission is to redefine travel by offering personalized service, unparalleled expertise, and a deep respect for the destinations we visit. With over five years of experience in the industry, we have built lasting relationships with local communities and gained intimate knowledge of Sri Lanka's hidden treasures. Join us as we embark on a journey of discovery and create memories that last a lifetime.
+							</p>
+							<div class="flex items-center gap-3 justify-center sm:justify-start">
+								<button class="liquid-glass text-white px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+									onclick="window.open('https://youtube.com/@inspiretraveler?si=uHKWO_lqmHxhQgDx', '_blank')">
+								<i data-lucide="youtube" class="w-5 h-5 sm:w-6 sm:h-6"></i> YouTube
+								</button>
+								<button class="liquid-glass text-white px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+									onclick="window.open('https://www.tiktok.com/@inspiretravelstours?_t=ZS-903Za2uRoUU&_r=1', '_blank')">
+								<i data-lucide="video" class="w-5 h-5 sm:w-6 sm:h-6"></i> TikTok
+								</button>
+							</div>
+						</div>
+						<!-- Mission Tab -->
+						<div id="mission-content" class="tab-content space-y-4 sm:space-y-6 hidden">
+							<h3 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-center sm:text-left">Inspiring Authentic Connections</h3>
+							<p class="text-muted-foreground leading-relaxed text-base sm:text-lg md:text-xl mb-3 sm:mb-4">
+								Our mission is to be the unforgettable trip and creative Sri Lankan holiday specialist. We are dedicated to creating transformative travel experiences that go beyond ordinary tourism, offering authentic encounters with Sri Lanka's rich culture, stunning landscapes, and warm-hearted people. Every journey we craft is designed to leave an indelible mark on your heart and soul.
+							</p>
+							<p class="text-muted-foreground leading-relaxed text-base sm:text-lg md:text-xl mb-6 sm:mb-8">
+								With over five years of expertise in the travel industry, we have perfected the art of storytelling through travel. We believe that every destination has a story to tell, and we are the passionate narrators who bring these stories to life. From the misty tea plantations to the golden beaches, from ancient temples to bustling markets, we ensure that your Sri Lankan adventure becomes a masterpiece of memories that will inspire you for years to come.
+							</p>
+							<div class="flex items-center gap-3 justify-center sm:justify-start">
+								<button class="liquid-glass text-white px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+									onclick="window.open('https://www.instagram.com/inspiretravels_tours', '_blank')">
+								<i data-lucide="instagram" class="w-5 h-5 sm:w-6 sm:h-6"></i> Instagram
+								</button>
+								<button class="liquid-glass text-white px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+									onclick="window.open('https://www.facebook.com/share/1CUqzA7tAu/?mibextid=wwXIfr', '_blank')">
+								<i data-lucide="facebook" class="w-5 h-5 sm:w-6 sm:h-6"></i> Facebook
+								</button>
+							</div>
+						</div>
+					</div>
+					<!-- Right Content -->
+					<div class="relative mt-8 lg:mt-0">
+						<!-- Story Tab Image -->
+						<div id="story-image" class="relative tab-image-content" data-aos="fade-left" data-aos-duration="800" data-aos-delay="400">
+							<div class="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl">
+								<!-- Main image - Horse riding experience (for story) -->
+								<div class="relative">
+									<img src="assets/img/about/horse-riding-experience.jpg" alt="Traditional Horseback Riding - Our Story" class="w-full h-64 sm:h-80 md:h-96 lg:h-[32rem] object-cover">
+									<div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+								</div>
+								<!-- Floating secondary image - Cultural dance -->
+								<div class="absolute top-3 sm:top-4 md:top-6 right-3 sm:right-4 md:right-6 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-lg overflow-hidden shadow-lg border-2 sm:border-4 border-white/50">
+									<img src="assets/img/about/cultural-dance.jpg" alt="Traditional Sri Lankan Cultural Dance" class="w-full h-full object-cover">
+									<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+								</div>
+							</div>
+						</div>
+						<!-- Mission Tab Image -->
+						<div id="mission-image" class="relative tab-image-content hidden" data-aos="fade-left" data-aos-duration="800" data-aos-delay="400">
+							<div class="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl">
+								<!-- Main image - Cultural dance (for mission) -->
+								<div class="relative">
+									<img src="assets/img/about/cultural-dance.jpg" alt="Traditional Sri Lankan Cultural Dance - Our Mission" class="w-full h-64 sm:h-80 md:h-96 lg:h-[32rem] object-cover">
+									<div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+								</div>
+								<!-- Floating secondary image - Horse riding experience -->
+								<div class="absolute top-3 sm:top-4 md:top-6 right-3 sm:right-4 md:right-6 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-lg overflow-hidden shadow-lg border-2 sm:border-4 border-white/50">
+									<img src="assets/img/about/horse-riding-experience.jpg" alt="Traditional Horseback Riding Experience" class="w-full h-full object-cover">
+									<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+								</div>
+							</div>
+						</div>
+						<div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="600">
+							<div class="flex items-center gap-3">
+								<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+									<i data-lucide="award" class="w-6 h-6 text-primary-foreground"></i>
+								</div>
+								<div>
+									<div class="font-bold">Award Winning</div>
+									<div class="text-sm text-muted-foreground">Travel Company</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Gallery Section -->
+		<section id="gallery" class="pt-20 bg-background">
+			<div class="max-w-[1800px] mx-auto px-6 md:px-8 lg:px-12 xl:px-16">
+				<!-- Section Header -->
+				<div class="text-center mb-16" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
+					<h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">
+						Photo <span class="gradient-text">Gallery</span>
+					</h2>
+					<p class="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+						Immerse yourself in the breathtaking beauty of Sri Lanka through our curated collection of stunning photographs from recent tours and adventures.
+					</p>
+				</div>
+				<!-- Gallery Grid -->
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+					<!-- Gallery Card 1 -->
+					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200" onclick="openGalleryModal('assets/img/gallery/cultural-dance.jpg', 'Cultural Dance Performance', 'Kandy', 'Traditional Sri Lankan cultural dance show')">
+						<div class="post-thumbnail">
+							<img src="assets/img/gallery/cultural-dance.jpg" alt="Cultural Dance" class="w-full h-64 object-cover">
+						</div>
+						<div class="entry-content">
+							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Adventure</a>
+							<div class="post-meta">
+								<span><i data-lucide="calendar" class="w-4 h-4 mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener">November 15, 2022</a></span>
+							</div>
+							<h3 class="title"><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener">Cultural Dance Performance</a></h3>
+						</div>
+					</div>
+					<!-- Gallery Card 2 -->
+					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300" onclick="openGalleryModal('assets/img/gallery/traditional-crafts.jpg', 'Traditional Crafts Workshop', 'Matale', 'Local artisans demonstrating traditional craft making')">
+						<div class="post-thumbnail">
+							<img src="assets/img/gallery/traditional-crafts.jpg" alt="Traditional Crafts" class="w-full h-64 object-cover">
+						</div>
+						<div class="entry-content">
+							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Adventure</a>
+							<div class="post-meta">
+								<span><i data-lucide="calendar" class="w-4 h-4 mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener">November 15, 2022</a></span>
+							</div>
+							<h3 class="title"><a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener">Traditional Crafts Workshop</a></h3>
+						</div>
+					</div>
+					<!-- Gallery Card 3 -->
+					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400" onclick="openGalleryModal('assets/img/gallery/sigiriya.jpg', 'Sigiriya Rock Fortress', 'Dambulla', 'Iconic rock citadel rising above the plains')">
+						<div class="post-thumbnail">
+							<img src="assets/img/gallery/sigiriya.jpg" alt="Sigiriya Rock" class="w-full h-64 object-cover">
+						</div>
+						<div class="entry-content">
+							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Adventure</a>
+							<div class="post-meta">
+								<span><i data-lucide="calendar" class="w-4 h-4 mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener">November 15, 2022</a></span>
+							</div>
+							<h3 class="title"><a href="https://www.youtube.com/shorts/sXXdldwZDQY?feature=share" target="_blank" rel="noopener">Sigiriya Rock Fortress Climb</a></h3>
+						</div>
+					</div>
+					<!-- Gallery Card 4 -->
+					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up" data-aos-duration="600" data-aos-delay="500" onclick="openGalleryModal('assets/img/gallery/spice-garden.jpg', 'Spice Garden Experience', 'Matale', 'Exploring the aromatic spice gardens of Sri Lanka')">
+						<div class="post-thumbnail">
+							<img src="assets/img/gallery/spice-garden.jpg" alt="Spice Garden" class="w-full h-64 object-cover">
+						</div>
+						<div class="entry-content">
+							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Adventure</a>
+							<div class="post-meta">
+								<span><i data-lucide="calendar" class="w-4 h-4 mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener">November 15, 2022</a></span>
+							</div>
+							<h3 class="title"><a href="https://www.youtube.com/shorts/LO7vF7flWGE?feature=share" target="_blank" rel="noopener">Spice Garden Experience</a></h3>
+						</div>
+					</div>
+					<!-- Gallery Card 5 -->
+					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up" data-aos-duration="600" data-aos-delay="600" onclick="openGalleryModal('assets/img/gallery/galle-fort.jpg', 'Historic Galle Fort', 'Galle', 'UNESCO World Heritage site with colonial-era architecture')">
+						<div class="post-thumbnail">
+							<img src="assets/img/gallery/galle-fort.jpg" alt="Historic Galle Fort" class="w-full h-64 object-cover">
+						</div>
+						<div class="entry-content">
+							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Adventure</a>
+							<div class="post-meta">
+								<span><i data-lucide="calendar" class="w-4 h-4 mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener">November 15, 2022</a></span>
+							</div>
+							<h3 class="title"><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener">Historic Galle Fort Exploration</a></h3>
+						</div>
+					</div>
+					<!-- Gallery Card 6 -->
+					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up" data-aos-duration="600" data-aos-delay="700" onclick="openGalleryModal('assets/img/gallery/whale-watching.jpg', 'Whale Watching', 'Mirissa', 'Blue whales spotted off the southern coast')">
+						<div class="post-thumbnail">
+							<img src="assets/img/gallery/whale-watching.jpg" alt="Whale Watching" class="w-full h-64 object-cover">
+						</div>
+						<div class="entry-content">
+							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Adventure</a>
+							<div class="post-meta">
+								<span><i data-lucide="calendar" class="w-4 h-4 mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener">November 15, 2022</a></span>
+							</div>
+							<h3 class="title"><a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener">Whale Watching Adventure</a></h3>
+						</div>
+					</div>
+					<!-- Gallery Card 7 -->
+					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up" data-aos-duration="600" data-aos-delay="800" onclick="openGalleryModal('assets/img/gallery/rainforest.jpg', 'Rainforest Trek', 'Sinharaja', 'Lush rainforest trail with rich biodiversity')">
+						<div class="post-thumbnail">
+							<img src="assets/img/gallery/rainforest.jpg" alt="Rainforest Trek" class="w-full h-64 object-cover">
+						</div>
+						<div class="entry-content">
+							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Adventure</a>
+							<div class="post-meta">
+								<span><i data-lucide="calendar" class="w-4 h-4 mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener">November 15, 2022</a></span>
+							</div>
+							<h3 class="title"><a href="https://www.youtube.com/shorts/sXXdldwZDQY?feature=share" target="_blank" rel="noopener">Rainforest Trek Adventure</a></h3>
+						</div>
+					</div>
+					<!-- Gallery Card 8 -->
+					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up" data-aos-duration="600" data-aos-delay="900" onclick="openGalleryModal('assets/img/gallery/nine-arch-bridge.jpg', 'Nine Arch Bridge', 'Ella', 'Iconic stone bridge amid tea hills')">
+						<div class="post-thumbnail">
+							<img src="assets/img/gallery/nine-arch-bridge.jpg" alt="Nine Arch Bridge" class="w-full h-64 object-cover">
+						</div>
+						<div class="entry-content">
+							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Adventure</a>
+							<div class="post-meta">
+								<span><i data-lucide="calendar" class="w-4 h-4 mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener">November 15, 2022</a></span>
+							</div>
+							<h3 class="title"><a href="https://www.youtube.com/shorts/LO7vF7flWGE?feature=share" target="_blank" rel="noopener">Nine Arch Bridge Railway</a></h3>
+						</div>
+					</div>
+					<!-- Gallery Card 9 -->
+					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up" data-aos-duration="600" data-aos-delay="1000" onclick="openGalleryModal('assets/img/gallery/tea-hills.jpg', 'Tea Hills', 'Hill Country', 'Rolling emerald hills and misty mornings')">
+						<div class="post-thumbnail">
+							<img src="assets/img/gallery/tea-hills.jpg" alt="Tea Hills" class="w-full h-64 object-cover">
+						</div>
+						<div class="entry-content">
+							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Adventure</a>
+							<div class="post-meta">
+								<span><i data-lucide="calendar" class="w-4 h-4 mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener">November 15, 2022</a></span>
+							</div>
+							<h3 class="title"><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener">Tea Hills Morning Mist</a></h3>
+						</div>
+					</div>
+					<!-- Gallery Card 10 -->
+					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up" data-aos-duration="600" data-aos-delay="1100" onclick="openGalleryModal('assets/img/gallery/adams-peak.jpg', 'Adams Peak Sunrise', 'Adam\'s Peak', 'Sacred mountain with breathtaking sunrise views')">
+						<div class="post-thumbnail">
+							<img src="assets/img/gallery/adams-peak.jpg" alt="Adams Peak" class="w-full h-64 object-cover">
+						</div>
+						<div class="entry-content">
+							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Adventure</a>
+							<div class="post-meta">
+								<span><i data-lucide="calendar" class="w-4 h-4 mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener">November 15, 2022</a></span>
+							</div>
+							<h3 class="title"><a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener">Adams Peak Sunrise Trek</a></h3>
+						</div>
+					</div>
+					<!-- Gallery Card 11 -->
+					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up" data-aos-duration="600" data-aos-delay="1200" onclick="openGalleryModal('assets/img/gallery/temple-visit.jpg', 'Temple Visit', 'Kandy', 'Sacred Buddhist temple with rich cultural heritage')">
+						<div class="post-thumbnail">
+							<img src="assets/img/gallery/temple-visit.jpg" alt="Temple Visit" class="w-full h-64 object-cover">
+						</div>
+						<div class="entry-content">
+							<a href="https://www.youtube.com/shorts/sXXdldwZDQY?feature=share" target="_blank" rel="noopener" class="cat-btn">Cultural</a>
+							<div class="post-meta">
+								<span><i data-lucide="calendar" class="w-4 h-4 mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener">November 15, 2022</a></span>
+							</div>
+							<h3 class="title"><a href="https://www.youtube.com/shorts/sXXdldwZDQY?feature=share" target="_blank" rel="noopener">Sacred Temple Experience</a></h3>
+						</div>
+					</div>
+					<!-- Gallery Card 12 -->
+					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up" data-aos-duration="600" data-aos-delay="1300" onclick="openGalleryModal('assets/img/gallery/beach-sunset.jpg', 'Beach Sunset', 'Sri Lankan Coast', 'Stunning sunset over pristine beaches')">
+						<div class="post-thumbnail">
+							<img src="assets/img/gallery/beach-sunset.jpg" alt="Beach Sunset" class="w-full h-64 object-cover">
+						</div>
+						<div class="entry-content">
+							<a href="https://www.youtube.com/shorts/LO7vF7flWGE?feature=share" target="_blank" rel="noopener" class="cat-btn">Beach</a>
+							<div class="post-meta">
+								<span><i data-lucide="calendar" class="w-4 h-4 mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener">November 15, 2022</a></span>
+							</div>
+							<h3 class="title"><a href="https://www.youtube.com/shorts/LO7vF7flWGE?feature=share" target="_blank" rel="noopener">Magical Beach Sunset</a></h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Adventure Awaits Section -->
+		<section id="adventure" class="py-20 gowilds-footer relative overflow-hidden">
+			<!-- Background Image -->
+			<div class="absolute inset-0 bg-[url('assets/img/bg/mountain-lake-1.jpg')] bg-cover bg-center opacity-20"></div>
+			<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
+			<div class="relative z-10 max-w-[1600px] mx-auto px-6 md:px-8 lg:px-12 xl:px-16 text-center">
+				<div class="max-w-4xl mx-auto">
+					<!-- Main Text -->
+					<h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight"
+						data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+						Ready to Travel With
+						<span class="block gradient-text">Real Adventure</span>
+						<span class="block text-white">and Enjoy Nature's Beauty</span>
+					</h2>
+					<!-- Subtitle -->
+					<p class="text-lg md:text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed"
+						data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+						Discover the untamed beauty of Sri Lanka through authentic experiences that connect you with nature, culture, and unforgettable memories.
+					</p>
+					<!-- CTA Button -->
+					<div class="flex justify-center" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="600">
+						<button class="liquid-glass text-white px-10 py-4 text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 flex items-center gap-3" 
+							aria-label="Contact us for your adventure" onclick="window.location.href='#footer'">
+						<span>Contact Now</span>
+						<i data-lucide="send" class="w-5 h-5"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Reviews Section -->
+		<section id="reviews" class="pt-20 bg-muted/30">
+			<div class="max-w-[1600px] mx-auto px-6 md:px-8 lg:px-12 xl:px-16">
+				<!-- Section Header -->
+				<div class="text-center mb-16" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
+					<h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">
+						What Our <span class="gradient-text">Travelers Say</span>
+					</h2>
+					<p class="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+						Don't just take our word for it. Read authentic reviews from travelers who have experienced the magic of Sri Lanka with Inspire Travels & Tours.
+					</p>
+				</div>
+				<!-- Review Stats -->
+				<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-16">
+					<!-- Card 1 -->
+					<div class="bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.08)] px-6 py-10 text-center hover:scale-105 transition-transform duration-300"
+						data-aos="zoom-in" data-aos-duration="600" data-aos-delay="150">
+						<div class="mx-auto mb-4 w-36 h-36 rounded-full bg-[#EAF4E8] flex items-center justify-center">
+							<i data-lucide="star" class="w-10 h-10 text-[#63AB45]"></i>
+						</div>
+						<div class="text-4xl md:text-5xl font-extrabold text-foreground">4.9<span class="text-[#63AB45]">/5</span></div>
+						<p class="mt-2 text-muted-foreground">Average Rating</p>
+					</div>
+					<!-- Card 2 -->
+					<div class="bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.08)] px-6 py-10 text-center hover:scale-105 transition-transform duration-300"
+						data-aos="zoom-in" data-aos-duration="600" data-aos-delay="250">
+						<div class="mx-auto mb-4 w-36 h-36 rounded-full bg-[#EAF4E8] flex items-center justify-center">
+							<i data-lucide="users" class="w-10 h-10 text-[#63AB45]"></i>
+						</div>
+						<div class="text-4xl md:text-5xl font-extrabold text-foreground">1,247<span class="text-[#63AB45]">+</span></div>
+						<p class="mt-2 text-muted-foreground">Total Reviews</p>
+					</div>
+					<!-- Card 3 -->
+					<div class="bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.08)] px-6 py-10 text-center hover:scale-105 transition-transform duration-300"
+						data-aos="zoom-in" data-aos-duration="600" data-aos-delay="350">
+						<div class="mx-auto mb-4 w-36 h-36 rounded-full bg-[#EAF4E8] flex items-center justify-center">
+							<i data-lucide="thumbs-up" class="w-10 h-10 text-[#63AB45]"></i>
+						</div>
+						<div class="text-4xl md:text-5xl font-extrabold text-foreground">98<span class="text-[#63AB45]">%</span></div>
+						<p class="mt-2 text-muted-foreground">Verified Reviews</p>
+					</div>
+					<!-- Card 4 -->
+					<div class="bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.08)] px-6 py-10 text-center hover:scale-105 transition-transform duration-300"
+						data-aos="zoom-in" data-aos-duration="600" data-aos-delay="450">
+						<div class="mx-auto mb-4 w-36 h-36 rounded-full bg-[#EAF4E8] flex items-center justify-center">
+							<i data-lucide="repeat" class="w-10 h-10 text-[#63AB45]"></i>
+						</div>
+						<div class="text-4xl md:text-5xl font-extrabold text-foreground">23<span class="text-[#63AB45]">%</span></div>
+						<p class="mt-2 text-muted-foreground">Repeat Customers</p>
+					</div>
+				</div>
+				<!-- All Reviews Grid -->
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+					<!-- Review 1 -->
+					<div class="bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
+						data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
+						<div class="flex items-center gap-3 mb-4">
+							<img src="https://tevily-html.vercel.app/assets/images/testimonial/testimonial-one-img-3.png" alt="Sarah & Mike Johnson" class="w-12 h-12 rounded-full object-cover">
+							<div class="flex-1">
+								<h4 class="font-serif text-lg font-bold">Sarah & Mike Johnson</h4>
+								<div class="flex items-center gap-2 text-sm text-muted-foreground">
+									<i data-lucide="map-pin" class="w-3 h-3"></i><span>Australia</span>
+								</div>
+							</div>
+							<span class="bg-green-500 text-white px-2 py-1 rounded text-xs">Verified</span>
+						</div>
+						<div class="flex items-center gap-1 mb-3">
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<span class="text-sm text-muted-foreground ml-2">March 2024</span>
+						</div>
+						<span class="border border-border px-2 py-1 rounded text-xs mb-3 inline-block">Cultural Heritage Tour</span>
+						<p class="text-muted-foreground text-sm leading-relaxed mb-4">Absolutely incredible experience! Our guide Rajesh was phenomenal - so knowledgeable about Sri Lankan history and culture. The temples were breathtaking, and the local food experiences were unforgettable.</p>
+						<div class="flex flex-wrap gap-1">
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Expert Guide</span>
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Cultural Immersion</span>
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Amazing Food</span>
+						</div>
+					</div>
+					<!-- Review 2 -->
+					<div class="bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
+						data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
+						<div class="flex items-center gap-3 mb-4">
+							<img src="https://lh3.googleusercontent.com/a-/ALV-UjXSN2lO4-2d3uEldFvhZ86d2AbsiUaMw3ee0dopnvNHUKFTf6sh=w54-h54-p-rp-mo-ba4-br100" alt="Hans Mueller" class="w-12 h-12 rounded-full object-cover">
+							<div class="flex-1">
+								<h4 class="font-serif text-lg font-bold">Hans Mueller</h4>
+								<div class="flex items-center gap-2 text-sm text-muted-foreground">
+									<i data-lucide="map-pin" class="w-3 h-3"></i><span>Germany</span>
+								</div>
+							</div>
+							<span class="bg-green-500 text-white px-2 py-1 rounded text-xs">Verified</span>
+						</div>
+						<div class="flex items-center gap-1 mb-3">
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<span class="text-sm text-muted-foreground ml-2">February 2024</span>
+						</div>
+						<span class="border border-border px-2 py-1 rounded text-xs mb-3 inline-block">Wildlife Safari Adventure</span>
+						<p class="text-muted-foreground text-sm leading-relaxed mb-4">The wildlife safari was a dream come true! We saw elephants, leopards, and countless bird species. The accommodations were excellent, and the entire team was professional and caring.</p>
+						<div class="flex flex-wrap gap-1">
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Wildlife Viewing</span>
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Professional Service</span>
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Great Accommodations</span>
+						</div>
+					</div>
+					<!-- Review 3 -->
+					<div class="bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
+						data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">
+						<div class="flex items-center gap-3 mb-4">
+							<img src="https://lh3.googleusercontent.com/a/ACg8ocIQHi3clwfkgjkA_Qjv02HjgJvH0YHP_3moxTZo2gvqM1JOuyg=w54-h54-p-rp-mo-br100" alt="Priya & Raj Patel" class="w-12 h-12 rounded-full object-cover">
+							<div class="flex-1">
+								<h4 class="font-serif text-lg font-bold">Priya & Raj Patel</h4>
+								<div class="flex items-center gap-2 text-sm text-muted-foreground">
+									<i data-lucide="map-pin" class="w-3 h-3"></i><span>United Kingdom</span>
+								</div>
+							</div>
+							<span class="bg-green-500 text-white px-2 py-1 rounded text-xs">Verified</span>
+						</div>
+						<div class="flex items-center gap-1 mb-3">
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<span class="text-sm text-muted-foreground ml-2">January 2024</span>
+						</div>
+						<span class="border border-border px-2 py-1 rounded text-xs mb-3 inline-block">Complete Sri Lanka Discovery</span>
+						<p class="text-muted-foreground text-sm leading-relaxed mb-4">Our 12-day journey through Sri Lanka was perfectly organized. From the ancient cities to the tea plantations and beaches, every moment was magical. The small group size made it feel very personal.</p>
+						<div class="flex flex-wrap gap-1">
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Perfect Organization</span>
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Diverse Experiences</span>
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Small Groups</span>
+						</div>
+					</div>
+					<!-- Review 4 -->
+					<div class="bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
+						data-aos="fade-up" data-aos-duration="700" data-aos-delay="400">
+						<div class="flex items-center gap-3 mb-4">
+							<img src="https://lh3.googleusercontent.com/a-/ALV-UjU2yLNWorl9PgyTnovRbD0pnMD076avlqvkvQZ3vGB6k4GIMft7=w54-h54-p-rp-mo-br100" alt="Emma Thompson" class="w-12 h-12 rounded-full object-cover">
+							<div class="flex-1">
+								<h4 class="font-serif text-lg font-bold">Emma Thompson</h4>
+								<div class="flex items-center gap-2 text-sm text-muted-foreground">
+									<i data-lucide="map-pin" class="w-3 h-3"></i><span>Canada</span>
+								</div>
+							</div>
+							<span class="bg-green-500 text-white px-2 py-1 rounded text-xs">Verified</span>
+						</div>
+						<div class="flex items-center gap-1 mb-3">
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<span class="text-sm text-muted-foreground ml-2">December 2023</span>
+						</div>
+						<span class="border border-border px-2 py-1 rounded text-xs mb-3 inline-block">Hill Country Tea Experience</span>
+						<p class="text-muted-foreground text-sm leading-relaxed mb-4">The tea plantation tour was stunning! The train journey through the mountains was like something from a movie. The tea tasting was educational and delicious.</p>
+						<div class="flex flex-wrap gap-1">
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Scenic Train</span>
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Tea Tasting</span>
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Mountain Views</span>
+						</div>
+					</div>
+					<!-- Review 5 -->
+					<div class="bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
+						data-aos="fade-up" data-aos-duration="700" data-aos-delay="500">
+						<div class="flex items-center gap-3 mb-4">
+							<img src="https://lh3.googleusercontent.com/a-/ALV-UjXzJHfWgB5u1rj8EQiwGhEJt1DlBhd3AdMpjToPupNsr-TvuT0=w54-h54-p-rp-mo-br100" alt="Carlos Rodriguez" class="w-12 h-12 rounded-full object-cover">
+							<div class="flex-1">
+								<h4 class="font-serif text-lg font-bold">Carlos Rodriguez</h4>
+								<div class="flex items-center gap-2 text-sm text-muted-foreground">
+									<i data-lucide="map-pin" class="w-3 h-3"></i><span>Spain</span>
+								</div>
+							</div>
+							<span class="bg-green-500 text-white px-2 py-1 rounded text-xs">Verified</span>
+						</div>
+						<div class="flex items-center gap-1 mb-3">
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<span class="text-sm text-muted-foreground ml-2">November 2023</span>
+						</div>
+						<span class="border border-border px-2 py-1 rounded text-xs mb-3 inline-block">Adventure Trekking Tour</span>
+						<p class="text-muted-foreground text-sm leading-relaxed mb-4">Amazing trekking! The waterfalls were spectacular and the trails offered incredible views. The team ensured our safety while pushing us to see hidden gems.</p>
+						<div class="flex flex-wrap gap-1">
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Spectacular Waterfalls</span>
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Safety First</span>
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Beautiful Trails</span>
+						</div>
+					</div>
+					<!-- Review 6 -->
+					<div class="bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
+						data-aos="fade-up" data-aos-duration="700" data-aos-delay="600">
+						<div class="flex items-center gap-3 mb-4">
+							<img src="https://lh3.googleusercontent.com/a-/ALV-UjXP-SwJsCLFr85GSo6DHcndM7xT_tH7ioKQQDGeFf5HPfXpyTCt=w54-h54-p-rp-mo-br100" alt="Lisa & David Chen" class="w-12 h-12 rounded-full object-cover">
+							<div class="flex-1">
+								<h4 class="font-serif text-lg font-bold">Lisa & David Chen</h4>
+								<div class="flex items-center gap-2 text-sm text-muted-foreground">
+									<i data-lucide="map-pin" class="w-3 h-3"></i><span>Singapore</span>
+								</div>
+							</div>
+							<span class="bg-green-500 text-white px-2 py-1 rounded text-xs">Verified</span>
+						</div>
+						<div class="flex items-center gap-1 mb-3">
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<span class="text-sm text-muted-foreground ml-2">October 2023</span>
+						</div>
+						<span class="border border-border px-2 py-1 rounded text-xs mb-3 inline-block">Beach Paradise Tour</span>
+						<p class="text-muted-foreground text-sm leading-relaxed mb-4">
+							Perfect beach getaway! The coastal towns were charming, whale watching was incredible, and the seafood was fresh and delicious. Great balance of relaxation and adventure.
+						</p>
+						<div class="flex flex-wrap gap-1">
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Whale Watching</span>
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Fresh Seafood</span>
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Charming Towns</span>
+						</div>
+					</div>
+					<!-- Review 7 -->
+					<div class="bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
+						data-aos="fade-up" data-aos-duration="700" data-aos-delay="700">
+						<div class="flex items-center gap-3 mb-4">
+							<img src="https://lh3.googleusercontent.com/a-/ALV-UjU5wTiSpVF0bgn-EH7uep-eRHZgcOYz5wqL7T736xM35-d-BOmEGQ=w54-h54-p-rp-mo-ba4-br100" alt="Nadia Kaur" class="w-12 h-12 rounded-full object-cover">
+							<div class="flex-1">
+								<h4 class="font-serif text-lg font-bold">Nadia Kaur</h4>
+								<div class="flex items-center gap-2 text-sm text-muted-foreground">
+									<i data-lucide="map-pin" class="w-3 h-3"></i><span>India</span>
+								</div>
+							</div>
+							<span class="bg-green-500 text-white px-2 py-1 rounded text-xs">Verified</span>
+						</div>
+						<div class="flex items-center gap-1 mb-3">
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<span class="text-sm text-muted-foreground ml-2">September 2023</span>
+						</div>
+						<span class="border border-border px-2 py-1 rounded text-xs mb-3 inline-block">Cultural Food Journey</span>
+						<p class="text-muted-foreground text-sm leading-relaxed mb-4">
+							A delightful experience! The cooking class and spice garden tour were highlights of my trip. I learned so much about Sri Lankan cuisine and culture, and everything tasted divine.
+						</p>
+						<div class="flex flex-wrap gap-1">
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Cooking Class</span>
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Spice Gardens</span>
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Cultural Insights</span>
+						</div>
+					</div>
+					<!-- Review 8 -->
+					<div class="bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
+						data-aos="fade-up" data-aos-duration="700" data-aos-delay="800">
+						<div class="flex items-center gap-3 mb-4">
+							<img src="https://lh3.googleusercontent.com/a-/ALV-UjWdI34ScBZOvB42i-XhpAoOYOTvk8CWYcHjPWw1b_u0AAS1Esc=w54-h54-p-rp-mo-br100" alt="Oliver Brown" class="w-12 h-12 rounded-full object-cover">
+							<div class="flex-1">
+								<h4 class="font-serif text-lg font-bold">Oliver Brown</h4>
+								<div class="flex items-center gap-2 text-sm text-muted-foreground">
+									<i data-lucide="map-pin" class="w-3 h-3"></i><span>United States</span>
+								</div>
+							</div>
+							<span class="bg-green-500 text-white px-2 py-1 rounded text-xs">Verified</span>
+						</div>
+						<div class="flex items-center gap-1 mb-3">
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<span class="text-sm text-muted-foreground ml-2">August 2023</span>
+						</div>
+						<span class="border border-border px-2 py-1 rounded text-xs mb-3 inline-block">Adventure & Wildlife Tour</span>
+						<p class="text-muted-foreground text-sm leading-relaxed mb-4">
+							The adventure and wildlife combination was perfect! Kayaking through mangroves and then spotting wild elephants on safari was unforgettable. I would book again without hesitation.
+						</p>
+						<div class="flex flex-wrap gap-1">
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Wildlife Safari</span>
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Kayaking</span>
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Thrilling Adventure</span>
+						</div>
+					</div>
+					<!-- Review 9 -->
+					<div class="bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
+						data-aos="fade-up" data-aos-duration="700" data-aos-delay="900">
+						<div class="flex items-center gap-3 mb-4">
+							<img src="https://lh3.googleusercontent.com/a-/ALV-UjXaJkmJ7-qtXMiSfsevllGbK1eLhZz5SwAMFKD09r_Zfl5h15s=w54-h54-p-rp-mo-br100" alt="Amara Silva" class="w-12 h-12 rounded-full object-cover">
+							<div class="flex-1">
+								<h4 class="font-serif text-lg font-bold">Amara Silva</h4>
+								<div class="flex items-center gap-2 text-sm text-muted-foreground">
+									<i data-lucide="map-pin" class="w-3 h-3"></i><span>Brazil</span>
+								</div>
+							</div>
+							<span class="bg-green-500 text-white px-2 py-1 rounded text-xs">Verified</span>
+						</div>
+						<div class="flex items-center gap-1 mb-3">
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<i data-lucide="star" class="w-4 h-4 fill-current text-yellow-400"></i>
+							<span class="text-sm text-muted-foreground ml-2">July 2023</span>
+						</div>
+						<span class="border border-border px-2 py-1 rounded text-xs mb-3 inline-block">Family Vacation Package</span>
+						<p class="text-muted-foreground text-sm leading-relaxed mb-4">
+							A truly magical family vacation! The team planned everything perfectly for our group of six. From kid-friendly activities to relaxing beach days, every detail was handled with care.
+						</p>
+						<div class="flex flex-wrap gap-1">
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Family Friendly</span>
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Relaxing Beaches</span>
+							<span class="bg-muted text-muted-foreground px-2 py-1 rounded text-xs">Perfect Planning</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Image Gallery Section split with Footer -->
+		<section class="gallery-section relative overflow-hidden">
+			<!-- Split Background -->
+			<div class="absolute inset-0">
+				<div class="h-1/2 bg-background"></div>
+				<div class="h-1/2 gowilds-footer"></div>
+			</div>
+			<!-- Gallery Content -->
+			<div class="relative z-10 pt-20">
+				<div class="w-full">
+					<!-- Automatic Slider Container -->
+					<div class="gallery-slider-container overflow-hidden">
+						<div id="gallery-slider" class="flex transition-transform duration-1000 ease-in-out">
+							<!-- Gallery Item 1: Adventure Package -->
+							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
+								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
+									<img src="assets/img/packages/adventure-package.jpg" alt="Adventure Package" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+										<button class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+											onclick="openGalleryModal('assets/img/packages/adventure-package.jpg', 'Adventure Package', 'Sri Lanka', 'Experience thrilling adventures in the heart of Sri Lanka with our adventure package.')"
+											aria-label="View Adventure Package details" title="View Adventure Package details">
+										<i data-lucide="plus" class="w-6 h-6"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+							<!-- Gallery Item 2: Beach Package -->
+							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
+								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
+									<img src="assets/img/packages/beach-package.jpg" alt="Beach Package" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+										<button class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+											onclick="openGalleryModal('assets/img/packages/beach-package.jpg', 'Beach Package', 'Sri Lanka', 'Relax and unwind on Sri Lanka\'s pristine beaches with our exclusive beach package.')"
+											aria-label="View Beach Package details" title="View Beach Package details">
+										<i data-lucide="plus" class="w-6 h-6"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+							<!-- Gallery Item 3: Cultural Package -->
+							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
+								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
+									<img src="assets/img/packages/cultural-package.jpg" alt="Cultural Package" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+										<button class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+											onclick="openGalleryModal('assets/img/packages/cultural-package.jpg', 'Cultural Package', 'Sri Lanka', 'Immerse yourself in Sri Lanka\'s rich cultural heritage with our cultural package.')"
+											aria-label="View Cultural Package details" title="View Cultural Package details">
+										<i data-lucide="plus" class="w-6 h-6"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+							<!-- Gallery Item 4: Hill Country Package -->
+							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
+								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
+									<img src="assets/img/packages/hill-country-package.jpg" alt="Hill Country Package" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+										<button class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+											onclick="openGalleryModal('assets/img/packages/hill-country-package.jpg', 'Hill Country Package', 'Sri Lanka', 'Discover the misty mountains and tea plantations of Sri Lanka\'s hill country.')"
+											aria-label="View Hill Country Package details" title="View Hill Country Package details">
+										<i data-lucide="plus" class="w-6 h-6"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+							<!-- Gallery Item 5: Wildlife Package -->
+							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
+								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
+									<img src="assets/img/packages/wildlife-package.jpg" alt="Wildlife Package" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+										<button class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+											onclick="openGalleryModal('assets/img/packages/wildlife-package.jpg', 'Wildlife Package', 'Sri Lanka', 'Encounter Sri Lanka\'s incredible wildlife with our specialized wildlife safari package.')"
+											aria-label="View Wildlife Package details" title="View Wildlife Package details">
+										<i data-lucide="plus" class="w-6 h-6"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+							<!-- Gallery Item 6: Budget Package -->
+							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
+								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
+									<img src="assets/img/packages/budget-package.jpg" alt="Budget Package" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+										<button class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+											onclick="openGalleryModal('assets/img/packages/budget-package.jpg', 'Budget Package', 'Sri Lanka', 'Explore Sri Lanka on a budget with our affordable travel packages.')"
+											aria-label="View Budget Package details" title="View Budget Package details">
+										<i data-lucide="plus" class="w-6 h-6"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+							<!-- Gallery Item 7: Family Package -->
+							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
+								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
+									<img src="assets/img/packages/family-package.jpg" alt="Family Package" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+										<button class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+											onclick="openGalleryModal('assets/img/packages/family-package.jpg', 'Family Package', 'Sri Lanka', 'Perfect family-friendly adventures for all ages in Sri Lanka.')"
+											aria-label="View Family Package details" title="View Family Package details">
+										<i data-lucide="plus" class="w-6 h-6"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+							<!-- Gallery Item 8: Honeymoon Package -->
+							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
+								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
+									<img src="assets/img/packages/honeymoon-package.jpg" alt="Honeymoon Package" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+										<button class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+											onclick="openGalleryModal('assets/img/packages/honeymoon-package.jpg', 'Honeymoon Package', 'Sri Lanka', 'Romantic getaways and intimate experiences for couples.')"
+											aria-label="View Honeymoon Package details" title="View Honeymoon Package details">
+										<i data-lucide="plus" class="w-6 h-6"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+							<!-- Gallery Item 9: Luxury Package -->
+							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
+								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
+									<img src="assets/img/packages/luxury-package.jpg" alt="Luxury Package" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+										<button class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+											onclick="openGalleryModal('assets/img/packages/luxury-package.jpg', 'Luxury Package', 'Sri Lanka', 'Premium luxury experiences with the finest accommodations and services.')"
+											aria-label="View Luxury Package details" title="View Luxury Package details">
+										<i data-lucide="plus" class="w-6 h-6"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Footer with GoWilds Design -->
+		<footer id="footer" class="main-footer gowilds-footer pt-20">
+			<div class="max-w-[1400px] mx-auto px-6 md:px-8 lg:px-10 xl:px-12">
+				<!-- Footer Top Info -->
+				<div class="footer-top py-3 border-y border-white/10">
+					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+						<!-- Location Info -->
+						<div class="single-info-item">
+							<div class="flex items-center gap-4">
+								<div class="liquid-glass w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+									<i data-lucide="map-pin" class="h-6 w-6 text-white"></i>
+								</div>
+								<div class="info">
+									<span class="title text-lg font-bold mb-2 block text-primary">Location</span>
+									<p class="text-background/80">Negombo</p>
+								</div>
+							</div>
+						</div>
+						<!-- Email Info -->
+						<div class="single-info-item">
+							<div class="flex items-center gap-4">
+								<div class="liquid-glass w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+									<i data-lucide="mail" class="h-6 w-6 text-white"></i>
+								</div>
+								<div class="info">
+									<span class="title text-lg font-bold mb-2 block text-primary">Email</span>
+									<p class="text-background/80">
+										<a href="mailto:travelerinspire@gmail.com" class="hover:text-primary transition-colors">
+										travelerinspire@gmail.com
+										</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<!-- Phone Info -->
+						<div class="single-info-item">
+							<div class="flex items-center gap-4">
+								<div class="liquid-glass w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+									<i data-lucide="phone" class="h-6 w-6 text-white"></i>
+								</div>
+								<div class="info">
+									<span class="title text-lg font-bold mb-2 block text-primary">Hotline</span>
+									<p class="text-background/80">
+										<a href="tel:+94785959333" class="hover:text-primary transition-colors">+94 78 595 9333</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<!-- Social Media Links -->
+						<div class="social-box mb-8 lg:text-right">
+							<div class="flex items-center gap-3 lg:justify-end">
+								<!-- Facebook -->
+								<a href="https://www.facebook.com/share/1CUqzA7tAu/?mibextid=wwXIfr" target="_blank" rel="noopener"
+									class="liquid-glass w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
+									aria-label="Facebook">
+								<i data-lucide="facebook" class="h-5 w-5 text-white"></i>
+								</a>
+								<!-- TikTok -->
+								<a href="https://www.tiktok.com/@inspiretravelstours?_t=ZS-903Za2uRoUU&_r=1" target="_blank" rel="noopener"
+									class="liquid-glass w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
+									aria-label="TikTok">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+										class="h-5 w-5 text-white" fill="currentColor">
+										<path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+									</svg>
+								</a>
+								<!-- Instagram -->
+								<a href="https://www.instagram.com/inspiretravels_tours" target="_blank" rel="noopener"
+									class="liquid-glass w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
+									aria-label="Instagram">
+								<i data-lucide="instagram" class="h-5 w-5 text-white"></i>
+								</a>
+								<!-- YouTube -->
+								<a href="https://youtube.com/@inspiretraveler?si=uHKWO_lqmHxhQgDx" target="_blank" rel="noopener"
+									class="liquid-glass w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
+									aria-label="YouTube">
+								<i data-lucide="youtube" class="h-5 w-5 text-white"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Footer Widget Area -->
+				<div class="footer-widget-area pt-16 pb-0">
+					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+						<!-- About Company Widget -->
+						<div class="footer-widget about-company-widget mb-8">
+							<h4 class="widget-title font-serif text-xl font-bold mb-4">About Inspire Travels</h4>
+							<div class="footer-content">
+								<p class="text-background/80 leading-relaxed mb-4">
+									For over 5 years, we've been creating unforgettable journeys that showcase the authentic beauty and rich culture of Sri Lanka.
+								</p>
+								<div class="footer-logo flex items-center space-x-2">
+									<div class="flex flex-col">
+										<span class="font-serif font-bold text-lg text-white">Inspire Travels</span>
+										<span class="text-sm text-white/60">& Tours</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Our Tours Links -->
+						<div class="footer-widget service-nav-widget mb-8">
+							<h4 class="widget-title font-serif text-xl font-bold mb-4">Our Tours</h4>
+							<div class="footer-content">
+								<ul class="footer-widget-nav space-y-2">
+									<li><a href="#tours" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Cultural Heritage Tours</a></li>
+									<li><a href="#tours" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Wildlife Safari Adventures</a></li>
+									<li><a href="#tours" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Beach & Coastal Tours</a></li>
+									<li><a href="#tours" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Hill Country Experiences</a></li>
+									<li><a href="#tours" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Adventure Trekking</a></li>
+								</ul>
+							</div>
+						</div>
+						<!-- Quick Links -->
+						<div class="footer-widget service-nav-widget mb-8">
+							<h4 class="widget-title font-serif text-xl font-bold mb-4">Quick Links</h4>
+							<div class="footer-content">
+								<ul class="footer-widget-nav space-y-2">
+									<li><a href="#about" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">About Us</a></li>
+									<li><a href="#gallery" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Photo Gallery</a></li>
+									<li><a href="#reviews" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Customer Reviews</a></li>
+									<li><a href="#contact" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Contact Us</a></li>
+									<li><a href="#contact" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Get Quote</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Footer Copyright -->
+				<div class="footer-copyright border-t border-white/10 py-8">
+					<div class="text-center">
+						<p class="text-white/80 text-sm md:text-base flex flex-wrap justify-center gap-1">
+							<span>Copyright © 2025 Inspire Travels & Tours, All Rights Reserved.</span>
+							<span>Made with <i data-lucide="heart" class="h-4 w-4 text-red-500 animate-pulse inline"></i> by Zig Zag</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- Floating Buttons -->
+		<!-- WhatsApp Button - Middle Right -->
+		<div class="fixed right-6 z-30" style="top: 50%; transform: translateY(-50%);">
+			<a href="https://wa.me/94785959333" target="_blank" rel="noopener"
+				class="bg-[#25D366] hover:bg-[#1EB05A] text-white w-12 h-12 md:w-14 md:h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center animate-float ring-0 focus:outline-none focus:ring-4 focus:ring-[#25D366]/30"
+				aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+					class="w-6 h-6 md:w-7 md:h-7" aria-hidden="true" fill="currentColor">
+					<path
+						d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967c-.273-.099-.472-.148-.672.15c-.198.297-.767.967-.94 1.166c-.173.198-.347.223-.644.074c-.297-.149-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.018-.458.13-.606c.134-.133.297-.347.446-.52c.149-.173.198-.297.298-.496c.099-.198.05-.372-.025-.521c-.075-.149-.672-1.62-.922-2.219c-.242-.58-.487-.501-.672-.51l-.573-.01c-.198 0-.52.074-.792.372c-.272.297-1.04 1.016-1.04 2.476s1.065 2.875 1.213 3.074c.149.198 2.1 3.2 5.084 4.487c.711.306 1.263.489 1.694.626c.712.227 1.36.195 1.873.118c.571-.085 1.758-.718 2.006-1.41c.248-.694.248-1.289.173-1.41c-.074-.124-.272-.198-.57-.347m-5.421 6.437h-.004A9.87 9.87 0 0 1 7.5 19.8l-3.356.879l.897-3.278a9.86 9.86 0 1 1 6.01 2.418m8.413-18.32A11.815 11.815 0 0 0 12.05 0C5.495 0 .28 5.215.277 11.768c0 2.073.543 4.103 1.576 5.905L0 24l6.454-1.694a11.74 11.74 0 0 0 5.604 1.428h.005c6.554 0 11.868-5.215 11.87-11.769A11.72 11.72 0 0 0 20.464 2.5" />
+				</svg>
+			</a>
+		</div>
+		<!-- TikTok Button - Below WhatsApp -->
+		<div class="fixed right-6 z-30" style="top: 50%; transform: translateY(calc(-50% + 60px));">
+			<a href="https://www.tiktok.com/@inspiretravelstours?_t=ZS-903Za2uRoUU&_r=1" target="_blank" rel="noopener"
+				class="bg-black hover:bg-gray-800 text-white w-12 h-12 md:w-14 md:h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center animate-float ring-0 focus:outline-none focus:ring-4 focus:ring-black/30"
+				aria-label="Follow us on TikTok" title="Follow us on TikTok">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+					class="w-6 h-6 md:w-7 md:h-7" fill="currentColor">
+					<path
+						d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+				</svg>
+			</a>
+		</div>
+		<!-- Back to Top Button -->
+		<a href="#home" class="back-to-top fixed bottom-6 right-6 z-30 bg-primary hover:bg-primary/80 text-white w-12 h-12 md:w-14 md:h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center ring-0 focus:outline-none focus:ring-4 focus:ring-primary/30"
+			aria-label="Back to top" title="Back to top" style="display: none;">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+				class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+				stroke-linejoin="round">
+				<path d="m18 15-6-6-6 6" />
+			</svg>
+		</a>
+		<!-- Gallery Modal -->
+		<div id="galleryModal"
+			class="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 invisible transition-all duration-300">
+			<div
+				class="relative w-full h-full max-w-[95vw] max-h-[95vh] transform scale-95 transition-transform duration-300 flex items-center justify-center">
+				<img id="modalImage" src="" alt="" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl">
+				<!-- Close Button -->
+				<button onclick="closeGalleryModal()"
+					class="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-200 z-10"
+					aria-label="Close gallery modal" title="Close gallery modal">
+				<i data-lucide="x" class="w-6 h-6"></i>
+				</button>
+				<!-- Navigation -->
+				<button id="modalPrevBtn" onclick="navigateModal(-1)"
+					class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-200 z-10"
+					aria-label="Previous image" title="Previous image">
+				<i data-lucide="chevron-left" class="w-6 h-6"></i>
+				</button>
+				<button id="modalNextBtn" onclick="navigateModal(1)"
+					class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-200 z-10"
+					aria-label="Next image" title="Next image">
+				<i data-lucide="chevron-right" class="w-6 h-6"></i>
+				</button>
+			</div>
+		</div>
+		<!-- Tour Modal -->
+		<div id="tourModal"
+			class="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 invisible transition-all duration-300">
+			<div
+				class="relative w-full h-full max-w-[95vw] max-h-[95vh] transform scale-95 transition-transform duration-300 flex items-center justify-center">
+				<div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 p-6">
+					<div class="flex items-center justify-between mb-4">
+						<h3 id="tourModalTitle" class="font-serif text-xl font-bold text-gray-800"></h3>
+						<button onclick="closeTourModal()"
+							class="text-gray-400 hover:text-gray-600 transition-colors duration-200"
+							aria-label="Close tour modal" title="Close tour modal">
+						<i data-lucide="x" class="w-5 h-5"></i>
+						</button>
+					</div>
+					<p id="tourModalDescription" class="text-gray-600 mb-6 leading-relaxed"></p>
+					<div class="space-y-2">
+						<h4 class="font-semibold text-gray-800 mb-3">Tour Highlights:</h4>
+						<ul id="tourModalHighlights" class="space-y-2"></ul>
+					</div>
+					<div class="mt-6 pt-4 border-t border-gray-200 text-center">
+						<a href="https://wa.me/94771234567?text=Hi! I'm interested in this tour. Can you provide more details and pricing?"
+							target="_blank" rel="noopener"
+							class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-6 py-3 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95">
+						Contact Now
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Modular JavaScript Files -->
+		<script src="assets/js/modal.js"></script>
+		<script src="assets/js/preloader.js"></script>
+		<script src="assets/js/aos.js"></script>
+		<script src="assets/js/hero.js"></script>
+		<script src="assets/js/navigation.js"></script>
+		<script src="assets/js/mobile-menu.js"></script>
+		<script src="assets/js/tours.js"></script>
+		<script src="assets/js/about.js"></script>
+		<script src="assets/js/gallery.js"></script>
+		<script src="assets/js/reviews.js"></script>
+		<script src="assets/js/main.js"></script>
+		<!-- SVG Filters for Liquid Glass Effect -->
+		<svg style="display: none">
+			<!-- Original glass filter for glass-morph -->
+			<filter id="container-glass" x="0%" y="0%" width="100%" height="100%">
+				<feTurbulence type="fractalNoise" baseFrequency="0.008 0.008" numOctaves="2" seed="92" result="noise" />
+				<feGaussianBlur in="noise" stdDeviation="0.02" result="blur" />
+				<feDisplacementMap in="SourceGraphic" in2="blur" scale="40" xChannelSelector="R" yChannelSelector="G" />
+			</filter>
+		</svg>
+	</body>
+</html>
