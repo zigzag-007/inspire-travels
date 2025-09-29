@@ -213,7 +213,7 @@
             if (floatingBtn) {
                 floatingBtn.addEventListener('click', () => {
                     // This would typically open a contact modal or initiate a call
-                    window.location.href = 'tel:+94771234567';
+                    window.location.href = 'tel:+94785959333';
                 });
             }
         },
