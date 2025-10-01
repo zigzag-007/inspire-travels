@@ -78,4 +78,4 @@ Every itinerary can be adapted; durations, hotel categories, and activities are 
 
 ---
 
-\*Designed by ZigZag ❤️ for Mi Fix | © 2025\*\* 🔧📱✨
+\*Designed by ZigZag ❤️ for Inspire Travels | © 2025\*\* 🔧📱✨
