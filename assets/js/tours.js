@@ -71,7 +71,6 @@
         init: function() {
             this.initTourHoverEffects();
             this.initTourModals();
-            this.initFloatingActionButton();
             this.initScrollAnimations();
         },
 
@@ -165,16 +164,6 @@
             }
         },
 
-        // Floating Action Button functionality
-        initFloatingActionButton: function() {
-            const floatingBtn = document.querySelector('.fixed.bottom-6.right-6 button');
-            if (floatingBtn) {
-                floatingBtn.addEventListener('click', () => {
-                    // This would typically open a contact modal or initiate a call
-                    window.location.href = 'tel:+94785959333';
-                });
-            }
-        },
 
         // Animate elements on scroll with optimized performance
         initScrollAnimations: function() {
