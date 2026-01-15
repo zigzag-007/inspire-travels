@@ -57,7 +57,7 @@ Every itinerary can be adapted; durations, hotel categories, and activities are 
 | 👍 **Facebook**  | [facebook.com/share/1CUqzA7tAu/?mibextid=wwXIfr](https://www.facebook.com/share/1CUqzA7tAu/?mibextid=wwXIfr) |
 | 📸 **Instagram** | [instagram.com/inspiretravels_tours](https://www.instagram.com/inspiretravels_tours)                         |
 | 🎵 **TikTok**    | [tiktok.com/@inspiretravelstours](https://www.tiktok.com/@inspiretravelstours?_t=ZS-903Za2uRoUU&_r=1)        |
-| ▶️ **YouTube**   | [youtube.com/@inspiretraveler](https://youtube.com/@inspiretraveler?si=uHKWO_lqmHxhQgDx)                     |
+| ▶️ **YouTube**   | [youtube.com/@InspireTravelandTours](https://youtube.com/@InspireTravelandTours?si=uHKWO_lqmHxhQgDx)                     |
 
 ---
 
@@ -74,7 +74,7 @@ Every itinerary can be adapted; durations, hotel categories, and activities are 
 [![Facebook](https://img.shields.io/badge/Follow%20On%20Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/share/1CUqzA7tAu/?mibextid=wwXIfr)
 [![Instagram](https://img.shields.io/badge/Explore%20on%20Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/inspiretravels_tours)
 [![TikTok](https://img.shields.io/badge/Watch%20on%20TikTok-000000?style=for-the-badge&logo=tiktok&logoColor=white)](https://www.tiktok.com/@inspiretravelstours?_t=ZS-903Za2uRoUU&_r=1)
-[![YouTube](https://img.shields.io/badge/Tours%20on%20YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@inspiretraveler?si=uHKWO_lqmHxhQgDx)
+[![YouTube](https://img.shields.io/badge/Tours%20on%20YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@InspireTravelandTours?si=uHKWO_lqmHxhQgDx)
 
 ---
 
