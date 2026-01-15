@@ -57,7 +57,7 @@ Every itinerary can be adapted; durations, hotel categories, and activities are 
 | 👍 **Facebook**  | [facebook.com/share/1CUqzA7tAu/?mibextid=wwXIfr](https://www.facebook.com/share/1CUqzA7tAu/?mibextid=wwXIfr) |
 | 📸 **Instagram** | [instagram.com/inspiretravels_tours](https://www.instagram.com/inspiretravels_tours)                         |
 | 🎵 **TikTok**    | [tiktok.com/@inspiretravelstours](https://www.tiktok.com/@inspiretravelstours?_t=ZS-903Za2uRoUU&_r=1)        |
-| ▶️ **YouTube**   | [youtube.com/@InspireTravelandTours](https://youtube.com/@InspireTravelandTours?si=uHKWO_lqmHxhQgDx)                     |
+| ▶️ **YouTube**   | [youtube.com/@InspireTravelandTours](https://youtube.com/@InspireTravelandTours?si=uHKWO_lqmHxhQgDx)         |
 
 ---
 
@@ -78,4 +78,4 @@ Every itinerary can be adapted; durations, hotel categories, and activities are 
 
 ---
 
-\*Designed by ZigZag ❤️ for Inspire Travels | © 2025\*\* 🔧📱✨
+*Designed by ZigZag ❤️ for Inspire Travels | © 2026* 🔧📱✨
