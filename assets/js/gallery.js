@@ -15,7 +15,9 @@
 
         // Slider images (hardcoded for maintenance - new filenames)
         sliderImages: [
+            { src: 'assets/img/footer-gallery/sunset-group-photo.jpg', title: 'Sunset Group Adventure', location: 'Sri Lanka', description: 'Unforgettable moments with friends at a scenic sunset viewpoint.' },
             { src: 'assets/img/footer-gallery/cannon-cart.jpg', title: 'Cannon Cart Adventure', location: 'Sri Lanka', description: 'Experience thrilling cannon cart rides through scenic landscapes.' },
+            { src: 'assets/img/footer-gallery/thank-you-collage.jpg', title: 'Thank You for Visit Sri Lanka', location: 'Sri Lanka', description: 'Treasured memories and happy moments from our tour experiences.' },
             { src: 'assets/img/footer-gallery/lotus-tower.jpg', title: 'Lotus Tower View', location: 'Colombo', description: 'Stunning panoramic views from the iconic Lotus Tower.' },
             { src: 'assets/img/footer-gallery/mirissa-treehill.jpg', title: 'Mirissa Tree Hill', location: 'Mirissa', description: 'Breathtaking views from the famous Mirissa tree hill.' },
             { src: 'assets/img/footer-gallery/turtle-sea.jpg', title: 'Turtle Sea Conservation', location: 'Coastal Sri Lanka', description: 'Witness turtle hatching and sea turtle conservation efforts.' },

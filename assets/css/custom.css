@@ -471,6 +471,84 @@ html, body {
     }
 }
 
+/* Floating WhatsApp Icon */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  top: 60%;
+  right: 20px;
+  transform: translateY(-50%);
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  text-decoration: none; /* Removes underline from link */
+}
+
+/* The Secret to the "Modern" Pulse: A pseudo-element */
+.whatsapp-float::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #25D366;
+  opacity: 0.7;
+  z-index: -1;
+  animation: pulse-ring 2s infinite; /* Smoother 2s loop */
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Tooltip Styling */
+.whatsapp-float::after {
+  content: "Chat with us";
+  position: absolute;
+  right: 75px; /* Spacing from button */
+  background: white; /* Clean white background */
+  color: #25D366; /* Green text */
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(15px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.whatsapp-float:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Smoother Keyframe Animation */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+}
+
 /* Dark Mode Support (for future implementation) */
 @media (prefers-color-scheme: dark) {
     :root {
