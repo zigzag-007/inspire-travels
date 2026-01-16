@@ -407,14 +407,6 @@ html, body {
     }
 }
 
-/* Ultra-wide screens */
-@media (min-width: 1920px) {
-    #galleryModal .relative {
-        max-width: 80vw !important;
-        max-height: 80vh !important;
-    }
-}
-
 /* Small screens */
 @media (max-width: 480px) {
     #galleryModal {
