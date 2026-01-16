@@ -1,6 +1,6 @@
-// Gallery Module - Handles gallery filtering, slider, and modal functionality
+// Gallery Module - Handles gallery filtering, slider, and PhotoSwipe functionality
 // Author: Zig Zag AI
-// Description: Manages gallery features including filtering, slider, and modal displays
+// Description: Manages gallery features including filtering, slider, and PhotoSwipe integration
 
 (function() {
     'use strict';
@@ -8,7 +8,7 @@
     window.GalleryModule = {
         galleryFilterBtns: null,
         galleryItems: null,
-        currentModalIndex: 0,
+        lightbox: null, // PhotoSwipe instance
 
         // Gallery images array (built dynamically from main gallery HTML)
         galleryImages: [],
@@ -31,14 +31,12 @@
         init: function() {
             // Build galleryImages from current HTML so edits are single-source in index.html
             this.buildGalleryImagesFromDOM();
-            this.initGalleryModals();
+            this.initGalleryFiltering();
             this.initSliderItems();
             this.initGallerySlider();
-            this.initGalleryLightbox();
         },
 
         // Build gallery list from the onclick attributes in the main gallery cards only
-        // (Slider uses its own images; we will resolve by filename/title when opening)
         buildGalleryImagesFromDOM: function() {
             const items = [];
             const pattern = /openGalleryModal\('\s*([^']+?)\s*'\s*,\s*'\s*([^']+?)\s*'\s*,\s*'\s*([^']+?)\s*'\s*,\s*'\s*([^']+?)\s*'\)/;
@@ -50,7 +48,7 @@
                 if (match) {
                     const [, src, title, location, description] = match;
                     items.push({ src, title, location, description });
-                                } else {
+                } else {
                     const img = card.querySelector('img');
                     const titleEl = card.querySelector('h3.title, h3 .title, h3');
                     const titleText = titleEl ? (titleEl.textContent || '').trim() : '';
@@ -59,9 +57,9 @@
                         title: titleText || 'Untitled',
                         location: '',
                         description: ''
-                            });
-                        }
                     });
+                }
+            });
 
             this.galleryImages = items;
             // Safety: ensure we have items; if not, keep existing list
@@ -71,15 +69,15 @@
             }
         },
 
-        // Gallery filtering (condensed)
+        // Gallery filtering
         initGalleryFiltering: function() {
             this.galleryFilterBtns = document.querySelectorAll('.gallery-filter-btn');
             this.galleryItems = document.querySelectorAll('.single-gallery-item');
             if (!this.galleryFilterBtns) return;
 
             this.galleryFilterBtns.forEach(btn => btn.addEventListener('click', () => {
-                        const category = btn.dataset.category;
-                        this.galleryFilterBtns.forEach(b => {
+                const category = btn.dataset.category;
+                this.galleryFilterBtns.forEach(b => {
                     b.classList.toggle('bg-primary', b === btn);
                     b.classList.toggle('text-primary-foreground', b === btn);
                     b.classList.toggle('scale-105', b === btn);
@@ -88,7 +86,7 @@
                     b.classList.toggle('border', b !== btn);
                     b.classList.toggle('border-border', b !== btn);
                 });
-                            this.galleryItems.forEach(item => {
+                this.galleryItems.forEach(item => {
                     const show = category === 'all' || item.dataset.category === category;
                     item.style.display = show ? 'block' : 'none';
                     item.style.opacity = show ? '1' : '0';
@@ -97,29 +95,138 @@
             }));
         },
 
-        // Gallery modal functions (condensed)
-        initGalleryModals: function() {
-            // Combine gallery and slider images for modal navigation
-            this.allImages = [...this.galleryImages, ...this.sliderImages];
+        // Open PhotoSwipe Lightbox
+        openGalleryModal: function(imageSrc, title, location, description) {
+            const allImages = [...this.galleryImages, ...this.sliderImages];
+            
+            // Find index of clicked image
+            let index = allImages.findIndex(img => img.src === imageSrc);
+            if (index === -1) index = 0;
 
-            window.openGalleryModal = (imageSrc, title) => {
-                this.currentModalIndex = this.allImages.findIndex(img => img.src === imageSrc) ||
-                                       this.allImages.findIndex(img => img.title === title) || 0;
-                this.updateModalContent();
-                this.showModal();
+            // Prepare items for PhotoSwipe with immediate dimension discovery
+            const pswpItems = allImages.map(item => {
+                const data = {
+                    src: item.src,
+                    w: 0,
+                    h: 0,
+                    alt: item.title,
+                    title: item.title,
+                    description: item.description
+                };
+
+                // Try to find the image in the DOM to get dimensions instantly
+                const existingImg = document.querySelector(`img[src*="${item.src.split('/').pop()}"]`);
+                if (existingImg && existingImg.naturalWidth > 0) {
+                    data.w = existingImg.naturalWidth;
+                    data.h = existingImg.naturalHeight;
+                    data.msrc = existingImg.src; // Use as thumbnail for smoother transition
+                }
+
+                return data;
+            });
+
+            // For the first image, if we still don't have dimensions, try to get them before opening
+            // This prevents the "stretching" on the very first view
+            const startItem = pswpItems[index];
+            if (startItem.w === 0) {
+                const tempImg = new Image();
+                tempImg.onload = () => {
+                    startItem.w = tempImg.naturalWidth;
+                    startItem.h = tempImg.naturalHeight;
+                    this.launchPhotoSwipe(pswpItems, index);
+                };
+                tempImg.src = startItem.src;
+            } else {
+                this.launchPhotoSwipe(pswpItems, index);
+            }
+        },
+
+        // Helper to launch the gallery
+        launchPhotoSwipe: function(items, index) {
+            const allImages = [...this.galleryImages, ...this.sliderImages];
+            
+            const options = {
+                dataSource: items,
+                index: index,
+                pswpModule: window.PhotoSwipe,
+                closeOnVerticalDrag: true,
+                bgOpacity: 0.9,
+                padding: { top: 20, bottom: 20, left: 20, right: 20 },
+                
+                // ZOOM ANIMATION LOGIC
+                // This function tells PhotoSwipe where the thumbnail is on the screen
+                getThumbBoundsFn: (idx) => {
+                    const item = allImages[idx];
+                    if (!item) return;
+                    
+                    // Find the thumbnail in the DOM
+                    // We look for an image that matches the filename
+                    const fileName = item.src.split('/').pop();
+                    const thumbnail = document.querySelector(`img[src*="${fileName}"]`);
+                    
+                    if (thumbnail) {
+                        const rect = thumbnail.getBoundingClientRect();
+                        return {
+                            x: rect.left + window.scrollX,
+                            y: rect.top + window.scrollY,
+                            w: rect.width
+                        };
+                    }
+                },
+                
+                // Animation settings
+                showAnimationDuration: 400,
+                hideAnimationDuration: 400,
+                showHideAnimationType: 'zoom' 
             };
 
-            document.addEventListener('keydown', e => {
-                const modal = document.getElementById('galleryModal');
-                if (!modal || modal.classList.contains('invisible')) return;
-                if (e.key === 'Escape') this.closeGalleryModal();
-                else if (e.key === 'ArrowLeft') { e.preventDefault(); this.navigateModal(-1); }
-                else if (e.key === 'ArrowRight') { e.preventDefault(); this.navigateModal(1); }
+            const pswp = new window.PhotoSwipe(options);
+
+            // Register custom caption
+            pswp.on('uiRegister', function() {
+                pswp.ui.registerElement({
+                    name: 'custom-caption',
+                    order: 9,
+                    isButton: false,
+                    appendTo: 'root',
+                    onInit: (el, pswpInstance) => {
+                        pswpInstance.on('change', () => {
+                            const currSlide = pswpInstance.currSlide;
+                            if (currSlide && currSlide.data) {
+                                let captionHtml = '<div class="pswp__custom-caption">';
+                                if (currSlide.data.title) {
+                                    captionHtml += `<div class="pswp__caption-title">${currSlide.data.title}</div>`;
+                                }
+                                if (currSlide.data.description) {
+                                    captionHtml += `<div class="pswp__caption-desc">${currSlide.data.description}</div>`;
+                                }
+                                captionHtml += '</div>';
+                                el.innerHTML = captionHtml;
+                            }
+                        });
+                    }
+                });
             });
 
-            document.addEventListener('click', e => {
-                if (e.target.id === 'galleryModal') this.closeGalleryModal();
+            // Handle dynamic image dimensions for items that weren't discovered yet
+            pswp.on('contentLoad', (e) => {
+                const { content } = e;
+                if (content.data.w && content.data.h && content.data.w > 0) return;
+                if (content.isLoadingDims) return;
+
+                content.isLoadingDims = true;
+                const img = new Image();
+                img.onload = () => {
+                    content.data.w = img.naturalWidth;
+                    content.data.h = img.naturalHeight;
+                    content.isLoadingDims = false;
+                    content.update();
+                };
+                img.src = content.data.src;
             });
+
+            pswp.init();
+            this.pswp = pswp;
         },
 
         // Bind slider items to hardcoded sliderImages (condensed)
@@ -133,71 +240,10 @@
                 if (btn) {
                     btn.onclick = (e) => {
                         e.stopPropagation();
-                        window.openGalleryModal(data.src, data.title);
+                        window.openGalleryModal(data.src, data.title, data.location, data.description);
                     };
                 }
             });
-        },
-
-        updateModalContent: function() {
-            const modal = document.getElementById('galleryModal');
-            const modalImage = document.getElementById('modalImage');
-            const prevBtn = document.getElementById('modalPrevBtn');
-            const nextBtn = document.getElementById('modalNextBtn');
-
-            if (modal && modalImage) {
-                const currentImage = this.allImages[this.currentModalIndex];
-
-                modalImage.src = currentImage.src;
-                modalImage.alt = currentImage.title;
-
-                // Update button states
-                if (prevBtn) prevBtn.style.opacity = this.currentModalIndex === 0 ? '0.5' : '1';
-                if (nextBtn) nextBtn.style.opacity = this.currentModalIndex === this.allImages.length - 1 ? '0.5' : '1';
-            }
-        },
-
-        showModal: function() {
-            const modal = document.getElementById('galleryModal');
-            if (!modal) return;
-            modal.classList.replace('opacity-0', 'opacity-100');
-            modal.classList.replace('invisible', 'visible');
-            const content = modal.querySelector('.relative');
-            if (content) {
-                content.classList.replace('scale-95', 'scale-100');
-                }
-                document.body.style.overflow = 'hidden';
-        },
-
-        closeGalleryModal: function() {
-            const modal = document.getElementById('galleryModal');
-            if (!modal) return;
-            modal.classList.replace('opacity-100', 'opacity-0');
-            modal.classList.replace('visible', 'invisible');
-            const content = modal.querySelector('.relative');
-            if (content) {
-                content.classList.replace('scale-100', 'scale-95');
-                }
-                document.body.style.overflow = 'auto';
-        },
-
-        // Placeholder for global functions - will be set after module initialization
-
-        // Navigation function
-        navigateModal: function(direction) {
-            const modal = document.getElementById('galleryModal');
-            if (!modal || modal.classList.contains('invisible')) return;
-
-            this.currentModalIndex += direction;
-
-            // Loop around if at the beginning or end
-            if (this.currentModalIndex < 0) {
-                this.currentModalIndex = this.allImages.length - 1;
-            } else if (this.currentModalIndex >= this.allImages.length) {
-                this.currentModalIndex = 0;
-            }
-
-            this.updateModalContent();
         },
 
         // Gallery Slider Functionality (GoWilds Style)
@@ -244,21 +290,6 @@
 
             // Start the automatic slider
             startGallerySlider();
-        },
-
-        // Gallery lightbox functionality (basic implementation)
-        initGalleryLightbox: function() {
-            if (this.galleryItems) {
-                this.galleryItems.forEach(item => {
-                    item.addEventListener('click', () => {
-                        // Basic alert for now - could be enhanced with a proper lightbox
-                        const img = item.querySelector('img');
-                        const title = item.querySelector('h3').textContent;
-                        console.log(`Opening lightbox for: ${title}`);
-                        // In a full implementation, this would open a modal with the image
-                    });
-                });
-            }
         }
     };
 
@@ -266,6 +297,5 @@
 
 // Make modal functions globally available - using the module instance
 const galleryModule = window.GalleryModule;
-window.closeGalleryModal = () => galleryModule.closeGalleryModal();
+// openGalleryModal is the only one needed externally now
 window.openGalleryModal = (imageSrc, title, location, description) => galleryModule.openGalleryModal(imageSrc, title, location, description);
-window.navigateModal = (direction) => galleryModule.navigateModal(direction);

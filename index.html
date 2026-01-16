@@ -28,6 +28,8 @@
 		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="assets/css/custom.css">
+		<!-- PhotoSwipe CSS -->
+		<link rel="stylesheet" href="https://unpkg.com/photoswipe@5.4.3/dist/photoswipe.css">
 		<!-- Custom Tailwind Config -->
 		<script>tailwind.config = {theme: {extend: {fontFamily: {'sans': ['Inter', 'system-ui', 'sans-serif'], 'serif': ['Poppins', 'sans-serif']}, colors: {primary: {DEFAULT: 'oklch(0.35 0.15 195)', foreground: 'oklch(0.98 0.01 85)'}, secondary: {DEFAULT: 'oklch(0.65 0.12 35)', foreground: 'oklch(0.98 0.01 85)'}, accent: {DEFAULT: 'oklch(0.75 0.15 75)', foreground: 'oklch(0.15 0.02 45)'}, background: 'oklch(0.98 0.035 105)', foreground: 'oklch(0.15 0.02 45)', muted: {DEFAULT: 'oklch(0.95 0.01 85)', foreground: 'oklch(0.45 0.02 45)'}, card: {DEFAULT: 'oklch(1 0 0)', foreground: 'oklch(0.15 0.02 45)'}, border: 'oklch(0.9 0.01 85)'}, animation: {'spin-slow': 'spin 3s linear infinite', 'fade-in': 'fadeIn 1s ease-out forwards', 'float': 'float 3s ease-in-out infinite', 'bounce-slow': 'bounce 2s infinite'}, keyframes: {fadeIn: {'0%': {opacity: '0', transform: 'translateY(20px)'}, '100%': {opacity: '1', transform: 'translateY(0)'}}, float: {'0%, 100%': {transform: 'translateY(0px)'}, '50%': {transform: 'translateY(-10px)'}}}}}}</script>
 	</head>
@@ -1652,7 +1654,13 @@
 				</div>
 			</div>
 		</div>
-		<!-- Modular JavaScript Files -->
+		<!-- PhotoSwipe JS -->
+		<script type="module">
+			import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5.4.3/dist/photoswipe-lightbox.esm.js';
+			import PhotoSwipe from 'https://unpkg.com/photoswipe@5.4.3/dist/photoswipe.esm.js';
+			window.PhotoSwipeLightbox = PhotoSwipeLightbox;
+			window.PhotoSwipe = PhotoSwipe;
+		</script>
 		<script src="assets/js/modal.js"></script>
 		<script src="assets/js/preloader.js"></script>
 		<script src="assets/js/aos.js"></script>
