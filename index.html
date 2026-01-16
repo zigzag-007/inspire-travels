@@ -6,6 +6,25 @@
 		<title>Inspire Travels & Tours | Discover Sri Lanka</title>
 		<meta name="description" content="Experience the beauty and culture of Sri Lanka with our expertly crafted tours and travel experiences. From ancient temples to pristine beaches, create memories that last a lifetime.">
 		<meta name="keywords" content="Sri Lanka tours, travel Sri Lanka, Ceylon tours, cultural tours, adventure travel, wildlife safari, beach tours, tea plantation tours">
+		<meta name="author" content="Inspire Travels & Tours">
+		<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+		<link rel="canonical" href="https://inspiretraveltours.com/">
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://inspiretraveltours.com/">
+		<meta property="og:title" content="Inspire Travels & Tours | Discover Sri Lanka">
+		<meta property="og:description" content="Experience the beauty and culture of Sri Lanka with our expertly crafted tours and travel experiences. From ancient temples to pristine beaches, create memories that last a lifetime.">
+		<meta property="og:image" content="https://inspiretraveltours.com/assets/img/og-image.jpg">
+		<meta property="og:image:width" content="1200">
+		<meta property="og:image:height" content="630">
+		<meta property="og:site_name" content="Inspire Travels & Tours">
+		<meta property="og:locale" content="en_US">
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:url" content="https://inspiretraveltours.com/">
+		<meta name="twitter:title" content="Inspire Travels & Tours | Discover Sri Lanka">
+		<meta name="twitter:description" content="Experience the beauty and culture of Sri Lanka with our expertly crafted tours and travel experiences. From ancient temples to pristine beaches, create memories that last a lifetime.">
+		<meta name="twitter:image" content="https://inspiretraveltours.com/assets/img/og-image.jpg">
 		<!-- Favicon -->
 		<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon/favicon-64x64.png">
@@ -32,6 +51,36 @@
 		<link rel="stylesheet" href="https://unpkg.com/photoswipe@5.4.3/dist/photoswipe.css">
 		<!-- Custom Tailwind Config -->
 		<script>tailwind.config = {theme: {extend: {fontFamily: {'sans': ['Inter', 'system-ui', 'sans-serif'], 'serif': ['Poppins', 'sans-serif']}, colors: {primary: {DEFAULT: 'oklch(0.35 0.15 195)', foreground: 'oklch(0.98 0.01 85)'}, secondary: {DEFAULT: 'oklch(0.65 0.12 35)', foreground: 'oklch(0.98 0.01 85)'}, accent: {DEFAULT: 'oklch(0.75 0.15 75)', foreground: 'oklch(0.15 0.02 45)'}, background: 'oklch(0.98 0.035 105)', foreground: 'oklch(0.15 0.02 45)', muted: {DEFAULT: 'oklch(0.95 0.01 85)', foreground: 'oklch(0.45 0.02 45)'}, card: {DEFAULT: 'oklch(1 0 0)', foreground: 'oklch(0.15 0.02 45)'}, border: 'oklch(0.9 0.01 85)'}, animation: {'spin-slow': 'spin 3s linear infinite', 'fade-in': 'fadeIn 1s ease-out forwards', 'float': 'float 3s ease-in-out infinite', 'bounce-slow': 'bounce 2s infinite'}, keyframes: {fadeIn: {'0%': {opacity: '0', transform: 'translateY(20px)'}, '100%': {opacity: '1', transform: 'translateY(0)'}}, float: {'0%, 100%': {transform: 'translateY(0px)'}, '50%': {transform: 'translateY(-10px)'}}}}}}</script>
+		<!-- Structured Data -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "TravelAgency",
+			"name": "Inspire Travels & Tours",
+			"description": "Experience the beauty and culture of Sri Lanka with our expertly crafted tours and travel experiences. From ancient temples to pristine beaches, create memories that last a lifetime.",
+			"url": "https://inspiretraveltours.com/",
+			"logo": "https://inspiretraveltours.com/assets/img/logo.png",
+			"image": "https://inspiretraveltours.com/assets/img/og-image.jpg",
+			"address": {
+				"@type": "PostalAddress",
+				"addressCountry": "LK"
+			},
+			"sameAs": [
+				"https://www.facebook.com/inspiretraveltours",
+				"https://www.instagram.com/inspiretraveltours",
+				"https://www.twitter.com/inspiretravels"
+			],
+			"offers": {
+				"@type": "Offer",
+				"category": "Tour Packages",
+				"description": "Cultural tours, adventure travel, wildlife safaris, beach tours, and tea plantation experiences in Sri Lanka"
+			},
+			"areaServed": {
+				"@type": "Country",
+				"name": "Sri Lanka"
+			}
+		}
+		</script>
 	</head>
 	<body class="font-sans antialiased bg-background text-foreground">
 		<!-- Loading Animation Preloader -->
@@ -521,12 +570,12 @@
 							<div class="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl">
 								<!-- Main image - Horse riding experience (for story) -->
 								<div class="relative">
-									<img src="assets/img/about/our-story.jpg" alt="Traditional Horseback Riding - Our Story" class="w-full h-64 sm:h-80 md:h-96 lg:h-[32rem] object-cover">
+									<img src="assets/img/about/our-story.jpg" alt="Our Best Vehicles for Your Tours" class="w-full object-cover object-top" style="aspect-ratio: 16/10;">
 									<div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
 								</div>
 								<!-- Floating secondary image - Cultural dance -->
 								<div class="absolute top-3 sm:top-4 md:top-6 right-3 sm:right-4 md:right-6 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-lg overflow-hidden shadow-lg border-2 sm:border-4 border-white/50">
-									<img src="assets/img/about/our-mission.jpg" alt="Traditional Sri Lankan Cultural Dance" class="w-full h-full object-cover">
+									<img src="assets/img/about/our-mission.jpg" alt="Traditional Sri Lankan Cultural Dance" class="w-full h-full object-cover object-top" style="aspect-ratio: 1/1;">
 									<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
 								</div>
 							</div>
@@ -536,12 +585,12 @@
 							<div class="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl">
 								<!-- Main image - Cultural dance (for mission) -->
 								<div class="relative">
-									<img src="assets/img/about/our-mission.jpg" alt="Traditional Sri Lankan Cultural Dance - Our Mission" class="w-full h-64 sm:h-80 md:h-96 lg:h-[32rem] object-cover">
+									<img src="assets/img/about/our-mission.jpg" alt="Traditional Sri Lankan Cultural Dance - Our Mission" class="w-full object-cover object-top" style="aspect-ratio: 16/10;">
 									<div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
 								</div>
 								<!-- Floating secondary image - Horse riding experience -->
 								<div class="absolute top-3 sm:top-4 md:top-6 right-3 sm:right-4 md:right-6 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-lg overflow-hidden shadow-lg border-2 sm:border-4 border-white/50">
-									<img src="assets/img/about/our-story.jpg" alt="Traditional Horseback Riding Experience" class="w-full h-full object-cover">
+									<img src="assets/img/about/our-story.jpg" alt="Our Best Vehicles for Your Tours" class="w-full h-full object-cover object-top" style="aspect-ratio: 1/1;">
 									<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
 								</div>
 							</div>
