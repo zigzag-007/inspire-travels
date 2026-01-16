@@ -474,8 +474,8 @@ html, body {
 /* Floating WhatsApp Icon */
 .whatsapp-float {
   position: fixed;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   top: 60%;
   right: 20px;
   transform: translateY(-50%);
