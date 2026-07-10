@@ -18,7 +18,7 @@
                     anchorPlacement: 'top-bottom',     // When element comes into view
 
                     // Performance optimizations
-                    startEvent: 'DOMContentLoaded',    // Start after DOM is ready
+                    startEvent: 'app-loaded', // Start after preloader completes and dispatches 'app-loaded'
                     initClassName: 'aos-init',         // Class added after initialization
                     animatedClassName: 'aos-animate',  // Class added on animation
                     useClassNames: false,              // Don't use class names for animations
@@ -53,20 +53,20 @@
             setTimeout(() => {
                 // Find all elements with hover:scale-105 that also have AOS animations
                 const elementsWithHover = document.querySelectorAll('[class*="hover:scale-105"]');
-                
+
                 elementsWithHover.forEach(element => {
                     // Check if element has AOS animation
                     if (element.hasAttribute('data-aos')) {
                         // Remove AOS inline styles that interfere with hover
                         element.style.removeProperty('transform');
                         element.style.removeProperty('transition');
-                        
+
                         // Add event listeners for hover effects
                         element.addEventListener('mouseenter', function() {
                             this.style.transform = 'scale(1.05)';
                             this.style.transition = 'transform 0.3s ease';
                         });
-                        
+
                         element.addEventListener('mouseleave', function() {
                             this.style.transform = 'scale(1)';
                             this.style.transition = 'transform 0.3s ease';
@@ -81,7 +81,7 @@
                         // Remove AOS inline styles
                         indicator.style.removeProperty('transform');
                         indicator.style.removeProperty('transition');
-                        
+
                         // Add hover effects
                         indicator.addEventListener('mouseenter', function() {
                             if (!this.classList.contains('scale-125')) {
@@ -89,7 +89,7 @@
                                 this.style.transition = 'all 0.3s ease';
                             }
                         });
-                        
+
                         indicator.addEventListener('mouseleave', function() {
                             if (!this.classList.contains('scale-125')) {
                                 this.style.transform = 'scale(1)';
