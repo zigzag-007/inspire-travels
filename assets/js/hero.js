@@ -179,10 +179,9 @@
             });
         },
 
-        // 3D Receding Depth Parallax Scroll Effect (iOS/trendy style)
+        // Classic Parallax Scroll Effect
         initScrollDepthEffect: function() {
             if (!this.heroSection) return;
-            const heroContent = this.heroSection.querySelector('.relative.z-20');
             const bgWrapper = document.getElementById('hero-bg-wrapper');
 
             let ticking = false;
@@ -191,27 +190,11 @@
                 const scrollY = window.scrollY;
                 const heroHeight = this.heroSection.offsetHeight;
 
-                // Stop execution when hero is off-screen
-                if (scrollY > heroHeight + 50) return;
-
-                const progress = Math.min(1, Math.max(0, scrollY / heroHeight));
-
-                // Recede/scale content and fade it out
-                if (heroContent) {
-                    const scale = 1 - progress * 0.12; // scales down to 0.88
-                    const opacity = 1 - progress * 1.5; // fades out faster
-                    const translateY = scrollY * 0.35; // parallax slow vertical offset
-                    heroContent.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
-                    heroContent.style.opacity = Math.max(0, opacity);
-                }
-
-                // Recede background wrapper for layered depth
-                if (bgWrapper) {
-                    const scale = 1 - progress * 0.05; // scales down background to 0.95
-                    const opacity = 1 - progress * 1.05; // fades out background
-                    const translateY = scrollY * 0.2; // background vertical offset
-                    bgWrapper.style.transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
-                    bgWrapper.style.opacity = Math.max(0, opacity);
+                // Apply vertical translation to background wrapper only when hero is visible
+                if (scrollY <= heroHeight + 100) {
+                    if (bgWrapper) {
+                        bgWrapper.style.transform = `translate3d(0, ${scrollY * 0.4}px, 0)`;
+                    }
                 }
 
                 ticking = false;
