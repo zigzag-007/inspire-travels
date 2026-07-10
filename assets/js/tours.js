@@ -105,12 +105,32 @@
                     modalTitle.textContent = tour.title;
                     modalDescription.textContent = tour.description;
                     modalHighlights.innerHTML = tour.highlights.map(highlight =>
-                        `<li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-primary"></i>${highlight}</li>`
+                        `<li class="flex items-start gap-3 text-slate-700 font-medium py-1"><span class="flex items-center justify-center w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex-shrink-0 mt-0.5"><i data-lucide="check" class="w-3.5 h-3.5"></i></span><span>${highlight}</span></li>`
                     ).join('');
 
                     // Re-initialize icons for the new content
                     if (typeof lucide !== 'undefined') {
                         lucide.createIcons();
+                    }
+
+                    // Dynamically set WhatsApp link with selected package name & duration
+                    const whatsappBtn = modal.querySelector('a[href^="https://wa.me/"]');
+                    if (whatsappBtn) {
+                        const message = encodeURIComponent(`Hi! I'm interested in the "${tour.title}" (${tour.duration}) package. Can you provide more details and pricing?`);
+                        whatsappBtn.href = `https://wa.me/94785959333?text=${message}`;
+                    }
+
+                    // Show scrollbar on active scrolling using temporary class
+                    const scrollContainer = modal.querySelector('.custom-scrollbar');
+                    if (scrollContainer) {
+                        scrollContainer.classList.remove('is-scrolling');
+                        scrollContainer.addEventListener('scroll', () => {
+                            scrollContainer.classList.add('is-scrolling');
+                            clearTimeout(scrollContainer.scrollTimeout);
+                            scrollContainer.scrollTimeout = setTimeout(() => {
+                                scrollContainer.classList.remove('is-scrolling');
+                            }, 800);
+                        });
                     }
 
                     this.showTourModal();
@@ -130,7 +150,10 @@
             // Close tour modal on backdrop click
             document.addEventListener('click', (e) => {
                 const modal = document.getElementById('tourModal');
-                if (e.target === modal) {
+                if (!modal || modal.classList.contains('invisible')) return;
+
+                const card = modal.querySelector('.tour-modal-card');
+                if (card && !card.contains(e.target) && modal.contains(e.target)) {
                     this.closeTourModal();
                 }
             });
@@ -146,7 +169,9 @@
                     modalContent.classList.remove('scale-95');
                     modalContent.classList.add('scale-100');
                 }
+                // Lock scrollbars on body and documentElement for premium look
                 document.body.style.overflow = 'hidden';
+                document.documentElement.style.overflow = 'hidden';
             }
         },
 
@@ -160,7 +185,9 @@
                     modalContent.classList.remove('scale-100');
                     modalContent.classList.add('scale-95');
                 }
-                document.body.style.overflow = 'auto';
+                // Restore scrollbars
+                document.body.style.overflow = '';
+                document.documentElement.style.overflow = '';
             }
         },
 

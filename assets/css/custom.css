@@ -137,6 +137,7 @@ html, body {
     z-index: 0;
     overflow: hidden;
     border-radius: inherit;
+    pointer-events: none; /* Prevent blocking child elements interaction */
     /* GLASS SHINE CONTROL: Adjust highlight intensity here */
     /* Lower values (0.3-0.5) = subtle shine, Higher values (0.7-1.0) = bright shine */
     box-shadow: inset 2px 2px 0px -2px rgba(255, 255, 255, 0.7),
@@ -150,6 +151,7 @@ html, body {
     z-index: -1;
     inset: 0;
     border-radius: inherit;
+    pointer-events: none; /* Prevent blocking child elements interaction */
     /* BLUR CONTROL: Adjust blur intensity here */
     /* 0px = clear glass, 2px-4px = subtle blur, 8px+ = strong blur */
     -webkit-backdrop-filter: blur(2px);
@@ -594,6 +596,21 @@ html, body {
    9. PREMIUM CUSTOM AOS ANIMATIONS (2026 VIBE)
    ============================================================================= */
 
+/* Premium Fade Down with Fluid Blur */
+[data-aos="fade-down-blur"] {
+    opacity: 0;
+    transform: translateY(-35px) scale(0.975);
+    filter: blur(12px);
+    transition-property: opacity, transform, filter;
+    will-change: opacity, transform, filter;
+}
+
+[data-aos="fade-down-blur"].aos-animate {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
 /* Premium Fade Up with Fluid Blur */
 [data-aos="fade-up-blur"] {
     opacity: 0;
@@ -712,4 +729,128 @@ html, body {
         box-shadow: 0 0 16px rgba(255, 255, 255, 0.8),
                     0 0 24px rgba(255, 179, 71, 0.6); /* Soft golden/accent glow */
     }
+}
+
+/* 2026 Trend Liquid Glass Tile */
+.liquid-glass-tile {
+    position: relative;
+    background: rgba(255, 255, 255, 0.38);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.03);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                background 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, box-shadow, background-color;
+}
+
+/* Glass backing blur and SVG displacement */
+.liquid-glass-tile::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    filter: url(#container-glass);
+    z-index: -2;
+}
+
+/* Internal colorful aura glow blob that responds on hover */
+.liquid-glass-tile::before {
+    content: '';
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(12, 60, 58, 0.22) 0%, transparent 70%);
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0.5;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+/* Alternating color auras (emerald / terracotta / gold) */
+.liquid-glass-tile:nth-child(2n)::before {
+    background: radial-gradient(circle, rgba(184, 89, 59, 0.18) 0%, transparent 70%);
+}
+
+.liquid-glass-tile:nth-child(3n)::before {
+    background: radial-gradient(circle, rgba(255, 179, 71, 0.18) 0%, transparent 70%);
+}
+
+.liquid-glass-tile:hover {
+    transform: translateY(-12px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.58);
+    box-shadow: 0 35px 60px -15px rgba(12, 60, 58, 0.12);
+}
+
+.liquid-glass-tile:nth-child(2n):hover {
+    box-shadow: 0 35px 60px -15px rgba(184, 89, 59, 0.08);
+}
+
+.liquid-glass-tile:hover::before {
+    transform: translate(-50%, -50%) scale(2.0);
+    opacity: 0.95;
+}
+
+/* Premium Custom Scrollbar for Modal Highlights (visible on scroll and hover) */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 10px;
+}
+
+.custom-scrollbar.is-scrolling::-webkit-scrollbar-thumb,
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+    background: rgba(12, 60, 58, 0.22);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(12, 60, 58, 0.42);
+}
+
+/* iOS-inspired Premium Fixed Height Glass Panel for Modal Card */
+.tour-modal-card {
+    position: relative;
+    height: 540px;
+    width: 100%;
+    max-width: 448px; /* matches max-w-md */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.82));
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 2.25rem; /* Clean iOS pill corner squircle */
+    box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.25),
+                inset 1.5px 1.5px 0px rgba(255, 255, 255, 0.85);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tour-modal-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+    filter: url(#container-glass);
+    z-index: -2;
 }

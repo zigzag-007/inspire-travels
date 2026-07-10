@@ -132,7 +132,7 @@
 		<!-- Blur Overlay for Mobile Menu -->
 		<div id="blur-overlay" class="fixed inset-0 backdrop-blur-sm bg-black/30 opacity-0 hidden will-change-opacity" style="z-index: 45; transition: opacity 600ms cubic-bezier(0.23, 1, 0.32, 1);"></div>
 		<!-- Top Bar -->
-		<div class="bg-primary text-primary-foreground py-2 px-4 text-sm">
+		<div class="bg-primary text-primary-foreground py-2 px-4 text-sm" data-aos="blur-in" data-aos-duration="1000" data-aos-delay="0">
 			<div class="max-w-7xl mx-auto flex justify-between items-center">
 				<!-- Left Side: Contact Information -->
 				<div class="flex items-center gap-6">
@@ -250,11 +250,14 @@
 		</div>
 		<!-- Hero Section (arrow back, sentinel kept, dots removed; mobile buttons balanced) -->
 		<section id="home" class="relative isolate min-h-[100svh] flex items-center overflow-hidden pt-8 sm:pt-16 md:pt-20 lg:pt-24 xl:pt-27 pb-8 sm:pb-12 md:pb-16 lg:pb-20 grid grid-cols-1 place-items-center">
-			<!-- Background layers for smooth Ken Burns crossfade -->
-			<div id="hero-bg-1" class="hero-bg-layer hero-bg-active" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/img/bg/autum-houses.jpg');"></div>
-			<div id="hero-bg-2" class="hero-bg-layer hero-bg-inactive"></div>
-			<!-- Readability overlay -->
-			<div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60 z-10"></div>
+			<!-- Background wrapper to isolate scroll transforms from Ken Burns transitions -->
+			<div id="hero-bg-wrapper" class="absolute inset-0 overflow-hidden z-0">
+				<!-- Background layers for smooth Ken Burns crossfade -->
+				<div id="hero-bg-1" class="hero-bg-layer hero-bg-active" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/img/bg/autum-houses.jpg');"></div>
+				<div id="hero-bg-2" class="hero-bg-layer hero-bg-inactive"></div>
+				<!-- Readability overlay -->
+				<div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60 z-10"></div>
+			</div>
 
 			<!-- Content -->
 			<div class="relative z-20 w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
@@ -315,15 +318,15 @@
 			<div id="home-end-sentinel" class="absolute bottom-0 left-0 w-px h-px"></div>
 		</section>
 		<!-- Tours Section -->
-		<section id="tours" class="pt-20 bg-background">
+		<section id="tours" class="pt-20 pb-16 bg-background">
 			<div class="max-w-[1800px] mx-auto px-6 md:px-8 lg:px-12 xl:px-16">
 			<!-- Section Header with Split Animation -->
 			<div class="text-center mb-16">
-				<h2 class="font-serif text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up, fade-right, fade-left" data-aos-duration="700,500,500" data-aos-delay="100,300,450" data-aos-easing="ease-out-quart,ease-out-back,ease-out-back">
+				<h2 class="font-serif text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up-blur" data-aos-duration="1200" data-aos-delay="100">
 					<span>Most Popular</span>
 					<span class="gradient-text">Tours</span>
 				</h2>
-				<p class="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-easing="ease-out-quart">
+				<p class="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed" data-aos="fade-up-blur" data-aos-duration="1200" data-aos-delay="250">
 					Flexible tour packages from 1-3 days up to 1-14 days to match your travel plans.
 					Starting from just $180 USD, discover the wonders of Sri Lanka your way.
 				</p>
@@ -331,165 +334,165 @@
 			<!-- Tours Grid with Card Animations -->
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 				<!-- Tour Card 1 -->
-				<div class="bg-white rounded-2xl shadow-lg transition-all duration-300 hover:scale-105 overflow-hidden" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
+				<div class="liquid-glass-tile shadow-lg hover:scale-[1.015] overflow-hidden" data-aos="fade-up-blur" data-aos-duration="1000" data-aos-delay="100">
 					<div class="relative h-56 overflow-hidden">
 						<img src="assets/img/packages/3-day-package.jpeg" alt="Ceylon City & Beach Escape"
-							class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
-						<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-						<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
+							class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+						<div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div>
+						<div class="absolute top-4 left-4 bg-white/80 border border-white/40 backdrop-blur-md rounded-full px-3 py-1 flex items-center gap-1 shadow-sm">
 							<i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-current"></i>
-							<span class="text-gray-800 text-sm font-semibold">9.0 Exceptional</span>
+							<span class="text-slate-800 text-sm font-semibold">9.0 Exceptional</span>
 						</div>
-						<button class="absolute top-4 right-4 w-10 h-10 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:text-red-500 transition-all duration-200 hover:scale-110" title="Add to favorites">
-						<i data-lucide="heart" class="w-5 h-5"></i>
+						<button class="absolute top-4 right-4 w-9 h-9 bg-white/70 hover:bg-white border border-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-slate-700 hover:text-red-500 transition-all duration-300 hover:scale-110 active:scale-90 shadow-sm" title="Add to favorites">
+						<i data-lucide="heart" class="w-4.5 h-4.5"></i>
 						</button>
 					</div>
-					<div class="p-6">
-						<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">Ceylon City & Beach Escape</h3>
-						<div class="text-sm text-gray-600 mb-4">
-							<div class="flex items-center gap-2 mb-1">
-								<i data-lucide="clock" class="w-4 h-4 text-emerald-600"></i><span class="font-medium">3 Days</span>
+					<div class="p-6 relative z-10">
+						<h3 class="font-serif text-xl font-bold text-slate-800 mb-3 hover:text-primary transition-colors duration-200">Ceylon City & Beach Escape</h3>
+						<div class="text-sm text-slate-600 mb-5 space-y-2">
+							<div class="flex items-center gap-2.5 font-medium">
+								<i data-lucide="clock" class="w-4 h-4 text-primary"></i><span>3 Days</span>
 							</div>
-							<div class="flex items-center gap-2">
-								<i data-lucide="map-pin" class="w-4 h-4 text-emerald-600"></i><span>Colombo & Bentota</span>
+							<div class="flex items-center gap-2.5">
+								<i data-lucide="map-pin" class="w-4 h-4 text-primary"></i><span>Colombo & Bentota</span>
 							</div>
 						</div>
-						<button onclick="openTourModal(0)" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95">View Details</button>
+						<button onclick="openTourModal(0)" class="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold py-3 px-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-emerald-600/20 hover:scale-[1.02] active:scale-95">View Details</button>
 					</div>
 				</div>
 				<!-- Tour Card 2 -->
-				<div class="bg-white rounded-2xl shadow-lg transition-all duration-300 hover:scale-105 overflow-hidden" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
+				<div class="liquid-glass-tile shadow-lg hover:scale-[1.015] overflow-hidden" data-aos="fade-up-blur" data-aos-duration="1000" data-aos-delay="250">
 					<div class="relative h-56 overflow-hidden">
 						<img src="assets/img/packages/4-day-package.jpeg" alt="City to Sea Adventure"
-							class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
-						<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-						<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
+							class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+						<div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div>
+						<div class="absolute top-4 left-4 bg-white/80 border border-white/40 backdrop-blur-md rounded-full px-3 py-1 flex items-center gap-1 shadow-sm">
 							<i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-current"></i>
-							<span class="text-gray-800 text-sm font-semibold">7.5 Very Good</span>
+							<span class="text-slate-800 text-sm font-semibold">7.5 Very Good</span>
 						</div>
-						<button class="absolute top-4 right-4 w-10 h-10 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:text-red-500 transition-all duration-200 hover:scale-110" title="Add to favorites">
-						<i data-lucide="heart" class="w-5 h-5"></i>
+						<button class="absolute top-4 right-4 w-9 h-9 bg-white/70 hover:bg-white border border-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-slate-700 hover:text-red-500 transition-all duration-300 hover:scale-110 active:scale-90 shadow-sm" title="Add to favorites">
+						<i data-lucide="heart" class="w-4.5 h-4.5"></i>
 						</button>
 					</div>
-					<div class="p-6">
-						<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">City to Sea Adventure</h3>
-						<div class="text-sm text-gray-600 mb-4">
-							<div class="flex items-center gap-2 mb-1">
-								<i data-lucide="clock" class="w-4 h-4 text-emerald-600"></i><span class="font-medium">4 Days</span>
+					<div class="p-6 relative z-10">
+						<h3 class="font-serif text-xl font-bold text-slate-800 mb-3 hover:text-primary transition-colors duration-200">City to Sea Adventure</h3>
+						<div class="text-sm text-slate-600 mb-5 space-y-2">
+							<div class="flex items-center gap-2.5 font-medium">
+								<i data-lucide="clock" class="w-4 h-4 text-primary"></i><span>4 Days</span>
 							</div>
-							<div class="flex items-center gap-2">
-								<i data-lucide="map-pin" class="w-4 h-4 text-emerald-600"></i><span>Colombo to Mirissa</span>
+							<div class="flex items-center gap-2.5">
+								<i data-lucide="map-pin" class="w-4 h-4 text-primary"></i><span>Colombo to Mirissa</span>
 							</div>
 						</div>
-						<button onclick="openTourModal(1)" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95">View Details</button>
+						<button onclick="openTourModal(1)" class="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold py-3 px-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-emerald-600/20 hover:scale-[1.02] active:scale-95">View Details</button>
 					</div>
 				</div>
 				<!-- Tour Card 3 -->
-				<div class="bg-white rounded-2xl shadow-lg transition-all duration-300 hover:scale-105 overflow-hidden" data-aos="fade-up" data-aos-duration="700" data-aos-delay="300">
+				<div class="liquid-glass-tile shadow-lg hover:scale-[1.015] overflow-hidden" data-aos="fade-up-blur" data-aos-duration="1000" data-aos-delay="400">
 					<div class="relative h-56 overflow-hidden">
-                        <img src="assets/img/packages/5-day-package.jpeg" alt="Hills to Coast Escape"
-							class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
-						<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-						<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
+						<img src="assets/img/packages/5-day-package.jpeg" alt="Hills to Coast Escape"
+							class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+						<div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div>
+						<div class="absolute top-4 left-4 bg-white/80 border border-white/40 backdrop-blur-md rounded-full px-3 py-1 flex items-center gap-1 shadow-sm">
 							<i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-current"></i>
-							<span class="text-gray-800 text-sm font-semibold">8.5 Excellent</span>
+							<span class="text-slate-800 text-sm font-semibold">8.5 Excellent</span>
 						</div>
-						<button class="absolute top-4 right-4 w-10 h-10 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:text-red-500 transition-all duration-200 hover:scale-110" title="Add to favorites">
-						<i data-lucide="heart" class="w-5 h-5"></i>
+						<button class="absolute top-4 right-4 w-9 h-9 bg-white/70 hover:bg-white border border-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-slate-700 hover:text-red-500 transition-all duration-300 hover:scale-110 active:scale-90 shadow-sm" title="Add to favorites">
+						<i data-lucide="heart" class="w-4.5 h-4.5"></i>
 						</button>
 					</div>
-					<div class="p-6">
-						<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">Hills to Coast Escape</h3>
-						<div class="text-sm text-gray-600 mb-4">
-							<div class="flex items-center gap-2 mb-1">
-								<i data-lucide="clock" class="w-4 h-4 text-emerald-600"></i><span class="font-medium">5 Days</span>
+					<div class="p-6 relative z-10">
+						<h3 class="font-serif text-xl font-bold text-slate-800 mb-3 hover:text-primary transition-colors duration-200">Hills to Coast Escape</h3>
+						<div class="text-sm text-slate-600 mb-5 space-y-2">
+							<div class="flex items-center gap-2.5 font-medium">
+								<i data-lucide="clock" class="w-4 h-4 text-primary"></i><span>5 Days</span>
 							</div>
-							<div class="flex items-center gap-2">
-								<i data-lucide="map-pin" class="w-4 h-4 text-emerald-600"></i><span>Kandy to Mirissa</span>
+							<div class="flex items-center gap-2.5">
+								<i data-lucide="map-pin" class="w-4 h-4 text-primary"></i><span>Kandy to Mirissa</span>
 							</div>
 						</div>
-						<button onclick="openTourModal(2)" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95">View Details</button>
+						<button onclick="openTourModal(2)" class="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold py-3 px-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-emerald-600/20 hover:scale-[1.02] active:scale-95">View Details</button>
 					</div>
 				</div>
 				<!-- Tour Card 4 -->
-				<div class="bg-white rounded-2xl shadow-lg transition-all duration-300 hover:scale-105 overflow-hidden" data-aos="fade-up" data-aos-duration="700" data-aos-delay="400">
+				<div class="liquid-glass-tile shadow-lg hover:scale-[1.015] overflow-hidden" data-aos="fade-up-blur" data-aos-duration="1000" data-aos-delay="150">
 					<div class="relative h-56 overflow-hidden">
 						<img src="assets/img/packages/7-day-package.jpeg" alt="Golden Triangle & Beyond"
-							class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
-						<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-						<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
+							class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+						<div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div>
+						<div class="absolute top-4 left-4 bg-white/80 border border-white/40 backdrop-blur-md rounded-full px-3 py-1 flex items-center gap-1 shadow-sm">
 							<i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-current"></i>
-							<span class="text-gray-800 text-sm font-semibold">9.5 Outstanding</span>
+							<span class="text-slate-800 text-sm font-semibold">9.5 Outstanding</span>
 						</div>
-						<button class="absolute top-4 right-4 w-10 h-10 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:text-red-500 transition-all duration-200 hover:scale-110" title="Add to favorites">
-						<i data-lucide="heart" class="w-5 h-5"></i>
+						<button class="absolute top-4 right-4 w-9 h-9 bg-white/70 hover:bg-white border border-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-slate-700 hover:text-red-500 transition-all duration-300 hover:scale-110 active:scale-90 shadow-sm" title="Add to favorites">
+						<i data-lucide="heart" class="w-4.5 h-4.5"></i>
 						</button>
 					</div>
-					<div class="p-6">
-						<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">Golden Triangle & Beyond</h3>
-						<div class="text-sm text-gray-600 mb-4">
-							<div class="flex items-center gap-2 mb-1">
-								<i data-lucide="clock" class="w-4 h-4 text-emerald-600"></i><span class="font-medium">7 Days, 6 Nights</span>
+					<div class="p-6 relative z-10">
+						<h3 class="font-serif text-xl font-bold text-slate-800 mb-3 hover:text-primary transition-colors duration-200">Golden Triangle & Beyond</h3>
+						<div class="text-sm text-slate-600 mb-5 space-y-2">
+							<div class="flex items-center gap-2.5 font-medium">
+								<i data-lucide="clock" class="w-4 h-4 text-primary"></i><span>7 Days, 6 Nights</span>
 							</div>
-							<div class="flex items-center gap-2">
-								<i data-lucide="map-pin" class="w-4 h-4 text-emerald-600"></i><span>Sigiriya to Galle</span>
+							<div class="flex items-center gap-2.5">
+								<i data-lucide="map-pin" class="w-4 h-4 text-primary"></i><span>Sigiriya to Galle</span>
 							</div>
 						</div>
-						<button onclick="openTourModal(3)" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95">View Details</button>
+						<button onclick="openTourModal(3)" class="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold py-3 px-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-emerald-600/20 hover:scale-[1.02] active:scale-95">View Details</button>
 					</div>
 				</div>
 				<!-- Tour Card 5 -->
-				<div class="bg-white rounded-2xl shadow-lg transition-all duration-300 hover:scale-105 overflow-hidden" data-aos="fade-up" data-aos-duration="700" data-aos-delay="500">
+				<div class="liquid-glass-tile shadow-lg hover:scale-[1.015] overflow-hidden" data-aos="fade-up-blur" data-aos-duration="1000" data-aos-delay="300">
 					<div class="relative h-56 overflow-hidden">
 						<img src="assets/img/packages/10-day-package.jpeg" alt="Pearl of Asia Journey"
-							class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
-						<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-						<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
+							class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+						<div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div>
+						<div class="absolute top-4 left-4 bg-white/80 border border-white/40 backdrop-blur-md rounded-full px-3 py-1 flex items-center gap-1 shadow-sm">
 							<i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-current"></i>
-							<span class="text-gray-800 text-sm font-semibold">8.0 Superb</span>
+							<span class="text-slate-800 text-sm font-semibold">8.0 Superb</span>
 						</div>
-						<button class="absolute top-4 right-4 w-10 h-10 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:text-red-500 transition-all duration-200 hover:scale-110" title="Add to favorites">
-						<i data-lucide="heart" class="w-5 h-5"></i>
+						<button class="absolute top-4 right-4 w-9 h-9 bg-white/70 hover:bg-white border border-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-slate-700 hover:text-red-500 transition-all duration-300 hover:scale-110 active:scale-90 shadow-sm" title="Add to favorites">
+						<i data-lucide="heart" class="w-4.5 h-4.5"></i>
 						</button>
 					</div>
-					<div class="p-6">
-						<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">Pearl of Asia Journey</h3>
-						<div class="text-sm text-gray-600 mb-4">
-							<div class="flex items-center gap-2 mb-1">
-								<i data-lucide="clock" class="w-4 h-4 text-emerald-600"></i><span class="font-medium">10 Days, 9 Nights</span>
+					<div class="p-6 relative z-10">
+						<h3 class="font-serif text-xl font-bold text-slate-800 mb-3 hover:text-primary transition-colors duration-200">Pearl of Asia Journey</h3>
+						<div class="text-sm text-slate-600 mb-5 space-y-2">
+							<div class="flex items-center gap-2.5 font-medium">
+								<i data-lucide="clock" class="w-4 h-4 text-primary"></i><span>10 Days, 9 Nights</span>
 							</div>
-							<div class="flex items-center gap-2">
-								<i data-lucide="map-pin" class="w-4 h-4 text-emerald-600"></i><span>Comprehensive Tour</span>
+							<div class="flex items-center gap-2.5">
+								<i data-lucide="map-pin" class="w-4 h-4 text-primary"></i><span>Comprehensive Tour</span>
 							</div>
 						</div>
-						<button onclick="openTourModal(4)" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95">View Details</button>
+						<button onclick="openTourModal(4)" class="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold py-3 px-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-emerald-600/20 hover:scale-[1.02] active:scale-95">View Details</button>
 					</div>
 				</div>
 				<!-- Tour Card 6 -->
-				<div class="bg-white rounded-2xl shadow-lg transition-all duration-300 hover:scale-105 overflow-hidden" data-aos="fade-up" data-aos-duration="700" data-aos-delay="600">
+				<div class="liquid-glass-tile shadow-lg hover:scale-[1.015] overflow-hidden" data-aos="fade-up-blur" data-aos-duration="1000" data-aos-delay="450">
 					<div class="relative h-56 overflow-hidden">
 						<img src="assets/img/packages/14-day-package.jpeg" alt="Sri Lanka Grand Tour"
-							class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
-						<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-						<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
+							class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+						<div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent"></div>
+						<div class="absolute top-4 left-4 bg-white/80 border border-white/40 backdrop-blur-md rounded-full px-3 py-1 flex items-center gap-1 shadow-sm">
 							<i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-current"></i>
-							<span class="text-gray-800 text-sm font-semibold">10.0 Perfect</span>
+							<span class="text-slate-800 text-sm font-semibold">10.0 Perfect</span>
 						</div>
-						<button class="absolute top-4 right-4 w-10 h-10 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:text-red-500 transition-all duration-200 hover:scale-110" title="Add to favorites">
-						<i data-lucide="heart" class="w-5 h-5"></i>
+						<button class="absolute top-4 right-4 w-9 h-9 bg-white/70 hover:bg-white border border-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-slate-700 hover:text-red-500 transition-all duration-300 hover:scale-110 active:scale-90 shadow-sm" title="Add to favorites">
+						<i data-lucide="heart" class="w-4.5 h-4.5"></i>
 						</button>
 					</div>
-					<div class="p-6">
-						<h3 class="font-serif text-xl font-bold text-gray-800 mb-2">Sri Lanka Grand Tour</h3>
-						<div class="text-sm text-gray-600 mb-4">
-							<div class="flex items-center gap-2 mb-1">
-								<i data-lucide="clock" class="w-4 h-4 text-emerald-600"></i><span class="font-medium">14 Days, 13 Nights</span>
+					<div class="p-6 relative z-10">
+						<h3 class="font-serif text-xl font-bold text-slate-800 mb-3 hover:text-primary transition-colors duration-200">Sri Lanka Grand Tour</h3>
+						<div class="text-sm text-slate-600 mb-5 space-y-2">
+							<div class="flex items-center gap-2.5 font-medium">
+								<i data-lucide="clock" class="w-4 h-4 text-primary"></i><span>14 Days, 13 Nights</span>
 							</div>
-							<div class="flex items-center gap-2">
-								<i data-lucide="map-pin" class="w-4 h-4 text-emerald-600"></i><span>Complete Sri Lanka</span>
+							<div class="flex items-center gap-2.5">
+								<i data-lucide="map-pin" class="w-4 h-4 text-primary"></i><span>Complete Sri Lanka</span>
 							</div>
 						</div>
-						<button onclick="openTourModal(5)" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 px-4 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95">View Details</button>
+						<button onclick="openTourModal(5)" class="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold py-3 px-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-emerald-600/20 hover:scale-[1.02] active:scale-95">View Details</button>
 					</div>
 				</div>
 			</div>
@@ -1676,28 +1679,33 @@
 		</div>
 		<!-- Tour Modal -->
 		<div id="tourModal"
-			class="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 invisible transition-all duration-300">
+			class="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 invisible transition-all duration-300">
 			<div
 				class="relative w-full h-full max-w-[95vw] max-h-[95vh] transform scale-95 transition-transform duration-300 flex items-center justify-center">
-				<div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 p-6">
-					<div class="flex items-center justify-between mb-4">
-						<h3 id="tourModalTitle" class="font-serif text-xl font-bold text-gray-800"></h3>
+				<div class="tour-modal-card p-8 mx-4">
+					<div class="flex items-center justify-between mb-5 flex-shrink-0">
+						<h3 id="tourModalTitle" class="font-serif text-xl font-bold text-slate-800"></h3>
 						<button onclick="closeTourModal()"
-							class="text-gray-400 hover:text-gray-600 transition-colors duration-200"
+							class="text-slate-400 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 p-1.5 rounded-full transition-all duration-200"
 							aria-label="Close tour modal" title="Close tour modal">
-						<i data-lucide="x" class="w-5 h-5"></i>
+						<i data-lucide="x" class="w-4.5 h-4.5"></i>
 						</button>
 					</div>
-					<p id="tourModalDescription" class="text-gray-600 mb-6 leading-relaxed"></p>
-					<div class="space-y-2">
-						<h4 class="font-semibold text-gray-800 mb-3">Tour Highlights:</h4>
-						<ul id="tourModalHighlights" class="space-y-2"></ul>
+					<p id="tourModalDescription" class="text-slate-600 mb-6 leading-relaxed font-medium flex-shrink-0"></p>
+					<div class="space-y-2 flex-grow overflow-hidden flex flex-col min-h-0">
+						<h4 class="font-semibold text-slate-800 mb-3 flex-shrink-0">Tour Highlights:</h4>
+						<div class="flex-grow overflow-y-auto pr-1.5 custom-scrollbar min-h-0">
+							<ul id="tourModalHighlights" class="space-y-3"></ul>
+						</div>
 					</div>
-					<div class="mt-6 pt-4 border-t border-gray-200 text-center">
+					<div class="mt-6 pt-5 border-t border-slate-100 text-center flex-shrink-0">
 						<a href="https://wa.me/94785959333?text=Hi! I'm interested in this tour. Can you provide more details and pricing?"
 							target="_blank" rel="noopener"
-							class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-6 py-3 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95">
-						Contact Now
+							class="inline-block bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold px-8 py-3.5 rounded-xl shadow-lg transition-all duration-300 hover:shadow-emerald-600/25 hover:scale-[1.03] active:scale-95 w-full">
+							<span class="flex items-center justify-center gap-2">
+								<span>Contact Now</span>
+								<i data-lucide="message-circle" class="w-4.5 h-4.5"></i>
+							</span>
 						</a>
 					</div>
 				</div>
