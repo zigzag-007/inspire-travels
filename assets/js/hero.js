@@ -8,8 +8,8 @@
     window.HeroModule = {
         // Hero background images for carousel
         heroImages: [
-            'assets/img/bg/tropical-beach-1.jpg',
             'assets/img/bg/autum-houses.jpg',
+            'assets/img/bg/tropical-beach-1.jpg',
             'assets/img/bg/roadside-building.jpg',
             'assets/img/bg/waterfall-1.jpg',
             'assets/img/bg/dry-leaves.jpg',
@@ -18,9 +18,14 @@
 
         currentImageIndex: 0,
         heroSection: null,
+        bg1: null,
+        bg2: null,
+        activeBg: 1,
 
         init: function() {
             this.heroSection = document.getElementById('home');
+            this.bg1 = document.getElementById('hero-bg-1');
+            this.bg2 = document.getElementById('hero-bg-2');
             this.initHeroBackground();
             this.startHeroCarousel();
             this.initHeroIndicators();
@@ -31,39 +36,59 @@
 
         // Initialize hero background
         initHeroBackground: function() {
-            if (this.heroSection) {
-                this.heroSection.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${this.heroImages[this.currentImageIndex]}')`;
+            if (this.bg1) {
+                this.bg1.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${this.heroImages[this.currentImageIndex]}')`;
             }
         },
 
         // Optimize hero section for better performance
         optimizeHeroPerformance: function() {
-            if (this.heroSection) {
-                // Enable hardware acceleration for smooth background transitions
-                this.heroSection.style.willChange = 'background-image';
-                this.heroSection.style.transform = 'translateZ(0)';
-                this.heroSection.style.backfaceVisibility = 'hidden';
+            if (this.bg1 && this.bg2) {
+                this.bg1.style.backfaceVisibility = 'hidden';
+                this.bg2.style.backfaceVisibility = 'hidden';
             }
         },
 
         // Hero image carousel
         startHeroCarousel: function() {
-            this.updateHeroBackground();
-
+            // First background is initialized in HTML/initHeroBackground, so start interval
             setInterval(() => {
                 this.currentImageIndex = (this.currentImageIndex + 1) % this.heroImages.length;
                 this.updateHeroBackground();
                 this.updateHeroIndicators();
-            }, 5000);
+            }, 7000);
         },
 
         // Update hero background with smooth transition
         updateHeroBackground: function() {
-            if (this.heroSection) {
-                // Use requestAnimationFrame for smooth updates
-                requestAnimationFrame(() => {
-                    this.heroSection.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${this.heroImages[this.currentImageIndex]}')`;
-                });
+            const nextImage = this.heroImages[this.currentImageIndex];
+
+            if (this.activeBg === 1) {
+                if (this.bg2 && this.bg1) {
+                    // Set image on the inactive layer
+                    this.bg2.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${nextImage}')`;
+
+                    // Perform crossfade and zoom transition
+                    this.bg2.classList.remove('hero-bg-inactive');
+                    this.bg2.classList.add('hero-bg-active');
+
+                    this.bg1.classList.remove('hero-bg-active');
+                    this.bg1.classList.add('hero-bg-inactive');
+                }
+                this.activeBg = 2;
+            } else {
+                if (this.bg1 && this.bg2) {
+                    // Set image on the inactive layer
+                    this.bg1.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${nextImage}')`;
+
+                    // Perform crossfade and zoom transition
+                    this.bg1.classList.remove('hero-bg-inactive');
+                    this.bg1.classList.add('hero-bg-active');
+
+                    this.bg2.classList.remove('hero-bg-active');
+                    this.bg2.classList.add('hero-bg-inactive');
+                }
+                this.activeBg = 1;
             }
         },
 

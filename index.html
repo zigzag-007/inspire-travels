@@ -85,25 +85,22 @@
 	<body class="font-sans antialiased bg-background text-foreground">
 		<!-- Loading Animation Preloader -->
 		<div id="loading" class="fixed inset-0 z-[100] transition-all duration-700">
-			<div class="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-accent">
-				<!-- Background layers -->
-				<div class="absolute inset-0 bg-[url('assets/img/bg/dry-leaves.jpg')] bg-cover bg-center opacity-20"></div>
-				<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-				<!-- Floating elements - Refined sizing -->
-				<div class="absolute top-14 md:top-16 left-14 md:left-16 w-32 md:w-36 h-32 md:h-36 bg-white/10 rounded-full blur-xl animate-pulse"></div>
-				<div class="absolute bottom-24 md:bottom-28 right-24 md:right-28 w-24 md:w-28 h-24 md:h-28 bg-accent/20 rounded-full blur-lg animate-bounce"></div>
-				<div class="absolute top-1/2 left-1/4 w-16 md:w-20 h-16 md:h-20 bg-secondary/15 rounded-full blur-md animate-ping"></div>
+			<!-- Animated Fluid Mesh Gradient Background (Vibrant Green & Sunset Orange) -->
+			<div class="absolute inset-0 bg-gradient-to-br from-[#0c3531] via-[#151f1a] to-[#2c1a0e] overflow-hidden">
+				<!-- Animated decorative background elements -->
+				<div class="absolute top-[-10%] left-[-15%] w-[65%] h-[65%] rounded-full bg-primary/50 blur-[120px] animate-pulse" style="animation-duration: 6s;"></div>
+				<div class="absolute bottom-[-10%] right-[-15%] w-[70%] h-[70%] rounded-full bg-secondary/40 blur-[140px] animate-pulse" style="animation-delay: 2s; animation-duration: 8s;"></div>
+				<div class="absolute top-[30%] left-[20%] w-[50%] h-[50%] rounded-full bg-accent/25 blur-[100px] animate-pulse" style="animation-delay: 4s; animation-duration: 10s;"></div>
+				<!-- Subtle vignette -->
+				<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30"></div>
 			</div>
 			<div class="relative z-10 flex items-center justify-center min-h-screen">
 				<div class="text-center max-w-lg mx-auto px-6 sm:px-8">
-					<!-- Logo - Refined sizing -->
-					<div class="relative mb-8 md:mb-10">
-						<div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mx-auto mb-4 border border-white/30 shadow-2xl">
-							<div class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 bg-gradient-to-br from-white to-white/80 rounded-full flex items-center justify-center p-2 md:p-3">
-								<img src="assets/img/logo.png" alt="Inspire Travels Logo" class="w-full h-full object-contain drop-shadow-sm">
-							</div>
+					<!-- Logo - macOS Style Liquid White Glass Orb -->
+					<div class="relative mb-8 md:mb-10 flex justify-center">
+						<div class="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full flex items-center justify-center liquid-white-orb">
+							<img src="assets/img/logo.png" alt="Inspire Travels Logo" class="relative z-10 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain">
 						</div>
-						<div class="absolute -inset-4 md:-inset-6 bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-full animate-pulse"></div>
 					</div>
 					<!-- Text Content - Refined typography -->
 					<div class="space-y-4 md:space-y-5 mb-8 md:mb-10">
@@ -120,13 +117,13 @@
 								style="width: 0%;">
 							</div>
 						</div>
-						<!-- Loading Dots - Refined -->
-						<div class="flex justify-center space-x-2 md:space-x-3">
-							<div class="w-3 h-3 md:w-4 md:h-4 bg-white/90 rounded-full animate-bounce shadow-lg" style="animation-delay:0ms"></div>
-							<div class="w-3 h-3 md:w-4 md:h-4 bg-white/90 rounded-full animate-bounce shadow-lg" style="animation-delay:200ms"></div>
-							<div class="w-3 h-3 md:w-4 md:h-4 bg-white/90 rounded-full animate-bounce shadow-lg" style="animation-delay:400ms"></div>
-							<div class="w-3 h-3 md:w-4 md:h-4 bg-white/90 rounded-full animate-bounce shadow-lg" style="animation-delay:600ms"></div>
-							<div class="w-3 h-3 md:w-4 md:h-4 bg-white/90 rounded-full animate-bounce shadow-lg" style="animation-delay:800ms"></div>
+						<!-- Premium Staggered Loader Dots -->
+						<div class="flex justify-center space-x-2.5 md:space-x-3.5">
+							<div class="loading-dot" style="animation-delay: 0s;"></div>
+							<div class="loading-dot" style="animation-delay: 0.15s;"></div>
+							<div class="loading-dot" style="animation-delay: 0.3s;"></div>
+							<div class="loading-dot" style="animation-delay: 0.45s;"></div>
+							<div class="loading-dot" style="animation-delay: 0.6s;"></div>
 						</div>
 					</div>
 				</div>
@@ -157,7 +154,7 @@
 			</div>
 		</div>
 		<!-- Main Navigation -->
-		<nav id="navbar" class="fixed top-auto left-0 right-0 z-40 transition-all duration-300 bg-white/10 shadow-md liquid-glass">
+		<nav id="navbar" class="fixed top-auto left-0 right-0 z-40 transition-all duration-300 bg-white/10 shadow-md liquid-glass" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="0" data-aos-easing="ease-out-cubic">
 			<div class="max-w-[1400px] mx-auto px-6 md:px-8 lg:px-12 xl:px-16 relative">
 				<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-30"></div>
 				<div class="relative flex justify-between items-center h-16 transform transition-transform duration-200">
@@ -252,50 +249,53 @@
 			</div>
 		</div>
 		<!-- Hero Section (arrow back, sentinel kept, dots removed; mobile buttons balanced) -->
-		<section id="home" class="relative isolate min-h-[100svh] flex items-center bg-cover bg-center bg-no-repeat overflow-hidden pt-8 sm:pt-16 md:pt-20 lg:pt-24 xl:pt-27 pb-8 sm:pb-12 md:pb-16 lg:pb-20 grid grid-cols-1 place-items-center" style="background-image:url('assets/img/bg/tropical-beach-1.jpg'); transition:background-image 1s ease-in-out;">
+		<section id="home" class="relative isolate min-h-[100svh] flex items-center overflow-hidden pt-8 sm:pt-16 md:pt-20 lg:pt-24 xl:pt-27 pb-8 sm:pb-12 md:pb-16 lg:pb-20 grid grid-cols-1 place-items-center">
+			<!-- Background layers for smooth Ken Burns crossfade -->
+			<div id="hero-bg-1" class="hero-bg-layer hero-bg-active" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/img/bg/autum-houses.jpg');"></div>
+			<div id="hero-bg-2" class="hero-bg-layer hero-bg-inactive"></div>
 			<!-- Readability overlay -->
-			<div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60"></div>
+			<div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60 z-10"></div>
 
 			<!-- Content -->
-			<div class="relative z-10 w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+			<div class="relative z-20 w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
 				<div class="text-center">
 					<!-- Heading -->
-					<h1 class="font-serif font-bold leading-tight tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-2 sm:mb-3 md:mb-4 lg:mb-6" data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-out-quart" data-aos-delay="200">
+					<h1 class="font-serif font-bold leading-tight tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-2 sm:mb-3 md:mb-4 lg:mb-6" data-aos="fade-up-blur" data-aos-duration="1200" data-aos-delay="200">
 						<span class="block">Discover the</span>
 						<span class="block bg-gradient-to-r from-accent to-white/90 bg-clip-text text-transparent">Pearl of the Ocean</span>
 					</h1>
 
 					<!-- Subtitle -->
-					<p class="mt-2 sm:mt-3 md:mt-4 lg:mt-5 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl max-w-3xl mx-auto leading-relaxed text-white/90 mb-4 sm:mb-6 md:mb-8 lg:mb-10" data-aos="fade-up" data-aos-duration="600" data-aos-delay="900" data-aos-easing="ease-out-quart">
+					<p class="mt-2 sm:mt-3 md:mt-4 lg:mt-5 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl max-w-3xl mx-auto leading-relaxed text-white/90 mb-4 sm:mb-6 md:mb-8 lg:mb-10" data-aos="fade-up-blur" data-aos-duration="1200" data-aos-delay="400">
 						Experience the enchanting beauty of Sri Lanka through our carefully curated tours. From ancient temples to pristine beaches, create memories that last a lifetime.
 					</p>
 
 					<!-- CTAs (mobile: balanced width & height, rounded) -->
 					<div class="mt-6 sm:mt-8 mb-6 sm:mb-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-						<button class="liquid-glass text-white px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 flex items-center justify-center" aria-label="Explore our tour packages" data-aos="fade-up" data-aos-duration="500" data-aos-delay="1100" data-aos-easing="ease-out-back" onclick="window.location.href='#tours'">Explore Tours</button>
+						<button class="liquid-glass text-white px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 flex items-center justify-center" aria-label="Explore our tour packages" data-aos="scale-up-blur" data-aos-duration="1000" data-aos-delay="600" onclick="window.location.href='#tours'">Explore Tours</button>
 
-						<button class="liquid-glass text-white px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2" aria-label="Watch promotional video" data-aos="fade-up" data-aos-duration="500" data-aos-delay="1250" data-aos-easing="ease-out-back" onclick="window.open('https://www.youtube.com/@InspireTravelandTours/shorts', '_blank')" title="Play: youtube.com/@InspireTravelandTours/shorts">
+						<button class="liquid-glass text-white px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2" aria-label="Watch promotional video" data-aos="scale-up-blur" data-aos-duration="1000" data-aos-delay="750" onclick="window.open('https://www.youtube.com/@InspireTravelandTours/shorts', '_blank')" title="Play: youtube.com/@InspireTravelandTours/shorts">
 							<i data-lucide="play" class="w-5 h-5"></i>Watch Video
 						</button>
 					</div>
 
 					<!-- Stats (always visible; tidy 3-up) -->
-					<div class="grid grid-cols-3 gap-2 sm:gap-4 max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto" data-aos="fade-up" data-aos-duration="500" data-aos-delay="1400" data-aos-easing="ease-out-quart">
-						<div class="liquid-glass rounded-2xl p-3 sm:p-5">
+					<div class="grid grid-cols-3 gap-2 sm:gap-4 max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto">
+						<div class="liquid-glass rounded-2xl p-3 sm:p-5" data-aos="scale-up-blur" data-aos-duration="1000" data-aos-delay="900">
 							<div class="text-center">
 								<i data-lucide="map-pin" class="w-6 h-6 sm:w-7 sm:h-7 mx-auto mb-2 text-accent"></i>
 								<div class="text-xl sm:text-2xl font-bold font-serif">50+</div>
 								<div class="mt-0.5 text-[10px] sm:text-xs text-white/80">Destinations</div>
 							</div>
 						</div>
-						<div class="liquid-glass rounded-2xl p-3 sm:p-5">
+						<div class="liquid-glass rounded-2xl p-3 sm:p-5" data-aos="scale-up-blur" data-aos-duration="1000" data-aos-delay="1050">
 							<div class="text-center">
 								<i data-lucide="calendar" class="w-6 h-6 sm:w-7 sm:h-7 mx-auto mb-2 text-accent"></i>
 								<div class="text-xl sm:text-2xl font-bold font-serif">1000+</div>
 								<div class="mt-0.5 text-[10px] sm:text-xs text-white/80">Tours Completed</div>
 							</div>
 						</div>
-						<div class="liquid-glass rounded-2xl p-3 sm:p-5">
+						<div class="liquid-glass rounded-2xl p-3 sm:p-5" data-aos="scale-up-blur" data-aos-duration="1000" data-aos-delay="1200">
 							<div class="text-center">
 								<i data-lucide="users" class="w-6 h-6 sm:w-7 sm:h-7 mx-auto mb-2 text-accent"></i>
 								<div class="text-xl sm:text-2xl font-bold font-serif">5000+</div>
@@ -320,7 +320,7 @@
 			<!-- Section Header with Split Animation -->
 			<div class="text-center mb-16">
 				<h2 class="font-serif text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up, fade-right, fade-left" data-aos-duration="700,500,500" data-aos-delay="100,300,450" data-aos-easing="ease-out-quart,ease-out-back,ease-out-back">
-					<span>Most Popular</span> 
+					<span>Most Popular</span>
 					<span class="gradient-text">Tours</span>
 				</h2>
 				<p class="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-easing="ease-out-quart">
@@ -921,7 +921,7 @@
 					</p>
 					<!-- CTA Button -->
 					<div class="flex justify-center" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="600">
-						<button class="liquid-glass text-white px-10 py-4 text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 flex items-center gap-3" 
+						<button class="liquid-glass text-white px-10 py-4 text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 flex items-center gap-3"
 							aria-label="Contact us for your adventure" onclick="window.location.href='#footer'">
 						<span>Contact Now</span>
 						<i data-lucide="send" class="w-5 h-5"></i>
