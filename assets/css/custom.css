@@ -654,6 +654,26 @@ html, body {
     filter: blur(0);
 }
 
+/* Enable smooth and responsive hover states on AOS-animated elements */
+/* Once an AOS element has animated (.aos-animate), we override the transition on hover to make it responsive (300ms) and remove the entry animation delay */
+[data-aos].aos-animate:hover {
+    transition-duration: 300ms !important;
+    transition-delay: 0s !important;
+}
+
+/* Apply the hover scale directly in CSS to override inline AOS transform scale */
+[class*="hover:scale-105"][data-aos].aos-animate:hover {
+    transform: scale(1.05) !important;
+}
+
+[class*="hover:scale-[1.02]"][data-aos].aos-animate:hover {
+    transform: scale(1.02) !important;
+}
+
+[class*="hover:scale-[1.015]"][data-aos].aos-animate:hover {
+    transform: scale(1.015) !important;
+}
+
 /* Cinematic Hero Background Transitions (Ken Burns Effect) */
 .hero-bg-layer {
     position: absolute;

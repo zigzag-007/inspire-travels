@@ -38,69 +38,10 @@
                     AOS.refresh();
                 }, 100);
 
-                // Fix hover effects after AOS animations complete
-                this.fixHoverEffects();
-
                 console.log('AOS initialized with modern 2025 configuration');
             } else {
                 console.warn('AOS library not loaded. Animations will not work.');
             }
-        },
-
-        // Fix hover effects that are broken by AOS inline styles
-        fixHoverEffects: function() {
-            // Wait for all AOS animations to complete
-            setTimeout(() => {
-                // Find all elements with hover:scale-105 that also have AOS animations
-                const elementsWithHover = document.querySelectorAll('[class*="hover:scale-105"]');
-
-                elementsWithHover.forEach(element => {
-                    // Check if element has AOS animation
-                    if (element.hasAttribute('data-aos')) {
-                        // Remove AOS inline styles that interfere with hover
-                        element.style.removeProperty('transform');
-                        element.style.removeProperty('transition');
-
-                        // Add event listeners for hover effects
-                        element.addEventListener('mouseenter', function() {
-                            this.style.transform = 'scale(1.05)';
-                            this.style.transition = 'transform 0.3s ease';
-                        });
-
-                        element.addEventListener('mouseleave', function() {
-                            this.style.transform = 'scale(1)';
-                            this.style.transition = 'transform 0.3s ease';
-                        });
-                    }
-                });
-
-                // Fix hero indicators hover effects
-                const heroIndicators = document.querySelectorAll('.hero-indicator');
-                heroIndicators.forEach(indicator => {
-                    if (indicator.hasAttribute('data-aos')) {
-                        // Remove AOS inline styles
-                        indicator.style.removeProperty('transform');
-                        indicator.style.removeProperty('transition');
-
-                        // Add hover effects
-                        indicator.addEventListener('mouseenter', function() {
-                            if (!this.classList.contains('scale-125')) {
-                                this.style.transform = 'scale(1.1)';
-                                this.style.transition = 'all 0.3s ease';
-                            }
-                        });
-
-                        indicator.addEventListener('mouseleave', function() {
-                            if (!this.classList.contains('scale-125')) {
-                                this.style.transform = 'scale(1)';
-                                this.style.transition = 'all 0.3s ease';
-                            }
-                        });
-                    }
-                });
-
-                console.log('Hover effects fixed for AOS animated elements');
-            }, 2000); // Wait 2 seconds for all animations to complete
         }
     };
 })();
