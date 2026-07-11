@@ -100,15 +100,12 @@
                 const offset = navbarHeight + 20;
                 const scrollY = window.scrollY;
 
-                // 1. Apple-Style Navbar Translation (slides up to stick to top when topbar scrolls off)
+                // 1. Apple-Style Navbar Translation (glides perfectly with top bar scroll status)
                 if (this.navbar) {
                     const topBar = document.querySelector('.bg-primary.text-primary-foreground');
                     const topBarHeight = topBar ? topBar.offsetHeight : 36;
-                    if (scrollY > topBarHeight) {
-                        this.navbar.style.transform = `translate3d(0, -${topBarHeight}px, 0)`;
-                    } else {
-                        this.navbar.style.transform = `translate3d(0, 0, 0)`;
-                    }
+                    const translateY = Math.max(0, topBarHeight - scrollY);
+                    this.navbar.style.transform = `translate3d(0, ${translateY}px, 0)`;
                 }
 
                 let currentSection = null;
