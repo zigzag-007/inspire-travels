@@ -13,58 +13,108 @@
         // Tour data with EXACT detailed itineraries as provided by user
         tourData: [
             {
-                title: "Ceylon City & Beach Escape",
-                image: "assets/img/main-gallery/sigiriya-lion-rock.jpg",
-                rating: 8.0,
-                duration: "3 DAYS",
-                location: "COLOMBO & BENTOTA",
-                description: "A perfect 3-day escape combining city exploration and beach relaxation.",
-                highlights: ["Day 1: Colombo city tour / stay Colombo", "Day 2: Bentota activity / stay Bentota", "Day 3: Tour end departure"]
-            },
-            {
-                title: "City to Sea Adventure",
-                image: "assets/img/main-gallery/mirissa-coconut-tree-hill.jpg",
-                rating: 8.0,
-                duration: "4 DAYS",
-                location: "COLOMBO TO MIRISSA",
-                description: "Journey from urban Colombo to the pristine southern beaches.",
-                highlights: ["Day 1: Colombo city tour / stay Colombo", "Day 2: Bentota activity / stay Bentota", "Day 3: Mirissa activity / stay Mirissa", "Day 4: Tour end departure"]
-            },
-            {
-                title: "Hills to Coast Escape",
-                image: "assets/img/main-gallery/horton-plains-national-park.jpg",
-                rating: 8.0,
+                title: "Sri Lanka Highlights Escape",
+                image: "assets/img/packages/3-day-package.jpeg",
+                rating: 9.0,
                 duration: "5 DAYS",
-                location: "KANDY TO MIRISSA",
-                description: "Experience Sri Lanka's beautiful hill country before reaching the coast.",
-                highlights: ["Day 1: Kandy city tour / stay Kandy", "Day 2: Nuwara Eliya / stay Nuwara Eliya", "Day 3: Ella / stay Ella", "Day 4: Mirissa / stay Mirissa", "Day 5: Colombo city tour and departure"]
+                location: "COLOMBO, KANDY & BENTOTA",
+                description: "A perfect 5-day escape combining cultural highlights, city exploration, and coastal relaxation.",
+                highlights: [
+                    "Day 1: Scenic drive to Kandy via Pinnawala Elephant Sanctuary / stay Kandy",
+                    "Day 2: Tea factory walk & Nuwara Eliya colonial city explorer / Stay Nuwara Eliya",
+                    "Day 3: Bentota water sports & golden beach leisure / stay Bentota",
+                    "Day 4: Colombo landmarks tour & final departure"
+                ]
+            },
+            {
+                title: "Hills to Beach Escape",
+                image: "assets/img/packages/4-day-package.jpeg",
+                rating: 9.2,
+                duration: "7 DAYS",
+                location: "SIGIRIYA TO MIRISSA",
+                description: "Journey through cultural fortresses, tranquil harbors, and hill country scenic views to southern beaches.",
+                highlights: [
+                    "Day 1: Sigiriya Lion Rock fortress climb & village tour / stay Sigiriya",
+                    "Day 2: Trincomalee harbor view & Nilaveli beach swim / Stay Trincomalee",
+                    "Day 3-4: Temple of the Tooth Relic & Kandy botanical gardens / Stay Kandy",
+                    "Day 5: Scenic train ride to Ella & Nine Arch Bridge hike / stay Ella",
+                    "Day 6: Mirissa whale watching & sunset coconut hill walk / stay Mirissa",
+                    "Day 7: Colombo landmarks sightseeing & airport transfer"
+                ]
             },
             {
                 title: "Golden Triangle & Beyond",
-                image: "assets/img/main-gallery/waterfall-tour.jpg",
-                rating: 8.0,
+                image: "assets/img/packages/5-day-package.jpeg",
+                rating: 9.3,
                 duration: "7 DAYS",
-                location: "SIGIRIYA TO GALLE",
-                description: "Explore Sri Lanka's cultural triangle and coastal heritage.",
-                highlights: ["Day 1: Sigiriya / stay Sigiriya", "Day 2: Kandy city tour / stay Kandy", "Day 3: Nuwara Eliya / stay Nuwara Eliya", "Day 4: Ella / stay Ella", "Day 5-6: Galle / stay Galle", "Day 7: Colombo city tour and departure"]
+                location: "COLOMBO, KANDY & YALA",
+                description: "Discover cultural heritage monuments, high-country waterfalls, and Yala wildlife safari.",
+                highlights: [
+                    "Day 1: Colombo arrival & evening city street-food walk / stay Colombo",
+                    "Day 2: Spice gardens & traditional Kandy cultural dance show / stay Kandy",
+                    "Day 3: Ramboda waterfalls & Nuwara Eliya tea estates / stay Nuwara Eliya",
+                    "Day 4: Ella Rock trekking & iconic Ravana waterfall visit / stay Ella",
+                    "Day 5: Wilderness safari in Yala National Park / Stay Yala",
+                    "Day 6: Madu River boat safari & marine turtle hatchery / stay Bentota",
+                    "Day 7: Galle Fort ramparts walk, Colombo tour & airport departure"
+                ]
             },
             {
-                title: "Pearl of Asia Journey",
-                image: "assets/img/main-gallery/pidurangala-rock.jpg",
-                rating: 8.0,
+                title: "Ramayanaya Tour",
+                image: "assets/img/packages/7-day-package.jpeg",
+                rating: 9.5,
+                duration: "8 DAYS",
+                location: "ANURADHAPURA TO KATARAGAMA",
+                description: "Follow the sacred paths of Ramayana legend through historic shrines and temples.",
+                highlights: [
+                    "Day 1: Ancient ruins explorer in Anuradhapura kingdom / stay Anuradhapura",
+                    "Day 2: Trincomalee Koneswaram temple & beach swim / stay Trincomalee",
+                    "Day 3-4: Kandy cultural temples & Royal Botanical Gardens / stay Kandy",
+                    "Day 5: Seetha Amman temple & Nuwara Eliya tea estate tour / stay Nuwara Eliya",
+                    "Day 6: Kataragama temple complex spiritual experience / stay Kataragama",
+                    "Day 7: Colombo landmarks tour & evening Galle Face green walk / Stay Colombo",
+                    "Day 8: Colombo premium shopping walk & airport transfer"
+                ]
+            },
+            {
+                title: "Pearl Of Asia Tour",
+                image: "assets/img/packages/10-day-package.jpeg",
+                rating: 9.4,
                 duration: "10 DAYS",
-                location: "COMPREHENSIVE TOUR",
-                description: "The ultimate comprehensive journey through Sri Lanka's highlights.",
-                highlights: ["Day 1: Negombo / stay Negombo", "Day 2: Sigiriya / stay Sigiriya", "Day 3: Kandy city tour / stay Kandy", "Day 4: Nuwara Eliya / stay Nuwara Eliya", "Day 5: Ella / stay Ella", "Day 6: Udawalawe / stay Udawalawe", "Day 7-8: Mirissa / stay Mirissa", "Day 9: Bentota / stay Bentota", "Day 10: Colombo city tour and departure"]
+                location: "DAMBULLA TO COLOMBO",
+                description: "A comprehensive 10-day tour covering cave temples, tea hills, elephant safaris, and beach leisure.",
+                highlights: [
+                    "Day 1: Golden Temple of Dambulla & Sigiriya viewpoint / stay Dambulla",
+                    "Day 2: Kandy Tooth Relic Temple & evening cultural show / stay Kandy",
+                    "Day 3: Nuwara Eliya tea valley & Gregory Lake boat ride / stay Nuwara Eliya",
+                    "Day 4: Ella gap hiking & Nine Arch Bridge walk / stay Ella",
+                    "Day 5: Elephant Transit Home & Udawalawe safari / stay Udawalawe",
+                    "Day 6-7: Mirissa gold beach relaxation & surfing / stay Mirissa",
+                    "Day 8: Madu River boat cruise & Bentota beach leisure / stay Bentota",
+                    "Day 9: Colombo historic landmarks & shopping explorer / Stay Colombo",
+                    "Day 10: Colombo departure transfer"
+                ]
             },
             {
                 title: "Sri Lanka Grand Tour",
-                image: "assets/img/main-gallery/pinnawala-elephant-watching.jpg",
-                rating: 8.0,
+                image: "assets/img/packages/14-day-package.jpeg",
+                rating: 10.0,
                 duration: "14 DAYS",
                 location: "COMPLETE SRI LANKA",
-                description: "The most comprehensive tour covering every major destination in Sri Lanka.",
-                highlights: ["Day 1: Negombo / stay Negombo", "Day 2: Anuradhapura / stay Trincomalee", "Day 3: Trincomalee city / stay Sigiriya", "Day 4: Sigiriya, Dambulla / stay Sigiriya", "Day 5: Kandy city tour / stay Kandy", "Day 6: Nuwara Eliya / stay Nuwara Eliya", "Day 7: Ella / stay Ella", "Day 8: Yala / stay Yala", "Day 9: Udawalawe / stay Udawalawe", "Day 10: Mirissa / stay Mirissa", "Day 11-12: Bentota / stay Bentota", "Day 13-14: Colombo city tour and departure"]
+                description: "The ultimate 14-day grand tour covering every cultural monument and scenic landscape of Sri Lanka.",
+                highlights: [
+                    "Day 1: Colombo arrival & evening city walk / stay Colombo",
+                    "Day 2-3: Sigiriya Lion Rock fortress & Pidurangala sunset / Stay Sigiriya",
+                    "Day 4: Polonnaruwa medieval ruins bicycle exploration / stay Polonnaruwa",
+                    "Day 5-6: Trincomalee harbor & Pigeon Island snorkeling / stay Trincomalee",
+                    "Day 7: Kandy city highlights & Peradeniya gardens / stay Kandy",
+                    "Day 8: Nuwara Eliya tea factory walk & Gregory Lake boat ride / stay Nuwara Eliya",
+                    "Day 9-10: Ella gap trekking & Ravana pool visit / stay Ella",
+                    "Day 11: Yala National Park leopard watching safari / stay Yala",
+                    "Day 12: Hirikatiya surf bay beach relaxation / stay Hirikatiya",
+                    "Day 13: Weligama bay surfing & Bentota boat ride / stay Bentota",
+                    "Day 14: Colombo city highlights & airport departure"
+                ]
             }
         ],
 
@@ -103,7 +153,7 @@
 
                 if (modal && modalTitle && modalDescription && modalHighlights) {
                     modalTitle.textContent = tour.title;
-                    modalDescription.textContent = tour.description;
+                    modalDescription.textContent = ''; // description hidden per design
                     modalHighlights.innerHTML = tour.highlights.map(highlight =>
                         `<li class="flex items-start gap-3 text-slate-700 font-medium py-1"><span class="flex items-center justify-center w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex-shrink-0 mt-0.5"><i data-lucide="check" class="w-3.5 h-3.5"></i></span><span>${highlight}</span></li>`
                     ).join('');
@@ -113,11 +163,23 @@
                         lucide.createIcons();
                     }
 
-                    // Dynamically set WhatsApp link with selected package name & duration
-                    const whatsappBtn = modal.querySelector('a[href^="https://wa.me/"]');
+                    // Dynamically set WhatsApp link with selected package name & duration (Premium formatted message)
+                    // Dynamically set WhatsApp link with selected package name & duration (Premium formatted message)
+                    const whatsappBtn = modal.querySelector('a[href*="whatsapp.com/send"]');
                     if (whatsappBtn) {
-                        const message = encodeURIComponent(`Hi! I'm interested in the "${tour.title}" (${tour.duration}) package. Can you provide more details and pricing?`);
-                        whatsappBtn.href = `https://wa.me/94785959333?text=${message}`;
+                        const star  = '\u2B50';
+                        const plane = '\u2708\uFE0F';
+                        const clock = '\u23F3';
+                        const pin   = '\uD83D\uDCCD';
+                        const message = encodeURIComponent(
+                            `${star} *New Tour Inquiry - Inspire Travels* ${star}\n\n` +
+                            `Hi! I am interested in booking this customized tour package:\n\n` +
+                            `${plane} *Package:* ${tour.title}\n` +
+                            `${clock} *Duration:* ${tour.duration}\n` +
+                            `${pin} *Route:* ${tour.location}\n\n` +
+                            `Could you please verify availability and share pricing details?\n\nThank you!`
+                        );
+                        whatsappBtn.href = `https://api.whatsapp.com/send?phone=94785959333&text=${message}`;
                     }
 
                     // Show scrollbar on active scrolling using temporary class

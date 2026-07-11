@@ -183,6 +183,8 @@
         initScrollDepthEffect: function() {
             if (!this.heroSection) return;
             const bgWrapper = document.getElementById('hero-bg-wrapper');
+            const adventureBg = document.getElementById('adventure-bg-parallax');
+            const adventureSection = document.getElementById('adventure');
 
             let ticking = false;
 
@@ -194,6 +196,17 @@
                 if (scrollY <= heroHeight + 100) {
                     if (bgWrapper) {
                         bgWrapper.style.transform = `translate3d(0, ${scrollY * 0.4}px, 0)`;
+                    }
+                }
+
+                // Apply viewport-relative parallax translation to adventure section background
+                if (adventureSection && adventureBg) {
+                    const rect = adventureSection.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+
+                    if (rect.top < windowHeight && rect.bottom > 0) {
+                        const translateVal = (rect.top - windowHeight) * 0.12;
+                        adventureBg.style.transform = `translate3d(0, ${translateVal}px, 0) scale(1.15)`;
                     }
                 }
 

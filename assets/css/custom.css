@@ -854,3 +854,102 @@ html, body {
     filter: url(#container-glass);
     z-index: -2;
 }
+
+/* =============================================================================
+   10. SMALL DEVICE RESPONSIVENESS (iPhone SE, iPhone X, small Android)
+   ============================================================================= */
+
+/* ---- xs: 375px (iPhone X / SE 2022 / Pixel 4a) ---- */
+@media (max-width: 375px) {
+    /* Hero heading — prevent overflow on very small widths */
+    #home h1 {
+        font-size: clamp(1.65rem, 8vw, 2.25rem);
+        line-height: 1.2;
+    }
+
+    /* Hero subtitle — tighten font for narrow screens */
+    #home p {
+        font-size: 0.875rem;
+        line-height: 1.6;
+    }
+
+    /* Stat tiles — reduce vertical padding */
+    #home .liquid-glass.rounded-2xl {
+        padding: 0.5rem 0.4rem;
+    }
+
+    /* Hero stat numbers */
+    #home .liquid-glass .font-serif {
+        font-size: 1.1rem;
+    }
+
+    /* Tour modal — fill almost full screen on small phones */
+    .tour-modal-card {
+        width: 96vw !important;
+        max-width: 96vw !important;
+        max-height: 90vh !important;
+        padding: 1.25rem !important;
+    }
+
+    /* Tour cards — reduce padding in card body */
+    .liquid-glass-tile .p-6 {
+        padding: 1rem;
+    }
+
+    /* Section headings — scale down */
+    section h2 {
+        font-size: clamp(1.6rem, 7.5vw, 2.25rem);
+    }
+
+    /* Mobile sidebar — constrain width on very small phones */
+    .mobile-menu {
+        width: 88vw !important;
+    }
+
+    /* Top bar text */
+    .bg-primary.text-primary-foreground {
+        font-size: 0.75rem;
+    }
+}
+
+/* ---- xxs: 320px (iPhone SE 2016 / very small Android) ---- */
+@media (max-width: 320px) {
+    /* Hero heading — even tighter */
+    #home h1 {
+        font-size: clamp(1.4rem, 9vw, 1.8rem);
+    }
+
+    /* Hero subtitle */
+    #home p {
+        font-size: 0.8rem;
+    }
+
+    /* Tour modal — essentially full screen */
+    .tour-modal-card {
+        width: 99vw !important;
+        max-width: 99vw !important;
+        max-height: 92vh !important;
+        padding: 1rem !important;
+        border-radius: 1rem !important;
+    }
+
+    /* Hide hero scroll arrow on very tiny screens to free vertical space */
+    .animate-bounce .lucide-chevron-down {
+        display: none;
+    }
+
+    /* Stat tile label text — keep readable */
+    #home .liquid-glass .text-\[10px\] {
+        font-size: 9px;
+    }
+
+    /* Mobile sidebar — nearly full width */
+    .mobile-menu {
+        width: 95vw !important;
+    }
+
+    /* Package cards grid gap */
+    .grid.gap-8 {
+        gap: 1.25rem;
+    }
+}
