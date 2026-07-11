@@ -49,7 +49,7 @@
             const stack = document.getElementById('promoCardStack');
             if (stack) {
                 stack.innerHTML = this.slides.map((slide, idx) => `
-                    <div class="promo-card absolute inset-0 w-full h-full rounded-2xl overflow-hidden cursor-grab active:cursor-grabbing origin-bottom flex items-center justify-center bg-[#0c3531] border border-white/10 shadow-lg transition-transform duration-300" data-index="${idx}">
+                    <div class="promo-card absolute inset-0 w-full h-full rounded-2xl overflow-hidden cursor-grab active:cursor-grabbing origin-center bg-[#0c3531] border border-white/10 shadow-lg transition-transform duration-300" data-index="${idx}">
                         <img src="${slide.src}" alt="${slide.title}" class="max-w-full max-h-full object-contain pointer-events-none select-none rounded-xl">
                         <!-- Overlay Zoom Button -->
                         <button onclick="event.stopPropagation(); window.openPromoPhotoSwipe(${idx});" class="absolute top-3 right-3 bg-black/60 hover:bg-[#F7921E] text-white w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-md border border-white/10 z-20" title="Zoom image">
@@ -82,15 +82,15 @@
                 }
             });
 
-            // Navigation buttons
-            if (prevBtn) prevBtn.addEventListener('click', () => this.next()); // Tinder style, next slides cards away
-            if (nextBtn) nextBtn.addEventListener('click', () => this.next());
+            // Navigation buttons - Tinder style: rewind vs discard
+            if (prevBtn) prevBtn.addEventListener('click', () => this.prev());
+            if (nextBtn) nextBtn.addEventListener('click', () => this.nextSlide('right'));
 
             // Keyboard navigation
             document.addEventListener('keydown', (e) => {
                 if (!modal.classList.contains('invisible')) {
                     if (e.key === 'Escape') this.close();
-                    if (e.key === 'ArrowRight') this.next();
+                    if (e.key === 'ArrowRight') this.nextSlide('right');
                     if (e.key === 'ArrowLeft') this.prev();
                 }
             });
@@ -140,10 +140,11 @@
                     activeCard.style.transform = `translate(${flyX}px, ${currentY}px) rotate(${rotation}deg)`;
                     activeCard.style.opacity = '0';
                     
-                    // Proceed to next card
+                    // Increment slide index and update stack directly without double-triggering animations
                     setTimeout(() => {
-                        this.next();
-                    }, 150);
+                        this.activeSlideIndex = (this.activeSlideIndex + 1) % this.slides.length;
+                        this.render();
+                    }, 200);
                 } else {
                     // Snap back
                     activeCard.style.transition = 'transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.25)';
@@ -202,8 +203,8 @@
             
             const container = modal.querySelector('.promo-modal-container');
             if (container) {
-                container.classList.remove('scale-95');
-                container.classList.add('scale-100');
+                container.classList.remove('scale-95', 'translate-y-8', 'opacity-0');
+                container.classList.add('scale-100', 'translate-y-0', 'opacity-100');
             }
 
             // Prevent body scroll
@@ -215,34 +216,37 @@
             if (!modal) return;
 
             modal.classList.add('opacity-0');
+            modal.classList.remove('opacity-100');
             
             const container = modal.querySelector('.promo-modal-container');
             if (container) {
-                container.classList.remove('scale-100');
-                container.classList.add('scale-95');
+                container.classList.remove('scale-100', 'translate-y-0', 'opacity-100');
+                container.classList.add('scale-95', 'translate-y-8', 'opacity-0');
             }
 
             setTimeout(() => {
                 modal.classList.add('invisible');
-                modal.classList.remove('flex', 'opacity-100');
+                modal.classList.remove('flex');
                 document.body.classList.remove('overflow-hidden');
             }, 300);
         },
 
-        next: function() {
+        nextSlide: function(direction = 'right') {
             const cards = document.querySelectorAll('.promo-card');
             const topCard = Array.from(cards).find(c => c.dataset.index == this.activeSlideIndex);
             
             if (topCard) {
+                const flyX = direction === 'right' ? window.innerWidth : -window.innerWidth;
+                const rot = direction === 'right' ? 15 : -15;
                 topCard.style.transition = 'transform 0.4s ease-out, opacity 0.4s ease-out';
-                topCard.style.transform = `translate(${window.innerWidth}px, -20px) rotate(15deg)`;
+                topCard.style.transform = `translate(${flyX}px, -20px) rotate(${rot}deg)`;
                 topCard.style.opacity = '0';
             }
 
             setTimeout(() => {
                 this.activeSlideIndex = (this.activeSlideIndex + 1) % this.slides.length;
                 this.render();
-            }, 150);
+            }, 200);
         },
 
         prev: function() {
