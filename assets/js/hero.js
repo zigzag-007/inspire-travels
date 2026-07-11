@@ -227,12 +227,12 @@
                     if (rect.top < windowHeight && rect.bottom > 0) {
                         // Progress: 0 when section enters, 1 when section leaves viewport
                         const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
-                        // Leaf layer (::before) — slower, deeper movement
-                        const leafY = (progress - 0.5) * 25;
-                        const leafX = Math.sin(progress * Math.PI) * 8;
-                        // Firefly/Pollen layer (::after) — faster, more pronounced for depth contrast
-                        const fireflyY = (progress - 0.5) * -40;
-                        const fireflyX = Math.sin(progress * Math.PI * 1.5) * 12;
+                        // Leaf layer (::before) — slower, deeper movement (enhanced parallax)
+                        const leafY = (progress - 0.5) * 45;
+                        const leafX = Math.sin(progress * Math.PI) * 15;
+                        // Firefly/Pollen layer (::after) — faster, more pronounced for depth contrast (enhanced parallax)
+                        const fireflyY = (progress - 0.5) * -70;
+                        const fireflyX = Math.sin(progress * Math.PI * 1.5) * 24;
 
                         section.style.setProperty('--leaf-tx', `${leafX}px`);
                         section.style.setProperty('--leaf-ty', `${leafY}px`);
@@ -251,20 +251,32 @@
                 }
             }, { passive: true });
 
-            // 5. Throttled Mousemove Listener for Interactive Canopy Sway
-            let mouseMoving = false;
+            // 5. Lerped Mousemove Listener for Silk-Smooth Interactive Canopy Sway (with Inertia)
+            let targetMouseX = 0;
+            let targetMouseY = 0;
+            let currentMouseX = 0;
+            let currentMouseY = 0;
+
             document.addEventListener('mousemove', (e) => {
-                if (!mouseMoving) {
-                    mouseMoving = true;
-                    window.requestAnimationFrame(() => {
-                        const mx = (e.clientX / window.innerWidth) - 0.5;
-                        const my = (e.clientY / window.innerHeight) - 0.5;
-                        document.documentElement.style.setProperty('--mouse-x', mx.toFixed(3));
-                        document.documentElement.style.setProperty('--mouse-y', my.toFixed(3));
-                        mouseMoving = false;
-                    });
-                }
+                targetMouseX = (e.clientX / window.innerWidth) - 0.5;
+                targetMouseY = (e.clientY / window.innerHeight) - 0.5;
             }, { passive: true });
+
+            function updateLerpedMouse() {
+                const dx = targetMouseX - currentMouseX;
+                const dy = targetMouseY - currentMouseY;
+
+                // Smoothly interpolate cursor variables (0.08 interpolation factor for silk lag inertia)
+                if (Math.abs(dx) > 0.0001 || Math.abs(dy) > 0.0001) {
+                    currentMouseX += dx * 0.08;
+                    currentMouseY += dy * 0.08;
+                    document.documentElement.style.setProperty('--mouse-x', currentMouseX.toFixed(4));
+                    document.documentElement.style.setProperty('--mouse-y', currentMouseY.toFixed(4));
+                }
+
+                window.requestAnimationFrame(updateLerpedMouse);
+            }
+            window.requestAnimationFrame(updateLerpedMouse);
         },
 
     };

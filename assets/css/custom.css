@@ -237,12 +237,10 @@ html, body {
     position: absolute;
     inset: 0;
     background-image:
-        /* Left Margin — Large Monstera Silhouette (Light green on dark) */
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='600' viewBox='0 0 300 600'%3E%3Cpath d='M-50 150 Q120 180 80 320 Q40 440 120 520 L-50 600 Z' fill='%2390c98a' opacity='0.08'/%3E%3Cpath d='M-50 200 C20 220 50 300 10 380 Q-20 440 -50 480 Z' fill='%2390c98a' opacity='0.06'/%3E%3Ccircle cx='40' cy='280' r='12' fill='%231D231F'/%3E%3Ccircle cx='20' cy='360' r='10' fill='%231D231F'/%3E%3C/svg%3E"),
-        /* Right Margin — Large Palm Frond Silhouette (Light green on dark) */
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='600' viewBox='0 0 300 600'%3E%3Cpath d='M350 100 Q180 220 220 380 Q250 480 180 580 L350 600 Z' fill='%2390c98a' opacity='0.08'/%3E%3Cpath d='M300 180 Q200 270 230 380' stroke='%2390c98a' stroke-width='2.5' fill='none' opacity='0.12'/%3E%3Cpath d='M250 260 Q180 250 160 270 M240 320 Q160 310 140 330 M230 380 Q150 370 130 395 M225 440 Q155 430 135 455' stroke='%2390c98a' stroke-width='2' fill='none' opacity='0.09'/%3E%3C/svg%3E");
-    background-size: 280px 560px, 280px 560px;
-    background-position: left 20%, right 65%;
+        /* Left Margin — Premium Detailed Monstera Silhouette (dark bg cutouts) */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 600'%3E%3Cpath d='M-50 120 Q100 130 140 220 C180 310 130 420 180 500 L-50 560 Z' fill='%2390c98a' opacity='0.05'/%3E%3Cpath d='M-50 160 C20 170 80 200 90 230 C50 250 10 260 -50 280 Z' fill='%2390c98a' opacity='0.07'/%3E%3Cpath d='M-50 240 C30 250 100 290 110 330 C60 350 20 360 -50 370 Z' fill='%2390c98a' opacity='0.07'/%3E%3Cpath d='M-50 320 C40 330 110 380 120 420 C70 440 30 450 -50 460 Z' fill='%2390c98a' opacity='0.07'/%3E%3Cpath d='M-50 400 C50 410 100 470 110 510 C60 520 20 530 -50 540 Z' fill='%2390c98a' opacity='0.07'/%3E%3Ccircle cx='30' cy='280' r='14' fill='%231D231F'/%3E%3Ccircle cx='10' cy='360' r='12' fill='%231D231F'/%3E%3Ccircle cx='50' cy='430' r='10' fill='%231D231F'/%3E%3C/svg%3E"),
+        /* Right Margin — Premium Detailed Palm Frond Silhouette */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 600'%3E%3Cpath d='M350 80 Q160 200 200 420 Q220 510 170 600' fill='none' stroke='%2390c98a' stroke-width='4' opacity='0.12'/%3E%3Cpath d='M200 180 Q80 160 40 150 Q120 190 200 200' fill='%2390c98a' opacity='0.08'/%3E%3Cpath d='M195 230 Q70 215 20 200 Q115 240 195 250' fill='%2390c98a' opacity='0.08'/%3E%3Cpath d='M190 280 Q60 265 0 250 Q110 295 190 300' fill='%2390c98a' opacity='0.08'/%3E%3Cpath d='M188 330 Q50 315 -20 300 Q105 345 188 350' fill='%2390c98a' opacity='0.08'/%3E%3Cpath d='M190 380 Q65 370 -10 360 Q115 395 190 400' fill='%2390c98a' opacity='0.08'/%3E%3Cpath d='M195 435 Q80 430 10 420 Q120 450 195 455' fill='%2390c98a' opacity='0.08'/%3E%3Cpath d='M202 180 Q290 190 340 200 Q260 175 202 170' fill='%2390c98a' opacity='0.08'/%3E%3Cpath d='M205 230 Q300 245 350 260 Q270 225 205 220' fill='%2390c98a' opacity='0.08'/%3E%3Cpath d='M208 280 Q310 300 360 320 Q280 275 208 270' fill='%2390c98a' opacity='0.08'/%3E%3Cpath d='M210 330 Q320 355 370 380 Q290 325 210 320' fill='%2390c98a' opacity='0.08'/%3E%3C/svg%3E");
     background-repeat: no-repeat, no-repeat;
     pointer-events: none;
     z-index: 0;
@@ -411,12 +409,10 @@ html, body {
     position: absolute;
     inset: 0;
     background-image:
-        /* Left Margin — Large Monstera Silhouette */
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='600' viewBox='0 0 300 600'%3E%3Cpath d='M-50 150 Q120 180 80 320 Q40 440 120 520 L-50 600 Z' fill='%232b3d26' opacity='0.08'/%3E%3Cpath d='M-50 200 C20 220 50 300 10 380 Q-20 440 -50 480 Z' fill='%232b3d26' opacity='0.07'/%3E%3Ccircle cx='40' cy='280' r='12' fill='%23FBFAE0'/%3E%3Ccircle cx='20' cy='360' r='10' fill='%23FBFAE0'/%3E%3C/svg%3E"),
-        /* Right Margin — Large Palm Frond Silhouette */
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='600' viewBox='0 0 300 600'%3E%3Cpath d='M350 100 Q180 220 220 380 Q250 480 180 580 L350 600 Z' fill='%232b3d26' opacity='0.08'/%3E%3Cpath d='M300 180 Q200 270 230 380' stroke='%232b3d26' stroke-width='2.5' fill='none' opacity='0.15'/%3E%3Cpath d='M250 260 Q180 250 160 270 M240 320 Q160 310 140 330 M230 380 Q150 370 130 395 M225 440 Q155 430 135 455' stroke='%232b3d26' stroke-width='2' fill='none' opacity='0.12'/%3E%3C/svg%3E");
-    background-size: 280px 560px, 280px 560px;
-    background-position: left 15%, right 60%;
+        /* Left Margin — Premium Detailed Monstera Silhouette (cream bg cutouts) */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 600'%3E%3Cpath d='M-50 120 Q100 130 140 220 C180 310 130 420 180 500 L-50 560 Z' fill='%232b3d26' opacity='0.05'/%3E%3Cpath d='M-50 160 C20 170 80 200 90 230 C50 250 10 260 -50 280 Z' fill='%232b3d26' opacity='0.07'/%3E%3Cpath d='M-50 240 C30 250 100 290 110 330 C60 350 20 360 -50 370 Z' fill='%232b3d26' opacity='0.07'/%3E%3Cpath d='M-50 320 C40 330 110 380 120 420 C70 440 30 450 -50 460 Z' fill='%232b3d26' opacity='0.07'/%3E%3Cpath d='M-50 400 C50 410 100 470 110 510 C60 520 20 530 -50 540 Z' fill='%232b3d26' opacity='0.07'/%3E%3Ccircle cx='30' cy='280' r='14' fill='%23FBFAE0'/%3E%3Ccircle cx='10' cy='360' r='12' fill='%23FBFAE0'/%3E%3Ccircle cx='50' cy='430' r='10' fill='%23FBFAE0'/%3E%3C/svg%3E"),
+        /* Right Margin — Premium Detailed Palm Frond Silhouette */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 600'%3E%3Cpath d='M350 80 Q160 200 200 420 Q220 510 170 600' fill='none' stroke='%232b3d26' stroke-width='4' opacity='0.12'/%3E%3Cpath d='M200 180 Q80 160 40 150 Q120 190 200 200' fill='%232b3d26' opacity='0.08'/%3E%3Cpath d='M195 230 Q70 215 20 200 Q115 240 195 250' fill='%232b3d26' opacity='0.08'/%3E%3Cpath d='M190 280 Q60 265 0 250 Q110 295 190 300' fill='%232b3d26' opacity='0.08'/%3E%3Cpath d='M188 330 Q50 315 -20 300 Q105 345 188 350' fill='%232b3d26' opacity='0.08'/%3E%3Cpath d='M190 380 Q65 370 -10 360 Q115 395 190 400' fill='%232b3d26' opacity='0.08'/%3E%3Cpath d='M195 435 Q80 430 10 420 Q120 450 195 455' fill='%232b3d26' opacity='0.08'/%3E%3Cpath d='M202 180 Q290 190 340 200 Q260 175 202 170' fill='%232b3d26' opacity='0.08'/%3E%3Cpath d='M205 230 Q300 245 350 260 Q270 225 205 220' fill='%232b3d26' opacity='0.08'/%3E%3Cpath d='M208 280 Q310 300 360 320 Q280 275 208 270' fill='%232b3d26' opacity='0.08'/%3E%3Cpath d='M210 330 Q320 355 370 380 Q290 325 210 320' fill='%232b3d26' opacity='0.08'/%3E%3C/svg%3E");
     background-repeat: no-repeat, no-repeat;
     pointer-events: none;
     z-index: 0;
@@ -968,11 +964,11 @@ html, body {
 .loading-dot {
     width: 10px;
     height: 10px;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: #2b3d26; /* Deep forest green */
     border-radius: 50%;
     display: inline-block;
     animation: premium-wave 1.4s ease-in-out infinite;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 8px rgba(43, 61, 38, 0.15);
     will-change: transform, opacity, box-shadow;
 }
 
@@ -980,13 +976,13 @@ html, body {
     0%, 100% {
         transform: scale(0.8);
         opacity: 0.35;
-        box-shadow: 0 0 4px rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 4px rgba(43, 61, 38, 0.1);
     }
     50% {
         transform: scale(1.35);
         opacity: 1;
-        box-shadow: 0 0 16px rgba(255, 255, 255, 0.8),
-                    0 0 24px rgba(255, 179, 71, 0.6); /* Soft golden/accent glow */
+        box-shadow: 0 0 16px rgba(43, 61, 38, 0.4),
+                    0 0 24px rgba(247, 146, 30, 0.55); /* Warm sunset glow */
     }
 }
 
@@ -1258,6 +1254,10 @@ html, body {
 /* Centered/Inline Technical Metadata (2026 Premium Brutalism Theme) */
 .tech-metadata-inline {
     display: inline-block;
+    max-width: 95%; /* Prevent touching edges on mobile */
+    white-space: normal; /* Allow wrapping */
+    word-break: break-word; /* Ensure long coordinates break */
+    line-height: 1.5;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-size: 0.65rem;
     font-weight: 600;
@@ -1266,8 +1266,8 @@ html, body {
     color: #63AB45;
     background: rgba(99, 171, 69, 0.08);
     border: 1px solid rgba(99, 171, 69, 0.2);
-    padding: 5px 14px;
-    border-radius: 9999px;
+    padding: 6px 14px;
+    border-radius: 24px;
     margin-bottom: 1.25rem;
     pointer-events: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
@@ -1316,7 +1316,7 @@ html, body {
 
 /* Dynamic Section-Specific Ambient Spores and Particle Patterns */
 
-/* 1. Tours (Sigiriya - Golden & Emerald Spores) */
+/* 1. Tours (Sigiriya - Golden & Emerald Spores - 10 Glow Particles) */
 #tours::after {
     background-image:
         radial-gradient(circle 10px at 8% 25%, rgba(247,146,30,0.9) 0%, rgba(247,146,30,0.35) 45%, transparent 75%),
@@ -1324,7 +1324,12 @@ html, body {
         radial-gradient(circle 7px at 6% 80%, rgba(247,146,30,1) 0%, rgba(247,146,30,0.4) 40%, transparent 70%),
         radial-gradient(circle 12px at 92% 30%, rgba(99,171,69,0.9) 0%, rgba(99,171,69,0.35) 45%, transparent 75%),
         radial-gradient(circle 9px at 86% 70%, rgba(247,146,30,0.9) 0%, rgba(247,146,30,0.3) 50%, transparent 80%),
-        radial-gradient(circle 6px at 94% 85%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.4) 40%, transparent 70%);
+        radial-gradient(circle 6px at 94% 85%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.4) 40%, transparent 70%),
+        radial-gradient(circle 9px at 18% 28%, rgba(247,146,30,0.85) 0%, rgba(247,146,30,0.2) 45%, transparent 75%),
+        radial-gradient(circle 11px at 88% 40%, rgba(99,171,69,0.9) 0%, rgba(99,171,69,0.3) 50%, transparent 80%),
+        radial-gradient(circle 8px at 11% 90%, rgba(255,255,255,0.9) 0%, transparent 75%),
+        radial-gradient(circle 9px at 91% 95%, rgba(247,146,30,0.85) 0%, transparent 75%);
+    animation: fireflies-path-b 16s ease-in-out infinite !important;
 }
 
 /* 2. About (Colombo - White & Light-Green Fireflies with leaf silhouettes) */
@@ -1338,19 +1343,29 @@ html, body {
     background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100px 100px;
     background-position: center, center, center, center, 10% 55%;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+    animation: fireflies-path-c 18s ease-in-out infinite !important;
 }
 
-/* 3. Gallery (Mirissa - Soft Teal & Ocean Spores with floating waves) */
+/* 3. Gallery (Mirissa - Soft Teal & Ocean Spores with floating waves - 12 Glow Particles) */
 #gallery::after {
     background-image:
         radial-gradient(circle 10px at 9% 25%, rgba(20, 184, 166, 0.9) 0%, rgba(20, 184, 166, 0.35) 45%, transparent 75%),
         radial-gradient(circle 8px at 16% 65%, rgba(56, 189, 248, 0.95) 0%, rgba(56, 189, 248, 0.3) 50%, transparent 80%),
         radial-gradient(circle 11px at 93% 35%, rgba(56, 189, 248, 0.9) 0%, rgba(56, 189, 248, 0.35) 40%, transparent 75%),
         radial-gradient(circle 9px at 87% 70%, rgba(20, 184, 166, 0.95) 0%, rgba(20, 184, 166, 0.3) 50%, transparent 80%),
+        radial-gradient(circle 12px at 6% 85%, rgba(56, 189, 248, 0.9) 0%, rgba(56, 189, 248, 0.3) 50%, transparent 80%),
+        radial-gradient(circle 10px at 95% 15%, rgba(20, 184, 166, 0.9) 0%, rgba(20, 184, 166, 0.3) 50%, transparent 80%),
+        radial-gradient(circle 8px at 14% 40%, rgba(56, 189, 248, 0.9) 0%, rgba(56, 189, 248, 0.3) 50%, transparent 80%),
+        radial-gradient(circle 11px at 90% 50%, rgba(20, 184, 166, 0.9) 0%, rgba(20, 184, 166, 0.3) 50%, transparent 80%),
+        radial-gradient(circle 7px at 18% 95%, rgba(255, 255, 255, 0.95) 0%, transparent 75%),
+        radial-gradient(circle 9px at 83% 20%, rgba(20, 184, 166, 0.9) 0%, transparent 75%),
+        radial-gradient(circle 10px at 11% 52%, rgba(56, 189, 248, 0.9) 0%, transparent 75%),
+        radial-gradient(circle 8px at 92% 82%, rgba(20, 184, 166, 0.85) 0%, transparent 75%),
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='30' viewBox='0 0 60 20'%3E%3Cpath d='M0 10 Q15 5 30 10 T60 10' fill='none' stroke='%2320b8a6' stroke-width='2' opacity='0.18'/%3E%3C/svg%3E");
-    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 130px 45px;
-    background-position: center, center, center, center, 90% 25%;
-    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 130px 45px;
+    background-position: center, center, center, center, center, center, center, center, center, center, center, center, 90% 25%;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+    animation: fireflies-path-d 15s ease-in-out infinite !important;
 }
 
 /* 4. Adventure (Ella - Amber Embers & Jungle Leaf Shapes) */
@@ -1364,17 +1379,157 @@ html, body {
     background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 90px 90px;
     background-position: center, center, center, center, 8% 50%;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+    animation: fireflies-path-a 20s ease-in-out infinite !important;
 }
 
-/* 5. Reviews (Kandy - Golden Sparkles & Petal Shapes) */
+/* 5. Reviews (Kandy - Golden Sparkles & Petal Shapes - 12 Glow Particles) */
 #reviews::after {
     background-image:
         radial-gradient(circle 10px at 10% 35%, rgba(251, 191, 36, 0.9) 0%, rgba(251, 191, 36, 0.35) 45%, transparent 75%),
         radial-gradient(circle 8px at 17% 70%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.4) 50%, transparent 80%),
         radial-gradient(circle 9px at 92% 25%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.4) 40%, transparent 75%),
         radial-gradient(circle 8px at 85% 70%, rgba(251, 191, 36, 0.95) 0%, rgba(251, 191, 36, 0.3) 50%, transparent 80%),
+        radial-gradient(circle 11px at 12% 15%, rgba(251, 191, 36, 0.9) 0%, transparent 75%),
+        radial-gradient(circle 9px at 95% 85%, rgba(255, 255, 255, 0.95) 0%, transparent 75%),
+        radial-gradient(circle 7px at 6% 60%, rgba(251, 191, 36, 0.9) 0%, transparent 75%),
+        radial-gradient(circle 10px at 89% 45%, rgba(255, 255, 255, 0.9) 0%, transparent 75%),
+        radial-gradient(circle 8px at 19% 82%, rgba(251, 191, 36, 0.85) 0%, transparent 75%),
+        radial-gradient(circle 9px at 82% 15%, rgba(255, 255, 255, 0.9) 0%, transparent 75%),
+        radial-gradient(circle 6px at 93% 90%, rgba(251, 191, 36, 0.9) 0%, transparent 75%),
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 30 30'%3E%3Ccircle cx='15' cy='15' r='3.5' fill='%23fbbf26' opacity='0.22'/%3E%3Ccircle cx='15' cy='8' r='4' fill='%23fbbf26' opacity='0.15'/%3E%3Ccircle cx='15' cy='22' r='4' fill='%23fbbf26' opacity='0.15'/%3E%3Ccircle cx='8' cy='15' r='4' fill='%23fbbf26' opacity='0.15'/%3E%3Ccircle cx='22' cy='15' r='4' fill='%23fbbf26' opacity='0.15'/%3E%3C/svg%3E");
-    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 80px 80px;
-    background-position: center, center, center, center, 88% 70%;
-    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 80px 80px;
+    background-position: center, center, center, center, center, center, center, center, center, center, center, 88% 70%;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+    animation: fireflies-path-b 13s ease-in-out infinite !important;
+}
+
+/* ==========================================
+   Responsive Optimizations (Mobile & Tablet)
+   ========================================== */
+
+/* Mobile Screen Sizes (< 768px) */
+@media (max-width: 767px) {
+    .gowilds-footer::before, .tour-light-canopy::before {
+        background-size: 110px 220px, 110px 220px !important;
+        background-position: left -30px top 20%, right -30px top 65% !important;
+    }
+    .gowilds-footer::after, .tour-light-canopy::after, #home::after {
+        opacity: 0.55 !important;
+    }
+    /* Adjust padding for mobile layout readability */
+    section {
+        padding-top: 3.5rem !important;
+        padding-bottom: 3.5rem !important;
+    }
+}
+
+/* Tablet Screen Sizes (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .gowilds-footer::before, .tour-light-canopy::before {
+        background-size: 180px 360px, 180px 360px !important;
+        background-position: left -40px top 20%, right -40px top 65% !important;
+    }
+    .gowilds-footer::after, .tour-light-canopy::after, #home::after {
+        opacity: 0.75 !important;
+    }
+}
+
+/* Desktop Screen Sizes (>= 1024px) */
+@media (min-width: 1024px) {
+    .gowilds-footer::before, .tour-light-canopy::before {
+        background-size: 320px 640px, 320px 640px !important;
+        background-position: left -50px top 15%, right -50px top 55% !important;
+    }
+}
+
+/* ==========================================
+   Hero Section Canopy Overlays (No Side Leaves, Fireflies Only)
+   ========================================== */
+#home::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle 10px at 12% 25%, rgba(251, 191, 36, 0.75) 0%, rgba(251, 191, 36, 0.2) 40%, transparent 70%),
+        radial-gradient(circle 8px at 90% 30%, rgba(144, 201, 138, 0.8) 0%, rgba(144, 201, 138, 0.2) 45%, transparent 75%),
+        radial-gradient(circle 9px at 15% 70%, rgba(251, 191, 36, 0.8) 0%, rgba(251, 191, 36, 0.2) 40%, transparent 70%),
+        radial-gradient(circle 10px at 85% 65%, rgba(144, 201, 138, 0.85) 0%, rgba(144, 201, 138, 0.2) 50%, transparent 75%),
+        radial-gradient(circle 7px at 28% 45%, rgba(251, 191, 36, 0.8) 0%, transparent 70%),
+        radial-gradient(circle 9px at 72% 50%, rgba(144, 201, 138, 0.85) 0%, transparent 70%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 40 40'%3E%3Cpath d='M10 20 Q20 15 20 5 Q20 25 30 20 Z' fill='%2390c98a' opacity='0.12'/%3E%3C/svg%3E");
+    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100px 100px;
+    background-position: center, center, center, center, center, center, 10% 40%;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+    pointer-events: none;
+    z-index: 15;
+    animation: fireflies-path-a 14s ease-in-out infinite !important;
+    will-change: transform, opacity;
+}
+
+/* ==========================================
+   Dynamic Independent Particle Animation Paths
+   ========================================== */
+
+/* Animation Path A — Gentle drift & rise */
+@keyframes fireflies-path-a {
+    0%, 100% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * 0.7 + (var(--mouse-x, 0) * -35px)), calc(var(--fly-ty, 0px) * 0.7 + (var(--mouse-y, 0) * -35px)), 0) scale(1);
+        opacity: 0.55;
+    }
+    30% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * 0.7 + (var(--mouse-x, 0) * -35px) + 20px), calc(var(--fly-ty, 0px) * 0.7 + (var(--mouse-y, 0) * -35px) - 25px), 0) scale(1.15);
+        opacity: 0.95;
+    }
+    65% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * 0.7 + (var(--mouse-x, 0) * -35px) - 15px), calc(var(--fly-ty, 0px) * 0.7 + (var(--mouse-y, 0) * -35px) + 15px), 0) scale(0.9);
+        opacity: 0.45;
+    }
+}
+
+/* Animation Path B — Large circular sway */
+@keyframes fireflies-path-b {
+    0%, 100% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * -0.6 + (var(--mouse-x, 0) * 40px)), calc(var(--fly-ty, 0px) * -0.6 + (var(--mouse-y, 0) * 40px)), 0) scale(1.1);
+        opacity: 0.85;
+    }
+    40% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * -0.6 + (var(--mouse-x, 0) * 40px) - 30px), calc(var(--fly-ty, 0px) * -0.6 + (var(--mouse-y, 0) * 40px) + 10px), 0) scale(0.95);
+        opacity: 0.4;
+    }
+    75% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * -0.6 + (var(--mouse-x, 0) * 40px) + 25px), calc(var(--fly-ty, 0px) * -0.6 + (var(--mouse-y, 0) * 40px) - 20px), 0) scale(1.2);
+        opacity: 0.95;
+    }
+}
+
+/* Animation Path C — Fast shimmer & drift */
+@keyframes fireflies-path-c {
+    0%, 100% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * 0.5 + (var(--mouse-x, 0) * -45px)), calc(var(--fly-ty, 0px) * 0.5 + (var(--mouse-y, 0) * -45px)), 0) scale(0.95);
+        opacity: 0.45;
+    }
+    25% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * 0.5 + (var(--mouse-x, 0) * -45px) - 20px), calc(var(--fly-ty, 0px) * 0.5 + (var(--mouse-y, 0) * -45px) - 15px), 0) scale(1.1);
+        opacity: 0.9;
+    }
+    70% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * 0.5 + (var(--mouse-x, 0) * -45px) + 25px), calc(var(--fly-ty, 0px) * 0.5 + (var(--mouse-y, 0) * -45px) + 25px), 0) scale(1.05);
+        opacity: 0.5;
+    }
+}
+
+/* Animation Path D — Vertical drift & loop */
+@keyframes fireflies-path-d {
+    0%, 100% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * -0.5 + (var(--mouse-x, 0) * 35px)), calc(var(--fly-ty, 0px) * -0.5 + (var(--mouse-y, 0) * 35px)), 0) scale(1.05);
+        opacity: 0.9;
+    }
+    35% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * -0.5 + (var(--mouse-x, 0) * 35px) + 15px), calc(var(--fly-ty, 0px) * -0.5 + (var(--mouse-y, 0) * 35px) + 30px), 0) scale(0.9);
+        opacity: 0.45;
+    }
+    80% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * -0.5 + (var(--mouse-x, 0) * 35px) - 25px), calc(var(--fly-ty, 0px) * -0.5 + (var(--mouse-y, 0) * 35px) - 25px), 0) scale(1.15);
+        opacity: 0.85;
+    }
 }
