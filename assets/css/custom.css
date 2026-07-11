@@ -793,6 +793,10 @@ html, body {
 }
 
 /* PhotoSwipe Custom Caption */
+.pswp__caption {
+    display: none !important;
+}
+
 .pswp__custom-caption {
     position: absolute;
     bottom: 30px;

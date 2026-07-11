@@ -215,6 +215,7 @@
 							<div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-48 rounded-xl bg-white/95 border border-slate-200/50 backdrop-blur-md shadow-2xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-50 origin-top">
 								<a href="#gallery" class="block px-4 py-2 text-sm text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 transition-colors font-medium">Featured Moments</a>
 								<a href="gallery.html" class="block px-4 py-2 text-sm text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 transition-colors font-medium">Full Archive (50+)</a>
+								<a href="#" class="open-promo-btn block px-4 py-2 text-sm text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 transition-colors font-medium">Special Offers</a>
 							</div>
 						</div>
 						<a href="#adventure" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Adventure</a>
@@ -263,6 +264,10 @@
 					<a href="gallery.html" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl">
 						<i data-lucide="image" class="w-5 h-5"></i>
 						<span>Gallery Archive</span>
+					</a>
+					<a href="#" class="open-promo-btn mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl">
+						<i data-lucide="tag" class="w-5 h-5"></i>
+						<span>Special Offers</span>
 					</a>
 					<a href="#adventure" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl" data-section="adventure">
 						<i data-lucide="mountain" class="w-5 h-5"></i>
@@ -385,7 +390,7 @@
 				<div class="inline-flex items-center gap-2 bg-[#F7921E]/10 border border-[#F7921E]/30 text-[#F7921E] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold shadow-sm hover:scale-[1.02] transition-transform duration-300" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="350">
 					<span class="flex h-2 w-2 rounded-full bg-[#F7921E] animate-ping"></span>
 					<span>Active Promo: 15% Off Safaris & Whale Watching!</span>
-					<a href="gallery.html?filter=offers" class="underline ml-1 font-bold hover:text-white transition-colors flex items-center gap-0.5">View Promo Codes <i data-lucide="chevron-right" class="w-3.5 h-3.5 inline"></i></a>
+					<button class="open-promo-btn underline ml-1 font-bold hover:text-white transition-colors flex items-center gap-0.5 bg-transparent border-0 cursor-pointer p-0">View Promo Codes <i data-lucide="chevron-right" class="w-3.5 h-3.5 inline"></i></button>
 				</div>
 			</div>
 			<!-- Tours Grid with Card Animations -->
@@ -850,10 +855,15 @@
 						</div>
 					</div>
 				</div>
-				<!-- View Full Gallery CTA (2026 Premium style) -->
-				<div class="text-center mt-8 sm:mt-12" data-aos="fade-up" data-aos-duration="1000">
-					<a href="gallery.html" class="liquid-glass inline-flex items-center gap-2 text-white px-8 py-3.5 rounded-full text-base sm:text-lg font-semibold hover:scale-105 transition-transform duration-300 shadow-xl border border-white/10">
-						Explore Full Gallery (50+ Photos) <i data-lucide="arrow-right" class="w-5 h-5"></i>
+				<!-- View Full Gallery CTA (Minimalist Premium Style) -->
+				<div class="text-center mt-12 sm:mt-16 mb-4" data-aos="fade-up" data-aos-duration="1000">
+					<a href="gallery.html" class="group inline-flex items-center gap-3 text-slate-800 hover:text-[#0c3531] transition-colors duration-300 font-serif text-lg sm:text-xl font-bold tracking-wide relative py-2">
+						<span>Explore Full Gallery Archive (50+ Photos)</span>
+						<span class="w-8 h-8 rounded-full border border-slate-300 hover:border-[#0c3531] flex items-center justify-center transition-colors duration-300 transform group-hover:translate-x-1">
+							<i data-lucide="arrow-right" class="w-4 h-4 text-slate-600 group-hover:text-[#0c3531] transition-colors duration-300"></i>
+						</span>
+						<!-- Animated Underline -->
+						<span class="absolute bottom-0 left-0 w-full h-[2px] bg-[#0c3531] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></span>
 					</a>
 				</div>
 			</div>
@@ -1693,7 +1703,54 @@
 		<script src="assets/js/tours.js?v=2.1"></script>
 		<script src="assets/js/about.js"></script>
 		<script src="assets/js/gallery.js"></script>
+		<script src="assets/js/promo.js"></script>
 		<script src="assets/js/main.js"></script>
+
+		<!-- Premium Promo Carousel Modal -->
+		<div id="promoModal" class="fixed inset-0 bg-[#0c3531]/40 backdrop-blur-md z-50 items-center justify-center p-4 opacity-0 invisible transition-all duration-300 pointer-events-auto">
+			<div class="promo-modal-container relative w-full max-w-lg bg-[#0c3531]/80 border border-white/10 backdrop-blur-2xl rounded-3xl shadow-2xl p-6 sm:p-8 transform scale-95 transition-all duration-300 flex flex-col items-center">
+				<!-- Close Button -->
+				<button id="closePromoModal" class="absolute top-4 right-4 bg-black/30 hover:bg-black/50 text-white w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200 z-10" aria-label="Close promo modal" title="Close promo modal">
+					<i data-lucide="x" class="w-4 h-4"></i>
+				</button>
+				
+				<!-- Header Title -->
+				<div class="text-center mb-6">
+					<span class="text-[10px] sm:text-xs font-semibold text-accent uppercase tracking-wider block mb-1">Exclusive Travel Campaign</span>
+					<h3 class="font-serif text-xl sm:text-2xl font-bold text-white">Active Special Offers</h3>
+				</div>
+
+				<!-- Carousel viewport (Tinder Stack Container) -->
+				<div class="relative w-full aspect-square sm:w-[360px] sm:h-[360px] mt-2 mb-6">
+					<div id="promoCardStack" class="absolute inset-0 w-full h-full select-none">
+						<!-- Dynamically injected stack cards -->
+					</div>
+					
+					<!-- Nav Arrows -->
+					<button id="promoPrevBtn" class="absolute -left-4 sm:-left-12 top-1/2 -translate-y-1/2 bg-[#0c3531]/80 hover:bg-[#F7921E] text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 shadow-lg border border-white/10 z-30" aria-label="Previous Offer" title="Previous Offer">
+						<i data-lucide="chevron-left" class="w-5 h-5"></i>
+					</button>
+					<button id="promoNextBtn" class="absolute -right-4 sm:-right-12 top-1/2 -translate-y-1/2 bg-[#0c3531]/80 hover:bg-[#F7921E] text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 shadow-lg border border-white/10 z-30" aria-label="Next Offer" title="Next Offer">
+						<i data-lucide="chevron-right" class="w-5 h-5"></i>
+					</button>
+				</div>
+
+				<!-- Dots Indicator -->
+				<div id="promoModalDots" class="flex gap-1.5 justify-center mt-4">
+					<!-- Dynamically injected indicators -->
+				</div>
+
+				<!-- WhatsApp Claim Button -->
+				<div class="w-full mt-6 flex flex-col items-center">
+					<a id="promoModalWhatsappLink" href="" target="_blank" rel="noopener" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition-all duration-300 hover:shadow-emerald-500/20 hover:scale-105 active:scale-95 flex items-center justify-center gap-2 text-sm sm:text-base">
+						<i class="fa-brands fa-whatsapp text-lg"></i>
+						<span>Claim 15% Discount on WhatsApp</span>
+					</a>
+					<p class="text-[10px] text-white/40 mt-3 text-center">T&C apply. Promos valid for direct bookings only.</p>
+				</div>
+			</div>
+		</div>
+
 		<!-- SVG Filters for Liquid Glass Effect -->
 		<svg style="display: none">
 			<!-- Original glass filter for glass-morph -->

@@ -5,7 +5,16 @@
 
 window.GalleryData = [
     {
-        src: "assets/img/main-gallery/promo-flyer-2.jpeg",
+        src: "assets/img/main-gallery/promo-flyer-5.png",
+        category: "offers",
+        title: "Hotel Booking + Full Tour Package - Special Offer",
+        location: "Sri Lanka",
+        date: "July 11, 2026",
+        description: "Get 15% discount on hotel bookings when booked together with any full tour package from Inspire Travels.",
+        position: "top"
+    },
+    {
+        src: "assets/img/main-gallery/promo-flyer-2.png",
         category: "offers",
         title: "Trincomalee Whale & Dolphin Watching - Special Offer",
         location: "Trincomalee",
@@ -14,7 +23,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/promo-flyer-1.jpeg",
+        src: "assets/img/main-gallery/promo-flyer-1.png",
         category: "offers",
         title: "Elephant Safari In Sri Lanka - Special Offer",
         location: "Minneriya & Kavdulla",
@@ -23,7 +32,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/promo-flyer-3.jpeg",
+        src: "assets/img/main-gallery/promo-flyer-3.jpg",
         category: "offers",
         title: "Sri Lanka Yala Leopard Safari - Special Offer",
         location: "Yala National Park",
@@ -32,12 +41,117 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/promo-flyer-4.jpeg",
+        src: "assets/img/main-gallery/promo-flyer-4.png",
         category: "offers",
         title: "Sri Lanka Udawalawa Elephant Safari - Special Offer",
         location: "Udawalawa National Park",
         date: "July 11, 2026",
         description: "Experience the elephant kingdom of Udawalawa with a 15% discount using promo code UdaIns15.",
+        position: "top"
+    },
+    {
+        src: "assets/img/main-gallery/private-tour-pickup-sri-lanka.jpg",
+        category: "experience",
+        title: "Private Tour Pickup in Sri Lanka",
+        location: "Airport Transfer",
+        date: "July 11, 2026",
+        description: "Travellers are welcomed at the start of a private Sri Lanka tour, ready to begin their holiday with Inspire Travels & Tours.",
+        position: "top"
+    },
+    {
+        src: "assets/img/main-gallery/flying-ravana-ella-zipline-adventure.jpg",
+        category: "adventure",
+        title: "Flying Ravana Zipline Adventure in Ella",
+        location: "Ella",
+        date: "July 11, 2026",
+        description: "A group of guests prepares for a Flying Ravana zipline adventure in Ella, one of Sri Lanka's most popular thrill experiences."
+    },
+    {
+        src: "assets/img/main-gallery/airport-arrival-family-tour-sri-lanka.jpg",
+        category: "experience",
+        title: "Airport Arrival Family Tour in Sri Lanka",
+        location: "Airport",
+        date: "July 11, 2026",
+        description: "A cheerful group arrives in Sri Lanka and meets their tour guide before starting a scenic holiday with Inspire Travels & Tours.",
+        position: "top"
+    },
+    {
+        src: "assets/img/main-gallery/waterfall-selfie-tour-sri-lanka.jpg",
+        category: "nature",
+        title: "Waterfall Selfie During a Sri Lanka Tour",
+        location: "Waterfall Nature Park",
+        date: "July 11, 2026",
+        description: "Guests enjoy a scenic waterfall visit and a cheerful selfie during a guided Sri Lanka tour.",
+        position: "top"
+    },
+    {
+        src: "assets/img/main-gallery/airport-welcome-group-sri-lanka.jpg",
+        category: "experience",
+        title: "Airport Welcome Group in Sri Lanka",
+        location: "Airport",
+        date: "July 11, 2026",
+        description: "A family group is greeted on arrival in Sri Lanka, ready to begin their trip with Inspire Travels & Tours.",
+        position: "top"
+    },
+    {
+        src: "assets/img/main-gallery/welcome-gifts-sri-lanka-tour.png",
+        category: "experience",
+        title: "Welcome Gifts for Sri Lanka Tour Guests",
+        location: "Arrival Pickup",
+        date: "July 11, 2026",
+        description: "Guests receive small welcome gifts beside the tour vehicle, a friendly touch at the start of a Sri Lanka travel experience."
+    },
+    {
+        src: "assets/img/main-gallery/hill-country-family-viewpoint-sri-lanka.jpg",
+        category: "scenic",
+        title: "Hill Country Family Viewpoint in Sri Lanka",
+        location: "Hill Country",
+        date: "July 11, 2026",
+        description: "A family enjoys a panoramic stop overlooking Sri Lanka's green hill country during a guided tour."
+    },
+    {
+        src: "assets/img/main-gallery/airport-meet-and-greet-sri-lanka.jpg",
+        category: "experience",
+        title: "Airport Meet and Greet in Sri Lanka",
+        location: "Airport",
+        date: "July 11, 2026",
+        description: "Inspire Travels & Tours welcomes arriving guests at the airport with a meet and greet service and a ready-made holiday start.",
+        position: "top"
+    },
+    {
+        src: "assets/img/main-gallery/airport-arrival-night-sri-lanka.jpg",
+        category: "experience",
+        title: "Night Airport Arrival in Sri Lanka",
+        location: "Airport",
+        date: "July 11, 2026",
+        description: "A smiling family arrives at the airport at night and meets their guide for a smooth transfer and tour start.",
+        position: "top"
+    },
+    {
+        src: "assets/img/main-gallery/airport-dropoff-sri-lanka-private-transfer.jpg",
+        category: "experience",
+        title: "Airport Drop-off with Private Transfer in Sri Lanka",
+        location: "Airport Terminal",
+        date: "July 11, 2026",
+        description: "Guests are dropped off at the airport after a memorable Sri Lanka tour, with private transfer support from Inspire Travels & Tours.",
+        position: "top"
+    },
+    {
+        src: "assets/img/main-gallery/welcome-to-sri-lanka-airport-pickup.jpg",
+        category: "experience",
+        title: "Welcome to Sri Lanka Airport Pickup",
+        location: "Airport Arrival Hall",
+        date: "July 11, 2026",
+        description: "A warm welcome sign and airport pickup moment for arriving guests beginning their Sri Lanka holiday.",
+        position: "top"
+    },
+    {
+        src: "assets/img/main-gallery/family-tour-airport-meet-and-greet-sri-lanka.jpg",
+        category: "experience",
+        title: "Family Tour Airport Meet and Greet in Sri Lanka",
+        location: "Airport",
+        date: "July 11, 2026",
+        description: "A family group is welcomed beside a transfer van, showing the personal meet and greet style of Inspire Travels & Tours.",
         position: "top"
     },
     {

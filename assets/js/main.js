@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.ToursModule) window.ToursModule.init();
     if (window.AboutModule) window.AboutModule.init();
     if (window.GalleryModule) window.GalleryModule.init();
+    if (window.PromoModule) window.PromoModule.init();
     if (window.ModalModule) {
         window.ModalModule.initTooltips();
         window.ModalModule.initGlobalModalBehavior();

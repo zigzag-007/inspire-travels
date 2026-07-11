@@ -156,6 +156,8 @@
                         matchingBtn.click();
                     }, 100);
                 }
+            } else {
+                applyCombinedFilters();
             }
         },
 
@@ -215,7 +217,12 @@
                 pswpModule: window.PhotoSwipe,
                 closeOnVerticalDrag: true,
                 bgOpacity: 0.9,
-                padding: { top: 20, bottom: 20, left: 20, right: 20 },
+                padding: { 
+                    top: window.innerWidth < 768 ? 40 : 80, 
+                    bottom: window.innerWidth < 768 ? 40 : 80, 
+                    left: window.innerWidth < 768 ? 10 : 20, 
+                    right: window.innerWidth < 768 ? 10 : 20 
+                },
                 
                 // ZOOM ANIMATION LOGIC
                 // This function tells PhotoSwipe where the thumbnail is on the screen
@@ -256,16 +263,19 @@
                     onInit: (el, pswpInstance) => {
                         pswpInstance.on('change', () => {
                             const currSlide = pswpInstance.currSlide;
-                            if (currSlide && currSlide.data) {
-                                let captionHtml = '<div class="pswp__custom-caption">';
+                            if (currSlide && currSlide.data && (currSlide.data.title || currSlide.data.description)) {
+                                el.style.display = 'block';
+                                let captionHtml = '';
                                 if (currSlide.data.title) {
                                     captionHtml += `<div class="pswp__caption-title">${currSlide.data.title}</div>`;
                                 }
                                 if (currSlide.data.description) {
                                     captionHtml += `<div class="pswp__caption-desc">${currSlide.data.description}</div>`;
                                 }
-                                captionHtml += '</div>';
                                 el.innerHTML = captionHtml;
+                            } else {
+                                el.style.display = 'none';
+                                el.innerHTML = '';
                             }
                         });
                     }
