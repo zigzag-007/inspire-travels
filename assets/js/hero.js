@@ -210,6 +210,29 @@
                     }
                 }
 
+                // Apply depth parallax to dark and light tropical decorative sections
+                const parallaxSections = document.querySelectorAll('.gowilds-footer, .tour-light-canopy');
+                const windowHeight = window.innerHeight;
+
+                parallaxSections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top < windowHeight && rect.bottom > 0) {
+                        // Progress: 0 when section enters, 1 when section leaves viewport
+                        const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+                        // Leaf layer (::before) — slower, deeper movement
+                        const leafY = (progress - 0.5) * 25;
+                        const leafX = Math.sin(progress * Math.PI) * 8;
+                        // Firefly/Pollen layer (::after) — faster, more pronounced for depth contrast
+                        const fireflyY = (progress - 0.5) * -40;
+                        const fireflyX = Math.sin(progress * Math.PI * 1.5) * 12;
+
+                        section.style.setProperty('--leaf-tx', `${leafX}px`);
+                        section.style.setProperty('--leaf-ty', `${leafY}px`);
+                        section.style.setProperty('--fly-tx', `${fireflyX}px`);
+                        section.style.setProperty('--fly-ty', `${fireflyY}px`);
+                    }
+                });
+
                 ticking = false;
             };
 

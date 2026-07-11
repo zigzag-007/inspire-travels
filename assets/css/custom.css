@@ -166,10 +166,140 @@ html, body {
    5. LAYOUT COMPONENTS
    ============================================================================= */
 
-/* GoWilds Footer Styling */
+/* GoWilds Footer Styling — Tropical Dusk Canopy */
 .gowilds-footer {
+    /* Multi-layer background stack (bottom → top):
+       1. Base gradient: deep jungle → teal → near-black
+       2. Golden accent glow: warm radial spotlight upper-left
+       3. Organic grain texture: fine radial dot pattern */
     background-color: #1D231F;
+    background-image:
+        /* Layer 3 — Organic grain / spore texture */
+        radial-gradient(circle at 20% 50%, rgba(255,255,255,0.035) 1.2px, transparent 1.2px),
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.025) 1.2px, transparent 1.2px),
+        radial-gradient(circle at 50% 70%, rgba(255,255,255,0.02) 1.2px, transparent 1.2px),
+        /* Layer 2 — Golden accent glow (warm light filtering through canopy) */
+        radial-gradient(ellipse at 15% 10%, rgba(247,146,30,0.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 90%, rgba(247,146,30,0.08) 0%, transparent 45%),
+        /* Layer 1 — Base gradient */
+        linear-gradient(175deg, #2a3a2e 0%, #1D231F 30%, #181e1a 60%, #131916 100%);
+    background-size:
+        30px 30px,
+        25px 25px,
+        20px 20px,
+        100% 100%,
+        100% 100%,
+        100% 100%;
+    background-position:
+        0 0,
+        13px 13px,
+        7px 7px,
+        center,
+        center,
+        center;
+    background-repeat:
+        repeat,
+        repeat,
+        repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat;
     color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    /* Scroll-driven parallax offsets (set by JS, with safe defaults) */
+    --leaf-tx: 0px;
+    --leaf-ty: 0px;
+    --fly-tx: 0px;
+    --fly-ty: 0px;
+}
+
+/* Animated tropical leaf overlay — gentle sway with depth (positioned in left/right margins) */
+.gowilds-footer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        /* Left Margin — Large Monstera Silhouette (Light green on dark) */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='600' viewBox='0 0 300 600'%3E%3Cpath d='M-50 150 Q120 180 80 320 Q40 440 120 520 L-50 600 Z' fill='%2390c98a' opacity='0.08'/%3E%3Cpath d='M-50 200 C20 220 50 300 10 380 Q-20 440 -50 480 Z' fill='%2390c98a' opacity='0.06'/%3E%3Ccircle cx='40' cy='280' r='12' fill='%231D231F'/%3E%3Ccircle cx='20' cy='360' r='10' fill='%231D231F'/%3E%3C/svg%3E"),
+        /* Right Margin — Large Palm Frond Silhouette (Light green on dark) */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='600' viewBox='0 0 300 600'%3E%3Cpath d='M350 100 Q180 220 220 380 Q250 480 180 580 L350 600 Z' fill='%2390c98a' opacity='0.08'/%3E%3Cpath d='M300 180 Q200 270 230 380' stroke='%2390c98a' stroke-width='2.5' fill='none' opacity='0.12'/%3E%3Cpath d='M250 260 Q180 250 160 270 M240 320 Q160 310 140 330 M230 380 Q150 370 130 395 M225 440 Q155 430 135 455' stroke='%2390c98a' stroke-width='2' fill='none' opacity='0.09'/%3E%3C/svg%3E");
+    background-size: 280px 560px, 280px 560px;
+    background-position: left 20%, right 65%;
+    background-repeat: no-repeat, no-repeat;
+    pointer-events: none;
+    z-index: 0;
+    animation: footer-sway 20s ease-in-out infinite;
+    will-change: transform;
+}
+
+/* Firefly particles — depth float effect (distributed in left/right margins) */
+.gowilds-footer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        /* Left side fireflies */
+        radial-gradient(circle 4px at 6% 20%, rgba(247,200,80,0.95) 0%, rgba(247,200,80,0.3) 45%, transparent 100%),
+        radial-gradient(circle 3.5px at 10% 60%, rgba(247,200,80,0.9) 0%, rgba(247,200,80,0.2) 50%, transparent 100%),
+        radial-gradient(circle 3px at 12% 85%, rgba(180,220,160,0.8) 0%, rgba(180,220,160,0.2) 50%, transparent 100%),
+        /* Right side fireflies */
+        radial-gradient(circle 3.5px at 94% 35%, rgba(180,220,160,0.85) 0%, rgba(180,220,160,0.25) 45%, transparent 100%),
+        radial-gradient(circle 4px at 90% 75%, rgba(247,146,30,0.85) 0%, rgba(247,146,30,0.2) 45%, transparent 100%),
+        radial-gradient(circle 2.5px at 88% 15%, rgba(247,200,80,0.7) 0%, rgba(247,200,80,0.1) 50%, transparent 100%),
+        radial-gradient(circle 3px at 95% 85%, rgba(180,220,160,0.7) 0%, transparent 100%);
+    background-size: 100% 100%;
+    pointer-events: none;
+    z-index: 0;
+    animation: footer-fireflies 12s ease-in-out infinite;
+    will-change: transform, opacity;
+}
+
+/* Keyframes — gentle leaf sway (combined with scroll parallax via CSS vars) */
+@keyframes footer-sway {
+    0%, 100% {
+        transform: translate3d(var(--leaf-tx, 0px), var(--leaf-ty, 0px), 0) scale(1);
+    }
+    25% {
+        transform: translate3d(calc(var(--leaf-tx, 0px) + 8px), calc(var(--leaf-ty, 0px) - 4px), 0) scale(1.01);
+    }
+    50% {
+        transform: translate3d(calc(var(--leaf-tx, 0px) - 5px), calc(var(--leaf-ty, 0px) + 6px), 0) scale(0.99);
+    }
+    75% {
+        transform: translate3d(calc(var(--leaf-tx, 0px) + 4px), calc(var(--leaf-ty, 0px) - 8px), 0) scale(1.005);
+    }
+}
+
+/* Keyframes — firefly depth float (combined with scroll parallax via CSS vars) */
+@keyframes footer-fireflies {
+    0%, 100% {
+        transform: translate3d(var(--fly-tx, 0px), var(--fly-ty, 0px), 0) scale(1);
+        opacity: 0.6;
+    }
+    15% {
+        transform: translate3d(calc(var(--fly-tx, 0px) + 12px), calc(var(--fly-ty, 0px) - 8px), 0) scale(1.15);
+        opacity: 1;
+    }
+    35% {
+        transform: translate3d(calc(var(--fly-tx, 0px) - 6px), calc(var(--fly-ty, 0px) + 5px), 0) scale(0.9);
+        opacity: 0.4;
+    }
+    55% {
+        transform: translate3d(calc(var(--fly-tx, 0px) + 8px), calc(var(--fly-ty, 0px) + 10px), 0) scale(1.1);
+        opacity: 0.9;
+    }
+    75% {
+        transform: translate3d(calc(var(--fly-tx, 0px) - 10px), calc(var(--fly-ty, 0px) - 6px), 0) scale(0.95);
+        opacity: 0.5;
+    }
+}
+
+/* Ensure footer content stays above decorative layers */
+.gowilds-footer > * {
+    position: relative;
+    z-index: 1;
 }
 
 .gowilds-footer .widget-title {
@@ -208,6 +338,94 @@ html, body {
 
 .gowilds-footer .btn-primary:hover {
     background-color: #d97f18;
+}
+
+/* Light Background Section — Tropical Canopy */
+.tour-light-canopy {
+    background-color: #FBFAE0;
+    /* Soft transitional vertical gradient + grain texture */
+    background-image:
+        radial-gradient(circle at 10% 30%, rgba(99,171,69,0.08) 1.2px, transparent 1.2px),
+        radial-gradient(circle at 90% 70%, rgba(99,171,69,0.07) 1.2px, transparent 1.2px),
+        radial-gradient(circle at 50% 50%, rgba(99,171,69,0.06) 1.2px, transparent 1.2px),
+        /* Warm sunset glow */
+        radial-gradient(ellipse at 85% 15%, rgba(247,146,30,0.22) 0%, transparent 60%),
+        radial-gradient(ellipse at 15% 85%, rgba(99,171,69,0.18) 0%, transparent 50%),
+        /* Base light color */
+        linear-gradient(180deg, #FBFCE6 0%, #FBFAE0 50%, #FAF9D6 100%);
+    background-size:
+        40px 40px,
+        35px 35px,
+        30px 30px,
+        100% 100%,
+        100% 100%,
+        100% 100%;
+    background-position:
+        0 0,
+        17px 17px,
+        9px 9px,
+        center,
+        center,
+        center;
+    background-repeat:
+        repeat,
+        repeat,
+        repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    /* Scroll-driven parallax offsets (set by JS, with safe defaults) */
+    --leaf-tx: 0px;
+    --leaf-ty: 0px;
+    --fly-tx: 0px;
+    --fly-ty: 0px;
+}
+
+/* Light canopy animated overlays (positioned in left/right margins) */
+.tour-light-canopy::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        /* Left Margin — Large Monstera Silhouette */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='600' viewBox='0 0 300 600'%3E%3Cpath d='M-50 150 Q120 180 80 320 Q40 440 120 520 L-50 600 Z' fill='%232b3d26' opacity='0.08'/%3E%3Cpath d='M-50 200 C20 220 50 300 10 380 Q-20 440 -50 480 Z' fill='%232b3d26' opacity='0.07'/%3E%3Ccircle cx='40' cy='280' r='12' fill='%23FBFAE0'/%3E%3Ccircle cx='20' cy='360' r='10' fill='%23FBFAE0'/%3E%3C/svg%3E"),
+        /* Right Margin — Large Palm Frond Silhouette */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='600' viewBox='0 0 300 600'%3E%3Cpath d='M350 100 Q180 220 220 380 Q250 480 180 580 L350 600 Z' fill='%232b3d26' opacity='0.08'/%3E%3Cpath d='M300 180 Q200 270 230 380' stroke='%232b3d26' stroke-width='2.5' fill='none' opacity='0.15'/%3E%3Cpath d='M250 260 Q180 250 160 270 M240 320 Q160 310 140 330 M230 380 Q150 370 130 395 M225 440 Q155 430 135 455' stroke='%232b3d26' stroke-width='2' fill='none' opacity='0.12'/%3E%3C/svg%3E");
+    background-size: 280px 560px, 280px 560px;
+    background-position: left 15%, right 60%;
+    background-repeat: no-repeat, no-repeat;
+    pointer-events: none;
+    z-index: 0;
+    animation: footer-sway 22s ease-in-out infinite;
+    will-change: transform;
+}
+
+.tour-light-canopy::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        /* Left side pollen spores */
+        radial-gradient(circle 4px at 6% 25%, rgba(218,165,32,0.95) 0%, rgba(218,165,32,0.3) 50%, transparent 100%),
+        radial-gradient(circle 3.5px at 12% 75%, rgba(245,124,0,0.95) 0%, rgba(245,124,0,0.3) 50%, transparent 100%),
+        /* Right side pollen spores */
+        radial-gradient(circle 4.5px at 94% 45%, rgba(46,125,50,0.9) 0%, rgba(46,125,50,0.3) 50%, transparent 100%),
+        radial-gradient(circle 5px at 88% 85%, rgba(46,125,50,0.85) 0%, rgba(46,125,50,0.2) 50%, transparent 100%),
+        radial-gradient(circle 3px at 92% 15%, rgba(218,165,32,0.8) 0%, transparent 100%);
+    background-size: 100% 100%;
+    pointer-events: none;
+    z-index: 0;
+    animation: footer-fireflies 14s ease-in-out infinite;
+    will-change: transform, opacity;
+}
+
+/* Ensure content stays above overlays */
+.tour-light-canopy > * {
+    position: relative;
+    z-index: 1;
 }
 
 /* Blog Post Styling */
