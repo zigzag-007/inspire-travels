@@ -470,7 +470,10 @@ html, body {
     text-decoration: none;
     display: inline-block;
     margin-bottom: 15px;
-    transform: rotate(-6.08deg) translate(20px, -25px);
+    margin-top: -24px;
+    margin-left: 10px;
+    transform: rotate(-4deg);
+    transform-origin: left bottom;
     position: relative;
     z-index: 2;
     box-shadow: 0 2px 8px rgba(247, 146, 30, 0.3);
@@ -584,9 +587,10 @@ html, body {
     }
 
     .single-blog-post .cat-btn {
-        transform: rotate(-3deg) translate(15px, -20px);
         padding: 6px 16px;
         font-size: 13px;
+        margin-top: -20px;
+        margin-left: 5px;
     }
 }
 
@@ -601,9 +605,10 @@ html, body {
     }
 
     .single-blog-post .cat-btn {
-        transform: rotate(-2deg) translate(10px, -15px);
         padding: 5px 14px;
         font-size: 12px;
+        margin-top: -16px;
+        margin-left: 0px;
     }
 }
 
