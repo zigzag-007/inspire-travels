@@ -8,19 +8,20 @@ document.addEventListener('DOMContentLoaded', function() {
         lucide.createIcons();
     }
 
-    // Initialize all modules
-    window.PreloaderModule.init();
-    window.AOSModule.init();        // Initialize AOS animations first
-    window.HeroModule.init();
-    window.NavigationModule.init();
-    window.MobileMenuModule.init();
-    window.ToursModule.init();
-    window.AboutModule.init();
-    window.GalleryModule.init();
-    window.ModalModule.initTooltips();
-    window.ModalModule.initGlobalModalBehavior();
+    // Initialize all modules safely
+    if (window.PreloaderModule) window.PreloaderModule.init();
+    if (window.AOSModule) window.AOSModule.init();
+    if (window.HeroModule) window.HeroModule.init();
+    if (window.NavigationModule) window.NavigationModule.init();
+    if (window.MobileMenuModule) window.MobileMenuModule.init();
+    if (window.ToursModule) window.ToursModule.init();
+    if (window.AboutModule) window.AboutModule.init();
+    if (window.GalleryModule) window.GalleryModule.init();
+    if (window.ModalModule) {
+        window.ModalModule.initTooltips();
+        window.ModalModule.initGlobalModalBehavior();
+    }
 
     // Console log for debugging
     console.log('Inspire Travels website loaded successfully!');
-    console.log('All modules initialized: Preloader, AOS, Hero, Navigation, MobileMenu, Tours, About, Gallery, Modal');
 });

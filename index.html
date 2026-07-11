@@ -207,7 +207,16 @@
 						<a href="#home" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Home</a>
 						<a href="#tours" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Tours</a>
 						<a href="#about" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">About</a>
-						<a href="#gallery" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Gallery</a>
+						<!-- Gallery Hover Dropdown -->
+						<div class="relative group">
+							<a href="#gallery" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px] flex items-center gap-1">
+								Gallery <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"></i>
+							</a>
+							<div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-48 rounded-xl bg-white/95 border border-slate-200/50 backdrop-blur-md shadow-2xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-50 origin-top">
+								<a href="#gallery" class="block px-4 py-2 text-sm text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 transition-colors font-medium">Featured Moments</a>
+								<a href="gallery.html" class="block px-4 py-2 text-sm text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 transition-colors font-medium">Full Archive (50+)</a>
+							</div>
+						</div>
 						<a href="#adventure" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Adventure</a>
 						<a href="#reviews" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Reviews</a>
 						<a href="#footer" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Contact</a>
@@ -251,9 +260,9 @@
 						<i data-lucide="users" class="w-5 h-5"></i>
 						<span>About</span>
 					</a>
-					<a href="#gallery" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl" data-section="gallery">
+					<a href="gallery.html" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl">
 						<i data-lucide="image" class="w-5 h-5"></i>
-						<span>Gallery</span>
+						<span>Gallery Archive</span>
 					</a>
 					<a href="#adventure" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl" data-section="adventure">
 						<i data-lucide="mountain" class="w-5 h-5"></i>
@@ -368,10 +377,16 @@
 					<span>Most Popular</span>
 					<span class="gradient-text">Tours</span>
 				</h2>
-				<p class="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed" data-aos="fade-up-blur" data-aos-duration="1200" data-aos-delay="250">
+				<p class="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-6" data-aos="fade-up-blur" data-aos-duration="1200" data-aos-delay="250">
 					Flexible tour packages spanning 5 to 14 days to match your travel plans.
 					Starting from just $300 USD, discover the wonders of Sri Lanka your way. Hotel & activity bookings are included free of charge!
 				</p>
+				<!-- Active Promo Code Callout Badge -->
+				<div class="inline-flex items-center gap-2 bg-[#F7921E]/10 border border-[#F7921E]/30 text-[#F7921E] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold shadow-sm hover:scale-[1.02] transition-transform duration-300" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="350">
+					<span class="flex h-2 w-2 rounded-full bg-[#F7921E] animate-ping"></span>
+					<span>Active Promo: 15% Off Safaris & Whale Watching!</span>
+					<a href="gallery.html?filter=offers" class="underline ml-1 font-bold hover:text-white transition-colors flex items-center gap-0.5">View Promo Codes <i data-lucide="chevron-right" class="w-3.5 h-3.5 inline"></i></a>
+				</div>
 			</div>
 			<!-- Tours Grid with Card Animations -->
 			<div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 md:gap-8">
@@ -834,123 +849,12 @@
 							<h3 class="title"><a href="https://www.youtube.com/shorts/LO7vF7flWGE?feature=share" target="_blank" rel="noopener">Waterfall Tour</a></h3>
 						</div>
 					</div>
-					<!-- Gallery Card 13: Birthday Surprise -->
-					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="50" onclick="openGalleryModal('assets/img/main-gallery/birthday-surprise.jpeg', 'Birthday Surprise', 'Sri Lanka', 'Celebrating special moments with our travelers')">
-						<div class="post-thumbnail">
-							<img src="assets/img/main-gallery/birthday-surprise.jpeg" alt="Birthday Surprise" class="w-full h-36 sm:h-48 md:h-64 object-cover">
-						</div>
-						<div class="entry-content">
-							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Experience</a>
-							<div class="post-meta">
-								<span><i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-xs sm:text-sm">November 04, 2025</a></span>
-							</div>
-							<h3 class="title"><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener">Birthday Surprise</a></h3>
-						</div>
-					</div>
-					<!-- Gallery Card 14: Cooking Class -->
-					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="150" onclick="openGalleryModal('assets/img/main-gallery/cooking-class.jpeg', 'Cooking Class', 'Sri Lanka', 'Learn authentic Sri Lankan cuisine with local chefs')">
-						<div class="post-thumbnail">
-							<img src="assets/img/main-gallery/cooking-class.jpeg" alt="Cooking Class" class="w-full h-36 sm:h-48 md:h-64 object-cover">
-						</div>
-						<div class="entry-content">
-							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Cultural</a>
-							<div class="post-meta">
-								<span><i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-xs sm:text-sm">January 11, 2026</a></span>
-							</div>
-							<h3 class="title"><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-sm sm:text-lg md:text-2xl line-clamp-2">Cooking Class</a></h3>
-						</div>
-					</div>
-					<!-- Gallery Card 15: Cultural Heritage Tour -->
-					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="250" onclick="openGalleryModal('assets/img/main-gallery/cultural-heritage-tour.jpeg', 'Cultural Heritage Tour', 'Sri Lanka', 'Explore the rich cultural heritage and traditions of Sri Lanka')">
-						<div class="post-thumbnail">
-							<img src="assets/img/main-gallery/cultural-heritage-tour.jpeg" alt="Cultural Heritage Tour" class="w-full h-36 sm:h-48 md:h-64 object-cover">
-						</div>
-						<div class="entry-content">
-							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Cultural</a>
-							<div class="post-meta">
-								<span><i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-xs sm:text-sm">November 01, 2025</a></span>
-							</div>
-							<h3 class="title"><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-sm sm:text-lg md:text-2xl line-clamp-2">Cultural Heritage Tour</a></h3>
-						</div>
-					</div>
-					<!-- Gallery Card 16: Hiking Rock -->
-					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="50" onclick="openGalleryModal('assets/img/main-gallery/hiking-rock.jpeg', 'Hiking Rock Adventure', 'Sri Lanka', 'Challenging rock climbing and hiking adventures')">
-						<div class="post-thumbnail">
-							<img src="assets/img/main-gallery/hiking-rock.jpeg" alt="Hiking Rock Adventure" class="w-full h-36 sm:h-48 md:h-64 object-cover">
-						</div>
-						<div class="entry-content">
-							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Adventure</a>
-							<div class="post-meta">
-								<span><i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-xs sm:text-sm">November 04, 2025</a></span>
-							</div>
-							<h3 class="title"><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-sm sm:text-lg md:text-2xl line-clamp-2">Hiking Rock Adventure</a></h3>
-						</div>
-					</div>
-					<!-- Gallery Card 17: Our Welcome -->
-					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="150" onclick="openGalleryModal('assets/img/main-gallery/our-welcome.jpeg', 'Our Welcome', 'Sri Lanka', 'Warm welcome to our travelers with traditional hospitality')">
-						<div class="post-thumbnail">
-							<img src="assets/img/main-gallery/our-welcome.jpeg" alt="Our Welcome" class="w-full h-36 sm:h-48 md:h-64 object-cover">
-						</div>
-						<div class="entry-content">
-							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Experience</a>
-							<div class="post-meta">
-								<span><i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-xs sm:text-sm">October 17, 2025</a></span>
-							</div>
-							<h3 class="title"><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-sm sm:text-lg md:text-2xl line-clamp-2">Our Welcome</a></h3>
-						</div>
-					</div>
-					<!-- Gallery Card 18: Snake Tour -->
-					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="250" onclick="openGalleryModal('assets/img/main-gallery/snake-tour.jpeg', 'Snake Tour', 'Sri Lanka', 'Fascinating encounter with native snakes and wildlife')">
-						<div class="post-thumbnail">
-							<img src="assets/img/main-gallery/snake-tour.jpeg" alt="Snake Tour" class="w-full h-36 sm:h-48 md:h-64 object-cover">
-						</div>
-						<div class="entry-content">
-							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Wildlife</a>
-							<div class="post-meta">
-								<span><i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-xs sm:text-sm">October 22, 2025</a></span>
-							</div>
-							<h3 class="title"><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-sm sm:text-lg md:text-2xl line-clamp-2">Snake Tour</a></h3>
-						</div>
-					</div>
-					<!-- Gallery Card 19: Surfing Class -->
-					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="350" onclick="openGalleryModal('assets/img/main-gallery/surfing-class.jpeg', 'Surfing Class', 'Coastal Sri Lanka', 'Learn to surf on the beautiful waves of Sri Lankan beaches')">
-						<div class="post-thumbnail">
-							<img src="assets/img/main-gallery/surfing-class.jpeg" alt="Surfing Class" class="w-full h-36 sm:h-48 md:h-64 object-cover">
-						</div>
-						<div class="entry-content">
-							<a href="https://www.youtube.com/shorts/LO7vF7flWGE?feature=share" target="_blank" rel="noopener" class="cat-btn">Adventure</a>
-							<div class="post-meta">
-								<span><i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-xs sm:text-sm">October 30, 2025</a></span>
-							</div>
-							<h3 class="title"><a href="https://www.youtube.com/shorts/LO7vF7flWGE?feature=share" target="_blank" rel="noopener" class="text-sm sm:text-lg md:text-2xl line-clamp-2">Surfing Class</a></h3>
-						</div>
-					</div>
-					<!-- Gallery Card 20: Tea Plantation Tour -->
-					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="450" onclick="openGalleryModal('assets/img/main-gallery/tea-plantation-tour.jpeg', 'Tea Plantation Tour', 'Hill Country', 'Experience the beauty of Sri Lankan tea plantations and learn about tea processing')">
-						<div class="post-thumbnail">
-							<img src="assets/img/main-gallery/tea-plantation-tour.jpeg" alt="Tea Plantation Tour" class="w-full h-36 sm:h-48 md:h-64 object-cover">
-						</div>
-						<div class="entry-content">
-							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Nature</a>
-							<div class="post-meta">
-								<span><i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-xs sm:text-sm">January 10, 2026</a></span>
-							</div>
-							<h3 class="title"><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-sm sm:text-lg md:text-2xl line-clamp-2">Tea Plantation Tour</a></h3>
-						</div>
-					</div>
-					<!-- Gallery Card 21: Wildlife Adventure -->
-					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="550" onclick="openGalleryModal('assets/img/main-gallery/wild-life-adventure.jpeg', 'Wildlife Adventure', 'National Parks', 'Thrilling wildlife safari experience in Sri Lankan national parks')">
-						<div class="post-thumbnail">
-							<img src="assets/img/main-gallery/wild-life-adventure.jpeg" alt="Wildlife Adventure" class="w-full h-36 sm:h-48 md:h-64 object-cover">
-						</div>
-						<div class="entry-content">
-							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Wildlife</a>
-							<div class="post-meta">
-								<span><i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-xs sm:text-sm">October 29, 2025</a></span>
-							</div>
-							<h3 class="title"><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-sm sm:text-lg md:text-2xl line-clamp-2">Wildlife Adventure</a></h3>
-						</div>
-					</div>
+				</div>
+				<!-- View Full Gallery CTA (2026 Premium style) -->
+				<div class="text-center mt-8 sm:mt-12" data-aos="fade-up" data-aos-duration="1000">
+					<a href="gallery.html" class="liquid-glass inline-flex items-center gap-2 text-white px-8 py-3.5 rounded-full text-base sm:text-lg font-semibold hover:scale-105 transition-transform duration-300 shadow-xl border border-white/10">
+						Explore Full Gallery (50+ Photos) <i data-lucide="arrow-right" class="w-5 h-5"></i>
+					</a>
 				</div>
 			</div>
 			</div>

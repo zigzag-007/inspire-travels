@@ -38,6 +38,11 @@
 
         // Build gallery list from the onclick attributes in the main gallery cards only
         buildGalleryImagesFromDOM: function() {
+            if (window.GalleryData && window.GalleryData.length > 0) {
+                this.galleryImages = window.GalleryData;
+                return;
+            }
+
             const items = [];
             const pattern = /openGalleryModal\('\s*([^']+?)\s*'\s*,\s*'\s*([^']+?)\s*'\s*,\s*'\s*([^']+?)\s*'\s*,\s*'\s*([^']+?)\s*'\)/;
 
@@ -69,30 +74,89 @@
             }
         },
 
+        activeCategory: 'all',
+        activeYear: 'all',
+
         // Gallery filtering
         initGalleryFiltering: function() {
-            this.galleryFilterBtns = document.querySelectorAll('.gallery-filter-btn');
-            this.galleryItems = document.querySelectorAll('.single-gallery-item');
-            if (!this.galleryFilterBtns) return;
+            const categoryBtns = document.querySelectorAll('.gallery-filter-btn');
+            const yearBtns = document.querySelectorAll('.gallery-year-btn');
 
-            this.galleryFilterBtns.forEach(btn => btn.addEventListener('click', () => {
-                const category = btn.dataset.category;
-                this.galleryFilterBtns.forEach(b => {
-                    b.classList.toggle('bg-primary', b === btn);
-                    b.classList.toggle('text-primary-foreground', b === btn);
-                    b.classList.toggle('scale-105', b === btn);
-                    b.classList.toggle('shadow-lg', b === btn);
-                    b.classList.toggle('bg-transparent', b !== btn);
-                    b.classList.toggle('border', b !== btn);
-                    b.classList.toggle('border-border', b !== btn);
-                });
-                this.galleryItems.forEach(item => {
-                    const show = category === 'all' || item.dataset.category === category;
+            if (!categoryBtns && !yearBtns) return;
+
+            const applyCombinedFilters = () => {
+                // Dynamically fetch items inside click handler to resolve timing race conditions
+                const galleryItems = document.querySelectorAll('#dynamic-gallery-grid .single-blog-post, .single-gallery-item');
+                
+                galleryItems.forEach(item => {
+                    // Check category match
+                    const itemCategory = item.dataset.category || '';
+                    let categoryMatch = false;
+                    
+                    if (this.activeCategory === 'all') {
+                        // Exclude marketing flyers from 'All Photos' to preserve premium photography aesthetic
+                        categoryMatch = itemCategory !== 'offers';
+                    } else {
+                        categoryMatch = itemCategory === this.activeCategory;
+                    }
+
+                    // Check year match
+                    const itemYear = item.dataset.year || '';
+                    const yearMatch = this.activeYear === 'all' || itemYear === this.activeYear;
+
+                    const show = categoryMatch && yearMatch;
+                    
                     item.style.display = show ? 'block' : 'none';
                     item.style.opacity = show ? '1' : '0';
                     item.style.transform = show ? 'translateY(0)' : 'translateY(20px)';
                 });
-            }));
+            };
+
+            if (categoryBtns) {
+                categoryBtns.forEach(btn => btn.addEventListener('click', () => {
+                    this.activeCategory = btn.dataset.category || 'all';
+                    categoryBtns.forEach(b => {
+                        const isActive = b === btn;
+                        b.classList.toggle('bg-primary', isActive);
+                        b.classList.toggle('text-primary-foreground', isActive);
+                        b.classList.toggle('scale-105', isActive);
+                        b.classList.toggle('shadow-md', isActive);
+                        b.classList.toggle('bg-transparent', !isActive);
+                        b.classList.toggle('border', !isActive);
+                        b.classList.toggle('border-border', !isActive);
+                    });
+                    applyCombinedFilters();
+                }));
+            }
+
+            if (yearBtns) {
+                yearBtns.forEach(btn => btn.addEventListener('click', () => {
+                    this.activeYear = btn.dataset.year || 'all';
+                    yearBtns.forEach(b => {
+                        const isActive = b === btn;
+                        b.classList.toggle('bg-primary', isActive);
+                        b.classList.toggle('text-primary-foreground', isActive);
+                        b.classList.toggle('scale-105', isActive);
+                        b.classList.toggle('shadow-md', isActive);
+                        b.classList.toggle('bg-transparent', !isActive);
+                        b.classList.toggle('border', !isActive);
+                        b.classList.toggle('border-border', !isActive);
+                    });
+                    applyCombinedFilters();
+                }));
+            }
+
+            // Automatically trigger filter from query parameter (e.g. gallery.html?filter=offers)
+            const urlParams = new URLSearchParams(window.location.search);
+            const filterParam = urlParams.get('filter');
+            if (filterParam && categoryBtns) {
+                const matchingBtn = Array.from(categoryBtns).find(btn => btn.dataset.category === filterParam);
+                if (matchingBtn) {
+                    setTimeout(() => {
+                        matchingBtn.click();
+                    }, 100);
+                }
+            }
         },
 
         // Open PhotoSwipe Lightbox
