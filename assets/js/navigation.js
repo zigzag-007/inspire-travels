@@ -98,6 +98,18 @@
                 const sections = document.querySelectorAll('section[id]');
                 const navbarHeight = this.navbar ? this.navbar.getBoundingClientRect().height : 64;
                 const offset = navbarHeight + 20;
+                const scrollY = window.scrollY;
+
+                // 1. Apple-Style Navbar Translation (slides up to stick to top when topbar scrolls off)
+                if (this.navbar) {
+                    const topBar = document.querySelector('.bg-primary.text-primary-foreground');
+                    const topBarHeight = topBar ? topBar.offsetHeight : 36;
+                    if (scrollY > topBarHeight) {
+                        this.navbar.style.transform = `translate3d(0, -${topBarHeight}px, 0)`;
+                    } else {
+                        this.navbar.style.transform = `translate3d(0, 0, 0)`;
+                    }
+                }
 
                 let currentSection = null;
                 let isDarkSection = false;
@@ -148,6 +160,17 @@
                 // Update active state - use the same section for consistency
                 if (currentSection) {
                     this.setActiveState(currentSection);
+                }
+
+                // 2. Toggle Frosted Glass Theme Classes (Apple-Style)
+                if (this.navbar) {
+                    if (isDarkSection) {
+                        this.navbar.classList.add('is-dark-nav');
+                        this.navbar.classList.remove('is-light-nav');
+                    } else {
+                        this.navbar.classList.add('is-light-nav');
+                        this.navbar.classList.remove('is-dark-nav');
+                    }
                 }
             };
 
