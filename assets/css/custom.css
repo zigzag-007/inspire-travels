@@ -139,9 +139,19 @@ html, body {
     border-radius: inherit;
     pointer-events: none; /* Prevent blocking child elements interaction */
     /* GLASS SHINE CONTROL: Adjust highlight intensity here */
-    /* Lower values (0.3-0.5) = subtle shine, Higher values (0.7-1.0) = bright shine */
     box-shadow: inset 2px 2px 0px -2px rgba(255, 255, 255, 0.7),
                 inset 0 0 3px 1px rgba(255, 255, 255, 0.7);
+    /* Shimmer Sweep Background */
+    background-image: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.2) 40%, rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0.2) 60%, transparent 70%);
+    background-size: 250% 100%;
+    background-position: 200% 0;
+    background-repeat: no-repeat;
+    transition: background-position 0s;
+}
+
+.liquid-glass:hover::before {
+    background-position: -120% 0;
+    transition: background-position 0.8s ease-in-out;
 }
 
 /* Background distortion and blur layer - shared by all liquid glass elements */
@@ -262,42 +272,42 @@ html, body {
     will-change: transform, opacity;
 }
 
-/* Keyframes — gentle leaf sway (combined with scroll parallax via CSS vars) */
+/* Keyframes — gentle leaf sway (combined with scroll parallax and mouse sway via CSS vars) */
 @keyframes footer-sway {
     0%, 100% {
-        transform: translate3d(var(--leaf-tx, 0px), var(--leaf-ty, 0px), 0) scale(1);
+        transform: translate3d(calc(var(--leaf-tx, 0px) + (var(--mouse-x, 0) * 15px)), calc(var(--leaf-ty, 0px) + (var(--mouse-y, 0) * 15px)), 0) scale(1);
     }
     25% {
-        transform: translate3d(calc(var(--leaf-tx, 0px) + 8px), calc(var(--leaf-ty, 0px) - 4px), 0) scale(1.01);
+        transform: translate3d(calc(var(--leaf-tx, 0px) + (var(--mouse-x, 0) * 15px) + 8px), calc(var(--leaf-ty, 0px) + (var(--mouse-y, 0) * 15px) - 4px), 0) scale(1.01);
     }
     50% {
-        transform: translate3d(calc(var(--leaf-tx, 0px) - 5px), calc(var(--leaf-ty, 0px) + 6px), 0) scale(0.99);
+        transform: translate3d(calc(var(--leaf-tx, 0px) + (var(--mouse-x, 0) * 15px) - 5px), calc(var(--leaf-ty, 0px) + (var(--mouse-y, 0) * 15px) + 6px), 0) scale(0.99);
     }
     75% {
-        transform: translate3d(calc(var(--leaf-tx, 0px) + 4px), calc(var(--leaf-ty, 0px) - 8px), 0) scale(1.005);
+        transform: translate3d(calc(var(--leaf-tx, 0px) + (var(--mouse-x, 0) * 15px) + 4px), calc(var(--leaf-ty, 0px) + (var(--mouse-y, 0) * 15px) - 8px), 0) scale(1.005);
     }
 }
 
-/* Keyframes — firefly depth float (combined with scroll parallax via CSS vars) */
+/* Keyframes — firefly depth float (combined with scroll parallax and inverse mouse sway via CSS vars) */
 @keyframes footer-fireflies {
     0%, 100% {
-        transform: translate3d(var(--fly-tx, 0px), var(--fly-ty, 0px), 0) scale(1);
+        transform: translate3d(calc(var(--fly-tx, 0px) + (var(--mouse-x, 0) * -25px)), calc(var(--fly-ty, 0px) + (var(--mouse-y, 0) * -25px)), 0) scale(1);
         opacity: 0.6;
     }
     15% {
-        transform: translate3d(calc(var(--fly-tx, 0px) + 12px), calc(var(--fly-ty, 0px) - 8px), 0) scale(1.15);
+        transform: translate3d(calc(var(--fly-tx, 0px) + (var(--mouse-x, 0) * -25px) + 12px), calc(var(--fly-ty, 0px) + (var(--mouse-y, 0) * -25px) - 8px), 0) scale(1.15);
         opacity: 1;
     }
     35% {
-        transform: translate3d(calc(var(--fly-tx, 0px) - 6px), calc(var(--fly-ty, 0px) + 5px), 0) scale(0.9);
+        transform: translate3d(calc(var(--fly-tx, 0px) + (var(--mouse-x, 0) * -25px) - 6px), calc(var(--fly-ty, 0px) + (var(--mouse-y, 0) * -25px) + 5px), 0) scale(0.9);
         opacity: 0.4;
     }
     55% {
-        transform: translate3d(calc(var(--fly-tx, 0px) + 8px), calc(var(--fly-ty, 0px) + 10px), 0) scale(1.1);
+        transform: translate3d(calc(var(--fly-tx, 0px) + (var(--mouse-x, 0) * -25px) + 8px), calc(var(--fly-ty, 0px) + (var(--mouse-y, 0) * -25px) + 10px), 0) scale(1.1);
         opacity: 0.9;
     }
     75% {
-        transform: translate3d(calc(var(--fly-tx, 0px) - 10px), calc(var(--fly-ty, 0px) - 6px), 0) scale(0.95);
+        transform: translate3d(calc(var(--fly-tx, 0px) + (var(--mouse-x, 0) * -25px) - 10px), calc(var(--fly-ty, 0px) + (var(--mouse-y, 0) * -25px) - 6px), 0) scale(0.95);
         opacity: 0.5;
     }
 }
@@ -1243,4 +1253,28 @@ html, body {
 
 .gowilds-footer .grid-guide-line {
     background: linear-gradient(to bottom, transparent, rgba(144, 201, 138, 0.06) 15%, rgba(144, 201, 138, 0.06) 85%, transparent);
+}
+
+/* Centered/Inline Technical Metadata (2026 Premium Brutalism Theme) */
+.tech-metadata-inline {
+    display: inline-block;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #63AB45;
+    background: rgba(99, 171, 69, 0.08);
+    border: 1px solid rgba(99, 171, 69, 0.2);
+    padding: 5px 14px;
+    border-radius: 9999px;
+    margin-bottom: 1.25rem;
+    pointer-events: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.gowilds-footer .tech-metadata-inline {
+    color: #90c98a;
+    background: rgba(144, 201, 138, 0.08);
+    border-color: rgba(144, 201, 138, 0.2);
 }

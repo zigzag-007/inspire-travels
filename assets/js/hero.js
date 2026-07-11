@@ -179,12 +179,13 @@
             });
         },
 
-        // Classic Parallax Scroll Effect
+        // Classic Parallax Scroll Effect & Interactive Mouse Sway & Progress Bar
         initScrollDepthEffect: function() {
             if (!this.heroSection) return;
             const bgWrapper = document.getElementById('hero-bg-wrapper');
             const adventureBg = document.getElementById('adventure-bg-parallax');
             const adventureSection = document.getElementById('adventure');
+            const progressBar = document.getElementById('scroll-progress');
 
             let ticking = false;
 
@@ -192,14 +193,21 @@
                 const scrollY = window.scrollY;
                 const heroHeight = this.heroSection.offsetHeight;
 
-                // Apply vertical translation to background wrapper only when hero is visible
+                // 1. Update Scroll Progress Bar
+                if (progressBar) {
+                    const scrollLimit = document.documentElement.scrollHeight - window.innerHeight;
+                    const scrollPercent = scrollLimit > 0 ? (scrollY / scrollLimit) * 100 : 0;
+                    progressBar.style.width = `${scrollPercent}%`;
+                }
+
+                // 2. Apply vertical translation to background wrapper only when hero is visible
                 if (scrollY <= heroHeight + 100) {
                     if (bgWrapper) {
                         bgWrapper.style.transform = `translate3d(0, ${scrollY * 0.4}px, 0)`;
                     }
                 }
 
-                // Apply viewport-relative parallax translation to adventure section background
+                // 3. Apply viewport-relative parallax translation to adventure section background
                 if (adventureSection && adventureBg) {
                     const rect = adventureSection.getBoundingClientRect();
                     const windowHeight = window.innerHeight;
@@ -210,7 +218,7 @@
                     }
                 }
 
-                // Apply depth parallax to dark and light tropical decorative sections
+                // 4. Apply depth parallax to dark and light tropical decorative sections
                 const parallaxSections = document.querySelectorAll('.gowilds-footer, .tour-light-canopy');
                 const windowHeight = window.innerHeight;
 
@@ -240,6 +248,21 @@
                 if (!ticking) {
                     window.requestAnimationFrame(onScroll);
                     ticking = true;
+                }
+            }, { passive: true });
+
+            // 5. Throttled Mousemove Listener for Interactive Canopy Sway
+            let mouseMoving = false;
+            document.addEventListener('mousemove', (e) => {
+                if (!mouseMoving) {
+                    mouseMoving = true;
+                    window.requestAnimationFrame(() => {
+                        const mx = (e.clientX / window.innerWidth) - 0.5;
+                        const my = (e.clientY / window.innerHeight) - 0.5;
+                        document.documentElement.style.setProperty('--mouse-x', mx.toFixed(3));
+                        document.documentElement.style.setProperty('--mouse-y', my.toFixed(3));
+                        mouseMoving = false;
+                    });
                 }
             }, { passive: true });
         },
