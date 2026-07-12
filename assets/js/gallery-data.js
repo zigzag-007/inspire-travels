@@ -5,7 +5,7 @@
 
 window.GalleryData = [
     {
-        src: "assets/img/main-gallery/promo-flyer-5.png",
+        src: "assets/img/promos/promo-flyer-5.png",
         category: "offers",
         title: "Hotel Booking + Full Tour Package - Special Offer",
         location: "Sri Lanka",
@@ -14,7 +14,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/promo-flyer-2.png",
+        src: "assets/img/promos/promo-flyer-2.png",
         category: "offers",
         title: "Trincomalee Whale & Dolphin Watching - Special Offer",
         location: "Trincomalee",
@@ -23,7 +23,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/promo-flyer-1.png",
+        src: "assets/img/promos/promo-flyer-1.png",
         category: "offers",
         title: "Elephant Safari In Sri Lanka - Special Offer",
         location: "Minneriya & Kavdulla",
@@ -32,7 +32,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/promo-flyer-3.jpg",
+        src: "assets/img/promos/promo-flyer-3.png",
         category: "offers",
         title: "Sri Lanka Yala Leopard Safari - Special Offer",
         location: "Yala National Park",
@@ -41,7 +41,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/promo-flyer-4.png",
+        src: "assets/img/promos/promo-flyer-4.png",
         category: "offers",
         title: "Sri Lanka Udawalawa Elephant Safari - Special Offer",
         location: "Udawalawa National Park",

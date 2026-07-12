@@ -8,29 +8,30 @@
 
     window.PromoModule = {
         activeSlideIndex: 0,
+        isAnimating: false,
         slides: [
             {
-                src: "assets/img/main-gallery/promo-flyer-5.png",
+                src: "assets/img/promos/promo-flyer-5.png",
                 title: "Hotel Booking + Full Tour Package Offer",
                 whatsappMessage: "Hi! I am interested in booking a hotel together with a full tour package. Please apply the 15% discount code *InspireHotel15* to my inquiry!"
             },
             {
-                src: "assets/img/main-gallery/promo-flyer-2.png",
+                src: "assets/img/promos/promo-flyer-2.png",
                 title: "Trincomalee Whale & Dolphin Watching Offer",
                 whatsappMessage: "Hi! I am interested in booking the Trincomalee Whale & Dolphin Watching excursion. Please apply the 15% discount code *WhaleWatch15* to my inquiry!"
             },
             {
-                src: "assets/img/main-gallery/promo-flyer-1.png",
+                src: "assets/img/promos/promo-flyer-1.png",
                 title: "Minneriya / Kavdulla / Hurulu Elephant Safari Offer",
                 whatsappMessage: "Hi! I want to book the Elephant Safari. Please apply the 15% discount code *MinIns15* / *KavIns15* / *HurIns15* to my inquiry!"
             },
             {
-                src: "assets/img/main-gallery/promo-flyer-3.jpg",
+                src: "assets/img/promos/promo-flyer-3.png",
                 title: "Yala Leopard Safari Excursion Offer",
                 whatsappMessage: "Hi! I want to book the Yala Leopard Safari. Please apply the 15% discount code *YalaIns15* to my Yala safari booking!"
             },
             {
-                src: "assets/img/main-gallery/promo-flyer-4.png",
+                src: "assets/img/promos/promo-flyer-4.png",
                 title: "Udawalawa Elephant Safari Excursion Offer",
                 whatsappMessage: "Hi! I want to book the Udawalawa Elephant Safari. Please apply the 15% discount code *UdaIns15* to my Udawalawa safari booking!"
             }
@@ -40,8 +41,6 @@
             const openBtns = document.querySelectorAll('.open-promo-btn');
             const modal = document.getElementById('promoModal');
             const closeBtn = document.getElementById('closePromoModal');
-            const prevBtn = document.getElementById('promoPrevBtn');
-            const nextBtn = document.getElementById('promoNextBtn');
 
             if (!modal) return;
 
@@ -49,7 +48,7 @@
             const stack = document.getElementById('promoCardStack');
             if (stack) {
                 stack.innerHTML = this.slides.map((slide, idx) => `
-                    <div class="promo-card absolute inset-0 w-full h-full rounded-2xl overflow-hidden cursor-grab active:cursor-grabbing origin-center bg-[#0c3531] border border-white/10 shadow-lg transition-transform duration-300" data-index="${idx}">
+                    <div class="promo-card absolute inset-0 w-full h-full rounded-2xl overflow-hidden cursor-grab active:cursor-grabbing origin-center bg-[#0c3531] border border-white/10 shadow-lg" data-index="${idx}">
                         <img src="${slide.src}" alt="${slide.title}" class="max-w-full max-h-full object-contain pointer-events-none select-none rounded-xl">
                         <!-- Overlay Zoom Button -->
                         <button onclick="event.stopPropagation(); window.openPromoPhotoSwipe(${idx});" class="absolute top-3 right-3 bg-black/60 hover:bg-[#F7921E] text-white w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-md border border-white/10 z-20" title="Zoom image">
@@ -57,6 +56,9 @@
                         </button>
                     </div>
                 `).join('');
+
+                // Render initial stack layouts
+                this.render();
 
                 // Bind Tinder Swipe Drags
                 this.bindSwipeEvents();
@@ -82,16 +84,12 @@
                 }
             });
 
-            // Navigation buttons - Tinder style: rewind vs discard
-            if (prevBtn) prevBtn.addEventListener('click', () => this.prev());
-            if (nextBtn) nextBtn.addEventListener('click', () => this.nextSlide('right'));
-
             // Keyboard navigation
             document.addEventListener('keydown', (e) => {
                 if (!modal.classList.contains('invisible')) {
                     if (e.key === 'Escape') this.close();
-                    if (e.key === 'ArrowRight') this.nextSlide('right');
-                    if (e.key === 'ArrowLeft') this.prev();
+                    if (e.key === 'ArrowRight') this.swipeCard('right');
+                    if (e.key === 'ArrowLeft') this.swipeCard('left');
                 }
             });
         },
@@ -108,6 +106,7 @@
             let activeCard = null;
 
             const onStart = (clientX, clientY, targetCard) => {
+                if (this.isAnimating) return;
                 isDragging = true;
                 activeCard = targetCard;
                 startX = clientX;
@@ -133,17 +132,32 @@
 
                 const swipeThreshold = 100;
                 if (Math.abs(currentX) > swipeThreshold) {
+                    this.isAnimating = true;
                     // Fly off screen left or right (Tinder swipe)
                     const flyX = currentX > 0 ? window.innerWidth : -window.innerWidth;
                     const rotation = currentX * 0.08;
+                    
                     activeCard.style.transition = 'transform 0.4s ease-out, opacity 0.4s ease-out';
                     activeCard.style.transform = `translate(${flyX}px, ${currentY}px) rotate(${rotation}deg)`;
                     activeCard.style.opacity = '0';
                     
+                    // Capture activeCard local reference before resetting it synchronously
+                    const swipedCard = activeCard;
+                    
                     // Increment slide index and update stack directly without double-triggering animations
                     setTimeout(() => {
                         this.activeSlideIndex = (this.activeSlideIndex + 1) % this.slides.length;
+                        
+                        // Reset swiped card instantly to bottom stack style
+                        if (swipedCard) {
+                            swipedCard.style.transition = 'none';
+                            swipedCard.style.transform = 'translate(0px, 36px) scale(0.85) rotate(0deg)';
+                            swipedCard.style.opacity = '0';
+                            swipedCard.style.zIndex = '2';
+                        }
+                        
                         this.render();
+                        this.isAnimating = false;
                     }, 200);
                 } else {
                     // Snap back
@@ -160,6 +174,7 @@
             stack.addEventListener('mousedown', (e) => {
                 const card = e.target.closest('.promo-card');
                 if (card && card.dataset.index == this.activeSlideIndex) {
+                    e.preventDefault(); // Stop browser native image drag actions
                     onStart(e.clientX, e.clientY, card);
                 }
             });
@@ -182,9 +197,10 @@
 
             document.addEventListener('touchmove', (e) => {
                 if (isDragging) {
+                    e.preventDefault(); // Prevent browser body scroll while swiping cards
                     onMove(e.touches[0].clientX, e.touches[0].clientY);
                 }
-            }, { passive: true });
+            }, { passive: false });
 
             document.addEventListener('touchend', () => {
                 onEnd();
@@ -196,6 +212,7 @@
             if (!modal) return;
 
             this.activeSlideIndex = 0;
+            this.isAnimating = false; // Reset lock state
             this.render();
 
             modal.classList.remove('invisible', 'opacity-0');
@@ -231,68 +248,44 @@
             }, 300);
         },
 
-        nextSlide: function(direction = 'right') {
+        swipeCard: function(direction = 'right') {
+            if (this.isAnimating) return;
+            this.isAnimating = true;
+
             const cards = document.querySelectorAll('.promo-card');
             const topCard = Array.from(cards).find(c => c.dataset.index == this.activeSlideIndex);
             
             if (topCard) {
                 const flyX = direction === 'right' ? window.innerWidth : -window.innerWidth;
                 const rot = direction === 'right' ? 15 : -15;
+                
                 topCard.style.transition = 'transform 0.4s ease-out, opacity 0.4s ease-out';
                 topCard.style.transform = `translate(${flyX}px, -20px) rotate(${rot}deg)`;
                 topCard.style.opacity = '0';
+                
+                const swipedCard = topCard;
+
+                setTimeout(() => {
+                    this.activeSlideIndex = (this.activeSlideIndex + 1) % this.slides.length;
+                    
+                    if (swipedCard) {
+                        swipedCard.style.transition = 'none';
+                        swipedCard.style.transform = 'translate(0px, 36px) scale(0.85) rotate(0deg)';
+                        swipedCard.style.opacity = '0';
+                        swipedCard.style.zIndex = '2';
+                    }
+
+                    this.render();
+                    this.isAnimating = false;
+                }, 200);
+            } else {
+                this.isAnimating = false;
             }
-
-            setTimeout(() => {
-                this.activeSlideIndex = (this.activeSlideIndex + 1) % this.slides.length;
-                this.render();
-            }, 200);
-        },
-
-        prev: function() {
-            // Programmatically return the previous card by flying it back in from the left
-            const prevIndex = (this.activeSlideIndex - 1 + this.slides.length) % this.slides.length;
-            this.activeSlideIndex = prevIndex;
-            this.render();
-            
-            // Set the new top card to start off-screen and transition in
-            setTimeout(() => {
-                const cards = document.querySelectorAll('.promo-card');
-                const topCard = Array.from(cards).find(c => c.dataset.index == prevIndex);
-                if (topCard) {
-                    topCard.style.transition = 'none';
-                    topCard.style.transform = `translate(-${window.innerWidth}px, -20px) rotate(-15deg)`;
-                    topCard.style.opacity = '0';
-                    // Force reflow
-                    topCard.offsetHeight;
-                    topCard.style.transition = 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.2), opacity 0.4s ease-out';
-                    topCard.style.transform = 'translate(0px, 0px) rotate(0deg)';
-                    topCard.style.opacity = '1';
-                }
-            }, 30);
         },
 
         render: function() {
-            const slide = this.slides[this.activeSlideIndex];
-            const whatsappLink = document.getElementById('promoModalWhatsappLink');
-            const dotsContainer = document.getElementById('promoModalDots');
-
-            // Apply 3D stack layering styles
             this.updateStackStyles();
-
-            // Update WhatsApp link
-            if (whatsappLink) {
-                const encodedMsg = encodeURIComponent(slide.whatsappMessage);
-                whatsappLink.href = `https://api.whatsapp.com/send?phone=94785959333&text=${encodedMsg}`;
-            }
-
-            // Render indicator dots (static dimensions to prevent shifting)
-            if (dotsContainer) {
-                dotsContainer.innerHTML = this.slides.map((_, idx) => {
-                    const isActive = idx === this.activeSlideIndex;
-                    return `<span class="h-2.5 w-2.5 rounded-full transition-all duration-300 transform ${isActive ? 'bg-accent scale-125 shadow-sm' : 'bg-white/30 scale-100'}"></span>`;
-                }).join('');
-            }
+            this.renderDotsAndLink();
 
             // Re-trigger Lucide icons for zoom buttons
             if (window.lucide) {
@@ -300,10 +293,29 @@
             }
         },
 
-        updateStackStyles: function() {
+        renderDotsAndLink: function() {
+            const slide = this.slides[this.activeSlideIndex];
+            const whatsappLink = document.getElementById('promoModalWhatsappLink');
+            const dotsContainer = document.getElementById('promoModalDots');
+
+            if (whatsappLink) {
+                const encodedMsg = encodeURIComponent(slide.whatsappMessage);
+                whatsappLink.href = `https://api.whatsapp.com/send?phone=94785959333&text=${encodedMsg}`;
+            }
+
+            if (dotsContainer) {
+                dotsContainer.innerHTML = this.slides.map((_, idx) => {
+                    const isActive = idx === this.activeSlideIndex;
+                    return `<span class="h-2.5 w-2.5 rounded-full transition-all duration-300 transform ${isActive ? 'bg-accent scale-125 shadow-sm' : 'bg-white/30 scale-100'}"></span>`;
+                }).join('');
+            }
+        },
+
+        updateStackStyles: function(excludeIndex = null) {
             const cards = document.querySelectorAll('.promo-card');
             cards.forEach(card => {
                 const idx = parseInt(card.dataset.index, 10);
+                if (excludeIndex !== null && idx === excludeIndex) return;
                 
                 // Calculate position relative to active slide
                 let offset = (idx - this.activeSlideIndex + this.slides.length) % this.slides.length;
