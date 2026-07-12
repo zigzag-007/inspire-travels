@@ -66,14 +66,21 @@
 
         // Set active state for current section
         setActiveState: function(currentSection) {
+            const isGalleryPage = window.location.pathname.includes('gallery.html');
+
             this.navLinks.forEach(link => {
                 // Remove active classes
                 link.classList.remove('text-accent', 'text-primary');
                 
                 // Add active class if this is the current section
-                if (link.getAttribute('href') === `#${currentSection}`) {
+                const href = link.getAttribute('href');
+                const isMatch = href === `#${currentSection}` || 
+                                (currentSection === 'gallery' && href === 'gallery.html') ||
+                                (href === `index.html#${currentSection}`);
+
+                if (isMatch) {
                     const darkSections = ['home', 'about', 'adventure', 'footer', 'contact'];
-                    if (darkSections.includes(currentSection)) {
+                    if (darkSections.includes(currentSection) || (currentSection === 'gallery' && window.scrollY < 180)) {
                         link.classList.add('text-accent');
                     } else {
                         link.classList.add('text-primary');
@@ -84,7 +91,11 @@
             // Update mobile nav links
             this.mobileNavLinks.forEach(link => {
                 link.classList.remove('text-primary');
-                if (link.getAttribute('href') === `#${currentSection}`) {
+                const href = link.getAttribute('href');
+                const isMatch = href === `#${currentSection}` || 
+                                (currentSection === 'gallery' && href === 'gallery.html') ||
+                                (href === `index.html#${currentSection}`);
+                if (isMatch) {
                     link.classList.add('text-primary');
                 }
             });
@@ -110,45 +121,51 @@
 
                 let currentSection = null;
                 let isDarkSection = false;
+                const isGalleryPage = window.location.pathname.includes('gallery.html');
 
-                // Find current section - use original working logic for navbar colors
-                sections.forEach(section => {
-                    const rect = section.getBoundingClientRect();
-                    const sectionId = section.getAttribute('id');
-
-                    // Primary condition for navbar colors and active section
-                    if (rect.top <= offset && rect.bottom > offset) {
-                        currentSection = sectionId;
-                        isDarkSection = darkSections.includes(sectionId);
-                    }
-                });
-
-                // Fallback: if no section found (between sections), find the closest one
-                if (!currentSection) {
-                    let closestSection = null;
-                    let minDistance = Infinity;
-
+                if (isGalleryPage) {
+                    currentSection = 'gallery';
+                    isDarkSection = window.scrollY < 180;
+                } else {
+                    // Find current section - use original working logic for navbar colors
                     sections.forEach(section => {
                         const rect = section.getBoundingClientRect();
                         const sectionId = section.getAttribute('id');
-                        const distance = Math.abs(rect.top - offset);
 
-                        if (distance < minDistance) {
-                            minDistance = distance;
-                            closestSection = sectionId;
+                        // Primary condition for navbar colors and active section
+                        if (rect.top <= offset && rect.bottom > offset) {
+                            currentSection = sectionId;
+                            isDarkSection = darkSections.includes(sectionId);
                         }
                     });
 
-                    if (closestSection) {
-                        currentSection = closestSection;
-                        isDarkSection = darkSections.includes(currentSection);
-                    }
-                }
+                    // Fallback: if no section found (between sections), find the closest one
+                    if (!currentSection) {
+                        let closestSection = null;
+                        let minDistance = Infinity;
 
-                // Special handling for home section
-                if (window.scrollY < 100) {
-                    currentSection = 'home';
-                    isDarkSection = true;
+                        sections.forEach(section => {
+                            const rect = section.getBoundingClientRect();
+                            const sectionId = section.getAttribute('id');
+                            const distance = Math.abs(rect.top - offset);
+
+                            if (distance < minDistance) {
+                                minDistance = distance;
+                                closestSection = sectionId;
+                            }
+                        });
+
+                        if (closestSection) {
+                            currentSection = closestSection;
+                            isDarkSection = darkSections.includes(currentSection);
+                        }
+                    }
+
+                    // Special handling for home section
+                    if (window.scrollY < 100) {
+                        currentSection = 'home';
+                        isDarkSection = true;
+                    }
                 }
 
                 // Update navigation colors (original working logic)

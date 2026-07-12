@@ -141,22 +141,22 @@
         initTouchSupport: function() {
             if (!this.heroSection) return;
 
-            let touchStartX = 0;
-            let touchEndX = 0;
+            this.touchStartX = 0;
+            this.touchEndX = 0;
 
             this.heroSection.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
+                this.touchStartX = e.changedTouches[0].screenX;
             });
 
             this.heroSection.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
+                this.touchEndX = e.changedTouches[0].screenX;
                 this.handleSwipe();
             });
         },
 
         handleSwipe: function() {
             const swipeThreshold = 50;
-            const swipeDistance = touchEndX - touchStartX;
+            const swipeDistance = this.touchEndX - this.touchStartX;
 
             if (Math.abs(swipeDistance) > swipeThreshold) {
                 if (swipeDistance > 0) {

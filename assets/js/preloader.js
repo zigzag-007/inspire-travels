@@ -114,10 +114,11 @@
             resize();
 
             let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
-            document.addEventListener('mousemove', (e) => {
+            const trackMouse = (e) => {
                 mouse.x = e.clientX;
                 mouse.y = e.clientY;
-            });
+            };
+            document.addEventListener('mousemove', trackMouse);
 
             class Particle {
                 constructor() {
@@ -193,6 +194,7 @@
             document.addEventListener('app-loaded', () => {
                 cancelAnimationFrame(animationFrameId);
                 window.removeEventListener('resize', resize);
+                document.removeEventListener('mousemove', trackMouse);
             });
         }
     };

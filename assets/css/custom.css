@@ -586,67 +586,7 @@ html, body {
    ============================================================================= */
 
 /* Gallery Modal Styling */
-#galleryModal {
-    -webkit-backdrop-filter: blur(4px);
-    backdrop-filter: blur(4px);
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    z-index: 9999 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 1rem !important;
-    box-sizing: border-box !important;
-}
 
-#galleryModal .relative {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
-    height: 100% !important;
-    max-width: 95vw !important;
-    max-height: 95vh !important;
-    position: relative !important;
-    box-sizing: border-box !important;
-}
-
-#modalImage {
-    max-width: 100% !important;
-    max-height: 100% !important;
-    width: auto !important;
-    height: auto !important;
-    object-fit: contain !important;
-    object-position: center !important;
-    border-radius: 0.5rem !important;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
-    display: block !important;
-    margin: auto !important;
-}
-
-#modalPrevBtn,
-#modalNextBtn,
-#galleryModal button[onclick="closeGalleryModal()"] {
-    z-index: 10000 !important;
-    -webkit-backdrop-filter: blur(4px) !important;
-    backdrop-filter: blur(4px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-}
-
-/* Ensure proper image loading */
-#modalImage[src=""] {
-    display: none !important;
-}
-
-/* Smooth transitions for all modal elements */
-#galleryModal,
-#galleryModal .relative,
-#modalImage {
-    transition: all 0.3s ease-in-out !important;
-}
 
 /* =============================================================================
    7. RESPONSIVE DESIGN
@@ -689,61 +629,7 @@ html, body {
     }
 }
 
-/* Mobile Optimizations for Gallery Modal */
-@media (max-width: 768px) {
-    #galleryModal {
-        padding: 0.5rem !important;
-    }
 
-    #galleryModal .relative {
-        max-width: 98vw !important;
-        max-height: 98vh !important;
-    }
-
-    #modalImage {
-        border-radius: 0.25rem !important;
-    }
-
-    #modalPrevBtn,
-    #modalNextBtn,
-    #galleryModal button[onclick="closeGalleryModal()"] {
-        width: 2.5rem !important;
-        height: 2.5rem !important;
-    }
-}
-
-/* Handle Very Wide Images (Landscape) */
-@media (min-aspect-ratio: 16/9) {
-    #modalImage {
-        max-height: 90vh !important;
-    }
-}
-
-/* Handle Very Tall Images (Portrait) */
-@media (max-aspect-ratio: 4/5) {
-    #modalImage {
-        max-width: 90vw !important;
-    }
-}
-
-/* Small screens */
-@media (max-width: 480px) {
-    #galleryModal {
-        padding: 0.25rem !important;
-    }
-
-    #galleryModal .relative {
-        max-width: 99vw !important;
-        max-height: 99vh !important;
-    }
-
-    #modalPrevBtn,
-    #modalNextBtn,
-    #galleryModal button[onclick="closeGalleryModal()"] {
-        width: 2rem !important;
-        height: 2rem !important;
-    }
-}
 
 
 /* =============================================================================

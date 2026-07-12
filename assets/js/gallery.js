@@ -34,6 +34,13 @@
             this.initGalleryFiltering();
             this.initSliderItems();
             this.initGallerySlider();
+
+            // Prevent nested links in gallery cards from bubbling click event and launching PhotoSwipe
+            document.querySelectorAll('.single-blog-post a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+            });
         },
 
         // Build gallery list from the onclick attributes in the main gallery cards only
@@ -58,10 +65,10 @@
                     const titleEl = card.querySelector('h3.title, h3 .title, h3');
                     const titleText = titleEl ? (titleEl.textContent || '').trim() : '';
                     items.push({
-                        src: img ? img.getAttribute('src') || '' : '',
-                        title: titleText || 'Untitled',
-                        location: '',
-                        description: ''
+                        src: img ? img.getAttribute('src') : '',
+                        title: titleText || (img ? img.getAttribute('alt') : ''),
+                        location: 'Sri Lanka',
+                        description: titleText || 'Discover the beauty of Sri Lanka.'
                     });
                 }
             });
@@ -180,8 +187,18 @@
                     description: item.description
                 };
 
-                // Try to find the image in the DOM to get dimensions instantly
-                const existingImg = document.querySelector(`img[src*="${item.src.split('/').pop()}"]`);
+                // Try to find the image in the DOM to get dimensions instantly safely
+                let existingImg = null;
+                if (item.src && typeof item.src === 'string') {
+                    const filename = item.src.split('/').pop();
+                    if (filename && filename.trim() !== '') {
+                        try {
+                            existingImg = document.querySelector(`img[src*="${filename}"]`);
+                        } catch (err) {
+                            console.warn('Invalid selector for filename:', filename);
+                        }
+                    }
+                }
                 if (existingImg && existingImg.naturalWidth > 0) {
                     data.w = existingImg.naturalWidth;
                     data.h = existingImg.naturalHeight;

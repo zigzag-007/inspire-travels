@@ -37,6 +37,7 @@
 					"@type": "TravelAgency",
 					"@id": "https://inspiretraveltours.com/#agency",
 					"name": "Inspire Travels & Tours",
+					"description": "Experience the beauty and culture of Sri Lanka with our expertly crafted tours and travel experiences. From ancient temples to pristine beaches, create memories that last a lifetime.",
 					"url": "https://inspiretraveltours.com/",
 					"logo": "https://inspiretraveltours.com/assets/img/logo.png",
 					"image": "https://inspiretraveltours.com/assets/img/og-image.jpg",
@@ -47,6 +48,10 @@
 						"streetAddress": "Negombo",
 						"addressLocality": "Negombo",
 						"addressCountry": "LK"
+					},
+					"areaServed": {
+						"@type": "Country",
+						"name": "Sri Lanka"
 					},
 					"sameAs": [
 						"https://www.facebook.com/share/1CUqzA7tAu",
@@ -169,36 +174,7 @@
 		<link rel="stylesheet" href="https://unpkg.com/photoswipe@5.4.3/dist/photoswipe.css">
 		<!-- Custom Tailwind Config -->
 		<script>tailwind.config = {theme: {extend: {screens: {'xxs': '320px', 'xs': '375px'}, fontFamily: {'sans': ['Inter', 'system-ui', 'sans-serif'], 'serif': ['Poppins', 'sans-serif']}, colors: {primary: {DEFAULT: 'oklch(0.35 0.15 195)', foreground: 'oklch(0.98 0.01 85)'}, secondary: {DEFAULT: 'oklch(0.65 0.12 35)', foreground: 'oklch(0.98 0.01 85)'}, accent: {DEFAULT: 'oklch(0.75 0.15 75)', foreground: 'oklch(0.15 0.02 45)'}, background: 'oklch(0.98 0.035 105)', foreground: 'oklch(0.15 0.02 45)', muted: {DEFAULT: 'oklch(0.95 0.01 85)', foreground: 'oklch(0.45 0.02 45)'}, card: {DEFAULT: 'oklch(1 0 0)', foreground: 'oklch(0.15 0.02 45)'}, border: 'oklch(0.9 0.01 85)'}, animation: {'spin-slow': 'spin 3s linear infinite', 'fade-in': 'fadeIn 1s ease-out forwards', 'float': 'float 3s ease-in-out infinite', 'bounce-slow': 'bounce 2s infinite'}, keyframes: {fadeIn: {'0%': {opacity: '0', transform: 'translateY(20px)'}, '100%': {opacity: '1', transform: 'translateY(0)'}}, float: {'0%, 100%': {transform: 'translateY(0px)'}, '50%': {transform: 'translateY(-10px)'}}}}}}</script>
-		<!-- Structured Data -->
-		<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "TravelAgency",
-			"name": "Inspire Travels & Tours",
-			"description": "Experience the beauty and culture of Sri Lanka with our expertly crafted tours and travel experiences. From ancient temples to pristine beaches, create memories that last a lifetime.",
-			"url": "https://inspiretraveltours.com/",
-			"logo": "https://inspiretraveltours.com/assets/img/logo.png",
-			"image": "https://inspiretraveltours.com/assets/img/og-image.jpg",
-			"address": {
-				"@type": "PostalAddress",
-				"addressCountry": "LK"
-			},
-			"sameAs": [
-				"https://www.facebook.com/inspiretraveltours",
-				"https://www.instagram.com/inspiretraveltours",
-				"https://www.twitter.com/inspiretravels"
-			],
-			"offers": {
-				"@type": "Offer",
-				"category": "Tour Packages",
-				"description": "Cultural tours, adventure travel, wildlife safaris, beach tours, and tea plantation experiences in Sri Lanka"
-			},
-			"areaServed": {
-				"@type": "Country",
-				"name": "Sri Lanka"
-			}
-		}
-		</script>
+
 	</head>
 	<body class="font-sans antialiased bg-background text-foreground">
 		<!-- Loading Animation Preloader -->
@@ -815,12 +791,12 @@
 				<!-- Gallery Grid -->
 				<div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 mb-12">
 					<!-- Gallery Card 1 -->
-					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="50" onclick="openGalleryModal('assets/img/main-gallery/pidurangala-rock.jpg', 'Pidurangala rock', 'Kandy', 'Traditional Sri Lankan cultural dance show')">
+					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="50" onclick="openGalleryModal('assets/img/main-gallery/pidurangala-rock.jpg', 'Pidurangala rock', 'Sigiriya', 'Stunning sunset views from the iconic rock summit overlooking Sigiriya.')">
 						<div class="post-thumbnail">
 							<img src="assets/img/main-gallery/pidurangala-rock.jpg" alt="Pidurangala rock" class="w-full h-36 sm:h-48 md:h-64 object-cover">
 						</div>
 						<div class="entry-content">
-							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Cultural</a>
+							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Nature</a>
 							<div class="post-meta">
 								<span><i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-xs sm:text-sm">September 06, 2025</a></span>
 							</div>
@@ -833,11 +809,11 @@
                             <img src="assets/img/main-gallery/historic-galle-fort.jpg" alt="Historic Galle Fort" class="w-full h-36 sm:h-48 md:h-64 object-cover">
 						</div>
 						<div class="entry-content">
-							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Nature</a>
+							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Cultural</a>
 							<div class="post-meta">
 								<span><i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-xs sm:text-sm">July 20, 2025</a></span>
 							</div>
-							<h3 class="title"><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-sm sm:text-lg md:text-2xl line-clamp-2">Tea Plantation Tour</a></h3>
+							<h3 class="title"><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-sm sm:text-lg md:text-2xl line-clamp-2">Historic Galle Fort</a></h3>
 						</div>
 					</div>
 					<!-- Gallery Card 3 -->
@@ -932,7 +908,7 @@
 						</div>
 					</div>
 					<!-- Gallery Card 10 -->
-                    <div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="50" onclick="openGalleryModal('assets/img/main-gallery/horton-plains-national-park.jpg', 'Horton Plains National Park', 'Horton Plains', 'Sacred mountain with breathtaking sunrise views')">
+                    <div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="50" onclick="openGalleryModal('assets/img/main-gallery/horton-plains-national-park.jpg', 'Horton Plains National Park', 'Horton Plains', 'Breathtaking plateau with World\'s End precipice, waterfalls, and unique wildlife.')">
 						<div class="post-thumbnail">
                             <img src="assets/img/main-gallery/horton-plains-national-park.jpg" alt="Horton Plains National Park" class="w-full h-36 sm:h-48 md:h-64 object-cover">
 						</div>
@@ -958,7 +934,7 @@
 						</div>
 					</div>
 					<!-- Gallery Card 12 -->
-					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="250" onclick="openGalleryModal('assets/img/main-gallery/waterfall-tour.jpg', 'Waterfall Tour', 'Sri Lankan Coast', 'Stunning sunset over pristine beaches')">
+					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="250" onclick="openGalleryModal('assets/img/main-gallery/waterfall-tour.jpg', 'Waterfall Tour', 'Hill Country', 'Discover pristine cascading waterfalls in the lush hills of Sri Lanka.')">
 						<div class="post-thumbnail">
                             <img src="assets/img/main-gallery/waterfall-tour.jpg" alt="Waterfall Tour" class="w-full h-36 sm:h-48 md:h-64 object-cover">
 						</div>
@@ -1739,31 +1715,7 @@
 				<path d="m18 15-6-6-6 6" />
 			</svg>
 		</a>
-		<!-- Gallery Modal -->
-		<div id="galleryModal"
-			class="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 invisible transition-all duration-300">
-			<div
-				class="relative w-full h-full max-w-[95vw] max-h-[95vh] transform scale-95 transition-transform duration-300 flex items-center justify-center">
-				<img id="modalImage" src="" alt="" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl">
-				<!-- Close Button -->
-				<button onclick="closeGalleryModal()"
-					class="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-200 z-10"
-					aria-label="Close gallery modal" title="Close gallery modal">
-				<i data-lucide="x" class="w-6 h-6"></i>
-				</button>
-				<!-- Navigation -->
-				<button id="modalPrevBtn" onclick="navigateModal(-1)"
-					class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-200 z-10"
-					aria-label="Previous image" title="Previous image">
-				<i data-lucide="chevron-left" class="w-6 h-6"></i>
-				</button>
-				<button id="modalNextBtn" onclick="navigateModal(1)"
-					class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-200 z-10"
-					aria-label="Next image" title="Next image">
-				<i data-lucide="chevron-right" class="w-6 h-6"></i>
-				</button>
-			</div>
-		</div>
+
 		<!-- Tour Modal -->
 		<div id="tourModal"
 			class="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 invisible transition-all duration-300">
