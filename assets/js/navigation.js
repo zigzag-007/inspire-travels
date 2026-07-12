@@ -111,14 +111,6 @@
                 const offset = navbarHeight + 20;
                 const scrollY = window.scrollY;
 
-                // 1. Apple-Style Navbar Translation (glides perfectly with top bar scroll status)
-                if (this.navbar) {
-                    const topBar = document.querySelector('.bg-primary.text-primary-foreground');
-                    const topBarHeight = topBar ? topBar.offsetHeight : 36;
-                    const translateY = Math.max(0, topBarHeight - scrollY);
-                    this.navbar.style.transform = `translate3d(0, ${translateY}px, 0)`;
-                }
-
                 let currentSection = null;
                 let isDarkSection = false;
                 const isGalleryPage = window.location.pathname.includes('gallery.html');
@@ -176,6 +168,14 @@
                     this.setActiveState(currentSection);
                 }
 
+                // 1. Apple-Style Navbar Translation (glides perfectly with top bar scroll status)
+                if (this.navbar) {
+                    const topBar = document.querySelector('.bg-primary.text-primary-foreground');
+                    const topBarHeight = topBar ? (topBar.offsetHeight > 0 ? topBar.offsetHeight : 36) : 0;
+                    const translateY = Math.max(0, topBarHeight - scrollY);
+                    this.navbar.style.transform = `translate3d(0, ${translateY}px, 0)`;
+                }
+
                 // 2. Toggle Frosted Glass Theme Classes (Apple-Style)
                 if (this.navbar) {
                     if (isDarkSection) {
@@ -198,6 +198,8 @@
             
             // Set initial state
             updateNavigation();
+            window.addEventListener('load', updateNavigation);
+            window.addEventListener('resize', updateNavigation);
         },
 
         // Smooth scrolling for navigation links
@@ -259,16 +261,48 @@
         // Initialize back to top functionality - Exact Go-Wilds implementation
         initBackToTop: function() {
             if (typeof $ !== 'undefined') {
-                // Show/hide button on scroll - Simple and reliable
+                // Show/hide button on scroll and check contrast overlap
                 $(window).on('scroll', function(event) {
-                    if ($(this).scrollTop() > 600) {
-                        $('.back-to-top').fadeIn(200);
+                    const scrollTop = $(this).scrollTop();
+                    const $btn = $('.back-to-top');
+
+                    if (scrollTop > 600) {
+                        $btn.fadeIn(200);
                     } else {
-                        $('.back-to-top').fadeOut(200);
+                        $btn.fadeOut(200);
+                    }
+
+                    if ($btn.length) {
+                        const btnNode = $btn[0];
+                        // Ensure default state is set
+                        if (!btnNode.classList.contains('is-over-light') && !btnNode.classList.contains('is-over-dark')) {
+                            btnNode.classList.add('is-over-light');
+                        }
+
+                        // Get all dark sections on the page
+                        const darkElements = document.querySelectorAll('#home, #about, #adventure, footer');
+                        const btnRect = btnNode.getBoundingClientRect();
+                        const btnCenterY = btnRect.top + btnRect.height / 2;
+
+                        let isOverDark = false;
+                        
+                        darkElements.forEach(el => {
+                            const rect = el.getBoundingClientRect();
+                            // If the button's vertical center falls inside the section's vertical bounds
+                            if (btnCenterY >= rect.top && btnCenterY <= rect.bottom) {
+                                isOverDark = true;
+                            }
+                        });
+
+                        if (isOverDark) {
+                            $btn.removeClass('is-over-light text-primary').addClass('is-over-dark');
+                        } else {
+                            $btn.removeClass('is-over-dark text-white').addClass('is-over-light');
+                        }
                     }
                 });
 
-                // Scroll to top on click - Simple and reliable
+                // Scroll to top on click
                 $('.back-to-top').on('click', function(event) {
                     event.preventDefault();
                     $('html, body').animate({

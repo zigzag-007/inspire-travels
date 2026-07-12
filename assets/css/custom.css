@@ -112,11 +112,8 @@ html, body {
  * 3. DISTORTION: SVG filter in HTML controls liquid effect intensity
  *    - Edit #container-glass filter in index.html for different distortion
  */
-
-/* Base liquid glass styles - shared by all liquid glass elements */
 .liquid-glass {
     position: relative;
-    background: transparent;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
 }
@@ -958,6 +955,29 @@ html, body {
     }
 }
 
+.liquid-glass {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Explicit back-to-top contrast overrides to ensure Tailwind classes don't conflict */
+.back-to-top.is-over-dark {
+    color: #ffffff !important;
+}
+.back-to-top.is-over-dark svg {
+    stroke: #ffffff !important;
+}
+.back-to-top.is-over-light {
+    color: #004D40 !important;
+}
+.back-to-top.is-over-light svg {
+    stroke: #004D40 !important;
+}
+
 /* 2026 Trend Liquid Glass Tile */
 .liquid-glass-tile {
     position: relative;
@@ -1264,6 +1284,10 @@ html, body {
     border-bottom: 1px solid transparent;
     -webkit-backdrop-filter: saturate(180%) blur(20px) !important;
     backdrop-filter: saturate(180%) blur(20px) !important;
+    /* Reset liquid-glass defaults for full-width layout */
+    border-radius: 0 !important;
+    border-top: none !important;
+    border-left: none !important;
 }
 
 /* Dark Section Glass style override */
