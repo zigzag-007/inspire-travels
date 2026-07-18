@@ -169,6 +169,7 @@
 		<!-- GSAP Animation Library -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 		<!-- Custom CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 		<link rel="stylesheet" href="assets/css/custom.css">
 		<!-- PhotoSwipe CSS -->
 		<link rel="stylesheet" href="https://unpkg.com/photoswipe@5.4.3/dist/photoswipe.css">
@@ -308,7 +309,6 @@
 							<div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-48 rounded-xl bg-white/95 border border-slate-200/50 backdrop-blur-md shadow-2xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-50 origin-top">
 								<a href="#gallery" class="block px-4 py-2 text-sm text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 transition-colors font-medium">Featured Moments</a>
 								<a href="gallery.html" class="block px-4 py-2 text-sm text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 transition-colors font-medium">Full Archive (50+)</a>
-								<a href="#" class="open-promo-btn block px-4 py-2 text-sm text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 transition-colors font-medium">Special Offers</a>
 							</div>
 						</div>
 						<a href="#adventure" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Adventure</a>
@@ -358,10 +358,6 @@
 					<a href="gallery.html" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl">
 						<i data-lucide="image" class="w-5 h-5"></i>
 						<span>Gallery Archive</span>
-					</a>
-					<a href="#" class="open-promo-btn mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl">
-						<i data-lucide="tag" class="w-5 h-5"></i>
-						<span>Special Offers</span>
 					</a>
 					<a href="#adventure" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl" data-section="adventure">
 						<i data-lucide="mountain" class="w-5 h-5"></i>
@@ -463,6 +459,194 @@
 			<!-- Sentinel (for observers) -->
 			<div id="home-end-sentinel" class="absolute bottom-0 left-0 w-px h-px"></div>
 		</section>
+		<!-- Offers For You Section (2026 Premium Swiper Carousel) -->
+		<section id="offers" class="py-16 md:py-24 bg-background relative overflow-hidden">
+			<!-- Decorative Background Elements -->
+			<div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+				<div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-emerald-500/10 rounded-full blur-[100px]"></div>
+				<div class="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-blue-500/10 rounded-full blur-[100px]"></div>
+			</div>
+			<div class="max-w-[1800px] mx-auto px-6 md:px-8 lg:px-12 xl:px-16 relative z-10">
+				<div class="text-center mb-8" data-aos="fade-up" data-aos-duration="1000">
+					<div class="tech-metadata-inline mb-3">[ EXCLUSIVE DEALS // 2026 COLLECTION ]</div>
+					<h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+						<span>Offers for </span>
+						<span class="gradient-text">You</span>
+					</h2>
+					<p class="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+						Curated travel experiences at exceptional value. Premium packages with complimentary upgrades and exclusive access.
+					</p>
+					<!-- Desktop Navigation Arrows -->
+					<div class="hidden md:flex items-center justify-center gap-3 mt-6">
+						<button class="offers-prev w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-emerald-50 hover:text-emerald-600 hover:border-emerald-200 transition-all duration-300 shadow-sm z-10 relative cursor-pointer">
+							<i data-lucide="arrow-left" class="w-5 h-5"></i>
+						</button>
+						<button class="offers-next w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-emerald-50 hover:text-emerald-600 hover:border-emerald-200 transition-all duration-300 shadow-sm z-10 relative cursor-pointer">
+							<i data-lucide="arrow-right" class="w-5 h-5"></i>
+						</button>
+					</div>
+				</div>
+
+				<!-- Swiper Container -->
+				<div class="swiper offers-swiper overflow-hidden rounded-2xl">
+					<div class="swiper-wrapper pb-12 pt-4">
+						<!-- Card 1: Hotel + Full Tour Package Offer -->
+						<div class="swiper-slide w-[85vw] sm:w-[320px] md:w-[380px] lg:w-[420px]">
+							<div class="offers-card group relative h-[500px] rounded-3xl overflow-hidden cursor-pointer shadow-[0_8px_30px_rgb(0,0,0,0.12)]" onclick="window.open('https://api.whatsapp.com/send?phone=94785959333&text=Hi!%20I%20am%20interested%20in%20booking%20a%20hotel%20together%20with%20a%20full%20tour%20package.%20Please%20apply%20the%2015%25%20discount%20code%20%2AInspireHotel15%2A%20to%20my%20inquiry!', '_blank')">
+								<img src="assets/img/promos/promo-flyer-5.png" alt="Hotel Booking + Full Tour Package Offer" class="absolute inset-0 w-full h-full object-contain p-1 bg-[#07221e] transition-transform duration-700 group-hover:scale-105">
+								<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+								<div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-emerald-500/20 mix-blend-overlay"></div>
+								
+								<div class="absolute top-4 left-4 flex gap-2">
+									<span class="liquid-glass px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">Hotel & Tour</span>
+									<span class="bg-gradient-to-r from-red-500 to-orange-500 px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">15% OFF</span>
+								</div>
+
+								<div class="absolute bottom-0 left-0 w-full p-6 sm:p-8 transform transition-transform duration-500">
+									<div class="liquid-glass backdrop-blur-xl border border-white/20 rounded-2xl p-5 translate-y-4 group-hover:translate-y-0 transition-all duration-500" style="border-top: 1px solid rgba(255,255,255,0.4); box-shadow: 0 -4px 20px rgba(0,0,0,0.2);">
+										<h3 class="text-xl sm:text-2xl font-serif font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">Hotel + Full Tour</h3>
+										<p class="text-white/80 text-sm mb-4 line-clamp-2">Book a hotel together with a full tour package and get 15% off your entire inquiry.</p>
+										<div class="flex items-center justify-between">
+											<div>
+												<span class="block text-xs text-white/60">Promo Code</span>
+												<span class="text-base font-mono font-bold text-emerald-400">InspireHotel15</span>
+											</div>
+											<div class="w-10 h-10 rounded-full bg-white text-slate-900 flex items-center justify-center transform group-hover:-rotate-45 transition-transform duration-300 shadow-[0_0_15px_rgba(255,255,255,0.5)]">
+												<i data-lucide="arrow-right" class="w-5 h-5"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Card 2: Trincomalee Whale Watching Offer -->
+						<div class="swiper-slide w-[85vw] sm:w-[320px] md:w-[380px] lg:w-[420px]">
+							<div class="offers-card group relative h-[500px] rounded-3xl overflow-hidden cursor-pointer shadow-[0_8px_30px_rgb(0,0,0,0.12)]" onclick="window.open('https://api.whatsapp.com/send?phone=94785959333&text=Hi!%20I%20am%20interested%20in%20booking%20the%20Trincomalee%20Whale%20%26%20Dolphin%20Watching%20excursion.%20Please%20apply%20the%2015%25%20discount%20code%20%2AWhaleWatch15%2A%20to%20my%20inquiry!', '_blank')">
+								<img src="assets/img/promos/promo-flyer-2.png" alt="Trincomalee Whale & Dolphin Watching Offer" class="absolute inset-0 w-full h-full object-contain p-1 bg-[#07221e] transition-transform duration-700 group-hover:scale-105">
+								<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+								<div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-blue-500/20 mix-blend-overlay"></div>
+								
+								<div class="absolute top-4 left-4 flex gap-2">
+									<span class="liquid-glass px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">Ocean Safari</span>
+									<span class="bg-gradient-to-r from-blue-500 to-cyan-500 px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">15% OFF</span>
+								</div>
+
+								<div class="absolute bottom-0 left-0 w-full p-6 sm:p-8 transform transition-transform duration-500">
+									<div class="liquid-glass backdrop-blur-xl border border-white/20 rounded-2xl p-5 translate-y-4 group-hover:translate-y-0 transition-all duration-500" style="border-top: 1px solid rgba(255,255,255,0.4); box-shadow: 0 -4px 20px rgba(0,0,0,0.2);">
+										<h3 class="text-xl sm:text-2xl font-serif font-bold text-white mb-2 group-hover:text-blue-300 transition-colors">Whale & Dolphin Watching</h3>
+										<p class="text-white/80 text-sm mb-4 line-clamp-2">Witness majestic blue whales and playful dolphins off the golden coast of Trincomalee.</p>
+										<div class="flex items-center justify-between">
+											<div>
+												<span class="block text-xs text-white/60">Promo Code</span>
+												<span class="text-base font-mono font-bold text-cyan-400">WhaleWatch15</span>
+											</div>
+											<div class="w-10 h-10 rounded-full bg-white text-slate-900 flex items-center justify-center transform group-hover:-rotate-45 transition-transform duration-300 shadow-[0_0_15px_rgba(255,255,255,0.5)]">
+												<i data-lucide="arrow-right" class="w-5 h-5"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Card 3: Minneriya / Kaudulla Elephant Safari Offer -->
+						<div class="swiper-slide w-[85vw] sm:w-[320px] md:w-[380px] lg:w-[420px]">
+							<div class="offers-card group relative h-[500px] rounded-3xl overflow-hidden cursor-pointer shadow-[0_8px_30px_rgb(0,0,0,0.12)]" onclick="window.open('https://api.whatsapp.com/send?phone=94785959333&text=Hi!%20I%20want%20to%20book%20the%20Elephant%20Safari.%20Please%20apply%20the%2015%25%20discount%20code%20%2AMinIns15%2A%20to%20my%20inquiry!', '_blank')">
+								<img src="assets/img/promos/promo-flyer-1.png" alt="Elephant Safari Offer" class="absolute inset-0 w-full h-full object-contain p-1 bg-[#07221e] transition-transform duration-700 group-hover:scale-105">
+								<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+								<div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-amber-500/20 mix-blend-overlay"></div>
+								
+								<div class="absolute top-4 left-4 flex gap-2">
+									<span class="liquid-glass px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">Elephant Safari</span>
+									<span class="bg-gradient-to-r from-amber-500 to-yellow-500 px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">15% OFF</span>
+								</div>
+
+								<div class="absolute bottom-0 left-0 w-full p-6 sm:p-8 transform transition-transform duration-500">
+									<div class="liquid-glass backdrop-blur-xl border border-white/20 rounded-2xl p-5 translate-y-4 group-hover:translate-y-0 transition-all duration-500" style="border-top: 1px solid rgba(255,255,255,0.4); box-shadow: 0 -4px 20px rgba(0,0,0,0.2);">
+										<h3 class="text-xl sm:text-2xl font-serif font-bold text-white mb-2 group-hover:text-amber-300 transition-colors">Elephant Gathering Safari</h3>
+										<p class="text-white/80 text-sm mb-4 line-clamp-2">Experience the famous wild elephant gathering in Minneriya, Kaudulla, or Hurulu.</p>
+										<div class="flex items-center justify-between">
+											<div>
+												<span class="block text-xs text-white/60">Promo Code</span>
+												<span class="text-base font-mono font-bold text-amber-400">MinIns15</span>
+											</div>
+											<div class="w-10 h-10 rounded-full bg-white text-slate-900 flex items-center justify-center transform group-hover:-rotate-45 transition-transform duration-300 shadow-[0_0_15px_rgba(255,255,255,0.5)]">
+												<i data-lucide="arrow-right" class="w-5 h-5"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Card 4: Yala Leopard Safari Offer -->
+						<div class="swiper-slide w-[85vw] sm:w-[320px] md:w-[380px] lg:w-[420px]">
+							<div class="offers-card group relative h-[500px] rounded-3xl overflow-hidden cursor-pointer shadow-[0_8px_30px_rgb(0,0,0,0.12)]" onclick="window.open('https://api.whatsapp.com/send?phone=94785959333&text=Hi!%20I%20want%20to%20book%20the%20Yala%20Leopard%20Safari.%20Please%20apply%20the%2015%25%20discount%20code%20%2AYalaIns15%2A%20to%20my%20Yala%20safari%20booking!', '_blank')">
+								<img src="assets/img/promos/promo-flyer-3.png" alt="Yala Leopard Safari Offer" class="absolute inset-0 w-full h-full object-contain p-1 bg-[#07221e] transition-transform duration-700 group-hover:scale-105">
+								<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+								<div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-orange-500/20 mix-blend-overlay"></div>
+								
+								<div class="absolute top-4 left-4 flex gap-2">
+									<span class="liquid-glass px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">Leopard Safari</span>
+									<span class="bg-gradient-to-r from-orange-500 to-amber-600 px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">15% OFF</span>
+								</div>
+
+								<div class="absolute bottom-0 left-0 w-full p-6 sm:p-8 transform transition-transform duration-500">
+									<div class="liquid-glass backdrop-blur-xl border border-white/20 rounded-2xl p-5 translate-y-4 group-hover:translate-y-0 transition-all duration-500" style="border-top: 1px solid rgba(255,255,255,0.4); box-shadow: 0 -4px 20px rgba(0,0,0,0.2);">
+										<h3 class="text-xl sm:text-2xl font-serif font-bold text-white mb-2 group-hover:text-orange-300 transition-colors">Yala Leopard Safari</h3>
+										<p class="text-white/80 text-sm mb-4 line-clamp-2">Spot Sri Lankan leopards, sloth bears, and exotic wildlife in Yala National Park.</p>
+										<div class="flex items-center justify-between">
+											<div>
+												<span class="block text-xs text-white/60">Promo Code</span>
+												<span class="text-base font-mono font-bold text-orange-400">YalaIns15</span>
+											</div>
+											<div class="w-10 h-10 rounded-full bg-white text-slate-900 flex items-center justify-center transform group-hover:-rotate-45 transition-transform duration-300 shadow-[0_0_15px_rgba(255,255,255,0.5)]">
+												<i data-lucide="arrow-right" class="w-5 h-5"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Card 5: Udawalawe Elephant Safari Offer -->
+						<div class="swiper-slide w-[85vw] sm:w-[320px] md:w-[380px] lg:w-[420px]">
+							<div class="offers-card group relative h-[500px] rounded-3xl overflow-hidden cursor-pointer shadow-[0_8px_30px_rgb(0,0,0,0.12)]" onclick="window.open('https://api.whatsapp.com/send?phone=94785959333&text=Hi!%20I%20want%20to%20book%20the%20Udawalawa%20Elephant%20Safari.%20Please%20apply%20the%2015%25%20discount%20code%20%2AUdaIns15%2A%20to%20my%20Udawalawa%20safari%20booking!', '_blank')">
+								<img src="assets/img/promos/promo-flyer-4.png" alt="Udawalawe Elephant Safari Offer" class="absolute inset-0 w-full h-full object-contain p-1 bg-[#07221e] transition-transform duration-700 group-hover:scale-105">
+								<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+								<div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-teal-500/20 mix-blend-overlay"></div>
+								
+								<div class="absolute top-4 left-4 flex gap-2">
+									<span class="liquid-glass px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">Wild Sanctuary</span>
+									<span class="bg-gradient-to-r from-teal-500 to-emerald-600 px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">15% OFF</span>
+								</div>
+
+								<div class="absolute bottom-0 left-0 w-full p-6 sm:p-8 transform transition-transform duration-500">
+									<div class="liquid-glass backdrop-blur-xl border border-white/20 rounded-2xl p-5 translate-y-4 group-hover:translate-y-0 transition-all duration-500" style="border-top: 1px solid rgba(255,255,255,0.4); box-shadow: 0 -4px 20px rgba(0,0,0,0.2);">
+										<h3 class="text-xl sm:text-2xl font-serif font-bold text-white mb-2 group-hover:text-teal-300 transition-colors">Udawalawe Safari</h3>
+										<p class="text-white/80 text-sm mb-4 line-clamp-2">Thrilling 4x4 safari through Udawalawe, famous for guaranteed elephant encounters.</p>
+										<div class="flex items-center justify-between">
+											<div>
+												<span class="block text-xs text-white/60">Promo Code</span>
+												<span class="text-base font-mono font-bold text-teal-400">UdaIns15</span>
+											</div>
+											<div class="w-10 h-10 rounded-full bg-white text-slate-900 flex items-center justify-center transform group-hover:-rotate-45 transition-transform duration-300 shadow-[0_0_15px_rgba(255,255,255,0.5)]">
+												<i data-lucide="arrow-right" class="w-5 h-5"></i>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<!-- Mobile Pagination -->
+					<div class="swiper-pagination md:hidden mt-8 relative"></div>
+				</div>
+			</div>
+		</section>
+
 		<!-- Tours Section -->
 		<section id="tours" class="pt-20 pb-16 bg-background tour-light-canopy">
 			<!-- Technical Coordinates & Grid Guides (2026 Premium Theme) -->
@@ -1775,6 +1959,8 @@
 		<script src="assets/js/gallery.js"></script>
 		<script src="assets/js/promo.js"></script>
 		<script src="assets/js/counter.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+		<script src="assets/js/offers.js"></script>
 		<script src="assets/js/main.js"></script>		<!-- Premium Promo Carousel Modal -->
 		<div id="promoModal" class="fixed inset-0 bg-[#0c3531]/40 backdrop-blur-md z-50 items-center justify-center p-4 opacity-0 invisible transition-all duration-300 pointer-events-auto">
 			<div class="promo-modal-container relative w-full max-w-lg bg-[#0c3531]/85 border border-white/10 backdrop-blur-2xl rounded-3xl shadow-2xl p-6 sm:p-8 transform scale-95 translate-y-8 opacity-0 transition-all duration-300 ease-out flex flex-col items-center">
