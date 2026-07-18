@@ -1273,7 +1273,7 @@ html, body {
 
 /* Apple-Style Navigation Bar Glass Effect */
 #navbar {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -1288,6 +1288,11 @@ html, body {
     border-radius: 0 !important;
     border-top: none !important;
     border-left: none !important;
+}
+
+/* Fix mobile artifact: remove top/left inner shadow which looks like a white gap/rounded corner */
+#navbar::before {
+    box-shadow: inset 0 -1px 3px rgba(255, 255, 255, 0.4) !important;
 }
 
 /* Dark Section Glass style override */

@@ -168,13 +168,8 @@
                     this.setActiveState(currentSection);
                 }
 
-                // 1. Apple-Style Navbar Translation (glides perfectly with top bar scroll status)
-                if (this.navbar) {
-                    const topBar = document.querySelector('.bg-primary.text-primary-foreground');
-                    const topBarHeight = topBar ? (topBar.offsetHeight > 0 ? topBar.offsetHeight : 36) : 0;
-                    const translateY = Math.max(0, topBarHeight - scrollY);
-                    this.navbar.style.transform = `translate3d(0, ${translateY}px, 0)`;
-                }
+                // 1. Apple-Style Navbar Translation (Native CSS sticky handles this now)
+                // Removed JS transform logic to prevent conflict with AOS and fix initial load overlapping
 
                 // 2. Toggle Frosted Glass Theme Classes (Apple-Style)
                 if (this.navbar) {
