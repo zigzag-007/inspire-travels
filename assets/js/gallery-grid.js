@@ -1,7 +1,6 @@
-// Dynamic Gallery Grid Renderer
+// Dynamic Gallery Grid Renderer (Premium Light Biophilic Architecture)
 // Author: Zig Zag AI
-// Description: Builds the gallery masonry grid dynamically based on GalleryData.
-//              Adapts styling based on whether metadata (title/date) is present.
+// Description: Builds a Pinterest-style fluid column masonry layout tailored for Inspire Travels light theme
 
 (function() {
     'use strict';
@@ -16,15 +15,26 @@
 
         renderGrid: function(container) {
             if (!window.GalleryData || !Array.isArray(window.GalleryData)) {
-                container.innerHTML = '<p class="text-center text-muted-foreground w-full py-8">No photos found.</p>';
+                container.innerHTML = '<p class="text-center text-slate-500 w-full py-12">No photos found.</p>';
                 return;
             }
 
             let htmlContent = '';
 
-            window.GalleryData.forEach(item => {
+            // Dynamic height distribution for organic column masonry rhythm
+            const heightSequence = [
+                'h-80 sm:h-96',
+                'h-64 sm:h-72',
+                'h-96 sm:h-[420px]',
+                'h-72 sm:h-80',
+                'h-80 sm:h-96',
+                'h-64 sm:h-72'
+            ];
+
+            window.GalleryData.forEach((item, index) => {
                 const category = item.category ? item.category.toLowerCase() : 'nature';
-                const hasMetadata = item.title && item.title.trim() !== '';
+                const hasTitle = item.title && item.title.trim() !== '';
+                const heightClass = heightSequence[index % heightSequence.length];
 
                 let year = 'older';
                 if (item.date) {
@@ -39,48 +49,66 @@
                     }
                 }
 
-                if (hasMetadata) {
-                    // Render standard postcard style
-                    htmlContent += `
-                        <div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-category="${category}" data-year="${year}" onclick="window.openGalleryModal('${item.src}', '${this.escapeHtml(item.title)}', '${this.escapeHtml(item.location || '')}', '${this.escapeHtml(item.date || '')}')">
-                            <div class="post-thumbnail relative overflow-hidden rounded-2xl">
-                                <img src="${item.src}" alt="${this.escapeHtml(item.title)}" class="w-full h-36 sm:h-48 md:h-64 object-cover" style="object-position: ${item.position || 'center'};">
+                const escapedTitle = this.escapeHtml(item.title || '');
+                const escapedLocation = this.escapeHtml(item.location || 'Sri Lanka');
+                const escapedDate = this.escapeHtml(item.date || '');
+
+                htmlContent += `
+                    <div class="single-blog-post break-inside-avoid inline-block w-full mb-6 group cursor-pointer" 
+                         data-category="${category}" 
+                         data-year="${year}" 
+                         onclick="window.openGalleryModal('${item.src}', '${escapedTitle}', '${escapedLocation}', '${escapedDate}')">
+                        
+                        <div class="relative overflow-hidden rounded-3xl bg-white border border-slate-200/90 shadow-md hover:shadow-2xl hover:border-emerald-500/40 transition-all duration-500 transform hover:-translate-y-1.5 ${heightClass}">
+                            
+                            <!-- Main Photo with Parallax Scale -->
+                            <img src="${item.src}" alt="${escapedTitle || 'Sri Lanka Travel Gallery'}" 
+                                 class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
+                                 style="object-position: ${item.position || 'center'};">
+                            
+                            <!-- Soft Cinematic Dark Gradient Vignette for Text Contrast -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
+
+                            <!-- Floating Glass Zoom Icon -->
+                            <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-20">
+                                <div class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-xl hover:scale-110 transition-transform">
+                                    <i data-lucide="maximize-2" class="w-4 h-4 text-white"></i>
+                                </div>
                             </div>
-                            <div class="entry-content">
-                                <span class="cat-btn">${category}</span>
-                                <div class="post-meta">
-                                    <span>
-                                        <i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i>
-                                        <span class="text-xs sm:text-sm">${this.escapeHtml(item.date || 'Recent')}</span>
+
+                            <!-- Bottom Metadata Block -->
+                            <div class="absolute bottom-0 inset-x-0 p-5 z-10 text-white space-y-2">
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="bg-emerald-500/20 border border-emerald-400/30 backdrop-blur-md text-emerald-300 text-[10px] sm:text-[11px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
+                                        ${category}
                                     </span>
+                                    ${item.location ? `
+                                    <span class="bg-white/15 backdrop-blur-md border border-white/20 text-white/90 text-[10px] sm:text-[11px] font-medium px-2.5 py-0.5 rounded-md flex items-center gap-1">
+                                        <i data-lucide="map-pin" class="w-3 h-3 text-emerald-400"></i> ${escapedLocation}
+                                    </span>
+                                    ` : ''}
                                 </div>
-                                <h3 class="title"><a class="text-sm sm:text-lg md:text-2xl line-clamp-2">${this.escapeHtml(item.title)}</a></h3>
+
+                                ${hasTitle ? `
+                                <h3 class="font-serif text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md line-clamp-2">${escapedTitle}</h3>
+                                ` : ''}
+
+                                ${escapedDate ? `
+                                <p class="text-xs text-slate-300 flex items-center gap-1.5 pt-0.5 font-sans">
+                                    <i data-lucide="calendar" class="w-3.5 h-3.5 text-emerald-400"></i> ${escapedDate}
+                                </p>
+                                ` : ''}
                             </div>
                         </div>
-                    `;
-                } else {
-                    // Render clean full-bleed image card
-                    htmlContent += `
-                        <div class="single-blog-post mb-4 group cursor-pointer hover:scale-[1.03] transition-transform duration-300" data-category="${category}" data-year="${year}" onclick="window.openGalleryModal('${item.src}', '', '', '')">
-                            <div class="post-thumbnail relative overflow-hidden rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300">
-                                <img src="${item.src}" alt="Sri Lanka Travel Gallery" class="w-full h-36 sm:h-48 md:h-64 object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: ${item.position || 'center'};">
-                                <!-- Hover Blur Overlay -->
-                                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
-                                    <div class="bg-white/20 border border-white/30 rounded-full w-10 h-10 flex items-center justify-center shadow-lg">
-                                        <i data-lucide="maximize-2" class="text-white w-5 h-5"></i>
-                                    </div>
-                                </div>
-                                <!-- Category Tag Absolute Overlay -->
-                                <span class="absolute bottom-3 left-3 bg-[#F7921E] text-white px-2 py-0.5 text-[9px] sm:text-xs rounded font-semibold tracking-wider uppercase shadow-sm z-10">${category}</span>
-                            </div>
-                        </div>
-                    `;
-                }
+                    </div>
+                `;
             });
 
+            // Set CSS Column Masonry container
+            container.className = "columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 mb-16";
             container.innerHTML = htmlContent;
 
-            // Re-initialize Lucide icons for the newly added HTML elements
+            // Re-initialize Lucide icons for dynamic elements
             if (window.lucide) {
                 window.lucide.createIcons();
             }
@@ -97,7 +125,6 @@
         }
     };
 
-    // Run grid builder as soon as script runs so DOM elements exist before DOMContentLoaded
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => GalleryGrid.init());
     } else {

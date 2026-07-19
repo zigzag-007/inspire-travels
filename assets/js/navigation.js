@@ -117,7 +117,7 @@
 
                 if (isGalleryPage) {
                     currentSection = 'gallery';
-                    isDarkSection = window.scrollY < 180;
+                    isDarkSection = window.scrollY < 500;
                 } else {
                     // Find current section - use original working logic for navbar colors
                     sections.forEach(section => {

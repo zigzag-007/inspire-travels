@@ -119,19 +119,43 @@
                 });
             };
 
+            const syncButtonStates = () => {
+                // Category buttons
+                if (categoryBtns) {
+                    categoryBtns.forEach(btn => {
+                        const isMatch = (btn.dataset.category || 'all') === this.activeCategory;
+                        btn.classList.toggle('bg-emerald-700', isMatch);
+                        btn.classList.toggle('text-white', isMatch);
+                        btn.classList.toggle('shadow-sm', isMatch);
+                        btn.classList.toggle('font-bold', isMatch);
+                        btn.classList.toggle('text-slate-700', !isMatch);
+                        btn.classList.toggle('font-semibold', !isMatch);
+                        if (isMatch) {
+                            btn.classList.remove('hover:bg-emerald-50', 'hover:text-emerald-800');
+                        } else {
+                            btn.classList.add('hover:bg-emerald-50', 'hover:text-emerald-800');
+                        }
+                    });
+                }
+
+                // Year buttons
+                if (yearBtns) {
+                    yearBtns.forEach(btn => {
+                        const isMatch = (btn.dataset.year || 'all') === this.activeYear;
+                        btn.classList.toggle('bg-white', isMatch);
+                        btn.classList.toggle('text-emerald-900', isMatch);
+                        btn.classList.toggle('shadow-sm', isMatch);
+                        btn.classList.toggle('font-bold', isMatch);
+                        btn.classList.toggle('text-slate-600', !isMatch);
+                        btn.classList.toggle('font-semibold', !isMatch);
+                    });
+                }
+            };
+
             if (categoryBtns) {
                 categoryBtns.forEach(btn => btn.addEventListener('click', () => {
                     this.activeCategory = btn.dataset.category || 'all';
-                    categoryBtns.forEach(b => {
-                        const isActive = b === btn;
-                        b.classList.toggle('bg-primary', isActive);
-                        b.classList.toggle('text-primary-foreground', isActive);
-                        b.classList.toggle('scale-105', isActive);
-                        b.classList.toggle('shadow-md', isActive);
-                        b.classList.toggle('bg-transparent', !isActive);
-                        b.classList.toggle('border', !isActive);
-                        b.classList.toggle('border-border', !isActive);
-                    });
+                    syncButtonStates();
                     applyCombinedFilters();
                 }));
             }
@@ -139,16 +163,7 @@
             if (yearBtns) {
                 yearBtns.forEach(btn => btn.addEventListener('click', () => {
                     this.activeYear = btn.dataset.year || 'all';
-                    yearBtns.forEach(b => {
-                        const isActive = b === btn;
-                        b.classList.toggle('bg-primary', isActive);
-                        b.classList.toggle('text-primary-foreground', isActive);
-                        b.classList.toggle('scale-105', isActive);
-                        b.classList.toggle('shadow-md', isActive);
-                        b.classList.toggle('bg-transparent', !isActive);
-                        b.classList.toggle('border', !isActive);
-                        b.classList.toggle('border-border', !isActive);
-                    });
+                    syncButtonStates();
                     applyCombinedFilters();
                 }));
             }
