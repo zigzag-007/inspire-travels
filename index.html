@@ -1112,162 +1112,155 @@
 						Immerse yourself in the breathtaking beauty of Sri Lanka through our curated collection of stunning photographs from recent tours and adventures.
 					</p>
 				</div>
-				<!-- Gallery Grid -->
-				<div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 mb-12">
-					<!-- Gallery Card 1 -->
-					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="50" onclick="openGalleryModal('assets/img/main-gallery/pidurangala-rock.jpg', 'Pidurangala rock', 'Sigiriya', 'Stunning sunset views from the iconic rock summit overlooking Sigiriya.')">
-						<div class="post-thumbnail">
-							<img src="assets/img/main-gallery/pidurangala-rock.jpg" alt="Pidurangala rock" class="w-full h-36 sm:h-48 md:h-64 object-cover">
-						</div>
-						<div class="entry-content">
-							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Nature</a>
-							<div class="post-meta">
-								<span><i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-xs sm:text-sm">September 06, 2025</a></span>
+				<!-- Dynamic Gallery Grid matching gallery.html -->
+				<div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 mb-12">
+					<!-- Gallery Card 1: Pidurangala Rock -->
+					<div class="single-blog-post break-inside-avoid inline-block w-full group cursor-pointer" onclick="openGalleryModal('assets/img/main-gallery/pidurangala-rock.jpg', 'Pidurangala Rock', 'Sigiriya', 'September 06, 2025')" data-aos="fade-up-blur" data-aos-duration="700" data-aos-delay="50">
+						<div class="relative overflow-hidden rounded-3xl bg-white border border-slate-200/90 shadow-md hover:shadow-2xl hover:border-emerald-500/40 transition-all duration-500 transform hover:-translate-y-1.5 h-80 sm:h-96">
+							<img src="assets/img/main-gallery/pidurangala-rock.jpg" alt="Pidurangala Rock" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+							<div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
+							<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-20">
+								<div class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-xl hover:scale-110 transition-transform">
+									<i data-lucide="maximize-2" class="w-4 h-4 text-white"></i>
+								</div>
 							</div>
-							<h3 class="title"><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-sm sm:text-lg md:text-2xl line-clamp-2">Pidurangala rock</a></h3>
+							<div class="absolute bottom-0 inset-x-0 p-5 z-10 text-white space-y-2">
+								<div class="flex items-center gap-2 flex-wrap">
+									<span class="bg-emerald-500/20 border border-emerald-400/30 backdrop-blur-md text-emerald-300 text-[10px] sm:text-[11px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider shadow-sm">Nature</span>
+									<span class="bg-white/15 backdrop-blur-md border border-white/20 text-white/90 text-[10px] sm:text-[11px] font-medium px-2.5 py-0.5 rounded-md flex items-center gap-1">
+										<i data-lucide="map-pin" class="w-3 h-3 text-emerald-400"></i> Sigiriya
+									</span>
+								</div>
+								<h3 class="font-serif text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md line-clamp-2">Pidurangala Rock</h3>
+								<p class="text-xs text-slate-300 flex items-center gap-1.5 pt-0.5 font-sans">
+									<i data-lucide="calendar" class="w-3.5 h-3.5 text-emerald-400"></i> September 06, 2025
+								</p>
+							</div>
 						</div>
 					</div>
-					<!-- Gallery Card 2 -->
-                    <div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="150" onclick="openGalleryModal('assets/img/main-gallery/historic-galle-fort.jpg', 'Historic Galle Fort', 'Galle', 'UNESCO World Heritage site with colonial-era architecture')">
-						<div class="post-thumbnail">
-                            <img src="assets/img/main-gallery/historic-galle-fort.jpg" alt="Historic Galle Fort" class="w-full h-36 sm:h-48 md:h-64 object-cover">
-						</div>
-						<div class="entry-content">
-							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Cultural</a>
-							<div class="post-meta">
-								<span><i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-xs sm:text-sm">July 20, 2025</a></span>
+
+					<!-- Gallery Card 2: Historic Galle Fort -->
+					<div class="single-blog-post break-inside-avoid inline-block w-full group cursor-pointer" onclick="openGalleryModal('assets/img/main-gallery/historic-galle-fort.jpg', 'Historic Galle Fort', 'Galle', 'July 20, 2025')" data-aos="fade-up-blur" data-aos-duration="700" data-aos-delay="100">
+						<div class="relative overflow-hidden rounded-3xl bg-white border border-slate-200/90 shadow-md hover:shadow-2xl hover:border-emerald-500/40 transition-all duration-500 transform hover:-translate-y-1.5 h-64 sm:h-72">
+							<img src="assets/img/main-gallery/historic-galle-fort.jpg" alt="Historic Galle Fort" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+							<div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
+							<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-20">
+								<div class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-xl hover:scale-110 transition-transform">
+									<i data-lucide="maximize-2" class="w-4 h-4 text-white"></i>
+								</div>
 							</div>
-							<h3 class="title"><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-sm sm:text-lg md:text-2xl line-clamp-2">Historic Galle Fort</a></h3>
+							<div class="absolute bottom-0 inset-x-0 p-5 z-10 text-white space-y-2">
+								<div class="flex items-center gap-2 flex-wrap">
+									<span class="bg-emerald-500/20 border border-emerald-400/30 backdrop-blur-md text-emerald-300 text-[10px] sm:text-[11px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider shadow-sm">Cultural</span>
+									<span class="bg-white/15 backdrop-blur-md border border-white/20 text-white/90 text-[10px] sm:text-[11px] font-medium px-2.5 py-0.5 rounded-md flex items-center gap-1">
+										<i data-lucide="map-pin" class="w-3 h-3 text-emerald-400"></i> Galle
+									</span>
+								</div>
+								<h3 class="font-serif text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md line-clamp-2">Historic Galle Fort</h3>
+								<p class="text-xs text-slate-300 flex items-center gap-1.5 pt-0.5 font-sans">
+									<i data-lucide="calendar" class="w-3.5 h-3.5 text-emerald-400"></i> July 20, 2025
+								</p>
+							</div>
 						</div>
 					</div>
-					<!-- Gallery Card 3 -->
-					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="250" onclick="openGalleryModal('assets/img/main-gallery/yala-leopard-safari.jpg', 'Yala Leopard Safari', 'Yala', 'Spot majestic leopards in their natural habitat')">
-						<div class="post-thumbnail">
-							<img src="assets/img/main-gallery/yala-leopard-safari.jpg" alt="Yala Leopard Safari" class="w-full h-36 sm:h-48 md:h-64 object-cover">
-						</div>
-						<div class="entry-content">
-							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Wildlife</a>
-							<div class="post-meta">
-								<span><i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-xs sm:text-sm">July 22, 2025</a></span>
+
+					<!-- Gallery Card 3: Yala Leopard Safari -->
+					<div class="single-blog-post break-inside-avoid inline-block w-full group cursor-pointer" onclick="openGalleryModal('assets/img/main-gallery/yala-leopard-safari.jpg', 'Yala Leopard Safari', 'Yala', 'July 22, 2025')" data-aos="fade-up-blur" data-aos-duration="700" data-aos-delay="150">
+						<div class="relative overflow-hidden rounded-3xl bg-white border border-slate-200/90 shadow-md hover:shadow-2xl hover:border-emerald-500/40 transition-all duration-500 transform hover:-translate-y-1.5 h-96 sm:h-[420px]">
+							<img src="assets/img/main-gallery/yala-leopard-safari.jpg" alt="Yala Leopard Safari" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+							<div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
+							<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-20">
+								<div class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-xl hover:scale-110 transition-transform">
+									<i data-lucide="maximize-2" class="w-4 h-4 text-white"></i>
+								</div>
 							</div>
-							<h3 class="title"><a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="text-sm sm:text-lg md:text-2xl line-clamp-2">Yala Leopard Safari</a></h3>
+							<div class="absolute bottom-0 inset-x-0 p-5 z-10 text-white space-y-2">
+								<div class="flex items-center gap-2 flex-wrap">
+									<span class="bg-emerald-500/20 border border-emerald-400/30 backdrop-blur-md text-emerald-300 text-[10px] sm:text-[11px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider shadow-sm">Wildlife</span>
+									<span class="bg-white/15 backdrop-blur-md border border-white/20 text-white/90 text-[10px] sm:text-[11px] font-medium px-2.5 py-0.5 rounded-md flex items-center gap-1">
+										<i data-lucide="map-pin" class="w-3 h-3 text-emerald-400"></i> Yala
+									</span>
+								</div>
+								<h3 class="font-serif text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md line-clamp-2">Yala Leopard Safari</h3>
+								<p class="text-xs text-slate-300 flex items-center gap-1.5 pt-0.5 font-sans">
+									<i data-lucide="calendar" class="w-3.5 h-3.5 text-emerald-400"></i> July 22, 2025
+								</p>
+							</div>
 						</div>
 					</div>
-					<!-- Gallery Card 4 -->
-                    <div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="50" onclick="openGalleryModal('assets/img/main-gallery/mirissa-coconut-tree-hill.jpg', 'Mirissa Coconut tree hill', 'Mirissa', 'Famous hilltop with rows of coconut trees overlooking the ocean')">
-						<div class="post-thumbnail">
-                            <img src="assets/img/main-gallery/mirissa-coconut-tree-hill.jpg" alt="Mirissa Coconut tree hill" class="w-full h-36 sm:h-48 md:h-64 object-cover">
-						</div>
-						<div class="entry-content">
-							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Scenic</a>
-							<div class="post-meta">
-								<span><i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-xs sm:text-sm">September 27, 2025</a></span>
+
+					<!-- Gallery Card 4: Mirissa Coconut Tree Hill -->
+					<div class="single-blog-post break-inside-avoid inline-block w-full group cursor-pointer" onclick="openGalleryModal('assets/img/main-gallery/mirissa-coconut-tree-hill.jpg', 'Mirissa Coconut Tree Hill', 'Mirissa', 'September 27, 2025')" data-aos="fade-up-blur" data-aos-duration="700" data-aos-delay="200">
+						<div class="relative overflow-hidden rounded-3xl bg-white border border-slate-200/90 shadow-md hover:shadow-2xl hover:border-emerald-500/40 transition-all duration-500 transform hover:-translate-y-1.5 h-72 sm:h-80">
+							<img src="assets/img/main-gallery/mirissa-coconut-tree-hill.jpg" alt="Mirissa Coconut Tree Hill" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+							<div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
+							<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-20">
+								<div class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-xl hover:scale-110 transition-transform">
+									<i data-lucide="maximize-2" class="w-4 h-4 text-white"></i>
+								</div>
 							</div>
-							<h3 class="title"><a href="https://www.youtube.com/shorts/LO7vF7flWGE?feature=share" target="_blank" rel="noopener" class="text-sm sm:text-lg md:text-2xl line-clamp-2">Mirissa Coconut tree hill</a></h3>
+							<div class="absolute bottom-0 inset-x-0 p-5 z-10 text-white space-y-2">
+								<div class="flex items-center gap-2 flex-wrap">
+									<span class="bg-emerald-500/20 border border-emerald-400/30 backdrop-blur-md text-emerald-300 text-[10px] sm:text-[11px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider shadow-sm">Scenic</span>
+									<span class="bg-white/15 backdrop-blur-md border border-white/20 text-white/90 text-[10px] sm:text-[11px] font-medium px-2.5 py-0.5 rounded-md flex items-center gap-1">
+										<i data-lucide="map-pin" class="w-3 h-3 text-emerald-400"></i> Mirissa
+									</span>
+								</div>
+								<h3 class="font-serif text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md line-clamp-2">Mirissa Coconut Tree Hill</h3>
+								<p class="text-xs text-slate-300 flex items-center gap-1.5 pt-0.5 font-sans">
+									<i data-lucide="calendar" class="w-3.5 h-3.5 text-emerald-400"></i> September 27, 2025
+								</p>
+							</div>
 						</div>
 					</div>
-					<!-- Gallery Card 5 -->
-                    <div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="150" onclick="openGalleryModal('assets/img/main-gallery/pinnawala-elephant-watching.jpg', 'Pinnawala Elephant Watching', 'Pinnawala', 'Watch elephants bathe and roam freely at the famous Pinnawala sanctuary')">
-						<div class="post-thumbnail">
-                            <img src="assets/img/main-gallery/pinnawala-elephant-watching.jpg" alt="Pinnawala Elephant Watching" class="w-full h-36 sm:h-48 md:h-64 object-cover">
-						</div>
-						<div class="entry-content">
-							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Wildlife</a>
-							<div class="post-meta">
-								<span><i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-xs sm:text-sm">August 02, 2025</a></span>
+
+					<!-- Gallery Card 5: Pinnawala Elephant Watching -->
+					<div class="single-blog-post break-inside-avoid inline-block w-full group cursor-pointer" onclick="openGalleryModal('assets/img/main-gallery/pinnawala-elephant-watching.jpg', 'Pinnawala Elephant Sanctuary', 'Pinnawala', 'August 02, 2025')" data-aos="fade-up-blur" data-aos-duration="700" data-aos-delay="250">
+						<div class="relative overflow-hidden rounded-3xl bg-white border border-slate-200/90 shadow-md hover:shadow-2xl hover:border-emerald-500/40 transition-all duration-500 transform hover:-translate-y-1.5 h-80 sm:h-96">
+							<img src="assets/img/main-gallery/pinnawala-elephant-watching.jpg" alt="Pinnawala Elephant Sanctuary" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+							<div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
+							<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-20">
+								<div class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-xl hover:scale-110 transition-transform">
+									<i data-lucide="maximize-2" class="w-4 h-4 text-white"></i>
+								</div>
 							</div>
-							<h3 class="title"><a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="text-sm sm:text-lg md:text-2xl line-clamp-2">Pinnawala Elephant Watching</a></h3>
+							<div class="absolute bottom-0 inset-x-0 p-5 z-10 text-white space-y-2">
+								<div class="flex items-center gap-2 flex-wrap">
+									<span class="bg-emerald-500/20 border border-emerald-400/30 backdrop-blur-md text-emerald-300 text-[10px] sm:text-[11px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider shadow-sm">Wildlife</span>
+									<span class="bg-white/15 backdrop-blur-md border border-white/20 text-white/90 text-[10px] sm:text-[11px] font-medium px-2.5 py-0.5 rounded-md flex items-center gap-1">
+										<i data-lucide="map-pin" class="w-3 h-3 text-emerald-400"></i> Pinnawala
+									</span>
+								</div>
+								<h3 class="font-serif text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md line-clamp-2">Pinnawala Elephant Sanctuary</h3>
+								<p class="text-xs text-slate-300 flex items-center gap-1.5 pt-0.5 font-sans">
+									<i data-lucide="calendar" class="w-3.5 h-3.5 text-emerald-400"></i> August 02, 2025
+								</p>
+							</div>
 						</div>
 					</div>
-					<!-- Gallery Card 6 -->
-                    <div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="250" onclick="openGalleryModal('assets/img/main-gallery/turtle-hatchery-visit.jpg', 'Turtle hatchery Visit', 'Coastal Area', 'Witness baby turtles and conservation efforts')">
-						<div class="post-thumbnail">
-                            <img src="assets/img/main-gallery/turtle-hatchery-visit.jpg" alt="Turtle hatchery Visit" class="w-full h-36 sm:h-48 md:h-64 object-cover">
-						</div>
-						<div class="entry-content">
-							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Experience</a>
-							<div class="post-meta">
-								<span><i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-xs sm:text-sm">September 08, 2025</a></span>
+
+					<!-- Gallery Card 6: Turtle Hatchery Visit -->
+					<div class="single-blog-post break-inside-avoid inline-block w-full group cursor-pointer" onclick="openGalleryModal('assets/img/main-gallery/turtle-hatchery-visit.jpg', 'Turtle Hatchery Visit', 'Coastal Area', 'September 08, 2025')" data-aos="fade-up-blur" data-aos-duration="700" data-aos-delay="300">
+						<div class="relative overflow-hidden rounded-3xl bg-white border border-slate-200/90 shadow-md hover:shadow-2xl hover:border-emerald-500/40 transition-all duration-500 transform hover:-translate-y-1.5 h-64 sm:h-72">
+							<img src="assets/img/main-gallery/turtle-hatchery-visit.jpg" alt="Turtle Hatchery Visit" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+							<div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
+							<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-20">
+								<div class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-xl hover:scale-110 transition-transform">
+									<i data-lucide="maximize-2" class="w-4 h-4 text-white"></i>
+								</div>
 							</div>
-							<h3 class="title"><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-sm sm:text-lg md:text-2xl line-clamp-2">Turtle hatchery Visit</a></h3>
-						</div>
-					</div>
-					<!-- Gallery Card 7 -->
-                    <div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="50" onclick="openGalleryModal('assets/img/main-gallery/botanical-garden-tour.jpg', 'Botanical Garden Tour', 'Peradeniya', 'Explore exotic plants and beautiful landscapes at the renowned botanical gardens')">
-						<div class="post-thumbnail">
-                            <img src="assets/img/main-gallery/botanical-garden-tour.jpg" alt="Botanical Garden Tour" class="w-full h-36 sm:h-48 md:h-64 object-cover">
-						</div>
-						<div class="entry-content">
-							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Nature</a>
-							<div class="post-meta">
-								<span><i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-xs sm:text-sm">January 05, 2023</a></span>
+							<div class="absolute bottom-0 inset-x-0 p-5 z-10 text-white space-y-2">
+								<div class="flex items-center gap-2 flex-wrap">
+									<span class="bg-emerald-500/20 border border-emerald-400/30 backdrop-blur-md text-emerald-300 text-[10px] sm:text-[11px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider shadow-sm">Experience</span>
+									<span class="bg-white/15 backdrop-blur-md border border-white/20 text-white/90 text-[10px] sm:text-[11px] font-medium px-2.5 py-0.5 rounded-md flex items-center gap-1">
+										<i data-lucide="map-pin" class="w-3 h-3 text-emerald-400"></i> Coastal Belt
+									</span>
+								</div>
+								<h3 class="font-serif text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md line-clamp-2">Turtle Hatchery Visit</h3>
+								<p class="text-xs text-slate-300 flex items-center gap-1.5 pt-0.5 font-sans">
+									<i data-lucide="calendar" class="w-3.5 h-3.5 text-emerald-400"></i> September 08, 2025
+								</p>
 							</div>
-							<h3 class="title"><a href="https://www.youtube.com/shorts/sXXdldwZDQY?feature=share" target="_blank" rel="noopener" class="text-sm sm:text-lg md:text-2xl line-clamp-2">Botanical Garden Tour</a></h3>
-						</div>
-					</div>
-					<!-- Gallery Card 8 -->
-					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="150" onclick="openGalleryModal('assets/img/main-gallery/water-rafting.jpg', 'Water Rafting', 'Kitulgala', 'Exciting white water rafting adventure in Kitulgala')">
-						<div class="post-thumbnail">
-							<img src="assets/img/main-gallery/water-rafting.jpg" alt="Water Rafting" class="w-full h-36 sm:h-48 md:h-64 object-cover">
-						</div>
-						<div class="entry-content">
-							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Adventure</a>
-							<div class="post-meta">
-								<span><i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-xs sm:text-sm">December 20, 2024</a></span>
-							</div>
-							<h3 class="title"><a href="https://www.youtube.com/shorts/LO7vF7flWGE?feature=share" target="_blank" rel="noopener" class="text-sm sm:text-lg md:text-2xl line-clamp-2">Water Rafting</a></h3>
-						</div>
-					</div>
-					<!-- Gallery Card 9 -->
-					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="250" onclick="openGalleryModal('assets/img/main-gallery/sigiriya-lion-rock.jpg', 'Sigiriya Lion Rock', 'Dambulla', 'Iconic ancient rock fortress and UNESCO World Heritage Site')">
-						<div class="post-thumbnail">
-							<img src="assets/img/main-gallery/sigiriya-lion-rock.jpg" alt="Sigiriya Lion Rock" class="w-full h-36 sm:h-48 md:h-64 object-cover">
-						</div>
-						<div class="entry-content">
-							<a href="https://www.youtube.com/shorts/sXXdldwZDQY?feature=share" target="_blank" rel="noopener" class="cat-btn">Heritage</a>
-							<div class="post-meta">
-								<span><i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-xs sm:text-sm">December 03, 2023</a></span>
-							</div>
-							<h3 class="title"><a href="https://www.youtube.com/shorts/sXXdldwZDQY?feature=share" target="_blank" rel="noopener" class="text-sm sm:text-lg md:text-2xl line-clamp-2">Sigiriya Lion Rock</a></h3>
-						</div>
-					</div>
-					<!-- Gallery Card 10 -->
-                    <div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="50" onclick="openGalleryModal('assets/img/main-gallery/horton-plains-national-park.jpg', 'Horton Plains National Park', 'Horton Plains', 'Breathtaking plateau with World\'s End precipice, waterfalls, and unique wildlife.')">
-						<div class="post-thumbnail">
-                            <img src="assets/img/main-gallery/horton-plains-national-park.jpg" alt="Horton Plains National Park" class="w-full h-36 sm:h-48 md:h-64 object-cover">
-						</div>
-						<div class="entry-content">
-							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Nature</a>
-							<div class="post-meta">
-								<span><i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-xs sm:text-sm">October 10, 2024</a></span>
-							</div>
-							<h3 class="title"><a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener">Horton Plains National Park</a></h3>
-						</div>
-					</div>
-					<!-- Gallery Card 11 -->
-                    <div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="150" onclick="openGalleryModal('assets/img/main-gallery/madu-river-safari.jpg', 'Madu River Safari', 'Balapitiya', 'Scenic boat safari through mangroves and islands')">
-						<div class="post-thumbnail">
-                            <img src="assets/img/main-gallery/madu-river-safari.jpg" alt="Madu River Safari" class="w-full h-36 sm:h-48 md:h-64 object-cover">
-						</div>
-						<div class="entry-content">
-							<a href="https://www.youtube.com/shorts/Eb1FAMZq410?feature=share" target="_blank" rel="noopener" class="cat-btn">Scenic</a>
-							<div class="post-meta">
-								<span><i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-xs sm:text-sm">August 15, 2024</a></span>
-							</div>
-							<h3 class="title"><a href="https://www.youtube.com/shorts/sXXdldwZDQY?feature=share" target="_blank" rel="noopener" class="text-sm sm:text-lg md:text-2xl line-clamp-2">Madu River Safari</a></h3>
-						</div>
-					</div>
-					<!-- Gallery Card 12 -->
-					<div class="single-blog-post mb-4 group cursor-pointer hover:scale-105" data-aos="fade-up-blur" data-aos-duration="800" data-aos-delay="250" onclick="openGalleryModal('assets/img/main-gallery/waterfall-tour.jpg', 'Waterfall Tour', 'Hill Country', 'Discover pristine cascading waterfalls in the lush hills of Sri Lanka.')">
-						<div class="post-thumbnail">
-                            <img src="assets/img/main-gallery/waterfall-tour.jpg" alt="Waterfall Tour" class="w-full h-36 sm:h-48 md:h-64 object-cover">
-						</div>
-						<div class="entry-content">
-							<a href="https://www.youtube.com/shorts/LO7vF7flWGE?feature=share" target="_blank" rel="noopener" class="cat-btn">Exploration</a>
-							<div class="post-meta">
-								<span><i data-lucide="calendar" class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"></i><a href="https://www.youtube.com/shorts/lmT40k1FPn4?feature=share" target="_blank" rel="noopener" class="text-xs sm:text-sm">August 10, 2025</a></span>
-							</div>
-							<h3 class="title"><a href="https://www.youtube.com/shorts/LO7vF7flWGE?feature=share" target="_blank" rel="noopener">Waterfall Tour</a></h3>
 						</div>
 					</div>
 				</div>
