@@ -13,6 +13,7 @@
         // Tour data with EXACT detailed itineraries as provided by user
         tourData: [
             {
+                slug: "highlights-escape",
                 title: "Sri Lanka Highlights Escape",
                 image: "assets/img/packages/3-day-package.jpeg",
                 rating: 9.0,
@@ -27,6 +28,7 @@
                 ]
             },
             {
+                slug: "hills-to-beach",
                 title: "Hills to Beach Escape",
                 image: "assets/img/packages/4-day-package.jpeg",
                 rating: 9.2,
@@ -43,6 +45,7 @@
                 ]
             },
             {
+                slug: "golden-triangle",
                 title: "Golden Triangle & Beyond",
                 image: "assets/img/packages/5-day-package.jpeg",
                 rating: 9.3,
@@ -60,6 +63,7 @@
                 ]
             },
             {
+                slug: "ramayanaya-tour",
                 title: "Ramayanaya Tour",
                 image: "assets/img/packages/7-day-package.jpeg",
                 rating: 9.5,
@@ -77,6 +81,7 @@
                 ]
             },
             {
+                slug: "pearl-of-asia",
                 title: "Pearl Of Asia Tour",
                 image: "assets/img/packages/10-day-package.jpeg",
                 rating: 9.4,
@@ -96,6 +101,7 @@
                 ]
             },
             {
+                slug: "grand-tour",
                 title: "Sri Lanka Grand Tour",
                 image: "assets/img/packages/14-day-package.jpeg",
                 rating: 10.0,
