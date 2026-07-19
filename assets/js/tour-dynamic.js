@@ -371,9 +371,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     <!-- 10-Column Grid (4 cols = 40%, 3 cols = 30%, 3 cols = 30%) -->
                     <div class="grid grid-cols-1 lg:grid-cols-10 gap-4 sm:gap-6" id="tour-gallery">
                         <!-- Column 1 (40% Width - Col Span 4): Image A (Large Tall Vertical) -->
-                        <div class="lg:col-span-4 relative rounded-3xl overflow-hidden group shadow-md min-h-[380px] h-full">
+                        <div class="lg:col-span-4 relative rounded-3xl overflow-hidden group shadow-md min-h-[380px] h-full cursor-pointer" onclick="window.openTourPhotoModal(0)">
                             <img src="../${galleryImages[0].src}" alt="${galleryImages[0].title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/15 to-transparent"></div>
+                            <!-- Floating Zoom Icon -->
+                            <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-20">
+                                <div class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-xl hover:scale-110 transition-transform">
+                                    <i data-lucide="maximize-2" class="w-4 h-4 text-white"></i>
+                                </div>
+                            </div>
                             <div class="absolute bottom-5 left-5 right-5 text-white">
                                 <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/70 backdrop-blur-md px-2.5 py-0.5 rounded-full inline-block mb-1.5 border border-emerald-500/30">Highlight 1</span>
                                 <h4 class="font-serif text-lg sm:text-xl font-bold text-white leading-snug drop-shadow">${galleryImages[0].title}</h4>
@@ -383,9 +389,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         <!-- Column 2 (30% Width - Col Span 3): Image B (Top Large) + Image C & D (Bottom Small 2-up) -->
                         <div class="lg:col-span-3 flex flex-col gap-4">
                             <!-- Image B (Large wide image top) -->
-                            <div class="relative rounded-3xl overflow-hidden group shadow-md h-[182px] w-full">
+                            <div class="relative rounded-3xl overflow-hidden group shadow-md h-[182px] w-full cursor-pointer" onclick="window.openTourPhotoModal(1)">
                                 <img src="../${galleryImages[1].src}" alt="${galleryImages[1].title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/10 to-transparent"></div>
+                                <!-- Floating Zoom Icon -->
+                                <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-20">
+                                    <div class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-xl hover:scale-110 transition-transform">
+                                        <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-white"></i>
+                                    </div>
+                                </div>
                                 <div class="absolute bottom-4 left-4 right-4 text-white">
                                     <span class="text-[9px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/70 backdrop-blur-md px-2 py-0.5 rounded-md inline-block mb-1 border border-emerald-500/30">Highlight 2</span>
                                     <h4 class="font-serif text-sm font-bold text-white leading-tight drop-shadow truncate">${galleryImages[1].title}</h4>
@@ -394,16 +406,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
                             <!-- Images C & D (Two small images bottom side-by-side) -->
                             <div class="grid grid-cols-2 gap-4 h-[182px] w-full">
-                                <div class="relative rounded-3xl overflow-hidden group shadow-md h-full w-full">
+                                <div class="relative rounded-3xl overflow-hidden group shadow-md h-full w-full cursor-pointer" onclick="window.openTourPhotoModal(2)">
                                     <img src="../${galleryImages[2].src}" alt="${galleryImages[2].title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent"></div>
+                                    <div class="absolute top-2.5 right-2.5 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-20">
+                                        <div class="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-xl">
+                                            <i data-lucide="maximize-2" class="w-3 h-3 text-white"></i>
+                                        </div>
+                                    </div>
                                     <div class="absolute bottom-3 left-3 right-3 text-white">
                                         <h4 class="font-serif text-xs font-bold text-white leading-tight drop-shadow truncate">${galleryImages[2].title}</h4>
                                     </div>
                                 </div>
-                                <div class="relative rounded-3xl overflow-hidden group shadow-md h-full w-full">
+                                <div class="relative rounded-3xl overflow-hidden group shadow-md h-full w-full cursor-pointer" onclick="window.openTourPhotoModal(3)">
                                     <img src="../${galleryImages[3].src}" alt="${galleryImages[3].title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent"></div>
+                                    <div class="absolute top-2.5 right-2.5 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-20">
+                                        <div class="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-xl">
+                                            <i data-lucide="maximize-2" class="w-3 h-3 text-white"></i>
+                                        </div>
+                                    </div>
                                     <div class="absolute bottom-3 left-3 right-3 text-white">
                                         <h4 class="font-serif text-xs font-bold text-white leading-tight drop-shadow truncate">${galleryImages[3].title}</h4>
                                     </div>
@@ -415,16 +437,26 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="lg:col-span-3 flex flex-col gap-4">
                             <!-- Images E & F (Two small images top side-by-side) -->
                             <div class="grid grid-cols-2 gap-4 h-[182px] w-full">
-                                <div class="relative rounded-3xl overflow-hidden group shadow-md h-full w-full">
+                                <div class="relative rounded-3xl overflow-hidden group shadow-md h-full w-full cursor-pointer" onclick="window.openTourPhotoModal(4)">
                                     <img src="../${galleryImages[4].src}" alt="${galleryImages[4].title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent"></div>
+                                    <div class="absolute top-2.5 right-2.5 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-20">
+                                        <div class="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-xl">
+                                            <i data-lucide="maximize-2" class="w-3 h-3 text-white"></i>
+                                        </div>
+                                    </div>
                                     <div class="absolute bottom-3 left-3 right-3 text-white">
                                         <h4 class="font-serif text-xs font-bold text-white leading-tight drop-shadow truncate">${galleryImages[4].title}</h4>
                                     </div>
                                 </div>
-                                <div class="relative rounded-3xl overflow-hidden group shadow-md h-full w-full">
+                                <div class="relative rounded-3xl overflow-hidden group shadow-md h-full w-full cursor-pointer" onclick="window.openTourPhotoModal(5)">
                                     <img src="../${galleryImages[5].src}" alt="${galleryImages[5].title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent"></div>
+                                    <div class="absolute top-2.5 right-2.5 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-20">
+                                        <div class="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-xl">
+                                            <i data-lucide="maximize-2" class="w-3 h-3 text-white"></i>
+                                        </div>
+                                    </div>
                                     <div class="absolute bottom-3 left-3 right-3 text-white">
                                         <h4 class="font-serif text-xs font-bold text-white leading-tight drop-shadow truncate">${galleryImages[5].title}</h4>
                                     </div>
@@ -432,9 +464,15 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
 
                             <!-- Image G (Large wide image bottom) -->
-                            <div class="relative rounded-3xl overflow-hidden group shadow-md h-[182px] w-full">
+                            <div class="relative rounded-3xl overflow-hidden group shadow-md h-[182px] w-full cursor-pointer" onclick="window.openTourPhotoModal(6)">
                                 <img src="../${galleryImages[6].src}" alt="${galleryImages[6].title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/10 to-transparent"></div>
+                                <!-- Floating Zoom Icon -->
+                                <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-20">
+                                    <div class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white shadow-xl hover:scale-110 transition-transform">
+                                        <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-white"></i>
+                                    </div>
+                                </div>
                                 <div class="absolute bottom-4 left-4 right-4 text-white">
                                     <span class="text-[9px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/70 backdrop-blur-md px-2 py-0.5 rounded-md inline-block mb-1 border border-emerald-500/30">Highlight 3</span>
                                     <h4 class="font-serif text-sm font-bold text-white leading-tight drop-shadow truncate">${galleryImages[6].title}</h4>
@@ -497,8 +535,81 @@ document.addEventListener('DOMContentLoaded', () => {
             container.outerHTML = html;
         }
 
+        window.activeTourGallery = galleryImages.map(g => ({ src: '../' + g.src, title: g.title }));
+
         if (typeof lucide !== 'undefined') {
             lucide.createIcons();
         }
     }
 });
+
+// PhotoSwipe v5 Lightbox Modal for Tour Destination Highlights
+window.openTourPhotoModal = function(index) {
+    if (!window.activeTourGallery || window.activeTourGallery.length === 0) return;
+
+    if (!window.PhotoSwipeLightbox || !window.PhotoSwipe) {
+        console.warn('PhotoSwipe library is not loaded yet');
+        return;
+    }
+
+    const pswpItems = window.activeTourGallery.map(item => {
+        const data = {
+            src: item.src,
+            w: 0,
+            h: 0,
+            alt: item.title,
+            title: item.title
+        };
+
+        const filename = item.src.split('/').pop();
+        if (filename) {
+            try {
+                const existingImg = document.querySelector(`img[src*="${filename}"]`);
+                if (existingImg && existingImg.naturalWidth > 0) {
+                    data.w = existingImg.naturalWidth;
+                    data.h = existingImg.naturalHeight;
+                    data.msrc = existingImg.src;
+                }
+            } catch (err) {}
+        }
+        if (data.w === 0) {
+            data.w = 1600;
+            data.h = 1067;
+        }
+        return data;
+    });
+
+    const lightbox = new window.PhotoSwipeLightbox({
+        dataSource: pswpItems,
+        index: index,
+        pswpModule: window.PhotoSwipe,
+        bgOpacity: 0.92,
+        showHideAnimationType: 'zoom'
+    });
+
+    lightbox.on('uiRegister', function() {
+        lightbox.pswp.ui.registerElement({
+            name: 'custom-caption',
+            order: 9,
+            isButton: false,
+            appendTo: 'root',
+            html: '',
+            onInit: (el, pswp) => {
+                pswp.on('change', () => {
+                    const currSlide = pswp.currSlide;
+                    if (currSlide && currSlide.data) {
+                        el.innerHTML = `
+                            <div class="pswp__custom-caption absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-900/85 backdrop-blur-xl border border-white/20 text-white px-6 py-3 rounded-2xl shadow-2xl text-center max-w-md w-full pointer-events-auto z-[1005]">
+                                <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider bg-emerald-950/70 border border-emerald-500/30 px-2.5 py-0.5 rounded-full inline-block mb-1">Highlight ${pswp.currIndex + 1} of ${pswp.getNumItems()}</span>
+                                <h4 class="font-serif text-base font-bold text-white drop-shadow truncate">${currSlide.data.title || ''}</h4>
+                            </div>
+                        `;
+                    }
+                });
+            }
+        });
+    });
+
+    lightbox.init();
+    lightbox.loadAndOpen(index);
+};
