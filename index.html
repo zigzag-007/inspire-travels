@@ -261,13 +261,13 @@
 		<!-- Blur Overlay for Mobile Menu -->
 		<div id="blur-overlay" class="fixed inset-0 backdrop-blur-sm bg-black/30 opacity-0 hidden will-change-opacity" style="z-index: 45; transition: opacity 600ms cubic-bezier(0.23, 1, 0.32, 1);"></div>
 		<!-- Top Bar -->
-		<div class="bg-primary text-primary-foreground py-2 px-4 text-sm" data-aos="blur-in" data-aos-duration="1000" data-aos-delay="0">
+		<div class="bg-primary text-primary-foreground py-2 px-2 sm:px-4 text-xs sm:text-sm" data-aos="blur-in" data-aos-duration="1000" data-aos-delay="0">
 			<div class="max-w-7xl mx-auto flex justify-between items-center">
 				<!-- Left Side: Contact Information -->
-				<div class="flex items-center gap-4 sm:gap-6">
+				<div class="flex items-center gap-3 sm:gap-6">
 					<!-- Phone (always visible) -->
-					<div class="flex items-center gap-2">
-						<i data-lucide="phone" class="w-4 h-4"></i>
+					<div class="flex items-center gap-1.5 sm:gap-2">
+						<i data-lucide="phone" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
 						<span>+94 78 595 9333</span>
 					</div>
 					<!-- Email (hidden on xs screens) -->
@@ -287,13 +287,13 @@
 			<nav id="navbar" class="liquid-glass w-full" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="0" data-aos-easing="ease-out-cubic">
 			<!-- Scroll Progress Bar (2026 Premium Micro-Interaction) -->
 			<div id="scroll-progress" class="absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-accent via-primary to-accent z-50 w-0 transition-all duration-75"></div>
-			<div class="max-w-[1400px] mx-auto px-6 md:px-8 lg:px-12 xl:px-16 relative">
+			<div class="max-w-[1400px] mx-auto px-3 sm:px-6 md:px-8 lg:px-12 xl:px-16 relative">
 				<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-30"></div>
-				<div class="relative flex justify-between items-center h-16 transform transition-transform duration-200">
+				<div class="relative flex justify-between items-center h-14 sm:h-16 transform transition-transform duration-200">
 					<!-- Logo - Left Corner -->
 					<div class="flex items-center flex-shrink-0">
 						<a href="#home" class="flex items-center">
-						<img src="assets/img/logo.png" alt="Inspire Travels & Tours" class="nav-logo h-40 w-auto object-contain">
+						<img src="assets/img/logo.png" alt="Inspire Travels & Tours" class="nav-logo h-24 sm:h-32 md:h-40 w-auto object-contain">
 						</a>
 					</div>
 					<!-- Desktop Navigation - Center -->
@@ -316,11 +316,11 @@
 						<a href="#footer" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Contact</a>
 					</div>
 					<!-- Book Now Button and Mobile Menu - Right Corner -->
-					<div class="flex items-center space-x-4">
+					<div class="flex items-center space-x-3 sm:space-x-4">
 						<button class="hidden lg:block bg-black/20 backdrop-blur-md border border-white/20 text-white px-6 py-2 rounded-full font-medium transition-all duration-300 hover:bg-black/30 hover:border-white/30 hover:scale-105 shadow-lg" onclick="window.location.href='#footer'">Contact Now</button>
 						<!-- Mobile menu button -->
-						<button id="mobile-menu-btn" class="lg:hidden p-2" aria-label="Open mobile menu" title="Open navigation menu">
-						<i data-lucide="menu" class="w-6 h-6"></i>
+						<button id="mobile-menu-btn" class="lg:hidden p-1.5 sm:p-2 text-white hover:text-accent transition-colors" aria-label="Open mobile menu" title="Open navigation menu">
+						<i data-lucide="menu" class="w-6 h-6 sm:w-7 sm:h-7"></i>
 						</button>
 					</div>
 				</div>
@@ -328,70 +328,70 @@
 			</nav>
 		</div>
 		<!-- Mobile Navigation -->
-		<div id="mobile-menu" class="mobile-menu fixed top-0 left-0 h-full w-80 bg-white backdrop-blur-md shadow-2xl z-50 lg:hidden transform -translate-x-full will-change-transform" style="transition: transform 600ms cubic-bezier(0.23, 1, 0.32, 1);">
-			<div class="p-6 pt-8">
+		<div id="mobile-menu" class="mobile-menu fixed top-0 left-0 h-full w-[85vw] max-w-xs sm:w-80 bg-white backdrop-blur-md shadow-2xl z-50 lg:hidden transform -translate-x-full will-change-transform" style="transition: transform 600ms cubic-bezier(0.23, 1, 0.32, 1);">
+			<div class="p-4 sm:p-6 pt-6 sm:pt-8">
 				<!-- Header with Logo and Close Button -->
-				<div class="flex justify-between items-center mb-8">
-					<div class="flex items-center gap-3">
-						<img src="assets/img/logo.png" alt="Inspire Travels" class="w-12 h-12">
-						<h3 class="text-xl font-serif font-bold text-slate-800">Inspire Travels</h3>
+				<div class="flex justify-between items-center mb-6 sm:mb-8">
+					<div class="flex items-center gap-2.5 sm:gap-3">
+						<img src="assets/img/logo.png" alt="Inspire Travels" class="w-9 h-9 sm:w-12 sm:h-12 object-contain">
+						<h3 class="text-lg sm:text-xl font-serif font-bold text-slate-800">Inspire Travels</h3>
 					</div>
-					<button id="mobile-menu-close" class="p-2 text-slate-600 hover:text-slate-800 transition-colors rounded-lg hover:bg-slate-100" aria-label="Close mobile menu" title="Close navigation menu">
-						<i data-lucide="x" class="w-6 h-6"></i>
+					<button id="mobile-menu-close" class="p-1.5 sm:p-2 text-slate-600 hover:text-slate-800 transition-colors rounded-lg hover:bg-slate-100" aria-label="Close mobile menu" title="Close navigation menu">
+						<i data-lucide="x" class="w-5 h-5 sm:w-6 sm:h-6"></i>
 					</button>
 				</div>
 
 				<!-- Navigation Links -->
 				<div class="space-y-1">
-					<a href="#home" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 active-mobile-nav bg-gradient-to-r from-emerald-500 to-emerald-600 text-white transition-all duration-200 font-semibold py-4 px-4 rounded-xl" data-section="home">
-						<i data-lucide="home" class="w-5 h-5"></i>
+					<a href="#home" class="mobile-nav-link flex items-center gap-3 sm:gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 active-mobile-nav bg-gradient-to-r from-emerald-500 to-emerald-600 text-white transition-all duration-200 font-semibold py-3 sm:py-4 px-3 sm:px-4 text-sm sm:text-base rounded-xl" data-section="home">
+						<i data-lucide="home" class="w-4 h-4 sm:w-5 sm:h-5"></i>
 						<span>Home</span>
 					</a>
-					<a href="#tours" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl" data-section="tours">
-						<i data-lucide="map" class="w-5 h-5"></i>
+					<a href="#tours" class="mobile-nav-link flex items-center gap-3 sm:gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-3 sm:py-4 px-3 sm:px-4 text-sm sm:text-base rounded-xl" data-section="tours">
+						<i data-lucide="map" class="w-4 h-4 sm:w-5 sm:h-5"></i>
 						<span>Tours</span>
 					</a>
-					<a href="#about" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl" data-section="about">
-						<i data-lucide="users" class="w-5 h-5"></i>
+					<a href="#about" class="mobile-nav-link flex items-center gap-3 sm:gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-3 sm:py-4 px-3 sm:px-4 text-sm sm:text-base rounded-xl" data-section="about">
+						<i data-lucide="users" class="w-4 h-4 sm:w-5 sm:h-5"></i>
 						<span>About</span>
 					</a>
-					<a href="gallery.html" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl">
-						<i data-lucide="image" class="w-5 h-5"></i>
+					<a href="gallery.html" class="mobile-nav-link flex items-center gap-3 sm:gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-3 sm:py-4 px-3 sm:px-4 text-sm sm:text-base rounded-xl">
+						<i data-lucide="image" class="w-4 h-4 sm:w-5 sm:h-5"></i>
 						<span>Gallery Archive</span>
 					</a>
-					<a href="#adventure" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl" data-section="adventure">
-						<i data-lucide="mountain" class="w-5 h-5"></i>
+					<a href="#adventure" class="mobile-nav-link flex items-center gap-3 sm:gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-3 sm:py-4 px-3 sm:px-4 text-sm sm:text-base rounded-xl" data-section="adventure">
+						<i data-lucide="mountain" class="w-4 h-4 sm:w-5 sm:h-5"></i>
 						<span>Adventure</span>
 					</a>
-					<a href="#reviews" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl" data-section="reviews">
-						<i data-lucide="star" class="w-5 h-5"></i>
+					<a href="#reviews" class="mobile-nav-link flex items-center gap-3 sm:gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-3 sm:py-4 px-3 sm:px-4 text-sm sm:text-base rounded-xl" data-section="reviews">
+						<i data-lucide="star" class="w-4 h-4 sm:w-5 sm:h-5"></i>
 						<span>Reviews</span>
 					</a>
-					<a href="#footer" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl" data-section="footer">
-						<i data-lucide="phone" class="w-5 h-5"></i>
+					<a href="#footer" class="mobile-nav-link flex items-center gap-3 sm:gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-3 sm:py-4 px-3 sm:px-4 text-sm sm:text-base rounded-xl" data-section="footer">
+						<i data-lucide="phone" class="w-4 h-4 sm:w-5 sm:h-5"></i>
 						<span>Contact</span>
 					</a>
 				</div>
 
 				<!-- Social Media Links -->
-				<div class="mt-8 pt-6 border-t border-slate-200">
-					<p class="text-sm text-slate-600 mb-4 text-center">Follow us on:</p>
-					<div class="flex justify-center gap-4">
-						<a href="https://www.facebook.com/share/1CUqzA7tAu/?mibextid=wwXIfr" title="Follow us on Facebook" aria-label="Facebook" class="flex items-center justify-center w-10 h-10 bg-slate-100 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 text-slate-600 hover:text-white rounded-full transition-all duration-200">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+				<div class="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-slate-200">
+					<p class="text-xs sm:text-sm text-slate-600 mb-3 sm:mb-4 text-center">Follow us on:</p>
+					<div class="flex justify-center gap-3 sm:gap-4">
+						<a href="https://www.facebook.com/share/1CUqzA7tAu/?mibextid=wwXIfr" title="Follow us on Facebook" aria-label="Facebook" class="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 bg-slate-100 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 text-slate-600 hover:text-white rounded-full transition-all duration-200">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 sm:w-5 sm:h-5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
 						</a>
-						<a href="https://www.instagram.com/inspiretravels_tours" title="Follow us on Instagram" aria-label="Instagram" class="flex items-center justify-center w-10 h-10 bg-slate-100 hover:bg-gradient-to-r hover:from-pink-500 hover:to-pink-600 text-slate-600 hover:text-white rounded-full transition-all duration-200">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+						<a href="https://www.instagram.com/inspiretravels_tours" title="Follow us on Instagram" aria-label="Instagram" class="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 bg-slate-100 hover:bg-gradient-to-r hover:from-pink-500 hover:to-pink-600 text-slate-600 hover:text-white rounded-full transition-all duration-200">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 sm:w-5 sm:h-5"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
 						</a>
-						<a href="https://www.tiktok.com/@inspiretravelstours?_t=ZS-903Za2uRoUU&_r=1" title="Follow us on TikTok" aria-label="TikTok" class="flex items-center justify-center w-10 h-10 bg-slate-100 hover:bg-gradient-to-r hover:from-gray-800 hover:to-black text-slate-600 hover:text-white rounded-full transition-all duration-200">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+						<a href="https://www.tiktok.com/@inspiretravelstours?_t=ZS-903Za2uRoUU&_r=1" title="Follow us on TikTok" aria-label="TikTok" class="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 bg-slate-100 hover:bg-gradient-to-r hover:from-gray-800 hover:to-black text-slate-600 hover:text-white rounded-full transition-all duration-200">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 sm:w-5 sm:h-5"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
 						</a>
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- Hero Section (arrow back, sentinel kept, dots removed; mobile buttons balanced) -->
-		<section id="home" class="relative isolate min-h-[100svh] flex items-center overflow-hidden pt-8 sm:pt-16 md:pt-20 lg:pt-24 xl:pt-27 pb-8 sm:pb-12 md:pb-16 lg:pb-20 grid grid-cols-1 place-items-center">
+		<section id="home" class="relative isolate min-h-[100svh] flex items-center overflow-hidden pt-12 sm:pt-16 md:pt-20 lg:pt-24 xl:pt-27 pb-8 sm:pb-12 md:pb-16 lg:pb-20 grid grid-cols-1 place-items-center">
 			<!-- Background wrapper to isolate scroll transforms from Ken Burns transitions -->
 			<div id="hero-bg-wrapper" class="absolute inset-0 overflow-hidden z-0">
 				<!-- Background layers for smooth Ken Burns crossfade -->
@@ -402,58 +402,58 @@
 			</div>
 
 			<!-- Content -->
-			<div class="relative z-20 w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+			<div class="relative z-20 w-full max-w-screen-xl mx-auto px-3 sm:px-6 lg:px-8 text-white">
 				<div class="text-center">
 					<!-- Hero Micro Badge -->
-					<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full liquid-glass border border-white/20 text-xs sm:text-sm font-semibold tracking-wide uppercase text-accent mb-4 sm:mb-6 backdrop-blur-md" data-aos="fade-down" data-aos-duration="1000">
-						<i data-lucide="sparkles" class="w-3.5 h-3.5 text-accent animate-pulse"></i> Authentic Sri Lanka Travel
+					<div class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full liquid-glass border border-white/20 text-[11px] sm:text-xs md:text-sm font-semibold tracking-wide uppercase text-accent mb-3 sm:mb-6 backdrop-blur-md" data-aos="fade-down" data-aos-duration="1000">
+						<i data-lucide="sparkles" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-accent animate-pulse"></i> Authentic Sri Lanka Travel
 					</div>
 
 					<!-- Heading -->
-					<h1 class="font-serif font-bold leading-tight tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-2 sm:mb-3 md:mb-4 lg:mb-6" data-aos="fade-up-blur" data-aos-duration="1200" data-aos-delay="200">
+					<h1 class="font-serif font-bold leading-tight tracking-tight text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-2 sm:mb-3 md:mb-4 lg:mb-6" data-aos="fade-up-blur" data-aos-duration="1200" data-aos-delay="200">
 						<span class="block">Discover the</span>
 						<span class="block bg-gradient-to-r from-accent via-amber-200 to-white bg-clip-text text-transparent">Pearl of the Ocean</span>
 					</h1>
 
 					<!-- Subtitle -->
-					<p class="mt-2 sm:mt-3 md:mt-4 lg:mt-5 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl max-w-3xl mx-auto leading-relaxed text-white/90 mb-4 sm:mb-6 md:mb-8 lg:mb-10" data-aos="fade-up-blur" data-aos-duration="1200" data-aos-delay="400">
+					<p class="mt-2 sm:mt-3 md:mt-4 lg:mt-5 text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl max-w-3xl mx-auto leading-relaxed text-white/90 mb-4 sm:mb-6 md:mb-8 lg:mb-10" data-aos="fade-up-blur" data-aos-duration="1200" data-aos-delay="400">
 						Experience the enchanting beauty of Sri Lanka. Handcrafted tours starting from just $300 USD, with premium hotel and activity bookings included free of charge.
 					</p>
 
 					<!-- CTAs (Side-by-side compact liquid-glass pills across all devices) -->
-					<div class="mt-4 sm:mt-6 mb-6 sm:mb-8 flex flex-row items-center justify-center gap-3 sm:gap-4 w-full px-2 sm:px-0">
-						<button class="group liquid-glass text-white px-6 sm:px-8 py-3 text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2 flex-shrink-0 min-h-[48px] shadow-lg hover:shadow-amber-500/20" aria-label="Explore our tour packages" data-aos="scale-up-blur" data-aos-duration="1000" data-aos-delay="600" onclick="window.location.href='#tours'">
+					<div class="mt-4 sm:mt-6 mb-6 sm:mb-8 flex flex-row items-center justify-center gap-2.5 sm:gap-4 w-full px-1 sm:px-0">
+						<button class="group liquid-glass text-white px-4 xs:px-6 sm:px-8 py-2.5 sm:py-3 text-xs xs:text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center gap-1.5 sm:gap-2 flex-shrink-0 min-h-[44px] sm:min-h-[48px] shadow-lg hover:shadow-amber-500/20" aria-label="Explore our tour packages" data-aos="scale-up-blur" data-aos-duration="1000" data-aos-delay="600" onclick="window.location.href='#tours'">
 							<span>Explore Tours</span>
-							<i data-lucide="arrow-right" class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1"></i>
+							<i data-lucide="arrow-right" class="w-3.5 h-3.5 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1"></i>
 						</button>
 
-						<button class="group liquid-glass text-white px-6 sm:px-8 py-3 text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2 flex-shrink-0 min-h-[48px]" aria-label="Watch promotional video" data-aos="scale-up-blur" data-aos-duration="1000" data-aos-delay="750" onclick="window.open('https://www.instagram.com/inspiretravels_tours?igsh=MXJlbDgyZXQxOTg4ag%3D%3D&amp;utm_source=qr', '_blank')" title="Play Video on Instagram">
-							<i data-lucide="play" class="w-4 h-4 sm:w-5 sm:h-5 fill-current text-white transition-transform duration-300 group-hover:scale-110"></i>
+						<button class="group liquid-glass text-white px-4 xs:px-6 sm:px-8 py-2.5 sm:py-3 text-xs xs:text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center gap-1.5 sm:gap-2 flex-shrink-0 min-h-[44px] sm:min-h-[48px]" aria-label="Watch promotional video" data-aos="scale-up-blur" data-aos-duration="1000" data-aos-delay="750" onclick="window.open('https://www.instagram.com/inspiretravels_tours?igsh=MXJlbDgyZXQxOTg4ag%3D%3D&amp;utm_source=qr', '_blank')" title="Play Video on Instagram">
+							<i data-lucide="play" class="w-3.5 h-3.5 sm:w-5 sm:h-5 fill-current text-white transition-transform duration-300 group-hover:scale-110"></i>
 							<span>Watch Video</span>
 						</button>
 					</div>
 
 					<!-- Stats (always visible; tidy 3-up) -->
-					<div class="grid grid-cols-3 gap-2 sm:gap-4 max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto">
-						<div class="group liquid-glass rounded-2xl p-3 sm:p-5 border border-white/10 hover:border-white/30 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-black/20 cursor-default" data-aos="scale-up-blur" data-aos-duration="1000" data-aos-delay="900">
+					<div class="grid grid-cols-3 gap-1.5 sm:gap-4 max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto">
+						<div class="group liquid-glass rounded-2xl p-2 sm:p-5 border border-white/10 hover:border-white/30 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-black/20 cursor-default" data-aos="scale-up-blur" data-aos-duration="1000" data-aos-delay="900">
 							<div class="text-center">
-								<i data-lucide="map-pin" class="w-6 h-6 sm:w-7 sm:h-7 mx-auto mb-2 text-accent transition-transform duration-300 group-hover:scale-110 group-hover:text-amber-300"></i>
-								<div class="text-xl sm:text-2xl font-bold font-serif">50+</div>
-								<div class="mt-0.5 text-[10px] sm:text-xs text-white/80 font-medium">Destinations</div>
+								<i data-lucide="map-pin" class="w-5 h-5 sm:w-7 sm:h-7 mx-auto mb-1 sm:mb-2 text-accent transition-transform duration-300 group-hover:scale-110 group-hover:text-amber-300"></i>
+								<div class="text-sm xs:text-lg sm:text-2xl font-bold font-serif">50+</div>
+								<div class="mt-0.5 text-[9px] xs:text-[10px] sm:text-xs text-white/80 font-medium">Destinations</div>
 							</div>
 						</div>
-						<div class="group liquid-glass rounded-2xl p-3 sm:p-5 border border-white/10 hover:border-white/30 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-black/20 cursor-default" data-aos="scale-up-blur" data-aos-duration="1000" data-aos-delay="1050">
+						<div class="group liquid-glass rounded-2xl p-2 sm:p-5 border border-white/10 hover:border-white/30 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-black/20 cursor-default" data-aos="scale-up-blur" data-aos-duration="1000" data-aos-delay="1050">
 							<div class="text-center">
-								<i data-lucide="calendar" class="w-6 h-6 sm:w-7 sm:h-7 mx-auto mb-2 text-accent transition-transform duration-300 group-hover:scale-110 group-hover:text-amber-300"></i>
-								<div class="text-xl sm:text-2xl font-bold font-serif">1000+</div>
-								<div class="mt-0.5 text-[10px] sm:text-xs text-white/80 font-medium">Tours Completed</div>
+								<i data-lucide="calendar" class="w-5 h-5 sm:w-7 sm:h-7 mx-auto mb-1 sm:mb-2 text-accent transition-transform duration-300 group-hover:scale-110 group-hover:text-amber-300"></i>
+								<div class="text-sm xs:text-lg sm:text-2xl font-bold font-serif">1000+</div>
+								<div class="mt-0.5 text-[9px] xs:text-[10px] sm:text-xs text-white/80 font-medium">Tours Done</div>
 							</div>
 						</div>
-						<div class="group liquid-glass rounded-2xl p-3 sm:p-5 border border-white/10 hover:border-white/30 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-black/20 cursor-default" data-aos="scale-up-blur" data-aos-duration="1000" data-aos-delay="1200">
+						<div class="group liquid-glass rounded-2xl p-2 sm:p-5 border border-white/10 hover:border-white/30 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-black/20 cursor-default" data-aos="scale-up-blur" data-aos-duration="1000" data-aos-delay="1200">
 							<div class="text-center">
-								<i data-lucide="users" class="w-6 h-6 sm:w-7 sm:h-7 mx-auto mb-2 text-accent transition-transform duration-300 group-hover:scale-110 group-hover:text-amber-300"></i>
-								<div class="text-xl sm:text-2xl font-bold font-serif">5000+</div>
-								<div class="mt-0.5 text-[10px] sm:text-xs text-white/80 font-medium">Happy Travelers</div>
+								<i data-lucide="star" class="w-5 h-5 sm:w-7 sm:h-7 mx-auto mb-1 sm:mb-2 text-accent transition-transform duration-300 group-hover:scale-110 group-hover:text-amber-300"></i>
+								<div class="text-sm xs:text-lg sm:text-2xl font-bold font-serif">4.9★</div>
+								<div class="mt-0.5 text-[9px] xs:text-[10px] sm:text-xs text-white/80 font-medium">Rating</div>
 							</div>
 						</div>
 					</div>
@@ -681,7 +681,7 @@
 				</div>
 			</div>
 			<!-- Tours Grid with Card Animations -->
-			<div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 md:gap-8">
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
 				<!-- Tour Card 1 -->
 				<div class="liquid-glass-tile shadow-lg hover:scale-[1.015] overflow-hidden" data-aos="fade-up-blur" data-aos-duration="1000" data-aos-delay="100">
 					<div class="relative h-36 sm:h-48 md:h-56 overflow-hidden">
@@ -1018,13 +1018,15 @@
 								From breathtaking landscapes to cultural immersions, our mission is to redefine travel by offering personalized service, unparalleled expertise, and a deep respect for the destinations we visit. With over five years of experience in the industry, we have built lasting relationships with local communities and gained intimate knowledge of Sri Lanka's hidden treasures. Join us as we embark on a journey of discovery and create memories that last a lifetime.
 							</p>
 							<div class="flex items-center gap-3 justify-center sm:justify-start">
-								<button class="liquid-glass text-white px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+								<button class="liquid-glass text-white px-6 sm:px-8 py-3 text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 inline-flex items-center justify-center gap-2.5 shadow-md"
 									onclick="window.open('https://youtube.com/@InspireTravelandTours?si=uHKWO_lqmHxhQgDx', '_blank')">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17z"/><polygon points="10 15 15 12 10 9"/></svg> YouTube
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17z"/><polygon points="10 15 15 12 10 9"/></svg>
+									<span>YouTube</span>
 								</button>
-								<button class="liquid-glass text-white px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+								<button class="liquid-glass text-white px-6 sm:px-8 py-3 text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 inline-flex items-center justify-center gap-2.5 shadow-md"
 									onclick="window.open('https://www.tiktok.com/@inspiretravelstours?_t=ZS-903Za2uRoUU&_r=1', '_blank')">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 sm:w-6 sm:h-6"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg> TikTok
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+									<span>TikTok</span>
 								</button>
 							</div>
 						</div>
@@ -1038,13 +1040,15 @@
 								With over five years of expertise in the travel industry, we have perfected the art of storytelling through travel. We believe that every destination has a story to tell, and we are the passionate narrators who bring these stories to life. From the misty tea plantations to the golden beaches, from ancient temples to bustling markets, we ensure that your Sri Lankan adventure becomes a masterpiece of memories that will inspire you for years to come.
 							</p>
 							<div class="flex items-center gap-3 justify-center sm:justify-start">
-								<button class="liquid-glass text-white px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+								<button class="liquid-glass text-white px-6 sm:px-8 py-3 text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 inline-flex items-center justify-center gap-2.5 shadow-md"
 									onclick="window.open('https://www.instagram.com/inspiretravels_tours', '_blank')">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg> Instagram
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+									<span>Instagram</span>
 								</button>
-								<button class="liquid-glass text-white px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+								<button class="liquid-glass text-white px-6 sm:px-8 py-3 text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 inline-flex items-center justify-center gap-2.5 shadow-md"
 									onclick="window.open('https://www.facebook.com/share/1CUqzA7tAu/?mibextid=wwXIfr', '_blank')">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg> Facebook
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+									<span>Facebook</span>
 								</button>
 							</div>
 						</div>
@@ -1303,10 +1307,10 @@
 					</p>
 					<!-- CTA Button -->
 					<div class="flex justify-center" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="600">
-						<button class="liquid-glass text-white px-10 py-4 text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 flex items-center gap-3"
+						<button class="liquid-glass text-white px-7 sm:px-9 py-3 sm:py-3.5 text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 inline-flex items-center justify-center gap-2.5 shadow-xl hover:shadow-emerald-500/20 group"
 							aria-label="Contact us for your adventure" onclick="window.location.href='#footer'">
-						<span>Contact Now</span>
-						<i data-lucide="send" class="w-5 h-5"></i>
+							<span>Contact Now</span>
+							<i data-lucide="send" class="w-4 h-4 sm:w-5 sm:h-5 shrink-0 transition-transform group-hover:translate-x-1"></i>
 						</button>
 					</div>
 				</div>
