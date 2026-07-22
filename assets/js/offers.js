@@ -22,13 +22,13 @@
             }
 
             this.swiper = new Swiper('.offers-swiper', {
-                slidesPerView: 'auto',
-                spaceBetween: 24,
+                slidesPerView: 1,
+                spaceBetween: 16,
                 grabCursor: true,
                 loop: true,
 
-                // Spring-physics smooth transitions
-                speed: 900,
+                // Smooth physics transitions
+                speed: 750,
                 cssMode: false,
 
                 // Autoplay — shifts every 4 seconds
@@ -38,27 +38,31 @@
                     pauseOnMouseEnter: true,
                 },
 
-                // Pagination for mobile
+                // Pagination
                 pagination: {
                     el: '.swiper-pagination',
                     clickable: true,
                     dynamicBullets: true,
                 },
 
-                // Navigation arrows for desktop
+                // Navigation arrows
                 navigation: {
                     nextEl: '.offers-next',
                     prevEl: '.offers-prev',
                 },
 
+                // Responsive dynamic grid extension based on screen space
                 breakpoints: {
                     320: {
+                        slidesPerView: 1,
                         spaceBetween: 16,
                     },
                     640: {
+                        slidesPerView: 2,
                         spaceBetween: 24,
                     },
-                    1024: {
+                    1280: {
+                        slidesPerView: 3,
                         spaceBetween: 28,
                     },
                 },
