@@ -242,11 +242,11 @@
             const easeInOutCubic = (t) => {
                 return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
             };
-            // Matches jQuery's default "swing" easing from the old button.
-            const easeSwing = (t) => {
-                return 0.5 - (Math.cos(t * Math.PI) / 2);
+            // Starts slow, then builds speed in one continuous motion.
+            const easeBackToTopRush = (t) => {
+                return Math.pow(t, 2.7);
             };
-            const easing = easingName === 'swing' ? easeSwing : easeInOutCubic;
+            const easing = easingName === 'back-to-top-rush' ? easeBackToTopRush : easeInOutCubic;
 
             const step = (currentTime) => {
                 if (!startTime) startTime = currentTime;
@@ -387,7 +387,7 @@
 
                 $btn.off('click.navigationBackToTop').on('click.navigationBackToTop', function(event) {
                     event.preventDefault();
-                    self.smoothScrollTo(0, 1500, 'swing');
+                    self.smoothScrollTo(0, 3600, 'back-to-top-rush');
                 });
             } else {
                 console.error('jQuery not loaded - back to top functionality disabled');
