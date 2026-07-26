@@ -163,6 +163,26 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         </div>
 
+        <!-- Quick-Links Sub-Navigation Bar (Matching Destinations & Gallery Design) -->
+        <div class="bg-white border-b border-slate-200 py-3 shadow-xs relative z-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-center md:justify-start gap-4 sm:gap-8 text-xs sm:text-sm font-semibold text-slate-600 overflow-x-auto no-scrollbar py-1">
+                    <a href="javascript:void(0)" onclick="window.switchTourTab('overview', true)" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap">
+                        <i data-lucide="book-open" class="w-4 h-4 text-emerald-600"></i> Overview & Route
+                    </a>
+                    <a href="javascript:void(0)" onclick="window.switchTourTab('itinerary', true)" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap">
+                        <i data-lucide="calendar" class="w-4 h-4 text-emerald-600"></i> Detailed Itinerary
+                    </a>
+                    <a href="javascript:void(0)" onclick="window.switchTourTab('details', true)" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-emerald-600"></i> Inclusions & Amenities
+                    </a>
+                    <a href="#tour-sidebar-booking" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap text-emerald-700 font-bold">
+                        <i data-lucide="send" class="w-4 h-4"></i> WhatsApp Inquiry
+                    </a>
+                </div>
+            </div>
+        </div>
+
         <!-- Main Content Area -->
         <main class="py-16 md:py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative z-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">

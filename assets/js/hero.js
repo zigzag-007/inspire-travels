@@ -222,23 +222,31 @@
                 const parallaxSections = document.querySelectorAll('.gowilds-footer, .tour-light-canopy');
                 const windowHeight = window.innerHeight;
 
+                const updates = [];
                 parallaxSections.forEach(section => {
                     const rect = section.getBoundingClientRect();
                     if (rect.top < windowHeight && rect.bottom > 0) {
-                        // Progress: 0 when section enters, 1 when section leaves viewport
                         const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
-                        // Leaf layer (::before) — slower, deeper movement (enhanced parallax)
                         const leafY = (progress - 0.5) * 45;
                         const leafX = Math.sin(progress * Math.PI) * 15;
-                        // Firefly/Pollen layer (::after) — faster, more pronounced for depth contrast (enhanced parallax)
                         const fireflyY = (progress - 0.5) * -70;
                         const fireflyX = Math.sin(progress * Math.PI * 1.5) * 24;
 
-                        section.style.setProperty('--leaf-tx', `${leafX}px`);
-                        section.style.setProperty('--leaf-ty', `${leafY}px`);
-                        section.style.setProperty('--fly-tx', `${fireflyX}px`);
-                        section.style.setProperty('--fly-ty', `${fireflyY}px`);
+                        updates.push({
+                            section: section,
+                            leafX: leafX.toFixed(2),
+                            leafY: leafY.toFixed(2),
+                            fireflyX: fireflyX.toFixed(2),
+                            fireflyY: fireflyY.toFixed(2)
+                        });
                     }
+                });
+
+                updates.forEach(u => {
+                    u.section.style.setProperty('--leaf-tx', u.leafX + 'px');
+                    u.section.style.setProperty('--leaf-ty', u.leafY + 'px');
+                    u.section.style.setProperty('--fly-tx', u.fireflyX + 'px');
+                    u.section.style.setProperty('--fly-ty', u.fireflyY + 'px');
                 });
 
                 ticking = false;
@@ -256,27 +264,34 @@
             let targetMouseY = 0;
             let currentMouseX = 0;
             let currentMouseY = 0;
+            let rafId = null;
+            const self = this;
 
             document.addEventListener('mousemove', (e) => {
                 targetMouseX = (e.clientX / window.innerWidth) - 0.5;
                 targetMouseY = (e.clientY / window.innerHeight) - 0.5;
+
+                if (!rafId) {
+                    rafId = window.requestAnimationFrame(updateLerpedMouse);
+                }
             }, { passive: true });
 
             function updateLerpedMouse() {
                 const dx = targetMouseX - currentMouseX;
                 const dy = targetMouseY - currentMouseY;
 
-                // Smoothly interpolate cursor variables (0.08 interpolation factor for silk lag inertia)
                 if (Math.abs(dx) > 0.0001 || Math.abs(dy) > 0.0001) {
                     currentMouseX += dx * 0.08;
                     currentMouseY += dy * 0.08;
-                    document.documentElement.style.setProperty('--mouse-x', currentMouseX.toFixed(4));
-                    document.documentElement.style.setProperty('--mouse-y', currentMouseY.toFixed(4));
+                    if (self.heroSection) {
+                        self.heroSection.style.setProperty('--mouse-x', currentMouseX.toFixed(4));
+                        self.heroSection.style.setProperty('--mouse-y', currentMouseY.toFixed(4));
+                    }
+                    rafId = window.requestAnimationFrame(updateLerpedMouse);
+                } else {
+                    rafId = null;
                 }
-
-                window.requestAnimationFrame(updateLerpedMouse);
             }
-            window.requestAnimationFrame(updateLerpedMouse);
         },
 
     };

@@ -11,6 +11,8 @@
         mobileNavLinks: null,
         navLogo: null,
         mobileMenuBtn: null,
+        scrollAnimationFrame: null,
+        restoreScrollBehavior: null,
 
         init: function() {
             this.navbar = document.getElementById('navbar');
@@ -183,13 +185,18 @@
                 }
             };
 
-            // Update on scroll with debouncing to prevent conflicts
-            let scrollTimeout;
-            const debouncedUpdateNavigation = () => {
-                clearTimeout(scrollTimeout);
-                scrollTimeout = setTimeout(updateNavigation, 16); // ~60fps
+            // Update on scroll using requestAnimationFrame throttling
+            let ticking = false;
+            const onScrollUpdateNavigation = () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        updateNavigation();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
             };
-            window.addEventListener('scroll', debouncedUpdateNavigation, { passive: true });
+            window.addEventListener('scroll', onScrollUpdateNavigation, { passive: true });
             
             // Set initial state
             updateNavigation();
@@ -197,44 +204,111 @@
             window.addEventListener('resize', updateNavigation);
         },
 
+        stopSmoothScroll: function() {
+            if (this.scrollAnimationFrame) {
+                window.cancelAnimationFrame(this.scrollAnimationFrame);
+                this.scrollAnimationFrame = null;
+            }
+
+            if (this.restoreScrollBehavior !== null) {
+                document.documentElement.style.scrollBehavior = this.restoreScrollBehavior;
+                this.restoreScrollBehavior = null;
+            }
+        },
+
         // Smooth scrolling for navigation links
+        // Own the animation so global CSS smooth scrolling cannot fight each frame.
+        smoothScrollTo: function(targetY, duration = 1000, easingName = 'cubic') {
+            this.stopSmoothScroll();
+
+            const startY = window.scrollY || window.pageYOffset;
+            const maxScrollY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+            const destinationY = Math.max(0, Math.min(targetY, maxScrollY));
+            const distance = destinationY - startY;
+
+            if (Math.abs(distance) < 5) return;
+
+            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                window.scrollTo({ top: destinationY, left: 0, behavior: 'auto' });
+                return;
+            }
+
+            const root = document.documentElement;
+            this.restoreScrollBehavior = root.style.scrollBehavior;
+            root.style.scrollBehavior = 'auto';
+
+            let startTime = null;
+
+            const easeInOutCubic = (t) => {
+                return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            };
+            // Matches jQuery's default "swing" easing from the old button.
+            const easeSwing = (t) => {
+                return 0.5 - (Math.cos(t * Math.PI) / 2);
+            };
+            const easing = easingName === 'swing' ? easeSwing : easeInOutCubic;
+
+            const step = (currentTime) => {
+                if (!startTime) startTime = currentTime;
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const ease = easing(progress);
+
+                window.scrollTo({
+                    top: startY + distance * ease,
+                    left: 0,
+                    behavior: 'auto'
+                });
+
+                if (progress < 1) {
+                    this.scrollAnimationFrame = window.requestAnimationFrame(step);
+                } else {
+                    window.scrollTo({ top: destinationY, left: 0, behavior: 'auto' });
+                    this.scrollAnimationFrame = null;
+                    root.style.scrollBehavior = this.restoreScrollBehavior;
+                    this.restoreScrollBehavior = null;
+                }
+            };
+
+            this.scrollAnimationFrame = window.requestAnimationFrame(step);
+        },
+
         smoothScroll: function(targetId) {
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                const sectionHeight = targetElement.offsetHeight;
+                if (targetId === '#home') {
+                    this.smoothScrollTo(0, 1000);
+                    return;
+                }
 
-                // Custom scroll percentages for each section
+                const sectionHeight = targetElement.offsetHeight;
                 const scrollPercentages = {
-                    '#home': 0.00,       // 0% for Home (default)
-                    '#tours': 0.06,      // 6% for Tours
-                    '#about': 0.08,      // 8% for About
-                    '#gallery': 0.05,    // 5% for Gallery
-                    '#adventure': 0.15,  // 15% for Adventure
-                    '#reviews': 0.06,    // 6% for Reviews
-                    '#contact': 0.00,    // 0% for Contact section
-                    '#footer': 0.00      // 0% for Footer
+                    '#home': 0.00,
+                    '#tours': 0.06,
+                    '#about': 0.08,
+                    '#gallery': 0.05,
+                    '#adventure': 0.15,
+                    '#reviews': 0.06,
+                    '#contact': 0.00,
+                    '#footer': 0.00
                 };
 
-                // Get the scroll percentage for this section (default to 0 if not specified)
                 const scrollPercentage = scrollPercentages[targetId] || 0;
-
-                // Calculate offset based on section-specific percentage
-                const offsetTop = targetElement.offsetTop - 120 + (sectionHeight * scrollPercentage);
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+                const offsetTop = Math.max(0, targetElement.offsetTop - 100 + (sectionHeight * scrollPercentage));
+                this.smoothScrollTo(offsetTop, 1000);
             }
         },
 
         // Initialize smooth scrolling
         initSmoothScrolling: function() {
-            // Handle navigation clicks
+            // Handle navigation clicks (ignore '#' and '.back-to-top' so back-to-top works cleanly)
             document.querySelectorAll('a[href^="#"]').forEach(link => {
+                const href = link.getAttribute('href');
+                if (!href || href === '#' || link.classList.contains('back-to-top')) return;
+
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
-                    const targetId = link.getAttribute('href');
-                    this.smoothScroll(targetId);
+                    this.smoothScroll(href);
                 });
             });
 
@@ -244,65 +318,76 @@
             if (logoLink) {
                 logoLink.addEventListener('click', (e) => {
                     e.preventDefault();
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
+                    NavigationModule.smoothScrollTo(0, 1200);
                 });
             }
         },
 
 
-        // Initialize back to top functionality - Exact Go-Wilds implementation
+        // Initialize back to top functionality
         initBackToTop: function() {
             if (typeof $ !== 'undefined') {
-                // Show/hide button on scroll and check contrast overlap
-                $(window).on('scroll', function(event) {
-                    const scrollTop = $(this).scrollTop();
-                    const $btn = $('.back-to-top');
+                const $btn = $('.back-to-top');
+                if (!$btn.length) return;
 
-                    if (scrollTop > 600) {
-                        $btn.fadeIn(200);
-                    } else {
-                        $btn.fadeOut(200);
+                const self = this;
+                let isVisible = false;
+
+                const updateBackToTop = () => {
+                    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                    const shouldShow = scrollTop > 600;
+
+                    if (shouldShow && !isVisible) {
+                        isVisible = true;
+                        $btn.stop(true, true).fadeIn(200);
+                    } else if (!shouldShow && isVisible) {
+                        isVisible = false;
+                        $btn.stop(true, true).fadeOut(200);
                     }
 
-                    if ($btn.length) {
-                        const btnNode = $btn[0];
-                        // Ensure default state is set
+                    const btnNode = $btn[0];
+                    if (btnNode && shouldShow) {
                         if (!btnNode.classList.contains('is-over-light') && !btnNode.classList.contains('is-over-dark')) {
                             btnNode.classList.add('is-over-light');
                         }
 
-                        // Get all dark sections on the page
-                        const darkElements = document.querySelectorAll('#home, #about, #adventure, footer');
+                        const darkElements = document.querySelectorAll('#home, #about, #adventure, footer, .bg-slate-900, .bg-slate-950, .bg-[#0c3531], .bg-primary');
                         const btnRect = btnNode.getBoundingClientRect();
                         const btnCenterY = btnRect.top + btnRect.height / 2;
 
                         let isOverDark = false;
-                        
                         darkElements.forEach(el => {
                             const rect = el.getBoundingClientRect();
-                            // If the button's vertical center falls inside the section's vertical bounds
                             if (btnCenterY >= rect.top && btnCenterY <= rect.bottom) {
                                 isOverDark = true;
                             }
                         });
 
                         if (isOverDark) {
-                            $btn.removeClass('is-over-light text-primary').addClass('is-over-dark');
+                            $btn.removeClass('is-over-light text-primary').addClass('is-over-dark text-white');
                         } else {
-                            $btn.removeClass('is-over-dark text-white').addClass('is-over-light');
+                            $btn.removeClass('is-over-dark text-white').addClass('is-over-light text-primary');
                         }
                     }
-                });
+                };
 
-                // Scroll to top on click
-                $('.back-to-top').on('click', function(event) {
+                let ticking = false;
+                window.addEventListener('scroll', function() {
+                    if (!ticking) {
+                        window.requestAnimationFrame(() => {
+                            updateBackToTop();
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+
+                // Run initial state check
+                updateBackToTop();
+
+                $btn.off('click.navigationBackToTop').on('click.navigationBackToTop', function(event) {
                     event.preventDefault();
-                    $('html, body').animate({
-                        scrollTop: 0,
-                    }, 1500);
+                    self.smoothScrollTo(0, 1500, 'swing');
                 });
             } else {
                 console.error('jQuery not loaded - back to top functionality disabled');

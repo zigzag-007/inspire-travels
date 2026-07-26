@@ -391,7 +391,7 @@
 			</div>
 		</div>
 		<!-- Hero Section (arrow back, sentinel kept, dots removed; mobile buttons balanced) -->
-		<section id="home" class="relative isolate min-h-[100svh] flex items-center overflow-hidden pt-12 sm:pt-16 md:pt-20 lg:pt-24 xl:pt-27 pb-8 sm:pb-12 md:pb-16 lg:pb-20 grid grid-cols-1 place-items-center">
+		<section id="home" class="relative isolate min-h-[100svh] flex items-center justify-center overflow-hidden pt-12 sm:pt-16 md:pt-20 lg:pt-24 xl:pt-27 pb-8 sm:pb-12 md:pb-16 lg:pb-20">
 			<!-- Background wrapper to isolate scroll transforms from Ken Burns transitions -->
 			<div id="hero-bg-wrapper" class="absolute inset-0 overflow-hidden z-0">
 				<!-- Background layers for smooth Ken Burns crossfade -->
@@ -868,112 +868,172 @@
 					</p>
 				</div>
 
-				<!-- 2026 Asymmetric Bento Grid -->
+				<!-- 2026 Asymmetric Bento Grid (7 Curated Destinations) -->
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
 					
 					<!-- 1. Sigiriya (Tall Hero Portrait - Top Left) -->
-					<div class="group relative overflow-hidden rounded-3xl md:row-span-2 md:col-span-1 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="100">
-						<img src="assets/img/destinations/sigiriya_lion_rock.png" class="absolute inset-0 w-full h-full object-cover" alt="Sigiriya" />
+					<div onclick="window.location.href='destinations/?destination=sigiriya'" class="group relative overflow-hidden rounded-3xl md:row-span-2 md:col-span-1 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="100">
+						<img src="assets/img/destinations/sigiriya_lion_rock.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Sigiriya" />
 						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 pointer-events-none"></div>
 						
-						<div class="absolute inset-0 p-8 flex flex-col justify-end">
-							<div class="mb-auto self-start liquid-glass px-5 py-2 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
-								Sigiriya
+						<div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between z-10">
+							<div class="flex items-center justify-between w-full">
+								<div class="liquid-glass px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
+									Sigiriya
+								</div>
+								<div class="text-[10px] font-mono text-emerald-300 bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10 opacity-80 group-hover:opacity-100 transition-opacity">
+									07.9570° N // 370m
+								</div>
 							</div>
-							<div class="mt-4 transform transition-transform duration-500 group-hover:translate-y-[-8px]">
-								<h3 class="text-3xl font-serif font-bold text-white mb-3 leading-tight drop-shadow-md">Ascend the Lion Rock; find your peace</h3>
-								<div class="inline-flex liquid-glass px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide border border-white/20">
-									18+ Deals
+							<div class="transform transition-transform duration-500 group-hover:translate-y-[-4px]">
+								<h3 class="text-2xl sm:text-3xl font-serif font-bold text-white mb-2 leading-tight drop-shadow-md">Ascend the Lion Rock; find your peace</h3>
+								<div class="inline-flex items-center gap-1.5 text-xs text-emerald-300 font-semibold group-hover:text-white transition-colors">
+									<span>Explore Guide &amp; Activities</span>
+									<i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					<!-- 2. Nuwara Eliya (Wide Landscape - Top Right) -->
-					<div class="group relative overflow-hidden rounded-3xl md:col-span-2 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="200">
-						<img src="assets/img/destinations/nuwara_eliya_tea.png" class="absolute inset-0 w-full h-full object-cover" alt="Nuwara Eliya" />
+					<!-- 2. Ella (Wide Landscape - Top Right) -->
+					<div onclick="window.location.href='destinations/?destination=ella'" class="group relative overflow-hidden rounded-3xl md:col-span-2 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="200">
+						<img src="assets/img/packages/4-day-package.jpeg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Ella" />
 						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 pointer-events-none"></div>
 						
-						<div class="absolute inset-0 p-8 flex flex-col justify-end">
-							<div class="mb-auto self-start liquid-glass px-5 py-2 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
-								Nuwara Eliya
+						<div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between z-10">
+							<div class="flex items-center justify-between w-full">
+								<div class="liquid-glass px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
+									Ella
+								</div>
+								<div class="text-[10px] font-mono text-emerald-300 bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10 opacity-80 group-hover:opacity-100 transition-opacity">
+									06.8667° N // 1,041m
+								</div>
 							</div>
-							<div class="mt-4 transform transition-transform duration-500 group-hover:translate-y-[-8px]">
-								<h3 class="text-3xl font-serif font-bold text-white mb-3 leading-tight drop-shadow-md">Sip Ceylon tea amidst breathtaking, misty valleys</h3>
-								<div class="inline-flex liquid-glass px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide border border-white/20">
-									8+ Deals
+							<div class="transform transition-transform duration-500 group-hover:translate-y-[-4px]">
+								<h3 class="text-2xl sm:text-3xl font-serif font-bold text-white mb-2 leading-tight drop-shadow-md">Journey over Nine Arch Bridge &amp; misty tea trails</h3>
+								<div class="inline-flex items-center gap-1.5 text-xs text-emerald-300 font-semibold group-hover:text-white transition-colors">
+									<span>Explore Guide &amp; Activities</span>
+									<i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					<!-- 3. Negombo (Wide Landscape - Right Middle) -->
-					<div class="group relative overflow-hidden rounded-3xl md:col-span-2 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="300">
-						<img src="assets/img/destinations/negombo_lagoon.png" class="absolute inset-0 w-full h-full object-cover" alt="Negombo" />
+					<!-- 3. Arugam Bay (Wide Landscape - Right Middle) -->
+					<div onclick="window.location.href='destinations/?destination=arugambay'" class="group relative overflow-hidden rounded-3xl md:col-span-2 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="300">
+						<img src="assets/img/destinations/hiriketiya_surf.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Arugam Bay" />
 						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 pointer-events-none"></div>
 						
-						<div class="absolute inset-0 p-8 flex flex-col justify-end">
-							<div class="mb-auto self-start liquid-glass px-5 py-2 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
-								Negombo
+						<div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between z-10">
+							<div class="flex items-center justify-between w-full">
+								<div class="liquid-glass px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
+									Arugam Bay
+								</div>
+								<div class="text-[10px] font-mono text-emerald-300 bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10 opacity-80 group-hover:opacity-100 transition-opacity">
+									06.8433° N // Ocean Point
+								</div>
 							</div>
-							<div class="mt-4 transform transition-transform duration-500 group-hover:translate-y-[-8px]">
-								<h3 class="text-3xl font-serif font-bold text-white mb-3 leading-tight drop-shadow-md">Unwind by the lagoon; taste the island life</h3>
-								<div class="inline-flex liquid-glass px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide border border-white/20">
-									12+ Deals
+							<div class="transform transition-transform duration-500 group-hover:translate-y-[-4px]">
+								<h3 class="text-2xl sm:text-3xl font-serif font-bold text-white mb-2 leading-tight drop-shadow-md">Catch world-class right-hand point breaks &amp; ocean vibes</h3>
+								<div class="inline-flex items-center gap-1.5 text-xs text-emerald-300 font-semibold group-hover:text-white transition-colors">
+									<span>Explore Guide &amp; Activities</span>
+									<i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
 								</div>
 							</div>
 						</div>
 					</div>
 
 					<!-- 4. Trincomalee (Balanced - Bottom Left) -->
-					<div class="group relative overflow-hidden rounded-3xl md:col-span-1 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="400">
-						<img src="assets/img/destinations/trincomalee_beach.png" class="absolute inset-0 w-full h-full object-cover" alt="Trincomalee" />
+					<div onclick="window.location.href='destinations/?destination=trincomalee'" class="group relative overflow-hidden rounded-3xl md:col-span-1 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="400">
+						<img src="assets/img/destinations/trincomalee_beach.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Trincomalee" />
 						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20 pointer-events-none"></div>
 						
-						<div class="absolute inset-0 p-6 flex flex-col justify-end">
-							<div class="mb-auto self-start liquid-glass px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
-								Trincomalee
+						<div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
+							<div class="flex items-center justify-between w-full">
+								<div class="liquid-glass px-3.5 py-1 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
+									Trincomalee
+								</div>
+								<div class="text-[10px] font-mono text-emerald-300 bg-black/40 backdrop-blur-md px-2 py-0.5 rounded-full border border-white/10 opacity-80 group-hover:opacity-100 transition-opacity">
+									08.5874° N
+								</div>
 							</div>
-							<div class="mt-4 transform transition-transform duration-500 group-hover:translate-y-[-8px]">
-								<h3 class="text-2xl font-serif font-bold text-white mb-2 leading-tight drop-shadow-md">Relax on pristine sand, dive into blue waters</h3>
-								<div class="inline-flex liquid-glass px-3 py-1 rounded-full text-xs font-semibold tracking-wide border border-white/20">
-									6+ Deals
+							<div class="transform transition-transform duration-500 group-hover:translate-y-[-4px]">
+								<h3 class="text-xl font-serif font-bold text-white mb-2 leading-tight drop-shadow-md">Whale watching &amp; Pigeon Island diving</h3>
+								<div class="inline-flex items-center gap-1.5 text-xs text-emerald-300 font-semibold group-hover:text-white transition-colors">
+									<span>Explore Guide</span>
+									<i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					<!-- 5. Hiriketiya (Balanced - Bottom Middle) -->
-					<div class="group relative overflow-hidden rounded-3xl md:col-span-1 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="500">
-						<img src="assets/img/destinations/hiriketiya_surf.png" class="absolute inset-0 w-full h-full object-cover" alt="Hiriketiya" />
+					<!-- 5. Colombo (Balanced - Bottom Middle) -->
+					<div onclick="window.location.href='destinations/?destination=colombo'" class="group relative overflow-hidden rounded-3xl md:col-span-1 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="500">
+						<img src="assets/img/destinations/colombo_city.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Colombo" />
 						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20 pointer-events-none"></div>
 						
-						<div class="absolute inset-0 p-6 flex flex-col justify-end">
-							<div class="mb-auto self-start liquid-glass px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
-								Hiriketiya
+						<div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
+							<div class="flex items-center justify-between w-full">
+								<div class="liquid-glass px-3.5 py-1 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
+									Colombo
+								</div>
+								<div class="text-[10px] font-mono text-emerald-300 bg-black/40 backdrop-blur-md px-2 py-0.5 rounded-full border border-white/10 opacity-80 group-hover:opacity-100 transition-opacity">
+									06.9271° N
+								</div>
 							</div>
-							<div class="mt-4 transform transition-transform duration-500 group-hover:translate-y-[-8px]">
-								<h3 class="text-2xl font-serif font-bold text-white mb-2 leading-tight drop-shadow-md">Grab your board and catch the perfect wave</h3>
-								<div class="inline-flex liquid-glass px-3 py-1 rounded-full text-xs font-semibold tracking-wide border border-white/20">
-									2+ Deals
+							<div class="transform transition-transform duration-500 group-hover:translate-y-[-4px]">
+								<h3 class="text-xl font-serif font-bold text-white mb-2 leading-tight drop-shadow-md">Colonial bazaars &amp; oceanfront dining</h3>
+								<div class="inline-flex items-center gap-1.5 text-xs text-emerald-300 font-semibold group-hover:text-white transition-colors">
+									<span>Explore Guide</span>
+									<i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					<!-- 6. Colombo (Balanced - Bottom Right) -->
-					<div class="group relative overflow-hidden rounded-3xl md:col-span-1 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="600">
-						<img src="assets/img/destinations/colombo_city.png" class="absolute inset-0 w-full h-full object-cover" alt="Colombo" />
+					<!-- 6. Bentota (Balanced - Bottom Right) -->
+					<div onclick="window.location.href='destinations/?destination=bentota'" class="group relative overflow-hidden rounded-3xl md:col-span-1 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="600">
+						<img src="assets/img/destinations/negombo_lagoon.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Bentota" />
 						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20 pointer-events-none"></div>
 						
-						<div class="absolute inset-0 p-6 flex flex-col justify-end">
-							<div class="mb-auto self-start liquid-glass px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
-								Colombo
+						<div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
+							<div class="flex items-center justify-between w-full">
+								<div class="liquid-glass px-3.5 py-1 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
+									Bentota
+								</div>
+								<div class="text-[10px] font-mono text-emerald-300 bg-black/40 backdrop-blur-md px-2 py-0.5 rounded-full border border-white/10 opacity-80 group-hover:opacity-100 transition-opacity">
+									06.4253° N
+								</div>
 							</div>
-							<div class="mt-4 transform transition-transform duration-500 group-hover:translate-y-[-8px]">
-								<h3 class="text-2xl font-serif font-bold text-white mb-2 leading-tight drop-shadow-md">Explore a dynamic city where tradition meets modern energy</h3>
-								<div class="inline-flex liquid-glass px-3 py-1 rounded-full text-xs font-semibold tracking-wide border border-white/20">
-									18+ Deals
+							<div class="transform transition-transform duration-500 group-hover:translate-y-[-4px]">
+								<h3 class="text-xl font-serif font-bold text-white mb-2 leading-tight drop-shadow-md">Golden beaches &amp; mangrove safaris</h3>
+								<div class="inline-flex items-center gap-1.5 text-xs text-emerald-300 font-semibold group-hover:text-white transition-colors">
+									<span>Explore Guide</span>
+									<i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- 7. Kandy (Full Width Feature Banner - Bottom) -->
+					<div onclick="window.location.href='destinations/?destination=kandy'" class="group relative overflow-hidden rounded-3xl md:col-span-3 h-[240px] shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.01] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="700">
+						<img src="assets/img/bg/autum-houses.jpg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Kandy" />
+						<div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/30 pointer-events-none"></div>
+
+						<div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between z-10 max-w-3xl">
+							<div class="flex items-center gap-3">
+								<div class="liquid-glass px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
+									Kandy
+								</div>
+								<div class="text-[10px] font-mono text-emerald-300 bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10">
+									07.2906° N // 500m
+								</div>
+							</div>
+							<div>
+								<h3 class="text-2xl sm:text-3xl font-serif font-bold text-white mb-2 leading-tight drop-shadow-md">Explore Sri Lanka's sacred hill capital &amp; Temple of the Tooth Relic</h3>
+								<div class="inline-flex items-center gap-1.5 text-xs text-emerald-300 font-semibold group-hover:text-white transition-colors">
+									<span>Explore Kandy Cultural Guide</span>
+									<i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
 								</div>
 							</div>
 						</div>
@@ -2028,11 +2088,8 @@
 		   <i class="fa-brands fa-whatsapp" style="font-size: 45px;"></i>
 		</a>
 		<!-- Back to Top Button -->
-		<a href="#home" class="back-to-top fixed bottom-6 right-6 z-30 liquid-glass bg-transparent border border-[#005f73]/20 text-primary hover:bg-white/20 w-12 h-12 md:w-14 md:h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center ring-0 focus:outline-none focus:ring-4 focus:ring-primary/30"
-			aria-label="Back to top" title="Back to top" style="display: none;">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-				class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-				stroke-linejoin="round">
+		<a href="#" class="back-to-top fixed bottom-6 right-6 z-30 liquid-glass bg-transparent border border-[#005f73]/20 text-primary hover:bg-white/20 w-12 h-12 md:w-14 md:h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center focus:outline-none focus:ring-0 active:outline-none" aria-label="Back to top" title="Back to top" style="display: none;">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 				<path d="m18 15-6-6-6 6" />
 			</svg>
 		</a>
