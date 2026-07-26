@@ -244,7 +244,7 @@
             };
             // Starts slow, then builds speed in one continuous motion.
             const easeBackToTopRush = (t) => {
-                return Math.pow(t, 2.7);
+                return Math.pow(t, 2.85);
             };
             const easing = easingName === 'back-to-top-rush' ? easeBackToTopRush : easeInOutCubic;
 
@@ -267,6 +267,7 @@
                     this.scrollAnimationFrame = null;
                     root.style.scrollBehavior = this.restoreScrollBehavior;
                     this.restoreScrollBehavior = null;
+                    window.dispatchEvent(new Event('scroll'));
                 }
             };
 
