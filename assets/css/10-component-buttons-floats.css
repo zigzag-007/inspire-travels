@@ -1,0 +1,122 @@
+/* -----------------------------------------------------------------------------
+   INSPIRE TRAVELS & TOURS - BUTTONS & FLOATING WIDGETS
+   -----------------------------------------------------------------------------
+
+   Author: Zig Zag AI
+   Description: Small standalone interactive widgets: WhatsApp float button, loading dot, and back to top button
+   Purpose: Groups fixed position UI widgets that are not tied to one page section
+   Part of: main.css (see main.css for load order)
+
+   Table of Contents:
+    1. WhatsApp Float Button
+    2. Loading Dot
+    3. Back to Top Button
+
+   -----------------------------------------------------------------------------
+*/
+
+/* Floating WhatsApp Icon */
+.whatsapp-float {
+    position: fixed;
+    width: 70px;
+    height: 70px;
+    top: 60%;
+    right: 20px;
+    transform: translateY(-50%);
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    /* Removes underline from link */
+}
+
+/* The Secret to the "Modern" Pulse: A pseudo-element */
+.whatsapp-float::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #25D366;
+    opacity: 0.7;
+    z-index: -1;
+    animation: pulse-ring 2s infinite;
+    /* Smoother 2s loop */
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Tooltip Styling */
+.whatsapp-float::after {
+    content: "Chat with us";
+    position: absolute;
+    right: 75px;
+    /* Spacing from button */
+    background: white;
+    /* Clean white background */
+    color: #25D366;
+    /* Green text */
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(15px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.whatsapp-float:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Premium Staggered Loader Dot Animation */
+.loading-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #2b3d26;
+    /* Deep forest green */
+    border-radius: 50%;
+    display: inline-block;
+    animation: premium-wave 1.4s ease-in-out infinite;
+    box-shadow: 0 0 8px rgba(43, 61, 38, 0.15);
+    will-change: transform, opacity, box-shadow;
+}
+
+/* Explicit back-to-top contrast overrides to ensure Tailwind classes don't conflict */
+.back-to-top,
+.back-to-top:focus,
+.back-to-top:focus-visible,
+.back-to-top:active {
+    outline: none !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1) !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+.back-to-top.is-over-dark {
+    color: #ffffff !important;
+}
+
+.back-to-top.is-over-dark svg {
+    stroke: #ffffff !important;
+}
+
+.back-to-top.is-over-light {
+    color: #004D40 !important;
+}
+
+.back-to-top.is-over-light svg {
+    stroke: #004D40 !important;
+}

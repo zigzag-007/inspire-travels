@@ -1,0 +1,142 @@
+/* -----------------------------------------------------------------------------
+   INSPIRE TRAVELS & TOURS - TEXT EFFECTS & TYPOGRAPHY
+   -----------------------------------------------------------------------------
+
+   Author: Zig Zag AI
+   Description: Text effects, heading styles, navigation text colors, and small shared utility helper classes
+   Purpose: Styles that touch plain text, plus small reusable badges and utilities that do not belong to one single component
+   Part of: main.css (see main.css for load order)
+
+   Table of Contents:
+    1. Gradient Text & Heading Effects
+    2. Navigation Logo & Link Text
+    3. Technical Metadata Badges & Grid Guide Lines
+    4. Responsive Type & Spacing Adjustments
+
+   -----------------------------------------------------------------------------
+*/
+
+/* Enhanced gradient text effect for headings */
+.gradient-text {
+    background: linear-gradient(to right, oklch(0.35 0.15 195), oklch(0.65 0.12 35), oklch(0.75 0.15 75));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* Logo color switching for navigation */
+.nav-logo {
+    transition: filter 0.3s ease;
+}
+
+.nav-logo.light-logo {
+    /* For dark sections - make logo white/light */
+    filter: brightness(0) invert(1);
+}
+
+.nav-logo.dark-logo {
+    /* For light sections - make logo dark */
+    filter: brightness(0) invert(0);
+}
+
+/* Enhanced navigation text visibility */
+.nav-link {
+    transition: all 0.3s ease;
+}
+
+/* Make navigation text bolder when in dark mode (black text on light backgrounds) */
+.nav-link.text-foreground {
+    font-weight: 900 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+/* Active state styling - same golden color for both dark and light sections */
+.nav-link.text-accent,
+.nav-link.text-primary {
+    color: #FFB347 !important;
+    /* Fallback hex color for golden yellow */
+    font-weight: 900 !important;
+}
+
+/* Ensure hover colors use the orange accent color */
+.nav-link:hover {
+    color: #FFB347 !important;
+    /* Fallback hex color for golden yellow */
+}
+
+/* Technical catalog metadata badges (2026 Premium Brutalism Style) */
+.tech-metadata {
+    position: absolute;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #63AB45;
+    pointer-events: none;
+    z-index: 5;
+    border: 1px solid rgba(99, 171, 69, 0.25);
+    padding: 5px 10px;
+    border-radius: 6px;
+    background: rgba(251, 250, 224, 0.75);
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Subtle vertical grid lines for structured design */
+.grid-guide-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(99, 171, 69, 0.08) 15%, rgba(99, 171, 69, 0.08) 85%, transparent);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Centered/Inline Technical Metadata (2026 Premium Brutalism Theme) */
+.tech-metadata-inline {
+    display: inline-block;
+    max-width: 95%;
+    /* Prevent touching edges on mobile */
+    white-space: normal;
+    /* Allow wrapping */
+    word-break: break-word;
+    /* Ensure long coordinates break */
+    line-height: 1.5;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #63AB45;
+    background: rgba(99, 171, 69, 0.08);
+    border: 1px solid rgba(99, 171, 69, 0.2);
+    padding: 6px 14px;
+    border-radius: 24px;
+    margin-bottom: 1.25rem;
+    pointer-events: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+/* Mobile Screen Sizes (< 768px) */
+@media (max-width: 767px) {
+    /* Adjust padding for mobile layout readability */
+    section {
+        padding-top: 3.5rem !important;
+        padding-bottom: 3.5rem !important;
+    }
+}
+@media (max-width: 375px) {
+    /* Section headings — scale down */
+    section h2 {
+        font-size: clamp(1.6rem, 7.5vw, 2.25rem);
+    }
+}
+@media (max-width: 320px) {
+    /* Package cards grid gap */
+    .grid.gap-8 {
+        gap: 1.25rem;
+    }
+}

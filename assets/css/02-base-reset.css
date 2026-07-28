@@ -1,0 +1,15 @@
+/* -----------------------------------------------------------------------------
+   INSPIRE TRAVELS & TOURS - SCROLL CONTROL & BASE RESET
+   -----------------------------------------------------------------------------
+
+   Author: Zig Zag AI
+   Description: Base element resets and scroll behavior for the whole site
+   Purpose: Normalize default browser behavior before any component styles are applied
+   Part of: main.css (see main.css for load order)
+
+   -----------------------------------------------------------------------------
+*/
+
+html, body {
+    overflow-x: clip;
+}

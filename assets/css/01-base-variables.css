@@ -1,0 +1,21 @@
+/* -----------------------------------------------------------------------------
+   INSPIRE TRAVELS & TOURS - CSS VARIABLES & ROOT STYLES
+   -----------------------------------------------------------------------------
+
+   Author: Zig Zag AI
+   Description: CSS custom properties that define the site wide color palette
+   Purpose: Single source of truth for colors, so every component pulls from the same palette
+   Part of: main.css (see main.css for load order)
+
+   ----------------------------------------------------------------------------- 
+*/
+
+:root {
+    /* Sri Lankan-inspired color palette */
+    --primary-color: oklch(0.35 0.15 195); /* Deep teal */
+    --secondary-color: oklch(0.65 0.12 35); /* Terracotta */
+    --accent-color: oklch(0.75 0.15 75); /* Golden yellow */
+    --background-color: oklch(0.98 0.01 85); /* Warm off-white */
+    --text-color: oklch(0.15 0.02 45); /* Deep charcoal */
+    --muted-color: oklch(0.45 0.02 45); /* Muted text */
+}

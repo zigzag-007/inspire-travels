@@ -1,0 +1,16 @@
+# Local tooling and agent memory
+.agents/
+_tools/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Node modules (if ever needed locally)
+node_modules/
+
+# OS and editor junk
+.DS_Store
+Thumbs.db
+*.swp
+*.swo

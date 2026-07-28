@@ -1,0 +1,149 @@
+/* -----------------------------------------------------------------------------
+   INSPIRE TRAVELS & TOURS - GALLERY & MODAL COMPONENTS
+   -----------------------------------------------------------------------------
+
+   Author: Zig Zag AI
+   Description: Photo gallery lightbox captions, tour modal card, and custom scrollbars
+   Purpose: Groups every popup and overlay related style together
+   Part of: main.css (see main.css for load order)
+
+   Table of Contents:
+    1. PhotoSwipe Gallery Captions
+    2. Custom Scrollbar
+    3. Tour Modal Card
+    4. Hidden Scrollbar Utility
+    5. Responsive Adjustments
+
+   -----------------------------------------------------------------------------
+*/
+
+/* Gallery Modal Styling */
+/* PhotoSwipe Custom Caption */
+.pswp__caption {
+    display: none !important;
+}
+
+.pswp__custom-caption {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 600px;
+    padding: 12px 20px;
+    background: rgba(0, 0, 0, 0.7);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    text-align: center;
+    color: #fff;
+    pointer-events: none;
+    z-index: 10000;
+    /* Ensure above image */
+}
+
+.pswp__caption-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #fff;
+}
+
+.pswp__caption-desc {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.4;
+}
+
+/* Premium Custom Scrollbar for Modal Highlights (visible on scroll and hover) */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 10px;
+}
+
+.custom-scrollbar.is-scrolling::-webkit-scrollbar-thumb,
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+    background: rgba(12, 60, 58, 0.22);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(12, 60, 58, 0.42);
+}
+
+/* iOS-inspired Premium Fixed Height Glass Panel for Modal Card */
+.tour-modal-card {
+    position: relative;
+    height: 540px;
+    width: 100%;
+    max-width: 448px;
+    /* matches max-w-md */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.82));
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 2.25rem;
+    /* Clean iOS pill corner squircle */
+    box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.25),
+        inset 1.5px 1.5px 0px rgba(255, 255, 255, 0.85);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tour-modal-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+    filter: url(#container-glass);
+    z-index: -2;
+}
+
+/* Hide scrollbars for smooth mobile/tablet touch tracks */
+.no-scrollbar::-webkit-scrollbar {
+    display: none !important;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+}
+
+@media (max-width: 768px) {
+    .pswp__custom-caption {
+        width: 90%;
+        bottom: 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 375px) {
+    /* Tour modal — fill almost full screen on small phones */
+    .tour-modal-card {
+        width: 96vw !important;
+        max-width: 96vw !important;
+        max-height: 90vh !important;
+        padding: 1.25rem !important;
+    }
+}
+@media (max-width: 320px) {
+    /* Tour modal — essentially full screen */
+    .tour-modal-card {
+        width: 99vw !important;
+        max-width: 99vw !important;
+        max-height: 92vh !important;
+        padding: 1rem !important;
+        border-radius: 1rem !important;
+    }
+}
