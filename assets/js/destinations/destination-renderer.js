@@ -1,160 +1,12 @@
-// Destinations Module - 2026 Editorial Destination Magazine Renderer
-// Author: Dark Net Studio / Worker 2
-// Description: Renders deep 2026 editorial travel magazine guides with interactive switcher and direct WhatsApp trip customizer.
+// Destination Renderer Module
+// Author: Zig Zag AI
+// Description: Populates the editorial guide from one destination record.
 
 (function() {
     'use strict';
 
-    window.DestinationsModule = {
-        currentSlug: 'sigiriya',
-
-        init: function() {
-            this.parseUrlOrHash();
-            this.bindEvents();
-            this.renderDestinationBlogPage();
-            this.updateSwitcherPills();
-            this.initSectionTracking();
-        },
-
-        parseUrlOrHash: function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            let slug = urlParams.get('destination') || urlParams.get('slug');
-
-            if (!slug && window.location.hash) {
-                const hash = window.location.hash.replace('#', '').toLowerCase();
-                if (window.DestinationsData && window.DestinationsData.destinations && window.DestinationsData.destinations[hash]) {
-                    slug = hash;
-                }
-            }
-
-            if (slug && window.DestinationsData && window.DestinationsData.destinations && window.DestinationsData.destinations[slug.toLowerCase()]) {
-                this.currentSlug = slug.toLowerCase();
-            } else {
-                this.currentSlug = 'sigiriya';
-            }
-        },
-
-        bindEvents: function() {
-            const self = this;
-            window.addEventListener('popstate', function() {
-                self.parseUrlOrHash();
-                self.renderDestinationBlogPage();
-                self.updateSwitcherPills();
-            });
-            window.addEventListener('hashchange', function() {
-                if (window.location.hash) {
-                    const hash = window.location.hash.replace('#', '').toLowerCase();
-                    if (window.DestinationsData && window.DestinationsData.destinations && window.DestinationsData.destinations[hash] && hash !== self.currentSlug) {
-                        self.switchDestination(hash);
-                    }
-                }
-            });
-        },
-
-        initSectionTracking: function() {
-            const sectionIds = ['overview', 'experiences', 'itinerary', 'cuisine', 'tips', 'inquire'];
-            const sections = sectionIds.map(function(id) {
-                return document.getElementById(id);
-            }).filter(Boolean);
-            const self = this;
-
-            if (!sections.length || !('IntersectionObserver' in window)) {
-                this.setActiveSection('overview');
-                return;
-            }
-
-            this.sectionObserver = new IntersectionObserver(function(entries) {
-                const visibleEntry = entries
-                    .filter(function(entry) {
-                        return entry.isIntersecting;
-                    })
-                    .sort(function(a, b) {
-                        return b.intersectionRatio - a.intersectionRatio;
-                    })[0];
-
-                if (visibleEntry) {
-                    self.setActiveSection(visibleEntry.target.id);
-                }
-            }, {
-                rootMargin: '-22% 0px -62% 0px',
-                threshold: [0, 0.1, 0.25]
-            });
-
-            sections.forEach(function(section) {
-                self.sectionObserver.observe(section);
-            });
-
-            this.setActiveSection('overview');
-        },
-
-        setActiveSection: function(sectionId) {
-            const links = document.querySelectorAll('[data-destination-toc]');
-
-            links.forEach(function(link) {
-                const isActive = link.getAttribute('data-destination-toc') === sectionId;
-                link.classList.toggle('is-active', isActive);
-
-                if (isActive) {
-                    link.setAttribute('aria-current', 'location');
-                } else {
-                    link.removeAttribute('aria-current');
-                }
-            });
-        },
-
-        switchDestination: function(slug) {
-            if (!slug || !window.DestinationsData || !window.DestinationsData.destinations || !window.DestinationsData.destinations[slug]) return;
-            this.currentSlug = slug;
-
-            const mainContent = document.getElementById('destination-article-main');
-            if (mainContent) {
-                mainContent.style.opacity = '0';
-                mainContent.style.transform = 'translateY(15px)';
-                mainContent.style.transition = 'all 300ms ease-out';
-            }
-
-            const self = this;
-            setTimeout(function() {
-                self.renderDestinationBlogPage();
-                self.updateSwitcherPills();
-                if (mainContent) {
-                    mainContent.style.opacity = '1';
-                    mainContent.style.transform = 'translateY(0)';
-                }
-                const heroEl = document.getElementById('dest-hero');
-                if (heroEl) {
-                    heroEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }, 250);
-
-            if (history.pushState) {
-                const newUrl = window.location.pathname + '?destination=' + slug;
-                history.pushState(null, null, newUrl);
-            } else {
-                window.location.hash = '#' + slug;
-            }
-        },
-
-        updateSwitcherPills: function() {
-            const tabsContainer = document.getElementById('dest-tabs-container');
-            if (tabsContainer && window.DestinationsData && window.DestinationsData.destinations) {
-                const list = Object.keys(window.DestinationsData.destinations);
-                const self = this;
-                tabsContainer.innerHTML = list.map(function(s) {
-                    const d = window.DestinationsData.destinations[s];
-                    const isActive = s === self.currentSlug;
-                    const btnClass = isActive
-                        ? 'dest-pill-btn active-pill flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold bg-emerald-600 text-white shadow-lg shadow-emerald-600/30 scale-105 transition-all duration-300 border border-emerald-400/40 cursor-pointer whitespace-nowrap'
-                        : 'dest-pill-btn flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-white/70 backdrop-blur-md text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 transition-all duration-300 border border-slate-200/80 shadow-sm cursor-pointer whitespace-nowrap';
-                    return '<button class="' + btnClass + '" data-dest-slug="' + d.slug + '" onclick="window.DestinationsModule.switchDestination(\'' + d.slug + '\')">' + d.name + '</button>';
-                }).join('');
-            }
-        },
-
-        renderDestinationBlogPage: function() {
-            const data = window.DestinationsData && window.DestinationsData.destinations ? window.DestinationsData.destinations[this.currentSlug] : null;
-            if (!data) return;
-
+    window.DestinationRendererModule = {
+        render: function(data) {
             const isSubfolder = window.location.pathname.includes('/destinations/');
             const pathPrefix = isSubfolder ? '../' : '';
 
@@ -297,17 +149,7 @@
                 }).join('');
             }
 
-            // WhatsApp Direct Inquiry Button
-            const whatsappBtn = document.getElementById('dest-whatsapp-btn');
-            if (whatsappBtn) {
-                const message = encodeURIComponent(
-                    '*Destination Travel Inquiry - ' + data.name + '*\n\n' +
-                    'Hi Inspire Travels & Tours!\n' +
-                    'I read your 2026 travel magazine guide for *' + data.name + '*.\n' +
-                    'Could you please share custom tour itinerary options, driver availability, and tailored pricing for ' + data.name + '?\n\nThank you!'
-                );
-                whatsappBtn.href = 'https://api.whatsapp.com/send?phone=94785959333&text=' + message;
-            }
+            if (window.DestinationInquiryModule) window.DestinationInquiryModule.populate(data);
 
             // Re-initialize Lucide Icons & Refresh AOS
             if (typeof lucide !== 'undefined') {
@@ -315,7 +157,7 @@
             }
             if (typeof AOS !== 'undefined') {
                 AOS.refresh();
-            }
-        }
+            }        }
     };
 })();
+

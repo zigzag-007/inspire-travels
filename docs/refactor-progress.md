@@ -16,7 +16,7 @@ Update it whenever a user-approved checkpoint is committed.
 | CSS modularization and HTML wiring | Completed | Twelve numbered stylesheets are loaded in order. |
 | General JS folder/module organization | Completed | Shared, home, gallery, and tour concerns are separated. |
 | Dynamic tour-page refactor | Completed | Six routes verified; user manual testing approved. |
-| Destinations-page JS deep refactor | In progress | Next focused workstream. |
+| Destinations-page JS deep refactor | Completed | User-approved after Ella and Sigiriya manual verification. |
 | Move and organize tours/destinations assets | Not started | Preserve current public URLs. |
 | Root cleanup and temporary-file organization | Not started | Keep reusable tooling contained, not scattered. |
 | Unused-code and performance audit | Not started | Inspect only after structure is stable. |
@@ -37,9 +37,17 @@ Update it whenever a user-approved checkpoint is committed.
 
 ## Next Checkpoint
 
-1. Inventory the destination page’s current modules, data, markup contracts,
-   URLs, and interactions.
-2. Split only mixed responsibilities while preserving the editorial layout.
-3. Verify all seven destination routes, contents tracking, switcher, reading
-   progress, inquiry messages, gallery behavior, and mobile layout.
-4. Ask for manual review before committing the destination checkpoint.
+1. Move and organize tours/destinations assets while preserving public URLs.
+2. Keep reusable working files contained before root cleanup.
+3. Audit unused code and performance only after the asset structure is stable.
+
+## Destination Review Checklist
+
+- Open each `?destination=` route: `sigiriya`, `ella`, `kandy`, `colombo`,
+  `trincomalee`, `arugambay`, and `bentota`.
+- Click the destination selector pills; confirm the title, hero image, article,
+  and URL update together.
+- Scroll through a guide; confirm both "Inside this story" menus highlight the
+  current article section.
+- Confirm the WhatsApp inquiry opens with the selected destination named in
+  its draft message. Do not send it.
