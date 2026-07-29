@@ -285,31 +285,31 @@
 
             const pswp = new window.PhotoSwipe(options);
 
-            // Register custom caption
+            // Keep image context in a small blue card and hide PhotoSwipe's native bar.
             pswp.on('uiRegister', function() {
                 pswp.ui.registerElement({
-                    name: 'custom-caption',
+                    name: 'gallery-information-card',
                     order: 9,
                     isButton: false,
                     appendTo: 'root',
                     onInit: (el, pswpInstance) => {
-                        pswpInstance.on('change', () => {
+                        const renderInformationCard = () => {
                             const currSlide = pswpInstance.currSlide;
                             if (currSlide && currSlide.data && (currSlide.data.title || currSlide.data.description)) {
                                 el.style.display = 'block';
-                                let captionHtml = '';
-                                if (currSlide.data.title) {
-                                    captionHtml += `<div class="pswp__caption-title">${currSlide.data.title}</div>`;
-                                }
-                                if (currSlide.data.description) {
-                                    captionHtml += `<div class="pswp__caption-desc">${currSlide.data.description}</div>`;
-                                }
-                                el.innerHTML = captionHtml;
+                                el.innerHTML = `<div class="pswp__gallery-information-card absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-900/85 backdrop-blur-xl border border-white/20 text-white px-6 py-3 rounded-2xl shadow-2xl text-center max-w-md w-full pointer-events-auto z-[1005]">
+                                    <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider bg-emerald-950/70 border border-emerald-500/30 px-2.5 py-0.5 rounded-full inline-block mb-1">Photo ${pswpInstance.currIndex + 1} of ${pswpInstance.getNumItems()}</span>
+                                    ${currSlide.data.title ? `<h4 class="font-serif text-base font-bold text-white drop-shadow truncate">${currSlide.data.title}</h4>` : ''}
+                                    ${currSlide.data.description ? `<p class="text-xs text-slate-200 mt-1 line-clamp-2">${currSlide.data.description}</p>` : ''}
+                                </div>`;
                             } else {
                                 el.style.display = 'none';
                                 el.innerHTML = '';
                             }
-                        });
+                        };
+
+                        renderInformationCard();
+                        pswpInstance.on('change', renderInformationCard);
                     }
                 });
             });

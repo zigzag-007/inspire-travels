@@ -18,41 +18,8 @@
 */
 
 /* Gallery Modal Styling */
-/* PhotoSwipe Custom Caption */
 .pswp__caption {
     display: none !important;
-}
-
-.pswp__custom-caption {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    max-width: 600px;
-    padding: 12px 20px;
-    background: rgba(0, 0, 0, 0.7);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    text-align: center;
-    color: #fff;
-    pointer-events: none;
-    z-index: 10000;
-    /* Ensure above image */
-}
-
-.pswp__caption-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 4px;
-    color: #fff;
-}
-
-.pswp__caption-desc {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.4;
 }
 
 /* Premium Custom Scrollbar for Modal Highlights (visible on scroll and hover) */
@@ -118,14 +85,6 @@
 .no-scrollbar {
     -ms-overflow-style: none !important;
     scrollbar-width: none !important;
-}
-
-@media (max-width: 768px) {
-    .pswp__custom-caption {
-        width: 90%;
-        bottom: 20px;
-        font-size: 14px;
-    }
 }
 
 @media (max-width: 375px) {

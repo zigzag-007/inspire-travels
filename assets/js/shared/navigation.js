@@ -352,7 +352,7 @@
                             btnNode.classList.add('is-over-light');
                         }
 
-                        const darkElements = document.querySelectorAll('#home, #about, #adventure, footer, .bg-slate-900, .bg-slate-950, .bg-[#0c3531], .bg-primary');
+                        const darkElements = document.querySelectorAll('#home, #about, #adventure, footer, .bg-slate-900, .bg-slate-950, [class~="bg-[#0c3531]"], .bg-primary');
                         const btnRect = btnNode.getBoundingClientRect();
                         const btnCenterY = btnRect.top + btnRect.height / 2;
 
