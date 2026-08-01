@@ -17,7 +17,7 @@ Update it whenever a user-approved checkpoint is committed.
 | General JS folder/module organization | Completed | Shared, home, gallery, and tour concerns are separated. |
 | Dynamic tour-page refactor | Completed | Six routes verified; user manual testing approved. |
 | Destinations-page JS deep refactor | Completed | User-approved after Ella and Sigiriya manual verification. |
-| Move and organize tours/destinations assets | Not started | Preserve current public URLs. |
+| Move and organize tours/destinations assets | Completed | Tour images now live in `assets/img/tours`; public page routes are unchanged. |
 | Root cleanup and temporary-file organization | Not started | Keep reusable tooling contained, not scattered. |
 | Unused-code and performance audit | Not started | Inspect only after structure is stable. |
 | Site-wide controls and WhatsApp audit | Not started | Includes package booking message contents. |
@@ -37,9 +37,9 @@ Update it whenever a user-approved checkpoint is committed.
 
 ## Next Checkpoint
 
-1. Move and organize tours/destinations assets while preserving public URLs.
-2. Keep reusable working files contained before root cleanup.
-3. Audit unused code and performance only after the asset structure is stable.
+1. Organize reusable working files before root cleanup.
+2. Audit unused code and performance after the structure is stable.
+3. Verify every customer facing control and booking flow.
 
 ## Destination Review Checklist
 
