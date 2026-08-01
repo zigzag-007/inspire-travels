@@ -6,7 +6,7 @@ Update it whenever a user-approved checkpoint is committed.
 ## Current Branch
 
 - Branch: `cursor/site-refactor`
-- Latest checkpoint: `cdc4bb4 refactor(tours): modularize dynamic tour pages`
+- Latest checkpoint: `e7112f7 refactor(tours): organize tour package images`
 - Push status: local only; nothing has been pushed.
 
 ## Work Board
@@ -18,8 +18,8 @@ Update it whenever a user-approved checkpoint is committed.
 | Dynamic tour-page refactor | Completed | Six routes verified; user manual testing approved. |
 | Destinations-page JS deep refactor | Completed | User-approved after Ella and Sigiriya manual verification. |
 | Move and organize tours/destinations assets | Completed | Tour images now live in `assets/img/tours`; public page routes are unchanged. |
-| Root cleanup and temporary-file organization | Not started | Keep reusable tooling contained, not scattered. |
-| Unused-code and performance audit | Not started | Inspect only after structure is stable. |
+| Root cleanup and temporary-file organization | Completed | Site root contains only site files; ignored temporary work remains in `_tools/`. |
+| Unused-code and performance audit | Completed | Removed unused jQuery; image compression is deferred because no safe local tool is available. |
 | Site-wide controls and WhatsApp audit | Not started | Includes package booking message contents. |
 | HTML syntax and logic audit | Not started | Cover every static page. |
 | Repeatable automated verification | Not started | Add only lightweight checks compatible with no build step. |
@@ -37,9 +37,9 @@ Update it whenever a user-approved checkpoint is committed.
 
 ## Next Checkpoint
 
-1. Organize reusable working files before root cleanup.
-2. Audit unused code and performance after the structure is stable.
-3. Verify every customer facing control and booking flow.
+1. Audit every customer facing control and WhatsApp flow.
+2. Verify each package inquiry includes the needed trip details.
+3. Compress oversized image assets when a safe local tool is available.
 
 ## Destination Review Checklist
 

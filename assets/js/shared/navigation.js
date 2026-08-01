@@ -327,12 +327,32 @@
 
         // Initialize back to top functionality
         initBackToTop: function() {
-            if (typeof $ !== 'undefined') {
-                const $btn = $('.back-to-top');
-                if (!$btn.length) return;
+            const btn = document.querySelector('.back-to-top');
+            if (!btn) return;
 
-                const self = this;
-                let isVisible = false;
+            const self = this;
+            let isVisible = false;
+            let visibilityAnimation = null;
+
+            const setButtonVisibility = (visible) => {
+                if (visibilityAnimation) visibilityAnimation.cancel();
+
+                if (visible) {
+                    btn.style.display = 'flex';
+                    visibilityAnimation = btn.animate([{ opacity: 0 }, { opacity: 1 }], {
+                        duration: 200,
+                        fill: 'both'
+                    });
+                } else {
+                    visibilityAnimation = btn.animate([{ opacity: 1 }, { opacity: 0 }], {
+                        duration: 200,
+                        fill: 'both'
+                    });
+                    visibilityAnimation.finished.then(() => {
+                        if (!isVisible) btn.style.display = 'none';
+                    }).catch(() => {});
+                }
+            };
 
                 const updateBackToTop = () => {
                     const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -340,13 +360,13 @@
 
                     if (shouldShow && !isVisible) {
                         isVisible = true;
-                        $btn.stop(true, true).fadeIn(200);
+                        setButtonVisibility(true);
                     } else if (!shouldShow && isVisible) {
                         isVisible = false;
-                        $btn.stop(true, true).fadeOut(200);
+                        setButtonVisibility(false);
                     }
 
-                    const btnNode = $btn[0];
+                    const btnNode = btn;
                     if (btnNode && shouldShow) {
                         if (!btnNode.classList.contains('is-over-light') && !btnNode.classList.contains('is-over-dark')) {
                             btnNode.classList.add('is-over-light');
@@ -365,9 +385,11 @@
                         });
 
                         if (isOverDark) {
-                            $btn.removeClass('is-over-light text-primary').addClass('is-over-dark text-white');
+                            btn.classList.remove('is-over-light', 'text-primary');
+                            btn.classList.add('is-over-dark', 'text-white');
                         } else {
-                            $btn.removeClass('is-over-dark text-white').addClass('is-over-light text-primary');
+                            btn.classList.remove('is-over-dark', 'text-white');
+                            btn.classList.add('is-over-light', 'text-primary');
                         }
                     }
                 };
@@ -386,13 +408,10 @@
                 // Run initial state check
                 updateBackToTop();
 
-                $btn.off('click.navigationBackToTop').on('click.navigationBackToTop', function(event) {
-                    event.preventDefault();
-                    self.smoothScrollTo(0, 3600, 'back-to-top-rush');
-                });
-            } else {
-                console.error('jQuery not loaded - back to top functionality disabled');
-            }
+            btn.addEventListener('click', function(event) {
+                event.preventDefault();
+                self.smoothScrollTo(0, 3600, 'back-to-top-rush');
+            });
         }
     };
 })();
