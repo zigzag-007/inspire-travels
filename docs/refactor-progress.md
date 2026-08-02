@@ -6,7 +6,7 @@ Update it whenever a user-approved checkpoint is committed.
 ## Current Branch
 
 - Branch: `cursor/site-refactor`
-- Latest checkpoint: `0c59f28 perf(nav): remove jQuery back to top dependency`
+- Latest checkpoint: `bcfbc62 feat(booking): improve inquiry controls`
 - Push status: local only; nothing has been pushed.
 
 ## Work Board
@@ -20,7 +20,7 @@ Update it whenever a user-approved checkpoint is committed.
 | Move and organize tours/destinations assets | Completed | Tour images now live in `assets/img/tours`; public page routes are unchanged. |
 | Root cleanup and temporary-file organization | Completed | Site root contains only site files; ignored temporary work remains in `_tools/`. |
 | Unused-code and performance audit | Completed | Removed unused jQuery; image compression is deferred because no safe local tool is available. |
-| Site-wide controls and WhatsApp audit | Ready for review | Package messages, offer CTAs, gallery quick links, form feedback, and tour favourites were audited. Changes are uncommitted. |
+| Site-wide controls and WhatsApp audit | Completed | Package messages, offer CTAs, gallery quick links, form feedback, and tour favourites were audited and committed. |
 | HTML syntax and logic audit | Not started | Cover every static page. |
 | Repeatable automated verification | Not started | Add only lightweight checks compatible with no build step. |
 | Final responsive/browser regression pass | Not started | Desktop, tablet, and mobile. |
@@ -37,9 +37,9 @@ Update it whenever a user-approved checkpoint is committed.
 
 ## Next Checkpoint
 
-1. Review and commit the completed controls and WhatsApp audit.
-2. Run the HTML syntax and logic audit across all static pages.
-3. Add a lightweight repeatable verification suite.
+1. Run the HTML syntax and logic audit across all static pages.
+2. Add a lightweight repeatable verification suite.
+3. Complete the final responsive and browser regression pass.
 
 ## Controls and WhatsApp Audit Review
 
