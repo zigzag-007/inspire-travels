@@ -120,45 +120,45 @@
                                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                         <!-- Travel Start Date -->
                                         <div>
-                                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Select Start Date</label>
+                                            <label for="form-start-date" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Select Start Date</label>
                                             <input type="date" id="form-start-date" required aria-describedby="form-start-date-validation" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:bg-white transition-all">
-                                            <p id="form-start-date-validation" class="mt-1.5 text-xs font-medium text-slate-400">Required. Choose today or a future date.</p>
+                                            <p id="form-start-date-validation" aria-live="polite" class="mt-1.5 text-xs font-medium text-slate-400">Required. Choose a date at least two days from today.</p>
                                         </div>
 
                                         <!-- Preferred Pickup Time -->
                                         <div>
-                                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Preferred Pickup Time</label>
+                                            <label for="form-pickup-time" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Preferred Pickup Time</label>
                                             <select id="form-pickup-time" required aria-describedby="form-pickup-time-validation" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:bg-white transition-all">
                                                 <option value="Morning (06:00 - 08:30 AM)">Morning (06:00 - 08:30 AM)</option>
                                                 <option value="Late Morning (09:00 - 11:30 AM)">Late Morning (09:00 - 11:30 AM)</option>
                                                 <option value="Afternoon (12:00 - 03:00 PM)">Afternoon (12:00 - 03:00 PM)</option>
                                                 <option value="Airport Flight Arrival Pickup">Airport Flight Arrival Pickup</option>
                                             </select>
-                                            <p id="form-pickup-time-validation" class="mt-1.5 text-xs font-medium text-slate-400">Choose your preferred collection time.</p>
+                                            <p id="form-pickup-time-validation" aria-live="polite" class="mt-1.5 text-xs font-medium text-slate-400">Choose your preferred collection time.</p>
                                         </div>
 
                                         <!-- Group Size & Vehicle Choice -->
                                         <div>
-                                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Vehicle Standard / Group Size</label>
+                                            <label for="form-vehicle" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Vehicle Standard / Group Size</label>
                                             <select id="form-vehicle" required aria-describedby="form-vehicle-validation" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:bg-white transition-all">
                                                 <option value="Private AC Sedan (1-3 Pax)">Private AC Sedan (1-3 Pax)</option>
                                                 <option value="Luxury AC High-Roof Van (4-8 Pax)">Luxury AC High-Roof Van (4-8 Pax)</option>
                                                 <option value="Chauffeured VIP SUV 4x4">Chauffeured VIP SUV 4x4</option>
                                                 <option value="Coaster Mini-Bus (9+ Pax)">Coaster Mini-Bus (9+ Pax)</option>
                                             </select>
-                                            <p id="form-vehicle-validation" class="mt-1.5 text-xs font-medium text-slate-400">Choose a vehicle for your group.</p>
+                                            <p id="form-vehicle-validation" aria-live="polite" class="mt-1.5 text-xs font-medium text-slate-400">Choose a vehicle for your group.</p>
                                         </div>
 
                                         <!-- Accommodation Package Tier -->
                                         <div>
-                                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Hotel Package Tier</label>
+                                            <label for="form-hotel-tier" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Hotel Package Tier</label>
                                             <select id="form-hotel-tier" required aria-describedby="form-hotel-tier-validation" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:bg-white transition-all">
                                                 <option value="Vehicle & Chauffeur Only (Self-Booked Hotels)">Vehicle & Chauffeur Only (Self-Booked Hotels)</option>
                                                 <option value="Standard 3-Star Handpicked Boutique Hotels">Standard 3-Star Handpicked Boutique Hotels</option>
                                                 <option value="Deluxe 4-Star Beach & Tea Resorts">Deluxe 4-Star Beach & Tea Resorts</option>
                                                 <option value="Luxury 5-Star Heritage Villas">Luxury 5-Star Heritage Villas</option>
                                             </select>
-                                            <p id="form-hotel-tier-validation" class="mt-1.5 text-xs font-medium text-slate-400">Choose the accommodation level you prefer.</p>
+                                            <p id="form-hotel-tier-validation" aria-live="polite" class="mt-1.5 text-xs font-medium text-slate-400">Choose the accommodation level you prefer.</p>
                                         </div>
                                     </div>
 
@@ -184,21 +184,21 @@
                                     <!-- Contact Info & Notes -->
                                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-slate-100">
                                         <div>
-                                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Your Name</label>
+                                            <label for="form-guest-name" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Your Name</label>
                                             <input type="text" id="form-guest-name" placeholder="Full Name" required aria-describedby="form-guest-name-validation" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:bg-white transition-all">
-                                            <p id="form-guest-name-validation" class="mt-1.5 text-xs font-medium text-slate-400">Required for your inquiry.</p>
+                                            <p id="form-guest-name-validation" aria-live="polite" class="mt-1.5 text-xs font-medium text-slate-400">Required for your inquiry.</p>
                                         </div>
                                         <div>
-                                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Number of Persons</label>
+                                            <label for="form-pax" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Number of Persons</label>
                                             <input type="number" id="form-pax" min="1" max="30" value="2" required aria-describedby="form-pax-validation" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:bg-white transition-all">
-                                            <p id="form-pax-validation" class="mt-1.5 text-xs font-medium text-slate-400">Enter 1 to 30 guests.</p>
+                                            <p id="form-pax-validation" aria-live="polite" class="mt-1.5 text-xs font-medium text-slate-400">Enter 1 to 30 guests.</p>
                                         </div>
                                     </div>
 
                                     <div>
-                                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Special Requests / Pickup Hotel</label>
+                                        <label for="form-notes" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Special Requests / Pickup Hotel</label>
                                         <textarea id="form-notes" rows="2" maxlength="500" aria-describedby="form-notes-validation" placeholder="e.g. Flight number, child seat requirement, hotel name in Negombo/Colombo..." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:bg-white transition-all"></textarea>
-                                        <p id="form-notes-validation" class="mt-1.5 text-xs font-medium text-slate-400">Optional. Up to 500 characters.</p>
+                                        <p id="form-notes-validation" aria-live="polite" class="mt-1.5 text-xs font-medium text-slate-400">Optional. Up to 500 characters.</p>
                                     </div>
 
                                     <!-- WhatsApp Action Button -->

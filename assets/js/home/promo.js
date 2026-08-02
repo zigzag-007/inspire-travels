@@ -299,8 +299,9 @@
             const dotsContainer = document.getElementById('promoModalDots');
 
             if (whatsappLink) {
-                const encodedMsg = encodeURIComponent(slide.whatsappMessage);
-                whatsappLink.href = `https://api.whatsapp.com/send?phone=94785959333&text=${encodedMsg}`;
+                whatsappLink.href = window.WhatsAppModule
+                    ? window.WhatsAppModule.createUrl(slide.whatsappMessage)
+                    : `https://api.whatsapp.com/send?phone=94785959333&text=${encodeURIComponent(slide.whatsappMessage)}`;
             }
 
             if (dotsContainer) {

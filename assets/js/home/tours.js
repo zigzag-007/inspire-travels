@@ -66,15 +66,16 @@
                         const plane = '\u2708\uFE0F';
                         const clock = '\u23F3';
                         const pin   = '\uD83D\uDCCD';
-                        const message = encodeURIComponent(
+                        const message =
                             `${star} *New Tour Inquiry - Inspire Travels* ${star}\n\n` +
                             `Hi! I am interested in booking this customized tour package:\n\n` +
                             `${plane} *Package:* ${tour.title}\n` +
                             `${clock} *Duration:* ${tour.duration}\n` +
                             `${pin} *Route:* ${tour.location}\n\n` +
-                            `Could you please verify availability and share pricing details?\n\nThank you!`
-                        );
-                        whatsappBtn.href = `https://api.whatsapp.com/send?phone=94785959333&text=${message}`;
+                            `Could you please verify availability and share pricing details?\n\nThank you!`;
+                        whatsappBtn.href = window.WhatsAppModule
+                            ? window.WhatsAppModule.createUrl(message)
+                            : `https://api.whatsapp.com/send?phone=94785959333&text=${encodeURIComponent(message)}`;
                     }
 
                     // Show scrollbar on active scrolling using temporary class

@@ -6,7 +6,7 @@ Update it whenever a user-approved checkpoint is committed.
 ## Current Branch
 
 - Branch: `cursor/site-refactor`
-- Latest checkpoint: `e7112f7 refactor(tours): organize tour package images`
+- Latest checkpoint: `0c59f28 perf(nav): remove jQuery back to top dependency`
 - Push status: local only; nothing has been pushed.
 
 ## Work Board
@@ -20,7 +20,7 @@ Update it whenever a user-approved checkpoint is committed.
 | Move and organize tours/destinations assets | Completed | Tour images now live in `assets/img/tours`; public page routes are unchanged. |
 | Root cleanup and temporary-file organization | Completed | Site root contains only site files; ignored temporary work remains in `_tools/`. |
 | Unused-code and performance audit | Completed | Removed unused jQuery; image compression is deferred because no safe local tool is available. |
-| Site-wide controls and WhatsApp audit | Not started | Includes package booking message contents. |
+| Site-wide controls and WhatsApp audit | Ready for review | Package messages, offer CTAs, gallery quick links, form feedback, and tour favourites were audited. Changes are uncommitted. |
 | HTML syntax and logic audit | Not started | Cover every static page. |
 | Repeatable automated verification | Not started | Add only lightweight checks compatible with no build step. |
 | Final responsive/browser regression pass | Not started | Desktop, tablet, and mobile. |
@@ -37,9 +37,25 @@ Update it whenever a user-approved checkpoint is committed.
 
 ## Next Checkpoint
 
-1. Audit every customer facing control and WhatsApp flow.
-2. Verify each package inquiry includes the needed trip details.
-3. Compress oversized image assets when a safe local tool is available.
+1. Review and commit the completed controls and WhatsApp audit.
+2. Run the HTML syntax and logic audit across all static pages.
+3. Add a lightweight repeatable verification suite.
+
+## Controls and WhatsApp Audit Review
+
+- Every package form builds its inquiry from the selected package, travel date,
+  pickup time, vehicle, hotel tier, group size, add-ons, guest name, and notes.
+- Past travel dates, invalid guest counts, short names, and overlong notes are
+  blocked before an inquiry is opened; each field now has an associated label
+  and live validation feedback.
+- Home offers, promo claims, destination inquiries, and tour modal inquiries
+  share the same WhatsApp URL helper and business number.
+- The five home offer cards support click, Enter, and Space. Their inquiry
+  messages retain the correct offer name and promo code.
+- The six tour heart controls now save their state locally and show whether a
+  package is currently saved.
+- Repaired four gallery quick links that previously pointed to IDs that did not
+  exist on the page.
 
 ## Destination Review Checklist
 

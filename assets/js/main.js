@@ -15,10 +15,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.NavigationModule) window.NavigationModule.init();
     if (window.MobileMenuModule) window.MobileMenuModule.init();
     if (window.ToursModule) window.ToursModule.init();
+    if (window.FavoritesModule) window.FavoritesModule.init();
     if (window.AboutModule) window.AboutModule.init();
     if (window.GalleryModule) window.GalleryModule.init();
     if (window.PromoModule) window.PromoModule.init();
     if (window.CounterModule) window.CounterModule.init();
+    if (window.WhatsAppModule) window.WhatsAppModule.init();
     if (window.ModalModule) {
         window.ModalModule.initTooltips();
         window.ModalModule.initGlobalModalBehavior();

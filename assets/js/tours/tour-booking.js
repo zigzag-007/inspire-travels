@@ -8,7 +8,7 @@
     window.TourBookingModule = {
         fieldRules: {
             'form-start-date': {
-                message: 'Choose a travel date from today onward.',
+                message: 'Choose a travel date at least two days from today.',
                 validate: function(field) {
                     return Boolean(field.value) && field.value >= field.min;
                 }
@@ -64,10 +64,10 @@
             var dateField = document.getElementById('form-start-date');
             if (dateField) {
                 var today = new Date();
-                var localToday = today.getFullYear() + '-' +
-                    String(today.getMonth() + 1).padStart(2, '0') + '-' +
-                    String(today.getDate()).padStart(2, '0');
-                dateField.min = localToday;
+                var earliestStartDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 2);
+                dateField.min = earliestStartDate.getFullYear() + '-' +
+                    String(earliestStartDate.getMonth() + 1).padStart(2, '0') + '-' +
+                    String(earliestStartDate.getDate()).padStart(2, '0');
             }
 
             Object.keys(this.fieldRules).forEach(function(fieldId) {
