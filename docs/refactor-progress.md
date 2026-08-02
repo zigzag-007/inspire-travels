@@ -6,7 +6,7 @@ Update it whenever a user-approved checkpoint is committed.
 ## Current Branch
 
 - Branch: `cursor/site-refactor`
-- Latest checkpoint: `bcfbc62 feat(booking): improve inquiry controls`
+- Latest checkpoint: `6c027c5 fix(html): harden page controls and gallery markup`
 - Push status: local only; nothing has been pushed.
 
 ## Work Board
@@ -21,7 +21,7 @@ Update it whenever a user-approved checkpoint is committed.
 | Root cleanup and temporary-file organization | Completed | Site root contains only site files; ignored temporary work remains in `_tools/`. |
 | Unused-code and performance audit | Completed | Removed unused jQuery; image compression is deferred because no safe local tool is available. |
 | Site-wide controls and WhatsApp audit | Completed | Package messages, offer CTAs, gallery quick links, form feedback, and tour favourites were audited and committed. |
-| HTML syntax and logic audit | Not started | Cover every static page. |
+| HTML syntax and logic audit | Completed | Static structure, IDs, links, ARIA references, button types, image sources, and visible character encoding were checked across all four pages. |
 | Repeatable automated verification | Not started | Add only lightweight checks compatible with no build step. |
 | Final responsive/browser regression pass | Not started | Desktop, tablet, and mobile. |
 
@@ -37,9 +37,9 @@ Update it whenever a user-approved checkpoint is committed.
 
 ## Next Checkpoint
 
-1. Run the HTML syntax and logic audit across all static pages.
-2. Add a lightweight repeatable verification suite.
-3. Complete the final responsive and browser regression pass.
+1. Add a lightweight repeatable verification suite.
+2. Complete the final responsive and browser regression pass.
+3. Review deferred image compression when a safe local tool is available.
 
 ## Controls and WhatsApp Audit Review
 
