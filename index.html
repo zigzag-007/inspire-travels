@@ -316,7 +316,7 @@
 							<a href="#gallery" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px] flex items-center gap-1">
 								Gallery <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"></i>
 							</a>
-							<div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-48 rounded-xl bg-white/95 border border-slate-200/50 backdrop-blur-md shadow-2xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-50 origin-top">
+							<div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-48 rounded-xl bg-white/95 border border-slate-200/50 backdrop-blur-md shadow-2xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 scale-95 group-hover:scale-100 z-50 origin-top">
 								<a href="#gallery" class="block px-4 py-2 text-sm text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 transition-colors font-medium">Featured Moments</a>
 								<a href="gallery.html" class="block px-4 py-2 text-sm text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 transition-colors font-medium">Full Archive (50+)</a>
 							</div>
@@ -327,9 +327,9 @@
 					</div>
 					<!-- Book Now Button and Mobile Menu - Right Corner -->
 					<div class="flex items-center space-x-3 sm:space-x-4">
-						<button class="hidden lg:block bg-black/20 backdrop-blur-md border border-white/20 text-white px-6 py-2 rounded-full font-medium transition-all duration-300 hover:bg-black/30 hover:border-white/30 hover:scale-105 shadow-lg" onclick="window.location.href='#footer'">Contact Now</button>
+						<button type="button" class="hidden lg:block bg-black/20 backdrop-blur-md border border-white/20 text-white px-6 py-2 rounded-full font-medium transition-all duration-300 hover:bg-black/30 hover:border-white/30 hover:scale-105 shadow-lg" onclick="window.location.href='#footer'">Contact Now</button>
 						<!-- Mobile menu button -->
-						<button id="mobile-menu-btn" class="lg:hidden p-1.5 sm:p-2 text-white hover:text-accent transition-colors" aria-label="Open mobile menu" title="Open navigation menu">
+						<button type="button" id="mobile-menu-btn" class="lg:hidden p-1.5 sm:p-2 text-white hover:text-accent transition-colors" aria-label="Open mobile menu" title="Open navigation menu">
 						<i data-lucide="menu" class="w-6 h-6 sm:w-7 sm:h-7"></i>
 						</button>
 					</div>
@@ -346,7 +346,7 @@
 						<img src="assets/img/logo.png" alt="Inspire Travels" class="w-9 h-9 sm:w-12 sm:h-12 object-contain">
 						<h3 class="text-lg sm:text-xl font-serif font-bold text-slate-800">Inspire Travels</h3>
 					</div>
-					<button id="mobile-menu-close" class="p-1.5 sm:p-2 text-slate-600 hover:text-slate-800 transition-colors rounded-lg hover:bg-slate-100" aria-label="Close mobile menu" title="Close navigation menu">
+					<button type="button" id="mobile-menu-close" class="p-1.5 sm:p-2 text-slate-600 hover:text-slate-800 transition-colors rounded-lg hover:bg-slate-100" aria-label="Close mobile menu" title="Close navigation menu">
 						<i data-lucide="x" class="w-5 h-5 sm:w-6 sm:h-6"></i>
 					</button>
 				</div>
@@ -432,12 +432,12 @@
 
 					<!-- CTAs (Side-by-side compact liquid-glass pills across all devices) -->
 					<div class="mt-4 sm:mt-6 mb-6 sm:mb-8 flex flex-row items-center justify-center gap-2.5 sm:gap-4 w-full px-1 sm:px-0">
-						<button class="group liquid-glass text-white px-4 xs:px-6 sm:px-8 py-2.5 sm:py-3 text-xs xs:text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center gap-1.5 sm:gap-2 flex-shrink-0 min-h-[44px] sm:min-h-[48px] shadow-lg hover:shadow-amber-500/20" aria-label="Explore our tour packages" data-aos="scale-up-blur" data-aos-duration="1000" data-aos-delay="600" onclick="window.location.href='#tours'">
+						<button type="button" class="group liquid-glass text-white px-4 xs:px-6 sm:px-8 py-2.5 sm:py-3 text-xs xs:text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center gap-1.5 sm:gap-2 flex-shrink-0 min-h-[44px] sm:min-h-[48px] shadow-lg hover:shadow-amber-500/20" aria-label="Explore our tour packages" data-aos="scale-up-blur" data-aos-duration="1000" data-aos-delay="600" onclick="window.location.href='#tours'">
 							<span>Explore Tours</span>
 							<i data-lucide="arrow-right" class="w-3.5 h-3.5 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1"></i>
 						</button>
 
-						<button class="group liquid-glass text-white px-4 xs:px-6 sm:px-8 py-2.5 sm:py-3 text-xs xs:text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center gap-1.5 sm:gap-2 flex-shrink-0 min-h-[44px] sm:min-h-[48px]" aria-label="Watch promotional video" data-aos="scale-up-blur" data-aos-duration="1000" data-aos-delay="750" onclick="window.open('https://www.instagram.com/inspiretravels_tours?igsh=MXJlbDgyZXQxOTg4ag%3D%3D&amp;utm_source=qr', '_blank')" title="Play Video on Instagram">
+						<button type="button" class="group liquid-glass text-white px-4 xs:px-6 sm:px-8 py-2.5 sm:py-3 text-xs xs:text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center gap-1.5 sm:gap-2 flex-shrink-0 min-h-[44px] sm:min-h-[48px]" aria-label="Watch promotional video" data-aos="scale-up-blur" data-aos-duration="1000" data-aos-delay="750" onclick="window.open('https://www.instagram.com/inspiretravels_tours?igsh=MXJlbDgyZXQxOTg4ag%3D%3D&amp;utm_source=qr', '_blank')" title="Play Video on Instagram">
 							<i data-lucide="play" class="w-3.5 h-3.5 sm:w-5 sm:h-5 fill-current text-white transition-transform duration-300 group-hover:scale-110"></i>
 							<span>Watch Video</span>
 						</button>
@@ -497,10 +497,10 @@
 					</p>
 					<!-- Desktop Navigation Arrows -->
 					<div class="hidden md:flex items-center justify-center gap-3 mt-6">
-						<button class="offers-prev w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-emerald-50 hover:text-emerald-600 hover:border-emerald-200 transition-all duration-300 shadow-sm z-10 relative cursor-pointer">
+						<button type="button" aria-label="Show previous offer" class="offers-prev w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-emerald-50 hover:text-emerald-600 hover:border-emerald-200 transition-all duration-300 shadow-sm z-10 relative cursor-pointer">
 							<i data-lucide="arrow-left" class="w-5 h-5"></i>
 						</button>
-						<button class="offers-next w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-emerald-50 hover:text-emerald-600 hover:border-emerald-200 transition-all duration-300 shadow-sm z-10 relative cursor-pointer">
+						<button type="button" aria-label="Show next offer" class="offers-next w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-emerald-50 hover:text-emerald-600 hover:border-emerald-200 transition-all duration-300 shadow-sm z-10 relative cursor-pointer">
 							<i data-lucide="arrow-right" class="w-5 h-5"></i>
 						</button>
 					</div>
@@ -515,7 +515,7 @@
 								<img src="assets/img/promos/promo-flyer-5.png" alt="Hotel Booking + Full Tour Package Offer" class="absolute inset-0 w-full h-full object-contain p-1 bg-[#07221e] transition-transform duration-700 group-hover:scale-105">
 								<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
 								<div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-emerald-500/20 mix-blend-overlay"></div>
-								
+
 								<div class="absolute top-4 left-4 flex gap-2">
 									<span class="liquid-glass px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">Hotel &amp; Tour</span>
 									<span class="bg-gradient-to-r from-red-500 to-orange-500 px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">15% OFF</span>
@@ -545,7 +545,7 @@
 								<img src="assets/img/promos/promo-flyer-2.png" alt="Trincomalee Whale & Dolphin Watching Offer" class="absolute inset-0 w-full h-full object-contain p-1 bg-[#07221e] transition-transform duration-700 group-hover:scale-105">
 								<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
 								<div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-blue-500/20 mix-blend-overlay"></div>
-								
+
 								<div class="absolute top-4 left-4 flex gap-2">
 									<span class="liquid-glass px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">Ocean Safari</span>
 									<span class="bg-gradient-to-r from-blue-500 to-cyan-500 px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">15% OFF</span>
@@ -575,7 +575,7 @@
 								<img src="assets/img/promos/promo-flyer-1.png" alt="Elephant Safari Offer" class="absolute inset-0 w-full h-full object-contain p-1 bg-[#07221e] transition-transform duration-700 group-hover:scale-105">
 								<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
 								<div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-amber-500/20 mix-blend-overlay"></div>
-								
+
 								<div class="absolute top-4 left-4 flex gap-2">
 									<span class="liquid-glass px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">Elephant Safari</span>
 									<span class="bg-gradient-to-r from-amber-500 to-yellow-500 px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">15% OFF</span>
@@ -605,7 +605,7 @@
 								<img src="assets/img/promos/promo-flyer-3.png" alt="Yala Leopard Safari Offer" class="absolute inset-0 w-full h-full object-contain p-1 bg-[#07221e] transition-transform duration-700 group-hover:scale-105">
 								<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
 								<div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-orange-500/20 mix-blend-overlay"></div>
-								
+
 								<div class="absolute top-4 left-4 flex gap-2">
 									<span class="liquid-glass px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">Leopard Safari</span>
 									<span class="bg-gradient-to-r from-orange-500 to-amber-600 px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">15% OFF</span>
@@ -635,7 +635,7 @@
 								<img src="assets/img/promos/promo-flyer-4.png" alt="Udawalawe Elephant Safari Offer" class="absolute inset-0 w-full h-full object-contain p-1 bg-[#07221e] transition-transform duration-700 group-hover:scale-105">
 								<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
 								<div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-teal-500/20 mix-blend-overlay"></div>
-								
+
 								<div class="absolute top-4 left-4 flex gap-2">
 									<span class="liquid-glass px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">Wild Sanctuary</span>
 									<span class="bg-gradient-to-r from-teal-500 to-emerald-600 px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">15% OFF</span>
@@ -687,7 +687,7 @@
 				<div class="inline-flex items-center gap-2 bg-[#F7921E]/10 border border-[#F7921E]/30 text-[#F7921E] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold shadow-sm hover:scale-[1.02] transition-transform duration-300" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="350">
 					<span class="flex h-2 w-2 rounded-full bg-[#F7921E] animate-ping"></span>
 					<span>Active Promo: 15% Off Safaris & Whale Watching!</span>
-					<button class="open-promo-btn underline ml-1 font-bold hover:text-white transition-colors flex items-center gap-0.5 bg-transparent border-0 cursor-pointer p-0">View Promo Codes <i data-lucide="chevron-right" class="w-3.5 h-3.5 inline"></i></button>
+					<button type="button" class="open-promo-btn underline ml-1 font-bold hover:text-white transition-colors flex items-center gap-0.5 bg-transparent border-0 cursor-pointer p-0">View Promo Codes <i data-lucide="chevron-right" class="w-3.5 h-3.5 inline"></i></button>
 				</div>
 			</div>
 			<!-- Tours Grid with Card Animations -->
@@ -702,7 +702,7 @@
 							<i data-lucide="star" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-500 fill-current"></i>
 							<span class="text-slate-800 text-xs sm:text-sm font-semibold">9.0<span class="hidden sm:inline"> Exceptional</span></span>
 						</div>
-						<button type="button" data-favorite-tour="highlights-escape" data-favorite-tour-name="Sri Lanka Highlights Escape" class="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-9 sm:h-9 bg-white/70 hover:bg-white border border-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-slate-700 hover:text-red-500 transition-all duration-300 hover:scale-110 active:scale-90 shadow-sm" title="Add to favorites">
+						<button type="button" data-favorite-tour="highlights-escape" data-favorite-tour-name="Sri Lanka Highlights Escape" aria-label="Add to favorites" class="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-9 sm:h-9 bg-white/70 hover:bg-white border border-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-slate-700 hover:text-red-500 transition-all duration-300 hover:scale-110 active:scale-90 shadow-sm" title="Add to favorites">
 						<i data-lucide="heart" class="w-4 h-4 sm:w-4.5 sm:h-4.5"></i>
 						</button>
 					</div>
@@ -716,7 +716,7 @@
 								<i data-lucide="map-pin" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary shrink-0"></i><span class="truncate">Colombo, Kandy & Bentota</span>
 							</div>
 						</div>
-						<button onclick="window.location.href='tours/?tour=highlights-escape'" class="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold py-2 sm:py-3 px-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-emerald-600/20 hover:scale-[1.02] active:scale-95 text-xs sm:text-base">View Details</button>
+						<button type="button" onclick="window.location.href='tours/?tour=highlights-escape'" class="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold py-2 sm:py-3 px-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-emerald-600/20 hover:scale-[1.02] active:scale-95 text-xs sm:text-base">View Details</button>
 					</div>
 				</div>
 				<!-- Tour Card 2 -->
@@ -729,7 +729,7 @@
 							<i data-lucide="star" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-500 fill-current"></i>
 							<span class="text-slate-800 text-xs sm:text-sm font-semibold">8.5<span class="hidden sm:inline"> Very Good</span></span>
 						</div>
-						<button type="button" data-favorite-tour="hills-to-beach" data-favorite-tour-name="Hills to Beach Escape" class="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-9 sm:h-9 bg-white/70 hover:bg-white border border-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-slate-700 hover:text-red-500 transition-all duration-300 hover:scale-110 active:scale-90 shadow-sm" title="Add to favorites">
+						<button type="button" data-favorite-tour="hills-to-beach" data-favorite-tour-name="Hills to Beach Escape" aria-label="Add to favorites" class="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-9 sm:h-9 bg-white/70 hover:bg-white border border-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-slate-700 hover:text-red-500 transition-all duration-300 hover:scale-110 active:scale-90 shadow-sm" title="Add to favorites">
 						<i data-lucide="heart" class="w-4 h-4 sm:w-4.5 sm:h-4.5"></i>
 						</button>
 					</div>
@@ -743,7 +743,7 @@
 								<i data-lucide="map-pin" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary shrink-0"></i><span class="truncate">Sigiriya to Mirissa</span>
 							</div>
 						</div>
-						<button onclick="window.location.href='tours/?tour=hills-to-beach'" class="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold py-2 sm:py-3 px-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-emerald-600/20 hover:scale-[1.02] active:scale-95 text-xs sm:text-base">View Details</button>
+						<button type="button" onclick="window.location.href='tours/?tour=hills-to-beach'" class="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold py-2 sm:py-3 px-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-emerald-600/20 hover:scale-[1.02] active:scale-95 text-xs sm:text-base">View Details</button>
 					</div>
 				</div>
 				<!-- Tour Card 3 -->
@@ -756,7 +756,7 @@
 							<i data-lucide="star" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-500 fill-current"></i>
 							<span class="text-slate-800 text-xs sm:text-sm font-semibold">9.0<span class="hidden sm:inline"> Excellent</span></span>
 						</div>
-						<button type="button" data-favorite-tour="golden-triangle" data-favorite-tour-name="Golden Triangle and Beyond" class="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-9 sm:h-9 bg-white/70 hover:bg-white border border-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-slate-700 hover:text-red-500 transition-all duration-300 hover:scale-110 active:scale-90 shadow-sm" title="Add to favorites">
+						<button type="button" data-favorite-tour="golden-triangle" data-favorite-tour-name="Golden Triangle and Beyond" aria-label="Add to favorites" class="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-9 sm:h-9 bg-white/70 hover:bg-white border border-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-slate-700 hover:text-red-500 transition-all duration-300 hover:scale-110 active:scale-90 shadow-sm" title="Add to favorites">
 						<i data-lucide="heart" class="w-4 h-4 sm:w-4.5 sm:h-4.5"></i>
 						</button>
 					</div>
@@ -770,7 +770,7 @@
 								<i data-lucide="map-pin" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary shrink-0"></i><span class="truncate">Colombo, Kandy & Yala</span>
 							</div>
 						</div>
-						<button onclick="window.location.href='tours/?tour=golden-triangle'" class="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold py-2 sm:py-3 px-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-emerald-600/20 hover:scale-[1.02] active:scale-95 text-xs sm:text-base">View Details</button>
+						<button type="button" onclick="window.location.href='tours/?tour=golden-triangle'" class="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold py-2 sm:py-3 px-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-emerald-600/20 hover:scale-[1.02] active:scale-95 text-xs sm:text-base">View Details</button>
 					</div>
 				</div>
 				<!-- Tour Card 4 -->
@@ -783,7 +783,7 @@
 							<i data-lucide="star" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-500 fill-current"></i>
 							<span class="text-slate-800 text-xs sm:text-sm font-semibold">9.5<span class="hidden sm:inline"> Outstanding</span></span>
 						</div>
-						<button type="button" data-favorite-tour="ramayanaya-tour" data-favorite-tour-name="Ramayanaya Tour" class="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-9 sm:h-9 bg-white/70 hover:bg-white border border-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-slate-700 hover:text-red-500 transition-all duration-300 hover:scale-110 active:scale-90 shadow-sm" title="Add to favorites">
+						<button type="button" data-favorite-tour="ramayanaya-tour" data-favorite-tour-name="Ramayanaya Tour" aria-label="Add to favorites" class="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-9 sm:h-9 bg-white/70 hover:bg-white border border-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-slate-700 hover:text-red-500 transition-all duration-300 hover:scale-110 active:scale-90 shadow-sm" title="Add to favorites">
 						<i data-lucide="heart" class="w-4 h-4 sm:w-4.5 sm:h-4.5"></i>
 						</button>
 					</div>
@@ -797,7 +797,7 @@
 								<i data-lucide="map-pin" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary shrink-0"></i><span class="truncate">Anuradhapura to Kataragama</span>
 							</div>
 						</div>
-						<button onclick="window.location.href='tours/?tour=ramayanaya-tour'" class="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold py-2 sm:py-3 px-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-emerald-600/20 hover:scale-[1.02] active:scale-95 text-xs sm:text-base">View Details</button>
+						<button type="button" onclick="window.location.href='tours/?tour=ramayanaya-tour'" class="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold py-2 sm:py-3 px-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-emerald-600/20 hover:scale-[1.02] active:scale-95 text-xs sm:text-base">View Details</button>
 					</div>
 				</div>
 				<!-- Tour Card 5 -->
@@ -810,7 +810,7 @@
 							<i data-lucide="star" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-500 fill-current"></i>
 							<span class="text-slate-800 text-xs sm:text-sm font-semibold">9.0<span class="hidden sm:inline"> Superb</span></span>
 						</div>
-						<button type="button" data-favorite-tour="pearl-of-asia" data-favorite-tour-name="Pearl Of Asia Tour" class="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-9 sm:h-9 bg-white/70 hover:bg-white border border-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-slate-700 hover:text-red-500 transition-all duration-300 hover:scale-110 active:scale-90 shadow-sm" title="Add to favorites">
+						<button type="button" data-favorite-tour="pearl-of-asia" data-favorite-tour-name="Pearl Of Asia Tour" aria-label="Add to favorites" class="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-9 sm:h-9 bg-white/70 hover:bg-white border border-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-slate-700 hover:text-red-500 transition-all duration-300 hover:scale-110 active:scale-90 shadow-sm" title="Add to favorites">
 						<i data-lucide="heart" class="w-4 h-4 sm:w-4.5 sm:h-4.5"></i>
 						</button>
 					</div>
@@ -824,7 +824,7 @@
 								<i data-lucide="map-pin" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary shrink-0"></i><span class="truncate">Dambulla to Colombo</span>
 							</div>
 						</div>
-						<button onclick="window.location.href='tours/?tour=pearl-of-asia'" class="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold py-2 sm:py-3 px-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-emerald-600/20 hover:scale-[1.02] active:scale-95 text-xs sm:text-base">View Details</button>
+						<button type="button" onclick="window.location.href='tours/?tour=pearl-of-asia'" class="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold py-2 sm:py-3 px-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-emerald-600/20 hover:scale-[1.02] active:scale-95 text-xs sm:text-base">View Details</button>
 					</div>
 				</div>
 				<!-- Tour Card 6 -->
@@ -837,7 +837,7 @@
 							<i data-lucide="star" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-500 fill-current"></i>
 							<span class="text-slate-800 text-xs sm:text-sm font-semibold">10.0<span class="hidden sm:inline"> Perfect</span></span>
 						</div>
-						<button type="button" data-favorite-tour="grand-tour" data-favorite-tour-name="Sri Lanka Grand Tour" class="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-9 sm:h-9 bg-white/70 hover:bg-white border border-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-slate-700 hover:text-red-500 transition-all duration-300 hover:scale-110 active:scale-90 shadow-sm" title="Add to favorites">
+						<button type="button" data-favorite-tour="grand-tour" data-favorite-tour-name="Sri Lanka Grand Tour" aria-label="Add to favorites" class="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-9 sm:h-9 bg-white/70 hover:bg-white border border-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-slate-700 hover:text-red-500 transition-all duration-300 hover:scale-110 active:scale-90 shadow-sm" title="Add to favorites">
 						<i data-lucide="heart" class="w-4 h-4 sm:w-4.5 sm:h-4.5"></i>
 						</button>
 					</div>
@@ -851,7 +851,7 @@
 								<i data-lucide="map-pin" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary shrink-0"></i><span class="truncate">Complete Sri Lanka</span>
 							</div>
 						</div>
-						<button onclick="window.location.href='tours/?tour=grand-tour'" class="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold py-2 sm:py-3 px-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-emerald-600/20 hover:scale-[1.02] active:scale-95 text-xs sm:text-base">View Details</button>
+						<button type="button" onclick="window.location.href='tours/?tour=grand-tour'" class="w-full bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-semibold py-2 sm:py-3 px-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-emerald-600/20 hover:scale-[1.02] active:scale-95 text-xs sm:text-base">View Details</button>
 					</div>
 				</div>
 			</div>
@@ -880,12 +880,12 @@
 
 				<!-- 2026 Asymmetric Bento Grid (7 Curated Destinations) -->
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
-					
+
 					<!-- 1. Sigiriya (Tall Hero Portrait - Top Left) -->
 					<div onclick="window.location.href='destinations/?destination=sigiriya'" class="group relative overflow-hidden rounded-3xl md:row-span-2 md:col-span-1 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="100">
-						<img src="assets/img/destinations/sigiriya_lion_rock.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Sigiriya" />
+						<img src="assets/img/destinations/sigiriya_lion_rock.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Sigiriya">
 						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 pointer-events-none"></div>
-						
+
 						<div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between z-10">
 							<div class="flex items-center justify-between w-full">
 								<div class="liquid-glass px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
@@ -907,9 +907,9 @@
 
 					<!-- 2. Ella (Wide Landscape - Top Right) -->
 					<div onclick="window.location.href='destinations/?destination=ella'" class="group relative overflow-hidden rounded-3xl md:col-span-2 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="200">
-						<img src="assets/img/tours/4-day-package.jpeg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Ella" />
+						<img src="assets/img/tours/4-day-package.jpeg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Ella">
 						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 pointer-events-none"></div>
-						
+
 						<div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between z-10">
 							<div class="flex items-center justify-between w-full">
 								<div class="liquid-glass px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
@@ -931,9 +931,9 @@
 
 					<!-- 3. Arugam Bay (Wide Landscape - Right Middle) -->
 					<div onclick="window.location.href='destinations/?destination=arugambay'" class="group relative overflow-hidden rounded-3xl md:col-span-2 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="300">
-						<img src="assets/img/destinations/hiriketiya_surf.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Arugam Bay" />
+						<img src="assets/img/destinations/hiriketiya_surf.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Arugam Bay">
 						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 pointer-events-none"></div>
-						
+
 						<div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between z-10">
 							<div class="flex items-center justify-between w-full">
 								<div class="liquid-glass px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
@@ -955,9 +955,9 @@
 
 					<!-- 4. Trincomalee (Balanced - Bottom Left) -->
 					<div onclick="window.location.href='destinations/?destination=trincomalee'" class="group relative overflow-hidden rounded-3xl md:col-span-1 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="400">
-						<img src="assets/img/destinations/trincomalee_beach.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Trincomalee" />
+						<img src="assets/img/destinations/trincomalee_beach.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Trincomalee">
 						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20 pointer-events-none"></div>
-						
+
 						<div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
 							<div class="flex items-center justify-between w-full">
 								<div class="liquid-glass px-3.5 py-1 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
@@ -979,9 +979,9 @@
 
 					<!-- 5. Colombo (Balanced - Bottom Middle) -->
 					<div onclick="window.location.href='destinations/?destination=colombo'" class="group relative overflow-hidden rounded-3xl md:col-span-1 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="500">
-						<img src="assets/img/destinations/colombo_city.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Colombo" />
+						<img src="assets/img/destinations/colombo_city.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Colombo">
 						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20 pointer-events-none"></div>
-						
+
 						<div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
 							<div class="flex items-center justify-between w-full">
 								<div class="liquid-glass px-3.5 py-1 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
@@ -1003,9 +1003,9 @@
 
 					<!-- 6. Bentota (Balanced - Bottom Right) -->
 					<div onclick="window.location.href='destinations/?destination=bentota'" class="group relative overflow-hidden rounded-3xl md:col-span-1 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="600">
-						<img src="assets/img/destinations/negombo_lagoon.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Bentota" />
+						<img src="assets/img/destinations/negombo_lagoon.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Bentota">
 						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20 pointer-events-none"></div>
-						
+
 						<div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
 							<div class="flex items-center justify-between w-full">
 								<div class="liquid-glass px-3.5 py-1 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
@@ -1027,7 +1027,7 @@
 
 					<!-- 7. Kandy (Full Width Feature Banner - Bottom) -->
 					<div onclick="window.location.href='destinations/?destination=kandy'" class="group relative overflow-hidden rounded-3xl md:col-span-3 h-[240px] shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.01] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="700">
-						<img src="assets/img/bg/autum-houses.jpg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Kandy" />
+						<img src="assets/img/bg/autum-houses.jpg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Kandy">
 						<div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/30 pointer-events-none"></div>
 
 						<div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between z-10 max-w-3xl">
@@ -1052,7 +1052,7 @@
 				</div>
 			</div>
 		</section>
-		
+
 		<!-- About Section -->
 		<section id="about" class="pt-20 pb-16 gowilds-footer">
 			<!-- Technical Coordinates & Grid Guides (2026 Premium Theme) -->
@@ -1075,8 +1075,8 @@
 					<div data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
 						<!-- Tabs -->
 						<div class="flex gap-4 mb-8 justify-center sm:justify-start">
-							<button id="story-tab" class="tab-btn liquid-glass text-white rounded-full px-6 py-2 transition-all duration-300 hover:scale-105">Our Story</button>
-							<button id="mission-tab" class="tab-btn liquid-glass text-white rounded-full px-6 py-2 transition-all duration-300 hover:scale-105">Our Mission</button>
+							<button type="button" id="story-tab" class="tab-btn liquid-glass text-white rounded-full px-6 py-2 transition-all duration-300 hover:scale-105">Our Story</button>
+							<button type="button" id="mission-tab" class="tab-btn liquid-glass text-white rounded-full px-6 py-2 transition-all duration-300 hover:scale-105">Our Mission</button>
 						</div>
 						<!-- Story Tab -->
 						<div id="story-content" class="tab-content space-y-4 sm:space-y-6">
@@ -1088,12 +1088,12 @@
 								From breathtaking landscapes to cultural immersions, our mission is to redefine travel by offering personalized service, unparalleled expertise, and a deep respect for the destinations we visit. With over five years of experience in the industry, we have built lasting relationships with local communities and gained intimate knowledge of Sri Lanka's hidden treasures. Join us as we embark on a journey of discovery and create memories that last a lifetime.
 							</p>
 							<div class="flex items-center gap-3 justify-center sm:justify-start">
-								<button class="liquid-glass text-white px-6 sm:px-8 py-3 text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 inline-flex items-center justify-center gap-2.5 shadow-md"
+								<button type="button" class="liquid-glass text-white px-6 sm:px-8 py-3 text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 inline-flex items-center justify-center gap-2.5 shadow-md"
 									onclick="window.open('https://youtube.com/@InspireTravelandTours?si=uHKWO_lqmHxhQgDx', '_blank')">
 									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17z"/><polygon points="10 15 15 12 10 9"/></svg>
 									<span>YouTube</span>
 								</button>
-								<button class="liquid-glass text-white px-6 sm:px-8 py-3 text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 inline-flex items-center justify-center gap-2.5 shadow-md"
+								<button type="button" class="liquid-glass text-white px-6 sm:px-8 py-3 text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 inline-flex items-center justify-center gap-2.5 shadow-md"
 									onclick="window.open('https://www.tiktok.com/@inspiretravelstours?_t=ZS-903Za2uRoUU&_r=1', '_blank')">
 									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
 									<span>TikTok</span>
@@ -1110,12 +1110,12 @@
 								With over five years of expertise in the travel industry, we have perfected the art of storytelling through travel. We believe that every destination has a story to tell, and we are the passionate narrators who bring these stories to life. From the misty tea plantations to the golden beaches, from ancient temples to bustling markets, we ensure that your Sri Lankan adventure becomes a masterpiece of memories that will inspire you for years to come.
 							</p>
 							<div class="flex items-center gap-3 justify-center sm:justify-start">
-								<button class="liquid-glass text-white px-6 sm:px-8 py-3 text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 inline-flex items-center justify-center gap-2.5 shadow-md"
+								<button type="button" class="liquid-glass text-white px-6 sm:px-8 py-3 text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 inline-flex items-center justify-center gap-2.5 shadow-md"
 									onclick="window.open('https://www.instagram.com/inspiretravels_tours', '_blank')">
 									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
 									<span>Instagram</span>
 								</button>
-								<button class="liquid-glass text-white px-6 sm:px-8 py-3 text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 inline-flex items-center justify-center gap-2.5 shadow-md"
+								<button type="button" class="liquid-glass text-white px-6 sm:px-8 py-3 text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 inline-flex items-center justify-center gap-2.5 shadow-md"
 									onclick="window.open('https://www.facebook.com/share/1CUqzA7tAu/?mibextid=wwXIfr', '_blank')">
 									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
 									<span>Facebook</span>
@@ -1350,7 +1350,6 @@
 					</a>
 				</div>
 			</div>
-			</div>
 		</section>
 		<!-- Adventure Awaits Section -->
 		<section id="adventure" class="py-20 gowilds-footer relative overflow-hidden">
@@ -1377,7 +1376,7 @@
 					</p>
 					<!-- CTA Button -->
 					<div class="flex justify-center" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="600">
-						<button class="liquid-glass text-white px-7 sm:px-9 py-3 sm:py-3.5 text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 inline-flex items-center justify-center gap-2.5 shadow-xl hover:shadow-emerald-500/20 group"
+						<button type="button" class="liquid-glass text-white px-7 sm:px-9 py-3 sm:py-3.5 text-sm sm:text-base md:text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 inline-flex items-center justify-center gap-2.5 shadow-xl hover:shadow-emerald-500/20 group"
 							aria-label="Contact us for your adventure" onclick="window.location.href='#footer'">
 							<span>Contact Now</span>
 							<i data-lucide="send" class="w-4 h-4 sm:w-5 sm:h-5 shrink-0 transition-transform group-hover:translate-x-1"></i>
@@ -1814,9 +1813,9 @@
 							<!-- Gallery Item 1: Sunset Group Photo -->
 							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
 								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
-									<img alt="" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+									<img src="assets/img/footer-gallery/sunset-group-photo.jpg" alt="Sunset group adventure in Sri Lanka" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
 									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-										<button class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+										<button type="button" class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
 											aria-label="View details" title="View details">
 										<i data-lucide="plus" class="w-6 h-6"></i>
 										</button>
@@ -1826,9 +1825,9 @@
 							<!-- Gallery Item 2: Cannon Cart -->
 							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
 								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
-									<img alt="" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+									<img src="assets/img/footer-gallery/cannon-cart.jpg" alt="Cannon cart adventure in Sri Lanka" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
 									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-										<button class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+										<button type="button" class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
 											aria-label="View details" title="View details">
 										<i data-lucide="plus" class="w-6 h-6"></i>
 										</button>
@@ -1838,9 +1837,9 @@
 							<!-- Gallery Item 3: Thank You Collage -->
 							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
 								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
-									<img alt="" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+									<img src="assets/img/footer-gallery/thank-you-collage.jpg" alt="Thank you collage from Inspire Travels guests" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
 									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-										<button class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+										<button type="button" class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
 											aria-label="View details" title="View details">
 										<i data-lucide="plus" class="w-6 h-6"></i>
 										</button>
@@ -1850,9 +1849,9 @@
 							<!-- Gallery Item 4: Lotus Tower -->
 							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
 								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
-									<img alt="" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+									<img src="assets/img/footer-gallery/lotus-tower.jpg" alt="Lotus Tower view in Colombo" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
 									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-										<button class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+										<button type="button" class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
 											aria-label="View details" title="View details">
 										<i data-lucide="plus" class="w-6 h-6"></i>
 										</button>
@@ -1862,9 +1861,9 @@
 							<!-- Gallery Item 5: Mirissa Treehill -->
 							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
 								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
-									<img alt="" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+									<img src="assets/img/footer-gallery/mirissa-treehill.jpg" alt="Mirissa Tree Hill view" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
 									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-										<button class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+										<button type="button" class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
 											aria-label="View details" title="View details">
 										<i data-lucide="plus" class="w-6 h-6"></i>
 										</button>
@@ -1874,9 +1873,9 @@
 							<!-- Gallery Item 6: Turtle Sea -->
 							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
 								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
-									<img alt="" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+									<img src="assets/img/footer-gallery/turtle-sea.jpg" alt="Sea turtle conservation experience" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
 									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-										<button class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+										<button type="button" class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
 											aria-label="View details" title="View details">
 										<i data-lucide="plus" class="w-6 h-6"></i>
 										</button>
@@ -1886,9 +1885,9 @@
 							<!-- Gallery Item 7: Holy Statue -->
 							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
 								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
-									<img alt="" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+									<img src="assets/img/footer-gallery/holy-statue.jpg" alt="Sacred statue at a Sri Lankan shrine" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
 									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-										<button class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+										<button type="button" class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
 											aria-label="View details" title="View details">
 										<i data-lucide="plus" class="w-6 h-6"></i>
 										</button>
@@ -1898,9 +1897,9 @@
 							<!-- Gallery Item 8: Holy Temple -->
 							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
 								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
-									<img alt="" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+									<img src="assets/img/footer-gallery/holy-temple.jpg" alt="Historic Sri Lankan temple visit" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
 									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-										<button class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+										<button type="button" class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
 											aria-label="View details" title="View details">
 										<i data-lucide="plus" class="w-6 h-6"></i>
 										</button>
@@ -1910,9 +1909,9 @@
 							<!-- Gallery Item 9: Temple Entrance -->
 							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
 								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
-									<img alt="" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+									<img src="assets/img/footer-gallery/temple-entrance.jpg" alt="Entrance to a Sri Lankan temple" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
 									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-										<button class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+										<button type="button" class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
 											aria-label="View details" title="View details">
 										<i data-lucide="plus" class="w-6 h-6"></i>
 										</button>
@@ -1922,9 +1921,9 @@
 							<!-- Gallery Item 10: Turtle Entrance -->
 							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
 								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
-									<img alt="" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+									<img src="assets/img/footer-gallery/turtle-entrance.jpg" alt="Turtle hatchery entrance in coastal Sri Lanka" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
 									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-										<button class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+										<button type="button" class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
 											aria-label="View details" title="View details">
 										<i data-lucide="plus" class="w-6 h-6"></i>
 										</button>
@@ -1934,9 +1933,9 @@
 							<!-- Gallery Item 11: Holy Buddha -->
 							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
 								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
-									<img alt="" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+									<img src="assets/img/footer-gallery/holy-buddha.jpg" alt="Buddha statue at a Sri Lankan sacred site" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
 									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-										<button class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+										<button type="button" class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
 											aria-label="View details" title="View details">
 										<i data-lucide="plus" class="w-6 h-6"></i>
 										</button>
@@ -2111,8 +2110,8 @@
 				class="relative w-full h-full max-w-[95vw] max-h-[95vh] transform scale-95 transition-transform duration-300 flex items-center justify-center">
 				<div class="tour-modal-card p-8 mx-4">
 					<div class="flex items-center justify-between mb-5 flex-shrink-0">
-						<h3 id="tourModalTitle" class="font-serif text-xl font-bold text-slate-800"></h3>
-						<button onclick="closeTourModal()"
+						<h3 id="tourModalTitle" class="font-serif text-xl font-bold text-slate-800"><span class="sr-only">Tour details</span></h3>
+						<button type="button" onclick="closeTourModal()"
 							class="text-slate-400 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 p-1.5 rounded-full transition-all duration-200"
 							aria-label="Close tour modal" title="Close tour modal">
 						<i data-lucide="x" class="w-4.5 h-4.5"></i>
@@ -2170,10 +2169,10 @@
 		<div id="promoModal" class="fixed inset-0 bg-[#0c3531]/40 backdrop-blur-md z-50 items-center justify-center p-4 opacity-0 invisible transition-all duration-300 pointer-events-auto">
 			<div class="promo-modal-container relative w-full max-w-lg bg-[#0c3531]/85 border border-white/10 backdrop-blur-2xl rounded-3xl shadow-2xl p-6 sm:p-8 transform scale-95 translate-y-8 opacity-0 transition-all duration-300 ease-out flex flex-col items-center">
 				<!-- Close Button -->
-				<button id="closePromoModal" class="absolute top-4 right-4 bg-black/30 hover:bg-black/50 text-white w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200 z-10" aria-label="Close promo modal" title="Close promo modal">
+				<button type="button" id="closePromoModal" class="absolute top-4 right-4 bg-black/30 hover:bg-black/50 text-white w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200 z-10" aria-label="Close promo modal" title="Close promo modal">
 					<i data-lucide="x" class="w-4 h-4"></i>
 				</button>
-				
+
 				<!-- Header Title -->
 				<div class="text-center mb-6">
 					<span class="text-[10px] sm:text-xs font-semibold text-accent uppercase tracking-wider block mb-1">Exclusive Travel Campaign</span>
