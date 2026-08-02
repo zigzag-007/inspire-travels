@@ -363,7 +363,7 @@
                                     <img src="../${ot.image}" alt="${ot.title}" class="w-12 h-12 rounded-lg object-cover shrink-0">
                                     <div class="min-w-0 flex-1">
                                         <h5 class="text-xs font-bold text-slate-800 group-hover:text-emerald-700 transition-colors truncate">${ot.title}</h5>
-                                        <span class="text-[11px] text-slate-500">${ot.duration} Ã¢â‚¬Â¢ ${ot.location.split(',')[0]}</span>
+                                        <span class="text-[11px] text-slate-500">${ot.duration} • ${ot.location.split(',')[0]}</span>
                                     </div>
                                     <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400 group-hover:text-emerald-600 shrink-0"></i>
                                 </a>
