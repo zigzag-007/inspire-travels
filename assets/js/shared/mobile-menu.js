@@ -19,6 +19,9 @@
             this.blurOverlay = document.getElementById('blur-overlay');
             this.mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
+            if (this.mobileMenuBtn) this.mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            if (this.mobileMenu) this.mobileMenu.setAttribute('aria-hidden', 'true');
+
             this.initEventListeners();
         },
 
@@ -79,7 +82,10 @@
                 void this.blurOverlay.offsetWidth;
                 this.blurOverlay.classList.add('opacity-100');
             }
+            document.body.classList.add('mobile-menu-open');
             document.body.style.overflow = 'hidden'; // Prevent scrolling
+            if (this.mobileMenuBtn) this.mobileMenuBtn.setAttribute('aria-expanded', 'true');
+            if (this.mobileMenu) this.mobileMenu.setAttribute('aria-hidden', 'false');
         },
 
         closeMobileMenu: function() {
@@ -97,7 +103,10 @@
                     this.blurOverlay.classList.add('hidden');
                 }, 600);
             }
+            document.body.classList.remove('mobile-menu-open');
             document.body.style.overflow = ''; // Restore scrolling
+            if (this.mobileMenuBtn) this.mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            if (this.mobileMenu) this.mobileMenu.setAttribute('aria-hidden', 'true');
         },
 
         // Keyboard navigation support

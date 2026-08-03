@@ -2,10 +2,15 @@
 // Author: Zig Zag AI
 // Description: Core initialization that orchestrates all modules
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize Lucide icons
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
+function initInspireTravels() {
+    // Some pages load this file after the DOM is already ready. The guard
+    // keeps initialization reliable without binding modules twice.
+    if (document.documentElement.dataset.siteInitialized === 'true') return;
+    document.documentElement.dataset.siteInitialized = 'true';
+
+    // Swap the legacy icon tags for Phosphor icons
+    if (window.PhosphorBridge) {
+        window.PhosphorBridge.reinit();
     }
 
     // Initialize all modules safely
@@ -28,4 +33,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Console log for debugging
     console.log('Inspire Travels website loaded successfully!');
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initInspireTravels, { once: true });
+} else {
+    initInspireTravels();
+}

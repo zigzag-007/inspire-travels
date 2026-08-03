@@ -11,29 +11,123 @@
     1. WhatsApp Float Button
     2. Loading Dot
     3. Back to Top Button
+    4. Site Wide Motion Feel
 
    -----------------------------------------------------------------------------
 */
 
+/* -----------------------------------------------------------------------------
+   4. SITE WIDE MOTION FEEL
+   -----------------------------------------------------------------------------
+   The markup uses a lot of hover:scale and duration-300 classes. Those use a
+   flat ease curve, which feels rubbery. These rules give the same classes a
+   spring style curve so things settle instead of sliding, and they add a
+   press state so buttons feel physical when you click them.
+   ----------------------------------------------------------------------------- */
+
+/* A gentle overshoot curve. Movement starts fast then settles. */
+a,
+button,
+.group,
+[class*="hover:scale"],
+[class*="hover:-translate"] {
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Anything clickable pushes down slightly when pressed. */
+a:active,
+button:active {
+    transform: translateY(1px);
+}
+
+/* Buttons that already scale on hover should shrink on press instead,
+   otherwise the two transforms fight each other. */
+button[class*="hover:scale"]:active,
+a[class*="hover:scale"]:active {
+    transform: scale(0.97);
+}
+
+/* Keyboard users need to see where they are. */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Cards light up softly where the mouse is. The position comes from
+   card-spotlight.js, and the glow simply hides when there is no mouse. */
+[data-spotlight] {
+    position: relative;
+}
+
+/* Isolate only plain spotlight cards. Both liquid glass variants already own
+   their stacking and pseudo element layers, so the generic glow must stay
+   away from them. */
+[data-spotlight]:not(.liquid-glass-tile):not(.liquid-glass) {
+    isolation: isolate;
+}
+
+[data-spotlight]:not(.liquid-glass-tile):not(.liquid-glass)::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    background: radial-gradient(circle 220px at var(--spot-x, 50%) var(--spot-y, 50%),
+            rgba(255, 255, 255, 0.14),
+            transparent 70%);
+}
+
+[data-spotlight]:not(.liquid-glass-tile):not(.liquid-glass):hover::after {
+    opacity: 1;
+}
+
+/* Hero stat tiles already use ::after for the glass distortion layer and
+   ::before for the shine sweep, so we must not redefine either one here.
+   Instead the glow rides on the existing shine layer as an extra background,
+   which keeps the glass intact and stops the smeared look on hover. */
+.liquid-glass[data-spotlight] {
+    isolation: auto;
+}
+
+.liquid-glass[data-spotlight]:hover::before {
+    background-image:
+        radial-gradient(circle 130px at var(--spot-x, 50%) var(--spot-y, 50%),
+            rgba(255, 255, 255, 0.10),
+            transparent 68%),
+        linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.2) 40%, rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0.2) 60%, transparent 70%);
+    background-size: 100% 100%, 250% 100%;
+    background-position: 0 0, -120% 0;
+    background-repeat: no-repeat, no-repeat;
+}
+
 /* Floating WhatsApp Icon */
 .whatsapp-float {
     position: fixed;
-    width: 70px;
-    height: 70px;
-    top: 60%;
-    right: 20px;
-    transform: translateY(-50%);
+    width: 64px;
+    height: 64px;
+    top: auto;
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: calc(1rem + env(safe-area-inset-bottom));
+    transform: none;
     background-color: #25D366;
     color: white;
     border-radius: 50%;
-    z-index: 10000;
+    z-index: 40;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.25s ease;
     text-decoration: none;
-    /* Removes underline from link */
+    touch-action: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    cursor: grab;
 }
 
 /* The Secret to the "Modern" Pulse: A pseudo-element */
@@ -53,6 +147,33 @@
 .whatsapp-float:hover {
     transform: scale(1.1);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-float.is-dragging {
+    cursor: grabbing;
+    transform: scale(1.04) !important;
+    box-shadow: 0 16px 35px rgba(0, 77, 64, 0.32);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.whatsapp-float.is-snapping {
+    transition:
+        left 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+        top 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        opacity 0.25s ease;
+}
+
+.whatsapp-float > i {
+    font-size: 2rem !important;
+}
+
+.whatsapp-brand-icon {
+    width: 2.15rem;
+    height: 2.15rem;
+    display: block;
+    pointer-events: none;
 }
 
 /* Tooltip Styling */
@@ -82,6 +203,21 @@
     transform: translateX(0);
 }
 
+.whatsapp-float.is-docked-left::after {
+    right: auto;
+    left: 75px;
+    transform: translateX(-15px);
+}
+
+.whatsapp-float.is-docked-left:hover::after {
+    transform: translateX(0);
+}
+
+.whatsapp-float.is-docked-top::after,
+.whatsapp-float.is-docked-bottom::after {
+    display: none;
+}
+
 /* Premium Staggered Loader Dot Animation */
 .loading-dot {
     width: 10px;
@@ -105,6 +241,20 @@
     -webkit-tap-highlight-color: transparent !important;
 }
 
+.back-to-top {
+    position: fixed !important;
+    right: max(1rem, env(safe-area-inset-right)) !important;
+    bottom: calc(5.5rem + env(safe-area-inset-bottom)) !important;
+    z-index: 39 !important;
+}
+
+.mobile-menu-open .whatsapp-float,
+.mobile-menu-open .back-to-top {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: scale(0.85) !important;
+}
+
 .back-to-top.is-over-dark {
     color: #ffffff !important;
 }
@@ -119,4 +269,33 @@
 
 .back-to-top.is-over-light svg {
     stroke: #004D40 !important;
+}
+
+@media (max-width: 640px) {
+    .whatsapp-float {
+        width: 58px;
+        height: 58px;
+        right: max(0.85rem, env(safe-area-inset-right));
+        bottom: calc(0.85rem + env(safe-area-inset-bottom));
+    }
+
+    .whatsapp-float > i {
+        font-size: 1.85rem !important;
+    }
+
+    .whatsapp-brand-icon {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .whatsapp-float::after {
+        display: none;
+    }
+
+    .back-to-top {
+        width: 46px !important;
+        height: 46px !important;
+        right: max(0.85rem, env(safe-area-inset-right)) !important;
+        bottom: calc(4.75rem + env(safe-area-inset-bottom)) !important;
+    }
 }

@@ -54,8 +54,8 @@
                     ).join('');
 
                     // Re-initialize icons for the new content
-                    if (typeof lucide !== 'undefined') {
-                        lucide.createIcons();
+                    if (window.PhosphorBridge) {
+                        window.PhosphorBridge.reinit();
                     }
 
                     // Dynamically set WhatsApp link with selected package name & duration (Premium formatted message)

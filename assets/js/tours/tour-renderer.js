@@ -42,8 +42,8 @@
                 return { src: '../' + image.src, title: image.title };
             });
 
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
+            if (window.PhosphorBridge) {
+                window.PhosphorBridge.reinit();
             }
 
             return Boolean(document.getElementById('tour-hero'));

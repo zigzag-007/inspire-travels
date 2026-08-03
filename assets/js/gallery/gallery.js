@@ -299,7 +299,7 @@
                                 el.style.display = 'block';
                                 el.innerHTML = `<div class="pswp__gallery-information-card absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-900/85 backdrop-blur-xl border border-white/20 text-white px-6 py-3 rounded-2xl shadow-2xl text-center max-w-md w-full pointer-events-auto z-[1005]">
                                     <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider bg-emerald-950/70 border border-emerald-500/30 px-2.5 py-0.5 rounded-full inline-block mb-1">Photo ${pswpInstance.currIndex + 1} of ${pswpInstance.getNumItems()}</span>
-                                    ${currSlide.data.title ? `<h4 class="font-serif text-base font-bold text-white drop-shadow truncate">${currSlide.data.title}</h4>` : ''}
+                                    ${currSlide.data.title ? `<h4 class="font-display text-base font-bold text-white drop-shadow truncate">${currSlide.data.title}</h4>` : ''}
                                     ${currSlide.data.description ? `<p class="text-xs text-slate-200 mt-1 line-clamp-2">${currSlide.data.description}</p>` : ''}
                                 </div>`;
                             } else {

@@ -37,7 +37,7 @@
                     </span>
                 </div>
 
-                <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight mb-4 drop-shadow-md">${tour.title}</h1>
+                <h1 class="font-display text-3xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight mb-4 drop-shadow-md">${tour.title}</h1>
                 <p class="text-slate-200 text-base sm:text-xl max-w-3xl leading-relaxed drop-shadow">${tour.description}</p>
             </div>
         </header>

@@ -72,11 +72,12 @@
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..600&display=swap" rel="stylesheet">
         <!-- Lucide Icons -->
-        <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+        <!-- Phosphor Icons -->
+        <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+        <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+        <script src="assets/js/shared/phosphor-bridge.js"></script>
         <!-- AOS Animation Library -->
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -99,47 +100,7 @@
         <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.4.3/dist/photoswipe.css">
 
         <!-- Custom Tailwind Config -->
-        <script>
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        screens: {
-                            'xxs': '320px',
-                            'xs': '375px'
-                        },
-                        fontFamily: {
-                            'sans': ['Inter', 'system-ui', 'sans-serif'],
-                            'serif': ['Poppins', 'sans-serif']
-                        },
-                        colors: {
-                            primary: {
-                                DEFAULT: 'oklch(0.35 0.15 195)',
-                                foreground: 'oklch(0.98 0.01 85)'
-                            },
-                            secondary: {
-                                DEFAULT: 'oklch(0.65 0.12 35)',
-                                foreground: 'oklch(0.98 0.01 85)'
-                            },
-                            accent: {
-                                DEFAULT: 'oklch(0.75 0.15 75)',
-                                foreground: 'oklch(0.15 0.02 45)'
-                            },
-                            background: 'oklch(0.98 0.035 105)',
-                            foreground: 'oklch(0.15 0.02 45)',
-                            muted: {
-                                DEFAULT: 'oklch(0.95 0.01 85)',
-                                foreground: 'oklch(0.45 0.02 45)'
-                            },
-                            card: {
-                                DEFAULT: 'oklch(1 0 0)',
-                                foreground: 'oklch(0.15 0.02 45)'
-                            },
-                            border: 'oklch(0.9 0.01 85)'
-                        }
-                    }
-                }
-            }
-        </script>
+        <script src="assets/js/shared/tailwind-config.js"></script>
     </head>
     <body class="font-sans antialiased bg-background text-foreground">
         <!-- Loading Animation Preloader -->
@@ -197,7 +158,7 @@
                     </div>
                     <!-- Text Content - Refined typography with rich contrast -->
                     <div class="space-y-4 md:space-y-5 mb-8 md:mb-10">
-                        <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#0c3531] drop-shadow-sm tracking-tight">Inspire Travels</h2>
+                        <h2 class="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#0c3531] drop-shadow-sm tracking-tight">Inspire Travels</h2>
                         <p class="text-[#1b4332] text-lg sm:text-xl font-semibold drop-shadow-sm leading-relaxed">Discover the Pearl of the Indian Ocean</p>
                         <p class="text-[#2d6a4f]/85 text-sm sm:text-base font-medium drop-shadow-sm">Preparing your Sri Lankan adventure...</p>
                     </div>
@@ -227,7 +188,7 @@
         <div id="blur-overlay" class="fixed inset-0 backdrop-blur-sm bg-black/30 opacity-0 hidden will-change-opacity" style="z-index: 45; transition: opacity 600ms cubic-bezier(0.23, 1, 0.32, 1);"></div>
 
         <!-- Top Bar -->
-        <div class="bg-primary text-primary-foreground py-2 px-4 text-sm" data-aos="blur-in" data-aos-duration="1000" data-aos-delay="0">
+        <div class="top-contact-bar bg-primary text-primary-foreground py-2 px-4 text-sm" data-aos="blur-in" data-aos-duration="1000" data-aos-delay="0">
             <div class="max-w-7xl mx-auto flex justify-between items-center">
                 <!-- Left Side: Contact Information -->
                 <div class="flex items-center gap-4 sm:gap-6">
@@ -300,7 +261,7 @@
                 <div class="flex justify-between items-center mb-8">
                     <div class="flex items-center gap-3">
                         <img src="assets/img/logo.png" alt="Inspire Travels" class="w-12 h-12">
-                        <h3 class="text-xl font-serif font-bold text-slate-800">Inspire Travels</h3>
+                        <h3 class="text-xl font-display font-bold text-slate-800">Inspire Travels</h3>
                     </div>
                     <button type="button" id="mobile-menu-close" class="p-2 text-slate-600 hover:text-slate-800 transition-colors rounded-lg hover:bg-slate-100" aria-label="Close mobile menu" title="Close navigation menu">
                         <i data-lucide="x" class="w-6 h-6"></i>
@@ -319,7 +280,7 @@
                     </a>
                     <a href="index.html#about" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl" data-section="about">
                         <i data-lucide="users" class="w-5 h-5"></i>
-                        <span>About Us</span>
+                        <span>About</span>
                     </a>
                     <a href="gallery.html" class="mobile-nav-link flex items-center gap-4 text-white bg-gradient-to-r from-emerald-500 to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl">
                         <i data-lucide="image" class="w-5 h-5"></i>
@@ -386,7 +347,7 @@
                     </span>
                 </div>
 
-                <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight mb-4 drop-shadow-md">Sri Lanka Travel Gallery</h1>
+                <h1 class="font-display text-3xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight mb-4 drop-shadow-md">Sri Lanka Travel Gallery</h1>
                 <p class="text-slate-200 text-base sm:text-xl max-w-3xl leading-relaxed drop-shadow">Browse through authentic travel moments, wildlife safaris, and highland landscapes captured during our customized Sri Lanka tours.</p>
             </div>
         </header>
@@ -427,7 +388,7 @@
         <!-- Quick-Links Sub-Navigation Bar (Matching Destinations & Tours Design) -->
         <div class="bg-white border-b border-slate-200 py-3 shadow-xs">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-center md:justify-start gap-4 sm:gap-8 text-xs sm:text-sm font-semibold text-slate-600 overflow-x-auto no-scrollbar py-1">
+                <div class="gallery-quick-links flex items-center justify-start gap-4 sm:gap-8 text-xs sm:text-sm font-semibold text-slate-600 overflow-x-auto no-scrollbar py-1">
                     <a href="#dynamic-gallery-grid" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap">
                         <i data-lucide="image" class="w-4 h-4 text-emerald-600"></i> Photo Archive
                     </a>
@@ -496,7 +457,7 @@
             <div class="max-w-[1800px] mx-auto px-6 md:px-8 lg:px-12 xl:px-16">
                 <!-- Footer Top Info -->
                 <div class="footer-top py-6 border-y border-white/10">
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-center">
+                    <div class="footer-contact-grid">
                         <!-- Location Info -->
                         <div class="single-info-item">
                             <div class="flex items-center gap-4">
@@ -566,21 +527,21 @@
                 <div class="footer-widget-area pt-16 pb-0">
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="footer-widget about-company-widget mb-8">
-                            <h4 class="widget-title font-serif text-xl font-bold mb-4">About Inspire Travels</h4>
+                            <h4 class="widget-title font-display text-xl font-bold mb-4">About Inspire Travels</h4>
                             <div class="footer-content">
                                 <p class="text-background/80 leading-relaxed mb-4">
                                     For over 5 years, we've been creating unforgettable journeys that showcase the authentic beauty and rich culture of Sri Lanka.
                                 </p>
                                 <div class="footer-logo flex items-center space-x-2">
                                     <div class="flex flex-col">
-                                        <span class="font-serif font-bold text-lg text-white">Inspire Travels</span>
+                                        <span class="font-display font-bold text-lg text-white">Inspire Travels</span>
                                         <span class="text-sm text-white/60">& Tours</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="footer-widget service-nav-widget mb-8">
-                            <h4 class="widget-title font-serif text-xl font-bold mb-4">Our Tours</h4>
+                            <h4 class="widget-title font-display text-xl font-bold mb-4">Our Tours</h4>
                             <div class="footer-content">
                                 <ul class="footer-widget-nav space-y-2">
                                     <li><a href="index.html#tours" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Cultural Heritage Tours</a></li>
@@ -592,7 +553,7 @@
                             </div>
                         </div>
                         <div class="footer-widget service-nav-widget mb-8">
-                            <h4 class="widget-title font-serif text-xl font-bold mb-4">Quick Links</h4>
+                            <h4 class="widget-title font-display text-xl font-bold mb-4">Quick Links</h4>
                             <div class="footer-content">
                                 <ul class="footer-widget-nav space-y-2">
                                     <li><a href="index.html#about" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">About Us</a></li>
@@ -618,11 +579,11 @@
 
         <!-- WhatsApp Floating Button -->
         <a href="https://api.whatsapp.com/send?phone=94785959333&text=Hello%20Inspire%20Travel%20%26%20Tours%20%F0%9F%91%8B" target="_blank" rel="noopener" class="whatsapp-float" title="Chat on WhatsApp" aria-label="Chat with Inspire Travels on WhatsApp">
-           <i class="fa-brands fa-whatsapp" style="font-size: 45px;"></i>
+           <img src="assets/img/icons/whatsapp.svg" class="whatsapp-brand-icon" alt="" aria-hidden="true">
         </a>
 
         <!-- Back to Top Button -->
-        <a href="#" class="back-to-top fixed bottom-6 right-6 z-30 liquid-glass bg-transparent border border-[#005f73]/20 text-primary hover:bg-white/20 w-12 h-12 md:w-14 md:h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center focus:outline-none focus:ring-0 active:outline-none" style="display: none;" aria-label="Back to top" title="Back to top">
+        <a href="#" class="back-to-top fixed bottom-6 right-6 z-30 bg-white/20 backdrop-blur-md border border-[#005f73]/20 text-primary hover:bg-white/30 w-12 h-12 md:w-14 md:h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center focus:outline-none focus:ring-0 active:outline-none" style="display: none;" aria-label="Back to top" title="Back to top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="m18 15-6-6-6 6" />
             </svg>
@@ -640,10 +601,13 @@
         </script>
         <script src="assets/js/shared/modal.js"></script>
         <script src="assets/js/shared/whatsapp.js"></script>
+		<script src="assets/js/shared/card-spotlight.js"></script>
         <script src="assets/js/shared/preloader.js"></script>
         <script src="assets/js/shared/aos.js"></script>
         <script src="assets/js/shared/navigation.js?v=20260726-scroll-rush"></script>
         <script src="assets/js/shared/mobile-menu.js"></script>
+        <script src="assets/js/shared/contact-ticker.js"></script>
+        <script src="assets/js/shared/floating-controls.js"></script>
         <script src="assets/js/gallery/gallery-data.js"></script>
         <script src="assets/js/gallery/gallery-grid.js"></script>
         <script src="assets/js/gallery/gallery.js"></script>

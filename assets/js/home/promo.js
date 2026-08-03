@@ -287,9 +287,9 @@
             this.updateStackStyles();
             this.renderDotsAndLink();
 
-            // Re-trigger Lucide icons for zoom buttons
-            if (window.lucide) {
-                window.lucide.createIcons();
+            // Re-trigger icons for zoom buttons
+            if (window.PhosphorBridge) {
+                window.PhosphorBridge.reinit();
             }
         },
 

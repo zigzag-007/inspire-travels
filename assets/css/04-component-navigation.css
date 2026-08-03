@@ -57,6 +57,143 @@
 #navbar {
     overflow: visible !important;
 }
+
+/* Mobile contact ticker. Desktop keeps the original balanced row. */
+.top-contact-bar {
+    overflow: hidden;
+}
+
+.top-contact-track {
+    width: 100%;
+}
+
+.top-contact-sequence[aria-hidden="true"] {
+    display: none;
+}
+
+/* Keep the drawer, overlay, and hamburger identical on every page. */
+#blur-overlay {
+    -webkit-backdrop-filter: blur(14px) saturate(72%);
+    backdrop-filter: blur(14px) saturate(72%);
+    background: rgba(6, 16, 13, 0.52) !important;
+}
+
+@media (max-width: 1023px) {
+    #navbar {
+        -webkit-backdrop-filter: saturate(150%) blur(12px) !important;
+        backdrop-filter: saturate(150%) blur(12px) !important;
+    }
+
+    #blur-overlay {
+        -webkit-backdrop-filter: blur(10px) saturate(72%);
+        backdrop-filter: blur(10px) saturate(72%);
+    }
+
+    .mobile-menu {
+        width: min(85vw, 20rem) !important;
+        max-width: 20rem !important;
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+    }
+
+    .mobile-menu > div {
+        padding: 1.5rem !important;
+        padding-top: 2rem !important;
+    }
+
+    .mobile-menu .mobile-nav-link {
+        min-height: 3.25rem;
+        padding: 0.8rem 0.9rem !important;
+        gap: 0.85rem !important;
+        border-radius: 0.9rem !important;
+        font-size: 0.95rem !important;
+    }
+
+    .mobile-menu img[alt="Inspire Travels"] {
+        width: 3rem !important;
+        height: 3rem !important;
+        object-fit: contain;
+        transform: scale(2);
+        transform-origin: center;
+        margin-inline: 0.35rem;
+    }
+
+    #mobile-menu-btn {
+        width: 2.75rem;
+        height: 2.75rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.75rem;
+    }
+
+    .nav-logo {
+        height: 6rem !important;
+        width: auto !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .top-contact-bar {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .top-contact-track {
+        display: flex;
+        width: max-content;
+        animation: contact-ticker 22s linear infinite;
+        will-change: transform;
+    }
+
+    .top-contact-sequence,
+    .top-contact-sequence[aria-hidden="true"] {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start !important;
+        gap: 2.25rem;
+        width: max-content !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 2.25rem 0 1rem;
+        flex-shrink: 0;
+    }
+
+    .top-contact-sequence > div,
+    .top-contact-sequence .hidden {
+        display: flex !important;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    .top-contact-sequence > div:first-child {
+        gap: 2.25rem !important;
+    }
+
+    .top-contact-sequence span {
+        white-space: nowrap;
+    }
+
+    .top-contact-bar:hover .top-contact-track,
+    .top-contact-bar:focus-within .top-contact-track {
+        animation-play-state: paused;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) and (max-width: 767px) {
+    .top-contact-bar {
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .top-contact-track {
+        animation: none;
+    }
+
+    .top-contact-sequence[aria-hidden="true"] {
+        display: none;
+    }
+}
 @media (max-width: 375px) {
     /* Mobile sidebar — constrain width on very small phones */
     .mobile-menu {

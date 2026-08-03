@@ -67,7 +67,7 @@
 
                             element.innerHTML = '<div class="pswp__tour-highlight-card absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-900/85 backdrop-blur-xl border border-white/20 text-white px-6 py-3 rounded-2xl shadow-2xl text-center max-w-md w-full pointer-events-auto z-[1005]">' +
                                 '<span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider bg-emerald-950/70 border border-emerald-500/30 px-2.5 py-0.5 rounded-full inline-block mb-1">Highlight ' + (pswp.currIndex + 1) + ' of ' + pswp.getNumItems() + '</span>' +
-                                '<h4 class="font-serif text-base font-bold text-white drop-shadow truncate">' + (slide.data.title || '') + '</h4>' +
+                                '<h4 class="font-display text-base font-bold text-white drop-shadow truncate">' + (slide.data.title || '') + '</h4>' +
                                 '</div>';
                         };
 

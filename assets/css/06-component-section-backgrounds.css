@@ -138,6 +138,48 @@
     color: #FFFFFF;
 }
 
+.footer-contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+    align-items: center;
+}
+
+.footer-contact-grid > *,
+.footer-contact-grid .info {
+    min-width: 0;
+}
+
+.footer-contact-grid .info a {
+    overflow-wrap: anywhere;
+}
+
+@media (min-width: 768px) {
+    .footer-contact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1280px) {
+    .footer-contact-grid {
+        grid-template-columns:
+            minmax(14rem, 1.05fr)
+            minmax(18rem, 1.35fr)
+            minmax(13rem, 0.9fr)
+            minmax(12rem, auto);
+        column-gap: clamp(2rem, 3vw, 4rem);
+    }
+
+    .footer-contact-grid .social-box {
+        justify-self: end;
+        text-align: right;
+    }
+
+    .footer-contact-grid .social-box > div {
+        justify-content: flex-end;
+    }
+}
+
 .gowilds-footer .social a {
     color: #FFFFFF;
 }
@@ -329,13 +371,13 @@
     inset: 0;
     background-size: cover;
     background-position: center;
-    transition: opacity 1.5s ease-in-out, transform 6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1), transform 10s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: opacity, transform;
 }
 
 .hero-bg-inactive {
     opacity: 0;
-    transform: scale(1.08);
+    transform: scale(1.06);
     z-index: 0;
 }
 

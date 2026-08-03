@@ -51,7 +51,7 @@
                             <div id="tour-itinerary">
                                 <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-200">
                                     <div>
-                                        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900 flex items-center gap-3">
+                                        <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900 flex items-center gap-3">
                                             <i data-lucide="calendar" class="w-7 h-7 text-emerald-600"></i> Day-by-Day Detailed Itinerary
                                         </h2>
                                         <p class="text-slate-500 text-sm mt-1">Carefully planned for optimal travel pace & scenic views</p>
@@ -85,7 +85,7 @@
                                                     ` : ''}
                                                 </div>
 
-                                                <h3 class="font-serif text-lg sm:text-xl font-bold text-slate-900 mb-2 leading-snug">${activity}</h3>
+                                                <h3 class="font-display text-lg sm:text-xl font-bold text-slate-900 mb-2 leading-snug">${activity}</h3>
                                                 <p class="text-slate-600 text-sm leading-relaxed mb-4">Experience authentic Sri Lankan hospitality, guided sightseeing, and leisure time tailored to your comfort.</p>
 
                                                 <!-- Inclusions Tags -->
@@ -112,7 +112,7 @@
                                     <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200/60 inline-block mb-2">
                                         Tailor Your Trip
                                     </span>
-                                    <h3 class="font-serif text-2xl font-bold text-slate-900">Package Customization & Instant Inquiry</h3>
+                                    <h3 class="font-display text-2xl font-bold text-slate-900">Package Customization & Instant Inquiry</h3>
                                     <p class="text-slate-500 text-xs sm:text-sm mt-1">Select your dates, vehicle type, and add-on preferences to generate a direct WhatsApp quote.</p>
                                 </div>
 
@@ -203,7 +203,7 @@
 
                                     <!-- WhatsApp Action Button -->
                                     <button type="submit" class="w-full flex items-center justify-center gap-2.5 bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-bold py-4 px-6 rounded-2xl shadow-xl hover:shadow-emerald-600/25 transition-all duration-300 hover:scale-[1.01] active:scale-95 text-base">
-                                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                                        <i class="ph-fill ph-whatsapp-logo text-xl" aria-hidden="true"></i>
                                         <span>Book Now via WhatsApp</span>
                                     </button>
                                 </form>
@@ -215,7 +215,7 @@
                             <!-- Small Interactive Google Map Card -->
                             <div class="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-md">
                                 <div class="flex items-center justify-between mb-4">
-                                    <h3 class="font-serif text-xl font-bold text-slate-900 flex items-center gap-2">
+                                    <h3 class="font-display text-xl font-bold text-slate-900 flex items-center gap-2">
                                         <i data-lucide="map-pin" class="w-5 h-5 text-emerald-600"></i> Tour Route & Location Map
                                     </h3>
                                     <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
@@ -231,7 +231,7 @@
 
                             <!-- Comprehensive What's Included List -->
                             <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-md space-y-6">
-                                <h3 class="font-serif text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <h3 class="font-display text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2.5">
                                     <i data-lucide="shield-check" class="w-6 h-6 text-emerald-600"></i> What's Included in This Package
                                 </h3>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-medium text-slate-700">
@@ -269,7 +269,7 @@
                             <!-- Driver & Vehicle Amenities & Luggage Policy -->
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div class="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-md">
-                                    <h4 class="font-serif text-lg font-bold text-slate-900 flex items-center gap-2 mb-4">
+                                    <h4 class="font-display text-lg font-bold text-slate-900 flex items-center gap-2 mb-4">
                                         <i data-lucide="car" class="w-5 h-5 text-emerald-600"></i> Driver & Vehicle Amenities
                                     </h4>
                                     <ul class="space-y-2.5 text-xs sm:text-sm text-slate-600 font-medium">
@@ -281,7 +281,7 @@
                                 </div>
 
                                 <div class="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-md">
-                                    <h4 class="font-serif text-lg font-bold text-slate-900 flex items-center gap-2 mb-4">
+                                    <h4 class="font-display text-lg font-bold text-slate-900 flex items-center gap-2 mb-4">
                                         <i data-lucide="briefcase" class="w-5 h-5 text-emerald-600"></i> Luggage & Booking Terms
                                     </h4>
                                     <ul class="space-y-2.5 text-xs sm:text-sm text-slate-600 font-medium">
@@ -304,7 +304,7 @@
                                 <span class="bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
                                     Instant Availability
                                 </span>
-                                <h3 class="font-serif text-2xl font-bold text-white">Customize & Book</h3>
+                                <h3 class="font-display text-2xl font-bold text-white">Customize & Book</h3>
                                 <p class="text-slate-300 text-xs sm:text-sm mt-1">Get an instant quote on WhatsApp</p>
                             </div>
 
@@ -353,7 +353,7 @@
 
                         <!-- Quick Package Switcher Card -->
                         <div class="bg-white rounded-3xl border border-slate-200/90 shadow-md p-6 space-y-4">
-                            <h4 class="font-serif text-base font-bold text-slate-900 flex items-center justify-between">
+                            <h4 class="font-display text-base font-bold text-slate-900 flex items-center justify-between">
                                 <span class="flex items-center gap-2"><i data-lucide="compass" class="w-4 h-4 text-emerald-600"></i> Switch Package</span>
                                 <a href="../index.html#tours" class="text-xs text-emerald-600 hover:underline">View All</a>
                             </h4>

@@ -60,7 +60,7 @@
             if (introTextContainer && art.introParagraphs) {
                 introTextContainer.innerHTML = art.introParagraphs.map(function(p, idx) {
                     if (idx === 0) {
-                        return '<p class="text-slate-700 text-lg sm:text-xl leading-relaxed mb-5 first-letter:text-5xl first-letter:font-extrabold first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:text-emerald-700 font-serif">' + p + '</p>';
+                        return '<p class="text-slate-700 text-lg sm:text-xl leading-relaxed mb-5 first-letter:text-5xl first-letter:font-extrabold first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:text-emerald-700 font-display">' + p + '</p>';
                     }
                     return '<p class="text-slate-700 text-base sm:text-lg leading-relaxed mb-4">' + p + '</p>';
                 }).join('');
@@ -151,9 +151,9 @@
 
             if (window.DestinationInquiryModule) window.DestinationInquiryModule.populate(data);
 
-            // Re-initialize Lucide Icons & Refresh AOS
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
+            // Re-initialize icons and refresh AOS
+            if (window.PhosphorBridge) {
+                window.PhosphorBridge.reinit();
             }
             if (typeof AOS !== 'undefined') {
                 AOS.refresh();

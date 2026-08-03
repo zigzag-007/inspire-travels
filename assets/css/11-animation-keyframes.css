@@ -144,6 +144,17 @@
     filter: blur(0);
 }
 
+@media (max-width: 768px) {
+    [data-aos="fade-down-blur"],
+    [data-aos="fade-up-blur"],
+    [data-aos="scale-up-blur"],
+    [data-aos="blur-in"] {
+        filter: none;
+        transition-property: opacity, transform;
+        will-change: opacity, transform;
+    }
+}
+
 /* Enable smooth and responsive hover states on AOS-animated elements */
 /* Once an AOS element has animated (.aos-animate), we override the transition on hover to make it responsive (300ms) and remove the entry animation delay */
 [data-aos].aos-animate:hover {
@@ -243,5 +254,14 @@
     80% {
         transform: translate3d(calc(var(--fly-tx, 0px) * -0.5 + (var(--mouse-x, 0) * 35px) - 25px), calc(var(--fly-ty, 0px) * -0.5 + (var(--mouse-y, 0) * 35px) - 25px), 0) scale(1.15);
         opacity: 0.85;
+    }
+}
+@keyframes contact-ticker {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-50%, 0, 0);
     }
 }

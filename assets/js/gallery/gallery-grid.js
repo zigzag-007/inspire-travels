@@ -59,7 +59,7 @@
                          data-year="${year}" 
                          onclick="window.openGalleryModal('${item.src}', '${escapedTitle}', '${escapedLocation}', '${escapedDate}')">
                         
-                        <div class="relative overflow-hidden rounded-3xl bg-white border border-slate-200/90 shadow-md hover:shadow-2xl hover:border-emerald-500/40 transition-all duration-500 transform hover:-translate-y-1.5 ${heightClass}">
+                        <div data-spotlight class="relative overflow-hidden rounded-3xl bg-white border border-slate-200/90 shadow-md hover:shadow-2xl hover:border-emerald-500/40 transition-all duration-500 transform hover:-translate-y-1.5 ${heightClass}">
                             
                             <!-- Main Photo with Parallax Scale -->
                             <img src="${item.src}" alt="${escapedTitle || 'Sri Lanka Travel Gallery'}" 
@@ -90,7 +90,7 @@
                                 </div>
 
                                 ${hasTitle ? `
-                                <h3 class="font-serif text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md line-clamp-2">${escapedTitle}</h3>
+                                <h3 class="font-display text-base sm:text-lg font-bold text-white leading-snug drop-shadow-md line-clamp-2">${escapedTitle}</h3>
                                 ` : ''}
 
                                 ${escapedDate ? `
@@ -108,9 +108,9 @@
             container.className = "columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 mb-16";
             container.innerHTML = htmlContent;
 
-            // Re-initialize Lucide icons for dynamic elements
-            if (window.lucide) {
-                window.lucide.createIcons();
+            // Re-initialize icons for dynamic elements
+            if (window.PhosphorBridge) {
+                window.PhosphorBridge.reinit(container);
             }
         },
 
