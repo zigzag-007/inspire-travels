@@ -13,3 +13,20 @@
 html, body {
     overflow-x: clip;
 }
+
+/* The navigation bar sits on top of the page, so anchor links used to
+   scroll headings underneath it. This keeps them clear of the bar. */
+section[id],
+footer[id] {
+    scroll-margin-top: 6rem;
+}
+
+/* Turns on nicer letter shapes and spacing that fonts ship with
+   but browsers leave off by default. */
+body {
+    font-family: var(--font-body);
+    font-optical-sizing: auto;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
+}

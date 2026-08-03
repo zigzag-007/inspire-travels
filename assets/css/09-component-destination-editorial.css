@@ -14,7 +14,7 @@
     float: left;
     font-size: 3.8rem;
     line-height: 0.8;
-    font-family: 'Poppins', serif;
+    font-family: var(--font-display);
     font-weight: 800;
     margin-right: 0.75rem;
     margin-top: 0.2rem;
@@ -92,7 +92,7 @@
     align-items: center;
     gap: 0.5rem;
     color: #11624f;
-    font-family: Inter, sans-serif;
+    font-family: var(--font-mono);
     font-size: 0.68rem;
     font-weight: 800;
     letter-spacing: 0.17em;
@@ -105,7 +105,7 @@
     align-items: center;
     gap: 0.4rem;
     color: #68736f;
-    font-family: Inter, sans-serif;
+    font-family: var(--font-body);
     font-size: 0.72rem;
     letter-spacing: 0.04em;
 }
@@ -147,7 +147,7 @@
 .destination-prose {
     max-width: 67ch;
     color: #46514d;
-    font-family: Inter, sans-serif;
+    font-family: var(--font-body);
     font-size: 1.08rem;
     line-height: 1.9;
 }
@@ -160,7 +160,7 @@
     float: left;
     margin: 0.3rem 0.7rem 0 0;
     color: #11624f;
-    font-family: Poppins, sans-serif;
+    font-family: var(--font-display);
     font-size: 4.7rem;
     font-weight: 800;
     line-height: 0.72;
@@ -172,7 +172,7 @@
 
 .destination-section-number {
     color: #11624f;
-    font-family: Inter, sans-serif;
+    font-family: var(--font-mono);
     font-size: 0.75rem;
     font-weight: 800;
     letter-spacing: 0.16em;
@@ -209,7 +209,7 @@
 
 .destination-activity-number {
     color: #7b8983;
-    font-family: Inter, sans-serif;
+    font-family: var(--font-mono);
     font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.1em;
@@ -231,7 +231,7 @@
 .destination-activity-title,
 .destination-itinerary-title,
 .destination-food-title {
-    font-family: Poppins, sans-serif;
+    font-family: var(--font-display);
     font-weight: 600;
     letter-spacing: -0.025em;
 }
@@ -240,7 +240,7 @@
     max-width: 52ch;
     margin-top: 0.6rem;
     color: #66716c;
-    font-family: Inter, sans-serif;
+    font-family: var(--font-body);
     font-size: 0.95rem;
     line-height: 1.7;
 }
@@ -251,7 +251,7 @@
     gap: 0.4rem;
     margin-top: 1rem;
     color: #11624f;
-    font-family: Inter, sans-serif;
+    font-family: var(--font-mono);
     font-size: 0.68rem;
     font-weight: 800;
     letter-spacing: 0.12em;
@@ -268,7 +268,7 @@
 
 .destination-itinerary-day {
     color: #11624f;
-    font-family: Inter, sans-serif;
+    font-family: var(--font-mono);
     font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.12em;
@@ -278,7 +278,7 @@
 .destination-itinerary-description {
     margin-top: 0.45rem;
     color: #66716c;
-    font-family: Inter, sans-serif;
+    font-family: var(--font-body);
     font-size: 0.95rem;
     line-height: 1.7;
 }
@@ -303,7 +303,7 @@
 .destination-food-description {
     margin-top: 0.8rem;
     color: #66716c;
-    font-family: Inter, sans-serif;
+    font-family: var(--font-body);
     font-size: 0.86rem;
     line-height: 1.7;
 }
@@ -322,7 +322,7 @@
     padding: 1.25rem 0;
     border-bottom: 1px solid rgba(51, 65, 61, 0.22);
     color: #46514d;
-    font-family: Inter, sans-serif;
+    font-family: var(--font-body);
     font-size: 0.92rem;
     line-height: 1.65;
 }

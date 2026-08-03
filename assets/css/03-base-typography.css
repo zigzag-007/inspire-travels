@@ -24,6 +24,55 @@
     -webkit-text-fill-color: transparent;
 }
 
+/* Display headings. Big text needs tighter spacing or it looks loose. */
+h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+    /* Stops a single word being left alone on the last line. */
+    text-wrap: balance;
+}
+
+/* Card titles are small, so they need less negative spacing than
+   the big headlines get, or the letters start to touch. */
+h3 {
+    letter-spacing: -0.012em;
+}
+
+/* Body copy. About 68 characters per line is the easiest to read. */
+p {
+    text-wrap: pretty;
+}
+
+/* Numbers that count up should not jiggle, so lock the digit width. */
+.tabular,
+[data-counter] {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Small uppercase labels need extra spacing or they look cramped. */
+.eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+/* Italic display words with letters like y, g, p can get their tails
+   cut off. This gives them a little more room to sit in. */
+h1 .italic,
+h2 .italic {
+    line-height: 1.15;
+    padding-bottom: 0.08em;
+}
+
+/* Italic letters lean to the right, so the word before them looks
+   too close. A small nudge makes the gap look even again. */
+h1 span.italic:not(.block),
+h2 span.italic:not(.block) {
+    margin-left: 0.12em;
+}
+
 
 /* Logo color switching for navigation */
 .nav-logo {
@@ -67,7 +116,7 @@
 /* Technical catalog metadata badges (2026 Premium Brutalism Style) */
 .tech-metadata {
     position: absolute;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-family: var(--font-mono);
     font-size: 0.65rem;
     font-weight: 600;
     letter-spacing: 0.18em;
@@ -105,7 +154,7 @@
     word-break: break-word;
     /* Ensure long coordinates break */
     line-height: 1.5;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-family: var(--font-mono);
     font-size: 0.65rem;
     font-weight: 600;
     letter-spacing: 0.22em;
@@ -139,4 +188,28 @@
     .grid.gap-8 {
         gap: 1.25rem;
     }
+}
+
+/* -----------------------------------------------------------------------------
+   PHOSPHOR ICON ALIGNMENT
+   -----------------------------------------------------------------------------
+   Phosphor icons are font glyphs, not SVG boxes. These rules make them line up
+   with text the same way the old Lucide SVGs did, so buttons and label rows do
+   not shift. The icon size comes from font-size, set by the bridge.
+   ----------------------------------------------------------------------------- */
+
+i[class*="ph-"]::before,
+span[class*="ph-"]::before {
+    display: inline-block;
+    line-height: 1;
+}
+
+i[class*="ph-"],
+span[class*="ph-"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    flex-shrink: 0;
+    vertical-align: middle;
 }
