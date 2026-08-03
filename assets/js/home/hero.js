@@ -30,7 +30,7 @@
             this.startHeroCarousel();
             this.initHeroIndicators();
             this.initTouchSupport();
-            this.preloadImages();
+            this.scheduleNextImagePreload();
             this.optimizeHeroPerformance();
             this.initScrollDepthEffect();
         },
@@ -57,7 +57,7 @@
                 this.currentImageIndex = (this.currentImageIndex + 1) % this.heroImages.length;
                 this.updateHeroBackground();
                 this.updateHeroIndicators();
-            }, 7000);
+            }, 10000);
         },
 
         // Update hero background with smooth transition
@@ -91,6 +91,8 @@
                 }
                 this.activeBg = 1;
             }
+
+            this.scheduleNextImagePreload();
         },
 
         // Update hero indicators
@@ -171,12 +173,20 @@
             }
         },
 
-        // Performance optimization: Preload images
-        preloadImages: function() {
-            this.heroImages.forEach(imageSrc => {
-                const img = new Image();
-                img.src = imageSrc;
-            });
+        // Load only the next slide while the browser is idle.
+        scheduleNextImagePreload: function() {
+            const preload = () => {
+                const nextIndex = (this.currentImageIndex + 1) % this.heroImages.length;
+                this.nextImagePreload = new Image();
+                this.nextImagePreload.decoding = 'async';
+                this.nextImagePreload.src = this.heroImages[nextIndex];
+            };
+
+            if ('requestIdleCallback' in window) {
+                window.requestIdleCallback(preload, { timeout: 2500 });
+            } else {
+                setTimeout(preload, 900);
+            }
         },
 
         // Classic Parallax Scroll Effect & Interactive Mouse Sway & Progress Bar
@@ -186,6 +196,7 @@
             const adventureBg = document.getElementById('adventure-bg-parallax');
             const adventureSection = document.getElementById('adventure');
             const progressBar = document.getElementById('scroll-progress');
+            const parallaxSections = document.querySelectorAll('.gowilds-footer, .tour-light-canopy');
 
             let ticking = false;
 
@@ -219,7 +230,6 @@
                 }
 
                 // 4. Apply depth parallax to dark and light tropical decorative sections
-                const parallaxSections = document.querySelectorAll('.gowilds-footer, .tour-light-canopy');
                 const windowHeight = window.innerHeight;
 
                 const updates = [];
@@ -260,6 +270,10 @@
             }, { passive: true });
 
             // 5. Lerped Mousemove Listener for Silk-Smooth Interactive Canopy Sway (with Inertia)
+            const allowMouseSway = window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
+                !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (!allowMouseSway) return;
+
             let targetMouseX = 0;
             let targetMouseY = 0;
             let currentMouseX = 0;

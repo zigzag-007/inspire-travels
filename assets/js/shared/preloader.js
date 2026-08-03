@@ -1,201 +1,186 @@
-// Preloader Module - Handles the loading animation, GSAP exits, and Canvas Particles
-// Author: Zig Zag AI
-// Description: Manages the cinematic loading screen with GSAP and Firefly particles
+// Preloader Module
+// Shows a short first visit reveal without holding the page behind heavy media.
 
-(function() {
+(function () {
     'use strict';
 
     window.PreloaderModule = {
-        init: function() {
-            const loading = document.getElementById('loading');
-            const progressBar = document.getElementById('loading-progress');
-            let progress = 0;
-            let loaded = false;
+        storageKey: 'inspire-preloader-seen',
+        completed: false,
+
+        init: function () {
+            var loading = document.getElementById('loading');
+            var progressBar = document.getElementById('loading-progress');
             if (!loading) return;
 
-            // Hide scrollbars during page loading wrapper
+            if (this.wasSeen()) {
+                loading.style.display = 'none';
+                this.complete();
+                return;
+            }
+
+            this.rememberVisit();
             document.body.style.overflow = 'hidden';
             document.documentElement.style.overflow = 'hidden';
-
-            // --- 1. Canvas Particle Engine (Fireflies) ---
             this.initCanvasParticles();
 
-            // --- 2. Progress Bar Logic ---
-            const progressInterval = setInterval(() => {
-                if (!loaded && progress < 90) {
-                    const remaining = 90 - progress;
-                    progress += Math.max(0.5, Math.random() * remaining * 0.15);
-                    progress = Math.min(90, progress);
-                    if (progressBar) progressBar.style.width = progress + '%';
-                }
-            }, 100);
+            var progress = 12;
+            var progressInterval = setInterval(function () {
+                progress = Math.min(88, progress + Math.max(2, (88 - progress) * 0.18));
+                if (progressBar) progressBar.style.width = progress + '%';
+            }, 80);
 
-            // --- 3. Cinematic GSAP Exit Reveal ---
-            const hidePreloader = () => {
-                loaded = true;
-                clearInterval(progressInterval);
-                if (progressBar) progressBar.style.width = '100%';
+            var startedAt = Date.now();
+            var exit = function () {
+                var minimumDisplay = 450;
+                var remaining = Math.max(0, minimumDisplay - (Date.now() - startedAt));
 
-                setTimeout(() => {
-                    if (typeof gsap === 'undefined') {
-                        this.fallbackExit(loading);
-                        return;
-                    }
+                setTimeout(function () {
+                    clearInterval(progressInterval);
+                    if (progressBar) progressBar.style.width = '100%';
+                    this.exit(loading);
+                }.bind(this), remaining);
+            }.bind(this);
 
-                    // Remove conflicting CSS transitions before GSAP takes over
-                    loading.classList.remove('transition-all', 'duration-700');
-
-                    const tl = gsap.timeline({
-                        onComplete: () => {
-                            loading.style.display = 'none';
-                            document.body.style.overflow = '';
-                            document.documentElement.style.overflow = '';
-                            document.dispatchEvent(new CustomEvent('app-loaded'));
-                            if (window.HeroModule && typeof window.HeroModule.initHeroAnimations === 'function') {
-                                window.HeroModule.initHeroAnimations();
-                            }
-                        }
-                    });
-
-                    // GSAP Cinematic Wipe Choreography
-                    tl.to(loading.querySelector('.text-center'), {
-                        scale: 0.95,
-                        y: -30,
-                        opacity: 0,
-                        duration: 0.8,
-                        ease: 'power3.inOut'
-                    })
-                    .to(loading.querySelectorAll('.absolute.inset-0 > div, svg'), {
-                        y: -50,
-                        opacity: 0,
-                        duration: 0.8,
-                        stagger: 0.05,
-                        ease: 'power3.in'
-                    }, "-=0.6")
-                    .to(loading, {
-                        yPercent: -100, // Smoothly moves the entire screen upwards
-                        duration: 1.2,
-                        ease: 'power4.inOut'
-                    }, "-=0.4");
-                }, 1500); // 1.5s delay to show 100% full bar
-            };
-
-            if (document.readyState === 'complete') {
-                hidePreloader();
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', exit, { once: true });
             } else {
-                window.addEventListener('load', hidePreloader);
+                exit();
+            }
+
+            // A slow image or third party file must never trap the visitor.
+            setTimeout(function () {
+                if (!this.completed && loading.style.display !== 'none') {
+                    clearInterval(progressInterval);
+                    this.exit(loading);
+                }
+            }.bind(this), 2500);
+        },
+
+        exit: function (loading) {
+            if (loading.dataset.exiting === 'true') return;
+            loading.dataset.exiting = 'true';
+            loading.classList.remove('transition-all', 'duration-700');
+            loading.style.transition = 'opacity 0.32s ease, transform 0.46s cubic-bezier(0.22, 1, 0.36, 1)';
+            loading.style.opacity = '0';
+            loading.style.transform = 'translate3d(0, -1.5rem, 0)';
+
+            setTimeout(function () {
+                loading.style.display = 'none';
+                this.complete();
+            }.bind(this), 470);
+        },
+
+        complete: function () {
+            if (this.completed) return;
+            this.completed = true;
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+            document.dispatchEvent(new CustomEvent('app-loaded'));
+
+            if (window.HeroModule && typeof window.HeroModule.initHeroAnimations === 'function') {
+                window.HeroModule.initHeroAnimations();
             }
         },
 
-        fallbackExit: function(loading) {
-            loading.style.opacity = '0';
-            setTimeout(() => {
-                loading.style.display = 'none';
-                document.body.style.overflow = '';
-                document.documentElement.style.overflow = '';
-                document.dispatchEvent(new CustomEvent('app-loaded'));
-                if (window.HeroModule && typeof window.HeroModule.initHeroAnimations === 'function') {
-                    window.HeroModule.initHeroAnimations();
-                }
-            }, 750);
+        wasSeen: function () {
+            try {
+                return sessionStorage.getItem(this.storageKey) === 'true';
+            } catch (error) {
+                return false;
+            }
         },
 
-        initCanvasParticles: function() {
-            const canvas = document.getElementById('preloader-canvas');
-            if (!canvas) return;
-            const ctx = canvas.getContext('2d');
-            let particles = [];
-            
-            const resize = () => {
+        rememberVisit: function () {
+            try {
+                sessionStorage.setItem(this.storageKey, 'true');
+            } catch (error) {
+                // Private browsing can block storage. The short reveal still works.
+            }
+        },
+
+        initCanvasParticles: function () {
+            var canvas = document.getElementById('preloader-canvas');
+            var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var coarsePointer = window.matchMedia('(pointer: coarse)').matches;
+            if (!canvas || reduceMotion || coarsePointer) return;
+
+            var ctx = canvas.getContext('2d');
+            var particles = [];
+            var animationFrameId = null;
+            var mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+
+            var resize = function () {
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
             };
-            window.addEventListener('resize', resize);
-            resize();
 
-            let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
-            const trackMouse = (e) => {
-                mouse.x = e.clientX;
-                mouse.y = e.clientY;
+            var trackMouse = function (event) {
+                mouse.x = event.clientX;
+                mouse.y = event.clientY;
             };
-            document.addEventListener('mousemove', trackMouse);
 
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 2.5 + 0.5;
-                    this.baseX = this.x;
-                    this.baseY = this.y;
-                    this.density = (Math.random() * 30) + 1;
-                    this.angle = Math.random() * 360;
-                    this.velocity = Math.random() * 0.02 + 0.01;
-                    this.color = `rgba(43, 61, 38, ${Math.random() * 0.5 + 0.2})`; // Forest green variants
-                }
-                update() {
-                    this.angle += this.velocity;
-                    // Wander organically
-                    this.x += Math.sin(this.angle) * 1;
-                    this.y += Math.cos(this.angle) * 1;
-                    
-                    // Mouse interaction: Particles repel away organically from the cursor
-                    let dx = mouse.x - this.x;
-                    let dy = mouse.y - this.y;
-                    let distance = Math.sqrt(dx * dx + dy * dy);
-                    let forceDirectionX = dx / distance;
-                    let forceDirectionY = dy / distance;
-                    let maxDistance = 150;
-                    let force = (maxDistance - distance) / maxDistance;
-                    let directionX = forceDirectionX * force * this.density;
-                    let directionY = forceDirectionY * force * this.density;
-                    
-                    if (distance < maxDistance) {
-                        this.x -= directionX;
-                        this.y -= directionY;
-                    }
-
-                    // Wrap edges smoothly
-                    if (this.x < 0) this.x = canvas.width;
-                    if (this.x > canvas.width) this.x = 0;
-                    if (this.y < 0) this.y = canvas.height;
-                    if (this.y > canvas.height) this.y = 0;
-                }
-                draw() {
-                    ctx.fillStyle = this.color;
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.closePath();
-                    ctx.fill();
-                }
+            function Particle() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.density = (Math.random() * 18) + 1;
+                this.angle = Math.random() * 360;
+                this.velocity = Math.random() * 0.02 + 0.01;
+                this.color = 'rgba(43, 61, 38, ' + (Math.random() * 0.45 + 0.18) + ')';
             }
 
-            const initParticles = () => {
-                particles = [];
-                const numParticles = Math.min(120, window.innerWidth / 8); // Scale particle count by screen width
-                for (let i = 0; i < numParticles; i++) {
-                    particles.push(new Particle());
+            Particle.prototype.update = function () {
+                this.angle += this.velocity;
+                this.x += Math.sin(this.angle);
+                this.y += Math.cos(this.angle);
+
+                var dx = mouse.x - this.x;
+                var dy = mouse.y - this.y;
+                var distance = Math.max(1, Math.sqrt((dx * dx) + (dy * dy)));
+                if (distance < 130) {
+                    var force = (130 - distance) / 130;
+                    this.x -= (dx / distance) * force * this.density;
+                    this.y -= (dy / distance) * force * this.density;
                 }
+
+                if (this.x < 0) this.x = canvas.width;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.y < 0) this.y = canvas.height;
+                if (this.y > canvas.height) this.y = 0;
             };
 
-            let animationFrameId;
-            const animate = () => {
+            Particle.prototype.draw = function () {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            };
+
+            resize();
+            var particleCount = Math.min(48, Math.max(24, Math.floor(window.innerWidth / 24)));
+            for (var i = 0; i < particleCount; i += 1) {
+                particles.push(new Particle());
+            }
+
+            var animate = function () {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                for (let i = 0; i < particles.length; i++) {
-                    particles[i].update();
-                    particles[i].draw();
-                }
+                particles.forEach(function (particle) {
+                    particle.update();
+                    particle.draw();
+                });
                 animationFrameId = requestAnimationFrame(animate);
             };
 
-            initParticles();
+            window.addEventListener('resize', resize, { passive: true });
+            document.addEventListener('mousemove', trackMouse, { passive: true });
             animate();
 
-            // Cleanup when preloader finishes to free GPU/CPU
-            document.addEventListener('app-loaded', () => {
+            document.addEventListener('app-loaded', function () {
                 cancelAnimationFrame(animationFrameId);
                 window.removeEventListener('resize', resize);
                 document.removeEventListener('mousemove', trackMouse);
-            });
+            }, { once: true });
         }
     };
 })();
