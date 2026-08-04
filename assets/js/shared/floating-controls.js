@@ -96,7 +96,7 @@
 
         getBounds: function () {
             var rect = this.bubble.getBoundingClientRect();
-            var gutter = 12;
+            var gutter = window.matchMedia('(max-width: 640px)').matches ? 16 : 20;
             var navbar = document.getElementById('navbar');
             var navbarRect = navbar ? navbar.getBoundingClientRect() : null;
             var topBar = document.querySelector('.top-contact-bar');

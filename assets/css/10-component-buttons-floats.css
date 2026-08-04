@@ -111,8 +111,8 @@ button:focus-visible {
     width: 64px;
     height: 64px;
     top: auto;
-    right: max(1rem, env(safe-area-inset-right));
-    bottom: calc(5.5rem + env(safe-area-inset-bottom));
+    right: max(1.4rem, calc(env(safe-area-inset-right) + 0.4rem));
+    bottom: calc(6.5rem + env(safe-area-inset-bottom));
     transform: none;
     background-color: #25D366;
     color: white;
@@ -244,7 +244,7 @@ button:focus-visible {
 .back-to-top {
     position: fixed !important;
     right: max(1rem, env(safe-area-inset-right)) !important;
-    bottom: calc(1rem + env(safe-area-inset-bottom)) !important;
+    bottom: calc(1.75rem + env(safe-area-inset-bottom)) !important;
     z-index: 39 !important;
     display: flex !important;
     opacity: 0;
@@ -296,8 +296,8 @@ button:focus-visible {
     .whatsapp-float {
         width: 58px;
         height: 58px;
-        right: max(0.85rem, env(safe-area-inset-right));
-        bottom: calc(4.75rem + env(safe-area-inset-bottom));
+        right: max(1rem, calc(env(safe-area-inset-right) + 0.35rem));
+        bottom: calc(5.5rem + env(safe-area-inset-bottom));
     }
 
     .whatsapp-float > i {
@@ -317,6 +317,6 @@ button:focus-visible {
         width: 46px !important;
         height: 46px !important;
         right: max(0.85rem, env(safe-area-inset-right)) !important;
-        bottom: calc(0.85rem + env(safe-area-inset-bottom)) !important;
+        bottom: calc(1.4rem + env(safe-area-inset-bottom)) !important;
     }
 }
