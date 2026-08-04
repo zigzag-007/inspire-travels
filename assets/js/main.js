@@ -17,6 +17,7 @@ function initInspireTravels() {
     if (window.ToursModule) window.ToursModule.init();
     if (window.FavoritesModule) window.FavoritesModule.init();
     if (window.AboutModule) window.AboutModule.init();
+    if (window.ReviewsModule) window.ReviewsModule.init();
     if (window.GalleryModule) window.GalleryModule.init();
     if (window.PromoModule) window.PromoModule.init();
     if (window.CounterModule) window.CounterModule.init();

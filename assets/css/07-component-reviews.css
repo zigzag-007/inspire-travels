@@ -1,0 +1,78 @@
+/* Traveler review carousel */
+
+.review-card-shell {
+    min-height: 28rem;
+}
+
+.review-card-content {
+    transition:
+        opacity 0.28s ease,
+        transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.review-card-content.is-leaving-next {
+    opacity: 0;
+    transform: translateX(-1.5rem);
+}
+
+.review-card-content.is-leaving-prev {
+    opacity: 0;
+    transform: translateX(1.5rem);
+}
+
+.review-card-content.is-entering-next {
+    opacity: 0;
+    transform: translateX(1.5rem);
+}
+
+.review-card-content.is-entering-prev {
+    opacity: 0;
+    transform: translateX(-1.5rem);
+}
+
+.review-quote {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.review-toggle {
+    min-width: 5.5rem;
+    border: 1px solid rgba(26, 47, 39, 0.14);
+    border-radius: 1.35rem;
+    background: rgba(255, 255, 255, 0.78);
+    color: #173c36;
+    padding: 0.8rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    transition:
+        color 0.25s ease,
+        background-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.review-toggle:hover {
+    color: #ffffff;
+    background: #087b69;
+    transform: translateY(-2px);
+}
+
+.review-toggle:focus-visible {
+    outline: 2px solid #087b69;
+    outline-offset: 3px;
+}
+
+@media (max-width: 639px) {
+    .review-card-shell {
+        min-height: 31rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .review-card-content,
+    .review-toggle {
+        transition-duration: 0.01ms !important;
+    }
+}
