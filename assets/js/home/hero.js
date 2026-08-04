@@ -21,6 +21,9 @@
         bg1: null,
         bg2: null,
         activeBg: 1,
+        carouselTimer: null,
+        carouselDelay: 16000,
+        reduceMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
 
         init: function() {
             this.heroSection = document.getElementById('home');
@@ -33,6 +36,7 @@
             this.scheduleNextImagePreload();
             this.optimizeHeroPerformance();
             this.initScrollDepthEffect();
+            this.bindVisibilityControl();
         },
 
         // Initialize hero background
@@ -52,12 +56,32 @@
 
         // Hero image carousel
         startHeroCarousel: function() {
-            // First background is initialized in HTML/initHeroBackground, so start interval
-            setInterval(() => {
+            if (this.reduceMotion || this.carouselTimer || document.hidden) return;
+
+            this.carouselTimer = setInterval(() => {
                 this.currentImageIndex = (this.currentImageIndex + 1) % this.heroImages.length;
                 this.updateHeroBackground();
                 this.updateHeroIndicators();
-            }, 10000);
+            }, this.carouselDelay);
+        },
+
+        restartHeroCarousel: function() {
+            if (this.carouselTimer) {
+                clearInterval(this.carouselTimer);
+                this.carouselTimer = null;
+            }
+            this.startHeroCarousel();
+        },
+
+        bindVisibilityControl: function() {
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden && this.carouselTimer) {
+                    clearInterval(this.carouselTimer);
+                    this.carouselTimer = null;
+                } else {
+                    this.startHeroCarousel();
+                }
+            });
         },
 
         // Update hero background with smooth transition
@@ -116,6 +140,7 @@
                     this.currentImageIndex = index;
                     this.updateHeroBackground();
                     this.updateHeroIndicators();
+                    this.restartHeroCarousel();
                 });
             });
         },
@@ -170,6 +195,7 @@
                 }
                 this.updateHeroBackground();
                 this.updateHeroIndicators();
+                this.restartHeroCarousel();
             }
         },
 

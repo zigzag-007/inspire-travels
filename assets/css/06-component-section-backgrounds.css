@@ -371,20 +371,27 @@
     inset: 0;
     background-size: cover;
     background-position: center;
-    transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1), transform 10s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 2.8s cubic-bezier(0.22, 1, 0.36, 1), transform 18s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: opacity, transform;
 }
 
 .hero-bg-inactive {
     opacity: 0;
-    transform: scale(1.06);
+    transform: scale(1.075);
     z-index: 0;
 }
 
 .hero-bg-active {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1.015);
     z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-bg-layer {
+        transition-duration: 0.01ms;
+        transform: none;
+    }
 }
 
 .gowilds-footer .tech-metadata {
