@@ -5,7 +5,7 @@
    Author: Zig Zag AI
    Description: Sticky navigation bar, including its glass background states and mobile menu
    Purpose: Everything related to the site header and nav bar in one place
-   Part of: main.css (see main.css for load order)
+   Loaded directly by each page with the shared component styles
 
    Table of Contents:
     1. Navbar Glass Background
@@ -58,6 +58,125 @@
     overflow: visible !important;
 }
 
+/* Shared desktop dropdown menus */
+.desktop-nav-menu {
+    position: relative;
+    padding-block: 1.25rem;
+}
+
+body[data-current-nav="tours"] [data-desktop-menu="tours"] > .nav-link,
+body[data-current-nav="destinations"] [data-desktop-menu="destinations"] > .nav-link,
+body[data-current-nav="gallery"] [data-desktop-menu="gallery"] > .nav-link {
+    color: var(--accent-color) !important;
+}
+
+.desktop-nav-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    white-space: nowrap;
+}
+
+.desktop-nav-chevron {
+    transition: transform 220ms ease;
+}
+
+.desktop-nav-dropdown {
+    position: absolute;
+    top: calc(100% - 0.45rem);
+    left: 50%;
+    width: 17.5rem;
+    padding: 0.55rem;
+    border: 1px solid rgba(203, 213, 225, 0.78);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 22px 50px rgba(15, 23, 42, 0.18);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    backdrop-filter: blur(18px) saturate(140%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, -0.4rem) scale(0.97);
+    transform-origin: top center;
+    transition: opacity 180ms ease, visibility 180ms ease, transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 60;
+}
+
+.desktop-nav-dropdown.is-wide {
+    width: 34rem;
+}
+
+.desktop-nav-menu:hover .desktop-nav-dropdown,
+.desktop-nav-menu:focus-within .desktop-nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0) scale(1);
+}
+
+.desktop-nav-menu:hover .desktop-nav-chevron,
+.desktop-nav-menu:focus-within .desktop-nav-chevron {
+    transform: rotate(180deg);
+}
+
+.desktop-nav-dropdown-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+}
+
+.desktop-nav-dropdown.is-wide .desktop-nav-dropdown-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.desktop-nav-dropdown-link {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0.7rem 0.8rem;
+    border-radius: 0.7rem;
+    color: #1e293b;
+    transition: color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+.desktop-nav-dropdown-link:hover,
+.desktop-nav-dropdown-link:focus-visible {
+    color: #047857;
+    background: #ecfdf5;
+    transform: translateX(2px);
+    outline: none;
+}
+
+.desktop-nav-dropdown-label {
+    overflow: hidden;
+    font-size: 0.82rem;
+    font-weight: 750;
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.desktop-nav-dropdown-meta {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: #64748b;
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .desktop-primary-nav {
+        gap: 0.85rem !important;
+    }
+
+    .desktop-primary-nav .nav-link {
+        font-size: 0.88rem !important;
+    }
+
+    #navbar .desktop-primary-nav + div button:first-child {
+        padding-inline: 1rem;
+    }
+}
+
 /* Mobile contact ticker. Desktop keeps the original balanced row. */
 .top-contact-bar {
     overflow: hidden;
@@ -92,6 +211,8 @@
     .mobile-menu {
         width: min(85vw, 20rem) !important;
         max-width: 20rem !important;
+        overflow-y: auto;
+        overscroll-behavior: contain;
         -webkit-backdrop-filter: blur(14px);
         backdrop-filter: blur(14px);
     }
@@ -107,6 +228,68 @@
         gap: 0.85rem !important;
         border-radius: 0.9rem !important;
         font-size: 0.95rem !important;
+    }
+
+    .mobile-menu-control {
+        display: flex;
+        width: 100%;
+        min-height: 3.25rem;
+        align-items: center;
+        gap: 0.85rem;
+        padding: 0.8rem 0.9rem;
+        border-radius: 0.9rem;
+        color: #334155;
+        font-size: 0.95rem;
+        font-weight: 650;
+        text-align: left;
+        transition: color 180ms ease, background-color 180ms ease;
+    }
+
+    .mobile-menu-control:hover,
+    .mobile-menu-control:focus-visible {
+        color: #047857;
+        background: #ecfdf5;
+        outline: none;
+    }
+
+    .mobile-submenu-chevron {
+        margin-left: auto;
+        transition: transform 220ms ease;
+    }
+
+    .mobile-submenu-toggle[aria-expanded="true"] .mobile-submenu-chevron {
+        transform: rotate(180deg);
+    }
+
+    .mobile-submenu {
+        margin: 0.2rem 0 0.45rem 2.55rem;
+        padding-left: 0.65rem;
+        border-left: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .mobile-menu .mobile-submenu-link {
+        display: flex;
+        min-height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.08rem !important;
+        padding: 0.55rem 0.7rem !important;
+        border-radius: 0.65rem !important;
+        color: #475569;
+        line-height: 1.2;
+    }
+
+    .mobile-menu .mobile-submenu-link:hover,
+    .mobile-menu .mobile-submenu-link:focus-visible {
+        color: #047857;
+        background: #ecfdf5;
+        outline: none;
+    }
+
+    .mobile-submenu-link small {
+        color: #94a3b8;
+        font-size: 0.65rem;
+        font-weight: 600;
     }
 
     .mobile-menu img[alt="Inspire Travels"] {
@@ -195,7 +378,7 @@
     }
 }
 @media (max-width: 375px) {
-    /* Mobile sidebar — constrain width on very small phones */
+    /* Constrain the mobile sidebar on very small phones */
     .mobile-menu {
         width: 88vw !important;
     }
@@ -206,7 +389,7 @@
     }
 }
 @media (max-width: 320px) {
-    /* Mobile sidebar — nearly full width */
+    /* Make the mobile sidebar nearly full width */
     .mobile-menu {
         width: 95vw !important;
     }

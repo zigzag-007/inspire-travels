@@ -167,7 +167,6 @@
 		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 		<!-- GSAP Animation Library -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 		<link rel="stylesheet" href="../assets/css/01-base-variables.css">
@@ -176,9 +175,7 @@
 		<link rel="stylesheet" href="../assets/css/04-component-navigation.css">
 		<link rel="stylesheet" href="../assets/css/05-component-liquid-glass.css">
 		<link rel="stylesheet" href="../assets/css/06-component-section-backgrounds.css">
-		<link rel="stylesheet" href="../assets/css/07-component-blog.css">
 		<link rel="stylesheet" href="../assets/css/08-component-gallery-modal.css">
-		<link rel="stylesheet" href="../assets/css/09-component-destination-editorial.css">
 		<link rel="stylesheet" href="../assets/css/10-component-buttons-floats.css">
 		<link rel="stylesheet" href="../assets/css/11-animation-keyframes.css">
 		<link rel="stylesheet" href="../assets/css/12-utility-accessibility.css">
@@ -188,7 +185,7 @@
 		<script src="../assets/js/shared/tailwind-config.js"></script>
 
 	</head>
-	<body class="font-sans antialiased bg-background text-foreground">
+	<body class="font-sans antialiased bg-background text-foreground" data-nav-base="../" data-current-nav="tours">
 		<!-- Loading Animation Preloader -->
 		<div id="loading" class="fixed inset-0 z-[100] transition-all duration-700">
 			<!-- Canvas for interactive organic particles (Fireflies) -->
@@ -307,21 +304,27 @@
 						</a>
 					</div>
 					<!-- Desktop Navigation - Center -->
-					<div class="hidden lg:flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2">
+					<div class="desktop-primary-nav hidden lg:flex items-center gap-6 absolute left-1/2 transform -translate-x-1/2">
 						<a href="../index.html#home" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Home</a>
-						<a href="../index.html#tours" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Tours</a>
-						<a href="../index.html#about" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">About</a>
-						<!-- Gallery Hover Dropdown -->
-						<div class="relative group">
-							<a href="../index.html#gallery" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px] flex items-center gap-1">
-								Gallery <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"></i>
+						<div class="desktop-nav-menu" data-desktop-menu="tours">
+							<a href="../index.html#tours" class="nav-link desktop-nav-trigger text-accent hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]" aria-haspopup="true">
+								Tours <i data-lucide="chevron-down" class="desktop-nav-chevron w-4 h-4"></i>
 							</a>
-							<div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-48 rounded-xl bg-white/95 border border-slate-200/50 backdrop-blur-md shadow-2xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform scale-95 group-hover:scale-100 z-50 origin-top">
-								<a href="../index.html#gallery" class="block px-4 py-2 text-sm text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 transition-colors font-medium">Featured Moments</a>
-								<a href="../gallery.html" class="block px-4 py-2 text-sm text-slate-800 hover:bg-emerald-50 hover:text-emerald-700 transition-colors font-medium">Full Archive (50+)</a>
-							</div>
+							<div class="desktop-nav-dropdown" data-nav-panel aria-label="Tours submenu"></div>
 						</div>
-						<a href="../index.html#adventure" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Adventure</a>
+						<div class="desktop-nav-menu" data-desktop-menu="destinations">
+							<a href="../index.html#destinations" class="nav-link desktop-nav-trigger text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]" aria-haspopup="true">
+								Destinations <i data-lucide="chevron-down" class="desktop-nav-chevron w-4 h-4"></i>
+							</a>
+							<div class="desktop-nav-dropdown" data-nav-panel aria-label="Destinations submenu"></div>
+						</div>
+						<a href="../index.html#about" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">About</a>
+						<div class="desktop-nav-menu" data-desktop-menu="gallery">
+							<a href="../index.html#gallery" class="nav-link desktop-nav-trigger text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]" aria-haspopup="true">
+								Gallery <i data-lucide="chevron-down" class="desktop-nav-chevron w-4 h-4"></i>
+							</a>
+							<div class="desktop-nav-dropdown" data-nav-panel aria-label="Gallery submenu"></div>
+						</div>
 						<a href="../index.html#reviews" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Reviews</a>
 						<a href="../index.html#footer" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Contact</a>
 					</div>
@@ -356,22 +359,13 @@
 						<i data-lucide="home" class="w-5 h-5"></i>
 						<span>Home</span>
 					</a>
-					<a href="../index.html#tours" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl" data-section="tours">
-						<i data-lucide="map" class="w-5 h-5"></i>
-						<span>Tours</span>
-					</a>
+					<div data-mobile-menu="tours"></div>
+					<div data-mobile-menu="destinations"></div>
 					<a href="../index.html#about" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl" data-section="about">
 						<i data-lucide="users" class="w-5 h-5"></i>
 						<span>About</span>
 					</a>
-					<a href="../gallery.html" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl">
-						<i data-lucide="image" class="w-5 h-5"></i>
-						<span>Gallery Archive</span>
-					</a>
-					<a href="../index.html#adventure" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl" data-section="adventure">
-						<i data-lucide="mountain" class="w-5 h-5"></i>
-						<span>Adventure</span>
-					</a>
+					<div data-mobile-menu="gallery"></div>
 					<a href="../index.html#reviews" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl" data-section="reviews">
 						<i data-lucide="star" class="w-5 h-5"></i>
 						<span>Reviews</span>
@@ -556,7 +550,7 @@
 		   <img src="../assets/img/icons/whatsapp.svg" class="whatsapp-brand-icon" alt="" aria-hidden="true">
 		</a>
 		<!-- Back to Top Button -->
-		<a href="#" class="back-to-top fixed bottom-6 right-6 z-30 bg-white/20 backdrop-blur-md border border-[#005f73]/20 text-primary hover:bg-white/30 w-12 h-12 md:w-14 md:h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center focus:outline-none focus:ring-0 active:outline-none" style="display: none;"
+		<a href="#" class="back-to-top fixed bottom-6 right-6 z-30 bg-white/20 backdrop-blur-md border border-[#005f73]/20 text-primary hover:bg-white/30 w-12 h-12 md:w-14 md:h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center focus:outline-none focus:ring-0 active:outline-none" aria-hidden="true"
 			aria-label="Back to top" title="Back to top">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
 				class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
@@ -605,68 +599,21 @@
 			</div>
 		</div>
 		<!-- PhotoSwipe JS -->
-		<script type="module">
-			import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5.4.3/dist/photoswipe-lightbox.esm.js';
-			import PhotoSwipe from 'https://unpkg.com/photoswipe@5.4.3/dist/photoswipe.esm.js';
-			window.PhotoSwipeLightbox = PhotoSwipeLightbox;
-			window.PhotoSwipe = PhotoSwipe;
-		</script>
-		<script src="../assets/js/shared/modal.js"></script>
+		<script src="https://unpkg.com/photoswipe@5.4.3/dist/umd/photoswipe.umd.min.js"></script>
+		<script src="https://unpkg.com/photoswipe@5.4.3/dist/umd/photoswipe-lightbox.umd.min.js"></script>
 		<script src="../assets/js/shared/preloader.js"></script>
 		<script src="../assets/js/shared/aos.js"></script>
 		<script src="../assets/js/shared/navigation.js?v=20260726-scroll-rush"></script>
+	    <script src="../assets/js/shared/navigation-menus.js"></script>
 	    <script src="../assets/js/shared/mobile-menu.js"></script>
 	    <script src="../assets/js/shared/contact-ticker.js"></script>
 	    <script src="../assets/js/shared/floating-controls.js"></script>
+	    <script src="../assets/js/shared/liquid-glass.js"></script>
 	    <script src="../assets/js/shared/whatsapp.js"></script>
 	    <script src="../assets/js/shared/card-spotlight.js"></script>
 		<script src="../assets/js/tours/tour-data.js"></script>
-		<script src="../assets/js/main.js"></script>		<!-- Premium Promo Carousel Modal -->
-		<div id="promoModal" class="fixed inset-0 bg-[#0c3531]/40 backdrop-blur-md z-50 items-center justify-center p-4 opacity-0 invisible transition-all duration-300 pointer-events-auto">
-			<div class="promo-modal-container relative w-full max-w-lg bg-[#0c3531]/85 border border-white/10 backdrop-blur-2xl rounded-3xl shadow-2xl p-6 sm:p-8 transform scale-95 translate-y-8 opacity-0 transition-all duration-300 ease-out flex flex-col items-center">
-				<!-- Close Button -->
-				<button type="button" id="closePromoModal" class="absolute top-4 right-4 bg-black/30 hover:bg-black/50 text-white w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200 z-10" aria-label="Close promo modal" title="Close promo modal">
-					<i data-lucide="x" class="w-4 h-4"></i>
-				</button>
+		<script src="../assets/js/main.js"></script>
 
-				<!-- Header Title -->
-				<div class="text-center mb-6">
-					<span class="text-[10px] sm:text-xs font-semibold text-accent uppercase tracking-wider block mb-1">Exclusive Travel Campaign</span>
-					<h3 class="font-display text-xl sm:text-2xl font-bold text-white">Active Special Offers</h3>
-				</div>
-
-				<!-- Carousel viewport (Tinder Stack Container) -->
-				<div class="relative w-full aspect-square sm:w-[360px] sm:h-[360px] mt-2 mb-6">
-					<div id="promoCardStack" class="absolute inset-0 w-full h-full select-none">
-						<!-- Dynamically injected stack cards -->
-					</div>
-				</div>
-
-				<!-- Dots Indicator -->
-				<div id="promoModalDots" class="flex gap-1.5 justify-center mt-4">
-					<!-- Dynamically injected indicators -->
-				</div>
-
-				<!-- WhatsApp Claim Button -->
-				<div class="w-full mt-6 flex flex-col items-center">
-					<a id="promoModalWhatsappLink" href="" target="_blank" rel="noopener" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition-all duration-300 hover:shadow-emerald-500/20 hover:scale-105 active:scale-95 flex items-center justify-center gap-2 text-sm sm:text-base">
-						<i class="ph-fill ph-whatsapp-logo text-lg" aria-hidden="true"></i>
-						<span>Claim 15% Discount on WhatsApp</span>
-					</a>
-					<p class="text-[10px] text-white/40 mt-3 text-center">T&C apply. Promos valid for direct bookings only.</p>
-				</div>
-			</div>
-		</div>
-
-		<!-- SVG Filters for Liquid Glass Effect -->
-		<svg style="display: none">
-			<!-- Original glass filter for glass-morph -->
-			<filter id="container-glass" x="0%" y="0%" width="100%" height="100%">
-				<feTurbulence type="fractalNoise" baseFrequency="0.008 0.008" numOctaves="2" seed="92" result="noise" />
-				<feGaussianBlur in="noise" stdDeviation="0.02" result="blur" />
-				<feDisplacementMap in="SourceGraphic" in2="blur" scale="40" xChannelSelector="R" yChannelSelector="G" />
-			</filter>
-		</svg>
 	    <script src="../assets/js/tours/tour-gallery-data.js"></script>
 	    <script src="../assets/js/tours/tour-route.js"></script>
 	    <script src="../assets/js/tours/tour-itinerary.js"></script>

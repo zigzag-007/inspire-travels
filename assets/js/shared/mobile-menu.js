@@ -11,6 +11,7 @@
         mobileMenuClose: null,
         blurOverlay: null,
         mobileNavLinks: null,
+        mobileSubmenuToggles: null,
 
         init: function() {
             this.mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -18,6 +19,7 @@
             this.mobileMenuClose = document.getElementById('mobile-menu-close');
             this.blurOverlay = document.getElementById('blur-overlay');
             this.mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            this.mobileSubmenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
 
             if (this.mobileMenuBtn) this.mobileMenuBtn.setAttribute('aria-expanded', 'false');
             if (this.mobileMenu) this.mobileMenu.setAttribute('aria-hidden', 'true');
@@ -45,6 +47,12 @@
             if (this.mobileNavLinks) {
                 this.mobileNavLinks.forEach(link => {
                     link.addEventListener('click', () => this.closeMobileMenu());
+                });
+            }
+
+            if (this.mobileSubmenuToggles) {
+                this.mobileSubmenuToggles.forEach(toggle => {
+                    toggle.addEventListener('click', () => this.toggleSubmenu(toggle));
                 });
             }
 
@@ -88,6 +96,44 @@
             if (this.mobileMenu) this.mobileMenu.setAttribute('aria-hidden', 'false');
         },
 
+        toggleSubmenu: function(toggle) {
+            var panelId = toggle.getAttribute('aria-controls');
+            var panel = panelId ? document.getElementById(panelId) : null;
+            if (!panel) return;
+
+            var shouldOpen = toggle.getAttribute('aria-expanded') !== 'true';
+
+            this.mobileSubmenuToggles.forEach(function(otherToggle) {
+                var otherPanelId = otherToggle.getAttribute('aria-controls');
+                var otherPanel = otherPanelId ? document.getElementById(otherPanelId) : null;
+                otherToggle.setAttribute('aria-expanded', 'false');
+                if (otherPanel) {
+                    otherPanel.classList.add('hidden');
+                    otherPanel.setAttribute('aria-hidden', 'true');
+                }
+            });
+
+            if (shouldOpen) {
+                toggle.setAttribute('aria-expanded', 'true');
+                panel.classList.remove('hidden');
+                panel.setAttribute('aria-hidden', 'false');
+            }
+        },
+
+        resetSubmenus: function() {
+            if (!this.mobileSubmenuToggles) return;
+
+            this.mobileSubmenuToggles.forEach(function(toggle) {
+                var panelId = toggle.getAttribute('aria-controls');
+                var panel = panelId ? document.getElementById(panelId) : null;
+                toggle.setAttribute('aria-expanded', 'false');
+                if (panel) {
+                    panel.classList.add('hidden');
+                    panel.setAttribute('aria-hidden', 'true');
+                }
+            });
+        },
+
         closeMobileMenu: function() {
             if (this.mobileMenu) {
                 // Force hardware acceleration with translate3d
@@ -107,6 +153,7 @@
             document.body.style.overflow = ''; // Restore scrolling
             if (this.mobileMenuBtn) this.mobileMenuBtn.setAttribute('aria-expanded', 'false');
             if (this.mobileMenu) this.mobileMenu.setAttribute('aria-hidden', 'true');
+            this.resetSubmenus();
         },
 
         // Keyboard navigation support
@@ -121,8 +168,11 @@
 
         // Active section highlighting with optimized performance
         initActiveSectionHighlighting: function() {
-            const sections = ['home', 'tours', 'about', 'gallery', 'adventure', 'reviews', 'footer'];
-            const navLinks = this.mobileMenu.querySelectorAll('.mobile-nav-link[data-section]');
+            if (!this.mobileMenu) return;
+
+            const sections = ['home', 'tours', 'destinations', 'about', 'gallery', 'reviews', 'footer'];
+            const navLinks = this.mobileMenu.querySelectorAll('.mobile-menu-control[data-section], .mobile-nav-link[data-section]');
+            const fixedSection = document.body.dataset.currentNav;
             let ticking = false; // RAF throttle flag
 
             const highlightActiveSection = () => {
@@ -133,6 +183,16 @@
                     link.classList.remove('active-mobile-nav', 'bg-gradient-to-r', 'from-emerald-500', 'to-emerald-600', 'text-white');
                     link.classList.add('text-slate-700');
                 });
+
+                if (fixedSection) {
+                    const fixedLink = this.mobileMenu.querySelector(`[data-section="${fixedSection}"]`);
+                    if (fixedLink) {
+                        fixedLink.classList.add('active-mobile-nav', 'bg-gradient-to-r', 'from-emerald-500', 'to-emerald-600', 'text-white');
+                        fixedLink.classList.remove('text-slate-700');
+                    }
+                    ticking = false;
+                    return;
+                }
 
                 // Find which section is currently in view
                 sections.forEach(section => {
