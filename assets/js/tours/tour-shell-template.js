@@ -77,7 +77,7 @@
         <!-- Quick-Links Sub-Navigation Bar (Matching Destinations & Gallery Design) -->
         <div class="bg-white border-b border-slate-200 py-3 shadow-xs relative z-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-center md:justify-start gap-4 sm:gap-8 text-xs sm:text-sm font-semibold text-slate-600 overflow-x-auto no-scrollbar py-1">
+                <div class="section-quick-links flex items-center justify-start gap-4 sm:gap-8 text-xs sm:text-sm font-semibold text-slate-600 overflow-x-auto no-scrollbar py-1 snap-x snap-proximity scroll-px-1 overscroll-x-contain [&>a]:min-h-11 [&>a]:px-[0.2rem] [&>a]:snap-start">
                     <a href="#tour-tab-panel-overview" data-tour-tab="overview" data-tour-scroll="true" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap">
                         <i data-lucide="book-open" class="w-4 h-4 text-emerald-600"></i> Overview & Route
                     </a>

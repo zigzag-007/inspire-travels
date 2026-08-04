@@ -5,71 +5,10 @@
    Author: Zig Zag AI
    Description: Magazine style destination article layout: table of contents, itinerary, food, and tips sections
    Purpose: Self contained styling for the long form destination article page
-   Part of: main.css (see main.css for load order)
+   Loaded directly by the destination page
 
    -----------------------------------------------------------------------------
 */
-
-.drop-cap::first-letter {
-    float: left;
-    font-size: 3.8rem;
-    line-height: 0.8;
-    font-family: var(--font-display);
-    font-weight: 800;
-    margin-right: 0.75rem;
-    margin-top: 0.2rem;
-    color: #0c3531;
-    background: linear-gradient(135deg, #0c3531, #2d6a4f, #d97706);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.dest-tab-active {
-    background: linear-gradient(135deg, #059669 0%, #0d9488 100%) !important;
-    color: #ffffff !important;
-    box-shadow: 0 10px 25px -5px rgba(13, 148, 136, 0.4), 0 8px 10px -6px rgba(13, 148, 136, 0.2) !important;
-    border-color: rgba(255, 255, 255, 0.4) !important;
-    transform: translateY(-2px) scale(1.02);
-}
-
-.dest-card-hover {
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.dest-card-hover:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 25px 40px -12px rgba(15, 23, 42, 0.18);
-}
-
-.timeline-connector::before {
-    content: '';
-    position: absolute;
-    top: 2.5rem;
-    bottom: 1rem;
-    left: 1.25rem;
-    width: 2px;
-    background: linear-gradient(to bottom, #10b981, #cbd5e1);
-}
-
-/* Scroll-Spy Table of Contents Active Link */
-.active-toc {
-    color: #059669 !important;
-    font-weight: 800 !important;
-    border-left-color: #059669 !important;
-    padding-left: 1.25rem !important;
-    background: linear-gradient(to right, rgba(16, 185, 129, 0.08), transparent);
-}
-
-/* Sticky Reading Progress Bar */
-.dest-reading-progress-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #10b981, #f59e0b, #3b82f6);
-    z-index: 9999;
-    transition: width 0.1s linear;
-}
 
 #dest-magazine-content {
     transition: opacity 0.3s ease, transform 0.3s ease;

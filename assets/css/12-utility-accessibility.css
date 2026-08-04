@@ -5,7 +5,7 @@
    Author: Zig Zag AI
    Description: Accessibility and browser support overrides: print, contrast, motion, and dark mode
    Purpose: Keeps every "user preference" media query in one predictable place
-   Part of: main.css (see main.css for load order)
+   Loaded directly by each page after animation styles
 
    Table of Contents:
     1. Print Styles

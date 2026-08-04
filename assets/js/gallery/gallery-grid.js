@@ -54,7 +54,7 @@
                 const escapedDate = this.escapeHtml(item.date || '');
 
                 htmlContent += `
-                    <div class="single-blog-post break-inside-avoid inline-block w-full mb-6 group cursor-pointer" 
+                    <div class="single-blog-post break-inside-avoid inline-block w-full mb-10 group cursor-pointer"
                          data-category="${category}" 
                          data-year="${year}" 
                          onclick="window.openGalleryModal('${item.src}', '${escapedTitle}', '${escapedLocation}', '${escapedDate}')">

@@ -5,7 +5,7 @@
    Author: Zig Zag AI
    Description: Photo gallery lightbox captions, tour modal card, and custom scrollbars
    Purpose: Groups every popup and overlay related style together
-   Part of: main.css (see main.css for load order)
+   Loaded directly by pages that use galleries or modals
 
    Table of Contents:
     1. PhotoSwipe Gallery Captions
@@ -105,15 +105,4 @@
         padding: 1rem !important;
         border-radius: 1rem !important;
     }
-}
-.gallery-quick-links {
-    scroll-snap-type: x proximity;
-    scroll-padding-inline: 0.25rem;
-    overscroll-behavior-inline: contain;
-}
-
-.gallery-quick-links > a {
-    min-height: 2.75rem;
-    padding-inline: 0.2rem;
-    scroll-snap-align: start;
 }

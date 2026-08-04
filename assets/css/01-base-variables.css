@@ -5,7 +5,7 @@
    Author: Zig Zag AI
    Description: CSS custom properties that define the site wide color palette
    Purpose: Single source of truth for colors, so every component pulls from the same palette
-   Part of: main.css (see main.css for load order)
+   Loaded directly by each page before component styles
 
    ----------------------------------------------------------------------------- 
 */

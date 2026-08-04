@@ -5,7 +5,7 @@
    Author: Zig Zag AI
    Description: Base element resets and scroll behavior for the whole site
    Purpose: Normalize default browser behavior before any component styles are applied
-   Part of: main.css (see main.css for load order)
+   Loaded directly by each page before component styles
 
    -----------------------------------------------------------------------------
 */

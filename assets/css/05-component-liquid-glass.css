@@ -5,7 +5,7 @@
    Author: Zig Zag AI
    Description: The shared glass morphism visual system used across cards, tiles, and orbs
    Purpose: Central home for the liquid glass effect so all variants stay consistent
-   Part of: main.css (see main.css for load order)
+   Loaded directly by each page with the shared component styles
 
    Table of Contents:
     1. Liquid Glass Core

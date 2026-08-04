@@ -5,7 +5,7 @@
    Author: Zig Zag AI
    Description: Decorative page section backgrounds: footer, canopy sections, hero, and ambient particles
    Purpose: Groups every large background and atmosphere effect used behind page sections
-   Part of: main.css (see main.css for load order)
+   Loaded directly by each page with the shared component styles
 
    Table of Contents:
     1. GoWilds Footer
@@ -617,10 +617,6 @@
         padding: 0.5rem 0.4rem;
     }
 
-    /* Hero stat numbers */
-    #home .liquid-glass .font-serif {
-        font-size: 1.1rem;
-    }
 }
 
 @media (max-width: 320px) {
@@ -632,14 +628,5 @@
     /* Hero subtitle */
     #home p {
         font-size: 0.8rem;
-    }
-    /* Hide hero scroll arrow on very tiny screens to free vertical space */
-    .animate-bounce .lucide-chevron-down {
-        display: none;
-    }
-
-    /* Stat tile label text — keep readable */
-    #home .liquid-glass .text-\[10px\] {
-        font-size: 9px;
     }
 }

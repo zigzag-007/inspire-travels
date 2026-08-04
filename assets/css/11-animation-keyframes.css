@@ -5,7 +5,7 @@
    Author: Zig Zag AI
    Description: All @keyframes animation definitions plus AOS scroll reveal overrides
    Purpose: Central home for animation timing so effects are easy to find and adjust
-   Part of: main.css (see main.css for load order)
+   Loaded directly by each page after component styles
 
    Table of Contents:
     1. Footer Sway & Fireflies

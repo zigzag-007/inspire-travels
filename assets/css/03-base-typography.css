@@ -5,7 +5,7 @@
    Author: Zig Zag AI
    Description: Text effects, heading styles, navigation text colors, and small shared utility helper classes
    Purpose: Styles that touch plain text, plus small reusable badges and utilities that do not belong to one single component
-   Part of: main.css (see main.css for load order)
+   Loaded directly by each page before component styles
 
    Table of Contents:
     1. Gradient Text & Heading Effects
@@ -15,14 +15,6 @@
 
    -----------------------------------------------------------------------------
 */
-
-/* Enhanced gradient text effect for headings */
-.gradient-text {
-    background: linear-gradient(to right, oklch(0.35 0.15 195), oklch(0.65 0.12 35), oklch(0.75 0.15 75));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
 
 /* Display headings. Big text needs tighter spacing or it looks loose. */
 h1, h2, h3 {
