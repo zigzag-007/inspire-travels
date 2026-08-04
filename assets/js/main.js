@@ -8,15 +8,10 @@ function initInspireTravels() {
     if (document.documentElement.dataset.siteInitialized === 'true') return;
     document.documentElement.dataset.siteInitialized = 'true';
 
-    // Swap the legacy icon tags for Phosphor icons
-    if (window.PhosphorBridge) {
-        window.PhosphorBridge.reinit();
-    }
-
     // Initialize all modules safely
-    if (window.PreloaderModule) window.PreloaderModule.init();
     if (window.AOSModule) window.AOSModule.init();
     if (window.HeroModule) window.HeroModule.init();
+    if (window.PreloaderModule) window.PreloaderModule.init();
     if (window.NavigationModule) window.NavigationModule.init();
     if (window.MobileMenuModule) window.MobileMenuModule.init();
     if (window.ToursModule) window.ToursModule.init();
@@ -26,11 +21,6 @@ function initInspireTravels() {
     if (window.PromoModule) window.PromoModule.init();
     if (window.CounterModule) window.CounterModule.init();
     if (window.WhatsAppModule) window.WhatsAppModule.init();
-    if (window.ModalModule) {
-        window.ModalModule.initTooltips();
-        window.ModalModule.initGlobalModalBehavior();
-    }
-
     // Console log for debugging
     console.log('Inspire Travels website loaded successfully!');
 }

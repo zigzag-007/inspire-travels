@@ -354,6 +354,11 @@
 
     // Global PhotoSwipe opener for promo modal
     window.openPromoPhotoSwipe = (idx) => {
+        if (!window.PhotoSwipeLightbox || !window.PhotoSwipe) {
+            console.warn('Photo viewer is not available yet');
+            return;
+        }
+
         const slides = window.PromoModule.slides;
         const pswpItems = slides.map(s => ({
             src: s.src,

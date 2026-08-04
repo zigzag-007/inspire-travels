@@ -185,6 +185,11 @@
 
         // Open PhotoSwipe Lightbox
         openGalleryModal: function(imageSrc, title, location, description) {
+            if (!window.PhotoSwipe) {
+                console.warn('Photo viewer is not available yet');
+                return;
+            }
+
             const allImages = [...this.galleryImages, ...this.sliderImages];
             
             // Find index of clicked image

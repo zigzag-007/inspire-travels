@@ -26,7 +26,7 @@
             if (!window.activeTourGallery || !window.activeTourGallery.length) return;
 
             if (!window.PhotoSwipeLightbox || !window.PhotoSwipe) {
-                console.warn('PhotoSwipe library is not loaded yet');
+                console.warn('Photo viewer is not available yet');
                 return;
             }
 
