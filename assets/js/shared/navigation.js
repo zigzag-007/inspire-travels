@@ -332,26 +332,10 @@
 
             const self = this;
             let isVisible = false;
-            let visibilityAnimation = null;
 
             const setButtonVisibility = (visible) => {
-                if (visibilityAnimation) visibilityAnimation.cancel();
-
-                if (visible) {
-                    btn.style.display = 'flex';
-                    visibilityAnimation = btn.animate([{ opacity: 0 }, { opacity: 1 }], {
-                        duration: 200,
-                        fill: 'both'
-                    });
-                } else {
-                    visibilityAnimation = btn.animate([{ opacity: 1 }, { opacity: 0 }], {
-                        duration: 200,
-                        fill: 'both'
-                    });
-                    visibilityAnimation.finished.then(() => {
-                        if (!isVisible) btn.style.display = 'none';
-                    }).catch(() => {});
-                }
+                btn.classList.toggle('is-visible', visible);
+                btn.setAttribute('aria-hidden', visible ? 'false' : 'true');
             };
 
                 const updateBackToTop = () => {

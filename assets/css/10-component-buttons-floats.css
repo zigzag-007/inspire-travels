@@ -5,7 +5,7 @@
    Author: Zig Zag AI
    Description: Small standalone interactive widgets: WhatsApp float button, loading dot, and back to top button
    Purpose: Groups fixed position UI widgets that are not tied to one page section
-   Part of: main.css (see main.css for load order)
+   Loaded directly by each page with the shared component styles
 
    Table of Contents:
     1. WhatsApp Float Button
@@ -112,7 +112,7 @@ button:focus-visible {
     height: 64px;
     top: auto;
     right: max(1rem, env(safe-area-inset-right));
-    bottom: calc(1rem + env(safe-area-inset-bottom));
+    bottom: calc(5.5rem + env(safe-area-inset-bottom));
     transform: none;
     background-color: #25D366;
     color: white;
@@ -244,8 +244,29 @@ button:focus-visible {
 .back-to-top {
     position: fixed !important;
     right: max(1rem, env(safe-area-inset-right)) !important;
-    bottom: calc(5.5rem + env(safe-area-inset-bottom)) !important;
+    bottom: calc(1rem + env(safe-area-inset-bottom)) !important;
     z-index: 39 !important;
+    display: flex !important;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(0.65rem) scale(0.92);
+    transition:
+        opacity 0.22s ease,
+        visibility 0.22s ease,
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        background-color 0.25s ease;
+}
+
+.back-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+.back-to-top.is-visible:hover {
+    transform: translateY(-2px) scale(1.08);
 }
 
 .mobile-menu-open .whatsapp-float,
@@ -276,7 +297,7 @@ button:focus-visible {
         width: 58px;
         height: 58px;
         right: max(0.85rem, env(safe-area-inset-right));
-        bottom: calc(0.85rem + env(safe-area-inset-bottom));
+        bottom: calc(4.75rem + env(safe-area-inset-bottom));
     }
 
     .whatsapp-float > i {
@@ -296,6 +317,6 @@ button:focus-visible {
         width: 46px !important;
         height: 46px !important;
         right: max(0.85rem, env(safe-area-inset-right)) !important;
-        bottom: calc(4.75rem + env(safe-area-inset-bottom)) !important;
+        bottom: calc(0.85rem + env(safe-area-inset-bottom)) !important;
     }
 }

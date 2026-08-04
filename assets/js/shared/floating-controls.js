@@ -166,9 +166,7 @@
 
         avoidBackToTop: function (target, bounds) {
             var backToTop = document.querySelector('.back-to-top');
-            if (!backToTop || getComputedStyle(backToTop).display === 'none' || getComputedStyle(backToTop).opacity === '0') {
-                return target;
-            }
+            if (!backToTop) return target;
 
             var reserved = backToTop.getBoundingClientRect();
             var bubbleRect = {
