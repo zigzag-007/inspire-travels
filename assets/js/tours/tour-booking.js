@@ -156,7 +156,7 @@
 
             if (document.getElementById('addon-train')?.checked) addons.push('Kandy to Ella Train Tickets');
             if (document.getElementById('addon-safari')?.checked) addons.push('Yala 4x4 Safari Jeep Upgrade');
-            if (document.getElementById('addon-cooking')?.checked) addons.push('Village Cooking & Spa');
+            if (document.getElementById('addon-cooking')?.checked) addons.push('Village Tour & Cooking Class');
 
             var message = '⭐ *Custom Tour Inquiry - Inspire Travels* ⭐\n\n' +
                 '✈️ *Tour Package:* ' + tourTitle + '\n' +

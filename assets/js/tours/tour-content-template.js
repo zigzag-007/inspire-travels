@@ -177,7 +177,7 @@
                                             </label>
                                             <label class="flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-emerald-300 bg-slate-50/50 cursor-pointer">
                                                 <input type="checkbox" id="addon-cooking" class="w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500">
-                                                <span class="text-xs font-bold text-slate-800">Village Cooking & Spa</span>
+                                                <span class="text-xs font-bold text-slate-800">Village Tour & Cooking Class</span>
                                             </label>
                                         </div>
                                     </div>
