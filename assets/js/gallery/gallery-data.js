@@ -50,6 +50,51 @@ window.GalleryData = [
         position: "top"
     },
     {
+        src: "assets/img/main-gallery/group_arrival_fuso.jpg",
+        category: "experience",
+        title: "Group Arrival in Colombo",
+        location: "Colombo",
+        date: "August 05, 2026",
+        description: "Travellers pose together after arriving in Colombo with their private tour bus.",
+        position: "top"
+    },
+    {
+        src: "assets/img/main-gallery/sri_lanka_airport_arrival.jpg",
+        category: "experience",
+        title: "Welcome to Sri Lanka",
+        location: "Airport",
+        date: "August 02, 2026",
+        description: "Travellers receive a warm welcome at the airport before starting their Sri Lankan journey.",
+        position: "top"
+    },
+    {
+        src: "assets/img/main-gallery/airport_welcome_travellers.jpg",
+        category: "experience",
+        title: "A Warm Airport Welcome",
+        location: "Airport",
+        date: "July 10, 2026",
+        description: "A traveller is warmly welcomed at the airport by the Inspire Travels team.",
+        position: "top"
+    },
+    {
+        src: "assets/img/main-gallery/traveller_welcome_colombo.jpg",
+        category: "experience",
+        title: "Travellers Welcomed in Colombo",
+        location: "Colombo",
+        date: "April 28, 2026",
+        description: "Travellers enjoy a friendly welcome during their Sri Lankan holiday.",
+        position: "top"
+    },
+    {
+        src: "assets/img/main-gallery/evening_airport_welcome.jpg",
+        category: "experience",
+        title: "Evening Airport Welcome",
+        location: "Airport",
+        date: "June 25, 2026",
+        description: "A group of travellers begins their Sri Lankan holiday with a warm airport welcome.",
+        position: "top"
+    },
+    {
         src: "assets/img/main-gallery/private-tour-pickup-sri-lanka.jpg",
         category: "experience",
         title: "Private Tour Pickup in Sri Lanka",
