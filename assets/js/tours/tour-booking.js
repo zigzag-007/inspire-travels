@@ -146,7 +146,7 @@
             };
             var startDate = getValue('form-start-date', 'Flexible / Unspecified');
             var pickupTime = getValue('form-pickup-time', 'Morning');
-            var vehicle = getValue('form-vehicle', 'Private AC Vehicle');
+            var vehicle = getValue('form-vehicle', 'Private AC Sedan Car (1-3 Pax)');
             var hotelTier = getValue('form-hotel-tier', 'Standard');
             var guestName = getValue('form-guest-name', 'Valued Guest');
             var pax = getValue('form-pax', '2');

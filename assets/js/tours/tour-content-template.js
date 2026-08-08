@@ -141,10 +141,11 @@
                                         <div>
                                             <label for="form-vehicle" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Vehicle Standard / Group Size</label>
                                             <select id="form-vehicle" required aria-describedby="form-vehicle-validation" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:bg-white transition-all">
-                                                <option value="Private AC Sedan (1-3 Pax)">Private AC Sedan (1-3 Pax)</option>
-                                                <option value="Luxury AC High-Roof Van (4-8 Pax)">Luxury AC High-Roof Van (4-8 Pax)</option>
-                                                <option value="Chauffeured VIP SUV 4x4">Chauffeured VIP SUV 4x4</option>
+                                                <option value="Private AC Sedan Car (1-3 Pax)">Private AC Sedan Car (1-3 Pax)</option>
+                                                <option value="Private AC Flat Roof Van (3-6 Pax)">Private AC Flat Roof Van (3-6 Pax)</option>
+                                                <option value="AC Highroof Van (4-9 Pax)">AC Highroof Van (4-9 Pax)</option>
                                                 <option value="Coaster Mini-Bus (9+ Pax)">Coaster Mini-Bus (9+ Pax)</option>
+                                                <option value="Luxury AC Bus (15+ Pax)">Luxury AC Bus (15+ Pax)</option>
                                             </select>
                                             <p id="form-vehicle-validation" aria-live="polite" class="mt-1.5 text-xs font-medium text-slate-400">Choose a vehicle for your group.</p>
                                         </div>
@@ -239,7 +240,7 @@
                                         <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5"></i>
                                         <div>
                                             <strong class="text-slate-900 block">Private Chauffeured Vehicle</strong>
-                                            Air-conditioned sedan, van or SUV with unlimited tour mileage.
+                                            Air-conditioned sedan, van, minibus or coach with unlimited tour mileage.
                                         </div>
                                     </div>
                                     <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-emerald-50/50 border border-emerald-100">
