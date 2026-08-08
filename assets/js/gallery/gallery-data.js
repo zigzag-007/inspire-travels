@@ -367,7 +367,7 @@ window.GalleryData = [
     {
         src: "assets/img/main-gallery/historic-galle-fort.jpg",
         category: "nature",
-        title: "Tea Plantation Tour",
+        title: "Tea Plantation Visit",
         location: "Galle",
         date: "July 20, 2025",
         youtube: "https://www.youtube.com/shorts/lmT40k1FPn4?feature=share"
