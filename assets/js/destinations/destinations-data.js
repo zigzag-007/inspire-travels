@@ -168,7 +168,7 @@
                     "title": "Little Adam's Peak & Skywalk",
                     "description": "An accessible hike leading to sweeping views across Ella Gap, featuring a glass-bottom skywalk bridge.",
                     "category": "Trekking",
-                    "image": "assets/img/main-gallery/07-mountain-viewpoint-group-selfie.jpeg",
+                    "image": "assets/img/main-gallery/little-adams-peak.png",
                     "icon": "mountain"
                 },
                 {
