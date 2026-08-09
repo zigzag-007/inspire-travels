@@ -58,6 +58,12 @@
     overflow: visible !important;
 }
 
+/* Keep the scroll meter visible without covering open navigation menus. */
+#scroll-progress {
+    z-index: 0 !important;
+    pointer-events: none;
+}
+
 /* Shared desktop dropdown menus */
 .desktop-nav-menu {
     position: relative;

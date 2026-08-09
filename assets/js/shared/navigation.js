@@ -11,6 +11,7 @@
         mobileNavLinks: null,
         navLogo: null,
         mobileMenuBtn: null,
+        scrollProgress: null,
         scrollAnimationFrame: null,
         restoreScrollBehavior: null,
 
@@ -20,6 +21,7 @@
             this.mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
             this.navLogo = document.querySelector('.nav-logo');
             this.mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            this.scrollProgress = document.getElementById('scroll-progress');
 
             this.initScrollEffects();
             this.initSmoothScrolling();
@@ -113,6 +115,8 @@
                 const offset = navbarHeight + 20;
                 const scrollY = window.scrollY;
 
+                this.updateScrollProgress();
+
                 let currentSection = null;
                 let isDarkSection = false;
                 const isGalleryPage = window.location.pathname.includes('gallery.html');
@@ -202,6 +206,14 @@
             updateNavigation();
             window.addEventListener('load', updateNavigation);
             window.addEventListener('resize', updateNavigation);
+        },
+
+        updateScrollProgress: function() {
+            if (!this.scrollProgress) return;
+
+            const scrollLimit = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = scrollLimit > 0 ? Math.min((window.scrollY / scrollLimit) * 100, 100) : 0;
+            this.scrollProgress.style.width = scrollPercent + '%';
         },
 
         stopSmoothScroll: function() {

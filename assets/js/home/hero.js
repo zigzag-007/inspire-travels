@@ -215,13 +215,12 @@
             }
         },
 
-        // Classic Parallax Scroll Effect & Interactive Mouse Sway & Progress Bar
+        // Classic Parallax Scroll Effect & Interactive Mouse Sway
         initScrollDepthEffect: function() {
             if (!this.heroSection) return;
             const bgWrapper = document.getElementById('hero-bg-wrapper');
             const adventureBg = document.getElementById('adventure-bg-parallax');
             const adventureSection = document.getElementById('adventure');
-            const progressBar = document.getElementById('scroll-progress');
             const parallaxSections = document.querySelectorAll('.gowilds-footer, .tour-light-canopy');
 
             let ticking = false;
@@ -230,21 +229,14 @@
                 const scrollY = window.scrollY;
                 const heroHeight = this.heroSection.offsetHeight;
 
-                // 1. Update Scroll Progress Bar
-                if (progressBar) {
-                    const scrollLimit = document.documentElement.scrollHeight - window.innerHeight;
-                    const scrollPercent = scrollLimit > 0 ? (scrollY / scrollLimit) * 100 : 0;
-                    progressBar.style.width = `${scrollPercent}%`;
-                }
-
-                // 2. Apply vertical translation to background wrapper only when hero is visible
+                // 1. Apply vertical translation to background wrapper only when hero is visible
                 if (scrollY <= heroHeight + 100) {
                     if (bgWrapper) {
                         bgWrapper.style.transform = `translate3d(0, ${scrollY * 0.4}px, 0)`;
                     }
                 }
 
-                // 3. Apply viewport-relative parallax translation to adventure section background
+                // 2. Apply viewport-relative parallax translation to adventure section background
                 if (adventureSection && adventureBg) {
                     const rect = adventureSection.getBoundingClientRect();
                     const windowHeight = window.innerHeight;
@@ -255,7 +247,7 @@
                     }
                 }
 
-                // 4. Apply depth parallax to dark and light tropical decorative sections
+                // 3. Apply depth parallax to dark and light tropical decorative sections
                 const windowHeight = window.innerHeight;
 
                 const updates = [];
