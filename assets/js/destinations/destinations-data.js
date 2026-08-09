@@ -464,14 +464,14 @@
                     "title": "Pigeon Island Snorkeling Expedition",
                     "description": "Swim alongside blacktip reef sharks, sea turtles, and colorful live corals in a marine national park.",
                     "category": "Marine",
-                    "image": "assets/img/destinations/trincomalee_beach.png",
+                    "image": "assets/img/main-gallery/pigeon-island-snorkeling.jpeg",
                     "icon": "fish"
                 },
                 {
                     "title": "Koneswaram Temple & Lover's Leap",
                     "description": "Visit the majestic cliffside Shiva temple offering breathtaking ocean panoramas on Swami Rock.",
                     "category": "Heritage",
-                    "image": "assets/img/main-gallery/cultural-heritage-tour.jpeg",
+                    "image": "assets/img/main-gallery/koneswaram-temple.jpeg",
                     "icon": "landmark"
                 },
                 {
@@ -485,7 +485,7 @@
                     "title": "Whale & Dolphin Watching Boat Tour",
                     "description": "Embark on an oceanic safari to observe majestic blue whales and spinner dolphins in their wild habitat.",
                     "category": "Wildlife",
-                    "image": "assets/img/main-gallery/12-jeep-safari-group-tour.jpeg",
+                    "image": "assets/img/main-gallery/whale-dolphin-watching.jpeg",
                     "icon": "anchor"
                 },
                 {
