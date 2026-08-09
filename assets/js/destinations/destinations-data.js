@@ -81,7 +81,7 @@
                     "title": "Dambulla Cave Temple Complex",
                     "description": "Explore five sprawling rock caves housing over 150 Buddha statues and vibrant ancient murals.",
                     "category": "Heritage",
-                    "image": "assets/img/main-gallery/cultural-heritage-tour.jpeg",
+                    "image": "assets/img/main-gallery/dambulla-cave-temple.jpeg",
                     "icon": "sun"
                 },
                 {
@@ -113,7 +113,7 @@
             "name": "Ella",
             "tagline": "Misty Mountain Trails, Nine Arch Bridge & High Altitude Thrills",
             "readTime": "7 Min Read",
-            "heroImage": "assets/img/destinations/nuwara_eliya_tea.png",
+            "heroImage": "assets/img/destinations/ella-hero.png",
             "coordinates": "06.8667 N, 81.0467 E",
             "elevation": "1041m",
             "bestSeason": "January to May",
