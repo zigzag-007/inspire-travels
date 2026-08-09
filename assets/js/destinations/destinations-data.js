@@ -262,14 +262,14 @@
                     "title": "Temple of the Sacred Tooth Relic",
                     "description": "Visit Sri Lanka's most sacred Buddhist temple housing the venerated tooth relic of Lord Buddha.",
                     "category": "Culture",
-                    "image": "assets/img/main-gallery/cultural-heritage-tour.jpeg",
+                    "image": "assets/img/main-gallery/temple-of-sacred-tooth-relic.png",
                     "icon": "landmark"
                 },
                 {
                     "title": "Royal Botanical Gardens Peradeniya",
                     "description": "Explore 147 acres of lush tropical flora, giant orchid houses, and majestic palm avenues.",
                     "category": "Nature",
-                    "image": "assets/img/main-gallery/botanical-garden-tour.jpg",
+                    "image": "assets/img/main-gallery/royal-botanical-gardens-peradeniya.jpeg",
                     "icon": "trees"
                 },
                 {
@@ -283,14 +283,14 @@
                     "title": "Kandyan Cultural Dance Performance",
                     "description": "Witness energetic traditional Kandyan drumming, acrobatic dances, and thrilling fire-walking rituals.",
                     "category": "Performance",
-                    "image": "assets/img/main-gallery/01-guests-with-tour-guide-beside-private-van.jpeg",
+                    "image": "assets/img/main-gallery/kandyan-cultural-dance-performance.jpeg",
                     "icon": "music"
                 },
                 {
                     "title": "Kandy Lake Promenade Walk",
                     "description": "Stroll along the historic Cloud Wall (Walakulu Bammwa) surrounding the serene central lake.",
                     "category": "Relaxation",
-                    "image": "assets/img/main-gallery/02-pekoe-trail-start-point-group-photo.jpeg",
+                    "image": "assets/img/main-gallery/kandy-lake-promenade-walk.png",
                     "icon": "compass"
                 }
             ],
