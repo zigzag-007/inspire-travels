@@ -517,7 +517,7 @@
             "name": "Arugam Bay",
             "tagline": "Surfer's Haven, Lagoon Wildlife & Laid-Back Beach Vibes",
             "readTime": "5 Min Read",
-            "heroImage": "assets/img/destinations/hiriketiya_surf.png",
+            "heroImage": "assets/img/destinations/arugam-bay-hero.jpg",
             "coordinates": "06.8411 N, 81.8358 E",
             "elevation": "4m",
             "bestSeason": "May to September",
