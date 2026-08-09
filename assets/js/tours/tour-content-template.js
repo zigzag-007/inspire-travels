@@ -7,8 +7,6 @@
 
     window.TourContentTemplateModule = {
         render: function(tour, context) {
-            const otherTours = context.otherTours;
-
             return `
 <!-- Main Content Area -->
         <main class="py-16 md:py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative z-10">
@@ -352,6 +350,8 @@
                             </div>
                         </div>
 
+            ` +
+            /*
                         <!-- Quick Package Switcher Card -->
                         <div class="bg-white rounded-3xl border border-slate-200/90 shadow-md p-6 space-y-4">
                             <h4 class="font-display text-base font-bold text-slate-900 flex items-center justify-between">
@@ -371,7 +371,8 @@
                                 `).join('')}
                             </div>
                         </div>
-
+            */
+            `
                     </div>
                 </div>
             `;
