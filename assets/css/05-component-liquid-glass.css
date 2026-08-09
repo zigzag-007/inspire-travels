@@ -129,6 +129,26 @@
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
+
+/* About tabs keep one clear selected state from the first page render. */
+.tab-btn {
+    background: rgba(20, 31, 25, 0.3);
+    border-color: rgba(255, 255, 255, 0.38);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18),
+        0 8px 24px rgba(0, 0, 0, 0.14);
+}
+
+.tab-btn.is-active,
+.tab-btn[aria-selected="true"] {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.32), rgba(178, 210, 190, 0.12)),
+        rgba(21, 44, 37, 0.42);
+    border-color: rgba(255, 255, 255, 0.72);
+    color: #ffffff;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.54),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.12),
+        0 10px 28px rgba(8, 32, 26, 0.28);
+}
+
 /* 2026 Trend Liquid Glass Tile */
 .liquid-glass-tile {
     position: relative;
