@@ -363,21 +363,21 @@
                     "title": "Lotus Tower Observation Deck",
                     "description": "Ascend South Asia's tallest self-supporting tower for panoramic views of Colombo's skyline and harbor.",
                     "category": "Landmark",
-                    "image": "assets/img/destinations/colombo_city.png",
+                    "image": "assets/img/main-gallery/lotus-tower-observation-deck.jpeg",
                     "icon": "building"
                 },
                 {
                     "title": "Gangaramaya & Seema Malaka Temple",
                     "description": "Explore an iconic lakeside temple featuring eclectic art collections, brass statues, and serene architecture.",
                     "category": "Culture",
-                    "image": "assets/img/main-gallery/cultural-heritage-tour.jpeg",
+                    "image": "assets/img/main-gallery/gangaramaya-seema-malaka-temple.png",
                     "icon": "landmark"
                 },
                 {
                     "title": "Pettah Floating Market & Bazaars",
                     "description": "Immerse yourself in bustling street markets selling spices, textiles, jewelry, and local handicrafts.",
                     "category": "Shopping",
-                    "image": "assets/img/main-gallery/06-airport-arrival-group-sri-lanka.jpeg",
+                    "image": "assets/img/main-gallery/pettah-floating-market.png",
                     "icon": "shopping-bag"
                 },
                 {
