@@ -390,6 +390,11 @@
                 return;
             }
 
+            if (window.matchMedia('(max-width: 767px)').matches) {
+                root.classList.add('is-motion-ready');
+                return;
+            }
+
             initAmbientMotion(root);
 
             if (!window.gsap || !window.ScrollTrigger) {
