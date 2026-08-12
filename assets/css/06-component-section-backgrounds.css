@@ -154,6 +154,75 @@
     overflow-wrap: anywhere;
 }
 
+.footer-contact-icon {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+    border-radius: 0.75rem;
+    color: #ffffff;
+    transition: transform 150ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.footer-contact-icon::after {
+    position: absolute;
+    z-index: 6;
+    bottom: calc(100% + 0.65rem);
+    left: 0;
+    width: max-content;
+    max-width: min(18rem, 76vw);
+    padding: 0.5rem 0.68rem;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 0.65rem;
+    content: attr(data-contact-tooltip);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 650;
+    line-height: 1.35;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    background: rgba(8, 22, 16, 0.96);
+    box-shadow: 0 0.9rem 2rem rgba(0, 0, 0, 0.28);
+    transform: translateY(0.4rem);
+    transition: opacity 160ms ease, transform 180ms cubic-bezier(0.23, 1, 0.32, 1), visibility 0s linear 180ms;
+}
+
+.footer-contact-icon:hover,
+.footer-contact-icon:focus-visible {
+    transform: translateY(-0.18rem);
+}
+
+.footer-contact-icon:hover::after,
+.footer-contact-icon:focus-visible::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition-delay: 0s;
+}
+
+.footer-contact-icon:hover .liquid-glass,
+.footer-contact-icon:focus-visible .liquid-glass {
+    border-color: rgba(247, 146, 30, 0.62) !important;
+    color: #ffffff;
+    background: rgba(247, 146, 30, 0.18) !important;
+}
+
+.footer-contact-icon:focus-visible {
+    outline: 2px solid #f7921e;
+    outline-offset: 4px;
+}
+
+.footer-contact-icon:active {
+    transform: scale(0.97);
+}
+
+.single-info-item:has(.footer-contact-icon:hover) .info .title,
+.single-info-item:has(.footer-contact-icon:focus-visible) .info .title {
+    color: #f7921e;
+}
+
 @media (min-width: 768px) {
     .footer-contact-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));

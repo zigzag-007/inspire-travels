@@ -9,12 +9,12 @@
             label: 'Tours',
             icon: 'map',
             items: [
-                { label: 'Sri Lanka Highlights Escape', meta: '5 days', path: 'tours/?tour=highlights-escape' },
-                { label: 'Hills to Beach Escape', meta: '7 days', path: 'tours/?tour=hills-to-beach' },
-                { label: 'Golden Triangle & Beyond', meta: '7 days', path: 'tours/?tour=golden-triangle' },
-                { label: 'Ramayanaya Tour', meta: '8 days', path: 'tours/?tour=ramayanaya-tour' },
-                { label: 'Pearl Of Asia Tour', meta: '10 days', path: 'tours/?tour=pearl-of-asia' },
-                { label: 'Sri Lanka Grand Tour', meta: '14 days', path: 'tours/?tour=grand-tour' }
+                { label: 'Featured Tours', meta: 'Six popular private routes', path: 'index.html#tours' },
+                { label: 'Family Tours', meta: 'Four flexible journeys', path: 'tours/?collection=family' },
+                { label: 'Group Tours', meta: 'Three shared journeys', path: 'tours/?collection=group' },
+                { label: 'Northern Shores', meta: 'North and east coast route', path: 'tours/?collection=northern-shores' },
+                { label: 'Culture & Heritage', meta: 'Three heritage journeys', path: 'tours/?collection=cultural-heritage' },
+                { label: 'Adventure Tours', meta: 'Active island escapes', path: 'tours/?collection=adventure' }
             ]
         },
         destinations: {

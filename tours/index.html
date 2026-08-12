@@ -138,7 +138,7 @@
 							"name": "Are your Sri Lanka tour packages customized?",
 							"acceptedAnswer": {
 								"@type": "Answer",
-								"text": "Yes, all our travel packages are 100% customized. You can choose your preferred hotel class, add custom excursions, and adapt the itinerary to your pace."
+								"text": "Our private tours can be tailored around your preferred pace, hotel class, and excursions. Group journeys follow a planned route, with dates and final inclusions confirmed before booking."
 							}
 						}
 					]
@@ -167,6 +167,8 @@
 		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 		<!-- GSAP Animation Library -->
+		<script src="https://unpkg.com/gsap@3.13.0/dist/gsap.min.js"></script>
+		<script src="https://unpkg.com/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 		<link rel="stylesheet" href="../assets/css/01-base-variables.css">
@@ -174,11 +176,12 @@
 		<link rel="stylesheet" href="../assets/css/03-base-typography.css">
 		<link rel="stylesheet" href="../assets/css/04-component-navigation.css">
 		<link rel="stylesheet" href="../assets/css/05-component-liquid-glass.css">
-		<link rel="stylesheet" href="../assets/css/06-component-section-backgrounds.css">
+		<link rel="stylesheet" href="../assets/css/06-component-section-backgrounds.css?v=20260811-contact-actions">
 		<link rel="stylesheet" href="../assets/css/08-component-gallery-modal.css">
 		<link rel="stylesheet" href="../assets/css/10-component-buttons-floats.css">
 		<link rel="stylesheet" href="../assets/css/11-animation-keyframes.css">
 		<link rel="stylesheet" href="../assets/css/12-utility-accessibility.css">
+		<link rel="stylesheet" href="../assets/css/13-component-tour-collections.css?v=20260811-consistency">
 		<!-- PhotoSwipe CSS -->
 		<link rel="stylesheet" href="https://unpkg.com/photoswipe@5.4.3/dist/photoswipe.css">
 		<!-- Custom Tailwind Config -->
@@ -326,7 +329,6 @@
 							<div class="desktop-nav-dropdown" data-nav-panel aria-label="Gallery submenu"></div>
 						</div>
 						<a href="../index.html#reviews" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Reviews</a>
-						<a href="../index.html#footer" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Contact</a>
 					</div>
 					<!-- Book Now Button and Mobile Menu - Right Corner -->
 					<div class="flex items-center space-x-4">
@@ -370,10 +372,6 @@
 						<i data-lucide="star" class="w-5 h-5"></i>
 						<span>Reviews</span>
 					</a>
-					<a href="../index.html#footer" class="mobile-nav-link flex items-center gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-4 px-4 rounded-xl" data-section="footer">
-						<i data-lucide="phone" class="w-5 h-5"></i>
-						<span>Contact</span>
-					</a>
 				</div>
 
 				<!-- Social Media Links -->
@@ -409,9 +407,11 @@
 						<!-- Location Info -->
 						<div class="single-info-item">
 							<div class="flex items-center gap-4">
-								<div class="liquid-glass w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+								<a href="https://maps.app.goo.gl/9yWk4ZRWJ8TZfrW99?g_st=ic" target="_blank" rel="noopener" aria-label="Open Bankada Road, Katuneriya in Google Maps" data-contact-tooltip="Open Bankada Road in Google Maps" class="footer-contact-icon">
+								<div class="liquid-glass w-12 h-12 rounded-xl flex items-center justify-center">
 									<i data-lucide="map-pin" class="h-6 w-6 text-white"></i>
 								</div>
+								</a>
 								<div class="info">
 									<span class="title text-lg font-bold mb-2 block text-primary">Location</span>
 									<p class="text-background/80">
@@ -425,9 +425,11 @@
 						<!-- Email Info -->
 						<div class="single-info-item">
 							<div class="flex items-center gap-4">
-								<div class="liquid-glass w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+								<a href="mailto:travelerinspire@gmail.com" aria-label="Email Inspire Travels at travelerinspire@gmail.com" data-contact-tooltip="Email travelerinspire@gmail.com" class="footer-contact-icon">
+								<div class="liquid-glass w-12 h-12 rounded-xl flex items-center justify-center">
 									<i data-lucide="mail" class="h-6 w-6 text-white"></i>
 								</div>
+								</a>
 								<div class="info">
 									<span class="title text-lg font-bold mb-2 block text-primary">Email</span>
 									<p class="text-background/80">
@@ -441,9 +443,11 @@
 						<!-- Phone Info -->
 						<div class="single-info-item">
 							<div class="flex items-center gap-4">
-								<div class="liquid-glass w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+								<a href="tel:+94785959333" aria-label="Call Inspire Travels at +94 78 595 9333" data-contact-tooltip="Call +94 78 595 9333" class="footer-contact-icon">
+								<div class="liquid-glass w-12 h-12 rounded-xl flex items-center justify-center">
 									<i data-lucide="phone" class="h-6 w-6 text-white"></i>
 								</div>
+								</a>
 								<div class="info">
 									<span class="title text-lg font-bold mb-2 block text-primary">Hotline</span>
 									<p class="text-background/80">
@@ -509,11 +513,11 @@
 							<h4 class="widget-title font-display text-xl font-bold mb-4">Our Tours</h4>
 							<div class="footer-content">
 								<ul class="footer-widget-nav space-y-2">
-									<li><a href="../index.html#tours" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Cultural Heritage Tours</a></li>
-									<li><a href="../index.html#tours" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Wildlife Safari Adventures</a></li>
-									<li><a href="../index.html#tours" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Beach & Coastal Tours</a></li>
-									<li><a href="../index.html#tours" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Hill Country Experiences</a></li>
-									<li><a href="../index.html#tours" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Adventure Trekking</a></li>
+									<li><a href="?collection=family" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Family Tours</a></li>
+									<li><a href="?collection=group" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Group Tours</a></li>
+									<li><a href="?collection=northern-shores" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Northern Shores</a></li>
+									<li><a href="?collection=cultural-heritage" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Culture & Heritage</a></li>
+									<li><a href="?collection=adventure" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Adventure Tours</a></li>
 								</ul>
 							</div>
 						</div>
@@ -603,24 +607,28 @@
 		<script src="https://unpkg.com/photoswipe@5.4.3/dist/umd/photoswipe-lightbox.umd.min.js"></script>
 		<script src="../assets/js/shared/preloader.js"></script>
 		<script src="../assets/js/shared/aos.js"></script>
-		<script src="../assets/js/shared/navigation.js?v=20260726-scroll-rush"></script>
-	    <script src="../assets/js/shared/navigation-menus.js"></script>
+		<script src="../assets/js/shared/navigation.js?v=20260811-collections"></script>
+	    <script src="../assets/js/shared/navigation-menus.js?v=20260811-collections"></script>
 	    <script src="../assets/js/shared/mobile-menu.js"></script>
 	    <script src="../assets/js/shared/contact-ticker.js"></script>
 	    <script src="../assets/js/shared/floating-controls.js"></script>
 	    <script src="../assets/js/shared/liquid-glass.js"></script>
 	    <script src="../assets/js/shared/whatsapp.js"></script>
 	    <script src="../assets/js/shared/card-spotlight.js"></script>
-		<script src="../assets/js/tours/tour-data.js"></script>
+		<script src="../assets/js/tours/tour-data.js?v=20260811-collections"></script>
 		<script src="../assets/js/main.js"></script>
 
-	    <script src="../assets/js/tours/tour-gallery-data.js"></script>
+	    <script src="../assets/js/tours/tour-gallery-data.js?v=20260811-collections"></script>
+	    <script src="../assets/js/tours/tour-collection-data.js?v=20260811-consistency"></script>
+	    <script src="../assets/js/tours/tour-collection-template.js?v=20260811-consistency"></script>
+	    <script src="../assets/js/tours/tour-collection-motion.js?v=20260811-consistency"></script>
+	    <script src="../assets/js/tours/tour-collection-renderer.js?v=20260811-consistency"></script>
 	    <script src="../assets/js/tours/tour-route.js"></script>
 	    <script src="../assets/js/tours/tour-itinerary.js"></script>
-	    <script src="../assets/js/tours/tour-shell-template.js"></script>
+	    <script src="../assets/js/tours/tour-shell-template.js?v=20260811-collections"></script>
 	    <script src="../assets/js/tours/tour-content-template.js"></script>
 	    <script src="../assets/js/tours/tour-media-template.js"></script>
-	    <script src="../assets/js/tours/tour-renderer.js"></script>
+	    <script src="../assets/js/tours/tour-renderer.js?v=20260811-collections"></script>
 	    <script src="../assets/js/tours/tour-tabs.js"></script>
 	    <script src="../assets/js/tours/tour-gallery.js"></script>
 	    <script src="../assets/js/tours/tour-booking.js"></script>

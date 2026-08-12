@@ -11,6 +11,11 @@
         if (hasStarted) return;
         hasStarted = true;
 
+        var collection = window.TourRouteModule && window.TourRouteModule.getRequestedCollection();
+        if (collection && window.TourCollectionRendererModule && window.TourCollectionRendererModule.render(collection)) {
+            return;
+        }
+
         var tour = window.TourRouteModule && window.TourRouteModule.getRequestedTour();
 
         if (!tour || !window.TourRendererModule || !window.TourRendererModule.render(tour)) {

@@ -9,6 +9,7 @@
         render: function(tour, context) {
             const galleryImages = context.galleryImages;
             const otherTours = context.otherTours;
+            const collectionUrl = tour.collections[0] ? '?collection=' + tour.collections[0] : '../index.html#tours';
 
             return `
 <!-- Full Width Section: 3-Column Masonry Photo Gallery (40% / 30% / 30% ratio matching user ASCII diagram) -->
@@ -145,7 +146,7 @@
                             <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Explore Options</span>
                             <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900 mt-1">Similar Tour Packages You May Like</h2>
                         </div>
-                        <a href="../index.html#tours" class="text-sm font-bold text-emerald-600 hover:text-emerald-700 flex items-center gap-1 hover:underline">
+                        <a href="${collectionUrl}" class="text-sm font-bold text-emerald-600 hover:text-emerald-700 flex items-center gap-1 hover:underline">
                             View All Packages <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </a>
                     </div>
@@ -156,9 +157,7 @@
                             <div class="relative h-48 overflow-hidden">
                                 <img src="../${ot.image}" alt="${ot.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
-                                <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md text-slate-800 text-xs font-bold px-3 py-1 rounded-full shadow-sm flex items-center gap-1">
-                                    <i data-lucide="star" class="w-3.5 h-3.5 text-amber-500 fill-current"></i> ${ot.rating}
-                                </div>
+                                ${ot.rating ? `<div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md text-slate-800 text-xs font-bold px-3 py-1 rounded-full shadow-sm flex items-center gap-1"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-500 fill-current"></i>${ot.rating}</div>` : ''}
                                 <div class="absolute top-3 right-3 bg-emerald-600 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
                                     ${ot.duration}
                                 </div>

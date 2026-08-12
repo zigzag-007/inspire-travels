@@ -120,8 +120,14 @@
                 let currentSection = null;
                 let isDarkSection = false;
                 const isGalleryPage = window.location.pathname.includes('gallery.html');
+                const isTourCollection = document.body.classList.contains('tour-collection-view');
 
-                if (isGalleryPage) {
+                document.body.classList.toggle('tour-collection-scrolled', isTourCollection && scrollY > 24);
+
+                if (isTourCollection) {
+                    currentSection = 'collection';
+                    isDarkSection = true;
+                } else if (isGalleryPage) {
                     currentSection = 'gallery';
                     isDarkSection = window.scrollY < 500;
                 } else {
