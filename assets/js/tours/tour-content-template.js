@@ -15,9 +15,9 @@
         var isGroup = tour.travelMode === 'group';
 
         return tour.days.map(function(day) {
-            return `<article class="relative pl-8 md:pl-10 group">
+            return `<article class="tour-itinerary-entry relative pl-8 md:pl-10 group">
                 <div class="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-emerald-600 ring-4 ring-white shadow-md"></div>
-                <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 shadow-sm">
+                <div class="tour-itinerary-card bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 shadow-sm">
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                         <span class="bg-emerald-600 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">${day.label}</span>
                         ${day.overnight ? `<span class="text-xs font-semibold text-slate-500 flex items-center gap-1.5 bg-slate-100 px-3 py-1 rounded-full"><i data-lucide="bed" class="w-3.5 h-3.5 text-emerald-600"></i>Overnight: <strong class="text-slate-800">${day.overnight}</strong></span>` : ''}
@@ -123,11 +123,11 @@
             var isGroup = tour.travelMode === 'group';
 
             return `
-        <main class="py-16 md:py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative z-10">
+        <main class="tour-detail-canvas py-16 md:py-24 relative z-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 items-start">
                     <div class="lg:col-span-2 space-y-10">
-                        <div class="border-b border-slate-200 bg-white/70 backdrop-blur-md rounded-2xl px-4 pt-3 shadow-sm border border-slate-200/80">
+                        <div class="tour-detail-tabs border-b border-slate-200 bg-white/70 backdrop-blur-md rounded-2xl px-4 pt-3 shadow-sm border border-slate-200/80">
                             <div class="flex items-center gap-6 sm:gap-10 overflow-x-auto no-scrollbar">
                                 <button id="tab-btn-overview" type="button" data-tour-tab="overview" class="tour-tab-btn pb-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-emerald-700 border-b-2 border-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="compass" class="w-4 h-4"></i>Overview</button>
                                 <button id="tab-btn-options" type="button" data-tour-tab="options" class="tour-tab-btn pb-3 text-xs sm:text-sm font-semibold uppercase tracking-wider text-slate-500 hover:text-emerald-700 border-b-2 border-transparent transition-colors flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="message-square-text" class="w-4 h-4"></i>Enquire</button>
@@ -136,7 +136,7 @@
                         </div>
 
                         <div id="tour-tab-panel-overview" class="space-y-12">
-                            <div class="bg-gradient-to-r from-emerald-50 via-teal-50/50 to-white rounded-3xl p-6 sm:p-8 border border-emerald-100 shadow-sm">
+                            <div class="tour-route-intro bg-gradient-to-r from-emerald-50 via-teal-50/50 to-white rounded-3xl p-6 sm:p-8 border border-emerald-100 shadow-sm">
                                 <span class="text-xs font-bold text-emerald-800 uppercase tracking-wider flex items-center gap-1.5 mb-2"><i data-lucide="route" class="w-4 h-4 text-emerald-600"></i>${isGroup ? 'Shared Group Route' : 'Private Journey'}</span>
                                 <p class="text-slate-700 text-base leading-relaxed font-medium">${tour.description} ${isGroup ? 'Departure dates, group size, price, and final inclusions are confirmed by inquiry.' : 'Your final route, hotels, price, and inclusions are confirmed with the team before booking.'}</p>
                             </div>
@@ -174,7 +174,7 @@
                     </div>
 
                     <aside class="lg:col-span-1 space-y-8 lg:sticky lg:top-24">
-                        <div id="tour-sidebar-booking" class="bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden">
+                        <div id="tour-sidebar-booking" class="tour-quote-panel bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden">
                             <div class="bg-gradient-to-r from-slate-900 to-emerald-950 text-white p-6 text-center">
                                 <span class="text-emerald-300 text-[11px] font-bold uppercase tracking-wider">${isGroup ? 'Group departure inquiry' : 'Private tour inquiry'}</span>
                                 <h3 class="font-display text-2xl font-bold text-white mt-2">${isGroup ? 'Dates and Price on Request' : 'Build Your Quote'}</h3>

@@ -93,13 +93,14 @@
         <link rel="stylesheet" href="assets/css/10-component-buttons-floats.css">
         <link rel="stylesheet" href="assets/css/11-animation-keyframes.css">
         <link rel="stylesheet" href="assets/css/12-utility-accessibility.css">
+		<link rel="stylesheet" href="assets/css/14-component-secondary-theme.css?v=20260814-ambient-layer-fix">
         <!-- PhotoSwipe CSS -->
         <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.4.3/dist/photoswipe.css">
 
         <!-- Custom Tailwind Config -->
         <script src="assets/js/shared/tailwind-config.js"></script>
     </head>
-    <body class="font-sans antialiased bg-background text-foreground" data-nav-base="" data-current-nav="gallery">
+    <body class="secondary-page-theme font-sans antialiased bg-background text-foreground" data-nav-base="" data-current-nav="gallery">
         <!-- Loading Animation Preloader -->
         <div id="loading" class="fixed inset-0 z-[100] transition-all duration-700">
             <!-- Canvas for interactive organic particles (Fireflies) -->
@@ -308,7 +309,7 @@
         </div>
 
         <!-- Hero Header (Mirrors Dynamic Tour Hero Design) -->
-        <header id="gallery-hero" class="relative min-h-[500px] h-[65vh] flex items-end pb-16 pt-32 overflow-hidden">
+        <header id="gallery-hero" data-secondary-gallery-hero class="relative min-h-[500px] h-[65vh] flex items-end pb-16 pt-32 overflow-hidden">
             <div class="absolute inset-0 z-0">
                 <img src="assets/img/main-gallery/tea-plantation-tour.jpeg" alt="Sri Lanka Travel Photography" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-900/30"></div>
@@ -343,7 +344,7 @@
 
 
        <!-- Key Specs Summary Bar -->
-       <div class="bg-slate-900 border-y border-slate-800 text-white py-6 relative z-20 shadow-lg">
+       <div class="secondary-facts-dock" aria-label="Gallery quick facts">
            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left divide-y md:divide-y-0 md:divide-x divide-slate-800">
                    <div class="pt-2 md:pt-0">
@@ -375,7 +376,7 @@
        </div>
 
         <!-- Quick-Links Sub-Navigation Bar (Matching Destinations & Tours Design) -->
-        <div class="bg-white border-b border-slate-200 py-3 shadow-xs">
+        <div class="destination-story-nav" aria-label="Gallery navigation">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="section-quick-links flex items-center justify-start gap-4 sm:gap-8 text-xs sm:text-sm font-semibold text-slate-600 overflow-x-auto no-scrollbar py-1 snap-x snap-proximity scroll-px-1 overscroll-x-contain [&>a]:min-h-11 [&>a]:px-[0.2rem] [&>a]:snap-start">
                     <a href="#dynamic-gallery-grid" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap">
@@ -394,10 +395,10 @@
             </div>
         </div>
         <!-- Gallery Grid Section (Light Biophilic Fluid Exhibition) -->
-        <section class="py-16 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative z-20">
+        <section class="secondary-gallery-canvas py-16 relative z-20">
             <div class="max-w-[1450px] mx-auto px-4 sm:px-6 lg:px-8">
                 <!-- Apple-Style Segmented Control Bar -->
-                    <div id="gallery-filters" class="bg-white/95 backdrop-blur-xl border border-slate-200/90 rounded-2xl shadow-md p-3 max-w-5xl mx-auto mb-14" data-aos="fade-up" data-aos-duration="700">
+                    <div id="gallery-filters" class="secondary-gallery-filters p-3 max-w-5xl mx-auto mb-14" data-aos="fade-up" data-aos-duration="700">
                     <div class="flex flex-col md:flex-row items-center justify-between gap-3">
                         <div class="flex items-center gap-1.5 overflow-x-auto w-full no-scrollbar py-0.5">
                             <button type="button" class="gallery-filter-btn flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-emerald-700 text-white shadow-sm flex-shrink-0" data-category="all">
@@ -595,6 +596,8 @@
 		<script src="assets/js/shared/liquid-glass.js"></script>
         <script src="assets/js/shared/preloader.js"></script>
         <script src="assets/js/shared/aos.js"></script>
+		<script src="assets/js/shared/site-shell.js?v=20260812-shared-shell"></script>
+		<script src="assets/js/shared/secondary-hero.js?v=20260814-gallery-dock-position"></script>
         <script src="assets/js/shared/navigation.js?v=20260726-scroll-rush"></script>
         <script src="assets/js/shared/navigation-menus.js?v=20260811-collections"></script>
         <script src="assets/js/shared/mobile-menu.js"></script>

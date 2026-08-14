@@ -42,10 +42,11 @@
 		<link rel="stylesheet" href="../assets/css/10-component-buttons-floats.css">
 		<link rel="stylesheet" href="../assets/css/11-animation-keyframes.css">
 		<link rel="stylesheet" href="../assets/css/12-utility-accessibility.css">
+        <link rel="stylesheet" href="../assets/css/14-component-secondary-theme.css?v=20260814-ambient-layer-fix">
 		<!-- Custom Tailwind Config -->
 		<script src="../assets/js/shared/tailwind-config.js"></script>
 	</head>
-	<body class="font-sans antialiased bg-background text-foreground selection:bg-emerald-500 selection:text-white" data-nav-base="../" data-current-nav="destinations">
+	<body class="secondary-page-theme font-sans antialiased bg-background text-foreground selection:bg-emerald-500 selection:text-white" data-nav-base="../" data-current-nav="destinations">
 		<!-- Loading Animation Preloader (Exact match from gallery.html) -->
 		<div id="loading" class="fixed inset-0 z-[100] transition-all duration-700">
 			<!-- Canvas for interactive organic particles (Fireflies) -->
@@ -266,7 +267,7 @@
 			</header>
 
 			<!-- 2. Key Specs Summary Bar (Exact match from gallery.html) -->
-			<div class="bg-slate-900 border-y border-slate-800 text-white py-6 relative z-20 shadow-lg">
+			<div class="secondary-facts-dock" aria-label="Destination quick facts">
 				<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left divide-y md:divide-y-0 md:divide-x divide-slate-800">
 						<div class="pt-2 md:pt-0">
@@ -298,7 +299,7 @@
 			</div>
 
 			<!-- 3. Floating Section Table of Contents Bar -->
-			<div class="bg-white border-b border-slate-200 py-3 shadow-xs">
+			<div class="destination-story-nav" aria-label="Inside this story">
 				<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div class="section-quick-links flex items-center justify-start gap-4 sm:gap-8 text-xs sm:text-sm font-semibold text-slate-600 overflow-x-auto no-scrollbar py-1 snap-x snap-proximity scroll-px-1 overscroll-x-contain [&>a]:min-h-11 [&>a]:px-[0.2rem] [&>a]:snap-start">
 						<a href="#overview" data-destination-toc="overview" class="destination-toc-link hover:text-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap">
@@ -627,6 +628,8 @@
 		<!-- Scripts -->
 		<script src="../assets/js/shared/preloader.js"></script>
 		<script src="../assets/js/shared/aos.js"></script>
+		<script src="../assets/js/shared/site-shell.js?v=20260812-shared-shell"></script>
+		<script src="../assets/js/shared/secondary-hero.js?v=20260812-shared-hero"></script>
 		<script src="../assets/js/shared/navigation.js?v=20260726-scroll-rush"></script>
 		<script src="../assets/js/shared/navigation-menus.js?v=20260811-collections"></script>
 		<script src="../assets/js/shared/mobile-menu.js"></script>

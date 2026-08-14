@@ -9,6 +9,41 @@
         render: function(data) {
             const isSubfolder = window.location.pathname.includes('/destinations/');
             const pathPrefix = isSubfolder ? '../' : '';
+            const heroImage = data.heroImage.startsWith('assets/') ? pathPrefix + data.heroImage : data.heroImage;
+
+            if (window.SecondaryHeroModule) {
+                var shortTitles = {
+                    sigiriya: 'The lion citadel.',
+                    ella: 'Trails above the clouds.',
+                    kandy: 'The island’s sacred heart.',
+                    colombo: 'Where the island meets the world.',
+                    trincomalee: 'Temples above a blue horizon.',
+                    arugambay: 'Wild coast. Endless rhythm.',
+                    bentota: 'River calm. Golden coast.'
+                };
+                var existingHero = document.getElementById('dest-hero') || document.querySelector('[data-secondary-destination-hero]');
+                window.SecondaryHeroModule.renderInto(existingHero, {
+                    id: 'dest-hero',
+                    imageId: 'dest-hero-bg-img',
+                    image: heroImage,
+                    imageAlt: data.name + ' landscape in Sri Lanka',
+                    eyebrow: data.region || 'Sri Lankan destination',
+                    titleId: 'dest-hero-title',
+                    title: shortTitles[data.slug] || data.name,
+                    descriptionId: 'dest-excerpt',
+                    description: data.tagline + '. ' + data.excerpt,
+                    noteId: 'dest-readtime',
+                    note: data.readTime || '6 Min Read',
+                    noteDetailId: 'dest-coords',
+                    noteDetail: data.coordinates || data.elevation || 'Sri Lanka',
+                    breadcrumbs: [
+                        { label: 'Home', href: '../index.html' },
+                        { label: 'Destinations', href: '../index.html#destinations' },
+                        { label: data.name }
+                    ],
+                    action: { label: 'Explore the guide', href: '#overview', toc: 'overview' }
+                });
+            }
 
             // Document Title
             document.title = data.name + ' Travel Guide & Official Magazine | Inspire Travels & Tours';
@@ -16,8 +51,7 @@
             // Hero Image
             const heroBg = document.getElementById('dest-hero-bg-img');
             if (heroBg && data.heroImage) {
-                const imgPath = data.heroImage.startsWith('assets/') ? pathPrefix + data.heroImage : data.heroImage;
-                heroBg.src = imgPath;
+                heroBg.src = heroImage;
                 heroBg.alt = data.name + ' Hero View';
             }
 
