@@ -93,7 +93,7 @@
         <link rel="stylesheet" href="assets/css/10-component-buttons-floats.css">
         <link rel="stylesheet" href="assets/css/11-animation-keyframes.css">
         <link rel="stylesheet" href="assets/css/12-utility-accessibility.css">
-		<link rel="stylesheet" href="assets/css/14-component-secondary-theme.css?v=20260814-ambient-layer-fix">
+		<link rel="stylesheet" href="assets/css/14-component-secondary-theme.css?v=20260815-gallery-hero-alignment">
         <!-- PhotoSwipe CSS -->
         <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.4.3/dist/photoswipe.css">
 
@@ -376,29 +376,38 @@
        </div>
 
         <!-- Quick-Links Sub-Navigation Bar (Matching Destinations & Tours Design) -->
-        <div class="destination-story-nav" aria-label="Gallery navigation">
+        <div class="destination-story-nav gallery-story-nav" aria-label="Gallery navigation">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="section-quick-links flex items-center justify-start gap-4 sm:gap-8 text-xs sm:text-sm font-semibold text-slate-600 overflow-x-auto no-scrollbar py-1 snap-x snap-proximity scroll-px-1 overscroll-x-contain [&>a]:min-h-11 [&>a]:px-[0.2rem] [&>a]:snap-start">
-                    <a href="#dynamic-gallery-grid" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap">
+                    <a href="#dynamic-gallery-grid" class="destination-toc-link is-active hover:text-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap" aria-current="location">
                         <i data-lucide="image" class="w-4 h-4 text-emerald-600"></i> Photo Archive
                     </a>
-                    <a href="#gallery-filters" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap">
+                    <a href="#gallery-filters" class="destination-toc-link hover:text-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap">
                         <i data-lucide="sparkles" class="w-4 h-4 text-emerald-600"></i> Browse by Theme
                     </a>
-                    <a href="index.html#reviews" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap">
+                    <a href="index.html#reviews" class="destination-toc-link hover:text-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap">
                         <i data-lucide="star" class="w-4 h-4 text-emerald-600"></i> Guest Reviews
                     </a>
-                    <a href="#footer" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap text-emerald-700 font-bold">
+                    <a href="#footer" class="destination-toc-link hover:text-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap text-emerald-700 font-bold">
                         <i data-lucide="send" class="w-4 h-4"></i> Inquire Excursions
                     </a>
                 </div>
             </div>
         </div>
         <!-- Gallery Grid Section (Light Biophilic Fluid Exhibition) -->
-        <section class="secondary-gallery-canvas py-16 relative z-20">
+        <section class="secondary-gallery-canvas gallery-archive py-20 sm:py-28 relative z-20">
             <div class="max-w-[1450px] mx-auto px-4 sm:px-6 lg:px-8">
-                <!-- Apple-Style Segmented Control Bar -->
-                    <div id="gallery-filters" class="secondary-gallery-filters p-3 max-w-5xl mx-auto mb-14" data-aos="fade-up" data-aos-duration="700">
+                <header class="gallery-archive-intro" data-aos="fade-up" data-aos-duration="700">
+                    <div>
+                        <span class="gallery-archive-kicker">Inspire Travels collection</span>
+                        <h2>The guest archive.</h2>
+                        <p>Real Sri Lanka, seen slowly through the people, places, and pauses that make each journey personal.</p>
+                    </div>
+                    <div class="gallery-archive-route" aria-hidden="true"><span></span><i class="ph ph-sparkle"></i></div>
+                    <p class="gallery-archive-count">60+ moments<br>across the island</p>
+                </header>
+
+                    <div id="gallery-filters" class="secondary-gallery-filters p-3 mb-14" data-aos="fade-up" data-aos-duration="700">
                     <div class="flex flex-col md:flex-row items-center justify-between gap-3">
                         <div class="flex items-center gap-1.5 overflow-x-auto w-full no-scrollbar py-0.5">
                             <button type="button" class="gallery-filter-btn flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-emerald-700 text-white shadow-sm flex-shrink-0" data-category="all">
@@ -436,7 +445,7 @@
                 </div>
 
                 <!-- Dynamic Image Grid (Pinterest-style Column Masonry) -->
-                <div id="dynamic-gallery-grid" class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 mb-16">
+                <div id="dynamic-gallery-grid" class="columns-1 sm:columns-2 xl:columns-3 2xl:columns-4 gap-4 sm:gap-5 xl:gap-6 space-y-4 sm:space-y-5 xl:space-y-6 mb-16">
                     <!-- Dynamically injected via assets/js/gallery/gallery-grid.js -->
                 </div>
             </div>
@@ -597,7 +606,7 @@
         <script src="assets/js/shared/preloader.js"></script>
         <script src="assets/js/shared/aos.js"></script>
 		<script src="assets/js/shared/site-shell.js?v=20260812-shared-shell"></script>
-		<script src="assets/js/shared/secondary-hero.js?v=20260814-gallery-dock-position"></script>
+		<script src="assets/js/shared/secondary-hero.js?v=20260814-gallery-transition-order"></script>
         <script src="assets/js/shared/navigation.js?v=20260726-scroll-rush"></script>
         <script src="assets/js/shared/navigation-menus.js?v=20260811-collections"></script>
         <script src="assets/js/shared/mobile-menu.js"></script>

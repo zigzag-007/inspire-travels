@@ -91,11 +91,11 @@
             action: { label: 'Explore the archive', href: '#dynamic-gallery-grid' }
         });
 
-        // The facts belong to the hero so the lower space stays exact on every screen.
         var factsDock = document.querySelector('.secondary-facts-dock[aria-label="Gallery quick facts"]');
-        if (hero && factsDock && factsDock.parentElement !== hero) {
-            hero.appendChild(factsDock);
+        if (hero && factsDock && hero.nextElementSibling !== factsDock) {
+            hero.insertAdjacentElement('afterend', factsDock);
         }
+
     }
 
     window.SecondaryHeroModule = {
