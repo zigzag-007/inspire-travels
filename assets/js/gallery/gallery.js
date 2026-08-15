@@ -142,7 +142,7 @@
                 if (yearBtns) {
                     yearBtns.forEach(btn => {
                         const isMatch = (btn.dataset.year || 'all') === this.activeYear;
-                        btn.classList.toggle('bg-white', isMatch);
+                        btn.classList.toggle('is-active', isMatch);
                         btn.classList.toggle('text-emerald-900', isMatch);
                         btn.classList.toggle('shadow-sm', isMatch);
                         btn.classList.toggle('font-bold', isMatch);

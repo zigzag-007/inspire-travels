@@ -1115,17 +1115,38 @@ body.secondary-page-theme:not(.tour-collection-view) .secondary-gallery-canvas {
     text-transform: uppercase;
 }
 
+.gallery-archive .gallery-year-switch {
+    padding: 0.3rem;
+    border: 1px solid rgba(23, 65, 47, 0.14);
+    border-radius: 999px;
+    background: rgba(213, 226, 203, 0.74);
+    box-shadow: inset 0 1px rgba(255, 252, 240, 0.72), 0 0.45rem 1.15rem rgba(27, 65, 47, 0.06);
+}
+
+.gallery-archive .gallery-year-btn {
+    min-height: 2.35rem;
+    color: rgba(23, 65, 47, 0.76) !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transition: color 180ms ease, background-color 180ms ease, box-shadow 180ms ease, transform 160ms ease;
+}
+
 .gallery-archive .gallery-filter-btn.bg-emerald-700,
-.gallery-archive .gallery-year-btn.bg-white {
+.gallery-archive .gallery-year-btn.is-active {
     color: #fffdf5 !important;
     background: #17412f !important;
     box-shadow: none !important;
 }
 
-.gallery-archive .gallery-year-btn.bg-white {
-    background: rgba(255, 252, 240, 0.78) !important;
-    color: #17412f !important;
-    box-shadow: inset 0 0 0 1px rgba(23, 65, 47, 0.14) !important;
+.gallery-archive .gallery-year-btn.is-active {
+    box-shadow: 0 0.35rem 0.9rem rgba(23, 65, 47, 0.2), inset 0 1px rgba(255, 252, 240, 0.18) !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .gallery-archive .gallery-year-btn:not(.is-active):hover {
+        color: #17412f !important;
+        background: rgba(255, 252, 240, 0.5) !important;
+    }
 }
 
 .secondary-gallery-canvas .gallery-archive-item > .gallery-archive-frame {
