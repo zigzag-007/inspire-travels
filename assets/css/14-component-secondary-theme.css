@@ -103,6 +103,10 @@ body.secondary-page-theme.tour-detail-view > .secondary-site-footer {
     z-index: 40;
 }
 
+body.secondary-page-theme .back-to-top {
+    z-index: 45 !important;
+}
+
 .secondary-ambient-contours {
     position: absolute;
     z-index: 0;
