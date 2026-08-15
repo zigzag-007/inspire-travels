@@ -117,8 +117,8 @@
     }
 
     function renderAmbient() {
-        return '<div class="secondary-page-ambient" aria-hidden="true">' +
-            '<canvas class="secondary-ambient-particles"></canvas>' +
+        return '<canvas class="secondary-ambient-particles" aria-hidden="true"></canvas>' +
+            '<div class="secondary-page-ambient" aria-hidden="true">' +
             '<div class="secondary-ambient-contours"></div>' +
             '<svg class="secondary-ambient-route secondary-ambient-route-one" viewBox="0 0 420 900" preserveAspectRatio="none"><path d="M56 0C365 120 54 249 299 374S342 642 82 900"/><circle cx="180" cy="153" r="7"/><circle cx="284" cy="365" r="7"/><circle cx="144" cy="711" r="7"/></svg>' +
             '<svg class="secondary-ambient-route secondary-ambient-route-two" viewBox="0 0 420 900" preserveAspectRatio="none"><path d="M364 0C78 138 357 290 121 438S98 714 354 900"/><circle cx="236" cy="116" r="6"/><circle cx="136" cy="424" r="6"/><circle cx="283" cy="739" r="6"/></svg>' +
@@ -136,62 +136,222 @@
 
     function initAmbientParticles() {
         var canvas = document.querySelector('.secondary-ambient-particles');
-        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (!canvas || reduceMotion) return;
+        if (!canvas) return;
 
         var context = canvas.getContext('2d');
-        var particles = [];
-        var pointer = { x: -1000, y: -1000 };
-        var ratio = Math.min(window.devicePixelRatio || 1, 1.5);
+        if (!context) return;
 
-        function resize() {
-            canvas.width = Math.round(window.innerWidth * ratio);
-            canvas.height = Math.round(window.innerHeight * ratio);
+        var config = {
+            desktopCount: 112,
+            mobileCount: 62,
+            speedMin: 0.6,
+            speedMax: 2.4,
+            wind: 0,
+            windVariation: 0.8,
+            sizeMin: 1,
+            sizeMax: 4,
+            opacityMin: 0.3,
+            opacityMax: 0.9
+        };
+        var pageTone = document.body.dataset.currentNav || 'tours';
+        var colors = {
+            gallery: '#b77a38',
+            destinations: '#bd8234',
+            tours: '#c58a3b'
+        };
+        var color = colors[pageTone] || colors.tours;
+        var ratio = Math.min(window.devicePixelRatio || 1, 2);
+        var width = 0;
+        var height = 0;
+        var particles = [];
+        var frame = 0;
+        var lastTime = 0;
+        var pointerTargetX = 0;
+        var pointerTargetY = 0;
+        var pointerDriftX = 0;
+        var pointerDriftY = 0;
+
+        function randomBetween(min, max) {
+            return min + Math.random() * (max - min);
+        }
+
+        function build() {
+            width = Math.max(1, Math.floor(window.innerWidth));
+            height = Math.max(1, Math.floor(window.innerHeight));
+            canvas.width = Math.floor(width * ratio);
+            canvas.height = Math.floor(height * ratio);
+            canvas.style.width = width + 'px';
+            canvas.style.height = height + 'px';
             context.setTransform(ratio, 0, 0, ratio, 0, 0);
-            particles = Array.from({ length: Math.max(24, Math.min(54, Math.round(window.innerWidth / 28))) }, function (_, index) {
+            var particleCount = width < 768 ? config.mobileCount : config.desktopCount;
+            particles = Array.from({ length: particleCount }, function (_, index) {
+                var slot = index % 24;
+                var type = slot === 0 ? 'butterfly' : slot === 8 ? 'dragonfly' : slot === 16 ? 'moth' : 'mote';
+                var isInsect = type !== 'mote';
                 return {
-                    x: Math.random() * window.innerWidth,
-                    y: Math.random() * window.innerHeight,
-                    size: 0.8 + Math.random() * 2.2,
-                    speedX: (Math.random() - 0.5) * 0.12,
-                    speedY: -0.08 - Math.random() * 0.16,
-                    alpha: 0.13 + Math.random() * 0.28,
-                    phase: index * 0.73
+                    type: type,
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    radius: isInsect ? randomBetween(4.8, 7.2) : randomBetween(config.sizeMin, config.sizeMax),
+                    speedY: isInsect ? randomBetween(0.22, 0.58) : randomBetween(config.speedMin, config.speedMax),
+                    speedX: randomBetween(-1, 1),
+                    phase: Math.random() * Math.PI * 2,
+                    wingPhase: Math.random() * Math.PI * 2,
+                    sway: randomBetween(0.2, 0.9),
+                    alpha: isInsect ? randomBetween(0.42, 0.72) : randomBetween(config.opacityMin, config.opacityMax)
                 };
             });
+            lastTime = 0;
+        }
+
+        function drawButterfly(particle, time) {
+            var wingOpen = 0.2 + Math.abs(Math.sin(time * 0.011 + particle.wingPhase)) * 0.8;
+            var tilt = Math.sin(time * 0.0015 + particle.phase) * 0.2;
+
+            context.save();
+            context.translate(particle.x, particle.y);
+            context.rotate(tilt);
+            context.globalAlpha = particle.alpha;
+            context.fillStyle = '#d45f54';
+            context.beginPath();
+            context.ellipse(-particle.radius * 0.46, 0, particle.radius * 0.72 * wingOpen, particle.radius * 0.48, -0.32, 0, Math.PI * 2);
+            context.ellipse(particle.radius * 0.46, 0, particle.radius * 0.72 * wingOpen, particle.radius * 0.48, 0.32, 0, Math.PI * 2);
+            context.fill();
+            context.globalAlpha = Math.min(0.9, particle.alpha + 0.18);
+            context.strokeStyle = '#7c302b';
+            context.lineWidth = 0.8;
+            context.beginPath();
+            context.moveTo(0, -particle.radius * 0.45);
+            context.lineTo(0, particle.radius * 0.58);
+            context.stroke();
+            context.restore();
+        }
+
+        function drawDragonfly(particle, time) {
+            var wingOpen = 0.42 + Math.abs(Math.sin(time * 0.018 + particle.wingPhase)) * 0.58;
+            var tilt = Math.sin(time * 0.0018 + particle.phase) * 0.14;
+
+            context.save();
+            context.translate(particle.x, particle.y);
+            context.rotate(tilt);
+            context.globalAlpha = particle.alpha;
+            context.fillStyle = '#526eb5';
+            context.beginPath();
+            context.ellipse(-particle.radius * 0.72, -particle.radius * 0.14, particle.radius * 0.76 * wingOpen, particle.radius * 0.18, -0.18, 0, Math.PI * 2);
+            context.ellipse(particle.radius * 0.72, -particle.radius * 0.14, particle.radius * 0.76 * wingOpen, particle.radius * 0.18, 0.18, 0, Math.PI * 2);
+            context.ellipse(-particle.radius * 0.58, particle.radius * 0.2, particle.radius * 0.6 * wingOpen, particle.radius * 0.14, 0.22, 0, Math.PI * 2);
+            context.ellipse(particle.radius * 0.58, particle.radius * 0.2, particle.radius * 0.6 * wingOpen, particle.radius * 0.14, -0.22, 0, Math.PI * 2);
+            context.fill();
+            context.globalAlpha = Math.min(0.88, particle.alpha + 0.16);
+            context.strokeStyle = '#2f477e';
+            context.lineWidth = 1;
+            context.beginPath();
+            context.moveTo(0, -particle.radius * 0.48);
+            context.lineTo(0, particle.radius * 0.78);
+            context.stroke();
+            context.fillStyle = '#2f477e';
+            context.beginPath();
+            context.arc(0, -particle.radius * 0.52, particle.radius * 0.16, 0, Math.PI * 2);
+            context.fill();
+            context.restore();
+        }
+
+        function drawMoth(particle, time) {
+            var wingOpen = 0.34 + Math.abs(Math.sin(time * 0.0075 + particle.wingPhase)) * 0.66;
+            var tilt = Math.sin(time * 0.0012 + particle.phase) * 0.16;
+
+            context.save();
+            context.translate(particle.x, particle.y);
+            context.rotate(tilt);
+            context.globalAlpha = particle.alpha;
+            context.fillStyle = '#9567a6';
+            context.beginPath();
+            context.moveTo(0, -particle.radius * 0.18);
+            context.quadraticCurveTo(-particle.radius * 0.75 * wingOpen, -particle.radius * 0.72, -particle.radius * 1.05 * wingOpen, particle.radius * 0.14);
+            context.quadraticCurveTo(-particle.radius * 0.48 * wingOpen, particle.radius * 0.62, 0, particle.radius * 0.28);
+            context.quadraticCurveTo(particle.radius * 0.48 * wingOpen, particle.radius * 0.62, particle.radius * 1.05 * wingOpen, particle.radius * 0.14);
+            context.quadraticCurveTo(particle.radius * 0.75 * wingOpen, -particle.radius * 0.72, 0, -particle.radius * 0.18);
+            context.fill();
+            context.globalAlpha = Math.min(0.88, particle.alpha + 0.14);
+            context.fillStyle = '#59365f';
+            context.beginPath();
+            context.ellipse(0, particle.radius * 0.08, particle.radius * 0.15, particle.radius * 0.55, 0, 0, Math.PI * 2);
+            context.fill();
+            context.restore();
         }
 
         function draw(time) {
-            context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+            context.clearRect(0, 0, width, height);
+            context.fillStyle = color;
             particles.forEach(function (particle) {
-                var deltaX = particle.x - pointer.x;
-                var deltaY = particle.y - pointer.y;
-                var distance = Math.sqrt((deltaX * deltaX) + (deltaY * deltaY));
-                if (distance < 110 && distance > 0) {
-                    particle.x += (deltaX / distance) * (1 - distance / 110) * 1.8;
-                    particle.y += (deltaY / distance) * (1 - distance / 110) * 1.8;
+                if (particle.type === 'butterfly') {
+                    drawButterfly(particle, time);
+                    return;
                 }
-                particle.x += particle.speedX + Math.sin((time * 0.00028) + particle.phase) * 0.045;
-                particle.y += particle.speedY;
-                if (particle.y < -8) { particle.y = window.innerHeight + 8; particle.x = Math.random() * window.innerWidth; }
-                if (particle.x < -8) particle.x = window.innerWidth + 8;
-                if (particle.x > window.innerWidth + 8) particle.x = -8;
-                var glow = particle.alpha * (0.72 + Math.sin((time * 0.0011) + particle.phase) * 0.28);
+                if (particle.type === 'dragonfly') {
+                    drawDragonfly(particle, time);
+                    return;
+                }
+                if (particle.type === 'moth') {
+                    drawMoth(particle, time);
+                    return;
+                }
+                context.globalAlpha = particle.alpha;
                 context.beginPath();
-                context.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-                context.fillStyle = 'rgba(173, 121, 43, ' + Math.max(0.04, glow).toFixed(3) + ')';
-                context.shadowColor = 'rgba(224, 174, 84, 0.42)';
-                context.shadowBlur = 8;
+                context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
                 context.fill();
             });
-            window.requestAnimationFrame(draw);
+            context.globalAlpha = 1;
         }
 
-        window.addEventListener('resize', resize, { passive: true });
-        window.addEventListener('pointermove', function (event) { pointer.x = event.clientX; pointer.y = event.clientY; }, { passive: true });
-        document.addEventListener('mouseleave', function () { pointer.x = -1000; pointer.y = -1000; });
-        resize();
-        window.requestAnimationFrame(draw);
+        function loop(time) {
+            var delta = lastTime ? Math.min((time - lastTime) / (1000 / 60), 4) : 1;
+            lastTime = time;
+            pointerDriftX += (pointerTargetX - pointerDriftX) * Math.min(0.035 * delta, 1);
+            pointerDriftY += (pointerTargetY - pointerDriftY) * Math.min(0.035 * delta, 1);
+
+            particles.forEach(function (particle) {
+                particle.y += (particle.speedY + pointerDriftY) * delta;
+                particle.x += (config.wind +
+                    particle.speedX * config.windVariation +
+                    Math.sin(time * 0.0012 + particle.phase) * particle.sway +
+                    pointerDriftX) * delta;
+
+                if (particle.y - particle.radius > height) {
+                    particle.y = -particle.radius;
+                    particle.x = Math.random() * width;
+                }
+                if (particle.x < -particle.radius) particle.x = width + particle.radius;
+                else if (particle.x > width + particle.radius) particle.x = -particle.radius;
+            });
+            draw(time);
+            frame = window.requestAnimationFrame(loop);
+        }
+
+        function handleResize() {
+            build();
+            draw(0);
+        }
+
+        function handlePointerMove(event) {
+            pointerTargetX = ((event.clientX / width) - 0.5) * 0.2;
+            pointerTargetY = ((event.clientY / height) - 0.5) * 0.08;
+        }
+
+        function resetPointerDrift() {
+            pointerTargetX = 0;
+            pointerTargetY = 0;
+        }
+
+        build();
+        draw(0);
+        frame = window.requestAnimationFrame(loop);
+        window.addEventListener('resize', handleResize, { passive: true });
+        window.addEventListener('pointermove', handlePointerMove, { passive: true });
+        document.addEventListener('mouseleave', resetPointerDrift);
+        window.addEventListener('pagehide', function () {
+            window.cancelAnimationFrame(frame);
+        }, { once: true });
     }
 
     function initAmbientMotion() {
@@ -203,6 +363,8 @@
             return { piece: piece, x: 0, y: 0, velocityX: 0, velocityY: 0, targetX: 0, targetY: 0 };
         });
         var frame = null;
+        var ambientPointerFrame = null;
+        var latestAmbientPointer = null;
 
         if (!ambient || !states.length) return;
 
@@ -228,7 +390,10 @@
             if (!frame) frame = window.requestAnimationFrame(render);
         }
 
-        window.addEventListener('pointermove', function (event) {
+        function updateAmbientPointerTargets() {
+            var event = latestAmbientPointer;
+            ambientPointerFrame = null;
+            if (!event) return;
             var bounds = ambient.getBoundingClientRect();
 
             states.forEach(function (state) {
@@ -243,6 +408,11 @@
                 state.targetY = (deltaY / distance) * force;
             });
             requestRender();
+        }
+
+        window.addEventListener('pointermove', function (event) {
+            latestAmbientPointer = event;
+            if (!ambientPointerFrame) ambientPointerFrame = window.requestAnimationFrame(updateAmbientPointerTargets);
         }, { passive: true });
 
         document.addEventListener('mouseleave', function () {
@@ -268,14 +438,20 @@
         var footer = document.getElementById('footer');
         if (footer) footer.outerHTML = renderFooter();
 
-        if (!new URLSearchParams(window.location.search).has('collection')) {
-            document.body.insertAdjacentHTML('afterbegin', renderAmbient());
-            initAmbientMotion();
-            initAmbientParticles();
-        }
+        document.body.insertAdjacentHTML('afterbegin', renderAmbient());
+        initAmbientMotion();
+        initAmbientParticles();
 
         var updateHeader = function () {
             document.body.classList.toggle('secondary-shell-scrolled', window.scrollY > 24);
+        };
+        var headerScrollFrame = null;
+        var requestHeaderUpdate = function () {
+            if (headerScrollFrame) return;
+            headerScrollFrame = window.requestAnimationFrame(function () {
+                headerScrollFrame = null;
+                updateHeader();
+            });
         };
 
         var updateAmbientLight = function (event) {
@@ -284,11 +460,21 @@
             document.body.style.setProperty('--secondary-pointer-x', x + '%');
             document.body.style.setProperty('--secondary-pointer-y', y + '%');
         };
+        var lightPointerFrame = null;
+        var latestLightPointer = null;
+        var requestAmbientLightUpdate = function (event) {
+            latestLightPointer = event;
+            if (lightPointerFrame) return;
+            lightPointerFrame = window.requestAnimationFrame(function () {
+                lightPointerFrame = null;
+                updateAmbientLight(latestLightPointer);
+            });
+        };
 
         updateHeader();
-        window.addEventListener('scroll', updateHeader, { passive: true });
+        window.addEventListener('scroll', requestHeaderUpdate, { passive: true });
         if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-            window.addEventListener('pointermove', updateAmbientLight, { passive: true });
+            window.addEventListener('pointermove', requestAmbientLightUpdate, { passive: true });
         }
     }
 
