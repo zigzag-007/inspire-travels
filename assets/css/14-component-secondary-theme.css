@@ -816,7 +816,7 @@ body.secondary-page-theme .secondary-hero-copy > p {
 
 .gallery-story-nav {
     position: relative;
-    top: 4.25rem;
+    top: 0;
 }
 
 #gallery-hero .secondary-hero-layout {
@@ -1129,10 +1129,11 @@ body.secondary-page-theme:not(.tour-collection-view) .secondary-gallery-canvas {
 }
 
 .secondary-gallery-canvas .gallery-archive-item > .gallery-archive-frame {
-    border: 0 !important;
-    border-radius: 0 !important;
+    isolation: isolate;
+    border: 1px solid rgba(255, 252, 240, 0.72) !important;
+    border-radius: clamp(1.05rem, 1.45vw, 1.65rem) !important;
     background: #dce3d6;
-    box-shadow: none !important;
+    box-shadow: 0 0.8rem 2rem rgba(19, 60, 45, 0.09), inset 0 1px rgba(255, 255, 255, 0.64) !important;
     transition: transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 420ms ease;
 }
 
@@ -1215,6 +1216,9 @@ body.secondary-page-theme:not(.tour-collection-view) .secondary-gallery-canvas {
         right: 0.9rem;
         bottom: 0.9rem;
         left: 0.9rem;
+    }
+    .secondary-gallery-canvas .gallery-archive-item > .gallery-archive-frame {
+        border-radius: 1.2rem !important;
     }
 }
 
@@ -2000,7 +2004,13 @@ body.mobile-menu-open .secondary-mobile-socials { animation-delay: 235ms; }
         width: calc(100% - 2rem);
         overflow-x: auto;
         scroll-snap-type: x mandatory;
+        scroll-padding-inline: 0.42rem;
+        overscroll-behavior-x: contain;
         scrollbar-width: none;
+    }
+
+    .secondary-facts-dock::-webkit-scrollbar {
+        display: none;
     }
 
     #gallery-hero > .secondary-facts-dock {
@@ -2008,18 +2018,38 @@ body.mobile-menu-open .secondary-mobile-socials { animation-delay: 235ms; }
     }
 
     .secondary-facts-dock > div > div {
-        width: max-content;
+        width: 100%;
         min-width: 100%;
         display: grid;
-        grid-template-columns: repeat(4, minmax(15.5rem, 1fr));
+        gap: 0.85rem;
+        grid-template-columns: none !important;
+        grid-auto-flow: column;
+        grid-auto-columns: 100%;
     }
 
     .secondary-facts-dock > div > div > div {
+        width: 100%;
         scroll-snap-align: start;
+        scroll-snap-stop: always;
     }
 
     .destination-story-nav {
         top: 4.25rem;
+    }
+
+    .gallery-story-nav {
+        top: 0;
+    }
+
+    .destination-story-nav .section-quick-links {
+        padding-inline: 0.5rem;
+        scroll-padding-inline: 0.5rem;
+        overscroll-behavior-x: contain;
+        scrollbar-width: none;
+    }
+
+    .destination-story-nav .section-quick-links::-webkit-scrollbar {
+        display: none;
     }
 
     .secondary-footer-inner {
