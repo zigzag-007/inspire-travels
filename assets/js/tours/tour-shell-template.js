@@ -62,17 +62,6 @@
                     }).join('')}
                 </div>
             </div>
-        </div>
-
-        <div class="destination-story-nav relative z-20" aria-label="Tour navigation">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="section-quick-links flex items-center justify-start gap-4 sm:gap-8 text-xs sm:text-sm font-semibold text-slate-600 overflow-x-auto no-scrollbar py-1 snap-x snap-proximity scroll-px-1 overscroll-x-contain [&>a]:min-h-11 [&>a]:px-[0.2rem] [&>a]:snap-start">
-                    <a href="#tour-tab-panel-overview" data-tour-tab="overview" data-tour-scroll="true" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="book-open" class="w-4 h-4 text-emerald-600"></i>Overview and Route</a>
-                    <a href="#tour-itinerary" data-tour-tab="overview" data-tour-scroll="true" data-tour-scroll-target="tour-itinerary" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="calendar" class="w-4 h-4 text-emerald-600"></i>Detailed Itinerary</a>
-                    <a href="#tour-tab-panel-details" data-tour-tab="details" data-tour-scroll="true" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="file-text" class="w-4 h-4 text-emerald-600"></i>Package Notes</a>
-                    <a href="#tour-sidebar-booking" class="hover:text-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap text-emerald-700 font-bold"><i data-lucide="send" class="w-4 h-4"></i>WhatsApp Inquiry</a>
-                </div>
-            </div>
         </div>`;
         }
     };
