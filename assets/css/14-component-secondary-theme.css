@@ -1495,6 +1495,26 @@ body.secondary-page-theme #blur-overlay {
     flex: 0 0 auto;
 }
 
+.secondary-site-footer .single-info-item > div {
+    min-width: 0;
+}
+
+.secondary-site-footer .info,
+.secondary-site-footer .info p,
+.secondary-site-footer .info a {
+    min-width: 0;
+}
+
+.secondary-site-footer .info p {
+    margin: 0;
+}
+
+.secondary-site-footer .info a {
+    display: block;
+    overflow-wrap: anywhere;
+    line-height: 1.45;
+}
+
 .secondary-site-footer .single-info-item .liquid-glass,
 .secondary-site-footer .social-box .liquid-glass {
     border-color: rgba(241, 234, 211, 0.16) !important;
@@ -1517,6 +1537,16 @@ body.secondary-page-theme #blur-overlay {
     display: flex;
     justify-content: flex-end;
     gap: 0.45rem;
+}
+
+.secondary-site-footer .social-box > div {
+    flex-wrap: wrap;
+}
+
+.secondary-site-footer .social-box a {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
 }
 
 .secondary-site-footer .footer-widget-area {
@@ -1597,10 +1627,14 @@ body.secondary-page-theme #blur-overlay {
 
     .secondary-site-footer .footer-contact-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1.5rem;
+        gap: 1rem 1.5rem;
     }
 
     .secondary-site-footer .social-box {
+        justify-content: flex-start;
+    }
+
+    .secondary-site-footer .social-box > div {
         justify-content: flex-start;
     }
 }
@@ -1700,16 +1734,109 @@ body.secondary-page-theme #blur-overlay {
 
     .secondary-footer-inner {
         width: calc(100% - 2rem);
+        padding-inline: 1rem !important;
         padding-top: 3rem;
     }
 
-    .secondary-site-footer .footer-contact-grid,
+    .secondary-site-footer .footer-top {
+        padding: 0.65rem 1rem 1rem !important;
+        border-radius: 1.25rem;
+    }
+
+    .secondary-site-footer .footer-contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+    }
+
+    .secondary-site-footer .single-info-item {
+        padding-block: 0.9rem;
+        border-bottom: 1px solid rgba(241, 234, 211, 0.1);
+    }
+
+    .secondary-site-footer .single-info-item > div {
+        display: grid;
+        grid-template-columns: 3rem minmax(0, 1fr);
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .secondary-site-footer .footer-contact-icon .liquid-glass {
+        width: 3rem !important;
+        height: 3rem !important;
+    }
+
+    .secondary-site-footer .footer-contact-icon i {
+        font-size: 1.3rem !important;
+    }
+
+    .secondary-site-footer .info .title {
+        margin-bottom: 0.22rem !important;
+        font-size: 1rem;
+    }
+
+    .secondary-site-footer .info a {
+        font-size: 0.86rem;
+    }
+
+    .secondary-site-footer .social-box {
+        width: 100%;
+        justify-content: center;
+        margin: 0 !important;
+        padding-top: 1.15rem;
+    }
+
+    .secondary-site-footer .social-box > div {
+        width: 100%;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 0.65rem;
+    }
+
+    .secondary-site-footer .social-box a {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.25rem;
+    }
+
     .secondary-site-footer .footer-widget-area {
-        padding-top: 3rem !important;
+        padding-top: 2.75rem !important;
+    }
+
+    .secondary-site-footer .footer-widget-area > div {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2.5rem 1.5rem;
+    }
+
+    .secondary-site-footer .about-company-widget {
+        grid-column: 1 / -1;
+    }
+
+    .secondary-site-footer .footer-widget {
+        min-width: 0;
+        margin-bottom: 0 !important;
+    }
+
+    .secondary-site-footer .footer-widget .widget-title {
+        font-size: 1.08rem;
+        text-wrap: balance;
+    }
+
+    .secondary-site-footer .footer-widget a {
+        font-size: 0.8rem;
+        overflow-wrap: anywhere;
+    }
+
+    .secondary-site-footer .footer-copyright {
+        margin-top: 2.75rem;
+        padding: 1.4rem 0.25rem !important;
     }
 
     .secondary-site-footer .footer-copyright p {
+        display: grid;
+        gap: 0.35rem;
         justify-content: center;
+        font-size: 0.75rem !important;
+        line-height: 1.5;
     }
 
     .secondary-site-footer {
@@ -1722,6 +1849,28 @@ body.secondary-page-theme #blur-overlay {
     .secondary-page-ambient .tour-ambient-leaf {
         opacity: 0.26;
         transform: scale(0.72);
+    }
+}
+
+@media (max-width: 359px) {
+    .secondary-site-footer .social-box > div {
+        width: 7rem;
+        display: grid;
+        grid-template-columns: repeat(2, 3rem);
+        justify-content: center;
+    }
+
+    .secondary-site-footer .social-box a {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .secondary-site-footer .footer-widget-area > div {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .secondary-site-footer .about-company-widget {
+        grid-column: auto;
     }
 }
 
