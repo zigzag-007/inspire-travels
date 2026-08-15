@@ -1,14 +1,14 @@
-// Active Promos Carousel Modal Module - Tinder Card Stack
+// Active Promos Carousel Modal Module - Swipe Card Stack
 // Author: Zig Zag AI
-// Description: Manages the premium Tinder-style card stack swiper for promotions.
-//              Supports draggable fly-off swipe gestures, keyboard commands, and PhotoSwipe fullscreen integration.
+// Description: Manages the premium swipe card stack for promotions.
+//              Supports touch, pointer, keyboard, and PhotoSwipe interactions.
 
 (function() {
     'use strict';
 
     window.PromoModule = {
         activeSlideIndex: 0,
-        isAnimating: false,
+        swiper: null,
         slides: [
             {
                 src: "assets/img/promos/promo-flyer-5.png",
@@ -54,25 +54,31 @@
 
             if (!modal) return;
 
-            // Render cards once
+            // Swiper owns the card movement, momentum, and stack depth.
             const stack = document.getElementById('promoCardStack');
             if (stack) {
-                stack.innerHTML = this.slides.map((slide, idx) => `
-                    <div class="promo-card absolute inset-0 w-full h-full rounded-2xl overflow-hidden cursor-grab active:cursor-grabbing origin-center bg-[#0c3531] border border-white/10 shadow-lg" data-index="${idx}">
-                        <img src="${slide.src}" alt="${slide.title}" class="max-w-full max-h-full object-contain pointer-events-none select-none rounded-xl">
-                        <!-- Overlay Zoom Button -->
-                        <button onclick="event.stopPropagation(); window.openPromoPhotoSwipe(${idx});" class="absolute top-3 right-3 bg-black/60 hover:bg-[#F7921E] text-white w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-md border border-white/10 z-20" title="Zoom image">
-                            <i data-lucide="maximize-2" class="w-4 h-4"></i>
-                        </button>
+                stack.innerHTML = `
+                    <div class="swiper-wrapper">
+                        ${this.slides.map((slide, idx) => `
+                            <div class="swiper-slide promo-card w-full h-full rounded-2xl overflow-hidden bg-[#0c3531] border border-white/10 shadow-lg" data-index="${idx}">
+                                <img src="${slide.src}" alt="${slide.title}" class="w-full h-full object-contain pointer-events-none select-none rounded-xl">
+                                <button type="button" data-promo-zoom-index="${idx}" class="promo-no-swipe absolute top-3 right-3 bg-black/60 hover:bg-[#F7921E] text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-md border border-white/10 z-20" title="Zoom image" aria-label="Zoom ${slide.title}">
+                                    <i data-lucide="maximize-2" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        `).join('')}
                     </div>
-                `).join('');
+                `;
 
-                // Render initial stack layouts
-                this.render();
+                stack.addEventListener('click', (e) => {
+                    const zoomButton = e.target.closest('[data-promo-zoom-index]');
+                    if (!zoomButton) return;
 
-                // Bind Tinder Swipe Drags
-                this.bindSwipeEvents();
+                    window.openPromoPhotoSwipe(Number(zoomButton.dataset.promoZoomIndex));
+                });
             }
+
+            this.renderDotsAndLink();
 
             // Bind open triggers
             openBtns.forEach(btn => {
@@ -98,122 +104,15 @@
             document.addEventListener('keydown', (e) => {
                 if (!modal.classList.contains('invisible')) {
                     if (e.key === 'Escape') this.close();
-                    if (e.key === 'ArrowRight') this.swipeCard('right');
-                    if (e.key === 'ArrowLeft') this.swipeCard('left');
+                    if (e.key === 'ArrowRight') {
+                        e.preventDefault();
+                        this.showNext();
+                    }
+                    if (e.key === 'ArrowLeft') {
+                        e.preventDefault();
+                        this.showPrevious();
+                    }
                 }
-            });
-        },
-
-        bindSwipeEvents: function() {
-            const stack = document.getElementById('promoCardStack');
-            if (!stack) return;
-
-            let isDragging = false;
-            let startX = 0;
-            let startY = 0;
-            let currentX = 0;
-            let currentY = 0;
-            let activeCard = null;
-
-            const onStart = (clientX, clientY, targetCard) => {
-                if (this.isAnimating) return;
-                isDragging = true;
-                activeCard = targetCard;
-                startX = clientX;
-                startY = clientY;
-                activeCard.style.transition = 'none';
-                activeCard.style.cursor = 'grabbing';
-            };
-
-            const onMove = (clientX, clientY) => {
-                if (!isDragging || !activeCard) return;
-                currentX = clientX - startX;
-                currentY = clientY - startY;
-
-                // Rotate card based on horizontal drag
-                const rotation = currentX * 0.08; // degree per pixel
-                activeCard.style.transform = `translate(${currentX}px, ${currentY}px) rotate(${rotation}deg)`;
-            };
-
-            const onEnd = () => {
-                if (!isDragging || !activeCard) return;
-                isDragging = false;
-                activeCard.style.cursor = 'grab';
-
-                const swipeThreshold = 100;
-                if (Math.abs(currentX) > swipeThreshold) {
-                    this.isAnimating = true;
-                    // Fly off screen left or right (Tinder swipe)
-                    const flyX = currentX > 0 ? window.innerWidth : -window.innerWidth;
-                    const rotation = currentX * 0.08;
-                    
-                    activeCard.style.transition = 'transform 0.4s ease-out, opacity 0.4s ease-out';
-                    activeCard.style.transform = `translate(${flyX}px, ${currentY}px) rotate(${rotation}deg)`;
-                    activeCard.style.opacity = '0';
-                    
-                    // Capture activeCard local reference before resetting it synchronously
-                    const swipedCard = activeCard;
-                    
-                    // Increment slide index and update stack directly without double-triggering animations
-                    setTimeout(() => {
-                        this.activeSlideIndex = (this.activeSlideIndex + 1) % this.slides.length;
-                        
-                        // Reset swiped card instantly to bottom stack style
-                        if (swipedCard) {
-                            swipedCard.style.transition = 'none';
-                            swipedCard.style.transform = 'translate(0px, 36px) scale(0.85) rotate(0deg)';
-                            swipedCard.style.opacity = '0';
-                            swipedCard.style.zIndex = '2';
-                        }
-                        
-                        this.render();
-                        this.isAnimating = false;
-                    }, 200);
-                } else {
-                    // Snap back
-                    activeCard.style.transition = 'transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.25)';
-                    this.updateStackStyles();
-                }
-                
-                currentX = 0;
-                currentY = 0;
-                activeCard = null;
-            };
-
-            // Mouse events
-            stack.addEventListener('mousedown', (e) => {
-                const card = e.target.closest('.promo-card');
-                if (card && card.dataset.index == this.activeSlideIndex) {
-                    e.preventDefault(); // Stop browser native image drag actions
-                    onStart(e.clientX, e.clientY, card);
-                }
-            });
-
-            document.addEventListener('mousemove', (e) => {
-                onMove(e.clientX, e.clientY);
-            });
-
-            document.addEventListener('mouseup', () => {
-                onEnd();
-            });
-
-            // Touch events
-            stack.addEventListener('touchstart', (e) => {
-                const card = e.target.closest('.promo-card');
-                if (card && card.dataset.index == this.activeSlideIndex) {
-                    onStart(e.touches[0].clientX, e.touches[0].clientY, card);
-                }
-            }, { passive: true });
-
-            document.addEventListener('touchmove', (e) => {
-                if (isDragging) {
-                    e.preventDefault(); // Prevent browser body scroll while swiping cards
-                    onMove(e.touches[0].clientX, e.touches[0].clientY);
-                }
-            }, { passive: false });
-
-            document.addEventListener('touchend', () => {
-                onEnd();
             });
         },
 
@@ -222,8 +121,7 @@
             if (!modal) return;
 
             this.activeSlideIndex = 0;
-            this.isAnimating = false; // Reset lock state
-            this.render();
+            this.renderDotsAndLink();
 
             modal.classList.remove('invisible', 'opacity-0');
             modal.classList.add('flex', 'opacity-100');
@@ -232,6 +130,13 @@
             if (container) {
                 container.classList.remove('scale-95', 'translate-y-8', 'opacity-0');
                 container.classList.add('scale-100', 'translate-y-0', 'opacity-100');
+            }
+
+            if (!this.swiper) {
+                this.initSwiper();
+            } else {
+                this.swiper.slideToLoop(0, 0, false);
+                this.swiper.update();
             }
 
             // Prevent body scroll
@@ -258,49 +163,70 @@
             }, 300);
         },
 
-        swipeCard: function(direction = 'right') {
-            if (this.isAnimating) return;
-            this.isAnimating = true;
-
-            const cards = document.querySelectorAll('.promo-card');
-            const topCard = Array.from(cards).find(c => c.dataset.index == this.activeSlideIndex);
-            
-            if (topCard) {
-                const flyX = direction === 'right' ? window.innerWidth : -window.innerWidth;
-                const rot = direction === 'right' ? 15 : -15;
-                
-                topCard.style.transition = 'transform 0.4s ease-out, opacity 0.4s ease-out';
-                topCard.style.transform = `translate(${flyX}px, -20px) rotate(${rot}deg)`;
-                topCard.style.opacity = '0';
-                
-                const swipedCard = topCard;
-
-                setTimeout(() => {
-                    this.activeSlideIndex = (this.activeSlideIndex + 1) % this.slides.length;
-                    
-                    if (swipedCard) {
-                        swipedCard.style.transition = 'none';
-                        swipedCard.style.transform = 'translate(0px, 36px) scale(0.85) rotate(0deg)';
-                        swipedCard.style.opacity = '0';
-                        swipedCard.style.zIndex = '2';
-                    }
-
-                    this.render();
-                    this.isAnimating = false;
-                }, 200);
-            } else {
-                this.isAnimating = false;
+        initSwiper: function() {
+            const stack = document.getElementById('promoCardStack');
+            if (!stack || typeof window.Swiper !== 'function') {
+                console.error('Swiper not loaded — promo card stack disabled');
+                return;
             }
-        },
 
-        render: function() {
-            this.updateStackStyles();
-            this.renderDotsAndLink();
+            const prefersReducedMotion = window.matchMedia
+                && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-            // Re-trigger icons for zoom buttons
+            this.swiper = new window.Swiper(stack, {
+                effect: 'cards',
+                loop: true,
+                grabCursor: true,
+                simulateTouch: true,
+                followFinger: true,
+                threshold: 6,
+                speed: prefersReducedMotion ? 0 : 380,
+                resistance: true,
+                resistanceRatio: 0.72,
+                longSwipes: true,
+                longSwipesMs: 250,
+                longSwipesRatio: 0.18,
+                shortSwipes: true,
+                preventClicks: true,
+                preventClicksPropagation: true,
+                noSwiping: true,
+                noSwipingClass: 'promo-no-swipe',
+                observer: true,
+                observeParents: true,
+                cardsEffect: {
+                    rotate: true,
+                    perSlideRotate: 2.4,
+                    perSlideOffset: 10,
+                    slideShadows: true
+                },
+                on: {
+                    init: swiper => this.syncWithSwiper(swiper),
+                    slideChange: swiper => this.syncWithSwiper(swiper)
+                }
+            });
+
+            this.syncWithSwiper(this.swiper);
+
             if (window.PhosphorBridge) {
                 window.PhosphorBridge.reinit();
             }
+        },
+
+        showNext: function() {
+            if (this.swiper) this.swiper.slideNext();
+        },
+
+        showPrevious: function() {
+            if (this.swiper) this.swiper.slidePrev();
+        },
+
+        syncWithSwiper: function(swiper) {
+            if (!swiper) return;
+
+            this.activeSlideIndex = Number.isInteger(swiper.realIndex)
+                ? swiper.realIndex
+                : 0;
+            this.renderDotsAndLink();
         },
 
         renderDotsAndLink: function() {
@@ -317,48 +243,9 @@
             if (dotsContainer) {
                 dotsContainer.innerHTML = this.slides.map((_, idx) => {
                     const isActive = idx === this.activeSlideIndex;
-                    return `<span class="h-2.5 w-2.5 rounded-full transition-all duration-300 transform ${isActive ? 'bg-accent scale-125 shadow-sm' : 'bg-white/30 scale-100'}"></span>`;
+                    return `<span aria-current="${isActive ? 'true' : 'false'}" class="h-2.5 w-2.5 rounded-full transition-all duration-300 transform ${isActive ? 'bg-accent scale-125 shadow-sm' : 'bg-white/30 scale-100'}"></span>`;
                 }).join('');
             }
-        },
-
-        updateStackStyles: function(excludeIndex = null) {
-            const cards = document.querySelectorAll('.promo-card');
-            cards.forEach(card => {
-                const idx = parseInt(card.dataset.index, 10);
-                if (excludeIndex !== null && idx === excludeIndex) return;
-                
-                // Calculate position relative to active slide
-                let offset = (idx - this.activeSlideIndex + this.slides.length) % this.slides.length;
-                
-                card.style.transition = 'transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.15), opacity 0.45s ease-out, z-index 0.45s step-end';
-                
-                if (offset === 0) {
-                    // Top Card (Active)
-                    card.style.transform = 'translate(0px, 0px) scale(1) rotate(0deg)';
-                    card.style.opacity = '1';
-                    card.style.zIndex = '5';
-                    card.style.pointerEvents = 'auto';
-                } else if (offset === 1) {
-                    // Second Card
-                    card.style.transform = 'translate(0px, 12px) scale(0.95) rotate(0deg)';
-                    card.style.opacity = '0.85';
-                    card.style.zIndex = '4';
-                    card.style.pointerEvents = 'none';
-                } else if (offset === 2) {
-                    // Third Card
-                    card.style.transform = 'translate(0px, 24px) scale(0.9) rotate(0deg)';
-                    card.style.opacity = '0.55';
-                    card.style.zIndex = '3';
-                    card.style.pointerEvents = 'none';
-                } else {
-                    // Hidden Cards
-                    card.style.transform = 'translate(0px, 36px) scale(0.85) rotate(0deg)';
-                    card.style.opacity = '0';
-                    card.style.zIndex = '2';
-                    card.style.pointerEvents = 'none';
-                }
-            });
         }
     };
 

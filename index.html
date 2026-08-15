@@ -1891,13 +1891,15 @@
 
 				<!-- Carousel viewport (Tinder Stack Container) -->
 				<div class="relative w-full aspect-square sm:w-[360px] sm:h-[360px] mt-2 mb-6">
-					<div id="promoCardStack" class="absolute inset-0 w-full h-full select-none">
+					<div id="promoCardStack" class="swiper absolute inset-0 w-full h-full select-none overflow-visible" role="region" aria-label="Promotional offers. Swipe left for the next offer and right for the previous offer.">
 						<!-- Dynamically injected stack cards -->
 					</div>
 				</div>
 
+				<p class="text-[10px] sm:text-xs text-white/55 text-center">Swipe left for next. Swipe right for previous.</p>
+
 				<!-- Dots Indicator -->
-				<div id="promoModalDots" class="flex gap-1.5 justify-center mt-4">
+				<div id="promoModalDots" class="flex gap-1.5 justify-center mt-3" aria-label="Current promotional offer">
 					<!-- Dynamically injected indicators -->
 				</div>
 
@@ -1905,7 +1907,7 @@
 				<div class="w-full mt-6 flex flex-col items-center">
 					<a id="promoModalWhatsappLink" href="" target="_blank" rel="noopener" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition-all duration-300 hover:shadow-emerald-500/20 hover:scale-105 active:scale-95 flex items-center justify-center gap-2 text-sm sm:text-base">
 						<i class="ph-fill ph-whatsapp-logo text-lg" aria-hidden="true"></i>
-						<span>Claim 15% Discount on WhatsApp</span>
+						<span>Ask About This Offer on WhatsApp</span>
 					</a>
 					<p class="text-[10px] text-white/40 mt-3 text-center">T&C apply. Promos valid for direct bookings only.</p>
 				</div>
