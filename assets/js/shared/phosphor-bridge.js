@@ -36,6 +36,7 @@
         'maximize-2':     'arrows-out',
         'menu':           'list',
         'message-circle': 'chat-circle',
+        'message-square-text': 'chat-text',
         'mountain':       'mountains',
         'phone':          'phone',
         'play':           'play',

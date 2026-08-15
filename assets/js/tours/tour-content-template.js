@@ -126,9 +126,9 @@
         <main class="tour-detail-canvas py-16 md:py-24 relative z-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 items-start">
-                    <div class="lg:col-span-2 space-y-10">
+                    <div class="tour-detail-main-column lg:col-span-2 space-y-10">
                         <div class="tour-detail-tabs border-b border-slate-200 bg-white/70 backdrop-blur-md rounded-2xl px-4 pt-3 shadow-sm border border-slate-200/80">
-                            <div class="flex items-center gap-6 sm:gap-10 overflow-x-auto no-scrollbar">
+                            <div class="tour-detail-tabs-list flex items-center gap-6 sm:gap-10 overflow-x-auto no-scrollbar">
                                 <button id="tab-btn-overview" type="button" data-tour-tab="overview" class="tour-tab-btn pb-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-emerald-700 border-b-2 border-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="compass" class="w-4 h-4"></i>Overview</button>
                                 <button id="tab-btn-options" type="button" data-tour-tab="options" class="tour-tab-btn pb-3 text-xs sm:text-sm font-semibold uppercase tracking-wider text-slate-500 hover:text-emerald-700 border-b-2 border-transparent transition-colors flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="message-square-text" class="w-4 h-4"></i>Enquire</button>
                                 <button id="tab-btn-details" type="button" data-tour-tab="details" class="tour-tab-btn pb-3 text-xs sm:text-sm font-semibold uppercase tracking-wider text-slate-500 hover:text-emerald-700 border-b-2 border-transparent transition-colors flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="file-text" class="w-4 h-4"></i>Details</button>
