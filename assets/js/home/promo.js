@@ -16,9 +16,19 @@
                 whatsappMessage: "Hi! I am interested in booking a hotel together with a full tour package. Please apply the 15% discount code *InspireHotel15* to my inquiry!"
             },
             {
-                src: "assets/img/promos/promo-flyer-2.png",
-                title: "Trincomalee Whale & Dolphin Watching Offer",
-                whatsappMessage: "Hi! I am interested in booking the Trincomalee Whale & Dolphin Watching excursion. Please apply the 15% discount code *WhaleWatch15* to my inquiry!"
+                src: "assets/img/promos/promo-flyer-8.png",
+                title: "Mirissa Whale & Dolphin Watching Offer",
+                whatsappMessage: "Hi! I am interested in booking the Mirissa Whale & Dolphin Watching excursion. Please apply the 20% discount code *WHALE20* to my inquiry!"
+            },
+            {
+                src: "assets/img/promos/promo-flyer-6.png",
+                title: "White Water Adventure in Kitulgala Offer",
+                whatsappMessage: "Hi! I am interested in booking the White Water Adventure in Kitulgala. Please apply the 20% discount code *Raft20* to my inquiry!"
+            },
+            {
+                src: "assets/img/promos/promo-flyer-7.png",
+                title: "Sri Lanka Group Tours Early Bird Offer",
+                whatsappMessage: "Hi! I am interested in joining a Sri Lanka Group Tour. I would like to claim the 20% early bird discount for one of the first 7 seats."
             },
             {
                 src: "assets/img/promos/promo-flyer-1.png",
@@ -362,8 +372,8 @@
         const slides = window.PromoModule.slides;
         const pswpItems = slides.map(s => ({
             src: s.src,
-            width: s.src.includes('promo-flyer-3') ? 1080 : 1254, // Yala is 1080x1350, others are 1254x1254
-            height: s.src.includes('promo-flyer-3') ? 1350 : 1254
+            width: 1254,
+            height: 1254
         }));
         
         const lightbox = new window.PhotoSwipeLightbox({

@@ -14,12 +14,30 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/promos/promo-flyer-2.png",
+        src: "assets/img/promos/promo-flyer-8.png",
         category: "offers",
-        title: "Trincomalee Whale & Dolphin Watching - Special Offer",
-        location: "Trincomalee",
-        date: "July 11, 2026",
-        description: "Witness the ocean's gentle giants in their natural habitat. Free Koneshwaram temple and Lovers' Leap excursion included.",
+        title: "Mirissa Whale & Dolphin Watching - Special Offer",
+        location: "Mirissa",
+        date: "August 15, 2026",
+        description: "See majestic whales and playful dolphins off Mirissa with a 20% discount using promo code WHALE20.",
+        position: "top"
+    },
+    {
+        src: "assets/img/promos/promo-flyer-6.png",
+        category: "offers",
+        title: "White Water Adventure in Kitulgala - Special Offer",
+        location: "Kitulgala",
+        date: "August 15, 2026",
+        description: "Book rafting, canyoning, and zipline adventures in Kitulgala with a 20% discount using promo code Raft20.",
+        position: "top"
+    },
+    {
+        src: "assets/img/promos/promo-flyer-7.png",
+        category: "offers",
+        title: "Sri Lanka Group Tours - Early Bird Offer",
+        location: "Sri Lanka",
+        date: "August 15, 2026",
+        description: "Get 20% off when you reserve one of the first 7 seats on an Inspire Travels group tour.",
         position: "top"
     },
     {
