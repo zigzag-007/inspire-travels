@@ -35,7 +35,7 @@
                 '<div class="secondary-header-actions">' +
                     '<a href="#footer" class="secondary-contact-action">Contact Now</a>' +
                     '<button type="button" id="mobile-menu-btn" aria-label="Open mobile menu" aria-expanded="false" title="Open navigation menu">' +
-                        '<i class="ph ph-list"></i>' +
+                        '<span class="secondary-menu-trigger-glyph" aria-hidden="true"><span></span><span></span></span>' +
                     '</button>' +
                 '</div>' +
             '</div>' +
@@ -48,20 +48,24 @@
                 '<div class="secondary-mobile-menu-header">' +
                     '<a href="' + pathTo('index.html#home') + '" class="secondary-mobile-brand">' +
                         '<img src="' + pathTo('assets/img/logo.png') + '" alt="Inspire Travels">' +
-                        '<span>Inspire Travels</span>' +
+                        '<span class="secondary-mobile-brand-copy"><strong>Inspire Travels</strong><small>Sri Lanka · Private travel</small></span>' +
                     '</a>' +
                     '<button type="button" id="mobile-menu-close" aria-label="Close mobile menu" title="Close navigation menu"><i class="ph ph-x"></i></button>' +
                 '</div>' +
+                '<div class="secondary-mobile-menu-intro">' +
+                    '<span><i class="ph ph-compass-rose"></i> Island navigation</span>' +
+                    '<p>Small island.<br><em>Remarkable journeys.</em></p>' +
+                '</div>' +
                 '<div class="secondary-mobile-links">' +
-                    '<a href="' + pathTo('index.html#home') + '" class="mobile-nav-link" data-section="home"><i class="ph ph-house"></i><span>Home</span></a>' +
+                    '<a href="' + pathTo('index.html#home') + '" class="mobile-nav-link" data-section="home"><span class="secondary-mobile-nav-index">01</span><span class="secondary-mobile-nav-icon"><i class="ph ph-house"></i></span><span class="secondary-mobile-nav-label">Home</span><i class="ph ph-arrow-up-right secondary-mobile-nav-arrow"></i></a>' +
                     '<div data-mobile-menu="tours"></div>' +
                     '<div data-mobile-menu="destinations"></div>' +
-                    '<a href="' + pathTo('index.html#about') + '" class="mobile-nav-link" data-section="about"><i class="ph ph-users-three"></i><span>About</span></a>' +
+                    '<a href="' + pathTo('index.html#about') + '" class="mobile-nav-link" data-section="about"><span class="secondary-mobile-nav-index">04</span><span class="secondary-mobile-nav-icon"><i class="ph ph-users-three"></i></span><span class="secondary-mobile-nav-label">About</span><i class="ph ph-arrow-up-right secondary-mobile-nav-arrow"></i></a>' +
                     '<div data-mobile-menu="gallery"></div>' +
-                    '<a href="' + pathTo('index.html#reviews') + '" class="mobile-nav-link" data-section="reviews"><i class="ph ph-star"></i><span>Reviews</span></a>' +
+                    '<a href="' + pathTo('index.html#reviews') + '" class="mobile-nav-link" data-section="reviews"><span class="secondary-mobile-nav-index">06</span><span class="secondary-mobile-nav-icon"><i class="ph ph-star"></i></span><span class="secondary-mobile-nav-label">Reviews</span><i class="ph ph-arrow-up-right secondary-mobile-nav-arrow"></i></a>' +
                 '</div>' +
                 '<div class="secondary-mobile-socials">' +
-                    '<span>Follow the journey</span>' +
+                    '<span>Follow our island journal</span>' +
                     '<div>' +
                         '<a href="https://www.facebook.com/share/1CUqzA7tAu/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>' +
                         '<a href="https://www.instagram.com/inspiretravels_tours" target="_blank" rel="noopener" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>' +

@@ -7,6 +7,7 @@
     var menus = {
         tours: {
             label: 'Tours',
+            number: '02',
             icon: 'map',
             items: [
                 { label: 'Featured Tours', meta: 'Six popular private routes', path: 'index.html#tours' },
@@ -19,6 +20,7 @@
         },
         destinations: {
             label: 'Destinations',
+            number: '03',
             icon: 'map-pin',
             items: [
                 { label: 'Sigiriya', meta: 'Cultural Triangle', path: 'destinations/?destination=sigiriya' },
@@ -32,6 +34,7 @@
         },
         gallery: {
             label: 'Gallery',
+            number: '05',
             icon: 'image',
             items: [
                 { label: 'Featured Moments', meta: 'Homepage collection', path: 'index.html#gallery' },
@@ -71,8 +74,9 @@
         var panelId = 'mobile-' + key + '-submenu-' + index;
         container.innerHTML =
             '<button type="button" class="mobile-menu-control mobile-submenu-toggle" data-section="' + key + '" aria-expanded="false" aria-controls="' + panelId + '">' +
-                '<i data-lucide="' + menu.icon + '" class="w-4 h-4 sm:w-5 sm:h-5"></i>' +
-                '<span>' + menu.label + '</span>' +
+                '<span class="secondary-mobile-nav-index">' + menu.number + '</span>' +
+                '<span class="secondary-mobile-nav-icon"><i data-lucide="' + menu.icon + '"></i></span>' +
+                '<span class="secondary-mobile-nav-label">' + menu.label + '</span>' +
                 '<i data-lucide="chevron-down" class="mobile-submenu-chevron w-4 h-4"></i>' +
             '</button>' +
             '<div id="' + panelId + '" class="mobile-submenu hidden" aria-hidden="true">' +
