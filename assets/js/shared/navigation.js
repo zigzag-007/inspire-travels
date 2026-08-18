@@ -114,6 +114,7 @@
                 const navbarHeight = this.navbar ? this.navbar.getBoundingClientRect().height : 64;
                 const offset = navbarHeight + 20;
                 const scrollY = window.scrollY;
+                document.body.classList.toggle('secondary-shell-scrolled', scrollY > 24);
 
                 this.updateScrollProgress();
 

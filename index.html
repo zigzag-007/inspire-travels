@@ -268,124 +268,78 @@
 		</div>
 		<!-- Blur Overlay for Mobile Menu -->
 		<div id="blur-overlay" class="fixed inset-0 backdrop-blur-sm bg-black/30 opacity-0 hidden will-change-opacity" style="z-index: 45; transition: opacity 600ms cubic-bezier(0.23, 1, 0.32, 1);"></div>
-		<!-- Top Bar -->
-		<div class="top-contact-bar bg-primary text-primary-foreground py-2 px-2 sm:px-4 text-xs sm:text-sm" data-aos="blur-in" data-aos-duration="1000" data-aos-delay="0">
-			<div class="max-w-7xl mx-auto flex justify-between items-center">
-				<!-- Left Side: Contact Information -->
-				<div class="flex items-center gap-3 sm:gap-6">
-					<!-- Phone (always visible) -->
-					<div class="flex items-center gap-1.5 sm:gap-2">
-						<i data-lucide="phone" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
-						<span>+94 78 595 9333</span>
-					</div>
-					<!-- Email (hidden on xs screens) -->
-					<div class="hidden sm:flex items-center gap-2">
-						<i data-lucide="mail" class="w-4 h-4"></i>
-						<span>travelerinspire@gmail.com</span>
-					</div>
-				</div>
-				<!-- Right Side: Tagline (Hidden on Small Screens) -->
-				<div class="hidden md:block">
-					<span>Experience the Pearl of the Indian Ocean</span>
-				</div>
-			</div>
-		</div>
-		<!-- Main Navigation Wrapper (Native Sticky layout fix) -->
-		<div id="navbar-wrapper" class="sticky top-0 z-50 w-full" style="height: 0px; overflow: visible;">
-			<nav id="navbar" class="liquid-glass w-full" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="0" data-aos-easing="ease-out-cubic">
-			<!-- Scroll Progress Bar (2026 Premium Micro-Interaction) -->
-			<div id="scroll-progress" class="absolute bottom-0 left-0 h-[3px] bg-gradient-to-r from-accent via-primary to-accent z-50 w-0 transition-all duration-75"></div>
-			<div class="max-w-[1400px] mx-auto px-3 sm:px-6 md:px-8 lg:px-12 xl:px-16 relative">
-				<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-30"></div>
-				<div class="relative flex justify-between items-center h-14 sm:h-16 transform transition-transform duration-200">
-					<!-- Logo - Left Corner -->
-					<div class="flex items-center flex-shrink-0">
-						<a href="#home" class="flex items-center">
-						<img src="assets/img/logo.png" alt="Inspire Travels & Tours" class="nav-logo h-24 sm:h-32 md:h-40 w-auto object-contain">
+		<!-- Floating Blended Navigation Header -->
+		<nav id="navbar" class="secondary-site-header" aria-label="Primary navigation">
+			<div id="scroll-progress" aria-hidden="true"></div>
+			<div class="secondary-header-inner">
+				<!-- Logo - Left Corner -->
+				<a href="index.html#home" class="secondary-brand" aria-label="Inspire Travels home">
+					<img src="assets/img/logo.png" alt="Inspire Travels & Tours" class="nav-logo">
+				</a>
+				<!-- Desktop Navigation - Center -->
+				<div class="desktop-primary-nav">
+					<a href="index.html#home" class="nav-link text-accent">Home</a>
+					<div class="desktop-nav-menu" data-desktop-menu="tours">
+						<a href="#tours" class="nav-link desktop-nav-trigger" aria-haspopup="true">
+							Tours <i class="ph ph-caret-down desktop-nav-chevron"></i>
 						</a>
+						<div class="desktop-nav-dropdown" data-nav-panel aria-label="Tours submenu"></div>
 					</div>
-					<!-- Desktop Navigation - Center -->
-					<div class="desktop-primary-nav hidden lg:flex items-center gap-6 absolute left-1/2 transform -translate-x-1/2">
-						<a href="#home" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Home</a>
-						<div class="desktop-nav-menu" data-desktop-menu="tours">
-							<a href="#tours" class="nav-link desktop-nav-trigger text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]" aria-haspopup="true">
-								Tours <i data-lucide="chevron-down" class="desktop-nav-chevron w-4 h-4"></i>
-							</a>
-							<div class="desktop-nav-dropdown" data-nav-panel aria-label="Tours submenu"></div>
-						</div>
-						<div class="desktop-nav-menu" data-desktop-menu="destinations">
-							<a href="#destinations" class="nav-link desktop-nav-trigger text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]" aria-haspopup="true">
-								Destinations <i data-lucide="chevron-down" class="desktop-nav-chevron w-4 h-4"></i>
-							</a>
-							<div class="desktop-nav-dropdown" data-nav-panel aria-label="Destinations submenu"></div>
-						</div>
-						<a href="#about" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">About</a>
-						<div class="desktop-nav-menu" data-desktop-menu="gallery">
-							<a href="#gallery" class="nav-link desktop-nav-trigger text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]" aria-haspopup="true">
-								Gallery <i data-lucide="chevron-down" class="desktop-nav-chevron w-4 h-4"></i>
-							</a>
-							<div class="desktop-nav-dropdown" data-nav-panel aria-label="Gallery submenu"></div>
-						</div>
-						<a href="#reviews" class="nav-link text-white hover:text-accent transition-colors duration-200 font-extrabold tracking-wide text-[16px] md:text-[17px]">Reviews</a>
+					<div class="desktop-nav-menu" data-desktop-menu="destinations">
+						<a href="#destinations" class="nav-link desktop-nav-trigger" aria-haspopup="true">
+							Destinations <i class="ph ph-caret-down desktop-nav-chevron"></i>
+						</a>
+						<div class="desktop-nav-dropdown" data-nav-panel aria-label="Destinations submenu"></div>
 					</div>
-					<!-- Book Now Button and Mobile Menu - Right Corner -->
-					<div class="flex items-center space-x-3 sm:space-x-4">
-						<button type="button" class="hidden lg:block bg-black/20 backdrop-blur-md border border-white/20 text-white px-6 py-2 rounded-full font-medium transition-all duration-300 hover:bg-black/30 hover:border-white/30 hover:scale-105 shadow-lg" onclick="window.location.href='#footer'">Contact Now</button>
-						<!-- Mobile menu button -->
-						<button type="button" id="mobile-menu-btn" class="lg:hidden p-1.5 sm:p-2 text-white hover:text-accent transition-colors" aria-label="Open mobile menu" title="Open navigation menu">
-						<i data-lucide="menu" class="w-6 h-6 sm:w-7 sm:h-7"></i>
-						</button>
+					<a href="#about" class="nav-link">About</a>
+					<div class="desktop-nav-menu" data-desktop-menu="gallery">
+						<a href="gallery.html" class="nav-link desktop-nav-trigger" aria-haspopup="true">
+							Gallery <i class="ph ph-caret-down desktop-nav-chevron"></i>
+						</a>
+						<div class="desktop-nav-dropdown" data-nav-panel aria-label="Gallery submenu"></div>
 					</div>
+					<a href="#reviews" class="nav-link">Reviews</a>
 				</div>
-			</div>
-			</nav>
-		</div>
-		<!-- Mobile Navigation -->
-		<div id="mobile-menu" class="mobile-menu fixed top-0 left-0 h-full w-[85vw] max-w-xs sm:w-80 bg-white backdrop-blur-md shadow-2xl z-50 lg:hidden transform -translate-x-full will-change-transform" style="transition: transform 600ms cubic-bezier(0.23, 1, 0.32, 1);">
-			<div class="p-4 sm:p-6 pt-6 sm:pt-8">
-				<!-- Header with Logo and Close Button -->
-				<div class="flex justify-between items-center mb-6 sm:mb-8">
-					<div class="flex items-center gap-2.5 sm:gap-3">
-						<img src="assets/img/logo.png" alt="Inspire Travels" class="w-9 h-9 sm:w-12 sm:h-12 object-contain">
-						<h3 class="text-lg sm:text-xl font-display font-bold text-slate-800">Inspire Travels</h3>
-					</div>
-					<button type="button" id="mobile-menu-close" class="p-1.5 sm:p-2 text-slate-600 hover:text-slate-800 transition-colors rounded-lg hover:bg-slate-100" aria-label="Close mobile menu" title="Close navigation menu">
-						<i data-lucide="x" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+				<!-- Book Now Button and Mobile Menu - Right Corner -->
+				<div class="secondary-header-actions">
+					<a href="#footer" class="secondary-contact-action">Contact Now</a>
+					<!-- Mobile menu button -->
+					<button type="button" id="mobile-menu-btn" aria-label="Open mobile menu" aria-expanded="false" title="Open navigation menu">
+						<span class="secondary-menu-trigger-glyph" aria-hidden="true"><span></span><span></span></span>
 					</button>
 				</div>
+			</div>
+		</nav>
 
-				<!-- Navigation Links -->
-				<div class="space-y-1">
-					<a href="#home" class="mobile-nav-link flex items-center gap-3 sm:gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 active-mobile-nav bg-gradient-to-r from-emerald-500 to-emerald-600 text-white transition-all duration-200 font-semibold py-3 sm:py-4 px-3 sm:px-4 text-sm sm:text-base rounded-xl" data-section="home">
-						<i data-lucide="home" class="w-4 h-4 sm:w-5 sm:h-5"></i>
-						<span>Home</span>
+		<!-- Mobile Navigation -->
+		<div id="mobile-menu" class="mobile-menu -translate-x-full" aria-hidden="true">
+			<div class="secondary-mobile-menu-inner">
+				<div class="secondary-mobile-menu-header">
+					<a href="index.html#home" class="secondary-mobile-brand">
+						<img src="assets/img/logo.png" alt="Inspire Travels">
+						<span class="secondary-mobile-brand-copy"><strong>Inspire Travels</strong><small>Sri Lanka · Private travel</small></span>
 					</a>
+					<button type="button" id="mobile-menu-close" aria-label="Close mobile menu" title="Close navigation menu"><i class="ph ph-x"></i></button>
+				</div>
+				<div class="secondary-mobile-menu-intro">
+					<span><i class="ph ph-compass-rose"></i> Island navigation</span>
+					<p>Small island.<br><em>Remarkable journeys.</em></p>
+				</div>
+				<div class="secondary-mobile-links">
+					<a href="index.html#home" class="mobile-nav-link" data-section="home"><span class="secondary-mobile-nav-index">01</span><span class="secondary-mobile-nav-icon"><i class="ph ph-house"></i></span><span class="secondary-mobile-nav-label">Home</span><i class="ph ph-arrow-up-right secondary-mobile-nav-arrow"></i></a>
 					<div data-mobile-menu="tours"></div>
 					<div data-mobile-menu="destinations"></div>
-					<a href="#about" class="mobile-nav-link flex items-center gap-3 sm:gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-3 sm:py-4 px-3 sm:px-4 text-sm sm:text-base rounded-xl" data-section="about">
-						<i data-lucide="users" class="w-4 h-4 sm:w-5 sm:h-5"></i>
-						<span>About</span>
-					</a>
+					<a href="index.html#about" class="mobile-nav-link" data-section="about"><span class="secondary-mobile-nav-index">04</span><span class="secondary-mobile-nav-icon"><i class="ph ph-users-three"></i></span><span class="secondary-mobile-nav-label">About</span><i class="ph ph-arrow-up-right secondary-mobile-nav-arrow"></i></a>
 					<div data-mobile-menu="gallery"></div>
-					<a href="#reviews" class="mobile-nav-link flex items-center gap-3 sm:gap-4 text-slate-700 hover:text-white hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-600 transition-all duration-200 font-semibold py-3 sm:py-4 px-3 sm:px-4 text-sm sm:text-base rounded-xl" data-section="reviews">
-						<i data-lucide="star" class="w-4 h-4 sm:w-5 sm:h-5"></i>
-						<span>Reviews</span>
-					</a>
+					<a href="index.html#reviews" class="mobile-nav-link" data-section="reviews"><span class="secondary-mobile-nav-index">06</span><span class="secondary-mobile-nav-icon"><i class="ph ph-star"></i></span><span class="secondary-mobile-nav-label">Reviews</span><i class="ph ph-arrow-up-right secondary-mobile-nav-arrow"></i></a>
 				</div>
-
-				<!-- Social Media Links -->
-				<div class="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-slate-200">
-					<p class="text-xs sm:text-sm text-slate-600 mb-3 sm:mb-4 text-center">Follow us on:</p>
-					<div class="flex justify-center gap-3 sm:gap-4">
-						<a href="https://www.facebook.com/share/1CUqzA7tAu/?mibextid=wwXIfr" title="Follow us on Facebook" aria-label="Facebook" class="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 bg-slate-100 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 text-slate-600 hover:text-white rounded-full transition-all duration-200">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 sm:w-5 sm:h-5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-						</a>
-						<a href="https://www.instagram.com/inspiretravels_tours" title="Follow us on Instagram" aria-label="Instagram" class="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 bg-slate-100 hover:bg-gradient-to-r hover:from-pink-500 hover:to-pink-600 text-slate-600 hover:text-white rounded-full transition-all duration-200">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 sm:w-5 sm:h-5"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-						</a>
-						<a href="https://www.tiktok.com/@inspiretravelstours?_t=ZS-903Za2uRoUU&_r=1" title="Follow us on TikTok" aria-label="TikTok" class="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 bg-slate-100 hover:bg-gradient-to-r hover:from-gray-800 hover:to-black text-slate-600 hover:text-white rounded-full transition-all duration-200">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 sm:w-5 sm:h-5"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
-						</a>
+				<div class="secondary-mobile-socials">
+					<span>Follow our island journal</span>
+					<div>
+						<a href="https://www.facebook.com/share/1CUqzA7tAu/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+						<a href="https://www.instagram.com/inspiretravels_tours" target="_blank" rel="noopener" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+						<a href="https://www.tiktok.com/@inspiretravelstours?_t=ZS-903Za2uRoUU&_r=1" target="_blank" rel="noopener" aria-label="TikTok"><i class="ph ph-tiktok-logo"></i></a>
+						<a href="https://youtube.com/@InspireTravelandTours" target="_blank" rel="noopener" aria-label="YouTube"><i class="ph ph-youtube-logo"></i></a>
 					</div>
 				</div>
 			</div>
