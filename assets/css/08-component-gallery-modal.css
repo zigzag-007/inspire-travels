@@ -115,13 +115,14 @@
     position: relative;
     isolation: isolate;
     color: var(--secondary-paper-ink, #13261d);
-    /* Multi-layered rich warm paper canvas with defined organic glow positions */
+    /* Multi-layered rich warm paper canvas with golden yellow, amber, sage & teal radiance */
     background:
-        radial-gradient(circle at 14% 12%, rgba(124, 155, 91, 0.28), transparent 32rem),
-        radial-gradient(circle at 86% 38%, rgba(65, 145, 139, 0.24), transparent 34rem),
-        radial-gradient(circle at 22% 76%, rgba(190, 139, 71, 0.26), transparent 36rem),
-        radial-gradient(circle at 50% 50%, rgba(255, 252, 238, 0.85), transparent 45rem),
-        linear-gradient(155deg, #e4ecdc 0%, #f6f0dd 46%, #e2ecd9 100%) !important;
+        radial-gradient(circle at 78% 18%, rgba(245, 186, 73, 0.35), transparent 32rem),
+        radial-gradient(circle at 18% 72%, rgba(234, 176, 91, 0.32), transparent 36rem),
+        radial-gradient(circle at 14% 12%, rgba(124, 155, 91, 0.24), transparent 30rem),
+        radial-gradient(circle at 86% 62%, rgba(65, 145, 139, 0.2), transparent 32rem),
+        radial-gradient(circle at 50% 45%, rgba(255, 248, 220, 0.92), transparent 42rem),
+        linear-gradient(155deg, #e8ede0 0%, #fbf3df 38%, #f8eed2 65%, #e2ead9 100%) !important;
 }
 
 /* Layer 1: Enhanced Grid Texture & Topo Contours */
