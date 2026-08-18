@@ -6,111 +6,120 @@
 
     var reviews = [
         {
+                "name": "Mohit Malhotra",
+                "image": "https://lh3.googleusercontent.com/a/ACg8ocKiHc9Pcrna3EEf8ETWUgErD5Q6WkFdPMyCKAVUH7760gIg9w=w80-h80-p-rp-mo-br100",
+                "country": "Family Journey",
+                "date": "July 2026",
+                "tour": "9-Day Island-Wide Tour",
+                "quote": "This was our first trip to Sri Lanka with my family, and we were looking for someone who could be our driver and guide for the entire 9-day journey. We were fortunate to find him! He took us all across Sri Lanka, took exceptional care of us, and treated us like family rather than tourists. He guided us at every step, recommended the best places to visit, and made sure we were comfortable throughout the trip. Very affordable packages, excellent vehicles, and an incredibly comfortable experience!",
+                "rating": 5
+        },
+        {
+                "name": "Daniya Tariq",
+                "image": "https://lh3.googleusercontent.com/a-/ALV-UjWzQ4hjUU_FSHX_f4nb4w_JZo8nhQYGOfQQNfzVCPaQFhWy1obi=w80-h80-p-rp-mo-br100",
+                "country": "Solo Travelers",
+                "date": "July 2026",
+                "tour": "Private Island Journey",
+                "quote": "I highly recommend Inspire Travels for making travel easy, affordable, secure, and professional. Finding them on Instagram was a stroke of luck for our trip. As two females traveling alone, we had many concerns, but they answered all our queries, expertly guided us, and provided daily follow-ups throughout our time in Sri Lanka. I strongly recommend their services, especially for solo female travelers, families and groups.",
+                "rating": 5
+        },
+        {
+                "name": "Vivaan Shenoy",
+                "image": "https://lh3.googleusercontent.com/a-/ALV-UjVyxKBvTCsy0WikxD4S4dBs6BbhQ3vLTrTyNpzLI7ZhRfGRalCahg=w80-h80-p-rp-mo-ba12-br100",
+                "country": "Family Holiday",
+                "date": "July 2026",
+                "tour": "Bespoke Cultural Route",
+                "quote": "Very pleasant trip with a very friendly and knowledgeable guide - Lakshan. He was very helpful and kind and always on time, which made the stay in Sri Lanka very peaceful and enjoyable.",
+                "rating": 5
+        },
+        {
+                "name": "Zeeshan Ahmed",
+                "image": "https://lh3.googleusercontent.com/a-/ALV-UjVIwW-h7Up-Nq3sdjpVFmPogn1E9Fnshk9eGLm1biReyDsOO1g=w80-h80-p-rp-mo-br100",
+                "country": "Family Booking",
+                "date": "July 2026",
+                "tour": "Private Guided Vacation",
+                "quote": "If I could give more than 5 stars I would. I had booked this trip for my mother as I was not able to make it. The driver Kalum was the kindest and sweetest soul who took care of everything and handled it all very neatly. Would recommend this tour group to everyone!",
+                "rating": 5
+        },
+        {
+                "name": "Sandra",
+                "image": "https://lh3.googleusercontent.com/a/ACg8ocJHAxTcdjolgM4MyfOU1lXa4b6zAV-UYcXdMqsAkZv_9847Pw=w80-h80-p-rp-mo-ba12-br100",
+                "country": "Germany",
+                "date": "January 2026",
+                "tour": "3-Week Island Expedition",
+                "quote": "We were incredibly lucky and got the best driver on the island for our three-week vacation - Kalum. We were in excellent hands with him. He's a fantastic driver and took great care of us at all times. Thanks to Kalum, we not only saw the famous highlights but also discovered hidden gems that aren't in any guidebook. If you're looking for someone to show you the heart and soul of Sri Lanka - he's the perfect choice.",
+                "rating": 5
+        },
+        {
+                "name": "Manish Kundu",
+                "image": "https://lh3.googleusercontent.com/a/ACg8ocK2WsPucXp5BDBKvZpevbnxn_RDaOpsQPPMoO4xJqmEApY5QWzq=w80-h80-p-rp-mo-ba12-br100",
+                "country": "India",
+                "date": "May 2026",
+                "tour": "8-Day Explorer Route",
+                "quote": "One of the most memorable trips: Spent 8 days exploring Sri Lanka with Kalum and couldn't have asked for a better experience. He is an outstanding host - super friendly, very knowledgeable, and always went the extra mile to make our trip special. The car was always spotless, and his recommendations through Colombo, Mirissa, Hikkaduwa, and Ella were spot on. 10/10 would recommend!",
+                "rating": 5
+        },
+        {
+                "name": "Vic Naathen",
+                "image": "https://lh3.googleusercontent.com/a/ACg8ocJVnGV9zlFhL-ZDoandBCvoMAkFi1V4tLvIZMxe-KmJMzw3PQ=w80-h80-p-rp-mo-br100",
+                "country": "United Kingdom",
+                "date": "July 2026",
+                "tour": "9-Day Classic Route",
+                "quote": "Just finished a 9 day trip around Sri Lanka. Inspire Travels were very helpful and responsive. Our driver Thusitha was fantastic! Accommodating, courteous, reliable and very safe driver. I would recommend to anyone visiting Sri Lanka.",
+                "rating": 5
+        },
+        {
+                "name": "Dide Jansen",
+                "image": "https://lh3.googleusercontent.com/a/ACg8ocKSm_T3GmzqVrVhGdX0p_eiy1WvbtxFV3L13jLKvCNILfEYKQ=w80-h80-p-rp-mo-br100",
+                "country": "Netherlands",
+                "date": "January 2026",
+                "tour": "Highland & Coast Discovery",
+                "quote": "We had Kalum as our driver for almost a week. He was funny, enthusiastic, sweet and had great ideas. He was willing to go on activities with us and took great pictures. His driving felt very safe as well. We can't recommend him enough!!",
+                "rating": 5
+        },
+        {
+                "name": "Mandars Backup",
+                "image": "https://lh3.googleusercontent.com/a-/ALV-UjVwLyZv9zq6BaJALWcLRdlKqW9jI6zn1-dzkq6PmPbN2CpmZHH-Zg=w80-h80-p-rp-mo-br100",
+                "country": "United States",
+                "date": "June 2026",
+                "tour": "Tailored Island Vacation",
+                "quote": "If you're visiting Sri Lanka, having Kalum as your driver will make your trip so much better. From day one, he was professional, patient, and incredibly easy to communicate with. He knows amazing hidden spots and his food recommendations were outstanding. He even surprised us with a thoughtful goodbye gift at the end of our journey.",
+                "rating": 5
+        },
+        {
+                "name": "Rakshith Srujan",
+                "image": "https://lh3.googleusercontent.com/a/ACg8ocLYe7kFbHalcgf_9ehorpfwJuDrbbg2k8BnoqhCtTyAA1M6JQ=w80-h80-p-rp-mo-br100",
+                "country": "India",
+                "date": "July 2026",
+                "tour": "Private Island Excursion",
+                "quote": "Their service was very good. Our driver Lakshan was very kind and helpful throughout the journey. We really enjoyed Sri Lanka because of him.",
+                "rating": 5
+        },
+        {
                 "name": "Sarah & Mike Johnson",
                 "image": "https://tevily-html.vercel.app/assets/images/testimonial/testimonial-one-img-3.png",
                 "country": "Australia",
-                "date": "March 2024",
+                "date": "March 2026",
                 "tour": "Cultural Heritage Tour",
                 "quote": "Absolutely incredible experience! Our guide Kalum was phenomenal - so knowledgeable about Sri Lankan history and culture. The temples were breathtaking, and the local food experiences were unforgettable.",
                 "rating": 5
         },
         {
                 "name": "Hans Mueller",
-                "image": "https://lh3.googleusercontent.com/a-/ALV-UjXSN2lO4-2d3uEldFvhZ86d2AbsiUaMw3ee0dopnvNHUKFTf6sh=w54-h54-p-rp-mo-ba4-br100",
+                "image": "https://lh3.googleusercontent.com/a-/ALV-UjXSN2lO4-2d3uEldFvhZ86d2AbsiUaMw3ee0dopnvNHUKFTf6sh=w80-h80-p-rp-mo-ba4-br100",
                 "country": "Germany",
-                "date": "February 2024",
+                "date": "February 2026",
                 "tour": "Wildlife Safari Adventure",
                 "quote": "The wildlife safari was a dream come true! We saw elephants, leopards, and countless bird species. The accommodations were excellent, and the entire team was professional and caring.",
                 "rating": 5
         },
         {
                 "name": "Priya & Raj Patel",
-                "image": "https://lh3.googleusercontent.com/a/ACg8ocIQHi3clwfkgjkA_Qjv02HjgJvH0YHP_3moxTZo2gvqM1JOuyg=w54-h54-p-rp-mo-br100",
+                "image": "https://lh3.googleusercontent.com/a/ACg8ocIQHi3clwfkgjkA_Qjv02HjgJvH0YHP_3moxTZo2gvqM1JOuyg=w80-h80-p-rp-mo-br100",
                 "country": "United Kingdom",
-                "date": "January 2024",
+                "date": "January 2026",
                 "tour": "Complete Sri Lanka Discovery",
                 "quote": "Our 12-day journey through Sri Lanka was perfectly organized. From the ancient cities to the tea plantations and beaches, every moment was magical. The small group size made it feel very personal.",
-                "rating": 5
-        },
-        {
-                "name": "Emma Thompson",
-                "image": "https://lh3.googleusercontent.com/a-/ALV-UjU2yLNWorl9PgyTnovRbD0pnMD076avlqvkvQZ3vGB6k4GIMft7=w54-h54-p-rp-mo-br100",
-                "country": "Canada",
-                "date": "December 2021",
-                "tour": "Hill Country Tea Experience",
-                "quote": "The tea plantation tour was stunning! The train journey through the mountains was like something from a movie. The tea tasting was educational and delicious.",
-                "rating": 5
-        },
-        {
-                "name": "Carlos Rodriguez",
-                "image": "https://lh3.googleusercontent.com/a-/ALV-UjXzJHfWgB5u1rj8EQiwGhEJt1DlBhd3AdMpjToPupNsr-TvuT0=w54-h54-p-rp-mo-br100",
-                "country": "Spain",
-                "date": "November 2023",
-                "tour": "Adventure Trekking Tour",
-                "quote": "Amazing trekking! The waterfalls were spectacular and the trails offered incredible views. The team ensured our safety while pushing us to see hidden gems.",
-                "rating": 5
-        },
-        {
-                "name": "Lisa & David Chen",
-                "image": "https://lh3.googleusercontent.com/a-/ALV-UjXP-SwJsCLFr85GSo6DHcndM7xT_tH7ioKQQDGeFf5HPfXpyTCt=w54-h54-p-rp-mo-br100",
-                "country": "Singapore",
-                "date": "October 2023",
-                "tour": "Beach Paradise Tour",
-                "quote": "Perfect beach getaway! The coastal towns were charming, whale watching was incredible, and the seafood was fresh and delicious. Great balance of relaxation and adventure.",
-                "rating": 5
-        },
-        {
-                "name": "Nadia Kaur",
-                "image": "https://lh3.googleusercontent.com/a-/ALV-UjU5wTiSpVF0bgn-EH7uep-eRHZgcOYz5wqL7T736xM35-d-BOmEGQ=w54-h54-p-rp-mo-ba4-br100",
-                "country": "India",
-                "date": "September 2025",
-                "tour": "Cultural Food Journey",
-                "quote": "A delightful experience! The cooking class and spice garden tour were highlights of my trip. I learned so much about Sri Lankan cuisine and culture, and everything tasted divine.",
-                "rating": 5
-        },
-        {
-                "name": "Oliver Brown",
-                "image": "https://lh3.googleusercontent.com/a-/ALV-UjWdI34ScBZOvB42i-XhpAoOYOTvk8CWYcHjPWw1b_u0AAS1Esc=w54-h54-p-rp-mo-br100",
-                "country": "United States",
-                "date": "August 2023",
-                "tour": "Adventure & Wildlife Tour",
-                "quote": "The adventure and wildlife combination was perfect! Kayaking through mangroves and then spotting wild elephants on safari was unforgettable. I would book again without hesitation.",
-                "rating": 4
-        },
-        {
-                "name": "Amara Silva",
-                "image": "https://lh3.googleusercontent.com/a-/ALV-UjXaJkmJ7-qtXMiSfsevllGbK1eLhZz5SwAMFKD09r_Zfl5h15s=w54-h54-p-rp-mo-br100",
-                "country": "Brazil",
-                "date": "July 2023",
-                "tour": "Family Vacation Package",
-                "quote": "A truly magical family vacation! The team planned everything perfectly for our group of six. From kid-friendly activities to relaxing beach days, every detail was handled with care.",
-                "rating": 5
-        },
-        {
-                "name": "Sathya narayanan TG",
-                "image": "https://lh3.googleusercontent.com/a-/ALV-UjUb1KPt_4mJ4BZopKJFuwWPzA4z4Nh827TGK-UACdwp6_Nk5Jk=w54-h54-p-rp-mo-br100",
-                "country": "India",
-                "date": "April 2024",
-                "tour": "Customized Sri Lanka Tour",
-                "quote": "We did our Sri Lanka trip through Mr.Kalum. He was excellent with his driving and was patient enough to wait and take us to all places we wanted. Excellent service provided.",
-                "rating": 5
-        },
-        {
-                "name": "Mukesh Rathod",
-                "image": "https://lh3.googleusercontent.com/a-/ALV-UjWrX-PihWQx0oD1N9XCY3UN-AFMfsRpOw-zonZyljm8Kays4fPd=w54-h54-p-rp-mo-br100",
-                "country": "India",
-                "date": "May 2024",
-                "tour": "Comprehensive Sri Lanka Tour",
-                "quote": "We just completed Sri Lanka tour for around days, it was wonderful experience. Our guide was very patient and supportive throughout the tour",
-                "rating": 5
-        },
-        {
-                "name": "Shailesh Kedari",
-                "image": "https://lh3.googleusercontent.com/a-/ALV-UjUcBX-9LaSc-yQkON4lm4E1c2YtjYB43dPY29S9XxJWqga3W2Mf=w54-h54-p-rp-mo-br100",
-                "country": "United States",
-                "date": "June 2024",
-                "tour": "Adventure & Photography Tour",
-                "quote": "We had Kalum as our driver for almost a week. He was funny, enthusiastic, sweet and had great ideas. He was willing to go on activities with us and took great pictures. His driving felt very save as well. We can't recommend him enough!!",
                 "rating": 5
         }
 ];
