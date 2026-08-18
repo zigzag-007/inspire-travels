@@ -1,26 +1,18 @@
-// Navigation Module - Clean and Simple
+// Navigation Module - Clean, Modern & Universal
 // Author: Zig Zag AI
-// Description: Handles navigation styling changes and active states
+// Description: Handles scroll progress, back to top, and smooth scroll across all pages
 
 (function() {
     'use strict';
 
     window.NavigationModule = {
         navbar: null,
-        navLinks: null,
-        mobileNavLinks: null,
-        navLogo: null,
-        mobileMenuBtn: null,
         scrollProgress: null,
         scrollAnimationFrame: null,
         restoreScrollBehavior: null,
 
         init: function() {
             this.navbar = document.getElementById('navbar');
-            this.navLinks = document.querySelectorAll('.nav-link');
-            this.mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-            this.navLogo = document.querySelector('.nav-logo');
-            this.mobileMenuBtn = document.getElementById('mobile-menu-btn');
             this.scrollProgress = document.getElementById('scroll-progress');
 
             this.initScrollEffects();
@@ -28,175 +20,18 @@
             this.initBackToTop();
         },
 
-        // Simple function to set navigation colors
-        setNavColors: function(isDarkSection) {
-            this.navLinks.forEach(link => {
-                // Remove all color classes
-                link.classList.remove('text-white', 'text-foreground', 'text-accent', 'text-primary', 'hover:text-accent', 'hover:text-primary');
-
-                if (isDarkSection) {
-                    // Dark sections: white text with accent hover
-                    link.classList.add('text-white', 'hover:text-accent');
-                } else {
-                    // Light sections: dark text with primary hover
-                    link.classList.add('text-foreground', 'hover:text-primary');
-                }
-            });
-
-            // Set hamburger menu button color
-            if (this.mobileMenuBtn) {
-                // Remove all color classes from hamburger menu button
-                this.mobileMenuBtn.classList.remove('text-white', 'text-foreground', 'text-slate-600', 'text-slate-800');
-
-                if (isDarkSection) {
-                    // Dark sections: white hamburger menu
-                    this.mobileMenuBtn.classList.add('text-white');
-                } else {
-                    // Light sections: dark hamburger menu
-                    this.mobileMenuBtn.classList.add('text-foreground');
-                }
-            }
-
-            // Set logo color
-            if (this.navLogo) {
-                this.navLogo.classList.remove('light-logo', 'dark-logo');
-                if (isDarkSection) {
-                    this.navLogo.classList.add('light-logo');
-                } else {
-                    this.navLogo.classList.add('dark-logo');
-                }
-            }
-        },
-
-        // Set active state for current section
-        setActiveState: function(currentSection) {
-            const isGalleryPage = window.location.pathname.includes('gallery.html');
-
-            this.navLinks.forEach(link => {
-                // Remove active classes
-                link.classList.remove('text-accent', 'text-primary');
-                
-                // Add active class if this is the current section
-                const href = link.getAttribute('href');
-                const isMatch = href === `#${currentSection}` || 
-                                (currentSection === 'gallery' && href === 'gallery.html') ||
-                                (href === `index.html#${currentSection}`);
-
-                if (isMatch) {
-                    const darkSections = ['home', 'about', 'adventure', 'footer', 'contact'];
-                    if (darkSections.includes(currentSection) || (currentSection === 'gallery' && window.scrollY < 180)) {
-                        link.classList.add('text-accent');
-                    } else {
-                        link.classList.add('text-primary');
-                    }
-                }
-            });
-
-            // Update mobile nav links
-            this.mobileNavLinks.forEach(link => {
-                link.classList.remove('text-primary');
-                const href = link.getAttribute('href');
-                const isMatch = href === `#${currentSection}` || 
-                                (currentSection === 'gallery' && href === 'gallery.html') ||
-                                (href === `index.html#${currentSection}`);
-                if (isMatch) {
-                    link.classList.add('text-primary');
-                }
-            });
-        },
-
-        // Initialize scroll effects
+        // Initialize scroll effects (progress meter & scroll threshold toggle)
         initScrollEffects: function() {
-            const darkSections = ['home', 'about', 'adventure', 'footer', 'contact'];
-
             const updateNavigation = () => {
-                const sections = document.querySelectorAll('section[id]');
-                const navbarHeight = this.navbar ? this.navbar.getBoundingClientRect().height : 64;
-                const offset = navbarHeight + 20;
                 const scrollY = window.scrollY;
-                document.body.classList.toggle('secondary-shell-scrolled', scrollY > 24);
+                document.body.classList.toggle('secondary-shell-scrolled', scrollY > 40);
+
+                const isTourCollection = document.body.classList.contains('tour-collection-view');
+                document.body.classList.toggle('tour-collection-scrolled', isTourCollection && scrollY > 40);
 
                 this.updateScrollProgress();
-
-                let currentSection = null;
-                let isDarkSection = false;
-                const isGalleryPage = window.location.pathname.includes('gallery.html');
-                const isTourCollection = document.body.classList.contains('tour-collection-view');
-
-                document.body.classList.toggle('tour-collection-scrolled', isTourCollection && scrollY > 24);
-
-                if (isTourCollection) {
-                    currentSection = 'collection';
-                    isDarkSection = true;
-                } else if (isGalleryPage) {
-                    currentSection = 'gallery';
-                    isDarkSection = window.scrollY < 500;
-                } else {
-                    // Find current section - use original working logic for navbar colors
-                    sections.forEach(section => {
-                        const rect = section.getBoundingClientRect();
-                        const sectionId = section.getAttribute('id');
-
-                        // Primary condition for navbar colors and active section
-                        if (rect.top <= offset && rect.bottom > offset) {
-                            currentSection = sectionId;
-                            isDarkSection = darkSections.includes(sectionId);
-                        }
-                    });
-
-                    // Fallback: if no section found (between sections), find the closest one
-                    if (!currentSection) {
-                        let closestSection = null;
-                        let minDistance = Infinity;
-
-                        sections.forEach(section => {
-                            const rect = section.getBoundingClientRect();
-                            const sectionId = section.getAttribute('id');
-                            const distance = Math.abs(rect.top - offset);
-
-                            if (distance < minDistance) {
-                                minDistance = distance;
-                                closestSection = sectionId;
-                            }
-                        });
-
-                        if (closestSection) {
-                            currentSection = closestSection;
-                            isDarkSection = darkSections.includes(currentSection);
-                        }
-                    }
-
-                    // Special handling for home section
-                    if (window.scrollY < 100) {
-                        currentSection = 'home';
-                        isDarkSection = true;
-                    }
-                }
-
-                // Update navigation colors (original working logic)
-                this.setNavColors(isDarkSection);
-
-                // Update active state - use the same section for consistency
-                if (currentSection) {
-                    this.setActiveState(currentSection);
-                }
-
-                // 1. Apple-Style Navbar Translation (Native CSS sticky handles this now)
-                // Removed JS transform logic to prevent conflict with AOS and fix initial load overlapping
-
-                // 2. Toggle Frosted Glass Theme Classes (Apple-Style)
-                if (this.navbar) {
-                    if (isDarkSection) {
-                        this.navbar.classList.add('is-dark-nav');
-                        this.navbar.classList.remove('is-light-nav');
-                    } else {
-                        this.navbar.classList.add('is-light-nav');
-                        this.navbar.classList.remove('is-dark-nav');
-                    }
-                }
             };
 
-            // Update on scroll using requestAnimationFrame throttling
             let ticking = false;
             const onScrollUpdateNavigation = () => {
                 if (!ticking) {
@@ -209,7 +44,7 @@
             };
             window.addEventListener('scroll', onScrollUpdateNavigation, { passive: true });
             
-            // Set initial state
+            // Initial state
             updateNavigation();
             window.addEventListener('load', updateNavigation);
             window.addEventListener('resize', updateNavigation);
@@ -332,17 +167,17 @@
                 });
             });
 
-
             // Add scroll-to-top functionality when clicking logo
-            const logoLink = document.querySelector('a[href="#home"]');
+            const logoLink = document.querySelector('a[href="#home"], a[href="index.html#home"]');
             if (logoLink) {
                 logoLink.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    NavigationModule.smoothScrollTo(0, 1200);
+                    if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.endsWith('/')) {
+                        e.preventDefault();
+                        NavigationModule.smoothScrollTo(0, 1200);
+                    }
                 });
             }
         },
-
 
         // Initialize back to top functionality
         initBackToTop: function() {
@@ -357,59 +192,31 @@
                 btn.setAttribute('aria-hidden', visible ? 'false' : 'true');
             };
 
-                const updateBackToTop = () => {
-                    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-                    const shouldShow = scrollTop > 600;
+            const updateBackToTop = () => {
+                const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                const shouldShow = scrollTop > 600;
 
-                    if (shouldShow && !isVisible) {
-                        isVisible = true;
-                        setButtonVisibility(true);
-                    } else if (!shouldShow && isVisible) {
-                        isVisible = false;
-                        setButtonVisibility(false);
-                    }
+                if (shouldShow && !isVisible) {
+                    isVisible = true;
+                    setButtonVisibility(true);
+                } else if (!shouldShow && isVisible) {
+                    isVisible = false;
+                    setButtonVisibility(false);
+                }
+            };
 
-                    const btnNode = btn;
-                    if (btnNode && shouldShow) {
-                        if (!btnNode.classList.contains('is-over-light') && !btnNode.classList.contains('is-over-dark')) {
-                            btnNode.classList.add('is-over-light');
-                        }
+            let ticking = false;
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        updateBackToTop();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
 
-                        const darkElements = document.querySelectorAll('#home, #about, #adventure, footer, .bg-slate-900, .bg-slate-950, [class~="bg-[#0c3531]"], .bg-primary');
-                        const btnRect = btnNode.getBoundingClientRect();
-                        const btnCenterY = btnRect.top + btnRect.height / 2;
-
-                        let isOverDark = false;
-                        darkElements.forEach(el => {
-                            const rect = el.getBoundingClientRect();
-                            if (btnCenterY >= rect.top && btnCenterY <= rect.bottom) {
-                                isOverDark = true;
-                            }
-                        });
-
-                        if (isOverDark) {
-                            btn.classList.remove('is-over-light', 'text-primary');
-                            btn.classList.add('is-over-dark', 'text-white');
-                        } else {
-                            btn.classList.remove('is-over-dark', 'text-white');
-                            btn.classList.add('is-over-light', 'text-primary');
-                        }
-                    }
-                };
-
-                let ticking = false;
-                window.addEventListener('scroll', function() {
-                    if (!ticking) {
-                        window.requestAnimationFrame(() => {
-                            updateBackToTop();
-                            ticking = false;
-                        });
-                        ticking = true;
-                    }
-                }, { passive: true });
-
-                // Run initial state check
-                updateBackToTop();
+            updateBackToTop();
 
             btn.addEventListener('click', function(event) {
                 event.preventDefault();

@@ -443,7 +443,7 @@
         initAmbientParticles();
 
         var updateHeader = function () {
-            document.body.classList.toggle('secondary-shell-scrolled', window.scrollY > 24);
+            document.body.classList.toggle('secondary-shell-scrolled', window.scrollY > 40);
         };
         var headerScrollFrame = null;
         var requestHeaderUpdate = function () {
