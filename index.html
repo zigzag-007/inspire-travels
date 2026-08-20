@@ -1323,61 +1323,71 @@
 			</div>
 		</section>
 		<!-- Reviews Section -->
-		<section id="reviews" class="reviews-showcase tour-light-canopy py-16 md:py-20 overflow-hidden">
+		<section id="reviews" class="reviews-showcase relative py-20 md:py-28 overflow-hidden">
+			<!-- Technical Coordinates & Grid Guides -->
 			<div class="grid-guide-line hidden xl:block left-1/4"></div>
 			<div class="grid-guide-line hidden xl:block right-1/4"></div>
 			<div class="relative z-[2] max-w-[1580px] mx-auto px-6 md:px-8 lg:px-12 xl:px-16">
-				<div class="grid lg:grid-cols-[0.78fr_1.22fr] gap-10 lg:gap-16 xl:gap-24 items-center">
-					<div data-aos="fade-up" data-aos-duration="700">
-						<span class="tech-metadata-inline mb-6">Guest book / Sri Lanka</span>
-						<h2 class="font-display text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-light tracking-display leading-[0.98] text-balance">
-							Journeys remembered <span class="italic font-normal text-primary">in their words.</span>
+				<div class="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-16 xl:gap-24 items-center">
+					<div data-aos="fade-up-blur" data-aos-duration="900">
+						<div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#13261d]/15 bg-[#fffdf5]/60 backdrop-blur-md text-[11px] font-mono font-bold tracking-[0.14em] uppercase text-[#7f5620] mb-5">
+							<i class="ph ph-book-open-user text-sm"></i> Guest Book / Sri Lanka
+						</div>
+						<h2 class="font-display text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-light tracking-display leading-[0.98] text-[#13261d] text-balance mb-6">
+							Journeys remembered <span class="italic font-normal text-[#9a651e]">in their words.</span>
 						</h2>
-						<p class="mt-6 text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed">
+						<p class="text-base sm:text-lg text-[#13261d]/75 font-body max-w-xl leading-relaxed">
 							A quieter way to browse traveler stories. One honest memory at a time, with room to pause, read, and picture your own journey.
 						</p>
 						<div class="mt-8 flex items-center gap-4">
-							<div class="flex text-amber-500 tracking-[0.18em]" aria-label="Five star traveler feedback">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-							<span class="h-5 w-px bg-foreground/15" aria-hidden="true"></span>
-							<span class="text-sm font-semibold text-foreground/75">Shared by real travelers</span>
+							<div class="flex text-amber-500 tracking-[0.18em] text-base" aria-label="Five star traveler feedback">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+							<span class="h-5 w-px bg-[#13261d]/15" aria-hidden="true"></span>
+							<span class="text-sm font-semibold text-[#13261d]/80 font-sans">Shared by real travelers</span>
 						</div>
-						<div class="mt-9 flex flex-col sm:flex-row gap-3">
-							<a href="https://www.google.com/maps?cid=7768607141437312317" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#087b69] px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5 hover:bg-[#076d5e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087b69] focus-visible:ring-offset-2">
-								<i data-lucide="pen-line" class="w-4 h-4" aria-hidden="true"></i>
+						<div class="mt-9 flex flex-col sm:flex-row gap-3.5">
+							<a href="https://www.google.com/maps?cid=7768607141437312317" target="_blank" rel="noopener noreferrer" class="group inline-flex min-h-12 items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-[#087b69] to-[#0c9a83] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_25px_rgba(8,123,105,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(8,123,105,0.36)] hover:brightness-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087b69] focus-visible:ring-offset-2">
+								<i class="ph ph-pencil-simple-line text-lg transition-transform duration-300 group-hover:scale-110" aria-hidden="true"></i>
 								<span>Add your review</span>
 							</a>
-							<a href="https://www.google.com/maps?cid=7768607141437312317" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-foreground/15 bg-white/70 px-6 py-3 text-sm font-semibold text-foreground transition-colors duration-300 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+							<a href="https://www.google.com/maps?cid=7768607141437312317" target="_blank" rel="noopener noreferrer" class="group inline-flex min-h-12 items-center justify-center gap-2.5 rounded-full border border-[#13261d]/20 bg-[#fffdf5]/80 px-7 py-3.5 text-sm font-semibold text-[#13261d] shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#fffdf5] hover:border-[#13261d]/35 hover:shadow-md active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#087b69] focus-visible:ring-offset-2">
+								<i class="ph-bold ph-google-logo text-lg text-emerald-800 transition-transform duration-300 group-hover:scale-110" aria-hidden="true"></i>
 								<span>Google Review</span>
-								<i data-lucide="external-link" class="w-4 h-4" aria-hidden="true"></i>
+								<i class="ph ph-arrow-up-right text-base text-[#13261d]/60 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#13261d]" aria-hidden="true"></i>
 							</a>
 						</div>
 					</div>
-					<div id="reviews-carousel" class="review-carousel relative" data-aos="fade-left" data-aos-duration="800" aria-roledescription="carousel" aria-label="Traveler reviews">
-						<div class="review-card-shell relative rounded-[2rem] border border-white/80 bg-white/88 p-6 sm:p-9 md:p-12 shadow-[0_30px_90px_rgba(41,65,47,0.14)] backdrop-blur-sm">
+					<div id="reviews-carousel" class="review-carousel relative" data-aos="fade-left" data-aos-duration="900" aria-roledescription="carousel" aria-label="Traveler reviews">
+						<div class="review-card-shell relative rounded-[2.25rem] border border-white/90 bg-[#fffdf5]/90 p-6 sm:p-9 md:p-12 shadow-[0_25px_70px_rgba(22,53,40,0.12)] backdrop-blur-md">
 							<div id="review-card" class="review-card-content relative z-[1]">
 								<div class="flex items-center justify-between gap-4">
-									<span id="review-tour" class="rounded-full border border-primary/15 bg-primary/[0.06] px-3 py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.12em] text-primary">Cultural Heritage Tour</span>
-									<span id="review-stars" class="text-amber-500 tracking-[0.12em]" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+									<span id="review-tour" class="rounded-full border border-[#7f5620]/25 bg-[#eab05b]/15 px-3.5 py-1.5 text-[11px] sm:text-xs font-mono font-bold uppercase tracking-[0.12em] text-[#7f5620]">Bespoke Cultural Route</span>
+									<span id="review-stars" class="text-amber-500 tracking-[0.12em] text-base" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
 								</div>
-								<blockquote id="review-quote" class="review-quote mt-8 font-display text-[1.65rem] sm:text-3xl md:text-[2rem] leading-[1.24] text-foreground text-balance">&ldquo;Absolutely incredible experience! Our guide Kalum was phenomenal, so knowledgeable about Sri Lankan history and culture.&rdquo;</blockquote>
+								<blockquote id="review-quote" class="review-quote mt-8 font-display text-[1.65rem] sm:text-3xl md:text-[2.1rem] leading-[1.2] text-[#13261d] text-balance">&ldquo;Very pleasant trip with a very friendly and knowledgeable guide - Lakshan.&rdquo;</blockquote>
 								<div class="mt-9 flex items-center gap-4">
-									<img id="review-avatar" src="https://tevily-html.vercel.app/assets/images/testimonial/testimonial-one-img-3.png" alt="" loading="lazy" decoding="async" class="h-12 w-12 sm:h-14 sm:w-14 rounded-full object-cover ring-4 ring-primary/10">
+									<img id="review-avatar" src="https://lh3.googleusercontent.com/a-/ALV-UjVyxKBvTCsy0WikxD4S4dBs6BbhQ3vLTrTyNpzLI7ZhRfGRalCahg=w80-h80-p-rp-mo-ba12-br100" alt="" loading="lazy" decoding="async" class="h-12 w-12 sm:h-14 sm:w-14 rounded-full object-cover ring-4 ring-[#13261d]/10">
 									<div class="min-w-0">
-										<cite id="review-name" class="block font-display text-lg sm:text-xl font-semibold not-italic truncate">Sarah & Mike Johnson</cite>
-										<p class="mt-0.5 text-sm text-muted-foreground"><span id="review-country">Australia</span><span aria-hidden="true"> &middot; </span><span id="review-date">March 2024</span></p>
+										<cite id="review-name" class="block font-display text-lg sm:text-xl font-semibold not-italic text-[#13261d] truncate">Vivaan Shenoy</cite>
+										<p class="mt-0.5 text-sm text-[#13261d]/65 font-sans"><span id="review-country">Family Holiday</span><span aria-hidden="true"> &middot; </span><span id="review-date">July 2026</span></p>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="mt-5 flex gap-4 items-stretch">
-							<button id="review-next-preview" type="button" class="review-next-preview group min-w-0 rounded-[1.35rem] border border-foreground/10 bg-[#173c36] px-5 py-4 text-left text-white shadow-lg transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" aria-label="Show next traveler review">
-								<span class="block text-[10px] font-semibold uppercase tracking-[0.18em] text-emerald-200/80">Next story</span>
-								<span id="review-next-name" class="mt-1 block font-display text-lg font-semibold truncate">Hans Mueller</span>
-								<span id="review-next-tour" class="mt-0.5 block text-xs text-white/60 truncate">Wildlife Safari Adventure</span>
+						<div class="mt-5">
+							<button id="review-next-preview" type="button" class="review-next-preview group w-full min-w-0 rounded-[1.35rem] border border-white/80 bg-gradient-to-r from-[#173c36] to-[#122e2a] p-4 sm:p-5 text-left text-white shadow-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 flex items-center justify-between gap-4" aria-label="Show next traveler review">
+								<div class="min-w-0 flex-1">
+									<span class="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-[0.18em] text-emerald-300/90">
+										<i class="ph ph-sparkle text-xs"></i> Next story
+									</span>
+									<span id="review-next-name" class="mt-1 block font-display text-lg sm:text-xl font-semibold truncate text-[#fffdf5]">Zeeshan Ahmed</span>
+									<span id="review-next-tour" class="mt-0.5 block text-xs text-white/70 truncate font-sans">Private Guided Vacation</span>
+								</div>
+								<div class="w-10 h-10 rounded-full border border-white/20 bg-white/10 flex items-center justify-center text-white flex-shrink-0 group-hover:bg-white/20 group-hover:scale-110 transition-all duration-300 shadow-md">
+									<i class="ph ph-arrow-right text-lg"></i>
+								</div>
 							</button>
-							<button id="review-toggle" type="button" class="review-toggle" aria-pressed="false" aria-label="Pause automatic review rotation">Pause</button>
 						</div>
-						<span id="review-status" class="sr-only" aria-live="polite">Review 1 of 12</span>
+						<span id="review-status" class="sr-only" aria-live="polite">Review 1 of 13</span>
 					</div>
 				</div>
 			</div>

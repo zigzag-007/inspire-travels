@@ -1,6 +1,64 @@
-/* Traveler review carousel */
+/* -----------------------------------------------------------------------------
+   INSPIRE TRAVELS & TOURS - TRAVELER REVIEWS COMPONENT
+   -----------------------------------------------------------------------------
+   Author: Zig Zag AI
+   Description: Luxury paper canvas, glowing organic background, and animated card carousel
+   ----------------------------------------------------------------------------- */
 
+/* Reviews Showcase Rich Warm Canvas Background */
+.reviews-showcase {
+    position: relative;
+    isolation: isolate;
+    color: var(--secondary-paper-ink, #13261d);
+    background:
+        radial-gradient(circle at 12% 16%, rgba(245, 186, 73, 0.38), transparent 36rem),
+        radial-gradient(circle at 88% 82%, rgba(124, 155, 91, 0.34), transparent 38rem),
+        radial-gradient(circle at 82% 14%, rgba(65, 145, 139, 0.22), transparent 32rem),
+        radial-gradient(circle at 20% 80%, rgba(234, 176, 91, 0.28), transparent 34rem),
+        radial-gradient(circle at 50% 48%, rgba(255, 250, 230, 0.94), transparent 44rem),
+        linear-gradient(155deg, #e6ecdc 0%, #faf3e0 40%, #f7ebd0 70%, #dfe9d8 100%) !important;
+}
+
+/* Layer 1: Enhanced Grid Texture & Topographic Contours */
+.reviews-showcase::before {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    content: "";
+    pointer-events: none;
+    opacity: 0.68;
+    background-image:
+        linear-gradient(rgba(19, 38, 29, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(19, 38, 29, 0.055) 1px, transparent 1px),
+        repeating-radial-gradient(ellipse at 12% 20%, transparent 0 3.7rem, rgba(29, 79, 55, 0.065) 3.74rem 3.8rem, transparent 3.84rem 7.2rem),
+        repeating-radial-gradient(ellipse at 86% 68%, transparent 0 4.8rem, rgba(154, 101, 30, 0.06) 4.84rem 4.9rem, transparent 4.94rem 9.4rem);
+    background-size: 6rem 6rem, 6rem 6rem, 82rem 68rem, 94rem 78rem;
+    mask-image: linear-gradient(180deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+
+/* Layer 2: Tactile Fine Paper Grain & Spores */
+.reviews-showcase::after {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    content: "";
+    pointer-events: none;
+    opacity: 0.38;
+    background-image:
+        radial-gradient(rgba(19, 38, 29, 0.45) 0.055rem, transparent 0.065rem),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+    background-size: 0.35rem 0.35rem, 160px 160px;
+    mix-blend-mode: multiply;
+}
+
+/* Review Card Shell */
 .review-card-shell {
+    position: relative;
+    border: 1.5px solid rgba(255, 252, 240, 0.95) !important;
+    border-radius: 2.25rem !important;
+    background: rgba(255, 252, 240, 0.88) !important;
+    box-shadow: 0 24px 65px rgba(22, 53, 40, 0.12), inset 0 1.5px rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(12px) !important;
     min-height: 28rem;
 }
 
@@ -37,31 +95,10 @@
     -webkit-line-clamp: 3;
 }
 
-.review-toggle {
-    min-width: 5.5rem;
-    border: 1px solid rgba(26, 47, 39, 0.14);
-    border-radius: 1.35rem;
-    background: rgba(255, 255, 255, 0.78);
-    color: #173c36;
-    padding: 0.8rem 1rem;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    transition:
-        color 0.25s ease,
-        background-color 0.25s ease,
-        transform 0.25s ease;
-}
-
-.review-toggle:hover {
-    color: #ffffff;
-    background: #087b69;
-    transform: translateY(-2px);
-}
-
-.review-toggle:focus-visible {
-    outline: 2px solid #087b69;
-    outline-offset: 3px;
+/* Next story preview button */
+.review-next-preview {
+    cursor: pointer;
+    touch-action: manipulation;
 }
 
 @media (max-width: 639px) {
@@ -71,8 +108,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .review-card-content,
-    .review-toggle {
+    .review-card-content {
         transition-duration: 0.01ms !important;
     }
 }
