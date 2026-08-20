@@ -8,12 +8,10 @@
     window.HeroModule = {
         // Hero background images for carousel
         heroImages: [
-            'assets/img/bg/autum-houses.jpg',
-            'assets/img/bg/tropical-beach-1.jpg',
-            'assets/img/bg/roadside-building.jpg',
-            'assets/img/bg/waterfall-1.jpg',
-            'assets/img/bg/dry-leaves.jpg',
-            'assets/img/bg/summer-road.jpg'
+                  "assets/img/bg/Sigiriya_Rock_Fortress_Sri_Lanka_4K.jpg",
+                  "assets/img/bg/Ella_Nine_Arch_Bridge_Sri_Lanka_4K.jpg",
+                  "assets/img/bg/Colombo_Sri_Lanka_Cityscape_4K.jpg",
+                  "assets/img/bg/Yapahuwa_Rock_Fortress_Sri_Lanka_4K.jpg"
         ],
 
         currentImageIndex: 0,
