@@ -77,7 +77,7 @@ body.secondary-page-theme:not(.tour-collection-view) > footer {
 
 .secondary-ambient-particles {
     position: fixed;
-    z-index: 2;
+    z-index: 30;
     inset: 0;
     width: 100%;
     height: 100%;
@@ -1772,7 +1772,8 @@ body.mobile-menu-open .secondary-mobile-links > :nth-child(6) { animation-delay:
 body.mobile-menu-open .secondary-mobile-socials { animation-delay: 235ms; }
 
 .secondary-site-footer {
-    z-index: 3;
+    position: relative;
+    z-index: 40;
     margin-top: -2.75rem;
     padding-top: 4.5rem !important;
     border-radius: 3rem 3rem 0 0;
