@@ -1829,7 +1829,7 @@ body.mobile-menu-open .secondary-mobile-socials { animation-delay: 235ms; }
 
 .secondary-footer-inner {
     width: 100%;
-    max-width: 82rem !important;
+    max-width: 98.75rem !important;
     margin-inline: auto;
 }
 
