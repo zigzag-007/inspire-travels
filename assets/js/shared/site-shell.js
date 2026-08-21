@@ -87,6 +87,148 @@
         '</div>';
     }
 
+        var sliderPhotos = [
+        {
+                "src": "assets/img/footer-gallery/sunset-group-photo.jpg",
+                "title": "Sunset Group Adventure",
+                "loc": "Sri Lanka",
+                "desc": "Unforgettable moments with friends at a scenic sunset viewpoint."
+        },
+        {
+                "src": "assets/img/footer-gallery/cannon-cart.jpg",
+                "title": "Cannon Cart Adventure",
+                "loc": "Sri Lanka",
+                "desc": "Experience thrilling cannon cart rides through scenic landscapes."
+        },
+        {
+                "src": "assets/img/footer-gallery/thank-you-collage.jpg",
+                "title": "Thank You for Visit Sri Lanka",
+                "loc": "Sri Lanka",
+                "desc": "Treasured memories and happy moments from our tour experiences."
+        },
+        {
+                "src": "assets/img/footer-gallery/lotus-tower.jpg",
+                "title": "Lotus Tower View",
+                "loc": "Colombo",
+                "desc": "Stunning panoramic views from the iconic Lotus Tower."
+        },
+        {
+                "src": "assets/img/footer-gallery/mirissa-treehill.jpg",
+                "title": "Mirissa Tree Hill",
+                "loc": "Mirissa",
+                "desc": "Breathtaking views from the famous Mirissa tree hill."
+        },
+        {
+                "src": "assets/img/footer-gallery/turtle-sea.jpg",
+                "title": "Turtle Sea Conservation",
+                "loc": "Coastal Sri Lanka",
+                "desc": "Witness turtle hatching and sea turtle conservation efforts."
+        },
+        {
+                "src": "assets/img/footer-gallery/holy-statue.jpg",
+                "title": "Holy Statue Shrine",
+                "loc": "Sri Lanka",
+                "desc": "Sacred statues and spiritual sites across the island."
+        },
+        {
+                "src": "assets/img/footer-gallery/holy-temple.jpg",
+                "title": "Holy Temple Visit",
+                "loc": "Sri Lanka",
+                "desc": "Ancient temples and religious architecture."
+        },
+        {
+                "src": "assets/img/footer-gallery/temple-entrance.jpg",
+                "title": "Temple Entrance",
+                "loc": "Sri Lanka",
+                "desc": "Beautiful entrances to historic temples."
+        },
+        {
+                "src": "assets/img/footer-gallery/turtle-entrance.jpg",
+                "title": "Turtle Hatchery Entrance",
+                "loc": "Coastal Sri Lanka",
+                "desc": "Gateway to turtle conservation facilities."
+        },
+        {
+                "src": "assets/img/footer-gallery/holy-buddha.jpg",
+                "title": "Holy Buddha Statue",
+                "loc": "Sri Lanka",
+                "desc": "Majestic Buddha statues and monuments."
+        }
+];
+
+    function renderFooterSlider() {
+        var itemsHtml = sliderPhotos.map(function(item) {
+            var fullSrc = pathTo(item.src);
+            return '<div class="single-gallery-item flex-shrink-0 w-72 sm:w-80 mx-2 sm:mx-3 group cursor-pointer" data-slider-src="' + fullSrc + '" data-slider-title="' + item.title + '" data-slider-loc="' + item.loc + '" data-slider-desc="' + item.desc + '">' +
+                '<div class="gallery-img relative overflow-hidden rounded-2xl border border-white/10 shadow-lg h-60 sm:h-72">' +
+                    '<img src="' + fullSrc + '" alt="' + item.title + '" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">' +
+                    '<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">' +
+                        '<div class="flex items-center justify-between w-full text-white">' +
+                            '<span class="text-xs font-semibold truncate">' + item.title + '</span>' +
+                            '<span class="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center flex-shrink-0"><i class="ph ph-plus text-sm"></i></span>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>' +
+            '</div>';
+        }).join('');
+
+        return '<div class="w-full mb-12 sm:mb-16 overflow-hidden">' +
+            '<div class="gallery-slider-container overflow-hidden">' +
+                '<div id="gallery-slider" class="flex transition-transform duration-1000 ease-in-out">' +
+                    itemsHtml +
+                '</div>' +
+            '</div>' +
+        '</div>';
+    }
+
+    function initFooterSlider() {
+        var currentGalleryIndex = 0;
+        var gallerySliderInterval;
+        var gallerySlider = document.getElementById('gallery-slider');
+        var gallerySliderItems = document.querySelectorAll('#gallery-slider .single-gallery-item');
+        var totalGalleryItems = gallerySliderItems.length;
+        var itemWidth = 320;
+        var visibleItems = 5;
+
+        if (!gallerySlider || totalGalleryItems === 0) return;
+
+        gallerySliderItems.forEach(function(el) {
+            el.addEventListener('click', function() {
+                if (typeof window.openGalleryModal === 'function') {
+                    window.openGalleryModal(el.dataset.sliderSrc, el.dataset.sliderTitle, el.dataset.sliderLoc, el.dataset.sliderDesc);
+                }
+            });
+        });
+
+        var updateGallerySlider = function () {
+            if (gallerySlider) {
+                var translateX = -currentGalleryIndex * itemWidth;
+                gallerySlider.style.transform = 'translateX(' + translateX + 'px)';
+            }
+        };
+
+        var nextGallerySlide = function () {
+            currentGalleryIndex = (currentGalleryIndex + 1) % (totalGalleryItems - visibleItems + 1);
+            updateGallerySlider();
+        };
+
+        var startGallerySlider = function () {
+            gallerySliderInterval = setInterval(nextGallerySlide, 3000);
+        };
+
+        var stopGallerySlider = function () {
+            if (gallerySliderInterval) clearInterval(gallerySliderInterval);
+        };
+
+        var galleryContainer = document.querySelector('.gallery-slider-container');
+        if (galleryContainer) {
+            galleryContainer.addEventListener('mouseenter', stopGallerySlider);
+            galleryContainer.addEventListener('mouseleave', startGallerySlider);
+        }
+
+        startGallerySlider();
+    }
+
     function renderFooter() {
         var tourLinks = [
             ['family', 'Family Tours'],
@@ -98,7 +240,8 @@
             return '<li><a href="' + pathTo('tours/?collection=' + item[0]) + '">' + item[1] + '</a></li>';
         }).join('');
 
-        return '<footer id="footer" class="main-footer gowilds-footer secondary-site-footer pt-20">' +
+        return '<footer id="footer" class="main-footer gowilds-footer secondary-site-footer pt-16 md:pt-20">' +
+            renderFooterSlider() +
             '<div class="secondary-footer-inner max-w-[1800px] mx-auto px-6 md:px-8 lg:px-12 xl:px-16">' +
                 '<div class="footer-top py-6 border-y border-white/10"><div class="footer-contact-grid">' +
                     renderContact('map-pin', 'Location', 'Bankada Road, Katuneriya', 'https://maps.app.goo.gl/9yWk4ZRWJ8TZfrW99?g_st=ic', 'Open our location in Google Maps', true) +
@@ -441,6 +584,7 @@
         document.body.insertAdjacentHTML('afterbegin', renderAmbient());
         initAmbientMotion();
         initAmbientParticles();
+        initFooterSlider();
 
         var updateHeader = function () {
             document.body.classList.toggle('secondary-shell-scrolled', window.scrollY > 40);

@@ -179,6 +179,7 @@
 		<link rel="stylesheet" href="assets/css/10-component-buttons-floats.css">
 		<link rel="stylesheet" href="assets/css/11-animation-keyframes.css">
 		<link rel="stylesheet" href="assets/css/12-utility-accessibility.css">
+		<link rel="stylesheet" href="assets/css/14-component-secondary-theme.css?v=20260815-secondary-backtop-layer">
 		<!-- PhotoSwipe CSS -->
 		<link rel="stylesheet" href="https://unpkg.com/photoswipe@5.4.3/dist/photoswipe.css">
 		<!-- Custom Tailwind Config -->
@@ -1392,255 +1393,198 @@
 				</div>
 			</div>
 		</section>
-		<!-- Image Gallery Section split with Footer -->
-		<section class="gallery-section relative overflow-hidden">
-			<!-- Split Background (Rich elements, realism, morphism transitions) -->
-			<div class="absolute inset-0 gallery-transition-canopy"></div>
-			<!-- Gallery Content -->
-			<div class="relative z-10 pt-20">
-				<div class="w-full">
-					<!-- Automatic Slider Container -->
-					<div class="gallery-slider-container overflow-hidden">
-						<div id="gallery-slider" class="flex transition-transform duration-1000 ease-in-out">
-							<!-- Gallery Item 1: Sunset Group Photo -->
-							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
-								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
-									<img src="assets/img/footer-gallery/sunset-group-photo.jpg" alt="Sunset group adventure in Sri Lanka" loading="lazy" decoding="async" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
-									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-										<button type="button" class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-											aria-label="View details" title="View details">
-										<i data-lucide="plus" class="w-6 h-6"></i>
-										</button>
+		<!-- Unified Luxury Footer with Continuous Carousel -->
+		<footer id="footer" class="main-footer gowilds-footer secondary-site-footer pt-16 md:pt-20">
+			<!-- Integrated Footer Photo Slider -->
+			<div class="w-full mb-12 sm:mb-16 overflow-hidden">
+				<div class="gallery-slider-container overflow-hidden">
+					<div id="gallery-slider" class="flex transition-transform duration-1000 ease-in-out">
+							<div class="single-gallery-item flex-shrink-0 w-72 sm:w-80 mx-2 sm:mx-3 group cursor-pointer" onclick="openGalleryModal('assets/img/footer-gallery/sunset-group-photo.jpg', 'Sunset Group Adventure', 'Sri Lanka', 'Unforgettable moments with friends at a scenic sunset viewpoint.')">
+								<div class="gallery-img relative overflow-hidden rounded-2xl border border-white/10 shadow-lg h-60 sm:h-72">
+									<img src="assets/img/footer-gallery/sunset-group-photo.jpg" alt="Sunset Group Adventure" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+									<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+										<div class="flex items-center justify-between w-full text-white">
+											<span class="text-xs font-semibold truncate">Sunset Group Adventure</span>
+											<span class="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center flex-shrink-0"><i class="ph ph-plus text-sm"></i></span>
+										</div>
 									</div>
 								</div>
 							</div>
-							<!-- Gallery Item 2: Cannon Cart -->
-							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
-								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
-									<img src="assets/img/footer-gallery/cannon-cart.jpg" alt="Cannon cart adventure in Sri Lanka" loading="lazy" decoding="async" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
-									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-										<button type="button" class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-											aria-label="View details" title="View details">
-										<i data-lucide="plus" class="w-6 h-6"></i>
-										</button>
+							<div class="single-gallery-item flex-shrink-0 w-72 sm:w-80 mx-2 sm:mx-3 group cursor-pointer" onclick="openGalleryModal('assets/img/footer-gallery/cannon-cart.jpg', 'Cannon Cart Adventure', 'Sri Lanka', 'Experience thrilling cannon cart rides through scenic landscapes.')">
+								<div class="gallery-img relative overflow-hidden rounded-2xl border border-white/10 shadow-lg h-60 sm:h-72">
+									<img src="assets/img/footer-gallery/cannon-cart.jpg" alt="Cannon Cart Adventure" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+									<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+										<div class="flex items-center justify-between w-full text-white">
+											<span class="text-xs font-semibold truncate">Cannon Cart Adventure</span>
+											<span class="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center flex-shrink-0"><i class="ph ph-plus text-sm"></i></span>
+										</div>
 									</div>
 								</div>
 							</div>
-							<!-- Gallery Item 3: Thank You Collage -->
-							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
-								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
-									<img src="assets/img/footer-gallery/thank-you-collage.jpg" alt="Thank you collage from Inspire Travels guests" loading="lazy" decoding="async" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
-									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-										<button type="button" class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-											aria-label="View details" title="View details">
-										<i data-lucide="plus" class="w-6 h-6"></i>
-										</button>
+							<div class="single-gallery-item flex-shrink-0 w-72 sm:w-80 mx-2 sm:mx-3 group cursor-pointer" onclick="openGalleryModal('assets/img/footer-gallery/thank-you-collage.jpg', 'Thank You for Visit Sri Lanka', 'Sri Lanka', 'Treasured memories and happy moments from our tour experiences.')">
+								<div class="gallery-img relative overflow-hidden rounded-2xl border border-white/10 shadow-lg h-60 sm:h-72">
+									<img src="assets/img/footer-gallery/thank-you-collage.jpg" alt="Thank You for Visit Sri Lanka" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+									<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+										<div class="flex items-center justify-between w-full text-white">
+											<span class="text-xs font-semibold truncate">Thank You for Visit Sri Lanka</span>
+											<span class="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center flex-shrink-0"><i class="ph ph-plus text-sm"></i></span>
+										</div>
 									</div>
 								</div>
 							</div>
-							<!-- Gallery Item 4: Lotus Tower -->
-							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
-								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
-									<img src="assets/img/footer-gallery/lotus-tower.jpg" alt="Lotus Tower view in Colombo" loading="lazy" decoding="async" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
-									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-										<button type="button" class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-											aria-label="View details" title="View details">
-										<i data-lucide="plus" class="w-6 h-6"></i>
-										</button>
+							<div class="single-gallery-item flex-shrink-0 w-72 sm:w-80 mx-2 sm:mx-3 group cursor-pointer" onclick="openGalleryModal('assets/img/footer-gallery/lotus-tower.jpg', 'Lotus Tower View', 'Colombo', 'Stunning panoramic views from the iconic Lotus Tower.')">
+								<div class="gallery-img relative overflow-hidden rounded-2xl border border-white/10 shadow-lg h-60 sm:h-72">
+									<img src="assets/img/footer-gallery/lotus-tower.jpg" alt="Lotus Tower View" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+									<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+										<div class="flex items-center justify-between w-full text-white">
+											<span class="text-xs font-semibold truncate">Lotus Tower View</span>
+											<span class="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center flex-shrink-0"><i class="ph ph-plus text-sm"></i></span>
+										</div>
 									</div>
 								</div>
 							</div>
-							<!-- Gallery Item 5: Mirissa Treehill -->
-							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
-								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
-									<img src="assets/img/footer-gallery/mirissa-treehill.jpg" alt="Mirissa Tree Hill view" loading="lazy" decoding="async" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
-									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-										<button type="button" class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-											aria-label="View details" title="View details">
-										<i data-lucide="plus" class="w-6 h-6"></i>
-										</button>
+							<div class="single-gallery-item flex-shrink-0 w-72 sm:w-80 mx-2 sm:mx-3 group cursor-pointer" onclick="openGalleryModal('assets/img/footer-gallery/mirissa-treehill.jpg', 'Mirissa Tree Hill', 'Mirissa', 'Breathtaking views from the famous Mirissa tree hill.')">
+								<div class="gallery-img relative overflow-hidden rounded-2xl border border-white/10 shadow-lg h-60 sm:h-72">
+									<img src="assets/img/footer-gallery/mirissa-treehill.jpg" alt="Mirissa Tree Hill" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+									<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+										<div class="flex items-center justify-between w-full text-white">
+											<span class="text-xs font-semibold truncate">Mirissa Tree Hill</span>
+											<span class="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center flex-shrink-0"><i class="ph ph-plus text-sm"></i></span>
+										</div>
 									</div>
 								</div>
 							</div>
-							<!-- Gallery Item 6: Turtle Sea -->
-							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
-								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
-									<img src="assets/img/footer-gallery/turtle-sea.jpg" alt="Sea turtle conservation experience" loading="lazy" decoding="async" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
-									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-										<button type="button" class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-											aria-label="View details" title="View details">
-										<i data-lucide="plus" class="w-6 h-6"></i>
-										</button>
+							<div class="single-gallery-item flex-shrink-0 w-72 sm:w-80 mx-2 sm:mx-3 group cursor-pointer" onclick="openGalleryModal('assets/img/footer-gallery/turtle-sea.jpg', 'Turtle Sea Conservation', 'Coastal Sri Lanka', 'Witness turtle hatching and sea turtle conservation efforts.')">
+								<div class="gallery-img relative overflow-hidden rounded-2xl border border-white/10 shadow-lg h-60 sm:h-72">
+									<img src="assets/img/footer-gallery/turtle-sea.jpg" alt="Turtle Sea Conservation" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+									<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+										<div class="flex items-center justify-between w-full text-white">
+											<span class="text-xs font-semibold truncate">Turtle Sea Conservation</span>
+											<span class="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center flex-shrink-0"><i class="ph ph-plus text-sm"></i></span>
+										</div>
 									</div>
 								</div>
 							</div>
-							<!-- Gallery Item 7: Holy Statue -->
-							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
-								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
-									<img src="assets/img/footer-gallery/holy-statue.jpg" alt="Sacred statue at a Sri Lankan shrine" loading="lazy" decoding="async" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
-									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-										<button type="button" class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-											aria-label="View details" title="View details">
-										<i data-lucide="plus" class="w-6 h-6"></i>
-										</button>
+							<div class="single-gallery-item flex-shrink-0 w-72 sm:w-80 mx-2 sm:mx-3 group cursor-pointer" onclick="openGalleryModal('assets/img/footer-gallery/holy-statue.jpg', 'Holy Statue Shrine', 'Sri Lanka', 'Sacred statues and spiritual sites across the island.')">
+								<div class="gallery-img relative overflow-hidden rounded-2xl border border-white/10 shadow-lg h-60 sm:h-72">
+									<img src="assets/img/footer-gallery/holy-statue.jpg" alt="Holy Statue Shrine" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+									<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+										<div class="flex items-center justify-between w-full text-white">
+											<span class="text-xs font-semibold truncate">Holy Statue Shrine</span>
+											<span class="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center flex-shrink-0"><i class="ph ph-plus text-sm"></i></span>
+										</div>
 									</div>
 								</div>
 							</div>
-							<!-- Gallery Item 8: Holy Temple -->
-							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
-								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
-									<img src="assets/img/footer-gallery/holy-temple.jpg" alt="Historic Sri Lankan temple visit" loading="lazy" decoding="async" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
-									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-										<button type="button" class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-											aria-label="View details" title="View details">
-										<i data-lucide="plus" class="w-6 h-6"></i>
-										</button>
+							<div class="single-gallery-item flex-shrink-0 w-72 sm:w-80 mx-2 sm:mx-3 group cursor-pointer" onclick="openGalleryModal('assets/img/footer-gallery/holy-temple.jpg', 'Holy Temple Visit', 'Sri Lanka', 'Ancient temples and religious architecture.')">
+								<div class="gallery-img relative overflow-hidden rounded-2xl border border-white/10 shadow-lg h-60 sm:h-72">
+									<img src="assets/img/footer-gallery/holy-temple.jpg" alt="Holy Temple Visit" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+									<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+										<div class="flex items-center justify-between w-full text-white">
+											<span class="text-xs font-semibold truncate">Holy Temple Visit</span>
+											<span class="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center flex-shrink-0"><i class="ph ph-plus text-sm"></i></span>
+										</div>
 									</div>
 								</div>
 							</div>
-							<!-- Gallery Item 9: Temple Entrance -->
-							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
-								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
-									<img src="assets/img/footer-gallery/temple-entrance.jpg" alt="Entrance to a Sri Lankan temple" loading="lazy" decoding="async" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
-									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-										<button type="button" class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-											aria-label="View details" title="View details">
-										<i data-lucide="plus" class="w-6 h-6"></i>
-										</button>
+							<div class="single-gallery-item flex-shrink-0 w-72 sm:w-80 mx-2 sm:mx-3 group cursor-pointer" onclick="openGalleryModal('assets/img/footer-gallery/temple-entrance.jpg', 'Temple Entrance', 'Sri Lanka', 'Beautiful entrances to historic temples.')">
+								<div class="gallery-img relative overflow-hidden rounded-2xl border border-white/10 shadow-lg h-60 sm:h-72">
+									<img src="assets/img/footer-gallery/temple-entrance.jpg" alt="Temple Entrance" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+									<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+										<div class="flex items-center justify-between w-full text-white">
+											<span class="text-xs font-semibold truncate">Temple Entrance</span>
+											<span class="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center flex-shrink-0"><i class="ph ph-plus text-sm"></i></span>
+										</div>
 									</div>
 								</div>
 							</div>
-							<!-- Gallery Item 10: Turtle Entrance -->
-							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
-								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
-									<img src="assets/img/footer-gallery/turtle-entrance.jpg" alt="Turtle hatchery entrance in coastal Sri Lanka" loading="lazy" decoding="async" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
-									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-										<button type="button" class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-											aria-label="View details" title="View details">
-										<i data-lucide="plus" class="w-6 h-6"></i>
-										</button>
+							<div class="single-gallery-item flex-shrink-0 w-72 sm:w-80 mx-2 sm:mx-3 group cursor-pointer" onclick="openGalleryModal('assets/img/footer-gallery/turtle-entrance.jpg', 'Turtle Hatchery Entrance', 'Coastal Sri Lanka', 'Gateway to turtle conservation facilities.')">
+								<div class="gallery-img relative overflow-hidden rounded-2xl border border-white/10 shadow-lg h-60 sm:h-72">
+									<img src="assets/img/footer-gallery/turtle-entrance.jpg" alt="Turtle Hatchery Entrance" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+									<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+										<div class="flex items-center justify-between w-full text-white">
+											<span class="text-xs font-semibold truncate">Turtle Hatchery Entrance</span>
+											<span class="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center flex-shrink-0"><i class="ph ph-plus text-sm"></i></span>
+										</div>
 									</div>
 								</div>
 							</div>
-							<!-- Gallery Item 11: Holy Buddha -->
-							<div class="single-gallery-item flex-shrink-0 w-80 mx-2 group cursor-pointer">
-								<div class="gallery-img relative overflow-hidden rounded-lg shadow-lg">
-									<img src="assets/img/footer-gallery/holy-buddha.jpg" alt="Buddha statue at a Sri Lankan sacred site" loading="lazy" decoding="async" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
-									<div class="hover-overlay absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-										<button type="button" class="icon-btn bg-white/20 hover:bg-white/30 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-											aria-label="View details" title="View details">
-										<i data-lucide="plus" class="w-6 h-6"></i>
-										</button>
+							<div class="single-gallery-item flex-shrink-0 w-72 sm:w-80 mx-2 sm:mx-3 group cursor-pointer" onclick="openGalleryModal('assets/img/footer-gallery/holy-buddha.jpg', 'Holy Buddha Statue', 'Sri Lanka', 'Majestic Buddha statues and monuments.')">
+								<div class="gallery-img relative overflow-hidden rounded-2xl border border-white/10 shadow-lg h-60 sm:h-72">
+									<img src="assets/img/footer-gallery/holy-buddha.jpg" alt="Holy Buddha Statue" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+									<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+										<div class="flex items-center justify-between w-full text-white">
+											<span class="text-xs font-semibold truncate">Holy Buddha Statue</span>
+											<span class="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center flex-shrink-0"><i class="ph ph-plus text-sm"></i></span>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
 					</div>
 				</div>
 			</div>
-		</section>
-		<!-- Footer with GoWilds Design -->
-		<footer id="footer" class="main-footer gowilds-footer pt-20">
-			<div class="max-w-[1800px] mx-auto px-6 md:px-8 lg:px-12 xl:px-16">
-				<!-- Footer Top Info -->
+
+			<div class="secondary-footer-inner max-w-[1800px] mx-auto px-6 md:px-8 lg:px-12 xl:px-16">
+				<!-- Footer Top Info Grid -->
 				<div class="footer-top py-6 border-y border-white/10">
 					<div class="footer-contact-grid">
-						<!-- Location Info -->
 						<div class="single-info-item">
 							<div class="flex items-center gap-4">
-								<a href="https://maps.app.goo.gl/9yWk4ZRWJ8TZfrW99?g_st=ic" target="_blank" rel="noopener" aria-label="Open Bankada Road, Katuneriya in Google Maps" data-contact-tooltip="Open Bankada Road in Google Maps" class="footer-contact-icon">
-								<div class="liquid-glass w-12 h-12 rounded-xl flex items-center justify-center">
-									<i data-lucide="map-pin" class="h-6 w-6 text-white"></i>
-								</div>
+								<a href="https://maps.app.goo.gl/9yWk4ZRWJ8TZfrW99?g_st=ic" target="_blank" rel="noopener" class="footer-contact-icon" aria-label="Open our location in Google Maps">
+									<span class="liquid-glass w-12 h-12 rounded-xl flex items-center justify-center">
+										<i class="ph ph-map-pin text-2xl text-white"></i>
+									</span>
 								</a>
 								<div class="info">
-									<span class="title text-lg font-bold mb-2 block text-primary">Location</span>
-									<p class="text-background/80">
-										<a href="https://maps.app.goo.gl/9yWk4ZRWJ8TZfrW99?g_st=ic" target="_blank" rel="noopener" class="hover:text-primary transition-colors">
-											Bankada Road, Katuneriya
-										</a>
-									</p>
+									<span class="title text-lg font-bold mb-2 block">Location</span>
+									<p><a href="https://maps.app.goo.gl/9yWk4ZRWJ8TZfrW99?g_st=ic" target="_blank" rel="noopener">Bankada Road, Katuneriya</a></p>
 								</div>
 							</div>
 						</div>
-						<!-- Email Info -->
 						<div class="single-info-item">
 							<div class="flex items-center gap-4">
-								<a href="mailto:travelerinspire@gmail.com" aria-label="Email Inspire Travels at travelerinspire@gmail.com" data-contact-tooltip="Email travelerinspire@gmail.com" class="footer-contact-icon">
-								<div class="liquid-glass w-12 h-12 rounded-xl flex items-center justify-center">
-									<i data-lucide="mail" class="h-6 w-6 text-white"></i>
-								</div>
+								<a href="mailto:travelerinspire@gmail.com" class="footer-contact-icon" aria-label="Email Inspire Travels">
+									<span class="liquid-glass w-12 h-12 rounded-xl flex items-center justify-center">
+										<i class="ph ph-envelope-simple text-2xl text-white"></i>
+									</span>
 								</a>
 								<div class="info">
-									<span class="title text-lg font-bold mb-2 block text-primary">Email</span>
-									<p class="text-background/80">
-										<a href="mailto:travelerinspire@gmail.com" class="hover:text-primary transition-colors">
-										travelerinspire@gmail.com
-										</a>
-									</p>
+									<span class="title text-lg font-bold mb-2 block">Email</span>
+									<p><a href="mailto:travelerinspire@gmail.com">travelerinspire@gmail.com</a></p>
 								</div>
 							</div>
 						</div>
-						<!-- Phone Info -->
 						<div class="single-info-item">
 							<div class="flex items-center gap-4">
-								<a href="tel:+94785959333" aria-label="Call Inspire Travels at +94 78 595 9333" data-contact-tooltip="Call +94 78 595 9333" class="footer-contact-icon">
-								<div class="liquid-glass w-12 h-12 rounded-xl flex items-center justify-center">
-									<i data-lucide="phone" class="h-6 w-6 text-white"></i>
-								</div>
+								<a href="tel:+94785959333" class="footer-contact-icon" aria-label="Call Inspire Travels">
+									<span class="liquid-glass w-12 h-12 rounded-xl flex items-center justify-center">
+										<i class="ph ph-phone text-2xl text-white"></i>
+									</span>
 								</a>
 								<div class="info">
-									<span class="title text-lg font-bold mb-2 block text-primary">Hotline</span>
-									<p class="text-background/80">
-										<a href="tel:+94785959333" class="hover:text-primary transition-colors">+94 78 595 9333</a>
-									</p>
+									<span class="title text-lg font-bold mb-2 block">Hotline</span>
+									<p><a href="tel:+94785959333">+94 78 595 9333</a></p>
 								</div>
 							</div>
 						</div>
-						<!-- Social Media Links -->
 						<div class="social-box lg:text-right lg:mb-0 mb-4">
 							<div class="flex items-center gap-3 lg:justify-end">
-								<!-- Facebook -->
-								<a href="https://www.facebook.com/share/1CUqzA7tAu/?mibextid=wwXIfr" target="_blank" rel="noopener"
-									class="liquid-glass w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
-									aria-label="Facebook">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-								</a>
-								<!-- TikTok -->
-								<a href="https://www.tiktok.com/@inspiretravelstours?_t=ZS-903Za2uRoUU&_r=1" target="_blank" rel="noopener"
-									class="liquid-glass w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
-									aria-label="TikTok">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-										class="h-5 w-5 text-white" fill="currentColor">
-										<path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-									</svg>
-								</a>
-								<!-- Instagram -->
-								<a href="https://www.instagram.com/inspiretravels_tours" target="_blank" rel="noopener"
-									class="liquid-glass w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
-									aria-label="Instagram">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-white"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-								</a>
-								<!-- YouTube -->
-								<a href="https://youtube.com/@InspireTravelandTours" target="_blank" rel="noopener"
-									class="liquid-glass w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110"
-									aria-label="YouTube">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-white"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17z"/><polygon points="10 15 15 12 10 9"/></svg>
-								</a>
+								<a href="https://www.facebook.com/share/1CUqzA7tAu/?mibextid=wwXIfr" target="_blank" rel="noopener" class="liquid-glass w-10 h-10 rounded-xl flex items-center justify-center" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+								<a href="https://www.tiktok.com/@inspiretravelstours?_t=ZS-903Za2uRoUU&_r=1" target="_blank" rel="noopener" class="liquid-glass w-10 h-10 rounded-xl flex items-center justify-center" aria-label="TikTok"><i class="ph ph-tiktok-logo"></i></a>
+								<a href="https://www.instagram.com/inspiretravels_tours" target="_blank" rel="noopener" class="liquid-glass w-10 h-10 rounded-xl flex items-center justify-center" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+								<a href="https://youtube.com/@InspireTravelandTours" target="_blank" rel="noopener" class="liquid-glass w-10 h-10 rounded-xl flex items-center justify-center" aria-label="YouTube"><i class="ph ph-youtube-logo"></i></a>
 							</div>
 						</div>
 					</div>
 				</div>
+
 				<!-- Footer Widget Area -->
 				<div class="footer-widget-area pt-16 pb-0">
 					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-						<!-- About Company Widget -->
 						<div class="footer-widget about-company-widget mb-8">
 							<h4 class="widget-title font-display text-xl font-bold mb-4">About Inspire Travels</h4>
 							<div class="footer-content">
-								<p class="text-background/80 leading-relaxed mb-4">
-									For over 5 years, we've been creating unforgettable journeys that showcase the authentic beauty and rich culture of Sri Lanka.
-								</p>
+								<p class="leading-relaxed mb-4">For over 5 years, we have been creating unforgettable journeys that showcase the authentic beauty and rich culture of Sri Lanka.</p>
 								<div class="footer-logo flex items-center space-x-2">
 									<div class="flex flex-col">
 										<span class="font-display font-bold text-lg text-white">Inspire Travels</span>
@@ -1649,40 +1593,33 @@
 								</div>
 							</div>
 						</div>
-						<!-- Our Tours Links -->
 						<div class="footer-widget service-nav-widget mb-8">
 							<h4 class="widget-title font-display text-xl font-bold mb-4">Our Tours</h4>
 							<div class="footer-content">
-								<ul class="footer-widget-nav space-y-2">
-									<li><a href="#tours" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Cultural Heritage Tours</a></li>
-									<li><a href="#tours" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Wildlife Safari Adventures</a></li>
-									<li><a href="#tours" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Beach & Coastal Tours</a></li>
-									<li><a href="#tours" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Hill Country Experiences</a></li>
-									<li><a href="#tours" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Adventure Trekking</a></li>
-								</ul>
+								<ul class="footer-widget-nav space-y-2"><li><a href="tours/?collection=family">Family Tours</a></li><li><a href="tours/?collection=group">Group Tours</a></li><li><a href="tours/?collection=northern-shores">Northern Shores</a></li><li><a href="tours/?collection=cultural-heritage">Culture & Heritage</a></li><li><a href="tours/?collection=adventure">Adventure Tours</a></li></ul>
 							</div>
 						</div>
-						<!-- Quick Links -->
 						<div class="footer-widget service-nav-widget mb-8">
 							<h4 class="widget-title font-display text-xl font-bold mb-4">Quick Links</h4>
 							<div class="footer-content">
 								<ul class="footer-widget-nav space-y-2">
-									<li><a href="#about" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">About Us</a></li>
-									<li><a href="#gallery" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Photo Gallery</a></li>
-									<li><a href="#reviews" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Customer Reviews</a></li>
-									<li><a href="#footer" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Contact Us</a></li>
-									<li><a href="#footer" class="text-white/80 hover:text-[#F7921E] transition-colors duration-200">Get Quote</a></li>
+									<li><a href="index.html#about">About Us</a></li>
+									<li><a href="gallery.html">Photo Gallery</a></li>
+									<li><a href="index.html#reviews">Customer Reviews</a></li>
+									<li><a href="#footer">Contact Us</a></li>
+									<li><a href="#footer">Get Quote</a></li>
 								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
+
 				<!-- Footer Copyright -->
 				<div class="footer-copyright border-t border-white/10 py-8">
 					<div class="text-center">
-						<p class="text-white/80 text-sm md:text-base flex flex-wrap justify-center gap-1">
+						<p class="text-sm md:text-base flex flex-wrap justify-center gap-1">
 							<span>Copyright © 2026 Inspire Travels & Tours, All Rights Reserved.</span>
-							<span>Made with <i data-lucide="heart" class="h-4 w-4 text-red-500 animate-pulse inline"></i> by Zig Zag</span>
+							<span>Made with <i class="ph-fill ph-heart"></i> by Zig Zag</span>
 						</p>
 					</div>
 				</div>
