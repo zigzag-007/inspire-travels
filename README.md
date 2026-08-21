@@ -39,7 +39,7 @@ Every itinerary can be adapted. Durations, hotel categories, and activities are 
 
 - ⭐ **4.9/5** average satisfaction score from 1,247+ verified reviews
 - ✅ **98%** of testimonials verified, with **23%** repeat travelers
-- 🗓️ Flexible packages spanning **1 to 14 days**, starting from **USD 180**
+- 🗓️ Flexible packages spanning **5 to 14 days**, starting from **USD 300**
 - 💬 Dedicated **WhatsApp concierge** for real time support and quoting
 
 ---

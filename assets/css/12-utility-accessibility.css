@@ -1,0 +1,58 @@
+/* -----------------------------------------------------------------------------
+   INSPIRE TRAVELS & TOURS - ACCESSIBILITY & BROWSER SUPPORT
+   -----------------------------------------------------------------------------
+
+   Author: Zig Zag AI
+   Description: Accessibility and browser support overrides: print, contrast, motion, and dark mode
+   Purpose: Keeps every "user preference" media query in one predictable place
+   Loaded directly by each page after animation styles
+
+   Table of Contents:
+    1. Print Styles
+    2. High Contrast Mode
+    3. Reduced Motion
+    4. Dark Mode (future support)
+
+   -----------------------------------------------------------------------------
+*/
+
+/* Print Styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+
+    body {
+        background: white !important;
+        color: black !important;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .liquid-glass {
+        background: rgba(255, 255, 255, 0.95);
+        border: 2px solid var(--primary-color);
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Dark Mode Support (for future implementation) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: oklch(0.08 0.02 45);
+        --text-color: oklch(0.95 0.01 85);
+        --muted-color: oklch(0.65 0.02 45);
+    }
+}

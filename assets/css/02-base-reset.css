@@ -1,0 +1,51 @@
+/* -----------------------------------------------------------------------------
+   INSPIRE TRAVELS & TOURS - SCROLL CONTROL & BASE RESET
+   -----------------------------------------------------------------------------
+
+   Author: Zig Zag AI
+   Description: Base element resets and scroll behavior for the whole site
+   Purpose: Normalize default browser behavior before any component styles are applied
+   Loaded directly by each page before component styles
+
+   -----------------------------------------------------------------------------
+*/
+
+html, body {
+    overflow-x: clip;
+}
+
+/* Hide browser scrollbar while preloader is active */
+html.is-loading,
+body.is-loading,
+html:has(#loading:not([style*="display: none"]):not([style*="display:none"])),
+body:has(#loading:not([style*="display: none"]):not([style*="display:none"])) {
+    overflow: hidden !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+
+html.is-loading::-webkit-scrollbar,
+body.is-loading::-webkit-scrollbar,
+html:has(#loading:not([style*="display: none"]):not([style*="display:none"]))::-webkit-scrollbar,
+body:has(#loading:not([style*="display: none"]):not([style*="display:none"]))::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* The navigation bar sits on top of the page, so anchor links used to
+   scroll headings underneath it. This keeps them clear of the bar. */
+section[id],
+footer[id] {
+    scroll-margin-top: 6rem;
+}
+
+/* Turns on nicer letter shapes and spacing that fonts ship with
+   but browsers leave off by default. */
+body {
+    font-family: var(--font-body);
+    font-optical-sizing: auto;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
+}

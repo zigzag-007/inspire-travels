@@ -1,0 +1,191 @@
+/* -----------------------------------------------------------------------------
+   INSPIRE TRAVELS & TOURS - TEXT EFFECTS & TYPOGRAPHY
+   -----------------------------------------------------------------------------
+
+   Author: Zig Zag AI
+   Description: Text effects, heading styles, navigation text colors, and small shared utility helper classes
+   Purpose: Styles that touch plain text, plus small reusable badges and utilities that do not belong to one single component
+   Loaded directly by each page before component styles
+
+   Table of Contents:
+    1. Gradient Text & Heading Effects
+    2. Navigation Logo & Link Text
+    3. Technical Metadata Badges & Grid Guide Lines
+    4. Responsive Type & Spacing Adjustments
+
+   -----------------------------------------------------------------------------
+*/
+
+/* Display headings. Big text needs tighter spacing or it looks loose. */
+h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+    /* Stops a single word being left alone on the last line. */
+    text-wrap: balance;
+}
+
+/* Card titles are small, so they need less negative spacing than
+   the big headlines get, or the letters start to touch. */
+h3 {
+    letter-spacing: -0.012em;
+}
+
+/* Body copy. About 68 characters per line is the easiest to read. */
+p {
+    text-wrap: pretty;
+}
+
+/* Numbers that count up should not jiggle, so lock the digit width. */
+.tabular,
+[data-counter] {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Small uppercase labels need extra spacing or they look cramped. */
+.eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+/* Italic display words with letters like y, g, p can get their tails
+   cut off. This gives them a little more room to sit in. */
+h1 .italic,
+h2 .italic {
+    line-height: 1.15;
+    padding-bottom: 0.08em;
+}
+
+/* Italic letters lean to the right, so the word before them looks
+   too close. A small nudge makes the gap look even again. */
+h1 span.italic:not(.block),
+h2 span.italic:not(.block) {
+    margin-left: 0.12em;
+}
+
+/* Enhanced navigation text visibility */
+.nav-link {
+    transition: all 0.3s ease;
+}
+
+/* Make navigation text bolder when in dark mode (black text on light backgrounds) */
+.nav-link.text-foreground {
+    font-weight: 900 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+/* Active state styling - same golden color for both dark and light sections */
+.nav-link.text-accent,
+.nav-link.text-primary {
+    color: #FFB347 !important;
+    /* Fallback hex color for golden yellow */
+    font-weight: 900 !important;
+}
+
+/* Ensure hover colors use the orange accent color */
+.nav-link:hover {
+    color: #FFB347 !important;
+    /* Fallback hex color for golden yellow */
+}
+
+/* Technical catalog metadata badges (2026 Premium Brutalism Style) */
+.tech-metadata {
+    position: absolute;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #63AB45;
+    pointer-events: none;
+    z-index: 5;
+    border: 1px solid rgba(99, 171, 69, 0.25);
+    padding: 5px 10px;
+    border-radius: 6px;
+    background: rgba(251, 250, 224, 0.75);
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Subtle vertical grid lines for structured design */
+.grid-guide-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(99, 171, 69, 0.08) 15%, rgba(99, 171, 69, 0.08) 85%, transparent);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Centered/Inline Technical Metadata (2026 Premium Brutalism Theme) */
+.tech-metadata-inline {
+    display: inline-block;
+    max-width: 95%;
+    /* Prevent touching edges on mobile */
+    white-space: normal;
+    /* Allow wrapping */
+    word-break: break-word;
+    /* Ensure long coordinates break */
+    line-height: 1.5;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #63AB45;
+    background: rgba(99, 171, 69, 0.08);
+    border: 1px solid rgba(99, 171, 69, 0.2);
+    padding: 6px 14px;
+    border-radius: 24px;
+    margin-bottom: 1.25rem;
+    pointer-events: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+/* Mobile Screen Sizes (< 768px) */
+@media (max-width: 767px) {
+    /* Adjust padding for mobile layout readability */
+    section {
+        padding-top: 3.5rem !important;
+        padding-bottom: 3.5rem !important;
+    }
+}
+@media (max-width: 375px) {
+    /* Section headings — scale down */
+    section h2 {
+        font-size: clamp(1.6rem, 7.5vw, 2.25rem);
+    }
+}
+@media (max-width: 320px) {
+    /* Package cards grid gap */
+    .grid.gap-8 {
+        gap: 1.25rem;
+    }
+}
+
+/* -----------------------------------------------------------------------------
+   PHOSPHOR ICON ALIGNMENT
+   -----------------------------------------------------------------------------
+   Phosphor icons are font glyphs, not SVG boxes. These rules make them line up
+   with text the same way the old Lucide SVGs did, so buttons and label rows do
+   not shift. The icon size comes from font-size, set by the bridge.
+   ----------------------------------------------------------------------------- */
+
+i[class*="ph-"]::before,
+span[class*="ph-"]::before {
+    display: inline-block;
+    line-height: 1;
+}
+
+i[class*="ph-"],
+span[class*="ph-"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    flex-shrink: 0;
+    vertical-align: middle;
+}

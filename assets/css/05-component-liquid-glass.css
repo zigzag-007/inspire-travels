@@ -1,0 +1,226 @@
+/* -----------------------------------------------------------------------------
+   INSPIRE TRAVELS & TOURS - LIQUID GLASS EFFECTS
+   -----------------------------------------------------------------------------
+
+   Author: Zig Zag AI
+   Description: The shared glass morphism visual system used across cards, tiles, and orbs
+   Purpose: Central home for the liquid glass effect so all variants stay consistent
+   Loaded directly by each page with the shared component styles
+
+   Table of Contents:
+    1. Liquid Glass Core
+    2. Liquid White Orb
+    3. Liquid Glass Tile
+    4. Responsive Adjustments
+
+   -----------------------------------------------------------------------------
+*/
+
+/*
+ LIQUID GLASS EFFECT SYSTEM
+
+ A sophisticated glass morphism effect with customizable parameters:
+
+ CUSTOMIZATION GUIDE:
+ 1. BLUR INTENSITY: Change 'blur(4px)' in ::after pseudo-elements
+    - 0px = completely clear glass
+    - 2px-4px = subtle blur (recommended)
+    - 8px+ = strong blur
+
+ 2. GLASS SHINE: Change '0.7' values in ::before box-shadow
+    - 0.3-0.5 = subtle shine
+    - 0.7-1.0 = bright shine (current)
+
+ 3. DISTORTION: SVG filter in HTML controls liquid effect intensity
+    - Edit #container-glass filter in index.html for different distortion
+ */
+.liquid-glass {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
+}
+
+/* Additional styles for interactive liquid glass elements */
+.liquid-glass {
+    font-weight: 600;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+/* Glass shine/highlight layer - shared by all liquid glass elements */
+.liquid-glass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    border-radius: inherit;
+    pointer-events: none;
+    /* Prevent blocking child elements interaction */
+    /* GLASS SHINE CONTROL: Adjust highlight intensity here */
+    box-shadow: inset 2px 2px 0px -2px rgba(255, 255, 255, 0.7),
+        inset 0 0 3px 1px rgba(255, 255, 255, 0.7);
+    /* Shimmer Sweep Background */
+    background-image: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.2) 40%, rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0.2) 60%, transparent 70%);
+    background-size: 250% 100%;
+    background-position: 200% 0;
+    background-repeat: no-repeat;
+    transition: background-position 0s;
+}
+
+.liquid-glass:hover::before {
+    background-position: -120% 0;
+    transition: background-position 0.8s ease-in-out;
+}
+
+/* Background distortion and blur layer - shared by all liquid glass elements */
+.liquid-glass::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    /* Prevent blocking child elements interaction */
+    /* BLUR CONTROL: Adjust blur intensity here */
+    /* 0px = clear glass, 2px-4px = subtle blur, 8px+ = strong blur */
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    /* DISTORTION CONTROL: Uses SVG filter for liquid effect */
+    filter: url(#container-glass);
+    overflow: hidden;
+    isolation: isolate;
+}
+/* macOS-style Liquid White Glass Orb for Logo Background */
+.liquid-white-orb {
+    position: relative;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.82));
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.35),
+        inset 2px 2px 3px rgba(255, 255, 255, 0.9),
+        inset -2px -2px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 30%;
+    /* macOS Squircle App Icon Shape */
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.liquid-white-orb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    filter: url(#container-glass);
+    z-index: -1;
+}
+
+.liquid-white-orb:hover {
+    transform: scale(1.04) rotate(2deg);
+    box-shadow: 0 25px 45px -5px rgba(0, 0, 0, 0.4);
+}
+.liquid-glass {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* About tabs keep one clear selected state from the first page render. */
+.tab-btn {
+    background: rgba(20, 31, 25, 0.3);
+    border-color: rgba(255, 255, 255, 0.38);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18),
+        0 8px 24px rgba(0, 0, 0, 0.14);
+}
+
+.tab-btn.is-active,
+.tab-btn[aria-selected="true"] {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.32), rgba(178, 210, 190, 0.12)),
+        rgba(21, 44, 37, 0.42);
+    border-color: rgba(255, 255, 255, 0.72);
+    color: #ffffff;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.54),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.12),
+        0 10px 28px rgba(8, 32, 26, 0.28);
+}
+
+/* 2026 Trend Liquid Glass Tile */
+.liquid-glass-tile {
+    position: relative;
+    background: rgba(255, 255, 255, 0.38);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.03);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        background 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, box-shadow, background-color;
+}
+
+/* Glass backing blur and SVG displacement */
+.liquid-glass-tile::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    filter: url(#container-glass);
+    z-index: -2;
+}
+
+/* Internal colorful aura glow blob that responds on hover */
+.liquid-glass-tile::before {
+    content: '';
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(12, 60, 58, 0.22) 0%, transparent 70%);
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0.5;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+/* Alternating color auras (emerald / terracotta / gold) */
+.liquid-glass-tile:nth-child(2n)::before {
+    background: radial-gradient(circle, rgba(184, 89, 59, 0.18) 0%, transparent 70%);
+}
+
+.liquid-glass-tile:nth-child(3n)::before {
+    background: radial-gradient(circle, rgba(255, 179, 71, 0.18) 0%, transparent 70%);
+}
+.liquid-glass-tile:hover {
+    transform: translateY(-12px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.58);
+    box-shadow: 0 35px 60px -15px rgba(12, 60, 58, 0.12);
+}
+
+.liquid-glass-tile:nth-child(2n):hover {
+    box-shadow: 0 35px 60px -15px rgba(184, 89, 59, 0.08);
+}
+
+.liquid-glass-tile:hover::before {
+    transform: translate(-50%, -50%) scale(2.0);
+    opacity: 0.95;
+}
+@media (max-width: 375px) {
+    /* Tour cards — reduce padding in card body */
+    .liquid-glass-tile .p-6 {
+        padding: 1rem;
+    }
+}

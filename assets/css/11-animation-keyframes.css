@@ -1,0 +1,267 @@
+/* -----------------------------------------------------------------------------
+   INSPIRE TRAVELS & TOURS - ANIMATION KEYFRAMES
+   -----------------------------------------------------------------------------
+
+   Author: Zig Zag AI
+   Description: All @keyframes animation definitions plus AOS scroll reveal overrides
+   Purpose: Central home for animation timing so effects are easy to find and adjust
+   Loaded directly by each page after component styles
+
+   Table of Contents:
+    1. Footer Sway & Fireflies
+    2. Pulse Ring
+    3. AOS Scroll Reveal Overrides
+    4. Premium Wave
+    5. Firefly Drift Paths (A to D)
+
+   -----------------------------------------------------------------------------
+*/
+
+/* Keyframes — gentle leaf sway (combined with scroll parallax and mouse sway via CSS vars) */
+@keyframes footer-sway {
+
+    0%,
+    100% {
+        transform: translate3d(calc(var(--leaf-tx, 0px) + (var(--mouse-x, 0) * 15px)), calc(var(--leaf-ty, 0px) + (var(--mouse-y, 0) * 15px)), 0) scale(1);
+    }
+
+    25% {
+        transform: translate3d(calc(var(--leaf-tx, 0px) + (var(--mouse-x, 0) * 15px) + 8px), calc(var(--leaf-ty, 0px) + (var(--mouse-y, 0) * 15px) - 4px), 0) scale(1.01);
+    }
+
+    50% {
+        transform: translate3d(calc(var(--leaf-tx, 0px) + (var(--mouse-x, 0) * 15px) - 5px), calc(var(--leaf-ty, 0px) + (var(--mouse-y, 0) * 15px) + 6px), 0) scale(0.99);
+    }
+
+    75% {
+        transform: translate3d(calc(var(--leaf-tx, 0px) + (var(--mouse-x, 0) * 15px) + 4px), calc(var(--leaf-ty, 0px) + (var(--mouse-y, 0) * 15px) - 8px), 0) scale(1.005);
+    }
+}
+
+/* Keyframes — firefly depth float (combined with scroll parallax and inverse mouse sway via CSS vars) */
+@keyframes footer-fireflies {
+
+    0%,
+    100% {
+        transform: translate3d(calc(var(--fly-tx, 0px) + (var(--mouse-x, 0) * -25px)), calc(var(--fly-ty, 0px) + (var(--mouse-y, 0) * -25px)), 0) scale(1);
+        opacity: 0.6;
+    }
+
+    15% {
+        transform: translate3d(calc(var(--fly-tx, 0px) + (var(--mouse-x, 0) * -25px) + 12px), calc(var(--fly-ty, 0px) + (var(--mouse-y, 0) * -25px) - 8px), 0) scale(1.15);
+        opacity: 1;
+    }
+
+    35% {
+        transform: translate3d(calc(var(--fly-tx, 0px) + (var(--mouse-x, 0) * -25px) - 6px), calc(var(--fly-ty, 0px) + (var(--mouse-y, 0) * -25px) + 5px), 0) scale(0.9);
+        opacity: 0.4;
+    }
+
+    55% {
+        transform: translate3d(calc(var(--fly-tx, 0px) + (var(--mouse-x, 0) * -25px) + 8px), calc(var(--fly-ty, 0px) + (var(--mouse-y, 0) * -25px) + 10px), 0) scale(1.1);
+        opacity: 0.9;
+    }
+
+    75% {
+        transform: translate3d(calc(var(--fly-tx, 0px) + (var(--mouse-x, 0) * -25px) - 10px), calc(var(--fly-ty, 0px) + (var(--mouse-y, 0) * -25px) - 6px), 0) scale(0.95);
+        opacity: 0.5;
+    }
+}
+
+/* Smoother Keyframe Animation */
+@keyframes pulse-ring {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.7;
+    }
+
+    70% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+}
+
+/* Premium Fade Down with Fluid Blur */
+[data-aos="fade-down-blur"] {
+    opacity: 0;
+    transform: translateY(-35px) scale(0.975);
+    filter: blur(12px);
+    transition-property: opacity, transform, filter;
+    will-change: opacity, transform, filter;
+}
+
+[data-aos="fade-down-blur"].aos-animate {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+/* Premium Fade Up with Fluid Blur */
+[data-aos="fade-up-blur"] {
+    opacity: 0;
+    transform: translateY(35px) scale(0.975);
+    filter: blur(12px);
+    transition-property: opacity, transform, filter;
+    will-change: opacity, transform, filter;
+}
+
+[data-aos="fade-up-blur"].aos-animate {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+/* Premium Scale Up with Fluid Blur */
+[data-aos="scale-up-blur"] {
+    opacity: 0;
+    transform: scale(0.92) translateY(15px);
+    filter: blur(8px);
+    transition-property: opacity, transform, filter;
+    will-change: opacity, transform, filter;
+}
+
+[data-aos="scale-up-blur"].aos-animate {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+}
+
+/* Pure Blur Reveal */
+[data-aos="blur-in"] {
+    opacity: 0;
+    filter: blur(15px);
+    transition-property: opacity, filter;
+    will-change: opacity, filter;
+}
+
+[data-aos="blur-in"].aos-animate {
+    opacity: 1;
+    filter: blur(0);
+}
+
+@media (max-width: 768px) {
+    [data-aos="fade-down-blur"],
+    [data-aos="fade-up-blur"],
+    [data-aos="scale-up-blur"],
+    [data-aos="blur-in"] {
+        filter: none;
+        transition-property: opacity, transform;
+        will-change: opacity, transform;
+    }
+}
+
+/* Enable smooth and responsive hover states on AOS-animated elements */
+/* Once an AOS element has animated (.aos-animate), we override the transition on hover to make it responsive (300ms) and remove the entry animation delay */
+[data-aos].aos-animate:hover {
+    transition-duration: 300ms !important;
+    transition-delay: 0s !important;
+}
+
+/* Apply the hover scale directly in CSS to override inline AOS transform scale */
+[class*="hover:scale-105"][data-aos].aos-animate:hover {
+    transform: scale(1.05) !important;
+}
+
+[class*="hover:scale-[1.02]"][data-aos].aos-animate:hover {
+    transform: scale(1.02) !important;
+}
+
+[class*="hover:scale-[1.015]"][data-aos].aos-animate:hover {
+    transform: scale(1.015) !important;
+}
+
+@keyframes premium-wave {
+
+    0%,
+    100% {
+        transform: scale(0.8);
+        opacity: 0.35;
+        box-shadow: 0 0 4px rgba(43, 61, 38, 0.1);
+    }
+
+    50% {
+        transform: scale(1.35);
+        opacity: 1;
+        box-shadow: 0 0 16px rgba(43, 61, 38, 0.4),
+            0 0 24px rgba(247, 146, 30, 0.55);
+        /* Warm sunset glow */
+    }
+}
+
+/* Animation Path A — Gentle drift & rise */
+@keyframes fireflies-path-a {
+    0%, 100% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * 0.7 + (var(--mouse-x, 0) * -35px)), calc(var(--fly-ty, 0px) * 0.7 + (var(--mouse-y, 0) * -35px)), 0) scale(1);
+        opacity: 0.55;
+    }
+    30% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * 0.7 + (var(--mouse-x, 0) * -35px) + 20px), calc(var(--fly-ty, 0px) * 0.7 + (var(--mouse-y, 0) * -35px) - 25px), 0) scale(1.15);
+        opacity: 0.95;
+    }
+    65% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * 0.7 + (var(--mouse-x, 0) * -35px) - 15px), calc(var(--fly-ty, 0px) * 0.7 + (var(--mouse-y, 0) * -35px) + 15px), 0) scale(0.9);
+        opacity: 0.45;
+    }
+}
+
+/* Animation Path B — Large circular sway */
+@keyframes fireflies-path-b {
+    0%, 100% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * -0.6 + (var(--mouse-x, 0) * 40px)), calc(var(--fly-ty, 0px) * -0.6 + (var(--mouse-y, 0) * 40px)), 0) scale(1.1);
+        opacity: 0.85;
+    }
+    40% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * -0.6 + (var(--mouse-x, 0) * 40px) - 30px), calc(var(--fly-ty, 0px) * -0.6 + (var(--mouse-y, 0) * 40px) + 10px), 0) scale(0.95);
+        opacity: 0.4;
+    }
+    75% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * -0.6 + (var(--mouse-x, 0) * 40px) + 25px), calc(var(--fly-ty, 0px) * -0.6 + (var(--mouse-y, 0) * 40px) - 20px), 0) scale(1.2);
+        opacity: 0.95;
+    }
+}
+
+/* Animation Path C — Fast shimmer & drift */
+@keyframes fireflies-path-c {
+    0%, 100% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * 0.5 + (var(--mouse-x, 0) * -45px)), calc(var(--fly-ty, 0px) * 0.5 + (var(--mouse-y, 0) * -45px)), 0) scale(0.95);
+        opacity: 0.45;
+    }
+    25% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * 0.5 + (var(--mouse-x, 0) * -45px) - 20px), calc(var(--fly-ty, 0px) * 0.5 + (var(--mouse-y, 0) * -45px) - 15px), 0) scale(1.1);
+        opacity: 0.9;
+    }
+    70% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * 0.5 + (var(--mouse-x, 0) * -45px) + 25px), calc(var(--fly-ty, 0px) * 0.5 + (var(--mouse-y, 0) * -45px) + 25px), 0) scale(1.05);
+        opacity: 0.5;
+    }
+}
+
+/* Animation Path D — Vertical drift & loop */
+@keyframes fireflies-path-d {
+    0%, 100% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * -0.5 + (var(--mouse-x, 0) * 35px)), calc(var(--fly-ty, 0px) * -0.5 + (var(--mouse-y, 0) * 35px)), 0) scale(1.05);
+        opacity: 0.9;
+    }
+    35% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * -0.5 + (var(--mouse-x, 0) * 35px) + 15px), calc(var(--fly-ty, 0px) * -0.5 + (var(--mouse-y, 0) * 35px) + 30px), 0) scale(0.9);
+        opacity: 0.45;
+    }
+    80% {
+        transform: translate3d(calc(var(--fly-tx, 0px) * -0.5 + (var(--mouse-x, 0) * 35px) - 25px), calc(var(--fly-ty, 0px) * -0.5 + (var(--mouse-y, 0) * 35px) - 25px), 0) scale(1.15);
+        opacity: 0.85;
+    }
+}
+@keyframes contact-ticker {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
