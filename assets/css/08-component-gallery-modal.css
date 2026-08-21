@@ -115,14 +115,14 @@
     position: relative;
     isolation: isolate;
     color: var(--secondary-paper-ink, #13261d);
-    /* Multi-layered rich warm paper canvas with golden yellow, amber, sage & teal radiance */
+    /* Rich warm paper canvas matching reviews showcase with golden yellow, amber, sage & teal radiance */
     background:
-        radial-gradient(circle at 78% 18%, rgba(245, 186, 73, 0.35), transparent 32rem),
-        radial-gradient(circle at 18% 72%, rgba(234, 176, 91, 0.32), transparent 36rem),
-        radial-gradient(circle at 14% 12%, rgba(124, 155, 91, 0.24), transparent 30rem),
-        radial-gradient(circle at 86% 62%, rgba(65, 145, 139, 0.2), transparent 32rem),
-        radial-gradient(circle at 50% 45%, rgba(255, 248, 220, 0.92), transparent 42rem),
-        linear-gradient(155deg, #e8ede0 0%, #fbf3df 38%, #f8eed2 65%, #e2ead9 100%) !important;
+        radial-gradient(circle at 12% 16%, rgba(245, 186, 73, 0.38), transparent 36rem),
+        radial-gradient(circle at 88% 82%, rgba(124, 155, 91, 0.34), transparent 38rem),
+        radial-gradient(circle at 82% 14%, rgba(65, 145, 139, 0.22), transparent 32rem),
+        radial-gradient(circle at 20% 80%, rgba(234, 176, 91, 0.28), transparent 34rem),
+        radial-gradient(circle at 50% 48%, rgba(255, 250, 230, 0.94), transparent 44rem),
+        linear-gradient(155deg, #e6ecdc 0%, #faf3e0 40%, #f7ebd0 70%, #dfe9d8 100%) !important;
 }
 
 /* Layer 1: Enhanced Grid Texture & Topo Contours */
@@ -132,12 +132,12 @@
     inset: 0;
     content: "";
     pointer-events: none;
-    opacity: 0.65;
+    opacity: 0.68;
     background-image:
         linear-gradient(rgba(19, 38, 29, 0.055) 1px, transparent 1px),
         linear-gradient(90deg, rgba(19, 38, 29, 0.055) 1px, transparent 1px),
-        repeating-radial-gradient(ellipse at 14% 18%, transparent 0 3.7rem, rgba(29, 79, 55, 0.06) 3.74rem 3.8rem, transparent 3.84rem 7.2rem),
-        repeating-radial-gradient(ellipse at 88% 62%, transparent 0 4.8rem, rgba(154, 101, 30, 0.05) 4.84rem 4.9rem, transparent 4.94rem 9.4rem);
+        repeating-radial-gradient(ellipse at 12% 20%, transparent 0 3.7rem, rgba(29, 79, 55, 0.065) 3.74rem 3.8rem, transparent 3.84rem 7.2rem),
+        repeating-radial-gradient(ellipse at 86% 68%, transparent 0 4.8rem, rgba(154, 101, 30, 0.06) 4.84rem 4.9rem, transparent 4.94rem 9.4rem);
     background-size: 6rem 6rem, 6rem 6rem, 82rem 68rem, 94rem 78rem;
     mask-image: linear-gradient(180deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
 }
@@ -149,10 +149,10 @@
     inset: 0;
     content: "";
     pointer-events: none;
-    opacity: 0.38;
+    opacity: 0.18;
     background-image:
-        radial-gradient(rgba(19, 38, 29, 0.45) 0.055rem, transparent 0.065rem),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+        radial-gradient(rgba(19, 38, 29, 0.22) 0.035rem, transparent 0.045rem),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
     background-size: 0.35rem 0.35rem, 160px 160px;
     mix-blend-mode: multiply;
 }

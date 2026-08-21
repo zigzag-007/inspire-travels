@@ -152,7 +152,6 @@
     color: #F7921E;
     transform: translateX(2px);
 }
-.gowilds-footer .footer-text,
 .gowilds-footer p {
     color: rgba(255, 255, 255, 0.8);
 }
@@ -238,23 +237,6 @@
     .footer-contact-grid .social-box > div {
         justify-content: flex-end;
     }
-}
-
-.gowilds-footer .social a {
-    color: #FFFFFF;
-}
-
-.gowilds-footer .social a:hover {
-    color: #63AB45;
-}
-
-.gowilds-footer .btn-primary {
-    background-color: #F7921E;
-    color: #FFFFFF;
-}
-
-.gowilds-footer .btn-primary:hover {
-    background-color: #d97f18;
 }
 
 /* Light Background Section — Tropical Canopy */
@@ -346,83 +328,6 @@
 .tour-light-canopy>* {
     position: relative;
     z-index: 1;
-}
-
-/* Transitional Background Section — Light to Dark Canopy Split */
-.gallery-transition-canopy {
-    background-color: #1D231F;
-    /* Transitional background stack (pollen, ambient lighting, gradients) */
-    background-image:
-        /* Subtle Film Grain Noise Texture */
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.015'/%3E%3C/svg%3E"),
-        /* Transition Spore / Grain textures */
-        radial-gradient(circle at 15% 25%, rgba(99, 171, 69, 0.06) 1.2px, transparent 1.2px),
-        radial-gradient(circle at 85% 75%, rgba(255, 255, 255, 0.02) 1.2px, transparent 1.2px),
-        radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.03) 1.2px, transparent 1.2px),
-        /* Warm radial spotlight blending from light top to dark bottom */
-        radial-gradient(ellipse at 15% 10%, rgba(247, 146, 30, 0.14) 0%, transparent 60%),
-        radial-gradient(ellipse at 85% 90%, rgba(99, 171, 69, 0.12) 0%, transparent 50%),
-        /* Base split gradient transitioning from Light Cream to Dark Jungle */
-        linear-gradient(180deg, #FBFAE0 0%, #202d24 35%, #1D231F 70%, #151b17 100%);
-    background-size:
-        180px 180px,
-        40px 40px,
-        35px 35px,
-        30px 30px,
-        100% 100%,
-        100% 100%,
-        100% 100%;
-    background-position:
-        0 0,
-        0 0,
-        17px 17px,
-        9px 9px,
-        center,
-        center,
-        center;
-    background-repeat:
-        repeat,
-        repeat,
-        repeat,
-        repeat,
-        no-repeat,
-        no-repeat,
-        no-repeat;
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-}
-
-/* Overlay leaves for transition section */
-.gallery-transition-canopy::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-        /* Monstera cutout matching the split (blends dark leaves at bottom, light at top) */
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 600'%3E%3Cpath d='M-50 120 Q100 130 140 220 C180 310 130 420 180 500 L-50 560 Z' fill='%2390c98a' opacity='0.04'/%3E%3Cpath d='M-50 160 C20 170 80 200 90 230 C50 250 10 260 -50 280 Z' fill='%2390c98a' opacity='0.05'/%3E%3Cpath d='M-50 240 C30 250 100 290 110 330 C60 350 20 360 -50 370 Z' fill='%2390c98a' opacity='0.05'/%3E%3C/svg%3E"),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 600'%3E%3Cpath d='M350 80 Q160 200 200 420 Q220 510 170 600' fill='none' stroke='%2390c98a' stroke-width='4' opacity='0.08'/%3E%3Cpath d='M200 180 Q80 160 40 150 Q120 190 200 200' fill='%2390c98a' opacity='0.05'/%3E%3Cpath d='M195 230 Q70 215 20 200 Q115 240 195 250' fill='%2390c98a' opacity='0.05'/%3E%3C/svg%3E");
-    background-repeat: no-repeat, no-repeat;
-    background-position: left top, right bottom;
-    pointer-events: none;
-    z-index: 0;
-    animation: footer-sway 24s ease-in-out infinite;
-    will-change: transform;
-}
-
-/* Transition Fireflies */
-.gallery-transition-canopy::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-        radial-gradient(circle 3.5px at 15% 70%, rgba(247, 200, 80, 0.85) 0%, rgba(247, 200, 80, 0.2) 50%, transparent 100%),
-        radial-gradient(circle 4px at 85% 80%, rgba(180, 220, 160, 0.7) 0%, rgba(180, 220, 160, 0.15) 50%, transparent 100%);
-    background-size: 100% 100%;
-    pointer-events: none;
-    z-index: 0;
-    animation: footer-fireflies 16s ease-in-out infinite;
-    will-change: transform, opacity;
 }
 
 /* Cinematic Hero Background Transitions (Ken Burns Effect) */
@@ -544,28 +449,6 @@
     animation: fireflies-path-c 18s ease-in-out infinite !important;
 }
 
-/* 3. Gallery (Mirissa - Soft Teal & Ocean Spores with floating waves - 12 Glow Particles) */
-#gallery::after {
-    background-image:
-        radial-gradient(circle 10px at 9% 25%, rgba(20, 184, 166, 0.9) 0%, rgba(20, 184, 166, 0.35) 45%, transparent 75%),
-        radial-gradient(circle 8px at 16% 65%, rgba(56, 189, 248, 0.95) 0%, rgba(56, 189, 248, 0.3) 50%, transparent 80%),
-        radial-gradient(circle 11px at 93% 35%, rgba(56, 189, 248, 0.9) 0%, rgba(56, 189, 248, 0.35) 40%, transparent 75%),
-        radial-gradient(circle 9px at 87% 70%, rgba(20, 184, 166, 0.95) 0%, rgba(20, 184, 166, 0.3) 50%, transparent 80%),
-        radial-gradient(circle 12px at 6% 85%, rgba(56, 189, 248, 0.9) 0%, rgba(56, 189, 248, 0.3) 50%, transparent 80%),
-        radial-gradient(circle 10px at 95% 15%, rgba(20, 184, 166, 0.9) 0%, rgba(20, 184, 166, 0.3) 50%, transparent 80%),
-        radial-gradient(circle 8px at 14% 40%, rgba(56, 189, 248, 0.9) 0%, rgba(56, 189, 248, 0.3) 50%, transparent 80%),
-        radial-gradient(circle 11px at 90% 50%, rgba(20, 184, 166, 0.9) 0%, rgba(20, 184, 166, 0.3) 50%, transparent 80%),
-        radial-gradient(circle 7px at 18% 95%, rgba(255, 255, 255, 0.95) 0%, transparent 75%),
-        radial-gradient(circle 9px at 83% 20%, rgba(20, 184, 166, 0.9) 0%, transparent 75%),
-        radial-gradient(circle 10px at 11% 52%, rgba(56, 189, 248, 0.9) 0%, transparent 75%),
-        radial-gradient(circle 8px at 92% 82%, rgba(20, 184, 166, 0.85) 0%, transparent 75%),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='30' viewBox='0 0 60 20'%3E%3Cpath d='M0 10 Q15 5 30 10 T60 10' fill='none' stroke='%2320b8a6' stroke-width='2' opacity='0.18'/%3E%3C/svg%3E");
-    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 130px 45px;
-    background-position: center, center, center, center, center, center, center, center, center, center, center, center, 90% 25%;
-    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
-    animation: fireflies-path-d 15s ease-in-out infinite !important;
-}
-
 /* 4. Adventure (Ella - Amber Embers & Jungle Leaf Shapes) */
 #adventure::after {
     background-image:
@@ -578,27 +461,6 @@
     background-position: center, center, center, center, 8% 50%;
     background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
     animation: fireflies-path-a 20s ease-in-out infinite !important;
-}
-
-/* 5. Reviews (Kandy - Golden Sparkles & Petal Shapes - 12 Glow Particles) */
-#reviews::after {
-    background-image:
-        radial-gradient(circle 10px at 10% 35%, rgba(251, 191, 36, 0.9) 0%, rgba(251, 191, 36, 0.35) 45%, transparent 75%),
-        radial-gradient(circle 8px at 17% 70%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.4) 50%, transparent 80%),
-        radial-gradient(circle 9px at 92% 25%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.4) 40%, transparent 75%),
-        radial-gradient(circle 8px at 85% 70%, rgba(251, 191, 36, 0.95) 0%, rgba(251, 191, 36, 0.3) 50%, transparent 80%),
-        radial-gradient(circle 11px at 12% 15%, rgba(251, 191, 36, 0.9) 0%, transparent 75%),
-        radial-gradient(circle 9px at 95% 85%, rgba(255, 255, 255, 0.95) 0%, transparent 75%),
-        radial-gradient(circle 7px at 6% 60%, rgba(251, 191, 36, 0.9) 0%, transparent 75%),
-        radial-gradient(circle 10px at 89% 45%, rgba(255, 255, 255, 0.9) 0%, transparent 75%),
-        radial-gradient(circle 8px at 19% 82%, rgba(251, 191, 36, 0.85) 0%, transparent 75%),
-        radial-gradient(circle 9px at 82% 15%, rgba(255, 255, 255, 0.9) 0%, transparent 75%),
-        radial-gradient(circle 6px at 93% 90%, rgba(251, 191, 36, 0.9) 0%, transparent 75%),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 30 30'%3E%3Ccircle cx='15' cy='15' r='3.5' fill='%23fbbf26' opacity='0.22'/%3E%3Ccircle cx='15' cy='8' r='4' fill='%23fbbf26' opacity='0.15'/%3E%3Ccircle cx='15' cy='22' r='4' fill='%23fbbf26' opacity='0.15'/%3E%3Ccircle cx='8' cy='15' r='4' fill='%23fbbf26' opacity='0.15'/%3E%3Ccircle cx='22' cy='15' r='4' fill='%23fbbf26' opacity='0.15'/%3E%3C/svg%3E");
-    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 80px 80px;
-    background-position: center, center, center, center, center, center, center, center, center, center, center, 88% 70%;
-    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
-    animation: fireflies-path-b 13s ease-in-out infinite !important;
 }
 
 /* Mobile Screen Sizes (< 768px) */

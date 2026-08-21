@@ -276,22 +276,6 @@ button:focus-visible {
     transform: scale(0.85) !important;
 }
 
-.back-to-top.is-over-dark {
-    color: #ffffff !important;
-}
-
-.back-to-top.is-over-dark svg {
-    stroke: #ffffff !important;
-}
-
-.back-to-top.is-over-light {
-    color: #004D40 !important;
-}
-
-.back-to-top.is-over-light svg {
-    stroke: #004D40 !important;
-}
-
 @media (max-width: 640px) {
     .whatsapp-float {
         width: 58px;

@@ -15,11 +15,15 @@
 
             if (this.wasSeen()) {
                 loading.style.display = 'none';
+                document.documentElement.classList.remove('is-loading');
+                document.body.classList.remove('is-loading');
                 this.complete();
                 return;
             }
 
             this.rememberVisit();
+            document.documentElement.classList.add('is-loading');
+            document.body.classList.add('is-loading');
             document.body.style.overflow = 'hidden';
             document.documentElement.style.overflow = 'hidden';
             this.initCanvasParticles();
@@ -74,6 +78,8 @@
         complete: function () {
             if (this.completed) return;
             this.completed = true;
+            document.documentElement.classList.remove('is-loading');
+            document.body.classList.remove('is-loading');
             document.body.style.overflow = '';
             document.documentElement.style.overflow = '';
             document.dispatchEvent(new CustomEvent('app-loaded'));

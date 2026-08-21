@@ -65,22 +65,6 @@ h2 span.italic:not(.block) {
     margin-left: 0.12em;
 }
 
-
-/* Logo color switching for navigation */
-.nav-logo {
-    transition: filter 0.3s ease;
-}
-
-.nav-logo.light-logo {
-    /* For dark sections - make logo white/light */
-    filter: brightness(0) invert(1);
-}
-
-.nav-logo.dark-logo {
-    /* For light sections - make logo dark */
-    filter: brightness(0) invert(0);
-}
-
 /* Enhanced navigation text visibility */
 .nav-link {
     transition: all 0.3s ease;

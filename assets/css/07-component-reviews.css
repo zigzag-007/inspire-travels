@@ -43,10 +43,10 @@
     inset: 0;
     content: "";
     pointer-events: none;
-    opacity: 0.38;
+    opacity: 0.18;
     background-image:
-        radial-gradient(rgba(19, 38, 29, 0.45) 0.055rem, transparent 0.065rem),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+        radial-gradient(rgba(19, 38, 29, 0.22) 0.035rem, transparent 0.045rem),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
     background-size: 0.35rem 0.35rem, 160px 160px;
     mix-blend-mode: multiply;
 }
