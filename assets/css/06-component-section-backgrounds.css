@@ -241,19 +241,19 @@
 
 /* Light Background Section — Tropical Canopy */
 .tour-light-canopy {
-    background-color: #FBFAE0;
+    background-color: #fbf9f4;
     /* Soft transitional vertical gradient + grain + noise texture */
     background-image:
         /* Subtle Film Grain Noise Texture */
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.015'/%3E%3C/svg%3E"),
-        radial-gradient(circle at 10% 30%, rgba(99, 171, 69, 0.08) 1.2px, transparent 1.2px),
-        radial-gradient(circle at 90% 70%, rgba(99, 171, 69, 0.07) 1.2px, transparent 1.2px),
-        radial-gradient(circle at 50% 50%, rgba(99, 171, 69, 0.06) 1.2px, transparent 1.2px),
-        /* Warm sunset glow */
-        radial-gradient(ellipse at 85% 15%, rgba(247, 146, 30, 0.22) 0%, transparent 60%),
-        radial-gradient(ellipse at 15% 85%, rgba(99, 171, 69, 0.18) 0%, transparent 50%),
-        /* Base light color */
-        linear-gradient(180deg, #FBFCE6 0%, #FBFAE0 50%, #FAF9D6 100%);
+        radial-gradient(circle at 10% 30%, rgba(23, 53, 40, 0.035) 1.2px, transparent 1.2px),
+        radial-gradient(circle at 90% 70%, rgba(23, 53, 40, 0.03) 1.2px, transparent 1.2px),
+        radial-gradient(circle at 50% 50%, rgba(23, 53, 40, 0.025) 1.2px, transparent 1.2px),
+        /* Subtle champagne & whisper sage ambient radiance */
+        radial-gradient(ellipse at 85% 15%, rgba(234, 192, 120, 0.10) 0%, transparent 60%),
+        radial-gradient(ellipse at 15% 85%, rgba(100, 145, 125, 0.07) 0%, transparent 50%),
+        /* Base luxury warm alabaster parchment */
+        linear-gradient(180deg, #fdfcf9 0%, #faf8f2 50%, #f5f2e9 100%);
     background-size:
         180px 180px,
         40px 40px,
@@ -297,7 +297,7 @@
         /* Left Margin — Premium Detailed Monstera Silhouette (cream bg cutouts) */
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 600'%3E%3Cpath d='M-50 120 Q100 130 140 220 C180 310 130 420 180 500 L-50 560 Z' fill='%232b3d26' opacity='0.05'/%3E%3Cpath d='M-50 160 C20 170 80 200 90 230 C50 250 10 260 -50 280 Z' fill='%232b3d26' opacity='0.07'/%3E%3Cpath d='M-50 240 C30 250 100 290 110 330 C60 350 20 360 -50 370 Z' fill='%232b3d26' opacity='0.07'/%3E%3Cpath d='M-50 320 C40 330 110 380 120 420 C70 440 30 450 -50 460 Z' fill='%232b3d26' opacity='0.07'/%3E%3Cpath d='M-50 400 C50 410 100 470 110 510 C60 520 20 530 -50 540 Z' fill='%232b3d26' opacity='0.07'/%3E%3Ccircle cx='30' cy='280' r='14' fill='%23FBFAE0'/%3E%3Ccircle cx='10' cy='360' r='12' fill='%23FBFAE0'/%3E%3Ccircle cx='50' cy='430' r='10' fill='%23FBFAE0'/%3E%3C/svg%3E"),
         /* Right Margin — Premium Detailed Palm Frond Silhouette */
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 600'%3E%3Cpath d='M350 80 Q160 200 200 420 Q220 510 170 600' fill='none' stroke='%232b3d26' stroke-width='4' opacity='0.12'/%3E%3Cpath d='M200 180 Q80 160 40 150 Q120 190 200 200' fill='%232b3d26' opacity='0.08'/%3E%3Cpath d='M195 230 Q70 215 20 200 Q115 240 195 250' fill='%232b3d26' opacity='0.08'/%3E%3Cpath d='M190 280 Q60 265 0 250 Q110 295 190 300' fill='%232b3d26' opacity='0.08'/%3E%3Cpath d='M188 330 Q50 315 -20 300 Q105 345 188 350' fill='%232b3d26' opacity='0.08'/%3E%3Cpath d='M190 380 Q65 370 -10 360 Q115 395 190 400' fill='%232b3d26' opacity='0.08'/%3E%3Cpath d='M195 435 Q80 430 10 420 Q120 450 195 455' fill='%232b3d26' opacity='0.08'/%3E%3Cpath d='M202 180 Q290 190 340 200 Q260 175 202 170' fill='%232b3d26' opacity='0.08'/%3E%3Cpath d='M205 230 Q300 245 350 260 Q270 225 205 220' fill='%232b3d26' opacity='0.08'/%3E%3Cpath d='M208 280 Q310 300 360 320 Q280 275 208 270' fill='%232b3d26' opacity='0.08'/%3E%3Cpath d='M210 330 Q320 355 370 380 Q290 325 210 320' fill='%232b3d26' opacity='0.08'/%3E%3C/svg%3E");
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 600'%3E%3Cpath d='M350 80 Q160 200 200 420 Q220 510 170 600' fill='none' stroke='%232b3d26' stroke-width='4' opacity='0.06'/%3E%3Cpath d='M200 180 Q80 160 40 150 Q120 190 200 200' fill='%232b3d26' opacity='0.04'/%3E%3Cpath d='M195 230 Q70 215 20 200 Q115 240 195 250' fill='%232b3d26' opacity='0.04'/%3E%3Cpath d='M190 280 Q60 265 0 250 Q110 295 190 300' fill='%232b3d26' opacity='0.04'/%3E%3Cpath d='M188 330 Q50 315 -20 300 Q105 345 188 350' fill='%232b3d26' opacity='0.04'/%3E%3Cpath d='M190 380 Q65 370 -10 360 Q115 395 190 400' fill='%232b3d26' opacity='0.04'/%3E%3Cpath d='M195 435 Q80 430 10 420 Q120 450 195 455' fill='%232b3d26' opacity='0.04'/%3E%3Cpath d='M202 180 Q290 190 340 200 Q260 175 202 170' fill='%232b3d26' opacity='0.04'/%3E%3Cpath d='M205 230 Q300 245 350 260 Q270 225 205 220' fill='%232b3d26' opacity='0.04'/%3E%3Cpath d='M208 280 Q310 300 360 320 Q280 275 208 270' fill='%232b3d26' opacity='0.04'/%3E%3Cpath d='M210 330 Q320 355 370 380 Q290 325 210 320' fill='%232b3d26' opacity='0.04'/%3E%3C/svg%3E");
     background-repeat: no-repeat, no-repeat;
     pointer-events: none;
     z-index: 0;

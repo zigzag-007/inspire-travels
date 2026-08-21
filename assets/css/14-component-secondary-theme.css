@@ -3,7 +3,7 @@
 body.secondary-page-theme {
     --secondary-ink: #f4eedb;
     --secondary-dark: #06130f;
-    --secondary-paper: #f3efde;
+    --secondary-paper: #f8f6f0;
     --secondary-paper-ink: #13261d;
     --secondary-accent: #eab05b;
     --secondary-pointer-x: 50%;
@@ -38,11 +38,11 @@ body.secondary-page-theme:not(.tour-collection-view) > footer {
     -webkit-mask-image: linear-gradient(180deg, transparent 0 100dvh, #000 calc(100dvh + 5rem) calc(100% - 34rem), transparent calc(100% - 4rem));
     mask-image: linear-gradient(180deg, transparent 0 100dvh, #000 calc(100dvh + 5rem) calc(100% - 34rem), transparent calc(100% - 4rem));
     background:
-        radial-gradient(circle at var(--secondary-pointer-x) var(--secondary-pointer-y), rgba(255, 250, 224, 0.72), transparent 22rem),
-        radial-gradient(circle at 14% 9%, rgba(124, 155, 91, 0.3), transparent 28rem),
-        radial-gradient(circle at 86% 35%, rgba(65, 145, 139, 0.24), transparent 30rem),
-        radial-gradient(circle at 22% 72%, rgba(190, 139, 71, 0.2), transparent 32rem),
-        linear-gradient(155deg, #e2ead8 0%, #f5efda 46%, #dfe9d8 100%);
+        radial-gradient(circle at var(--secondary-pointer-x) var(--secondary-pointer-y), rgba(255, 255, 255, 0.72), transparent 22rem),
+        radial-gradient(circle at 14% 9%, rgba(100, 145, 125, 0.10), transparent 28rem),
+        radial-gradient(circle at 86% 35%, rgba(65, 145, 139, 0.08), transparent 30rem),
+        radial-gradient(circle at 22% 72%, rgba(220, 175, 105, 0.09), transparent 32rem),
+        linear-gradient(155deg, #fbf9f4 0%, #f7f4ed 46%, #f3efe7 100%);
 }
 
 .secondary-page-ambient::before,
@@ -1407,9 +1407,9 @@ body.secondary-page-theme .mobile-menu {
     isolation: isolate;
     color: var(--secondary-paper-ink);
     background:
-        radial-gradient(circle at 12% 7%, rgba(230, 172, 83, 0.3), transparent 14rem),
-        radial-gradient(circle at 92% 82%, rgba(64, 132, 110, 0.2), transparent 20rem),
-        linear-gradient(155deg, rgba(250, 246, 228, 0.985), rgba(230, 237, 218, 0.985)) !important;
+        radial-gradient(circle at 12% 7%, rgba(230, 185, 110, 0.12), transparent 14rem),
+        radial-gradient(circle at 92% 82%, rgba(100, 150, 135, 0.08), transparent 20rem),
+        linear-gradient(155deg, rgba(254, 253, 249, 0.985), rgba(248, 245, 238, 0.985)) !important;
     border-right: 1px solid rgba(128, 89, 31, 0.2);
     border-radius: 0 2rem 2rem 0;
     box-shadow: 2.5rem 0 7rem rgba(3, 11, 8, 0.34), inset -1px 0 rgba(255, 255, 255, 0.72);

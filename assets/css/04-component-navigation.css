@@ -293,9 +293,9 @@ body[data-current-nav="gallery"] [data-desktop-menu="gallery"] > .nav-link {
     isolation: isolate;
     color: #13261d;
     background:
-        radial-gradient(circle at 12% 7%, rgba(230, 172, 83, 0.3), transparent 14rem),
-        radial-gradient(circle at 92% 82%, rgba(64, 132, 110, 0.2), transparent 20rem),
-        linear-gradient(155deg, rgba(250, 246, 228, 0.985), rgba(230, 237, 218, 0.985)) !important;
+        radial-gradient(circle at 12% 7%, rgba(230, 185, 110, 0.12), transparent 14rem),
+        radial-gradient(circle at 92% 82%, rgba(100, 150, 135, 0.08), transparent 20rem),
+        linear-gradient(155deg, rgba(254, 253, 249, 0.985), rgba(248, 245, 238, 0.985)) !important;
     border-right: 1px solid rgba(128, 89, 31, 0.2);
     border-radius: 0 2rem 2rem 0;
     box-shadow: 2.5rem 0 7rem rgba(3, 11, 8, 0.34), inset -1px 0 rgba(255, 255, 255, 0.72);
