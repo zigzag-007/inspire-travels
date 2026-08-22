@@ -530,13 +530,15 @@
 /* Organic Section Transition Curved Boundary */
 .section-curve-receiver {
     --section-curve-height: 20px;
+    --section-curve-base-padding: 3.5rem;
+    --section-curve-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 64' preserveAspectRatio='none'%3E%3Cpath d='M0 19C270 43 470 58 720 54C985 50 1170 20 1440 19V64H0Z' fill='white'/%3E%3C/svg%3E");
     margin-top: calc(-1 * var(--section-curve-height));
-    padding-top: calc(3.5rem + var(--section-curve-height)) !important;
+    padding-top: calc(var(--section-curve-base-padding) + var(--section-curve-height)) !important;
     -webkit-mask-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 64' preserveAspectRatio='none'%3E%3Cpath d='M0 19C270 43 470 58 720 54C985 50 1170 20 1440 19V64H0Z' fill='white'/%3E%3C/svg%3E"),
+        var(--section-curve-mask),
         linear-gradient(#000, #000);
     mask-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 64' preserveAspectRatio='none'%3E%3Cpath d='M0 19C270 43 470 58 720 54C985 50 1170 20 1440 19V64H0Z' fill='white'/%3E%3C/svg%3E"),
+        var(--section-curve-mask),
         linear-gradient(#000, #000);
     -webkit-mask-size:
         100% var(--section-curve-height),
@@ -550,6 +552,24 @@
     mask-repeat: no-repeat, no-repeat;
 }
 
+.section-curve-drift {
+    --section-curve-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 64' preserveAspectRatio='none'%3E%3Cpath d='M0 31C230 15 430 12 650 29C890 48 1120 55 1440 25V64H0Z' fill='white'/%3E%3C/svg%3E");
+}
+
+.section-curve-crest {
+    --section-curve-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 64' preserveAspectRatio='none'%3E%3Cpath d='M0 24C235 43 470 48 700 28C930 8 1180 13 1440 34V64H0Z' fill='white'/%3E%3C/svg%3E");
+}
+
+#about.section-curve-receiver {
+    --section-curve-base-padding: 4rem;
+}
+
+#gallery.section-curve-receiver,
+#adventure.section-curve-receiver,
+#reviews.section-curve-receiver {
+    --section-curve-base-padding: 5rem;
+}
+
 @media (max-width: 767px) {
     .section-curve-receiver {
         --section-curve-height: 20px;
@@ -559,14 +579,32 @@
 @media (min-width: 768px) and (max-width: 1023px) {
     .section-curve-receiver {
         --section-curve-height: 30px;
-        padding-top: calc(5rem + var(--section-curve-height)) !important;
+        --section-curve-base-padding: 5rem;
+    }
+
+    #about.section-curve-receiver {
+        --section-curve-base-padding: 6rem;
+    }
+
+    #gallery.section-curve-receiver,
+    #reviews.section-curve-receiver {
+        --section-curve-base-padding: 7rem;
     }
 }
 
 @media (min-width: 1024px) {
     .section-curve-receiver {
         --section-curve-height: clamp(36px, 3.2vw, 50px);
-        padding-top: calc(5rem + var(--section-curve-height)) !important;
+        --section-curve-base-padding: 5rem;
+    }
+
+    #about.section-curve-receiver {
+        --section-curve-base-padding: 6rem;
+    }
+
+    #gallery.section-curve-receiver,
+    #reviews.section-curve-receiver {
+        --section-curve-base-padding: 7rem;
     }
 }
 
