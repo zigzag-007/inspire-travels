@@ -608,6 +608,10 @@
     }
 }
 
+.gallery-story-nav.section-curve-receiver {
+    --section-curve-base-padding: 0rem;
+}
+
 @media (max-width: 375px) {
     /* Hero heading, prevent overflow on very small widths */
     /* Hero heading — prevent overflow on very small widths */
