@@ -59,10 +59,14 @@
     background: rgba(255, 252, 240, 0.88) !important;
     box-shadow: 0 24px 65px rgba(22, 53, 40, 0.12), inset 0 1.5px rgba(255, 255, 255, 0.9) !important;
     backdrop-filter: blur(12px) !important;
-    min-height: 28rem;
+    min-height: 20rem;
 }
 
 .review-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: inherit;
     transition:
         opacity 0.28s ease,
         transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
@@ -89,10 +93,7 @@
 }
 
 .review-quote {
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    line-height: 1.32;
 }
 
 /* Next story preview button */
@@ -103,7 +104,9 @@
 
 @media (max-width: 639px) {
     .review-card-shell {
-        min-height: 31rem;
+        min-height: 0;
+        border-radius: 1.75rem !important;
+        padding: 1.5rem 1.35rem !important;
     }
 }
 
