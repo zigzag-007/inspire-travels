@@ -904,6 +904,16 @@ body.secondary-page-theme:not(.tour-collection-view) .tour-detail-canvas {
     }
 }
 
+.tour-detail-canvas.section-curve-receiver {
+    --section-curve-base-padding: 4rem;
+}
+
+@media (min-width: 768px) {
+    .tour-detail-canvas.section-curve-receiver {
+        --section-curve-base-padding: 6rem;
+    }
+}
+
 .destination-editorial-body > div,
 .tour-detail-canvas > div,
 .secondary-gallery-canvas > div {
