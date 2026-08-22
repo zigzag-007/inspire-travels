@@ -1718,7 +1718,7 @@ body.secondary-page-theme .mobile-menu .mobile-submenu-link small {
     place-items: center;
     border: 1px solid rgba(244, 238, 219, 0.14);
     border-radius: 50%;
-    font-size: 1.18rem;
+    font-size: 1.42rem;
     touch-action: manipulation;
     transition: color 180ms ease, background-color 180ms ease, transform 160ms ease;
 }
@@ -1810,6 +1810,11 @@ body.mobile-menu-open .secondary-mobile-socials { animation-delay: 235ms; }
     flex: 0 0 auto;
 }
 
+.secondary-site-footer .footer-contact-icon i,
+.footer-contact-icon i {
+    font-size: 1.68rem !important;
+}
+
 .secondary-site-footer .single-info-item > div {
     min-width: 0;
 }
@@ -1861,7 +1866,7 @@ body.mobile-menu-open .secondary-mobile-socials { animation-delay: 235ms; }
 .secondary-site-footer .social-box a {
     width: 3rem;
     height: 3rem;
-    font-size: 1.25rem;
+    font-size: 1.45rem;
 }
 
 .secondary-site-footer .footer-widget-area {
