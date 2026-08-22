@@ -686,6 +686,13 @@ body.tour-collection-view .tour-collection-breadcrumb {
     box-shadow: 0 -1.5rem 4rem rgba(3, 11, 8, 0.16);
 }
 
+.tour-route-atlas.section-curve-receiver {
+    --section-curve-base-padding: clamp(7rem, 10vw, 9rem);
+    margin-top: -2.5rem;
+    padding-top: clamp(7rem, 10vw, 9rem) !important;
+    border-radius: 0;
+}
+
 .tour-route-atlas::before {
     content: none;
 }
@@ -1008,6 +1015,16 @@ body.tour-collection-view .tour-collection-breadcrumb {
         linear-gradient(135deg, rgba(232, 236, 220, 0.6) 0%, rgba(246, 242, 227, 0.48) 58%, rgba(237, 240, 223, 0.62) 100%);
 }
 
+.tour-story-section.section-curve-receiver {
+    --section-curve-base-padding: clamp(3.5rem, 5vw, 4.75rem);
+}
+
+@media (min-width: 1024px) {
+    .tour-story-section.section-curve-receiver {
+        min-height: calc(500vh + var(--section-curve-height));
+    }
+}
+
 .tour-story-statement {
     position: sticky;
     top: 7rem;
@@ -1154,6 +1171,10 @@ body.tour-collection-view .tour-collection-breadcrumb {
         radial-gradient(circle at 76% 80%, rgba(73, 124, 77, 0.2), transparent 30%),
         radial-gradient(circle at 14% 12%, rgba(190, 139, 71, 0.18), transparent 26%),
         linear-gradient(160deg, rgba(227, 235, 215, 0.5), rgba(247, 239, 216, 0.56));
+}
+
+.tour-collection-switch.section-curve-receiver {
+    --section-curve-base-padding: clamp(6rem, 9vw, 8rem);
 }
 
 .tour-collection-switch::before {
@@ -1717,6 +1738,10 @@ body.tour-collection-view .tour-collection-breadcrumb {
     }
 
     .tour-route-atlas {
+        margin-top: 0;
+    }
+
+    .tour-route-atlas.section-curve-receiver {
         margin-top: 0;
     }
 

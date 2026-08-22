@@ -114,7 +114,7 @@
                     '<span class="tour-ambient-leaf tour-ambient-leaf-one" data-ambient-repel="1.2"></span>' +
                     '<span class="tour-ambient-leaf tour-ambient-leaf-two" data-ambient-repel="1.1"></span>' +
                 '</div>' +
-                '<section id="collection-routes" class="tour-route-atlas" aria-labelledby="collection-packages-heading">' +
+                '<section id="collection-routes" class="tour-route-atlas section-curve-receiver section-curve-drift" aria-labelledby="collection-packages-heading">' +
                     '<div class="tour-route-atlas-heading" data-collection-reveal>' +
                         '<span>Route atlas <b>0' + tours.length + '</b></span>' +
                         '<h2 id="collection-packages-heading">Choose the journey that fits.</h2>' +
@@ -122,7 +122,7 @@
                     '</div>' +
                     '<div class="tour-atlas-grid" data-tour-count="' + tours.length + '">' + tours.map(function(tour, index) { return renderTourCard(tour, index, collection); }).join('') + '</div>' +
                 '</section>' +
-                '<section class="tour-story-section" aria-labelledby="collection-story-heading" data-story-section>' +
+                '<section class="tour-story-section section-curve-receiver section-curve-crest" aria-labelledby="collection-story-heading" data-story-section>' +
                     '<div class="tour-story-statement" data-story-statement>' +
                         '<span class="tour-story-kicker">How it should feel</span>' +
                         '<h2 id="collection-story-heading">' + renderWords(collection.storyTitle, 'tour-story-word') + '</h2>' +
@@ -130,7 +130,7 @@
                     '</div>' +
                     '<div class="tour-story-stack" data-story-stack data-story-step="1">' + renderStoryPanels(collection) + '</div>' +
                 '</section>' +
-                '<section class="tour-collection-switch" aria-labelledby="collection-switch-heading">' +
+                '<section class="tour-collection-switch section-curve-receiver" aria-labelledby="collection-switch-heading">' +
                     '<div class="tour-collection-switch-copy" data-collection-reveal>' +
                         '<span>Five ways into Sri Lanka</span>' +
                         '<h2 id="collection-switch-heading">Change the pace. Keep the sense of discovery.</h2>' +
