@@ -240,7 +240,7 @@
             return '<li><a href="' + pathTo('tours/?collection=' + item[0]) + '">' + item[1] + '</a></li>';
         }).join('');
 
-        return '<footer id="footer" class="main-footer gowilds-footer secondary-site-footer pt-16 md:pt-20">' +
+        return '<footer id="footer" class="main-footer gowilds-footer secondary-site-footer section-curve-receiver section-curve-footer pt-16 md:pt-20">' +
             renderFooterSlider() +
             '<div class="secondary-footer-inner max-w-[1800px] mx-auto px-6 md:px-8 lg:px-12 xl:px-16">' +
                 '<div class="footer-top py-6 border-y border-white/10"><div class="footer-contact-grid">' +
