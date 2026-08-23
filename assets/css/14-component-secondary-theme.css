@@ -893,17 +893,6 @@ body.secondary-page-theme:not(.tour-collection-view) .tour-detail-canvas {
     background: transparent !important;
 }
 
-.destination-editorial-body.section-curve-receiver {
-    --section-curve-base-padding: 4rem;
-    background: inherit !important;
-}
-
-@media (min-width: 640px) {
-    .destination-editorial-body.section-curve-receiver {
-        --section-curve-base-padding: 6rem;
-    }
-}
-
 .tour-detail-canvas.section-curve-receiver {
     --section-curve-base-padding: 4rem;
 }

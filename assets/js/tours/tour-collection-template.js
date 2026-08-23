@@ -122,7 +122,7 @@
                     '</div>' +
                     '<div class="tour-atlas-grid" data-tour-count="' + tours.length + '">' + tours.map(function(tour, index) { return renderTourCard(tour, index, collection); }).join('') + '</div>' +
                 '</section>' +
-                '<section class="tour-story-section section-curve-receiver section-curve-crest" aria-labelledby="collection-story-heading" data-story-section>' +
+                '<section class="tour-story-section" aria-labelledby="collection-story-heading" data-story-section>' +
                     '<div class="tour-story-statement" data-story-statement>' +
                         '<span class="tour-story-kicker">How it should feel</span>' +
                         '<h2 id="collection-story-heading">' + renderWords(collection.storyTitle, 'tour-story-word') + '</h2>' +

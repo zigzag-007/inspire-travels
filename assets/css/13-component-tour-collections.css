@@ -1015,16 +1015,6 @@ body.tour-collection-view .tour-collection-breadcrumb {
         linear-gradient(135deg, rgba(232, 236, 220, 0.6) 0%, rgba(246, 242, 227, 0.48) 58%, rgba(237, 240, 223, 0.62) 100%);
 }
 
-.tour-story-section.section-curve-receiver {
-    --section-curve-base-padding: clamp(3.5rem, 5vw, 4.75rem);
-}
-
-@media (min-width: 1024px) {
-    .tour-story-section.section-curve-receiver {
-        min-height: calc(500vh + var(--section-curve-height));
-    }
-}
-
 .tour-story-statement {
     position: sticky;
     top: 7rem;
