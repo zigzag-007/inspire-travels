@@ -117,12 +117,12 @@
     color: var(--secondary-paper-ink, #13261d);
     /* Rich warm paper canvas matching reviews showcase with golden yellow, amber, sage & teal radiance */
     background:
-        radial-gradient(circle at 12% 16%, rgba(245, 186, 73, 0.38), transparent 36rem),
-        radial-gradient(circle at 88% 82%, rgba(124, 155, 91, 0.34), transparent 38rem),
-        radial-gradient(circle at 82% 14%, rgba(65, 145, 139, 0.22), transparent 32rem),
-        radial-gradient(circle at 20% 80%, rgba(234, 176, 91, 0.28), transparent 34rem),
-        radial-gradient(circle at 50% 48%, rgba(255, 250, 230, 0.94), transparent 44rem),
-        linear-gradient(155deg, #e6ecdc 0%, #faf3e0 40%, #f7ebd0 70%, #dfe9d8 100%) !important;
+        radial-gradient(circle at 12% 16%, rgba(234, 192, 120, 0.14), transparent 36rem),
+        radial-gradient(circle at 88% 82%, rgba(110, 150, 130, 0.10), transparent 38rem),
+        radial-gradient(circle at 82% 14%, rgba(65, 145, 139, 0.08), transparent 32rem),
+        radial-gradient(circle at 20% 80%, rgba(220, 175, 105, 0.10), transparent 34rem),
+        radial-gradient(circle at 50% 48%, rgba(255, 255, 255, 0.94), transparent 44rem),
+        linear-gradient(155deg, #fbf9f4 0%, #f7f4ec 40%, #f4efe5 70%, #f8f5ee 100%) !important;
 }
 
 /* Layer 1: Enhanced Grid Texture & Topo Contours */

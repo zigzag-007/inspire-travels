@@ -293,9 +293,9 @@ body[data-current-nav="gallery"] [data-desktop-menu="gallery"] > .nav-link {
     isolation: isolate;
     color: #13261d;
     background:
-        radial-gradient(circle at 12% 7%, rgba(230, 172, 83, 0.3), transparent 14rem),
-        radial-gradient(circle at 92% 82%, rgba(64, 132, 110, 0.2), transparent 20rem),
-        linear-gradient(155deg, rgba(250, 246, 228, 0.985), rgba(230, 237, 218, 0.985)) !important;
+        radial-gradient(circle at 12% 7%, rgba(230, 185, 110, 0.08), transparent 14rem),
+        radial-gradient(circle at 92% 82%, rgba(100, 150, 135, 0.05), transparent 20rem),
+        linear-gradient(155deg, rgba(255, 255, 253, 0.992), rgba(252, 250, 246, 0.992)) !important;
     border-right: 1px solid rgba(128, 89, 31, 0.2);
     border-radius: 0 2rem 2rem 0;
     box-shadow: 2.5rem 0 7rem rgba(3, 11, 8, 0.34), inset -1px 0 rgba(255, 255, 255, 0.72);
@@ -367,7 +367,7 @@ body[data-current-nav="gallery"] [data-desktop-menu="gallery"] > .nav-link {
     margin: 0 !important;
     object-fit: contain;
     filter: none;
-    transform: scale(1.48) !important;
+    transform: scale(1.58) !important;
     transform-origin: center;
 }
 
@@ -385,7 +385,7 @@ body[data-current-nav="gallery"] [data-desktop-menu="gallery"] > .nav-link {
 }
 
 .secondary-mobile-brand-copy small {
-    color: rgba(19, 38, 29, 0.48);
+    color: rgba(19, 38, 29, 0.56);
     font-family: var(--font-mono, monospace);
     font-size: 0.52rem;
     font-weight: 650;
@@ -430,7 +430,7 @@ body[data-current-nav="gallery"] [data-desktop-menu="gallery"] > .nav-link {
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    color: rgba(36, 78, 59, 0.62);
+    color: rgba(36, 78, 59, 0.68);
     font-family: var(--font-mono, monospace);
     font-size: 0.57rem;
     font-weight: 700;
@@ -473,7 +473,7 @@ body[data-current-nav="gallery"] [data-desktop-menu="gallery"] > .nav-link {
     padding: 0.48rem 0.65rem 0.48rem 0.35rem !important;
     border: 1px solid transparent;
     border-radius: 1rem !important;
-    color: rgba(19, 38, 29, 0.72) !important;
+    color: rgba(19, 38, 29, 0.78) !important;
     background: transparent !important;
     font-size: 0.95rem !important;
     font-weight: 680;
@@ -483,7 +483,7 @@ body[data-current-nav="gallery"] [data-desktop-menu="gallery"] > .nav-link {
 }
 
 .secondary-mobile-nav-index {
-    color: rgba(127, 86, 32, 0.58);
+    color: rgba(127, 86, 32, 0.66);
     font-family: var(--font-mono, monospace);
     font-size: 0.53rem;
     font-weight: 750;
@@ -498,7 +498,7 @@ body[data-current-nav="gallery"] [data-desktop-menu="gallery"] > .nav-link {
     place-items: center;
     border: 1px solid rgba(19, 38, 29, 0.09);
     border-radius: 0.82rem;
-    color: rgba(26, 66, 48, 0.68);
+    color: rgba(26, 66, 48, 0.74);
     background: rgba(255, 252, 240, 0.45);
     box-shadow: inset 0 1px rgba(255, 255, 255, 0.76);
     font-size: 1rem;
@@ -513,15 +513,15 @@ body[data-current-nav="gallery"] [data-desktop-menu="gallery"] > .nav-link {
 
 .secondary-mobile-nav-arrow,
 .mobile-submenu-chevron {
-    color: rgba(19, 38, 29, 0.42);
+    color: rgba(19, 38, 29, 0.5);
     font-size: 0.82rem;
 }
 
 .mobile-menu .active-mobile-nav {
-    border-color: rgba(154, 101, 30, 0.24) !important;
+    border-color: rgba(154, 101, 30, 0.18) !important;
     color: #13261d !important;
-    background: linear-gradient(105deg, rgba(234, 176, 91, 0.28), rgba(255, 252, 240, 0.54)) !important;
-    box-shadow: 0 0.8rem 1.8rem rgba(94, 79, 41, 0.08), inset 0 1px rgba(255, 255, 255, 0.68);
+    background: linear-gradient(105deg, rgba(234, 176, 91, 0.16), rgba(255, 254, 250, 0.78)) !important;
+    box-shadow: 0 0.8rem 1.8rem rgba(94, 79, 41, 0.05), inset 0 1px rgba(255, 255, 255, 0.82);
 }
 
 .mobile-menu .active-mobile-nav .secondary-mobile-nav-index {
@@ -529,9 +529,9 @@ body[data-current-nav="gallery"] [data-desktop-menu="gallery"] > .nav-link {
 }
 
 .mobile-menu .active-mobile-nav .secondary-mobile-nav-icon {
-    border-color: rgba(33, 90, 66, 0.14);
+    border-color: rgba(33, 90, 66, 0.12);
     color: #174a36;
-    background: rgba(235, 242, 222, 0.74);
+    background: rgba(244, 247, 234, 0.82);
 }
 
 #mobile-menu-close:focus-visible,
@@ -571,12 +571,12 @@ body[data-current-nav="gallery"] [data-desktop-menu="gallery"] > .nav-link {
 }
 
 .mobile-menu .mobile-submenu-link span {
-    color: rgba(19, 38, 29, 0.78);
+    color: rgba(19, 38, 29, 0.82);
     font-weight: 720;
 }
 
 .mobile-menu .mobile-submenu-link small {
-    color: rgba(19, 38, 29, 0.42);
+    color: rgba(19, 38, 29, 0.5);
     font-family: var(--font-body, sans-serif);
     font-size: 0.61rem;
     font-weight: 580;
@@ -585,7 +585,7 @@ body[data-current-nav="gallery"] [data-desktop-menu="gallery"] > .nav-link {
 .secondary-mobile-socials {
     margin-top: auto;
     padding: 1.75rem 0.25rem 0.15rem;
-    color: rgba(19, 38, 29, 0.48);
+    color: rgba(19, 38, 29, 0.56);
     font-family: var(--font-mono, monospace);
     font-size: 0.58rem;
     font-weight: 700;
@@ -749,7 +749,7 @@ body.mobile-menu-open .secondary-mobile-socials { animation-delay: 235ms; }
 /* Ambient Drifting Particles Canvas (Global) */
 .secondary-ambient-particles {
     position: fixed;
-    z-index: 25;
+    z-index: 30;
     inset: 0;
     width: 100%;
     height: 100%;

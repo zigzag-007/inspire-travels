@@ -258,14 +258,7 @@
         },
 
         getQuoteSnippet: function (quote) {
-            var sentences = quote.match(/[^.!?]+[.!?]+/g) || [quote];
-            var snippet = sentences[0].trim();
-
-            if (sentences[1] && (snippet.length + sentences[1].length) <= 155) {
-                snippet += sentences[1];
-            }
-
-            return snippet;
+            return (quote || '').trim();
         },
 
         preloadNext: function (source) {

@@ -123,7 +123,7 @@
             var isGroup = tour.travelMode === 'group';
 
             return `
-        <main class="tour-detail-canvas py-16 md:py-24 relative z-10">
+        <main class="tour-detail-canvas section-curve-receiver section-curve-drift py-16 md:py-24 relative z-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 items-start">
                     <div class="tour-detail-main-column lg:col-span-2 space-y-10">

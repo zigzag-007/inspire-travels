@@ -1,6 +1,6 @@
 /* Premium tour collection pages */
 body.tour-collection-view {
-    background: #f2eedc;
+    background: #f8f6f0;
 }
 
 body.tour-collection-view .top-contact-bar {
@@ -139,10 +139,10 @@ body.tour-collection-view #navbar .desktop-nav-dropdown-link:focus-visible {
     overflow: hidden;
     pointer-events: none;
     background:
-        radial-gradient(circle at 14% 9%, rgba(124, 155, 91, 0.3), transparent 28rem),
-        radial-gradient(circle at 86% 35%, rgba(65, 145, 139, 0.24), transparent 30rem),
-        radial-gradient(circle at 22% 72%, rgba(190, 139, 71, 0.2), transparent 32rem),
-        linear-gradient(155deg, #e2ead8 0%, #f5efda 46%, #dfe9d8 100%);
+        radial-gradient(circle at 14% 9%, rgba(100, 145, 125, 0.10), transparent 28rem),
+        radial-gradient(circle at 86% 35%, rgba(65, 145, 139, 0.08), transparent 30rem),
+        radial-gradient(circle at 22% 72%, rgba(220, 175, 105, 0.09), transparent 32rem),
+        linear-gradient(155deg, #fbf9f4 0%, #f7f4ed 46%, #f3efe7 100%);
 }
 
 .tour-collection-ambient::before,
@@ -686,6 +686,13 @@ body.tour-collection-view .tour-collection-breadcrumb {
     box-shadow: 0 -1.5rem 4rem rgba(3, 11, 8, 0.16);
 }
 
+.tour-route-atlas.section-curve-receiver {
+    --section-curve-base-padding: clamp(7rem, 10vw, 9rem);
+    margin-top: -2.5rem;
+    padding-top: clamp(7rem, 10vw, 9rem) !important;
+    border-radius: 0;
+}
+
 .tour-route-atlas::before {
     content: none;
 }
@@ -1154,6 +1161,10 @@ body.tour-collection-view .tour-collection-breadcrumb {
         radial-gradient(circle at 76% 80%, rgba(73, 124, 77, 0.2), transparent 30%),
         radial-gradient(circle at 14% 12%, rgba(190, 139, 71, 0.18), transparent 26%),
         linear-gradient(160deg, rgba(227, 235, 215, 0.5), rgba(247, 239, 216, 0.56));
+}
+
+.tour-collection-switch.section-curve-receiver {
+    --section-curve-base-padding: clamp(6rem, 9vw, 8rem);
 }
 
 .tour-collection-switch::before {
@@ -1717,6 +1728,10 @@ body.tour-collection-view .tour-collection-breadcrumb {
     }
 
     .tour-route-atlas {
+        margin-top: 0;
+    }
+
+    .tour-route-atlas.section-curve-receiver {
         margin-top: 0;
     }
 
