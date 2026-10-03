@@ -9,6 +9,10 @@
         var canvas = document.querySelector('.secondary-ambient-particles');
         if (!canvas) return;
 
+        canvas.style.position = 'absolute';
+        canvas.style.zIndex = '2';
+        canvas.hidden = true;
+
         var context = canvas.getContext('2d');
         if (!context) return;
 
@@ -42,8 +46,8 @@
         }
 
         function build() {
-            width = Math.max(1, Math.floor(window.innerWidth));
-            height = Math.max(1, Math.floor(window.innerHeight));
+            width = Math.max(1, canvas.parentElement.clientWidth);
+            height = Math.max(1, canvas.parentElement.clientHeight);
             canvas.width = Math.floor(width * ratio);
             canvas.height = Math.floor(height * ratio);
             canvas.style.width = width + 'px';
@@ -170,7 +174,22 @@
             context.globalAlpha = 1;
         }
 
+        // Keep the field inside the hero, including after its size changes.
+        function fitHero() {
+            var hero = document.getElementById('home');
+            canvas.hidden = !hero;
+            if (!hero) return false;
+            if (canvas.parentElement !== hero) hero.appendChild(canvas);
+            if (width !== hero.clientWidth || height !== hero.clientHeight) build();
+            return true;
+        }
+
         function loop(time) {
+            if (!fitHero()) {
+                lastTime = 0;
+                frame = window.requestAnimationFrame(loop);
+                return;
+            }
             var delta = lastTime ? Math.min((time - lastTime) / (1000 / 60), 4) : 1;
             lastTime = time;
             pointerDriftX += (pointerTargetX - pointerDriftX) * Math.min(0.035 * delta, 1);
@@ -195,7 +214,7 @@
         }
 
         function handleResize() {
-            build();
+            fitHero();
             draw(0);
         }
 
@@ -209,7 +228,7 @@
             pointerTargetY = 0;
         }
 
-        build();
+        fitHero();
         draw(0);
         frame = window.requestAnimationFrame(loop);
         window.addEventListener('resize', handleResize, { passive: true });
