@@ -245,7 +245,8 @@ button:focus-visible {
     position: fixed !important;
     right: max(1rem, env(safe-area-inset-right)) !important;
     bottom: calc(1.75rem + env(safe-area-inset-bottom)) !important;
-    z-index: 39 !important;
+    /* Stay above the shared footer at 40 and below navigation at 50. */
+    z-index: 45 !important;
     display: flex !important;
     opacity: 0;
     visibility: hidden;
@@ -274,6 +275,13 @@ button:focus-visible {
     opacity: 0 !important;
     pointer-events: none !important;
     transform: scale(0.85) !important;
+}
+
+@media (max-width: 1023px) {
+    /* Leave room for the fixed button beside the last footer line. */
+    .main-footer.secondary-site-footer .footer-copyright {
+        padding-inline: 4.5rem !important;
+    }
 }
 
 @media (max-width: 640px) {
