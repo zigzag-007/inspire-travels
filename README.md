@@ -48,7 +48,7 @@ Every itinerary can be adapted. Durations, hotel categories, and activities are 
 
 | 📍 Location        | ☎️ Hotline      | 💬 WhatsApp                                            | ✉️ Email                                                      | 🌐 Website                     |
 | ------------------ | --------------- | ------------------------------------------------------ | ------------------------------------------------------------- | ------------------------------ |
-| Negombo, Sri Lanka | +94 78 595 9333 | [https://wa.me/94785959333](https://wa.me/94785959333) | [travelerinspire@gmail.com](mailto:travelerinspire@gmail.com) | inspiretraveltours.netlify.app |
+| Negombo, Sri Lanka | +94 78 595 9333 | [https://wa.me/94785959333](https://wa.me/94785959333) | [info@inspiretraveltours.com](mailto:info@inspiretraveltours.com) | inspiretraveltours.netlify.app |
 
 ---
 
