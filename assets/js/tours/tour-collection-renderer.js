@@ -15,6 +15,14 @@
 
             container.outerHTML = window.TourCollectionTemplateModule.render(collection, tours);
             document.title = collection.navLabel + ' | Inspire Travels & Tours';
+            if (window.SearchMetadataModule) window.SearchMetadataModule.update({
+                title: document.title,
+                label: collection.navLabel,
+                description: collection.description,
+                path: '/tours/?collection=' + encodeURIComponent(collection.slug),
+                image: collection.heroImage,
+                type: 'CollectionPage'
+            });
             document.body.classList.add('tour-collection-view');
             document.body.classList.remove('tour-detail-view');
             document.body.dataset.collectionAccent = collection.accent;

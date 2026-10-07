@@ -29,6 +29,13 @@
             ].join('\n');
 
             document.title = tour.title + ' | Inspire Travels & Tours';
+            if (window.SearchMetadataModule) window.SearchMetadataModule.update({
+                title: document.title,
+                label: tour.title,
+                description: tour.description,
+                path: '/tours/?tour=' + encodeURIComponent(tour.slug),
+                image: tour.image
+            });
             document.body.classList.remove('tour-collection-view', 'tour-collection-scrolled');
             document.body.classList.add('tour-detail-view');
             delete document.body.dataset.collectionAccent;

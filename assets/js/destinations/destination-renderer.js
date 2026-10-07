@@ -46,7 +46,14 @@
             }
 
             // Document Title
-            document.title = data.name + ' Travel Guide & Official Magazine | Inspire Travels & Tours';
+            document.title = data.name + ' Travel Guide | Inspire Travels & Tours';
+            if (window.SearchMetadataModule) window.SearchMetadataModule.update({
+                title: document.title,
+                label: data.name,
+                description: data.excerpt,
+                path: '/destinations/?destination=' + encodeURIComponent(data.slug),
+                image: data.heroImage
+            });
 
             // Hero Image
             const heroBg = document.getElementById('dest-hero-bg-img');
