@@ -14,6 +14,50 @@ html, body {
     overflow-x: clip;
 }
 
+/* Keep the page scrollbar subtle beside both dark and light sections. */
+html {
+    scrollbar-color: rgba(150, 169, 154, 0.72) transparent;
+    scrollbar-width: thin;
+}
+
+html::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background: transparent;
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html::-webkit-scrollbar-track-piece {
+    background: transparent;
+}
+
+html::-webkit-scrollbar-button,
+html::-webkit-scrollbar-button:single-button,
+html::-webkit-scrollbar-button:vertical:increment,
+html::-webkit-scrollbar-button:vertical:decrement {
+    display: none !important;
+    width: 0;
+    height: 0;
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    background-color: rgba(103, 120, 109, 0.62);
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background-color: #c7923e;
+}
+
+html::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
 /* Hide browser scrollbar while preloader is active */
 html.is-loading,
 body.is-loading,
