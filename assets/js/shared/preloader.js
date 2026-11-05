@@ -11,7 +11,10 @@
         init: function () {
             var loading = document.getElementById('loading');
             var progressBar = document.getElementById('loading-progress');
-            if (!loading) return;
+            if (!loading) {
+                this.complete();
+                return;
+            }
 
             if (this.wasSeen()) {
                 loading.style.display = 'none';

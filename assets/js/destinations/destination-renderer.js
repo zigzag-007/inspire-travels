@@ -17,7 +17,7 @@
                     id: 'dest-hero',
                     imageId: 'dest-hero-bg-img',
                     image: heroImage,
-                    imageAlt: data.name + ' landscape in Sri Lanka',
+                    imageAlt: data.heroImageAlt || data.name + ' landscape in Sri Lanka',
                     eyebrow: data.region || 'Sri Lankan destination',
                     titleId: 'dest-hero-title',
                     title: data.name + ' Travel Guide',
@@ -52,7 +52,7 @@
             const heroBg = document.getElementById('dest-hero-bg-img');
             if (heroBg && data.heroImage) {
                 heroBg.src = heroImage;
-                heroBg.alt = data.name + ' Hero View';
+                heroBg.alt = data.heroImageAlt || data.name + ' Hero View';
             }
 
             // Core Header Information

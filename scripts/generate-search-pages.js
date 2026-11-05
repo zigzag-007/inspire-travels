@@ -68,6 +68,34 @@ function replaceElementContent(html, id, content) {
     throw new Error('Could not find the closing tag for #' + id);
 }
 
+function removeElement(html, id) {
+    const escapedId = escapeRegExp(id);
+    const openPattern = new RegExp("<([a-z][a-z0-9:-]*)\\b(?=[^>]*\\bid=[\"']" + escapedId + "[\"'])[^>]*>", 'i');
+    const opening = openPattern.exec(html);
+    if (!opening) throw new Error('Could not find element #' + id + ' in the page template');
+
+    const tagName = opening[1];
+    const contentStart = opening.index + opening[0].length;
+    const sameTagPattern = new RegExp('<\\/?' + tagName + '\\b[^>]*>', 'ig');
+    sameTagPattern.lastIndex = contentStart;
+
+    let depth = 1;
+    let token;
+    while ((token = sameTagPattern.exec(html))) {
+        if (/^<\//.test(token[0])) {
+            depth -= 1;
+        } else if (!/\/\s*>$/.test(token[0])) {
+            depth += 1;
+        }
+
+        if (depth === 0) {
+            return html.slice(0, opening.index) + html.slice(sameTagPattern.lastIndex);
+        }
+    }
+
+    throw new Error('Could not find the closing tag for #' + id);
+}
+
 function updateElementAttribute(html, id, attribute, value) {
     const escapedId = escapeRegExp(id);
     const openPattern = new RegExp("<([a-z][a-z0-9:-]*)\\b(?=[^>]*\\bid=[\"']" + escapedId + "[\"'])[^>]*>", 'i');
@@ -148,7 +176,6 @@ function renderTourPage(tour, collectionData) {
     const collection = tour.collections[0] ? collectionData.getBySlug(tour.collections[0]) : null;
     const collectionLabel = collection ? collection.navLabel : 'Featured Tours';
     const collectionHref = collection ? 'collection-' + collection.slug + '.html' : '../index.html#tours';
-    const location = tour.location ? '<p class="mt-4 text-sm font-semibold uppercase tracking-[0.12em] text-emerald-800">Route: ' + escapeHtml(tour.location) + '</p>' : '';
     let html = readProjectFile('tours/index.html');
 
     html = setHeadMetadata(html, { title: title, description: description, url: url, image: image });
@@ -169,7 +196,7 @@ function renderTourPage(tour, collectionData) {
             '<div class="mt-8 grid gap-8 md:grid-cols-[minmax(0,1.25fr)_minmax(240px,0.75fr)] md:items-center">' +
                 '<div><p class="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700">' + escapeHtml(tour.duration || 'Sri Lanka tour') + (tour.nights ? ' · ' + escapeHtml(tour.nights) : '') + '</p>' +
                     '<h1 class="mt-3 font-display text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">' + escapeHtml(tour.title) + '</h1>' +
-                    '<p class="mt-5 text-lg leading-relaxed text-slate-700">' + escapeHtml(description) + '</p>' + location +
+                    '<p class="mt-5 text-lg leading-relaxed text-slate-700">' + escapeHtml(description) + '</p>' +
                 '</div><img class="aspect-[4/3] w-full rounded-2xl object-cover" src="../' + escapeHtml(tour.image) + '" alt="' + escapeHtml(tour.title) + ' in Sri Lanka" fetchpriority="high">' +
             '</div>' +
             '<section class="mt-12" aria-labelledby="static-tour-itinerary"><h2 id="static-tour-itinerary" class="font-display text-3xl font-semibold text-slate-950">Day by day Sri Lanka tour itinerary</h2>' +
@@ -284,7 +311,7 @@ function renderDestinationPage(data) {
 
     html = setHeadMetadata(html, { title: title, description: description, url: url, image: image });
     html = updateElementAttribute(html, 'dest-hero-bg-img', 'src', '../' + data.heroImage);
-    html = updateElementAttribute(html, 'dest-hero-bg-img', 'alt', data.name + ' landscape in Sri Lanka');
+    html = updateElementAttribute(html, 'dest-hero-bg-img', 'alt', data.heroImageAlt || data.name + ' landscape in Sri Lanka');
     html = replaceElementContent(html, 'dest-title', escapeHtml(data.name));
     html = replaceElementContent(html, 'dest-tagline', escapeHtml(data.name + ' Travel Guide'));
     html = replaceElementContent(html, 'dest-readtime', escapeHtml(data.readTime || '6 Min Read'));
@@ -317,7 +344,7 @@ function writeRoute(relativePath, html) {
     const filePath = path.resolve(outputRoot, relativePath);
     if (!filePath.startsWith(outputRoot + path.sep)) throw new Error('Invalid generated route path: ' + relativePath);
     fs.mkdirSync(path.dirname(filePath), { recursive: true });
-    fs.writeFileSync(filePath, html);
+    fs.writeFileSync(filePath, removeElement(html, 'loading'));
 }
 
 function requireSlug(slug, label) {

@@ -38,7 +38,7 @@
                 title: tour.title,
                 description: tour.description,
                 note: tour.duration + ' · ' + tour.nights,
-                noteDetail: tour.location,
+                showNoteDetail: false,
                 breadcrumbs: [
                     { label: 'Home', href: '../index.html' },
                     { label: collectionName, href: collectionUrl },

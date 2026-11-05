@@ -163,9 +163,8 @@
 
                         <div id="tour-tab-panel-details" class="hidden space-y-8">
                             <div class="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-md">
-                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                                <div class="mb-4">
                                     <h3 class="font-display text-xl font-bold text-slate-900 flex items-center gap-2"><i data-lucide="map-pin" class="w-5 h-5 text-emerald-600"></i>Tour Route Map</h3>
-                                    <span class="text-xs font-semibold text-slate-500">${tour.location}</span>
                                 </div>
                                 <div class="w-full h-64 rounded-2xl overflow-hidden border border-slate-200 shadow-inner"><iframe title="Map for ${tour.title}" class="w-full h-full border-0" src="https://maps.google.com/maps?q=Sri+Lanka,${encodeURIComponent(tour.location.split(',')[0])}&t=&z=7&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
                             </div>
