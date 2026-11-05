@@ -29,12 +29,18 @@
             ].join('\n');
 
             document.title = tour.title + ' | Inspire Travels & Tours';
+            const routePath = '/tours/' + encodeURIComponent(tour.slug) + '.html';
+            const collection = tour.collections[0] && window.TourCollectionDataModule
+                ? window.TourCollectionDataModule.getBySlug(tour.collections[0])
+                : null;
             if (window.SearchMetadataModule) window.SearchMetadataModule.update({
                 title: document.title,
                 label: tour.title,
                 description: tour.description,
-                path: '/tours/?tour=' + encodeURIComponent(tour.slug),
-                image: tour.image
+                path: routePath,
+                image: tour.image,
+                breadcrumbs: window.SearchMetadataModule.buildTourBreadcrumbs(tour, collection),
+                mainEntity: window.SearchMetadataModule.buildTourEntity(tour)
             });
             document.body.classList.remove('tour-collection-view', 'tour-collection-scrolled');
             document.body.classList.add('tour-detail-view');

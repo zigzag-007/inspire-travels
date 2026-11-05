@@ -237,7 +237,7 @@
             ['cultural-heritage', 'Culture & Heritage'],
             ['adventure', 'Adventure Tours']
         ].map(function (item) {
-            return '<li><a href="' + pathTo('tours/?collection=' + item[0]) + '">' + item[1] + '</a></li>';
+            return '<li><a href="' + pathTo('tours/collection-' + item[0] + '.html') + '">' + item[1] + '</a></li>';
         }).join('');
 
         return '<footer id="footer" class="main-footer gowilds-footer secondary-site-footer pt-16 md:pt-20">' +
@@ -265,11 +265,7 @@
             '<div class="secondary-ambient-contours"></div>' +
             '<svg class="secondary-ambient-route secondary-ambient-route-one" viewBox="0 0 420 900" preserveAspectRatio="none"><path d="M56 0C365 120 54 249 299 374S342 642 82 900"/><circle cx="180" cy="153" r="7"/><circle cx="284" cy="365" r="7"/><circle cx="144" cy="711" r="7"/></svg>' +
             '<svg class="secondary-ambient-route secondary-ambient-route-two" viewBox="0 0 420 900" preserveAspectRatio="none"><path d="M364 0C78 138 357 290 121 438S98 714 354 900"/><circle cx="236" cy="116" r="6"/><circle cx="136" cy="424" r="6"/><circle cx="283" cy="739" r="6"/></svg>' +
-            '<span class="secondary-ambient-piece ambient-compass" data-ambient-repel="1.2"><span class="ambient-piece-motion"><i class="ph ph-compass-rose"></i><small>INDIAN OCEAN</small></span></span>' +
-            '<span class="secondary-ambient-piece ambient-coordinate ambient-coordinate-one" data-ambient-repel="0.85"><span class="ambient-piece-motion">07.8731° N<br>80.7718° E</span></span>' +
-            '<span class="secondary-ambient-piece ambient-coordinate ambient-coordinate-two" data-ambient-repel="1"><span class="ambient-piece-motion">ELEV 1,041M<br>TRAIL 06.8667</span></span>' +
-            '<span class="secondary-ambient-piece ambient-coordinate ambient-coordinate-three" data-ambient-repel="0.9"><span class="ambient-piece-motion">OCEAN POINT<br>06.8433° N</span></span>' +
-            '<span class="secondary-ambient-piece ambient-route-stamp" data-ambient-repel="1.05"><span class="ambient-piece-motion">LK.ROUTE<br><b>EXP 2026</b></span></span>' +
+            '<span class="secondary-ambient-piece ambient-compass" data-ambient-repel="1.2"><span class="ambient-piece-motion"><i class="ph ph-compass-rose"></i></span></span>' +
             '<span class="secondary-ambient-piece ambient-waypoints ambient-waypoints-one" data-ambient-repel="1.15"><span class="ambient-piece-motion"><i></i><i></i><i></i><i></i></span></span>' +
             '<span class="secondary-ambient-piece ambient-waypoints ambient-waypoints-two" data-ambient-repel="0.95"><span class="ambient-piece-motion"><i></i><i></i><i></i></span></span>' +
             '<span class="secondary-ambient-piece ambient-botanical ambient-botanical-one" data-ambient-repel="0.75"><span class="ambient-piece-motion"><svg viewBox="0 0 170 300"><path d="M88 292C84 216 91 120 79 12M83 246C52 224 35 199 25 166M86 211C118 187 135 153 143 118M82 167C54 144 40 119 33 87M81 129C108 109 124 79 132 48"/><path d="M25 166C49 168 65 181 83 202M143 118C120 124 105 145 88 166M33 87C54 92 69 105 81 128M132 48C112 55 98 72 83 92"/></svg></span></span>' +

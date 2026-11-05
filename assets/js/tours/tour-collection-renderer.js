@@ -14,14 +14,16 @@
             if (!container || !tours.length) return false;
 
             container.outerHTML = window.TourCollectionTemplateModule.render(collection, tours);
-            document.title = collection.navLabel + ' | Inspire Travels & Tours';
+            document.title = collection.navLabel + ' in Sri Lanka | Inspire Travels & Tours';
             if (window.SearchMetadataModule) window.SearchMetadataModule.update({
                 title: document.title,
                 label: collection.navLabel,
                 description: collection.description,
-                path: '/tours/?collection=' + encodeURIComponent(collection.slug),
+                path: '/tours/collection-' + encodeURIComponent(collection.slug) + '.html',
                 image: collection.heroImage,
-                type: 'CollectionPage'
+                type: 'CollectionPage',
+                breadcrumbs: window.SearchMetadataModule.buildTourCollectionBreadcrumbs(collection),
+                mainEntity: window.SearchMetadataModule.buildTourCollectionEntity(tours)
             });
             document.body.classList.add('tour-collection-view');
             document.body.classList.remove('tour-detail-view');

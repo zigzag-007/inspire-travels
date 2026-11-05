@@ -370,12 +370,6 @@
     background: linear-gradient(to bottom, transparent, rgba(144, 201, 138, 0.06) 15%, rgba(144, 201, 138, 0.06) 85%, transparent);
 }
 
-.gowilds-footer .tech-metadata-inline {
-    color: #90c98a;
-    background: rgba(144, 201, 138, 0.08);
-    border-color: rgba(144, 201, 138, 0.2);
-}
-
 /* Ensure content stays above overlays for dark sections */
 .gowilds-footer>* {
     position: relative;

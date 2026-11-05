@@ -12,15 +12,6 @@
             const heroImage = data.heroImage.startsWith('assets/') ? pathPrefix + data.heroImage : data.heroImage;
 
             if (window.SecondaryHeroModule) {
-                var shortTitles = {
-                    sigiriya: 'The lion citadel.',
-                    ella: 'Trails above the clouds.',
-                    kandy: 'The island’s sacred heart.',
-                    colombo: 'Where the island meets the world.',
-                    trincomalee: 'Temples above a blue horizon.',
-                    arugambay: 'Wild coast. Endless rhythm.',
-                    bentota: 'River calm. Golden coast.'
-                };
                 var existingHero = document.getElementById('dest-hero') || document.querySelector('[data-secondary-destination-hero]');
                 window.SecondaryHeroModule.renderInto(existingHero, {
                     id: 'dest-hero',
@@ -29,13 +20,12 @@
                     imageAlt: data.name + ' landscape in Sri Lanka',
                     eyebrow: data.region || 'Sri Lankan destination',
                     titleId: 'dest-hero-title',
-                    title: shortTitles[data.slug] || data.name,
+                    title: data.name + ' Travel Guide',
                     descriptionId: 'dest-excerpt',
                     description: data.tagline + '. ' + data.excerpt,
                     noteId: 'dest-readtime',
                     note: data.readTime || '6 Min Read',
-                    noteDetailId: 'dest-coords',
-                    noteDetail: data.coordinates || data.elevation || 'Sri Lanka',
+                    showNoteDetail: false,
                     breadcrumbs: [
                         { label: 'Home', href: '../index.html' },
                         { label: 'Destinations', href: '../index.html#destinations' },
@@ -47,12 +37,15 @@
 
             // Document Title
             document.title = data.name + ' Travel Guide | Inspire Travels & Tours';
+            var routePath = '/destinations/' + encodeURIComponent(data.slug) + '.html';
             if (window.SearchMetadataModule) window.SearchMetadataModule.update({
                 title: document.title,
                 label: data.name,
                 description: data.excerpt,
-                path: '/destinations/?destination=' + encodeURIComponent(data.slug),
-                image: data.heroImage
+                path: routePath,
+                image: data.heroImage,
+                breadcrumbs: window.SearchMetadataModule.buildDestinationBreadcrumbs(data),
+                mainEntity: window.SearchMetadataModule.buildDestinationEntity(data)
             });
 
             // Hero Image
@@ -72,9 +65,6 @@
             const readTimeEl = document.getElementById('dest-readtime');
             if (readTimeEl) readTimeEl.textContent = data.readTime || '6 Min Read';
 
-            const coordsEl = document.getElementById('dest-coords');
-            if (coordsEl) coordsEl.textContent = '[ ' + (data.coordinates || '07.8731 N') + ' // ELEV ' + (data.elevation || '0m') + ' ]';
-
             const excerptEl = document.getElementById('dest-excerpt');
             if (excerptEl) excerptEl.textContent = data.excerpt;
 
@@ -87,9 +77,6 @@
 
             const vibeEl = document.getElementById('dest-spec-vibe');
             if (vibeEl) vibeEl.innerHTML = '<i data-lucide="compass" class="w-5 h-5"></i> ' + data.vibe;
-
-            const elevEl = document.getElementById('dest-spec-elevation');
-            if (elevEl) elevEl.innerHTML = '<i data-lucide="mountain" class="w-5 h-5 text-emerald-400"></i> ' + data.elevation;
 
             // Article Content
             const art = data.article || {};

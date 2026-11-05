@@ -16,7 +16,7 @@
             var activeClass = collection.slug === activeSlug ? ' is-active' : '';
             var current = collection.slug === activeSlug ? ' aria-current="page"' : '';
 
-            return '<a href="?collection=' + collection.slug + '" class="tour-collection-dock-link' + activeClass + '"' + current + '>' +
+            return '<a href="collection-' + collection.slug + '.html" class="tour-collection-dock-link' + activeClass + '"' + current + '>' +
                 '<span class="tour-collection-dock-number">0' + (index + 1) + '</span>' +
                 '<span class="tour-collection-dock-copy"><strong>' + collection.navLabel + '</strong><small>' + collection.eyebrow + '</small></span>' +
                 '<span class="tour-collection-dock-arrow"><i class="ph ph-arrow-up-right"></i></span>' +
@@ -30,7 +30,7 @@
         var image = collection.packageImages && collection.packageImages[tour.slug] ? collection.packageImages[tour.slug] : tour.image;
 
         return '<article class="tour-atlas-shell tour-atlas-shell-' + (index + 1) + '" data-collection-reveal>' +
-            '<a href="?tour=' + tour.slug + '" class="tour-atlas-card" data-collection-tilt aria-label="Open ' + tour.title + '">' +
+            '<a href="' + tour.slug + '.html" class="tour-atlas-card" data-collection-tilt aria-label="Open ' + tour.title + '">' +
                 '<span class="tour-atlas-image">' +
                     '<img src="../' + image + '" alt="' + tour.title + '" loading="lazy" decoding="async">' +
                 '</span>' +
@@ -66,7 +66,7 @@
             var activeClass = collection.slug === activeSlug ? ' is-active' : '';
             var current = collection.slug === activeSlug ? ' aria-current="page"' : '';
 
-            return '<a href="?collection=' + collection.slug + '" class="tour-collection-link' + activeClass + '"' + current + '>' +
+            return '<a href="collection-' + collection.slug + '.html" class="tour-collection-link' + activeClass + '"' + current + '>' +
                 '<img src="../' + collection.heroImage + '" alt="" loading="lazy" decoding="async">' +
                 '<span class="tour-collection-link-shade" aria-hidden="true"></span>' +
                 '<span class="tour-collection-link-index">0' + (index + 1) + '</span>' +
@@ -85,7 +85,7 @@
                     '</div>' +
                     '<div class="tour-collection-hero-grain" aria-hidden="true"></div>' +
                     '<nav class="tour-collection-breadcrumb" aria-label="Breadcrumb">' +
-                        '<a href="../index.html">Home</a><i class="ph ph-caret-right"></i><a href="../index.html#tours">Tours</a><i class="ph ph-caret-right"></i><a href="?collection=' + collection.slug + '" aria-current="page">' + collection.navLabel + '</a>' +
+                        '<a href="../index.html">Home</a><i class="ph ph-caret-right"></i><a href="../index.html#tours">Tours</a><i class="ph ph-caret-right"></i><a href="collection-' + collection.slug + '.html" aria-current="page">' + collection.navLabel + '</a>' +
                     '</nav>' +
                     '<div class="tour-collection-hero-layout">' +
                         '<div class="tour-collection-hero-copy">' +

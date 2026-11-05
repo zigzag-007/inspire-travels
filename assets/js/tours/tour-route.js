@@ -5,13 +5,18 @@
 (function() {
     'use strict';
 
+    function routeSlug() {
+        var fileName = window.location.pathname.split('/').pop() || '';
+        return fileName.replace(/\.html$/i, '');
+    }
+
     window.TourRouteModule = {
         getRequestedSlug: function() {
-            return new URLSearchParams(window.location.search).get('tour');
+            return new URLSearchParams(window.location.search).get('tour') || routeSlug();
         },
 
         getRequestedCollectionSlug: function() {
-            return new URLSearchParams(window.location.search).get('collection');
+            return new URLSearchParams(window.location.search).get('collection') || routeSlug().replace(/^collection-/, '');
         },
 
         getRequestedTour: function() {

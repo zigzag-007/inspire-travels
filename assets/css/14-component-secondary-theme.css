@@ -183,39 +183,6 @@ body.secondary-page-theme .back-to-top {
     font-weight: 200;
 }
 
-.ambient-compass small {
-    position: absolute;
-    bottom: -1.4rem;
-    font-family: var(--font-mono);
-    font-size: 0.56rem;
-    letter-spacing: 0.19em;
-}
-
-.ambient-coordinate,
-.ambient-route-stamp {
-    color: rgba(24, 74, 51, 0.42);
-    font-family: var(--font-mono);
-    font-size: clamp(0.56rem, 0.72vw, 0.68rem);
-    font-weight: 720;
-    letter-spacing: 0.14em;
-    line-height: 1.8;
-}
-
-.ambient-coordinate .ambient-piece-motion,
-.ambient-route-stamp .ambient-piece-motion {
-    padding: 0.65rem 0.8rem;
-    border: 1px solid rgba(24, 74, 51, 0.16);
-    border-radius: 0.7rem;
-    background: rgba(255, 252, 240, 0.32);
-    box-shadow: inset 0 1px rgba(255, 255, 255, 0.46);
-}
-
-.ambient-coordinate-one { top: 24%; left: 3%; }
-.ambient-coordinate-two { top: 47%; right: 4%; }
-.ambient-coordinate-three { top: 76%; left: 4%; }
-.ambient-route-stamp { top: 88%; right: 4%; transform: rotate(-5deg); }
-.ambient-route-stamp b { color: rgba(154, 101, 30, 0.74); font-weight: 800; }
-
 .ambient-waypoints-one { top: 34%; right: 7%; }
 .ambient-waypoints-two { top: 67%; left: 6%; }
 

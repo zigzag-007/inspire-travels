@@ -11,11 +11,11 @@
             icon: 'map',
             items: [
                 { label: 'Featured Tours', meta: 'Six popular private routes', path: 'index.html#tours' },
-                { label: 'Family Tours', meta: 'Four flexible journeys', path: 'tours/?collection=family' },
-                { label: 'Group Tours', meta: 'Three shared journeys', path: 'tours/?collection=group' },
-                { label: 'Northern Shores', meta: 'North and east coast route', path: 'tours/?collection=northern-shores' },
-                { label: 'Culture & Heritage', meta: 'Three heritage journeys', path: 'tours/?collection=cultural-heritage' },
-                { label: 'Adventure Tours', meta: 'Active island escapes', path: 'tours/?collection=adventure' }
+                { label: 'Family Tours', meta: 'Four flexible journeys', path: 'tours/collection-family.html' },
+                { label: 'Group Tours', meta: 'Three shared journeys', path: 'tours/collection-group.html' },
+                { label: 'Northern Shores', meta: 'North and east coast route', path: 'tours/collection-northern-shores.html' },
+                { label: 'Culture & Heritage', meta: 'Three heritage journeys', path: 'tours/collection-cultural-heritage.html' },
+                { label: 'Adventure Tours', meta: 'Active island escapes', path: 'tours/collection-adventure.html' }
             ]
         },
         destinations: {
@@ -23,13 +23,13 @@
             number: '03',
             icon: 'map-pin',
             items: [
-                { label: 'Sigiriya', meta: 'Cultural Triangle', path: 'destinations/?destination=sigiriya' },
-                { label: 'Ella', meta: 'Hill Country', path: 'destinations/?destination=ella' },
-                { label: 'Kandy', meta: 'Royal Heritage', path: 'destinations/?destination=kandy' },
-                { label: 'Colombo', meta: 'Capital City', path: 'destinations/?destination=colombo' },
-                { label: 'Trincomalee', meta: 'East Coast', path: 'destinations/?destination=trincomalee' },
-                { label: 'Arugam Bay', meta: 'Surf Coast', path: 'destinations/?destination=arugambay' },
-                { label: 'Bentota', meta: 'Southwest Coast', path: 'destinations/?destination=bentota' }
+                { label: 'Sigiriya', meta: 'Cultural Triangle', path: 'destinations/sigiriya.html' },
+                { label: 'Ella', meta: 'Hill Country', path: 'destinations/ella.html' },
+                { label: 'Kandy', meta: 'Royal Heritage', path: 'destinations/kandy.html' },
+                { label: 'Colombo', meta: 'Capital City', path: 'destinations/colombo.html' },
+                { label: 'Trincomalee', meta: 'East Coast', path: 'destinations/trincomalee.html' },
+                { label: 'Arugam Bay', meta: 'Surf Coast', path: 'destinations/arugambay.html' },
+                { label: 'Bentota', meta: 'Southwest Coast', path: 'destinations/bentota.html' }
             ]
         },
         gallery: {

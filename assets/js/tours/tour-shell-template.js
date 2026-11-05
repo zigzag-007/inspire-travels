@@ -17,7 +17,7 @@
                 adventure: 'Adventure Tours'
             };
             var collectionName = collectionNames[collection] || 'Featured Tours';
-            var collectionUrl = collection ? '?collection=' + collection : '../index.html#tours';
+            var collectionUrl = collection ? 'collection-' + collection + '.html' : '../index.html#tours';
             var specs = isGroup ? [
                 { label: 'Travel Style', icon: 'users', value: 'Shared Group Journey' },
                 { label: 'Tour Support', icon: 'badge-check', value: 'Guided Daily Programme' },

@@ -1,0 +1,3 @@
+[build]
+  command = "node scripts/generate-search-pages.js"
+  publish = "."

@@ -9,7 +9,7 @@
         render: function(tour, context) {
             const galleryImages = context.galleryImages;
             const otherTours = context.otherTours;
-            const collectionUrl = tour.collections[0] ? '?collection=' + tour.collections[0] : '../index.html#tours';
+            const collectionUrl = tour.collections[0] ? 'collection-' + tour.collections[0] + '.html' : '../index.html#tours';
 
             return `
 <!-- Full Width Section: 3-Column Masonry Photo Gallery (40% / 30% / 30% ratio matching user ASCII diagram) -->
@@ -172,7 +172,7 @@
                                     <p class="text-slate-600 text-xs leading-relaxed line-clamp-2 mb-4">${ot.description}</p>
                                 </div>
 
-                                <a href="?tour=${ot.slug}" class="w-full bg-slate-100 hover:bg-emerald-600 hover:text-white text-slate-800 font-bold py-3 px-4 rounded-xl text-center transition-colors text-xs flex items-center justify-center gap-1.5">
+                                <a href="${ot.slug}.html" class="w-full bg-slate-100 hover:bg-emerald-600 hover:text-white text-slate-800 font-bold py-3 px-4 rounded-xl text-center transition-colors text-xs flex items-center justify-center gap-1.5">
                                     View Package Details <i data-lucide="chevron-right" class="w-4 h-4"></i>
                                 </a>
                             </div>

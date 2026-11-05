@@ -120,31 +120,6 @@ h2 span.italic:not(.block) {
     z-index: 1;
 }
 
-/* Centered/Inline Technical Metadata (2026 Premium Brutalism Theme) */
-.tech-metadata-inline {
-    display: inline-block;
-    max-width: 95%;
-    /* Prevent touching edges on mobile */
-    white-space: normal;
-    /* Allow wrapping */
-    word-break: break-word;
-    /* Ensure long coordinates break */
-    line-height: 1.5;
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #63AB45;
-    background: rgba(99, 171, 69, 0.08);
-    border: 1px solid rgba(99, 171, 69, 0.2);
-    padding: 6px 14px;
-    border-radius: 24px;
-    margin-bottom: 1.25rem;
-    pointer-events: none;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
-}
-
 /* Mobile Screen Sizes (< 768px) */
 @media (max-width: 767px) {
     /* Adjust padding for mobile layout readability */

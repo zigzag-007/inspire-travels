@@ -16,11 +16,14 @@
         },
         resolve: function() {
             var params = new URLSearchParams(window.location.search);
-            var slug = params.get('destination') || params.get('slug') || window.location.hash.slice(1);
+            var fileName = window.location.pathname.split('/').pop() || '';
+            var pathSlug = fileName.replace(/\.html$/i, '');
+            var slug = params.get('destination') || params.get('slug') || (pathSlug !== 'index' ? pathSlug : '') || window.location.hash.slice(1);
             return this.get(slug) ? slug.toLowerCase() : 'sigiriya';
         },
         updateUrl: function(slug) {
-            window.history.pushState(null, '', window.location.pathname + '?destination=' + encodeURIComponent(slug));
+            var directory = window.location.pathname.replace(/[^/]*$/, '');
+            window.history.pushState(null, '', directory + encodeURIComponent(slug) + '.html');
         }
     };
 })();

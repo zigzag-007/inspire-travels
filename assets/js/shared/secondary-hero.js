@@ -24,7 +24,9 @@
         var eyebrow = escapeHtml(config.eyebrow);
         var description = escapeHtml(config.description);
         var note = escapeHtml(config.note);
-        var noteDetail = escapeHtml(config.noteDetail || 'Designed around real travellers');
+        var noteDetail = config.showNoteDetail === false
+            ? ''
+            : '<small id="' + escapeHtml(config.noteDetailId || '') + '">' + escapeHtml(config.noteDetail || 'Designed around real travellers') + '</small>';
         var actionToc = config.action && config.action.toc ? ' data-destination-toc="' + escapeHtml(config.action.toc) + '"' : '';
         var action = config.action ? '<a href="' + escapeHtml(config.action.href) + '" class="secondary-hero-action"' + actionToc + '><span>' + escapeHtml(config.action.label) + '</span><i class="ph ph-arrow-down-right"></i></a>' : '';
 
@@ -41,7 +43,7 @@
                 '</div>' +
                 '<figure class="secondary-hero-portrait">' +
                     '<span class="secondary-hero-portrait-frame"><img src="' + image + '" alt="' + imageAlt + '" decoding="async"></span>' +
-                    '<figcaption><span id="' + escapeHtml(config.noteId || '') + '">' + note + '</span><small id="' + escapeHtml(config.noteDetailId || '') + '">' + noteDetail + '</small></figcaption>' +
+                    '<figcaption><span id="' + escapeHtml(config.noteId || '') + '">' + note + '</span>' + noteDetail + '</figcaption>' +
                 '</figure>' +
             '</div>' +
         '</header>';
