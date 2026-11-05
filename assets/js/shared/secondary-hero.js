@@ -83,7 +83,7 @@
             eyebrow: 'The guest archive',
             title: 'Sri Lanka through real journeys.',
             description: 'Candid arrivals, quiet highland moments, wildlife encounters, and coastlines seen with Inspire Travels.',
-            note: '60+ real travel moments',
+            note: '50+ real travel moments',
             noteDetail: 'Captured across the island',
             breadcrumbs: [
                 { label: 'Home', href: 'index.html' },
