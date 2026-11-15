@@ -1,1 +1,5 @@
 /favicon.ico /assets/img/favicon/favicon-64x64.png 301
+/assets/img/logo.png /assets/img/brand/logo.png 301
+/assets/img/bg/* /assets/img/heroes/:splat 301
+/assets/img/main-gallery/* /assets/img/gallery/main/:splat 301
+/assets/img/footer-gallery/* /assets/img/gallery/footer/:splat 301

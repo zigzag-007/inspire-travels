@@ -36,6 +36,14 @@
         var particles = [];
         var frame = 0;
         var lastTime = 0;
+        var hero = null;
+        var isInView = !window.IntersectionObserver;
+        var pageVisible = !document.hidden;
+        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var intersectionObserver = null;
+        var resizeObserver = null;
+        var mutationObserver = null;
+        var motionPreference = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
         var pointerTargetX = 0;
         var pointerTargetY = 0;
         var pointerDriftX = 0;
@@ -174,22 +182,48 @@
             context.globalAlpha = 1;
         }
 
-        // Keep the field inside the hero, including after its size changes.
-        function fitHero() {
-            var hero = document.getElementById('home');
+        // Start only when the page and hero can be seen.
+        function shouldAnimate() {
+            return Boolean(hero && isInView && pageVisible && !reduceMotion);
+        }
+
+        function stop() {
+            if (frame) window.cancelAnimationFrame(frame);
+            frame = 0;
+            lastTime = 0;
+        }
+
+        function start() {
+            if (!shouldAnimate() || frame) return;
+            frame = window.requestAnimationFrame(loop);
+        }
+
+        // Attach the canvas and observe size outside the animation frame.
+        function setHero(nextHero) {
+            if (hero === nextHero) return;
+            if (intersectionObserver) intersectionObserver.disconnect();
+            if (resizeObserver) resizeObserver.disconnect();
+            stop();
+            hero = nextHero;
+            isInView = !window.IntersectionObserver;
             canvas.hidden = !hero;
-            if (!hero) return false;
+            if (!hero) return;
             if (canvas.parentElement !== hero) hero.appendChild(canvas);
-            if (width !== hero.clientWidth || height !== hero.clientHeight) build();
-            return true;
+            build();
+            draw(0);
+            if (intersectionObserver) intersectionObserver.observe(hero);
+            if (resizeObserver) resizeObserver.observe(hero);
+            start();
+        }
+
+        function findHero() {
+            var nextHero = document.getElementById('home');
+            if (nextHero !== hero) setHero(nextHero);
         }
 
         function loop(time) {
-            if (!fitHero()) {
-                lastTime = 0;
-                frame = window.requestAnimationFrame(loop);
-                return;
-            }
+            frame = 0;
+            if (!shouldAnimate()) return;
             var delta = lastTime ? Math.min((time - lastTime) / (1000 / 60), 4) : 1;
             lastTime = time;
             pointerDriftX += (pointerTargetX - pointerDriftX) * Math.min(0.035 * delta, 1);
@@ -210,12 +244,7 @@
                 else if (particle.x > width + particle.radius) particle.x = -particle.radius;
             });
             draw(time);
-            frame = window.requestAnimationFrame(loop);
-        }
-
-        function handleResize() {
-            fitHero();
-            draw(0);
+            start();
         }
 
         function handlePointerMove(event) {
@@ -228,15 +257,62 @@
             pointerTargetY = 0;
         }
 
-        fitHero();
+        if (window.IntersectionObserver) {
+            intersectionObserver = new window.IntersectionObserver(function(entries) {
+                isInView = Boolean(entries[0] && entries[0].isIntersecting);
+                if (isInView) start();
+                else stop();
+            });
+        }
+        if (window.ResizeObserver) {
+            resizeObserver = new window.ResizeObserver(function() {
+                if (!hero) return;
+                build();
+                draw(0);
+            });
+        } else {
+            window.addEventListener('resize', function() {
+                findHero();
+                if (!hero) return;
+                build();
+                draw(0);
+            }, { passive: true });
+        }
+        if (window.MutationObserver && document.body) {
+            mutationObserver = new window.MutationObserver(findHero);
+            mutationObserver.observe(document.body, { childList: true, subtree: true });
+        }
+        document.addEventListener('visibilitychange', function() {
+            pageVisible = !document.hidden;
+            if (pageVisible) start();
+            else stop();
+        });
+        if (motionPreference && motionPreference.addEventListener) {
+            motionPreference.addEventListener('change', function(event) {
+                reduceMotion = event.matches;
+                if (reduceMotion) stop();
+                else start();
+            });
+        } else if (motionPreference && motionPreference.addListener) {
+            motionPreference.addListener(function(event) {
+                reduceMotion = event.matches;
+                if (reduceMotion) stop();
+                else start();
+            });
+        }
+        findHero();
         draw(0);
-        frame = window.requestAnimationFrame(loop);
-        window.addEventListener('resize', handleResize, { passive: true });
         window.addEventListener('pointermove', handlePointerMove, { passive: true });
         document.addEventListener('mouseleave', resetPointerDrift);
         window.addEventListener('pagehide', function () {
-            window.cancelAnimationFrame(frame);
-        }, { once: true });
+            pageVisible = false;
+            stop();
+        });
+        window.addEventListener('pageshow', function() {
+            pageVisible = !document.hidden;
+            findHero();
+            start();
+        });
     }
 
     if (document.readyState === 'loading') {

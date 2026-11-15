@@ -67,6 +67,37 @@
                     },
                 },
             });
+            this.bindVisibility();
+        },
+
+        // Keep automatic movement quiet when the offer cards cannot be seen.
+        bindVisibility: function() {
+            const swiper = this.swiper;
+            const section = swiper.el;
+            const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            let visible = !window.IntersectionObserver;
+            let focused = false;
+            let hovered = false;
+            let activePage = true;
+            const sync = () => {
+                if (visible && activePage && !document.hidden && !motion.matches && !focused && !hovered) swiper.autoplay.start();
+                else swiper.autoplay.stop();
+            };
+            if (window.IntersectionObserver) {
+                new window.IntersectionObserver(entries => {
+                    visible = Boolean(entries[0] && entries[0].isIntersecting);
+                    sync();
+                }).observe(section);
+            }
+            section.addEventListener('mouseenter', () => { hovered = true; sync(); });
+            section.addEventListener('mouseleave', () => { hovered = false; sync(); });
+            section.addEventListener('focusin', () => { focused = true; sync(); });
+            section.addEventListener('focusout', event => { focused = section.contains(event.relatedTarget); sync(); });
+            document.addEventListener('visibilitychange', sync);
+            if (motion.addEventListener) motion.addEventListener('change', sync);
+            window.addEventListener('pagehide', () => { activePage = false; sync(); });
+            window.addEventListener('pageshow', () => { activePage = true; sync(); });
+            sync();
         }
     };
 

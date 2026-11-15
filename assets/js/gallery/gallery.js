@@ -15,17 +15,17 @@
 
         // Slider images (hardcoded for maintenance - new filenames)
         sliderImages: [
-            { src: 'assets/img/footer-gallery/sunset-group-photo.jpg', title: 'Sunset Group Adventure', location: 'Sri Lanka', description: 'Unforgettable moments with friends at a scenic sunset viewpoint.' },
-            { src: 'assets/img/footer-gallery/cannon-cart.jpg', title: 'Cannon Cart Adventure', location: 'Sri Lanka', description: 'Experience thrilling cannon cart rides through scenic landscapes.' },
-            { src: 'assets/img/footer-gallery/thank-you-collage.jpg', title: 'Thank You for Visit Sri Lanka', location: 'Sri Lanka', description: 'Treasured memories and happy moments from our tour experiences.' },
-            { src: 'assets/img/footer-gallery/lotus-tower.jpg', title: 'Lotus Tower View', location: 'Colombo', description: 'Stunning panoramic views from the iconic Lotus Tower.' },
-            { src: 'assets/img/footer-gallery/mirissa-treehill.jpg', title: 'Mirissa Tree Hill', location: 'Mirissa', description: 'Breathtaking views from the famous Mirissa tree hill.' },
-            { src: 'assets/img/footer-gallery/turtle-sea.jpg', title: 'Turtle Sea Conservation', location: 'Coastal Sri Lanka', description: 'Witness turtle hatching and sea turtle conservation efforts.' },
-            { src: 'assets/img/footer-gallery/holy-statue.jpg', title: 'Holy Statue Shrine', location: 'Sri Lanka', description: 'Sacred statues and spiritual sites across the island.' },
-            { src: 'assets/img/footer-gallery/holy-temple.jpg', title: 'Holy Temple Visit', location: 'Sri Lanka', description: 'Ancient temples and religious architecture.' },
-            { src: 'assets/img/footer-gallery/temple-entrance.jpg', title: 'Temple Entrance', location: 'Sri Lanka', description: 'Beautiful entrances to historic temples.' },
-            { src: 'assets/img/footer-gallery/turtle-entrance.jpg', title: 'Turtle Hatchery Entrance', location: 'Coastal Sri Lanka', description: 'Gateway to turtle conservation facilities.' },
-            { src: 'assets/img/footer-gallery/holy-buddha.jpg', title: 'Holy Buddha Statue', location: 'Sri Lanka', description: 'Majestic Buddha statues and monuments.' }
+            { src: 'assets/img/gallery/footer/sunset-group-photo.jpg', title: 'Sunset Group Adventure', location: 'Sri Lanka', description: 'Unforgettable moments with friends at a scenic sunset viewpoint.' },
+            { src: 'assets/img/gallery/footer/cannon-cart.jpg', title: 'Cannon Cart Adventure', location: 'Sri Lanka', description: 'Experience thrilling cannon cart rides through scenic landscapes.' },
+            { src: 'assets/img/gallery/footer/thank-you-collage.jpg', title: 'Thank You for Visit Sri Lanka', location: 'Sri Lanka', description: 'Treasured memories and happy moments from our tour experiences.' },
+            { src: 'assets/img/gallery/footer/lotus-tower.jpg', title: 'Lotus Tower View', location: 'Colombo', description: 'Stunning panoramic views from the iconic Lotus Tower.' },
+            { src: 'assets/img/gallery/footer/mirissa-treehill.jpg', title: 'Mirissa Tree Hill', location: 'Mirissa', description: 'Breathtaking views from the famous Mirissa tree hill.' },
+            { src: 'assets/img/gallery/footer/turtle-sea.jpg', title: 'Turtle Sea Conservation', location: 'Coastal Sri Lanka', description: 'Witness turtle hatching and sea turtle conservation efforts.' },
+            { src: 'assets/img/gallery/footer/holy-statue.jpg', title: 'Holy Statue Shrine', location: 'Sri Lanka', description: 'Sacred statues and spiritual sites across the island.' },
+            { src: 'assets/img/gallery/footer/holy-temple.jpg', title: 'Holy Temple Visit', location: 'Sri Lanka', description: 'Ancient temples and religious architecture.' },
+            { src: 'assets/img/gallery/footer/temple-entrance.jpg', title: 'Temple Entrance', location: 'Sri Lanka', description: 'Beautiful entrances to historic temples.' },
+            { src: 'assets/img/gallery/footer/turtle-entrance.jpg', title: 'Turtle Hatchery Entrance', location: 'Coastal Sri Lanka', description: 'Gateway to turtle conservation facilities.' },
+            { src: 'assets/img/gallery/footer/holy-buddha.jpg', title: 'Holy Buddha Statue', location: 'Sri Lanka', description: 'Majestic Buddha statues and monuments.' }
         ],
 
         init: function() {
@@ -33,7 +33,7 @@
             this.buildGalleryImagesFromDOM();
             this.initGalleryFiltering();
             this.initSliderItems();
-            this.initGallerySlider();
+            if (!document.body.classList.contains('secondary-page-theme')) this.initGallerySlider();
 
             // Prevent nested links in gallery cards from bubbling click event and launching PhotoSwipe
             document.querySelectorAll('.single-blog-post a').forEach(link => {
@@ -360,14 +360,19 @@
         // Gallery Slider Functionality (GoWilds Style)
         initGallerySlider: function() {
             let currentGalleryIndex = 0;
-            let gallerySliderInterval;
             const gallerySlider = document.getElementById('gallery-slider');
-            const gallerySliderItems = document.querySelectorAll('.single-gallery-item');
+            const gallerySliderItems = document.querySelectorAll('#gallery-slider .single-gallery-item');
             const totalGalleryItems = gallerySliderItems.length;
             const itemWidth = 320; // w-80 = 320px
             const visibleItems = 5; // Number of items visible at once
+            let gallerySliderInterval = null;
+            let isVisible = !window.IntersectionObserver;
+            let isHovered = false;
+            const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
 
             if (!gallerySlider || totalGalleryItems === 0) return;
+            if (gallerySlider.dataset.sliderAutoplayReady === 'true') return;
+            gallerySlider.dataset.sliderAutoplayReady = 'true';
 
             const updateGallerySlider = () => {
                 if (gallerySlider) {
@@ -377,30 +382,62 @@
             };
 
             const nextGallerySlide = () => {
-                currentGalleryIndex = (currentGalleryIndex + 1) % (totalGalleryItems - visibleItems + 1);
+                currentGalleryIndex = (currentGalleryIndex + 1) % Math.max(totalGalleryItems - visibleItems + 1, 1);
                 updateGallerySlider();
             };
 
             const startGallerySlider = () => {
-                // Auto-advance every 3 seconds
+                if (!isVisible || isHovered || document.hidden || (reduceMotion && reduceMotion.matches) || gallerySliderInterval) return;
                 gallerySliderInterval = setInterval(nextGallerySlide, 3000);
             };
 
             const stopGallerySlider = () => {
-                if (gallerySliderInterval) {
-                    clearInterval(gallerySliderInterval);
-                }
+                if (!gallerySliderInterval) return;
+                clearInterval(gallerySliderInterval);
+                gallerySliderInterval = null;
+            };
+
+            const syncGallerySlider = () => {
+                if (isVisible && !isHovered && !document.hidden && !(reduceMotion && reduceMotion.matches)) startGallerySlider();
+                else stopGallerySlider();
             };
 
             // Pause on hover
             const galleryContainer = document.querySelector('.gallery-slider-container');
             if (galleryContainer) {
-                galleryContainer.addEventListener('mouseenter', stopGallerySlider);
-                galleryContainer.addEventListener('mouseleave', startGallerySlider);
+                galleryContainer.addEventListener('mouseenter', () => {
+                    isHovered = true;
+                    syncGallerySlider();
+                });
+                galleryContainer.addEventListener('mouseleave', () => {
+                    isHovered = false;
+                    syncGallerySlider();
+                });
+                galleryContainer.addEventListener('focusin', () => {
+                    isHovered = true;
+                    syncGallerySlider();
+                });
+                galleryContainer.addEventListener('focusout', event => {
+                    if (!galleryContainer.contains(event.relatedTarget)) {
+                        isHovered = false;
+                        syncGallerySlider();
+                    }
+                });
+                if (window.IntersectionObserver) {
+                    const observer = new window.IntersectionObserver(entries => {
+                        isVisible = Boolean(entries[0] && entries[0].isIntersecting);
+                        syncGallerySlider();
+                    }, { threshold: 0.1 });
+                    observer.observe(galleryContainer);
+                }
             }
 
-            // Start the automatic slider
-            startGallerySlider();
+            document.addEventListener('visibilitychange', syncGallerySlider);
+            if (reduceMotion && reduceMotion.addEventListener) reduceMotion.addEventListener('change', syncGallerySlider);
+            else if (reduceMotion && reduceMotion.addListener) reduceMotion.addListener(syncGallerySlider);
+            window.addEventListener('pagehide', stopGallerySlider);
+            window.addEventListener('pageshow', syncGallerySlider);
+            syncGallerySlider();
         }
     };
 

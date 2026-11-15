@@ -8,10 +8,10 @@
     window.HeroModule = {
         // Hero background images for carousel
         heroImages: [
-                  "assets/img/bg/Sigiriya_Rock_Fortress_Sri_Lanka_4K.jpg",
-                  "assets/img/bg/Ella_Nine_Arch_Bridge_Sri_Lanka_4K.jpg",
-                  "assets/img/bg/Colombo_Sri_Lanka_Cityscape_4K.jpg",
-                  "assets/img/bg/Yapahuwa_Rock_Fortress_Sri_Lanka_4K.jpg"
+                  "assets/img/heroes/Sigiriya_Rock_Fortress_Sri_Lanka_4K.jpg",
+                  "assets/img/heroes/Ella_Nine_Arch_Bridge_Sri_Lanka_4K.jpg",
+                  "assets/img/heroes/Colombo_Sri_Lanka_Cityscape_4K.jpg",
+                  "assets/img/heroes/Yapahuwa_Rock_Fortress_Sri_Lanka_4K.jpg"
         ],
 
         currentImageIndex: 0,
@@ -20,10 +20,14 @@
         bg2: null,
         activeBg: 1,
         carouselTimer: null,
+        heroObserver: null,
+        heroVisible: !window.IntersectionObserver,
+        pageActive: true,
         carouselDelay: 16000,
         reduceMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
 
         init: function() {
+            if (window.ImageAssetsModule) this.heroImages = this.heroImages.map(src => window.ImageAssetsModule.background(src));
             this.heroSection = document.getElementById('home');
             this.bg1 = document.getElementById('hero-bg-1');
             this.bg2 = document.getElementById('hero-bg-2');
@@ -34,6 +38,7 @@
             this.scheduleNextImagePreload();
             this.optimizeHeroPerformance();
             this.initScrollDepthEffect();
+            this.observeHeroVisibility();
             this.bindVisibilityControl();
         },
 
@@ -54,7 +59,7 @@
 
         // Hero image carousel
         startHeroCarousel: function() {
-            if (this.reduceMotion || this.carouselTimer || document.hidden) return;
+            if (this.reduceMotion || this.carouselTimer || document.hidden || !this.pageActive || !this.heroVisible) return;
 
             this.carouselTimer = setInterval(() => {
                 this.currentImageIndex = (this.currentImageIndex + 1) % this.heroImages.length;
@@ -73,13 +78,43 @@
 
         bindVisibilityControl: function() {
             document.addEventListener('visibilitychange', () => {
-                if (document.hidden && this.carouselTimer) {
-                    clearInterval(this.carouselTimer);
-                    this.carouselTimer = null;
-                } else {
-                    this.startHeroCarousel();
-                }
+                this.syncHeroCarousel();
             });
+            window.addEventListener('pagehide', () => {
+                this.pageActive = false;
+                this.syncHeroCarousel();
+            });
+            window.addEventListener('pageshow', () => {
+                this.pageActive = true;
+                this.syncHeroCarousel();
+            });
+            const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+            const handleMotionChange = event => {
+                this.reduceMotion = event.matches;
+                this.syncHeroCarousel();
+            };
+            if (motionPreference.addEventListener) motionPreference.addEventListener('change', handleMotionChange);
+            else if (motionPreference.addListener) motionPreference.addListener(handleMotionChange);
+        },
+
+        syncHeroCarousel: function() {
+            if (this.reduceMotion || document.hidden || !this.pageActive || !this.heroVisible) {
+                if (this.carouselTimer) clearInterval(this.carouselTimer);
+                this.carouselTimer = null;
+                return;
+            }
+            this.startHeroCarousel();
+        },
+
+        // Pause image changes until the hero is near the viewport.
+        observeHeroVisibility: function() {
+            if (!this.heroSection || !window.IntersectionObserver) return;
+
+            this.heroObserver = new window.IntersectionObserver((entries) => {
+                this.heroVisible = Boolean(entries[0] && entries[0].isIntersecting);
+                this.syncHeroCarousel();
+            }, { threshold: 0.01 });
+            this.heroObserver.observe(this.heroSection);
         },
 
         // Update hero background with smooth transition
@@ -200,17 +235,15 @@
         // Load only the next slide while the browser is idle.
         scheduleNextImagePreload: function() {
             const preload = () => {
+                if (document.hidden || !this.heroVisible || this.reduceMotion) return;
                 const nextIndex = (this.currentImageIndex + 1) % this.heroImages.length;
                 this.nextImagePreload = new Image();
                 this.nextImagePreload.decoding = 'async';
                 this.nextImagePreload.src = this.heroImages[nextIndex];
             };
 
-            if ('requestIdleCallback' in window) {
-                window.requestIdleCallback(preload, { timeout: 2500 });
-            } else {
-                setTimeout(preload, 900);
-            }
+            // Give the first screen time to settle before requesting another photo.
+            setTimeout(preload, 12000);
         },
 
         // Classic Parallax Scroll Effect & Interactive Mouse Sway
@@ -226,6 +259,14 @@
             const onScroll = () => {
                 const scrollY = window.scrollY;
                 const heroHeight = this.heroSection.offsetHeight;
+                const windowHeight = window.innerHeight;
+                const adventureRect = adventureSection && adventureBg
+                    ? adventureSection.getBoundingClientRect()
+                    : null;
+                const parallaxMeasurements = [];
+                parallaxSections.forEach(section => {
+                    parallaxMeasurements.push({ section, rect: section.getBoundingClientRect() });
+                });
 
                 // 1. Apply vertical translation to background wrapper only when hero is visible
                 if (scrollY <= heroHeight + 100) {
@@ -235,22 +276,16 @@
                 }
 
                 // 2. Apply viewport-relative parallax translation to adventure section background
-                if (adventureSection && adventureBg) {
-                    const rect = adventureSection.getBoundingClientRect();
-                    const windowHeight = window.innerHeight;
-
-                    if (rect.top < windowHeight && rect.bottom > 0) {
-                        const translateVal = (rect.top - windowHeight) * 0.12;
+                if (adventureRect) {
+                    if (adventureRect.top < windowHeight && adventureRect.bottom > 0) {
+                        const translateVal = (adventureRect.top - windowHeight) * 0.12;
                         adventureBg.style.transform = `translate3d(0, ${translateVal}px, 0) scale(1.15)`;
                     }
                 }
 
                 // 3. Apply depth parallax to dark and light tropical decorative sections
-                const windowHeight = window.innerHeight;
-
                 const updates = [];
-                parallaxSections.forEach(section => {
-                    const rect = section.getBoundingClientRect();
+                parallaxMeasurements.forEach(({ section, rect }) => {
                     if (rect.top < windowHeight && rect.bottom > 0) {
                         const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
                         const leafY = (progress - 0.5) * 45;

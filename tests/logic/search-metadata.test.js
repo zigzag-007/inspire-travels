@@ -81,9 +81,9 @@ test('switching all routes updates metadata without duplicate canonical or schem
 });
 
 test('build creates crawlable route pages with unique metadata and itinerary content', () => {
-    const os = require('node:os');
     const { spawnSync } = require('node:child_process');
-    const output = fs.mkdtempSync(path.join(os.tmpdir(), 'inspire-search-pages-'));
+    fs.mkdirSync(path.join(root, '.zigzag-tmp'), { recursive: true });
+    const output = fs.mkdtempSync(path.join(root, '.zigzag-tmp', 'search-pages-'));
     try {
         const result = spawnSync(process.execPath, ['scripts/generate-search-pages.js', output], { cwd: root, encoding: 'utf8' });
         assert.equal(result.status, 0, result.stderr);
@@ -114,7 +114,7 @@ test('build creates crawlable route pages with unique metadata and itinerary con
         assert.match(destination, /Things to do in Ella/);
 
         const bentota = fs.readFileSync(path.join(output, 'destinations/bentota.html'), 'utf8');
-        assert.match(bentota, /src="\.\.\/assets\/img\/main-gallery\/madu-river-safari\.jpg"/);
+        assert.match(bentota, /src="\.\.\/assets\/img\/gallery\/main\/madu-river-safari\.jpg"/);
         assert.match(bentota, /alt="Travellers on a Sri Lankan mangrove river safari"/);
 
         const collection = fs.readFileSync(path.join(output, 'tours/collection-family.html'), 'utf8');

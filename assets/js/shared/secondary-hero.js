@@ -20,6 +20,9 @@
     function render(config) {
         var title = escapeHtml(config.title);
         var image = escapeHtml(config.image);
+        var responsive = window.ImageAssetsModule;
+        var backgroundAttributes = responsive ? responsive.attributes(config.image, '100vw') : '';
+        var portraitAttributes = responsive ? responsive.attributes(config.image, '(max-width: 640px) 80vw, 33vw') : '';
         var imageAlt = escapeHtml(config.imageAlt || config.title);
         var eyebrow = escapeHtml(config.eyebrow);
         var description = escapeHtml(config.description);
@@ -31,7 +34,7 @@
         var action = config.action ? '<a href="' + escapeHtml(config.action.href) + '" class="secondary-hero-action"' + actionToc + '><span>' + escapeHtml(config.action.label) + '</span><i class="ph ph-arrow-down-right"></i></a>' : '';
 
         return '<header id="' + escapeHtml(config.id) + '" class="secondary-editorial-hero">' +
-            '<div class="secondary-hero-background" aria-hidden="true"><img id="' + escapeHtml(config.imageId || '') + '" src="' + image + '" alt=""></div>' +
+            '<div class="secondary-hero-background" aria-hidden="true"><img id="' + escapeHtml(config.imageId || '') + '" src="' + image + '" alt="" fetchpriority="high"' + backgroundAttributes + '></div>' +
             '<div class="secondary-hero-grain" aria-hidden="true"></div>' +
             '<nav class="secondary-hero-breadcrumb" aria-label="Breadcrumb">' + renderBreadcrumbs(config.breadcrumbs || []) + '</nav>' +
             '<div class="secondary-hero-layout">' +
@@ -42,7 +45,7 @@
                     action +
                 '</div>' +
                 '<figure class="secondary-hero-portrait">' +
-                    '<span class="secondary-hero-portrait-frame"><img src="' + image + '" alt="' + imageAlt + '" decoding="async"></span>' +
+                    '<span class="secondary-hero-portrait-frame"><img src="' + image + '" alt="' + imageAlt + '" decoding="async"' + portraitAttributes + '></span>' +
                     '<figcaption><span id="' + escapeHtml(config.noteId || '') + '">' + note + '</span>' + noteDetail + '</figcaption>' +
                 '</figure>' +
             '</div>' +
@@ -78,7 +81,7 @@
 
         var hero = renderInto(target, {
             id: 'gallery-hero',
-            image: 'assets/img/main-gallery/tea-plantation-tour.jpeg',
+            image: 'assets/img/gallery/main/tea-plantation-tour.jpeg',
             imageAlt: 'Tea country guest experience in Sri Lanka',
             eyebrow: 'The guest archive',
             title: 'Sri Lanka through real journeys.',

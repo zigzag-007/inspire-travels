@@ -68,7 +68,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/group_arrival_fuso.jpg",
+        src: "assets/img/gallery/main/group_arrival_fuso.jpg",
         category: "experience",
         title: "Group Arrival in Colombo",
         location: "Colombo",
@@ -77,7 +77,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/sri_lanka_airport_arrival.jpg",
+        src: "assets/img/gallery/main/sri_lanka_airport_arrival.jpg",
         category: "experience",
         title: "Welcome to Sri Lanka",
         location: "Airport",
@@ -86,7 +86,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/airport_welcome_travellers.jpg",
+        src: "assets/img/gallery/main/airport_welcome_travellers.jpg",
         category: "experience",
         title: "A Warm Airport Welcome",
         location: "Airport",
@@ -95,7 +95,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/traveller_welcome_colombo.jpg",
+        src: "assets/img/gallery/main/traveller_welcome_colombo.jpg",
         category: "experience",
         title: "Travellers Welcomed in Colombo",
         location: "Colombo",
@@ -104,7 +104,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/evening_airport_welcome.jpg",
+        src: "assets/img/gallery/main/evening_airport_welcome.jpg",
         category: "experience",
         title: "Evening Airport Welcome",
         location: "Airport",
@@ -113,7 +113,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/private-tour-pickup-sri-lanka.jpg",
+        src: "assets/img/gallery/main/private-tour-pickup-sri-lanka.jpg",
         category: "experience",
         title: "Private Tour Pickup in Sri Lanka",
         location: "Airport Transfer",
@@ -122,7 +122,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/flying-ravana-ella-zipline-adventure.jpg",
+        src: "assets/img/gallery/main/flying-ravana-ella-zipline-adventure.jpg",
         category: "adventure",
         title: "Flying Ravana Zipline Adventure in Ella",
         location: "Ella",
@@ -130,7 +130,7 @@ window.GalleryData = [
         description: "A group of guests prepares for a Flying Ravana zipline adventure in Ella, one of Sri Lanka's most popular thrill experiences."
     },
     {
-        src: "assets/img/main-gallery/airport-arrival-family-tour-sri-lanka.jpg",
+        src: "assets/img/gallery/main/airport-arrival-family-tour-sri-lanka.jpg",
         category: "experience",
         title: "Airport Arrival Family Tour in Sri Lanka",
         location: "Airport",
@@ -139,7 +139,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/waterfall-selfie-tour-sri-lanka.jpg",
+        src: "assets/img/gallery/main/waterfall-selfie-tour-sri-lanka.jpg",
         category: "nature",
         title: "Waterfall Selfie During a Sri Lanka Tour",
         location: "Waterfall Nature Park",
@@ -148,7 +148,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/airport-welcome-group-sri-lanka.jpg",
+        src: "assets/img/gallery/main/airport-welcome-group-sri-lanka.jpg",
         category: "experience",
         title: "Airport Welcome Group in Sri Lanka",
         location: "Airport",
@@ -157,7 +157,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/welcome-gifts-sri-lanka-tour.png",
+        src: "assets/img/gallery/main/welcome-gifts-sri-lanka-tour.png",
         category: "experience",
         title: "Welcome Gifts for Sri Lanka Tour Guests",
         location: "Arrival Pickup",
@@ -165,7 +165,7 @@ window.GalleryData = [
         description: "Guests receive small welcome gifts beside the tour vehicle, a friendly touch at the start of a Sri Lanka travel experience."
     },
     {
-        src: "assets/img/main-gallery/hill-country-family-viewpoint-sri-lanka.jpg",
+        src: "assets/img/gallery/main/hill-country-family-viewpoint-sri-lanka.jpg",
         category: "scenic",
         title: "Hill Country Family Viewpoint in Sri Lanka",
         location: "Hill Country",
@@ -173,7 +173,7 @@ window.GalleryData = [
         description: "A family enjoys a panoramic stop overlooking Sri Lanka's green hill country during a guided tour."
     },
     {
-        src: "assets/img/main-gallery/airport-meet-and-greet-sri-lanka.jpg",
+        src: "assets/img/gallery/main/airport-meet-and-greet-sri-lanka.jpg",
         category: "experience",
         title: "Airport Meet and Greet in Sri Lanka",
         location: "Airport",
@@ -182,7 +182,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/airport-arrival-night-sri-lanka.jpg",
+        src: "assets/img/gallery/main/airport-arrival-night-sri-lanka.jpg",
         category: "experience",
         title: "Night Airport Arrival in Sri Lanka",
         location: "Airport",
@@ -191,7 +191,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/airport-dropoff-sri-lanka-private-transfer.jpg",
+        src: "assets/img/gallery/main/airport-dropoff-sri-lanka-private-transfer.jpg",
         category: "experience",
         title: "Airport Drop-off with Private Transfer in Sri Lanka",
         location: "Airport Terminal",
@@ -200,7 +200,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/welcome-to-sri-lanka-airport-pickup.jpg",
+        src: "assets/img/gallery/main/welcome-to-sri-lanka-airport-pickup.jpg",
         category: "experience",
         title: "Welcome to Sri Lanka Airport Pickup",
         location: "Airport Arrival Hall",
@@ -209,7 +209,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/family-tour-airport-meet-and-greet-sri-lanka.jpg",
+        src: "assets/img/gallery/main/family-tour-airport-meet-and-greet-sri-lanka.jpg",
         category: "experience",
         title: "Family Tour Airport Meet and Greet in Sri Lanka",
         location: "Airport",
@@ -218,7 +218,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/01-guests-with-tour-guide-beside-private-van.jpeg",
+        src: "assets/img/gallery/main/01-guests-with-tour-guide-beside-private-van.jpeg",
         category: "experience",
         title: "Guests with Tour Guide Beside Private Van",
         location: "Sri Lanka",
@@ -227,7 +227,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/02-pekoe-trail-start-point-group-photo.jpeg",
+        src: "assets/img/gallery/main/02-pekoe-trail-start-point-group-photo.jpeg",
         category: "adventure",
         title: "Pekoe Trail Start Point Group Photo",
         location: "Pekoe Trail",
@@ -235,7 +235,7 @@ window.GalleryData = [
         description: "Guests and a guide posing at the Pekoe Trail information sign before the hike begins."
     },
     {
-        src: "assets/img/main-gallery/03-hill-country-group-viewpoint.jpeg",
+        src: "assets/img/gallery/main/03-hill-country-group-viewpoint.jpeg",
         category: "scenic",
         title: "Hill Country Group Viewpoint",
         location: "Hill Country",
@@ -243,7 +243,7 @@ window.GalleryData = [
         description: "Travelers and their guide standing together at a scenic hill country viewpoint."
     },
     {
-        src: "assets/img/main-gallery/04-family-by-tour-van-sri-lanka.jpeg",
+        src: "assets/img/gallery/main/04-family-by-tour-van-sri-lanka.jpeg",
         category: "experience",
         title: "Family by Tour Van in Sri Lanka",
         location: "Sri Lanka",
@@ -252,7 +252,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/05-tour-guide-van-selfie.jpeg",
+        src: "assets/img/gallery/main/05-tour-guide-van-selfie.jpeg",
         category: "experience",
         title: "Tour Guide Van Selfie",
         location: "Sri Lanka",
@@ -260,7 +260,7 @@ window.GalleryData = [
         description: "Tour guide and guests taking a casual selfie inside the tour vehicle."
     },
     {
-        src: "assets/img/main-gallery/06-airport-arrival-group-sri-lanka.jpeg",
+        src: "assets/img/gallery/main/06-airport-arrival-group-sri-lanka.jpeg",
         category: "experience",
         title: "Airport Arrival Group in Sri Lanka",
         location: "Airport",
@@ -268,7 +268,7 @@ window.GalleryData = [
         description: "International travelers meeting their guide after arriving in Sri Lanka."
     },
     {
-        src: "assets/img/main-gallery/07-mountain-viewpoint-group-selfie.jpeg",
+        src: "assets/img/gallery/main/07-mountain-viewpoint-group-selfie.jpeg",
         category: "scenic",
         title: "Mountain Viewpoint Group Selfie",
         location: "Mountain Viewpoint",
@@ -276,7 +276,7 @@ window.GalleryData = [
         description: "A group selfie at a scenic mountain viewpoint in Sri Lanka."
     },
     {
-        src: "assets/img/main-gallery/08-family-arrival-with-luggage.jpeg",
+        src: "assets/img/gallery/main/08-family-arrival-with-luggage.jpeg",
         category: "experience",
         title: "Family Arrival with Luggage",
         location: "Airport",
@@ -285,7 +285,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/09-outdoor-adventure-travelers-with-guide.jpeg",
+        src: "assets/img/gallery/main/09-outdoor-adventure-travelers-with-guide.jpeg",
         category: "adventure",
         title: "Outdoor Adventure Travelers with Guide",
         location: "Sri Lanka",
@@ -293,7 +293,7 @@ window.GalleryData = [
         description: "A guide and two travelers posing beside a van during an outdoor Sri Lanka adventure."
     },
     {
-        src: "assets/img/main-gallery/10-traditional-cart-ride-experience.jpeg",
+        src: "assets/img/gallery/main/10-traditional-cart-ride-experience.jpeg",
         category: "cultural",
         title: "Traditional Cart Ride Experience",
         location: "Village Tour",
@@ -301,7 +301,7 @@ window.GalleryData = [
         description: "Two children enjoying a traditional cart ride during a rural Sri Lanka experience."
     },
     {
-        src: "assets/img/main-gallery/11-waterfall-selfie-with-guests.jpeg",
+        src: "assets/img/gallery/main/11-waterfall-selfie-with-guests.jpeg",
         category: "nature",
         title: "Waterfall Selfie with Guests",
         location: "Waterfall Nature Park",
@@ -309,7 +309,7 @@ window.GalleryData = [
         description: "A guide and two guests posing for a selfie near a waterfall in Sri Lanka."
     },
     {
-        src: "assets/img/main-gallery/12-jeep-safari-group-tour.jpeg",
+        src: "assets/img/gallery/main/12-jeep-safari-group-tour.jpeg",
         category: "wildlife",
         title: "Jeep Safari Group Tour",
         location: "National Park Safari",
@@ -317,7 +317,7 @@ window.GalleryData = [
         description: "A group posing with a safari-style vehicle during a Sri Lanka adventure tour."
     },
     {
-        src: "assets/img/main-gallery/13-tea-tasting-in-hill-country.jpeg",
+        src: "assets/img/gallery/main/13-tea-tasting-in-hill-country.jpeg",
         category: "nature",
         title: "Tea Tasting in the Hill Country",
         location: "Tea Plantation",
@@ -325,7 +325,7 @@ window.GalleryData = [
         description: "A relaxed tea tasting moment with scenic hill country views in the background."
     },
     {
-        src: "assets/img/main-gallery/14-airport-welcome-family-with-gifts.jpeg",
+        src: "assets/img/gallery/main/14-airport-welcome-family-with-gifts.jpeg",
         category: "experience",
         title: "Airport Welcome Family with Gifts",
         location: "Airport Transfer",
@@ -334,7 +334,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/15-airport-selfie-with-guests.jpeg",
+        src: "assets/img/gallery/main/15-airport-selfie-with-guests.jpeg",
         category: "experience",
         title: "Airport Selfie with Guests",
         location: "Airport",
@@ -343,7 +343,7 @@ window.GalleryData = [
         position: "top"
     },
     {
-        src: "assets/img/main-gallery/16-welcome-to-sri-lanka-arrival-sign.jpeg",
+        src: "assets/img/gallery/main/16-welcome-to-sri-lanka-arrival-sign.jpeg",
         category: "experience",
         title: "Welcome to Sri Lanka Arrival Sign",
         location: "Airport Terminal",
@@ -351,7 +351,7 @@ window.GalleryData = [
         description: "A group holding a welcome sign during an organized Sri Lanka tour arrival."
     },
     {
-        src: "assets/img/main-gallery/17-airport-pickup-group-with-welcome-sign.jpeg",
+        src: "assets/img/gallery/main/17-airport-pickup-group-with-welcome-sign.jpeg",
         category: "experience",
         title: "Airport Pickup Group with Welcome Sign",
         location: "Airport Terminal",
@@ -359,7 +359,7 @@ window.GalleryData = [
         description: "A guide with arriving guests posing after airport pickup in Sri Lanka."
     },
     {
-        src: "assets/img/main-gallery/18-tea-estate-view-with-waterfall.jpeg",
+        src: "assets/img/gallery/main/18-tea-estate-view-with-waterfall.jpeg",
         category: "scenic",
         title: "Tea Estate View with Waterfall",
         location: "Tea Estate",
@@ -367,7 +367,7 @@ window.GalleryData = [
         description: "A scenic tea estate portrait with a waterfall visible in the background."
     },
     {
-        src: "assets/img/main-gallery/19-airport-group-selfie-with-guests.jpeg",
+        src: "assets/img/gallery/main/19-airport-group-selfie-with-guests.jpeg",
         category: "experience",
         title: "Airport Group Selfie with Guests",
         location: "Airport Terminal",
@@ -375,7 +375,7 @@ window.GalleryData = [
         description: "A friendly group selfie with travelers inside the airport terminal."
     },
     {
-        src: "assets/img/main-gallery/pidurangala-rock.jpg",
+        src: "assets/img/gallery/main/pidurangala-rock.jpg",
         category: "cultural",
         title: "Pidurangala Rock",
         location: "Kandy",
@@ -383,7 +383,7 @@ window.GalleryData = [
         youtube: "https://www.youtube.com/shorts/lmT40k1FPn4?feature=share"
     },
     {
-        src: "assets/img/main-gallery/historic-galle-fort.jpg",
+        src: "assets/img/gallery/main/historic-galle-fort.jpg",
         category: "nature",
         title: "Tea Plantation Visit",
         location: "Galle",
@@ -391,7 +391,7 @@ window.GalleryData = [
         youtube: "https://www.youtube.com/shorts/lmT40k1FPn4?feature=share"
     },
     {
-        src: "assets/img/main-gallery/yala-leopard-safari.jpg",
+        src: "assets/img/gallery/main/yala-leopard-safari.jpg",
         category: "wildlife",
         title: "Yala Leopard Safari",
         location: "Yala",
@@ -399,7 +399,7 @@ window.GalleryData = [
         youtube: "https://www.youtube.com/shorts/Eb1FAMZq410?feature=share"
     },
     {
-        src: "assets/img/main-gallery/mirissa-coconut-tree-hill.jpg",
+        src: "assets/img/gallery/main/mirissa-coconut-tree-hill.jpg",
         category: "scenic",
         title: "Mirissa Coconut Tree Hill",
         location: "Mirissa",
@@ -407,7 +407,7 @@ window.GalleryData = [
         youtube: "https://www.youtube.com/shorts/LO7vF7flWGE?feature=share"
     },
     {
-        src: "assets/img/main-gallery/pinnawala-elephant-watching.jpg",
+        src: "assets/img/gallery/main/pinnawala-elephant-watching.jpg",
         category: "wildlife",
         title: "Pinnawala Elephant Watching",
         location: "Pinnawala",
@@ -415,7 +415,7 @@ window.GalleryData = [
         youtube: "https://www.youtube.com/shorts/Eb1FAMZq410?feature=share"
     },
     {
-        src: "assets/img/main-gallery/turtle-hatchery-visit.jpg",
+        src: "assets/img/gallery/main/turtle-hatchery-visit.jpg",
         category: "experience",
         title: "Turtle Hatchery Visit",
         location: "Bentota",
@@ -423,7 +423,7 @@ window.GalleryData = [
         youtube: "https://www.youtube.com/shorts/lmT40k1FPn4?feature=share"
     },
     {
-        src: "assets/img/main-gallery/botanical-garden-tour.jpg",
+        src: "assets/img/gallery/main/botanical-garden-tour.jpg",
         category: "nature",
         title: "Botanical Garden Tour",
         location: "Kandy",
@@ -431,7 +431,7 @@ window.GalleryData = [
         youtube: "https://www.youtube.com/shorts/sXXdldwZDQY?feature=share"
     },
     {
-        src: "assets/img/main-gallery/water-rafting.jpg",
+        src: "assets/img/gallery/main/water-rafting.jpg",
         category: "adventure",
         title: "Water Rafting",
         location: "Kitulgala",
@@ -439,7 +439,7 @@ window.GalleryData = [
         youtube: "https://www.youtube.com/shorts/LO7vF7flWGE?feature=share"
     },
     {
-        src: "assets/img/main-gallery/sigiriya-lion-rock.jpg",
+        src: "assets/img/gallery/main/sigiriya-lion-rock.jpg",
         category: "cultural",
         title: "Sigiriya Lion Rock",
         location: "Sigiriya",
@@ -447,7 +447,7 @@ window.GalleryData = [
         youtube: "https://www.youtube.com/shorts/sXXdldwZDQY?feature=share"
     },
     {
-        src: "assets/img/main-gallery/horton-plains-national-park.jpg",
+        src: "assets/img/gallery/main/horton-plains-national-park.jpg",
         category: "nature",
         title: "Horton Plains National Park",
         location: "Horton Plains",
@@ -455,7 +455,7 @@ window.GalleryData = [
         youtube: "https://www.youtube.com/shorts/Eb1FAMZq410?feature=share"
     },
     {
-        src: "assets/img/main-gallery/madu-river-safari.jpg",
+        src: "assets/img/gallery/main/madu-river-safari.jpg",
         category: "scenic",
         title: "Madu River Safari",
         location: "Balapitiya",
@@ -463,7 +463,7 @@ window.GalleryData = [
         youtube: "https://www.youtube.com/shorts/sXXdldwZDQY?feature=share"
     },
     {
-        src: "assets/img/main-gallery/waterfall-tour.jpg",
+        src: "assets/img/gallery/main/waterfall-tour.jpg",
         category: "adventure",
         title: "Waterfall Tour",
         location: "Ella",
@@ -471,7 +471,7 @@ window.GalleryData = [
         youtube: "https://www.youtube.com/shorts/LO7vF7flWGE?feature=share"
     },
     {
-        src: "assets/img/main-gallery/birthday-surprise.jpeg",
+        src: "assets/img/gallery/main/birthday-surprise.jpeg",
         category: "experience",
         title: "Birthday Surprise",
         location: "Sri Lanka",
@@ -479,7 +479,7 @@ window.GalleryData = [
         youtube: "https://www.youtube.com/shorts/lmT40k1FPn4?feature=share"
     },
     {
-        src: "assets/img/main-gallery/cooking-class.jpeg",
+        src: "assets/img/gallery/main/cooking-class.jpeg",
         category: "cultural",
         title: "Cooking Class",
         location: "Sri Lanka",
@@ -487,7 +487,7 @@ window.GalleryData = [
         youtube: "https://www.youtube.com/shorts/lmT40k1FPn4?feature=share"
     },
     {
-        src: "assets/img/main-gallery/cultural-heritage-tour.jpeg",
+        src: "assets/img/gallery/main/cultural-heritage-tour.jpeg",
         category: "cultural",
         title: "Cultural Heritage Tour",
         location: "Sri Lanka",
@@ -495,7 +495,7 @@ window.GalleryData = [
         youtube: "https://www.youtube.com/shorts/lmT40k1FPn4?feature=share"
     },
     {
-        src: "assets/img/main-gallery/hiking-rock.jpeg",
+        src: "assets/img/gallery/main/hiking-rock.jpeg",
         category: "adventure",
         title: "Hiking Rock Adventure",
         location: "Sri Lanka",
@@ -503,7 +503,7 @@ window.GalleryData = [
         youtube: "https://www.youtube.com/shorts/lmT40k1FPn4?feature=share"
     },
     {
-        src: "assets/img/main-gallery/our-welcome.jpeg",
+        src: "assets/img/gallery/main/our-welcome.jpeg",
         category: "experience",
         title: "Our Welcome",
         location: "Sri Lanka",
@@ -511,7 +511,7 @@ window.GalleryData = [
         youtube: "https://www.youtube.com/shorts/lmT40k1FPn4?feature=share"
     },
     {
-        src: "assets/img/main-gallery/snake-tour.jpeg",
+        src: "assets/img/gallery/main/snake-tour.jpeg",
         category: "wildlife",
         title: "Snake Tour",
         location: "Sri Lanka",
@@ -519,7 +519,7 @@ window.GalleryData = [
         youtube: "https://www.youtube.com/shorts/lmT40k1FPn4?feature=share"
     },
     {
-        src: "assets/img/main-gallery/surfing-class.jpeg",
+        src: "assets/img/gallery/main/surfing-class.jpeg",
         category: "adventure",
         title: "Surfing Class",
         location: "Coastal Sri Lanka",
@@ -527,7 +527,7 @@ window.GalleryData = [
         youtube: "https://www.youtube.com/shorts/LO7vF7flWGE?feature=share"
     },
     {
-        src: "assets/img/main-gallery/tea-plantation-tour.jpeg",
+        src: "assets/img/gallery/main/tea-plantation-tour.jpeg",
         category: "nature",
         title: "Tea Plantation Tour",
         location: "Hill Country",
@@ -535,7 +535,7 @@ window.GalleryData = [
         youtube: "https://www.youtube.com/shorts/lmT40k1FPn4?feature=share"
     },
     {
-        src: "assets/img/main-gallery/wild-life-adventure.jpeg",
+        src: "assets/img/gallery/main/wild-life-adventure.jpeg",
         category: "wildlife",
         title: "Wildlife Adventure",
         location: "National Parks",

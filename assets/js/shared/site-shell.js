@@ -22,7 +22,7 @@
             '<div id="scroll-progress" aria-hidden="true"></div>' +
             '<div class="secondary-header-inner">' +
                 '<a href="' + pathTo('index.html#home') + '" class="secondary-brand" aria-label="Inspire Travels home">' +
-                    '<img src="' + pathTo('assets/img/logo.png') + '" alt="Inspire Travels & Tours" class="nav-logo">' +
+                    '<img src="' + pathTo('assets/img/brand/logo.png') + '" alt="Inspire Travels & Tours" class="nav-logo">' +
                 '</a>' +
                 '<div class="desktop-primary-nav">' +
                     '<a href="' + pathTo('index.html#home') + '" class="nav-link">Home</a>' +
@@ -47,7 +47,7 @@
             '<div class="secondary-mobile-menu-inner">' +
                 '<div class="secondary-mobile-menu-header">' +
                     '<a href="' + pathTo('index.html#home') + '" class="secondary-mobile-brand">' +
-                        '<img src="' + pathTo('assets/img/logo.png') + '" alt="Inspire Travels">' +
+                        '<img src="' + pathTo('assets/img/brand/logo.png') + '" alt="Inspire Travels">' +
                         '<span class="secondary-mobile-brand-copy"><strong>Inspire Travels</strong><small>Sri Lanka · Private travel</small></span>' +
                     '</a>' +
                     '<button type="button" id="mobile-menu-close" aria-label="Close mobile menu" title="Close navigation menu"><i class="ph ph-x"></i></button>' +
@@ -89,67 +89,67 @@
 
         var sliderPhotos = [
         {
-                "src": "assets/img/footer-gallery/sunset-group-photo.jpg",
+                "src": "assets/img/gallery/footer/sunset-group-photo.jpg",
                 "title": "Sunset Group Adventure",
                 "loc": "Sri Lanka",
                 "desc": "Unforgettable moments with friends at a scenic sunset viewpoint."
         },
         {
-                "src": "assets/img/footer-gallery/cannon-cart.jpg",
+                "src": "assets/img/gallery/footer/cannon-cart.jpg",
                 "title": "Cannon Cart Adventure",
                 "loc": "Sri Lanka",
                 "desc": "Experience thrilling cannon cart rides through scenic landscapes."
         },
         {
-                "src": "assets/img/footer-gallery/thank-you-collage.jpg",
+                "src": "assets/img/gallery/footer/thank-you-collage.jpg",
                 "title": "Thank You for Visit Sri Lanka",
                 "loc": "Sri Lanka",
                 "desc": "Treasured memories and happy moments from our tour experiences."
         },
         {
-                "src": "assets/img/footer-gallery/lotus-tower.jpg",
+                "src": "assets/img/gallery/footer/lotus-tower.jpg",
                 "title": "Lotus Tower View",
                 "loc": "Colombo",
                 "desc": "Stunning panoramic views from the iconic Lotus Tower."
         },
         {
-                "src": "assets/img/footer-gallery/mirissa-treehill.jpg",
+                "src": "assets/img/gallery/footer/mirissa-treehill.jpg",
                 "title": "Mirissa Tree Hill",
                 "loc": "Mirissa",
                 "desc": "Breathtaking views from the famous Mirissa tree hill."
         },
         {
-                "src": "assets/img/footer-gallery/turtle-sea.jpg",
+                "src": "assets/img/gallery/footer/turtle-sea.jpg",
                 "title": "Turtle Sea Conservation",
                 "loc": "Coastal Sri Lanka",
                 "desc": "Witness turtle hatching and sea turtle conservation efforts."
         },
         {
-                "src": "assets/img/footer-gallery/holy-statue.jpg",
+                "src": "assets/img/gallery/footer/holy-statue.jpg",
                 "title": "Holy Statue Shrine",
                 "loc": "Sri Lanka",
                 "desc": "Sacred statues and spiritual sites across the island."
         },
         {
-                "src": "assets/img/footer-gallery/holy-temple.jpg",
+                "src": "assets/img/gallery/footer/holy-temple.jpg",
                 "title": "Holy Temple Visit",
                 "loc": "Sri Lanka",
                 "desc": "Ancient temples and religious architecture."
         },
         {
-                "src": "assets/img/footer-gallery/temple-entrance.jpg",
+                "src": "assets/img/gallery/footer/temple-entrance.jpg",
                 "title": "Temple Entrance",
                 "loc": "Sri Lanka",
                 "desc": "Beautiful entrances to historic temples."
         },
         {
-                "src": "assets/img/footer-gallery/turtle-entrance.jpg",
+                "src": "assets/img/gallery/footer/turtle-entrance.jpg",
                 "title": "Turtle Hatchery Entrance",
                 "loc": "Coastal Sri Lanka",
                 "desc": "Gateway to turtle conservation facilities."
         },
         {
-                "src": "assets/img/footer-gallery/holy-buddha.jpg",
+                "src": "assets/img/gallery/footer/holy-buddha.jpg",
                 "title": "Holy Buddha Statue",
                 "loc": "Sri Lanka",
                 "desc": "Majestic Buddha statues and monuments."
@@ -183,14 +183,19 @@
 
     function initFooterSlider() {
         var currentGalleryIndex = 0;
-        var gallerySliderInterval;
         var gallerySlider = document.getElementById('gallery-slider');
         var gallerySliderItems = document.querySelectorAll('#gallery-slider .single-gallery-item');
         var totalGalleryItems = gallerySliderItems.length;
         var itemWidth = 320;
         var visibleItems = 5;
+        var gallerySliderInterval = null;
+        var isVisible = !window.IntersectionObserver;
+        var isHovered = false;
+        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
 
         if (!gallerySlider || totalGalleryItems === 0) return;
+        if (gallerySlider.dataset.sliderAutoplayReady === 'true') return;
+        gallerySlider.dataset.sliderAutoplayReady = 'true';
 
         gallerySliderItems.forEach(function(el) {
             el.addEventListener('click', function() {
@@ -208,25 +213,68 @@
         };
 
         var nextGallerySlide = function () {
-            currentGalleryIndex = (currentGalleryIndex + 1) % (totalGalleryItems - visibleItems + 1);
+            currentGalleryIndex = (currentGalleryIndex + 1) % Math.max(totalGalleryItems - visibleItems + 1, 1);
             updateGallerySlider();
         };
 
+        var canAutoPlay = function () {
+            return isVisible && !isHovered && !document.hidden && !(reduceMotion && reduceMotion.matches);
+        };
+
         var startGallerySlider = function () {
+            if (!canAutoPlay() || gallerySliderInterval) return;
             gallerySliderInterval = setInterval(nextGallerySlide, 3000);
         };
 
         var stopGallerySlider = function () {
-            if (gallerySliderInterval) clearInterval(gallerySliderInterval);
+            if (!gallerySliderInterval) return;
+            clearInterval(gallerySliderInterval);
+            gallerySliderInterval = null;
+        };
+
+        var syncGallerySlider = function () {
+            if (canAutoPlay()) startGallerySlider();
+            else stopGallerySlider();
         };
 
         var galleryContainer = document.querySelector('.gallery-slider-container');
         if (galleryContainer) {
-            galleryContainer.addEventListener('mouseenter', stopGallerySlider);
-            galleryContainer.addEventListener('mouseleave', startGallerySlider);
+            galleryContainer.addEventListener('mouseenter', function() {
+                isHovered = true;
+                syncGallerySlider();
+            });
+            galleryContainer.addEventListener('mouseleave', function() {
+                isHovered = false;
+                syncGallerySlider();
+            });
+            galleryContainer.addEventListener('focusin', function() {
+                isHovered = true;
+                syncGallerySlider();
+            });
+            galleryContainer.addEventListener('focusout', function(event) {
+                if (!galleryContainer.contains(event.relatedTarget)) {
+                    isHovered = false;
+                    syncGallerySlider();
+                }
+            });
+            if (window.IntersectionObserver) {
+                var sliderObserver = new window.IntersectionObserver(function(entries) {
+                    isVisible = Boolean(entries[0] && entries[0].isIntersecting);
+                    syncGallerySlider();
+                }, { threshold: 0.1 });
+                sliderObserver.observe(galleryContainer);
+            }
         }
 
-        startGallerySlider();
+        document.addEventListener('visibilitychange', syncGallerySlider);
+        if (reduceMotion && reduceMotion.addEventListener) {
+            reduceMotion.addEventListener('change', syncGallerySlider);
+        } else if (reduceMotion && reduceMotion.addListener) {
+            reduceMotion.addListener(syncGallerySlider);
+        }
+        window.addEventListener('pagehide', stopGallerySlider);
+        window.addEventListener('pageshow', syncGallerySlider);
+        syncGallerySlider();
     }
 
     function renderFooter() {
@@ -309,6 +357,14 @@
         var particles = [];
         var frame = 0;
         var lastTime = 0;
+        var hero = null;
+        var isInView = !window.IntersectionObserver;
+        var pageVisible = !document.hidden;
+        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var intersectionObserver = null;
+        var resizeObserver = null;
+        var mutationObserver = null;
+        var motionPreference = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
         var pointerTargetX = 0;
         var pointerTargetY = 0;
         var pointerDriftX = 0;
@@ -447,22 +503,48 @@
             context.globalAlpha = 1;
         }
 
-        // Reattach when a guide replaces its hero, and follow the hero size.
-        function fitHero() {
-            var hero = document.querySelector('.secondary-editorial-hero, .tour-collection-hero');
+        // Start only when the page and hero can be seen.
+        function shouldAnimate() {
+            return Boolean(hero && isInView && pageVisible && !reduceMotion);
+        }
+
+        function stop() {
+            if (frame) window.cancelAnimationFrame(frame);
+            frame = 0;
+            lastTime = 0;
+        }
+
+        function start() {
+            if (!shouldAnimate() || frame) return;
+            frame = window.requestAnimationFrame(loop);
+        }
+
+        // Reattach on route changes and observe size outside the frame loop.
+        function setHero(nextHero) {
+            if (hero === nextHero) return;
+            if (intersectionObserver) intersectionObserver.disconnect();
+            if (resizeObserver) resizeObserver.disconnect();
+            stop();
+            hero = nextHero;
+            isInView = !window.IntersectionObserver;
             canvas.hidden = !hero;
-            if (!hero) return false;
+            if (!hero) return;
             if (canvas.parentElement !== hero) hero.appendChild(canvas);
-            if (width !== hero.clientWidth || height !== hero.clientHeight) build();
-            return true;
+            build();
+            draw(0);
+            if (intersectionObserver) intersectionObserver.observe(hero);
+            if (resizeObserver) resizeObserver.observe(hero);
+            start();
+        }
+
+        function findHero() {
+            var nextHero = document.querySelector('.secondary-editorial-hero, .tour-collection-hero');
+            if (nextHero !== hero) setHero(nextHero);
         }
 
         function loop(time) {
-            if (!fitHero()) {
-                lastTime = 0;
-                frame = window.requestAnimationFrame(loop);
-                return;
-            }
+            frame = 0;
+            if (!shouldAnimate()) return;
             var delta = lastTime ? Math.min((time - lastTime) / (1000 / 60), 4) : 1;
             lastTime = time;
             pointerDriftX += (pointerTargetX - pointerDriftX) * Math.min(0.035 * delta, 1);
@@ -483,12 +565,7 @@
                 else if (particle.x > width + particle.radius) particle.x = -particle.radius;
             });
             draw(time);
-            frame = window.requestAnimationFrame(loop);
-        }
-
-        function handleResize() {
-            fitHero();
-            draw(0);
+            start();
         }
 
         function handlePointerMove(event) {
@@ -501,19 +578,67 @@
             pointerTargetY = 0;
         }
 
-        fitHero();
+        if (window.IntersectionObserver) {
+            intersectionObserver = new window.IntersectionObserver(function(entries) {
+                isInView = Boolean(entries[0] && entries[0].isIntersecting);
+                if (isInView) start();
+                else stop();
+            });
+        }
+        if (window.ResizeObserver) {
+            resizeObserver = new window.ResizeObserver(function() {
+                if (!hero) return;
+                build();
+                draw(0);
+            });
+        } else {
+            window.addEventListener('resize', function() {
+                findHero();
+                if (!hero) return;
+                build();
+                draw(0);
+            }, { passive: true });
+        }
+        if (window.MutationObserver && document.body) {
+            mutationObserver = new window.MutationObserver(findHero);
+            mutationObserver.observe(document.body, { childList: true, subtree: true });
+        }
+        document.addEventListener('visibilitychange', function() {
+            pageVisible = !document.hidden;
+            if (pageVisible) start();
+            else stop();
+        });
+        if (motionPreference && motionPreference.addEventListener) {
+            motionPreference.addEventListener('change', function(event) {
+                reduceMotion = event.matches;
+                if (reduceMotion) stop();
+                else start();
+            });
+        } else if (motionPreference && motionPreference.addListener) {
+            motionPreference.addListener(function(event) {
+                reduceMotion = event.matches;
+                if (reduceMotion) stop();
+                else start();
+            });
+        }
+        findHero();
         draw(0);
-        frame = window.requestAnimationFrame(loop);
-        window.addEventListener('resize', handleResize, { passive: true });
         window.addEventListener('pointermove', handlePointerMove, { passive: true });
         document.addEventListener('mouseleave', resetPointerDrift);
         window.addEventListener('pagehide', function () {
-            window.cancelAnimationFrame(frame);
-        }, { once: true });
+            pageVisible = false;
+            stop();
+        });
+        window.addEventListener('pageshow', function() {
+            pageVisible = !document.hidden;
+            findHero();
+            start();
+        });
     }
 
     function initAmbientMotion() {
-        if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+        if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches ||
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
         var ambient = document.querySelector('.secondary-page-ambient');
         var pieces = ambient ? Array.prototype.slice.call(ambient.querySelectorAll('[data-ambient-repel]')) : [];

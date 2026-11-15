@@ -106,8 +106,8 @@
                     '<div class="tour-collection-dock" aria-label="Tour collections">' + renderCollectionDock(collection.slug) + '</div>' +
                 '</section>' +
                 '<div class="tour-collection-ambient" data-collection-ambient aria-hidden="true">' +
-                    '<span class="tour-ambient-scene tour-ambient-jungle" data-ambient-repel="1.05"><img src="../assets/img/main-gallery/wild-life-adventure.jpeg" alt=""></span>' +
-                    '<span class="tour-ambient-scene tour-ambient-elephant" data-ambient-repel="0.82"><img src="../assets/img/main-gallery/pinnawala-elephant-watching.jpg" alt=""></span>' +
+                    '<span class="tour-ambient-scene tour-ambient-jungle" data-ambient-repel="1.05"><img src="../assets/img/gallery/main/wild-life-adventure.jpeg" alt=""></span>' +
+                    '<span class="tour-ambient-scene tour-ambient-elephant" data-ambient-repel="0.82"><img src="../assets/img/gallery/main/pinnawala-elephant-watching.jpg" alt=""></span>' +
                     '<span class="tour-ambient-scene tour-ambient-coast" data-ambient-repel="0.92"><img src="../assets/img/destinations/arugam-bay-hero.jpg" alt=""></span>' +
                     '<span class="tour-ambient-scene tour-ambient-tea" data-ambient-repel="0.72"><img src="../assets/img/destinations/nuwara_eliya_tea.png" alt=""></span>' +
                     '<span class="tour-ambient-scene tour-ambient-rock" data-ambient-repel="0.86"><img src="../assets/img/destinations/sigiriya_lion_rock.png" alt=""></span>' +

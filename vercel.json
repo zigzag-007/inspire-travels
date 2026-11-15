@@ -2,5 +2,12 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
   "buildCommand": "npm run build",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "redirects": [
+    { "source": "/favicon.ico", "destination": "/assets/img/favicon/favicon-64x64.png", "permanent": true },
+    { "source": "/assets/img/logo.png", "destination": "/assets/img/brand/logo.png", "permanent": true },
+    { "source": "/assets/img/bg/:path*", "destination": "/assets/img/heroes/:path*", "permanent": true },
+    { "source": "/assets/img/main-gallery/:path*", "destination": "/assets/img/gallery/main/:path*", "permanent": true },
+    { "source": "/assets/img/footer-gallery/:path*", "destination": "/assets/img/gallery/footer/:path*", "permanent": true }
+  ]
 }

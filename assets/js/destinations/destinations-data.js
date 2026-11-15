@@ -58,35 +58,35 @@
                     "title": "Sigiriya Lion Rock Citadel",
                     "description": "Ascend the 5th-century rock fortress, ancient water gardens, and iconic lion paws gate staircase.",
                     "category": "Heritage",
-                    "image": "assets/img/main-gallery/sigiriya-lion-rock.jpg",
+                    "image": "assets/img/gallery/main/sigiriya-lion-rock.jpg",
                     "icon": "landmark"
                 },
                 {
                     "title": "Pidurangala Rock Sunset Hike",
                     "description": "Climb neighboring Pidurangala for breathtaking 360-degree views of Sigiriya Lion Rock at dusk.",
                     "category": "Adventure",
-                    "image": "assets/img/main-gallery/pidurangala-rock.jpg",
+                    "image": "assets/img/gallery/main/pidurangala-rock.jpg",
                     "icon": "mountain"
                 },
                 {
                     "title": "Traditional Village Tour & Cooking Class",
                     "description": "Experience a bullock cart ride, traditional canoe trip, and authentic village cooking lesson in clay pots.",
                     "category": "Culture",
-                    "image": "assets/img/main-gallery/cooking-class.jpeg",
+                    "image": "assets/img/gallery/main/cooking-class.jpeg",
                     "icon": "utensils"
                 },
                 {
                     "title": "Dambulla Cave Temple Complex",
                     "description": "Explore five sprawling rock caves housing over 150 Buddha statues and vibrant ancient murals.",
                     "category": "Heritage",
-                    "image": "assets/img/main-gallery/dambulla-cave-temple.jpeg",
+                    "image": "assets/img/gallery/main/dambulla-cave-temple.jpeg",
                     "icon": "sun"
                 },
                 {
                     "title": "Minneriya Elephant Gathering Safari",
                     "description": "Jeep safari into Minneriya National Park to witness hundreds of wild Asian elephants gathering at the lake.",
                     "category": "Wildlife",
-                    "image": "assets/img/main-gallery/12-jeep-safari-group-tour.jpeg",
+                    "image": "assets/img/gallery/main/12-jeep-safari-group-tour.jpeg",
                     "icon": "camera"
                 }
             ],
@@ -157,35 +157,35 @@
                     "title": "Nine Arch Bridge Railway Walk",
                     "description": "Witness trains crossing the iconic 99-foot colonial stone bridge hidden amidst dense jungle valleys.",
                     "category": "Heritage",
-                    "image": "assets/img/main-gallery/03-hill-country-group-viewpoint.jpeg",
+                    "image": "assets/img/gallery/main/03-hill-country-group-viewpoint.jpeg",
                     "icon": "train"
                 },
                 {
                     "title": "Little Adam's Peak & Skywalk",
                     "description": "An accessible hike leading to sweeping views across Ella Gap, featuring a glass-bottom skywalk bridge.",
                     "category": "Trekking",
-                    "image": "assets/img/main-gallery/little-adams-peak.png",
+                    "image": "assets/img/gallery/main/little-adams-peak.png",
                     "icon": "mountain"
                 },
                 {
                     "title": "Flying Ravana Mega Zipline & Flower Swing",
                     "description": "Soar over tea estates at 80 km/h on Sri Lanka's mega zipline, or pose on the giant flower swing.",
                     "category": "Adventure",
-                    "image": "assets/img/main-gallery/flying-ravana-ella-zipline-adventure.jpg",
+                    "image": "assets/img/gallery/main/flying-ravana-ella-zipline-adventure.jpg",
                     "icon": "zap"
                 },
                 {
                     "title": "Rawana Waterfall & Secret Falls",
                     "description": "Cool down at the majestic 25-meter Ravana Falls and discover tranquil hidden mountain cascades.",
                     "category": "Nature",
-                    "image": "assets/img/main-gallery/waterfall-tour.jpg",
+                    "image": "assets/img/gallery/main/waterfall-tour.jpg",
                     "icon": "droplet"
                 },
                 {
                     "title": "Organic Tea Plantation & Factory Tour",
                     "description": "Walk among manicured tea bushes, observe traditional leaf picking, and taste artisanal Ceylon teas.",
                     "category": "Culture",
-                    "image": "assets/img/main-gallery/tea-plantation-tour.jpeg",
+                    "image": "assets/img/gallery/main/tea-plantation-tour.jpeg",
                     "icon": "coffee"
                 }
             ],
@@ -210,7 +210,7 @@
             "name": "Kandy",
             "tagline": "The Sacred Cultural Capital & Highland Lake Sanctuary",
             "readTime": "6 Min Read",
-            "heroImage": "assets/img/main-gallery/cultural-heritage-tour.jpeg",
+            "heroImage": "assets/img/gallery/main/cultural-heritage-tour.jpeg",
             "bestSeason": "December to April",
             "idealDuration": "2 Days",
             "vibe": "Sacred Traditions & Royal History",
@@ -256,35 +256,35 @@
                     "title": "Temple of the Sacred Tooth Relic",
                     "description": "Visit Sri Lanka's most sacred Buddhist temple housing the venerated tooth relic of Lord Buddha.",
                     "category": "Culture",
-                    "image": "assets/img/main-gallery/temple-of-sacred-tooth-relic.png",
+                    "image": "assets/img/gallery/main/temple-of-sacred-tooth-relic.png",
                     "icon": "landmark"
                 },
                 {
                     "title": "Royal Botanical Gardens Peradeniya",
                     "description": "Explore 147 acres of lush tropical flora, giant orchid houses, and majestic palm avenues.",
                     "category": "Nature",
-                    "image": "assets/img/main-gallery/royal-botanical-gardens-peradeniya.jpeg",
+                    "image": "assets/img/gallery/main/royal-botanical-gardens-peradeniya.jpeg",
                     "icon": "trees"
                 },
                 {
                     "title": "Pinnawala Elephant Sanctuary Visit",
                     "description": "Observe gentle giants bathing in the Ma Oya River and feeding at the renowned elephant sanctuary.",
                     "category": "Wildlife",
-                    "image": "assets/img/main-gallery/pinnawala-elephant-watching.jpg",
+                    "image": "assets/img/gallery/main/pinnawala-elephant-watching.jpg",
                     "icon": "heart"
                 },
                 {
                     "title": "Kandyan Cultural Dance Performance",
                     "description": "Witness energetic traditional Kandyan drumming, acrobatic dances, and thrilling fire-walking rituals.",
                     "category": "Performance",
-                    "image": "assets/img/main-gallery/kandyan-cultural-dance-performance.jpeg",
+                    "image": "assets/img/gallery/main/kandyan-cultural-dance-performance.jpeg",
                     "icon": "music"
                 },
                 {
                     "title": "Kandy Lake Promenade Walk",
                     "description": "Stroll along the historic Cloud Wall (Walakulu Bammwa) surrounding the serene central lake.",
                     "category": "Relaxation",
-                    "image": "assets/img/main-gallery/kandy-lake-promenade-walk.png",
+                    "image": "assets/img/gallery/main/kandy-lake-promenade-walk.png",
                     "icon": "compass"
                 }
             ],
@@ -355,35 +355,35 @@
                     "title": "Lotus Tower Observation Deck",
                     "description": "Ascend South Asia's tallest self-supporting tower for panoramic views of Colombo's skyline and harbor.",
                     "category": "Landmark",
-                    "image": "assets/img/main-gallery/lotus-tower-observation-deck.jpeg",
+                    "image": "assets/img/gallery/main/lotus-tower-observation-deck.jpeg",
                     "icon": "building"
                 },
                 {
                     "title": "Gangaramaya & Seema Malaka Temple",
                     "description": "Explore an iconic lakeside temple featuring eclectic art collections, brass statues, and serene architecture.",
                     "category": "Culture",
-                    "image": "assets/img/main-gallery/gangaramaya-seema-malaka-temple.png",
+                    "image": "assets/img/gallery/main/gangaramaya-seema-malaka-temple.png",
                     "icon": "landmark"
                 },
                 {
                     "title": "Pettah Floating Market & Bazaars",
                     "description": "Immerse yourself in bustling street markets selling spices, textiles, jewelry, and local handicrafts.",
                     "category": "Shopping",
-                    "image": "assets/img/main-gallery/pettah-floating-market.png",
+                    "image": "assets/img/gallery/main/pettah-floating-market.png",
                     "icon": "shopping-bag"
                 },
                 {
                     "title": "Galle Face Green Ocean Promenade",
                     "description": "Join locals for sunset strolls, kite flying, and iconic street food along the oceanfront.",
                     "category": "Lifestyle",
-                    "image": "assets/img/main-gallery/04-family-by-tour-van-sri-lanka.jpeg",
+                    "image": "assets/img/gallery/main/04-family-by-tour-van-sri-lanka.jpeg",
                     "icon": "sun"
                 },
                 {
                     "title": "National Museum & Independence Square",
                     "description": "Discover ancient royal regalia and colonial artifacts inside a stately 19th-century Italianate mansion.",
                     "category": "History",
-                    "image": "assets/img/main-gallery/05-tour-guide-van-selfie.jpeg",
+                    "image": "assets/img/gallery/main/05-tour-guide-van-selfie.jpeg",
                     "icon": "book-open"
                 }
             ],
@@ -454,14 +454,14 @@
                     "title": "Pigeon Island Snorkeling Expedition",
                     "description": "Swim alongside blacktip reef sharks, sea turtles, and colorful live corals in a marine national park.",
                     "category": "Marine",
-                    "image": "assets/img/main-gallery/pigeon-island-snorkeling.jpeg",
+                    "image": "assets/img/gallery/main/pigeon-island-snorkeling.jpeg",
                     "icon": "fish"
                 },
                 {
                     "title": "Koneswaram Temple & Lover's Leap",
                     "description": "Visit the majestic cliffside Shiva temple offering breathtaking ocean panoramas on Swami Rock.",
                     "category": "Heritage",
-                    "image": "assets/img/main-gallery/koneswaram-temple.jpeg",
+                    "image": "assets/img/gallery/main/koneswaram-temple.jpeg",
                     "icon": "landmark"
                 },
                 {
@@ -475,14 +475,14 @@
                     "title": "Whale & Dolphin Watching Boat Tour",
                     "description": "Embark on an oceanic safari to observe majestic blue whales and spinner dolphins in their wild habitat.",
                     "category": "Wildlife",
-                    "image": "assets/img/main-gallery/whale-dolphin-watching.jpeg",
+                    "image": "assets/img/gallery/main/whale-dolphin-watching.jpeg",
                     "icon": "anchor"
                 },
                 {
                     "title": "Kanniya Natural Hot Water Springs",
                     "description": "Bathe in seven ancient square stone wells filled with therapeutic natural warm water.",
                     "category": "Wellness",
-                    "image": "assets/img/main-gallery/09-outdoor-adventure-travelers-with-guide.jpeg",
+                    "image": "assets/img/gallery/main/09-outdoor-adventure-travelers-with-guide.jpeg",
                     "icon": "droplet"
                 }
             ],
@@ -553,7 +553,7 @@
                     "title": "World-Class Point Break Surfing",
                     "description": "Ride legendary right-hand point break waves at Main Point, Whiskey Point, or Peanut Farm Beach.",
                     "category": "Surfing",
-                    "image": "assets/img/main-gallery/surfing-class.jpeg",
+                    "image": "assets/img/gallery/main/surfing-class.jpeg",
                     "icon": "waves"
                 },
                 {
@@ -567,21 +567,21 @@
                     "title": "Kumana National Park Safari",
                     "description": "Explore Sri Lanka's premier bird sanctuary featuring nesting lagoons, leopards, and wild elephants.",
                     "category": "Wildlife",
-                    "image": "assets/img/main-gallery/wild-life-adventure.jpeg",
+                    "image": "assets/img/gallery/main/wild-life-adventure.jpeg",
                     "icon": "camera"
                 },
                 {
                     "title": "Pottuvil Eco Lagoon Safari",
                     "description": "Glide silently through mangrove forests on a traditional canoe to observe monkeys, eagles, and crocodiles.",
                     "category": "Eco Tour",
-                    "image": "assets/img/main-gallery/madu-river-safari.jpg",
+                    "image": "assets/img/gallery/main/madu-river-safari.jpg",
                     "icon": "compass"
                 },
                 {
                     "title": "Whiskey Point Beach Bonfire",
                     "description": "Gather around starry beach bonfires with acoustic music and chilled coconut water.",
                     "category": "Lifestyle",
-                    "image": "assets/img/main-gallery/09-outdoor-adventure-travelers-with-guide.jpeg",
+                    "image": "assets/img/gallery/main/09-outdoor-adventure-travelers-with-guide.jpeg",
                     "icon": "flame"
                 }
             ],
@@ -606,7 +606,7 @@
             "name": "Bentota",
             "tagline": "Golden Sand Riviera, Water Sports & Mangrove River Safaris",
             "readTime": "5 Min Read",
-            "heroImage": "assets/img/main-gallery/madu-river-safari.jpg",
+            "heroImage": "assets/img/gallery/main/madu-river-safari.jpg",
             "heroImageAlt": "Travellers on a Sri Lankan mangrove river safari",
             "bestSeason": "November to April",
             "idealDuration": "2 Days",
@@ -653,28 +653,28 @@
                     "title": "Bentota River Water Sports",
                     "description": "Experience thrilling jet skiing, banana boat rides, wakeboarding, and tube rides on Bentota lagoon.",
                     "category": "Water Sports",
-                    "image": "assets/img/main-gallery/water-rafting.jpg",
+                    "image": "assets/img/gallery/main/water-rafting.jpg",
                     "icon": "waves"
                 },
                 {
                     "title": "Madu River Mangrove Boat Safari",
                     "description": "Navigate river channels through dense mangrove tunnels, visit Cinnamon Island, and try fish therapy.",
                     "category": "Nature",
-                    "image": "assets/img/main-gallery/madu-river-safari.jpg",
+                    "image": "assets/img/gallery/main/madu-river-safari.jpg",
                     "icon": "ship"
                 },
                 {
                     "title": "Kosgoda Sea Turtle Hatchery Visit",
                     "description": "Learn about sea turtle conservation and hold newborn hatchlings at a dedicated sanctuary.",
                     "category": "Conservation",
-                    "image": "assets/img/main-gallery/turtle-hatchery-visit.jpg",
+                    "image": "assets/img/gallery/main/turtle-hatchery-visit.jpg",
                     "icon": "heart"
                 },
                 {
                     "title": "Brief Garden by Bevis Bawa",
                     "description": "Wander through an enchanting tropical garden estate filled with exotic flora and art sculptures.",
                     "category": "Gardens",
-                    "image": "assets/img/main-gallery/botanical-garden-tour.jpg",
+                    "image": "assets/img/gallery/main/botanical-garden-tour.jpg",
                     "icon": "trees"
                 },
                 {

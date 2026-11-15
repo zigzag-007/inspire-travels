@@ -69,7 +69,7 @@
         {
             slug: 'cultural-heritage-journey',
             title: 'Sri Lanka Cultural & Heritage Journey',
-            image: 'assets/img/main-gallery/cultural-heritage-tour.jpeg',
+            image: 'assets/img/gallery/main/cultural-heritage-tour.jpeg',
             duration: '7 DAYS',
             nights: '6 NIGHTS',
             location: 'NEGOMBO, ANURADHAPURA, SIGIRIYA, POLONNARUWA, KANDY & COLOMBO',
@@ -89,7 +89,7 @@
         {
             slug: 'ramayanaya-tour',
             title: 'Ramayanaya Tour',
-            image: 'assets/img/main-gallery/koneswaram-temple.jpeg',
+            image: 'assets/img/gallery/main/koneswaram-temple.jpeg',
             rating: 9.5,
             duration: '8 DAYS',
             nights: '7 NIGHTS',
@@ -111,7 +111,7 @@
         {
             slug: 'unesco-heritage-tour',
             title: 'Sri Lanka UNESCO Heritage Tour',
-            image: 'assets/img/main-gallery/dambulla-cave-temple.jpeg',
+            image: 'assets/img/gallery/main/dambulla-cave-temple.jpeg',
             duration: '14 DAYS',
             nights: '13 NIGHTS',
             location: 'ANURADHAPURA, CULTURAL TRIANGLE, KANDY, HIGHLANDS, SINHARAJA & GALLE',
@@ -186,7 +186,7 @@
         {
             slug: 'sri-lanka-dream-journey',
             title: 'Sri Lanka Dream Journey',
-            image: 'assets/img/main-gallery/06-airport-arrival-group-sri-lanka.jpeg',
+            image: 'assets/img/gallery/main/06-airport-arrival-group-sri-lanka.jpeg',
             duration: '5 DAYS',
             nights: '4 NIGHTS',
             location: 'KANDY, NUWARA ELIYA, BENTOTA & COLOMBO',
@@ -204,7 +204,7 @@
         {
             slug: 'discover-ceylon-group',
             title: 'Discover Ceylon Group Journey',
-            image: 'assets/img/main-gallery/19-airport-group-selfie-with-guests.jpeg',
+            image: 'assets/img/gallery/main/19-airport-group-selfie-with-guests.jpeg',
             duration: '8 DAYS',
             nights: '7 NIGHTS',
             location: 'NEGOMBO, SIGIRIYA, KANDY, ELLA, YALA & MIRISSA',
@@ -225,7 +225,7 @@
         {
             slug: 'grand-island-journey-group',
             title: 'Sri Lanka Grand Island Journey',
-            image: 'assets/img/main-gallery/group_arrival_fuso.jpg',
+            image: 'assets/img/gallery/main/group_arrival_fuso.jpg',
             duration: '14 DAYS',
             nights: '13 NIGHTS',
             location: 'NEGOMBO, CULTURAL TRIANGLE, EAST COAST, HILLS & SOUTH COAST',
@@ -252,7 +252,7 @@
         {
             slug: 'east-coast-discovery',
             title: 'Sri Lanka East Coast Discovery',
-            image: 'assets/img/main-gallery/pigeon-island-snorkeling.jpeg',
+            image: 'assets/img/gallery/main/pigeon-island-snorkeling.jpeg',
             duration: '9 DAYS',
             nights: '8 NIGHTS',
             location: 'SIGIRIYA, TRINCOMALEE, ARUGAM BAY & COLOMBO',
@@ -274,7 +274,7 @@
         {
             slug: 'north-east-coast-explorer',
             title: 'North & East Coast Explorer',
-            image: 'assets/img/main-gallery/koneswaram-temple.jpeg',
+            image: 'assets/img/gallery/main/koneswaram-temple.jpeg',
             duration: '12 DAYS',
             nights: '11 NIGHTS',
             location: 'NEGOMBO, ANURADHAPURA, JAFFNA, TRINCOMALEE, PASIKUDA, ARUGAM BAY, ELLA & COLOMBO',
@@ -326,7 +326,7 @@
         {
             slug: 'adventure-escape',
             title: 'Sri Lanka Adventure Escape',
-            image: 'assets/img/main-gallery/hiking-rock.jpeg',
+            image: 'assets/img/gallery/main/hiking-rock.jpeg',
             duration: '8 DAYS',
             nights: '7 NIGHTS',
             location: 'SIGIRIYA, KANDY, KITULGALA, ADAM\'S PEAK, ELLA, YALA & GALLE',
@@ -347,7 +347,7 @@
         {
             slug: 'epic-adventure-journey',
             title: 'Sri Lanka Epic Adventure Journey',
-            image: 'assets/img/main-gallery/surfing-class.jpeg',
+            image: 'assets/img/gallery/main/surfing-class.jpeg',
             duration: '10 DAYS',
             nights: '9 NIGHTS',
             location: 'SIGIRIYA, KNUCKLES, KITULGALA, ELLA, WELIGAMA, MIRISSA & GALLE',
@@ -370,7 +370,7 @@
         {
             slug: 'ultimate-adventure',
             title: 'Sri Lanka Ultimate Adventure',
-            image: 'assets/img/main-gallery/wild-life-adventure.jpeg',
+            image: 'assets/img/gallery/main/wild-life-adventure.jpeg',
             duration: '21 DAYS',
             nights: '20 NIGHTS',
             location: 'SIGIRIYA, KNUCKLES, KITULGALA, ADAM\'S PEAK, ELLA, YALA, SOUTH COAST, SINHARAJA & COLOMBO',
