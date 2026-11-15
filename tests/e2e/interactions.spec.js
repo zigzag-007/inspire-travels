@@ -1,5 +1,16 @@
 const { test, expect } = require('@playwright/test');
 
+// The video action must open a reel rather than the account profile.
+test('the hero video action opens the verified guest reel', async ({ page, context }) => {
+    await context.route('https://www.instagram.com/**', route => route.fulfill({ status: 200, body: 'Instagram video destination' }));
+    await page.goto('/');
+    const opened = page.waitForEvent('popup');
+    await page.getByRole('button', { name: /Watch.*video/i }).click();
+    const video = await opened;
+    await expect(video).toHaveURL('https://www.instagram.com/reel/DZQBrKks1d1/');
+    await video.close();
+});
+
 // Keep the card and enlarged poster tied to the same safari.
 test('safari offers show the poster for their named park', async ({ page }) => {
     await page.goto('/');
