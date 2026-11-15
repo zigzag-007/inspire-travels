@@ -38,6 +38,9 @@ function resolveOutput(argument) {
     const requestedPath = argument || 'dist';
     const output = path.resolve(projectRoot, requestedPath);
     const relative = path.relative(projectRoot, output);
+    if (relative === '.zigzag-tmp/build' || relative.startsWith('.zigzag-tmp/build' + path.sep)) {
+        throw new Error('Build output cannot use the build scratch directory.');
+    }
     const isDist = relative === 'dist';
     const isScratch = relative.startsWith('.zigzag-tmp' + path.sep);
     if (!isDist && !isScratch) {

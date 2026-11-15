@@ -6,7 +6,10 @@ const root = path.resolve(__dirname, '../..');
 const routes = [...fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8').matchAll(/<loc>(.*?)<\/loc>/g)]
     .map(match => new URL(match[1]).pathname);
 
-test('every sitemap route opens directly, reloads, and loads local assets', async ({ page, baseURL }) => {
+for (const width of [390, 768, 1440]) {
+test(`every sitemap route opens and reloads with assets at ${width}px`, async ({ page, baseURL }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.route(/googletagmanager\.com|google-analytics\.com/, route => route.abort());
     const failures = [];
     page.on('response', response => {
         if (response.url().startsWith(baseURL) && response.status() >= 400) failures.push(response.url());
@@ -24,6 +27,7 @@ test('every sitemap route opens directly, reloads, and loads local assets', asyn
     }
     expect(failures).toEqual([]);
 });
+}
 
 test('legacy query URLs still render the requested route', async ({ page, baseURL }) => {
     await page.goto(baseURL + '/destinations/index.html?destination=ella');

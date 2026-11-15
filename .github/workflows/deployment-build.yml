@@ -29,3 +29,7 @@ jobs:
         run: npm test
       - name: Build the deployment output
         run: npm run build
+      - name: Install browser for deployment checks
+        run: npx playwright install --with-deps chromium
+      - name: Check built routes, controls, and offline recovery
+        run: npm run test:e2e

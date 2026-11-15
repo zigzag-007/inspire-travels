@@ -7,7 +7,7 @@
   "scripts": {
     "build": "node scripts/build.js",
     "test": "node --test tests/logic/*.test.js",
-    "test:e2e": "playwright test --config tests/playwright.config.js routes.spec.js",
+    "test:e2e": "playwright test --config tests/playwright.config.js routes.spec.js interactions.spec.js offline.spec.js",
     "test:performance": "playwright test --config tests/playwright.config.js performance.spec.js"
   },
   "devDependencies": {

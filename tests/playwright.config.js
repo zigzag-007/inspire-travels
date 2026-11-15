@@ -6,10 +6,17 @@ module.exports = defineConfig({
     workers: 1,
     timeout: 360000,
     reporter: 'list',
+    webServer: process.env.SITE_URL ? undefined : {
+        command: 'node tests/helpers/static-server.js',
+        url: 'http://127.0.0.1:8093',
+        reuseExistingServer: true,
+        timeout: 30000
+    },
     use: {
-        baseURL: process.env.SITE_URL || 'http://127.0.0.1:8092',
+        baseURL: process.env.SITE_URL || 'http://127.0.0.1:8093',
         headless: true,
         browserName: 'chromium',
+        actionTimeout: 15000,
         serviceWorkers: 'block'
     }
 });

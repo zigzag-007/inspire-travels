@@ -60,3 +60,9 @@ test('production build refuses to clear source folders', function() {
     assert.notEqual(result.status, 0);
     assert.match(result.stderr, /must be dist or a child folder/);
 });
+
+test('production build rejects output inside its own scratch directory', function() {
+    const result = spawnSync(process.execPath, [buildScript, '.zigzag-tmp/build/site'], { cwd: projectRoot, encoding: 'utf8' });
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /scratch directory/);
+});

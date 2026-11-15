@@ -1,6 +1,5 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
-const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 const { test } = require('node:test');
@@ -26,7 +25,8 @@ test('the shared build creates every tour and destination route in the sitemap',
     const routePaths = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)]
         .map(match => new URL(match[1]).pathname.slice(1))
         .filter(route => route.startsWith('tours/') || route.startsWith('destinations/'));
-    const output = fs.mkdtempSync(path.join(os.tmpdir(), 'inspire-deployment-build-'));
+    fs.mkdirSync(path.join(root, '.zigzag-tmp'), { recursive: true });
+    const output = fs.mkdtempSync(path.join(root, '.zigzag-tmp', 'deployment-build-'));
 
     try {
         const result = spawnSync(process.execPath, ['scripts/generate-search-pages.js', output], {

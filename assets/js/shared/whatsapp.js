@@ -13,6 +13,7 @@
         },
 
         open: function(message) {
+            if (window.OfflineModule && !window.OfflineModule.requireConnection()) return;
             window.open(this.createUrl(message), '_blank', 'noopener');
         },
 
