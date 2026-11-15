@@ -7,7 +7,8 @@ module.exports = defineConfig({
     timeout: 360000,
     reporter: 'list',
     webServer: process.env.SITE_URL ? undefined : {
-        command: 'node tests/helpers/static-server.js',
+        command: 'node helpers/static-server.js',
+        cwd: __dirname,
         url: 'http://127.0.0.1:8093',
         reuseExistingServer: true,
         timeout: 30000

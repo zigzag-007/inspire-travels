@@ -24,12 +24,13 @@ jobs:
         with:
           node-version: 22
       - name: Install pinned build and test dependencies
-        run: npm ci
+        run: npm --prefix tests ci
       - name: Verify deployment settings and generated routes
-        run: npm test
+        run: npm --prefix tests test
       - name: Build the deployment output
-        run: npm run build
+        run: npm --prefix tests run build
       - name: Install browser for deployment checks
         run: npx playwright install --with-deps chromium
+        working-directory: tests
       - name: Check built routes, controls, and offline recovery
-        run: npm run test:e2e
+        run: npm --prefix tests run test:e2e

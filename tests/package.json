@@ -5,10 +5,10 @@
   "description": "Static website for Inspire Travels & Tours",
   "engines": { "node": ">=22" },
   "scripts": {
-    "build": "node scripts/build.js",
-    "test": "node --test tests/logic/*.test.js",
-    "test:e2e": "playwright test --config tests/playwright.config.js routes.spec.js interactions.spec.js offline.spec.js initial-layout.spec.js",
-    "test:performance": "playwright test --config tests/playwright.config.js performance.spec.js"
+    "build": "node build/build.js",
+    "test": "node --test logic/*.test.js",
+    "test:e2e": "playwright test --config playwright.config.js routes.spec.js interactions.spec.js offline.spec.js initial-layout.spec.js",
+    "test:performance": "playwright test --config playwright.config.js performance.spec.js"
   },
   "devDependencies": {
     "@playwright/test": "1.65.1",

@@ -8,7 +8,7 @@ const { spawnSync } = require('node:child_process');
 const vm = require('node:vm');
 const { optimizeImages } = require('./prepare-images.js');
 
-const projectRoot = path.resolve(__dirname, '..');
+const projectRoot = path.resolve(__dirname, '../..');
 let tailwindCli;
 try {
     tailwindCli = require.resolve('tailwindcss/lib/cli.js');
@@ -26,8 +26,8 @@ function walk(directory) {
     });
 }
 
-function copyFile(relativePath, outputRoot) {
-    const source = path.join(projectRoot, relativePath);
+function copyFile(relativePath, outputRoot, sourceRoot = projectRoot) {
+    const source = path.join(sourceRoot, relativePath);
     if (!fs.existsSync(source) || !fs.statSync(source).isFile()) return;
     const destination = path.join(outputRoot, relativePath);
     fs.mkdirSync(path.dirname(destination), { recursive: true });
@@ -35,16 +35,16 @@ function copyFile(relativePath, outputRoot) {
 }
 
 function resolveOutput(argument) {
-    const requestedPath = argument || 'dist';
+    const requestedPath = argument || 'tests/local/dist';
     const output = path.resolve(projectRoot, requestedPath);
     const relative = path.relative(projectRoot, output);
     if (relative === '.zigzag-tmp/build' || relative.startsWith('.zigzag-tmp/build' + path.sep)) {
         throw new Error('Build output cannot use the build scratch directory.');
     }
-    const isDist = relative === 'dist';
+    const isDist = relative === path.join('tests', 'local', 'dist');
     const isScratch = relative.startsWith('.zigzag-tmp' + path.sep);
     if (!isDist && !isScratch) {
-        throw new Error('Build output must be dist or a child folder of .zigzag-tmp.');
+        throw new Error('Build output must be tests/local/dist or a child folder of .zigzag-tmp.');
     }
 
     let currentPath = projectRoot;
@@ -64,11 +64,9 @@ function clearOutput(outputRoot) {
 
 function copyPublicFiles(outputRoot) {
     sourcePages.forEach(function(file) { copyFile(file, outputRoot); });
-    fs.readdirSync(projectRoot, { withFileTypes: true })
-        .filter(function(entry) { return entry.isFile() && /^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}\.html$/i.test(entry.name); })
-        .forEach(function(entry) { copyFile(entry.name, outputRoot); });
-    ['offline.html', '_headers', '_redirects', 'robots.txt', 'sitemap.xml'].forEach(function(file) {
-        copyFile(file, outputRoot);
+    const publicRoot = path.join(projectRoot, 'public');
+    walk(publicRoot).forEach(function(file) {
+        copyFile(path.relative(publicRoot, file), outputRoot, publicRoot);
     });
     walk(path.join(projectRoot, 'assets')).forEach(function(file) {
         const relativePath = path.relative(projectRoot, file);
@@ -83,7 +81,7 @@ function makeTailwindConfig(outputRoot, scratchRoot) {
 
     const content = sourcePages.map(function(file) { return path.join(projectRoot, file); });
     content.push(path.join(projectRoot, 'assets/js/**/*.js'));
-    content.push(path.join(projectRoot, 'scripts/generate-search-pages.js'));
+    content.push(path.join(__dirname, 'generate-search-pages.js'));
     content.push(path.join(outputRoot, '**/*.html'));
 
     const config = {
@@ -129,7 +127,7 @@ function compileTailwind(outputRoot, scratchRoot) {
 }
 
 function runRouteGenerator(outputRoot) {
-    const result = spawnSync(process.execPath, [path.join(projectRoot, 'scripts/generate-search-pages.js'), outputRoot], {
+    const result = spawnSync(process.execPath, [path.join(__dirname, 'generate-search-pages.js'), outputRoot], {
         cwd: projectRoot,
         encoding: 'utf8'
     });
@@ -151,7 +149,7 @@ function hashBuildFiles(outputRoot) {
 
 function addOfflineRegistration(outputRoot) {
     const offlineScript = path.join(outputRoot, 'assets/js/shared/offline.js');
-    const workerTemplate = path.join(projectRoot, 'scripts/service-worker-template.js');
+    const workerTemplate = path.join(__dirname, 'service-worker-template.js');
     if (!fs.existsSync(offlineScript) || !fs.existsSync(workerTemplate)) return;
 
     const version = hashBuildFiles(outputRoot);

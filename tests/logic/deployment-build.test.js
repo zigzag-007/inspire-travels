@@ -7,21 +7,31 @@ const { test } = require('node:test');
 const root = path.resolve(__dirname, '../..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 
-test('Netlify and Vercel use the same build and publish dist', () => {
+test('development tools stay inside tests instead of the website root', () => {
+    for (const file of ['package.json', 'package-lock.json', 'node_modules', 'scripts', 'dist']) {
+        assert.equal(fs.existsSync(path.join(root, file)), false, file + ' clutters the root');
+    }
+    for (const file of ['tests/package.json', 'tests/package-lock.json', 'tests/build/build.js', 'public/sitemap.xml', 'public/robots.txt']) {
+        assert.ok(fs.existsSync(path.join(root, file)), 'missing grouped file: ' + file);
+    }
+});
+
+test('Netlify and Vercel build the same grouped static output', () => {
     const netlify = read('netlify.toml');
     const vercel = JSON.parse(read('vercel.json'));
     const netlifyCommand = netlify.match(/^\s*command\s*=\s*"([^"]+)"\s*$/m)?.[1];
     const netlifyPublish = netlify.match(/^\s*publish\s*=\s*"([^"]+)"\s*$/m)?.[1];
 
-    assert.equal(netlifyCommand, 'npm run build');
+    assert.equal(netlifyCommand, 'npm --prefix tests ci && npm --prefix tests run build');
     assert.equal(vercel.buildCommand, netlifyCommand);
-    assert.equal(netlifyPublish, 'dist');
+    assert.equal(netlifyPublish, 'tests/local/dist');
     assert.equal(vercel.outputDirectory, netlifyPublish);
     assert.equal(vercel.framework, null);
+    assert.equal(vercel.installCommand, '');
 });
 
 test('the shared build creates every tour and destination route in the sitemap', () => {
-    const sitemap = read('sitemap.xml');
+    const sitemap = read('public/sitemap.xml');
     const routePaths = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)]
         .map(match => new URL(match[1]).pathname.slice(1))
         .filter(route => route.startsWith('tours/') || route.startsWith('destinations/'));
@@ -29,7 +39,7 @@ test('the shared build creates every tour and destination route in the sitemap',
     const output = fs.mkdtempSync(path.join(root, '.zigzag-tmp', 'deployment-build-'));
 
     try {
-        const result = spawnSync(process.execPath, ['scripts/generate-search-pages.js', output], {
+        const result = spawnSync(process.execPath, ['tests/build/generate-search-pages.js', output], {
             cwd: root,
             encoding: 'utf8'
         });

@@ -17,7 +17,7 @@ const routes = [
 ];
 
 test('sitemap lists every public route with no invented extra routes', () => {
-    const locations = [...read('sitemap.xml').matchAll(/<loc>(.*?)<\/loc>/g)].map(match => match[1]);
+    const locations = [...read('public/sitemap.xml').matchAll(/<loc>(.*?)<\/loc>/g)].map(match => match[1]);
     const expected = ['/', '/gallery.html', ...routes.map(page => page.path)].map(p => 'https://inspiretraveltours.com' + p);
     assert.deepEqual(locations.sort(), expected.sort());
     assert.equal(new Set(locations).size, 31);
@@ -46,7 +46,7 @@ test('all static preview images exist and homepage business facts match the foot
     assert.ok(read('index.html').includes('Bankada Road, Katuneriya, Sri Lanka'));
     assert.ok(read('index.html').includes('tel:+94785959333'));
     assert.ok(!graph.some(entity => entity['@type'] === 'FAQPage' || entity.offers));
-    assert.ok(read('_redirects').includes('/favicon.ico /assets/img/favicon/favicon-64x64.png 301'));
+    assert.ok(read('public/_redirects').includes('/favicon.ico /assets/img/favicon/favicon-64x64.png 301'));
 });
 
 test('switching all routes updates metadata without duplicate canonical or schema nodes', () => {
@@ -85,7 +85,7 @@ test('build creates crawlable route pages with unique metadata and itinerary con
     fs.mkdirSync(path.join(root, '.zigzag-tmp'), { recursive: true });
     const output = fs.mkdtempSync(path.join(root, '.zigzag-tmp', 'search-pages-'));
     try {
-        const result = spawnSync(process.execPath, ['scripts/generate-search-pages.js', output], { cwd: root, encoding: 'utf8' });
+        const result = spawnSync(process.execPath, ['tests/build/generate-search-pages.js', output], { cwd: root, encoding: 'utf8' });
         assert.equal(result.status, 0, result.stderr);
 
         const tour = fs.readFileSync(path.join(output, 'tours/highlights-escape.html'), 'utf8');

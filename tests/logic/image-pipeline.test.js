@@ -6,7 +6,7 @@ const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 const sharp = require('sharp');
-const { optimizeImages } = require('../../scripts/prepare-images.js');
+const { optimizeImages } = require('../build/prepare-images.js');
 
 const projectRoot = path.resolve(__dirname, '../..');
 const outputRoot = path.join(projectRoot, '.zigzag-tmp', 'image-pipeline-test');

@@ -151,10 +151,10 @@ async function mapWithLimit(items, limit, callback) {
 
 // Build a stable source URL map for the HTML and script rewrite step.
 async function optimizeImages(outputRoot) {
-    const projectRoot = path.resolve(__dirname, '..');
+    const projectRoot = path.resolve(__dirname, '../..');
     const relative = path.relative(projectRoot, path.resolve(outputRoot));
-    if (relative !== 'dist' && !relative.startsWith('.zigzag-tmp' + path.sep)) {
-        throw new Error('Optimize images only in dist or a .zigzag-tmp build folder.');
+    if (relative !== path.join('tests', 'local', 'dist') && !relative.startsWith('.zigzag-tmp' + path.sep)) {
+        throw new Error('Optimize images only in tests/local/dist or a .zigzag-tmp build folder.');
     }
     const imageRoot = path.join(outputRoot, 'assets', 'img');
     const images = await listImages(imageRoot);

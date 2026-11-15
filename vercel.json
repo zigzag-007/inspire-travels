@@ -1,8 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
+  "installCommand": "",
+  "buildCommand": "npm --prefix tests ci && npm --prefix tests run build",
+  "outputDirectory": "tests/local/dist",
   "redirects": [
     { "source": "/favicon.ico", "destination": "/assets/img/favicon/favicon-64x64.png", "permanent": true },
     { "source": "/assets/img/logo.png", "destination": "/assets/img/brand/logo.png", "permanent": true },

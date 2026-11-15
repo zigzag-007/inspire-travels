@@ -1,6 +1,6 @@
 [build]
-  command = "npm run build"
-  publish = "dist"
+  command = "npm --prefix tests ci && npm --prefix tests run build"
+  publish = "tests/local/dist"
 
 [build.environment]
   NODE_VERSION = "22"

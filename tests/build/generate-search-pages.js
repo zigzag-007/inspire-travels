@@ -5,8 +5,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 
-const projectRoot = path.resolve(__dirname, '..');
-const outputRoot = path.resolve(process.argv[2] || projectRoot);
+const projectRoot = path.resolve(__dirname, '../..');
+const outputRoot = path.resolve(process.argv[2] || path.join(projectRoot, 'tests/local/dist'));
 const siteOrigin = 'https://inspiretraveltours.com';
 
 function readProjectFile(relativePath) {

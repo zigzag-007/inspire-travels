@@ -8,6 +8,19 @@
 
 ---
 
+## Local development
+
+The published site is static HTML, CSS and browser JavaScript. Node is used only
+for local build and test tools, grouped under `tests/`.
+
+Run `npm --prefix tests ci`, then `npm --prefix tests run build`. The deployable
+site is generated in `tests/local/dist/`. Preview it with
+`node tests/helpers/static-server.js`. Run checks with `npm --prefix tests test`
+and `npm --prefix tests run test:e2e`.
+
+Deployment support files live in `public/` and are copied to the published root,
+so the sitemap, robots file, headers, redirects and verification URL stay the same.
+
 ## 🧭 About Inspire Travels
 
 Founded in 2020 by Kalum Ranathunga, **Inspire Travels & Tours** has spent more than five years crafting bespoke adventures across Sri Lanka. The team blends cultural storytelling with careful logistics so every journey balances heritage cities, wildlife encounters, and coastal retreats.

@@ -7,7 +7,7 @@ const { spawnSync } = require('node:child_process');
 const test = require('node:test');
 
 const projectRoot = path.resolve(__dirname, '../..');
-const buildScript = path.join(projectRoot, 'scripts/build.js');
+const buildScript = path.join(projectRoot, 'tests/build/build.js');
 const outputRoot = path.join(projectRoot, '.zigzag-tmp', 'build-output-test');
 
 test('production build contains only deployable site files and compiled Tailwind', function() {
@@ -69,7 +69,7 @@ test('production build refuses to clear the project root', function() {
         encoding: 'utf8'
     });
     assert.notEqual(result.status, 0);
-    assert.match(result.stderr, /must be dist or a child folder/);
+    assert.match(result.stderr, /must be tests\/local\/dist or a child folder/);
 });
 
 test('production build refuses to clear source folders', function() {
@@ -78,7 +78,7 @@ test('production build refuses to clear source folders', function() {
         encoding: 'utf8'
     });
     assert.notEqual(result.status, 0);
-    assert.match(result.stderr, /must be dist or a child folder/);
+    assert.match(result.stderr, /must be tests\/local\/dist or a child folder/);
 });
 
 test('production build rejects output inside its own scratch directory', function() {

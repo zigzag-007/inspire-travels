@@ -5,7 +5,7 @@ const vm = require('node:vm');
 const { test } = require('node:test');
 
 const root = path.resolve(__dirname, '../..');
-const source = fs.readFileSync(path.join(root, 'scripts/service-worker-template.js'), 'utf8')
+const source = fs.readFileSync(path.join(root, 'tests/build/service-worker-template.js'), 'utf8')
     .replace('__BUILD_VERSION__', 'test-build');
 
 test('scripted WhatsApp inquiries require a connection before opening a tab', () => {
