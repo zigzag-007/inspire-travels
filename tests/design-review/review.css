@@ -1,0 +1,101 @@
+:root {
+    color-scheme: light;
+    --paper: #f7f8f2;
+    --ink: #183b30;
+    --muted: #526257;
+    --line: #ccd6ca;
+    --accent: #edb75b;
+    font-family: 'Geist', system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 5px; }
+a:focus-visible { outline: 3px solid #1b6554; outline-offset: 5px; }
+img { display: block; max-width: 100%; }
+.wrap { width: min(1280px, calc(100% - 96px)); margin-inline: auto; }
+.skip-link { position: fixed; top: 8px; left: 8px; padding: 14px; background: var(--paper); transform: translateY(-160%); z-index: 2; }
+.skip-link:focus { transform: none; }
+.review-header { display: flex; align-items: center; justify-content: space-between; min-height: 96px; border-bottom: 1px solid var(--line); gap: 24px; }
+.logo { width: 100px; height: 100px; object-fit: contain; filter: brightness(0) saturate(100%); }
+.review-header nav { display: flex; gap: 24px; align-items: center; }
+.review-header nav a { display: flex; align-items: center; min-height: 44px; font-size: 14px; text-decoration: none; }
+.review-header nav [aria-current] { text-decoration: underline; }
+.review-note { margin: 18px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.section-label { margin: 0 0 16px; font-size: 14px; font-weight: 600; color: var(--muted); }
+h1, h2, h3 { font-family: 'Newsreader', Georgia, serif; font-weight: 400; margin: 0; }
+h1 { font-size: clamp(40px, 4.3vw, 64px); line-height: 1.06; letter-spacing: -.035em; max-width: 19ch; }
+h2 { font-size: clamp(32px, 3vw, 44px); line-height: 1.12; letter-spacing: -.025em; }
+h3 { font-size: 28px; line-height: 1.14; }
+p { line-height: 1.65; }
+.intro { max-width: 60ch; color: var(--muted); font-size: 17px; margin: 20px 0 0; }
+.trip-section { padding: 48px 0 72px; }
+.trip-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 36px; }
+.trip-card { display: flex; flex-direction: column; }
+.trip-photo { display: block; overflow: hidden; border-radius: 4px; }
+.trip-photo img { width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; transition: transform 180ms ease; }
+.trip-photo:hover img { transform: scale(1.02); }
+.trip-duration { margin: 18px 0 8px; color: var(--muted); font-size: 14px; }
+.trip-route { margin: 12px 0 16px; color: var(--muted); font-size: 15px; }
+.trip-card h2 { font-size: 28px; }
+.trip-card .text-link { margin-top: auto; align-self: flex-start; }
+.text-link { display: inline-flex; align-items: center; gap: 18px; min-height: 44px; font-size: 15px; font-weight: 600; }
+.text-link span, .primary-link span { transition: transform 180ms ease; }
+.text-link:hover span { transform: translate(2px, -2px); }
+.text-link:active, .primary-link:active { transform: translateY(1px); }
+.all-trips { margin-top: 28px; }
+.breadcrumb { display: flex; gap: 14px; align-items: center; margin-top: 24px; font-size: 13px; color: var(--muted); }
+.breadcrumb a { min-height: 44px; display: inline-flex; align-items: center; }
+.tour-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: center; padding: 28px 0 48px; }
+.tour-copy h1 { max-width: 12ch; font-size: clamp(42px, 4.7vw, 68px); }
+.tour-copy .intro { max-width: 34ch; }
+.primary-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 32px; min-height: 52px; padding: 13px 22px; margin: 28px 0 12px; color: #fff; background: var(--ink); border-radius: 4px; font-size: 15px; font-weight: 600; text-decoration: none; }
+.primary-link:hover { background: #245240; }
+.tour-copy > .text-link { display: flex; width: fit-content; }
+.tour-photo { margin: 0; }
+.tour-photo img { width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; border-radius: 4px; }
+.tour-photo figcaption { font-size: 13px; color: var(--muted); margin-top: 12px; }
+.itinerary { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; border-top: 1px solid var(--line); padding: 40px 0 72px; scroll-margin-top: 24px; }
+.itinerary p { color: var(--muted); max-width: 42ch; }
+.day-list { margin: 0; padding: 0; list-style: none; }
+.day-list li { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.day-label { font-size: 13px; font-weight: 600; padding-top: 4px; color: var(--muted); }
+.day-list h3 { font-family: 'Geist', system-ui, sans-serif; font-size: 16px; font-weight: 600; line-height: 1.4; }
+.day-list p { margin: 6px 0 0; font-size: 14px; }
+@media (max-width: 1023px) {
+    .wrap { width: calc(100% - 64px); }
+    .trip-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 24px; }
+    .tour-intro { gap: 28px; }
+    .tour-copy h1 { font-size: 44px; }
+    .tour-photo img { aspect-ratio: 4/3; }
+    .primary-link { gap: 16px; padding-inline: 16px; }
+    .itinerary { gap: 32px; }
+}
+@media (max-width: 639px) {
+    .wrap { width: calc(100% - 40px); }
+    .review-header { min-height: 80px; gap: 12px; }
+    .logo { width: 80px; height: 80px; }
+    .review-header nav { gap: 16px; }
+    .review-header nav a { font-size: 12px; }
+    .review-note { margin-top: 14px; font-size: 11px; }
+    .trip-section { padding: 34px 0 48px; }
+    h1 { font-size: 40px; }
+    .section-label { margin-bottom: 12px; }
+    .intro { font-size: 16px; margin-top: 16px; }
+    .trip-grid { grid-template-columns: 1fr; margin-top: 28px; gap: 32px; }
+    .trip-photo img { aspect-ratio: 16/10; }
+    .trip-duration { margin-top: 16px; }
+    .trip-route { margin-bottom: 8px; }
+    .tour-intro { grid-template-columns: 1fr; gap: 24px; padding: 20px 0 28px; }
+    .tour-copy h1 { font-size: 44px; max-width: 14ch; }
+    .tour-copy .intro { max-width: none; }
+    .primary-link { display: flex; width: 100%; margin-top: 22px; }
+    .tour-photo img { aspect-ratio: 4/3; }
+    .tour-photo figcaption { margin-top: 8px; font-size: 12px; }
+    .breadcrumb { margin-top: 14px; }
+    .itinerary { grid-template-columns: 1fr; gap: 24px; padding-top: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
+}
