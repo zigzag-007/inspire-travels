@@ -31,17 +31,17 @@
                 whatsappMessage: "Hi! I am interested in joining a Sri Lanka Group Tour. I would like to claim the 20% early bird discount for one of the first 7 seats."
             },
             {
-                src: "assets/img/promos/promo-flyer-1.png",
+                src: "assets/img/promos/promo-flyer-3.png",
                 title: "Minneriya / Kavdulla / Hurulu Elephant Safari Offer",
                 whatsappMessage: "Hi! I want to book the Elephant Safari. Please apply the 15% discount code *MinIns15* / *KavIns15* / *HurIns15* to my inquiry!"
             },
             {
-                src: "assets/img/promos/promo-flyer-3.png",
+                src: "assets/img/promos/promo-flyer-2.png",
                 title: "Yala Leopard Safari Excursion Offer",
                 whatsappMessage: "Hi! I want to book the Yala Leopard Safari. Please apply the 15% discount code *YalaIns15* to my Yala safari booking!"
             },
             {
-                src: "assets/img/promos/promo-flyer-4.png",
+                src: "assets/img/promos/promo-flyer-1.png",
                 title: "Udawalawa Elephant Safari Excursion Offer",
                 whatsappMessage: "Hi! I want to book the Udawalawa Elephant Safari. Please apply the 15% discount code *UdaIns15* to my Udawalawa safari booking!"
             }

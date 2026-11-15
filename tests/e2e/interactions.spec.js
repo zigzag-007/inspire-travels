@@ -1,5 +1,24 @@
 const { test, expect } = require('@playwright/test');
 
+// Keep the card and enlarged poster tied to the same safari.
+test('safari offers show the poster for their named park', async ({ page }) => {
+    await page.goto('/');
+    const offers = [
+        ['Elephant Gathering Safari', 'Elephant Safari Offer', 4, 3],
+        ['Yala Leopard Safari', 'Yala Leopard Safari Offer', 5, 2],
+        ['Udawalawe Safari', 'Udawalawe Elephant Safari Offer', 6, 1]
+    ];
+    for (const [heading, alt, index, flyer] of offers) {
+        const card = page.locator('.offers-card').filter({ has: page.getByRole('heading', { name: heading, exact: true }) });
+        await expect(card.getByRole('img', { name: alt, exact: true })).toHaveAttribute('src', new RegExp(`promo-flyer-${flyer}\\.png$`));
+    }
+    await page.getByRole('button', { name: /View Promo Codes/ }).click();
+    for (const [heading, alt, index, flyer] of offers) {
+        const poster = page.locator(`#promoCardStack [data-index="${index}"] img`);
+        await expect.poll(async () => await poster.getAttribute('data-promo-src') || await poster.getAttribute('src')).toMatch(new RegExp(`promo-flyer-${flyer}\\.png$`));
+    }
+});
+
 test('a failed modern image source falls back to its original format', async ({ page }) => {
     await page.route(/\.webp(?:\?|$)/, route => route.abort());
     await page.goto('/');
