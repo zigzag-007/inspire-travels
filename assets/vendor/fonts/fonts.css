@@ -1,0 +1,29 @@
+/* Local fonts keep the same names used by the shared design tokens. */
+@font-face {
+    font-family: 'Geist';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('./geist-latin-wght-normal.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Geist Mono';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('./geist-mono-latin-wght-normal.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Newsreader';
+    font-style: normal;
+    font-weight: 200 800;
+    font-display: swap;
+    src: url('./newsreader-latin-standard-normal.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Newsreader';
+    font-style: italic;
+    font-weight: 200 800;
+    font-display: swap;
+    src: url('./newsreader-latin-standard-italic.woff2') format('woff2');
+}

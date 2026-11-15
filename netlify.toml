@@ -1,3 +1,6 @@
 [build]
-  command = "node scripts/generate-search-pages.js"
-  publish = "."
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"

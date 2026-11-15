@@ -4,7 +4,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 const { test } = require('node:test');
 
-const root = path.resolve(__dirname, '..');
+const root = path.resolve(__dirname, '../..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const registration = 'Company Registration Number: PV-00379338';
 

@@ -5,18 +5,18 @@ const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 const { test } = require('node:test');
 
-const root = path.resolve(__dirname, '..');
+const root = path.resolve(__dirname, '../..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 
-test('Netlify and Vercel use the same static route build and publish root', () => {
+test('Netlify and Vercel use the same build and publish dist', () => {
     const netlify = read('netlify.toml');
     const vercel = JSON.parse(read('vercel.json'));
     const netlifyCommand = netlify.match(/^\s*command\s*=\s*"([^"]+)"\s*$/m)?.[1];
     const netlifyPublish = netlify.match(/^\s*publish\s*=\s*"([^"]+)"\s*$/m)?.[1];
 
-    assert.equal(netlifyCommand, 'node scripts/generate-search-pages.js');
+    assert.equal(netlifyCommand, 'npm run build');
     assert.equal(vercel.buildCommand, netlifyCommand);
-    assert.equal(netlifyPublish, '.');
+    assert.equal(netlifyPublish, 'dist');
     assert.equal(vercel.outputDirectory, netlifyPublish);
     assert.equal(vercel.framework, null);
 });
