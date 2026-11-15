@@ -120,10 +120,15 @@ test('reduced motion draws a still canvas without scheduling frames', function()
     }
 });
 
-test('secondary footer slider owns one visibility gated autoplay timer', function() {
-    const source = fs.readFileSync(path.join(root, 'assets/js/shared/site-shell.js'), 'utf8');
-    const start = source.indexOf('    function initFooterSlider()');
-    const end = source.indexOf('\n    function renderFooter()', start);
+test('gallery sliders keep autoplay paused while hover or focus remains active', function() {
+    for (const file of ['gallery/gallery.js', 'shared/site-shell.js']) {
+    const source = fs.readFileSync(path.join(root, 'assets/js', file), 'utf8');
+    const start = file === 'gallery/gallery.js'
+        ? source.indexOf('initGallerySlider: function() {')
+        : source.indexOf('    function initFooterSlider()');
+    const end = file === 'gallery/gallery.js'
+        ? source.indexOf('\r\n        }\r\n    };', start) + '\r\n        }'.length
+        : source.indexOf('\n    function renderFooter()', start);
     const intervals = new Map();
     const handlers = {};
     let nextInterval = 1;
@@ -156,7 +161,10 @@ test('secondary footer slider owns one visibility gated autoplay timer', functio
         matchMedia: () => ({ matches: false }),
         addEventListener(name, callback) { handlers['window:' + name] = callback; }
     };
-    vm.runInNewContext(source.slice(start, end) + '\ninitFooterSlider();', {
+    const sliderSource = file === 'gallery/gallery.js'
+        ? '({' + source.slice(start, end) + '}).initGallerySlider();'
+        : source.slice(start, end) + '\ninitFooterSlider();';
+    vm.runInNewContext(sliderSource, {
         document,
         window,
         setInterval(callback, delay) {
@@ -167,22 +175,33 @@ test('secondary footer slider owns one visibility gated autoplay timer', functio
         clearInterval(id) { intervals.delete(id); }
     });
 
-    assert.equal(intervals.size, 0, 'wait until slider enters the viewport');
+    assert.equal(intervals.size, 0, file + ': wait until slider enters the viewport');
     intersectionCallback([{ isIntersecting: true }]);
-    assert.equal(intervals.size, 1, 'one interval starts in view');
+    assert.equal(intervals.size, 1, file + ': one interval starts in view');
     handlers.mouseenter();
-    assert.equal(intervals.size, 0, 'hover pauses the interval');
+    assert.equal(intervals.size, 0, file + ': hover pauses the interval');
+    handlers.focusin();
     handlers.mouseleave();
+    assert.equal(intervals.size, 0, file + ': pointer exit does not cancel focus pause');
+    handlers.focusout({ relatedTarget: null });
+    assert.equal(intervals.size, 1, file + ': timer resumes after focus and hover end');
+    handlers.focusin();
+    handlers.mouseenter();
+    handlers.focusout({ relatedTarget: null });
+    assert.equal(intervals.size, 0, file + ': focus exit does not cancel hover pause');
     handlers.mouseleave();
-    assert.equal(intervals.size, 1, 'repeated resume keeps one interval');
+    assert.equal(intervals.size, 1, file + ': timer resumes after hover and focus end');
+    handlers.mouseleave();
+    assert.equal(intervals.size, 1, file + ': repeated resume keeps one interval');
     document.hidden = true;
     handlers['document:visibilitychange']();
-    assert.equal(intervals.size, 0, 'hidden tab pauses the interval');
+    assert.equal(intervals.size, 0, file + ': hidden tab pauses the interval');
     document.hidden = false;
     handlers['document:visibilitychange']();
-    assert.equal(intervals.size, 1, 'visible tab resumes one interval');
+    assert.equal(intervals.size, 1, file + ': visible tab resumes one interval');
     intersectionCallback([{ isIntersecting: false }]);
-    assert.equal(intervals.size, 0, 'offscreen slider pauses the interval');
+    assert.equal(intervals.size, 0, file + ': offscreen slider pauses the interval');
+    }
 });
 
 test('home hero carousel waits for visibility and reduced motion settings', function() {

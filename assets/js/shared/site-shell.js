@@ -191,6 +191,7 @@
         var gallerySliderInterval = null;
         var isVisible = !window.IntersectionObserver;
         var isHovered = false;
+        var isFocused = false;
         var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
 
         if (!gallerySlider || totalGalleryItems === 0) return;
@@ -218,7 +219,7 @@
         };
 
         var canAutoPlay = function () {
-            return isVisible && !isHovered && !document.hidden && !(reduceMotion && reduceMotion.matches);
+            return isVisible && !isHovered && !isFocused && !document.hidden && !(reduceMotion && reduceMotion.matches);
         };
 
         var startGallerySlider = function () {
@@ -248,12 +249,12 @@
                 syncGallerySlider();
             });
             galleryContainer.addEventListener('focusin', function() {
-                isHovered = true;
+                isFocused = true;
                 syncGallerySlider();
             });
             galleryContainer.addEventListener('focusout', function(event) {
                 if (!galleryContainer.contains(event.relatedTarget)) {
-                    isHovered = false;
+                    isFocused = false;
                     syncGallerySlider();
                 }
             });

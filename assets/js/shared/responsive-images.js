@@ -3,6 +3,7 @@
     'use strict';
     var images = window.ImageAssetsData || {};
     var fallbackBound = new WeakSet();
+    var generatedSrcsets = new WeakMap();
 
     function record(src) {
         try { return images[new URL(src, document.baseURI).pathname]; }
@@ -14,7 +15,13 @@
         // PhotoSwipe owns full size sources and placeholders inside its viewer.
         if (image.closest('.pswp')) return;
         var asset = record(image.getAttribute('src'));
-        if (!asset) return;
+        if (!asset) {
+            if (generatedSrcsets.has(image)) {
+                if (image.srcset === generatedSrcsets.get(image)) image.removeAttribute('srcset');
+                generatedSrcsets.delete(image);
+            }
+            return;
+        }
         if (!fallbackBound.has(image)) {
             fallbackBound.add(image);
             image.addEventListener('error', function () { image.removeAttribute('srcset'); });
@@ -22,6 +29,7 @@
         if (image.hasAttribute('srcset') && image.srcset === asset.srcset) return;
         image.sizes = image.getAttribute('sizes') || '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw';
         image.srcset = asset.srcset;
+        generatedSrcsets.set(image, asset.srcset);
         if (!image.hasAttribute('width') && !image.hasAttribute('height')) {
             image.width = asset.width;
             image.height = asset.height;

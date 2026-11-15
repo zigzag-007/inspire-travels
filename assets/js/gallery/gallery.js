@@ -368,6 +368,7 @@
             let gallerySliderInterval = null;
             let isVisible = !window.IntersectionObserver;
             let isHovered = false;
+            let isFocused = false;
             const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
 
             if (!gallerySlider || totalGalleryItems === 0) return;
@@ -387,7 +388,7 @@
             };
 
             const startGallerySlider = () => {
-                if (!isVisible || isHovered || document.hidden || (reduceMotion && reduceMotion.matches) || gallerySliderInterval) return;
+                if (!isVisible || isHovered || isFocused || document.hidden || (reduceMotion && reduceMotion.matches) || gallerySliderInterval) return;
                 gallerySliderInterval = setInterval(nextGallerySlide, 3000);
             };
 
@@ -398,7 +399,7 @@
             };
 
             const syncGallerySlider = () => {
-                if (isVisible && !isHovered && !document.hidden && !(reduceMotion && reduceMotion.matches)) startGallerySlider();
+                if (isVisible && !isHovered && !isFocused && !document.hidden && !(reduceMotion && reduceMotion.matches)) startGallerySlider();
                 else stopGallerySlider();
             };
 
@@ -414,12 +415,12 @@
                     syncGallerySlider();
                 });
                 galleryContainer.addEventListener('focusin', () => {
-                    isHovered = true;
+                    isFocused = true;
                     syncGallerySlider();
                 });
                 galleryContainer.addEventListener('focusout', event => {
                     if (!galleryContainer.contains(event.relatedTarget)) {
-                        isHovered = false;
+                        isFocused = false;
                         syncGallerySlider();
                     }
                 });
