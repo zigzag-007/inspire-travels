@@ -8,6 +8,7 @@
     "build": "node build/build.js",
     "test": "node --test logic/*.test.js",
     "test:e2e": "playwright test --config playwright.config.js routes.spec.js interactions.spec.js offline.spec.js initial-layout.spec.js",
+    "test:source": "playwright test --config source-preview.config.js routes.spec.js",
     "test:performance": "playwright test --config playwright.config.js performance.spec.js"
   },
   "devDependencies": {

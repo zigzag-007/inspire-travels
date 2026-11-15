@@ -7,6 +7,7 @@ const vm = require('node:vm');
 
 const projectRoot = path.resolve(__dirname, '../..');
 const outputRoot = path.resolve(process.argv[2] || path.join(projectRoot, 'tests/local/dist'));
+const sourcePreview = outputRoot === projectRoot || process.argv.includes('--source-preview');
 const siteOrigin = 'https://inspiretraveltours.com';
 
 function readProjectFile(relativePath) {
@@ -400,7 +401,10 @@ function writeRoute(relativePath, html, record) {
     const filePath = path.resolve(outputRoot, relativePath);
     if (!filePath.startsWith(outputRoot + path.sep)) throw new Error('Invalid generated route path: ' + relativePath);
     fs.mkdirSync(path.dirname(filePath), { recursive: true });
-    fs.writeFileSync(filePath, removeElement(html, 'loading'));
+    // Source previews rerender from current data when live-server reloads them.
+    let output = removeElement(html, 'loading');
+    if (sourcePreview) output = output.replace(/ data-prerendered-route="[^"]*"/g, '').replace(/[\t ]+$/gm, '');
+    if (!fs.existsSync(filePath) || fs.readFileSync(filePath, 'utf8') !== output) fs.writeFileSync(filePath, output);
 }
 
 function requireSlug(slug, label) {

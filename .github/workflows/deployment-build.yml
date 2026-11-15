@@ -34,3 +34,5 @@ jobs:
         working-directory: tests
       - name: Check built routes, controls, and offline recovery
         run: npm --prefix tests run test:e2e
+      - name: Check plain static source routes
+        run: npm --prefix tests run test:source

@@ -244,6 +244,14 @@ async function build(outputArgument) {
         runRouteGenerator(outputRoot);
         prepareResponsiveMarkup(outputRoot, await optimizeImages(outputRoot));
         compileTailwind(outputRoot, scratchRoot);
+        // Keep plain static previews available without a build server or rewrites.
+        if (outputRoot === path.join(projectRoot, 'tests/local/dist')) {
+            runRouteGenerator(projectRoot);
+            const previewCss = path.join(projectRoot, 'assets/css/generated/tailwind.css');
+            const css = fs.readFileSync(path.join(outputRoot, 'assets/css/generated/tailwind.css'));
+            fs.mkdirSync(path.dirname(previewCss), { recursive: true });
+            if (!fs.existsSync(previewCss) || !fs.readFileSync(previewCss).equals(css)) fs.writeFileSync(previewCss, css);
+        }
         addOfflineRegistration(outputRoot);
         console.log('Built deployable site in ' + path.relative(projectRoot, outputRoot) + '.');
     } finally {

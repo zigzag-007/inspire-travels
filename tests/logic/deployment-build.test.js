@@ -16,6 +16,19 @@ test('development tools stay inside tests instead of the website root', () => {
     }
 });
 
+test('plain static source previews include every public page and local Tailwind', () => {
+    const routes = [...read('public/sitemap.xml').matchAll(/<loc>(.*?)<\/loc>/g)]
+        .map(match => new URL(match[1]).pathname);
+    for (const route of routes) {
+        const file = route === '/' ? 'index.html' : route.slice(1);
+        assert.ok(fs.existsSync(path.join(root, file)), 'missing source preview: ' + route);
+        const html = read(file);
+        assert.doesNotMatch(html, /cdn\.tailwindcss\.com/, route);
+        assert.match(html, /assets\/css\/generated\/tailwind\.css/, route);
+    }
+    assert.ok(fs.existsSync(path.join(root, 'assets/css/generated/tailwind.css')));
+});
+
 test('Netlify and Vercel build the same grouped static output', () => {
     const netlify = read('netlify.toml');
     const vercel = JSON.parse(read('vercel.json'));

@@ -18,6 +18,11 @@ site is generated in `tests/local/dist/`. Preview it with
 `node tests/helpers/static-server.js`. Run checks with `npm --prefix tests test`
 and `npm --prefix tests run test:e2e`.
 
+Plain `npx live-server` from the repository root also works. Each public route
+has a tracked HTML page, with local compiled Tailwind CSS. The build refreshes
+these source previews when tour data or utility classes change. Use
+`npm --prefix tests run test:source` to check this source preview separately.
+
 Deployment support files live in `public/` and are copied to the published root,
 so the sitemap, robots file, headers, redirects and verification URL stay the same.
 
