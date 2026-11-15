@@ -9,12 +9,14 @@
         init: function() {
             const container = document.getElementById('dynamic-gallery-grid');
             if (!container) return;
+            if (container.hasAttribute('data-prerendered-gallery')) return;
 
             this.renderGrid(container);
         },
 
-        renderGrid: function(container) {
-            if (!window.GalleryData || !Array.isArray(window.GalleryData)) {
+        renderGrid: function(container, items) {
+            const galleryItems = items || window.GalleryData;
+            if (!Array.isArray(galleryItems)) {
                 container.innerHTML = '<p class="text-center text-slate-500 w-full py-12">No photos found.</p>';
                 return;
             }
@@ -31,7 +33,7 @@
                 'h-64 sm:h-72'
             ];
 
-            window.GalleryData.forEach((item, index) => {
+            galleryItems.forEach((item, index) => {
                 const category = item.category ? item.category.toLowerCase() : 'nature';
                 const hasTitle = item.title && item.title.trim() !== '';
                 const heightClass = heightSequence[index % heightSequence.length];
@@ -56,13 +58,14 @@
                 htmlContent += `
                     <article class="single-blog-post gallery-archive-item break-inside-avoid inline-block w-full mb-5 sm:mb-6 group cursor-pointer"
                          data-category="${category}" 
-                         data-year="${year}" 
+                         data-year="${year}" ${category === 'offers' ? 'style="display:none"' : ''}
                          onclick="window.openGalleryModal('${item.src}', '${escapedTitle}', '${escapedLocation}', '${escapedDate}')">
                         
                         <div data-spotlight class="gallery-archive-frame relative overflow-hidden ${heightClass}">
                             
                             <!-- Main Photo with Parallax Scale -->
-                            <img src="${item.src}" alt="${escapedTitle || 'Sri Lanka Travel Gallery'}" 
+                            <img src="${item.src}" alt="${escapedTitle || 'Sri Lanka Travel Gallery'}" loading="lazy" decoding="async"
+                                 sizes="(min-width: 1900px) 20vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                                  class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
                                  style="object-position: ${item.position || 'center'};">
                             
@@ -96,6 +99,9 @@
                 .replace(/'/g, "&#039;");
         }
     };
+
+    // Let static page preparation reuse this markup without a second template.
+    window.GalleryGridModule = GalleryGrid;
 
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => GalleryGrid.init());

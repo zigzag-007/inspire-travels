@@ -17,3 +17,28 @@ test('public secondary routes have their final layout before JavaScript', async 
         }
     } finally { await context.close(); }
 });
+
+// The archive must not expand an empty page after its decoration is painted.
+test('gallery photos exist before JavaScript and load lazily', async ({ browser, baseURL }) => {
+    const context = await browser.newContext({ javaScriptEnabled: false });
+    const page = await context.newPage();
+    try {
+        await page.goto(baseURL + '/gallery.html');
+        const photos = page.locator('#dynamic-gallery-grid .single-blog-post img');
+        await expect(photos.first()).toBeAttached();
+        expect(await photos.count()).toBeGreaterThan(40);
+        expect(await photos.evaluateAll(images => images.every(image => image.loading === 'lazy'))).toBe(true);
+    } finally { await context.close(); }
+});
+
+// The browser can request the right hero before parsing scripts and body content.
+test('secondary pages preload the same responsive hero they display', async ({ page }) => {
+    for (const route of ['/gallery.html', '/tours/highlights-escape.html', '/destinations/ella.html']) {
+        await page.goto(route);
+        const image = page.locator('.secondary-hero-background img');
+        const preload = page.locator('head link[rel="preload"][as="image"]');
+        await expect(preload).toHaveCount(1);
+        await expect(preload).toHaveAttribute('imagesrcset', await image.getAttribute('srcset'));
+        await expect(preload).toHaveAttribute('imagesizes', '100vw');
+    }
+});

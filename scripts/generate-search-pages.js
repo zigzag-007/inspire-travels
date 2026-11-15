@@ -25,6 +25,8 @@ function loadBrowserData(relativePath, moduleName) {
 const searchMetadata = loadBrowserData('assets/js/shared/search-metadata.js', 'SearchMetadataModule');
 const secondaryHero = loadBrowserData('assets/js/shared/secondary-hero.js', 'SecondaryHeroModule');
 const destinationRenderer = loadBrowserData('assets/js/destinations/destination-renderer.js', 'DestinationRendererModule');
+const galleryGrid = loadBrowserData('assets/js/gallery/gallery-grid.js', 'GalleryGridModule');
+const galleryData = loadBrowserData('assets/js/gallery/gallery-data.js', 'GalleryData');
 
 // Render pure browser templates in one shared context during the build.
 const templates = { window: { SecondaryHeroModule: secondaryHero } };
@@ -390,6 +392,10 @@ function writeRoute(relativePath, html, record) {
             .replace('<header ', '<header data-secondary-gallery-hero data-prerendered-hero ')
             .replace('</header>', facts + '</header>');
         html = replaceElement(withoutFacts, 'gallery-hero', hero);
+        // Keep the archive height stable before decorations and filters start.
+        const archive = {};
+        galleryGrid.renderGrid(archive, galleryData);
+        html = replaceElement(html, 'dynamic-gallery-grid', '<div id="dynamic-gallery-grid" data-prerendered-gallery class="' + archive.className + '">' + archive.innerHTML + '</div>');
     }
     const filePath = path.resolve(outputRoot, relativePath);
     if (!filePath.startsWith(outputRoot + path.sep)) throw new Error('Invalid generated route path: ' + relativePath);

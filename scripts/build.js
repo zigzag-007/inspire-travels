@@ -200,6 +200,15 @@ function prepareResponsiveMarkup(outputRoot, manifest) {
             const asset = url.origin === 'https://local.test' && manifest.get(url.pathname);
             return asset ? 'url(' + quote + asset.src + quote + ')' : value;
         });
+        // Start the visible secondary hero before parser blocking page scripts.
+        const secondaryHero = html.match(/<div class="secondary-hero-background"[^>]*><img\b[^>]*\bsrc="([^"]+)"/);
+        if (secondaryHero) {
+            const heroUrl = new URL(secondaryHero[1], 'https://local.test/' + path.relative(outputRoot, file).replace(/\\/g, '/'));
+            const hero = heroUrl.origin === 'https://local.test' && manifest.get(heroUrl.pathname);
+            if (hero) {
+                html = html.replace(/<\/title>/i, '</title>\n<link rel="preload" as="image" fetchpriority="high" href="' + hero.src + '" imagesrcset="' + hero.srcset + '" imagesizes="100vw">');
+            }
+        }
         if (file === path.join(outputRoot, 'index.html')) {
             const hero = manifest.get('/assets/img/heroes/Sigiriya_Rock_Fortress_Sri_Lanka_4K.jpg');
             if (hero) {
