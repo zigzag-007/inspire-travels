@@ -331,7 +331,8 @@
                     content.data.w = img.naturalWidth;
                     content.data.h = img.naturalHeight;
                     content.isLoadingDims = false;
-                    content.update();
+                    // Recreate the slide with its real size while the viewer is open.
+                    if (pswp.isOpen && !pswp.isDestroying) pswp.refreshSlideContent(content.index);
                 };
                 img.src = content.data.src;
             });
