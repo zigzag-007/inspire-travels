@@ -45,6 +45,7 @@ test('the shared build creates every tour and destination route in the sitemap',
             assert.match(html, /<title>[^<]+<\/title>/, route);
             assert.match(html, /rel="canonical"/, route);
             assert.doesNotMatch(html, /id="loading"/, route);
+            assert.match(html, /Company Registration Number: PV-00379338/, route);
         }
     } finally {
         fs.rmSync(output, { recursive: true, force: true });
