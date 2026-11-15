@@ -47,13 +47,10 @@
             }
         ],
 
-        init: function() {
-            const openBtns = document.querySelectorAll('.open-promo-btn');
-            const modal = document.getElementById('promoModal');
-            const closeBtn = document.getElementById('closePromoModal');
-
-            if (!modal) return;
-
+        // Build image markup only when the visitor opens the offers.
+        buildDeck: function() {
+            if (this.deckReady) return;
+            this.deckReady = true;
             // Swiper owns the card movement, momentum, and stack depth.
             const stack = document.getElementById('promoCardStack');
             if (stack) {
@@ -61,7 +58,7 @@
                     <div class="swiper-wrapper">
                         ${this.slides.map((slide, idx) => `
                             <div class="swiper-slide promo-card w-full h-full rounded-2xl overflow-hidden bg-[#0c3531] border border-white/10 shadow-lg" data-index="${idx}">
-                                <img src="${slide.src}" alt="${slide.title}" class="w-full h-full object-contain pointer-events-none select-none rounded-xl">
+                                <img data-promo-src="${slide.src}" width="1254" height="1254" decoding="async" alt="${slide.title}" class="w-full h-full object-contain pointer-events-none select-none rounded-xl">
                                 <button type="button" data-promo-zoom-index="${idx}" class="promo-no-swipe absolute top-3 right-3 bg-black/60 hover:bg-[#F7921E] text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-md border border-white/10 z-20" title="Zoom image" aria-label="Zoom ${slide.title}">
                                     <i data-lucide="maximize-2" class="w-4 h-4"></i>
                                 </button>
@@ -77,6 +74,28 @@
                     window.openPromoPhotoSwipe(Number(zoomButton.dataset.promoZoomIndex));
                 });
             }
+
+        },
+
+        // Load the current card and its neighbors so a swipe has an image ready.
+        loadAdjacentSlides: function() {
+            const stack = document.getElementById('promoCardStack');
+            if (!stack) return;
+            stack.querySelectorAll('img[data-promo-src]').forEach(image => {
+                const index = Number(image.closest('[data-index]').dataset.index);
+                const distance = Math.abs(index - this.activeSlideIndex);
+                if (distance > 1 && distance !== this.slides.length - 1) return;
+                image.src = image.dataset.promoSrc;
+                image.removeAttribute('data-promo-src');
+            });
+        },
+
+        init: function() {
+            const openBtns = document.querySelectorAll('.open-promo-btn');
+            const modal = document.getElementById('promoModal');
+            const closeBtn = document.getElementById('closePromoModal');
+
+            if (!modal) return;
 
             this.renderDotsAndLink();
 
@@ -120,7 +139,9 @@
             const modal = document.getElementById('promoModal');
             if (!modal) return;
 
+            this.buildDeck();
             this.activeSlideIndex = 0;
+            this.loadAdjacentSlides();
             this.renderDotsAndLink();
 
             modal.classList.remove('invisible', 'opacity-0');
@@ -226,6 +247,7 @@
             this.activeSlideIndex = Number.isInteger(swiper.realIndex)
                 ? swiper.realIndex
                 : 0;
+            this.loadAdjacentSlides();
             this.renderDotsAndLink();
         },
 
@@ -258,7 +280,7 @@
 
         const slides = window.PromoModule.slides;
         const pswpItems = slides.map(s => ({
-            src: s.src,
+            src: window.ImageAssetsModule ? window.ImageAssetsModule.full(s.src) : s.src,
             width: 1254,
             height: 1254
         }));

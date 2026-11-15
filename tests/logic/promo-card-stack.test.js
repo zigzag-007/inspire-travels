@@ -14,10 +14,11 @@ function createClassList(initialClasses = []) {
     };
 }
 
-function loadPromoModule() {
+function loadPromoModule(open = true) {
     const keydownListeners = [];
     const stack = {
         innerHTML: '',
+        querySelectorAll: () => [],
         addEventListener: () => {}
     };
     const dots = {
@@ -86,7 +87,7 @@ function loadPromoModule() {
     delete require.cache[promoModulePath];
     require(promoModulePath);
     window.PromoModule.init();
-    window.PromoModule.open();
+    if (open) window.PromoModule.open();
 
     return {
         FakeSwiper,
@@ -102,6 +103,12 @@ afterEach(() => {
     delete require.cache[promoModulePath];
     delete global.document;
     delete global.window;
+});
+
+test('closed promos do not create or request flyer images', () => {
+    const { FakeSwiper, stack } = loadPromoModule(false);
+    assert.equal(stack.innerHTML, '');
+    assert.equal(FakeSwiper.instances.length, 0);
 });
 
 test('opening promos creates a looping Swiper card deck', () => {

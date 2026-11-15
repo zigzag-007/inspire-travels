@@ -6,6 +6,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 const vm = require('node:vm');
+const { optimizeImages } = require('./prepare-images.js');
 
 const projectRoot = path.resolve(__dirname, '..');
 let tailwindCli;
@@ -167,7 +168,61 @@ function addOfflineRegistration(outputRoot) {
     fs.writeFileSync(workerPath, workerSource.replaceAll('__BUILD_VERSION__', version));
 }
 
-function build(outputArgument) {
+// Add image choices before the browser starts requesting static page images.
+function prepareResponsiveMarkup(outputRoot, manifest) {
+    const data = Object.fromEntries(manifest);
+    const dataPath = path.join(outputRoot, 'assets/js/shared/image-assets.js');
+    fs.writeFileSync(dataPath, 'window.ImageAssetsData=' + JSON.stringify(data).replace(/</g, '\\u003c') + ';\n');
+    walk(outputRoot).filter(file => file.endsWith('.html')).forEach(function (file) {
+        let html = fs.readFileSync(file, 'utf8');
+        html = html.replace(/<img\b[^>]*\bsrc="([^"]+)"[^>]*>/g, function (tag, src) {
+            let url;
+            try { url = new URL(src, 'https://local.test/' + path.relative(outputRoot, file).replace(/\\/g, '/')); }
+            catch (error) { return tag; }
+            const asset = url.origin === 'https://local.test' && manifest.get(url.pathname);
+            if (!asset) return tag;
+            if (!/\bsrcset=/.test(tag)) tag = tag.replace(/>$/, ' srcset="' + asset.srcset + '">');
+            if (!/\bsizes=/.test(tag)) {
+                const sizes = /secondary-hero-background|dest-hero-bg-img/.test(tag) ? '100vw' : '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw';
+                tag = tag.replace(/>$/, ' sizes="' + sizes + '">');
+            }
+            if (!/\bwidth=/.test(tag) && !/\bheight=/.test(tag)) tag = tag.replace(/>$/, ' width="' + asset.width + '" height="' + asset.height + '">');
+            return tag;
+        });
+        // Inline backgrounds need their full image and must keep working without JS.
+        html = html.replace(/url\((['"])([^'"]+)\1\)/g, function (value, quote, src) {
+            let url;
+            try { url = new URL(src, 'https://local.test/' + path.relative(outputRoot, file).replace(/\\/g, '/')); }
+            catch (error) { return value; }
+            const asset = url.origin === 'https://local.test' && manifest.get(url.pathname);
+            return asset ? 'url(' + quote + asset.src + quote + ')' : value;
+        });
+        if (file === path.join(outputRoot, 'index.html')) {
+            const hero = manifest.get('/assets/img/heroes/Sigiriya_Rock_Fortress_Sri_Lanka_4K.jpg');
+            if (hero) {
+                const candidates = hero.srcset.split(', ').map(value => value.split(' '));
+                const choose = width => (candidates.find(value => parseInt(value[1], 10) >= width) || [hero.src])[0];
+                const small = choose(960);
+                const medium = choose(1600);
+                const background = src => '#hero-bg-1{background-image:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),url("' + src + '")}';
+                const cssFile = path.join(outputRoot, 'assets/css/generated/hero-image.css');
+                fs.mkdirSync(path.dirname(cssFile), { recursive: true });
+                fs.writeFileSync(cssFile, background(hero.src) + '@media(max-width:640px){' + background(small) + '}@media(min-width:641px) and (max-width:1600px){' + background(medium) + '}');
+                html = html.replace(/(<div\b[^>]*id="hero-bg-1"[^>]*?)\sstyle="[^"]*"/, '$1');
+                html = html.replace(/<\/title>/i, '</title>\n<link rel="stylesheet" href="/assets/css/generated/hero-image.css">' +
+                    '<link rel="preload" as="image" fetchpriority="high" media="(max-width:640px)" href="' + small + '">' +
+                    '<link rel="preload" as="image" fetchpriority="high" media="(min-width:641px) and (max-width:1600px)" href="' + medium + '">' +
+                    '<link rel="preload" as="image" fetchpriority="high" media="(min-width:1601px)" href="' + hero.src + '">');
+            }
+        }
+        if (file !== path.join(outputRoot, 'offline.html')) {
+            html = html.replace(/<\/head>/i, '<script src="/assets/js/shared/image-assets.js"></script>\n<script src="/assets/js/shared/responsive-images.js"></script>\n</head>');
+        }
+        fs.writeFileSync(file, html);
+    });
+}
+
+async function build(outputArgument) {
     const outputRoot = resolveOutput(outputArgument);
     const scratchRoot = path.join(projectRoot, '.zigzag-tmp', 'build');
     fs.rmSync(scratchRoot, { recursive: true, force: true });
@@ -177,6 +232,7 @@ function build(outputArgument) {
         clearOutput(outputRoot);
         copyPublicFiles(outputRoot);
         runRouteGenerator(outputRoot);
+        prepareResponsiveMarkup(outputRoot, await optimizeImages(outputRoot));
         compileTailwind(outputRoot, scratchRoot);
         addOfflineRegistration(outputRoot);
         console.log('Built deployable site in ' + path.relative(projectRoot, outputRoot) + '.');
@@ -185,9 +241,7 @@ function build(outputArgument) {
     }
 }
 
-try {
-    build(process.argv[2]);
-} catch (error) {
+build(process.argv[2]).catch(function (error) {
     console.error(error.message);
     process.exitCode = 1;
-}
+});
