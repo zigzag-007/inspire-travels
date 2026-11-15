@@ -49,7 +49,8 @@
             const container = document.getElementById('tour-content');
             if (!container) return false;
 
-            container.outerHTML = html;
+            // Reuse the built markup so hero images do not restart during startup.
+            if (container.dataset.prerenderedRoute !== tour.slug) container.outerHTML = html;
             window.activeTourGallery = galleryImages.map(function(image) {
                 return { src: '../' + image.src, title: image.title };
             });

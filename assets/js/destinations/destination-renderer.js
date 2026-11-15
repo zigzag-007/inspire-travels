@@ -6,6 +6,23 @@
     'use strict';
 
     window.DestinationRendererModule = {
+        // Keep the initial build hero identical to the browser's live hero.
+        heroConfig: function(data, heroImage) {
+            return {
+                id: 'dest-hero', imageId: 'dest-hero-bg-img', image: heroImage,
+                imageAlt: data.heroImageAlt || data.name + ' landscape in Sri Lanka',
+                eyebrow: data.region || 'Sri Lankan destination',
+                titleId: 'dest-hero-title', title: data.name + ' Travel Guide',
+                descriptionId: 'dest-excerpt', description: data.tagline + '. ' + data.excerpt,
+                noteId: 'dest-readtime', note: data.readTime || '6 Min Read', showNoteDetail: false,
+                breadcrumbs: [
+                    { label: 'Home', href: '../index.html' },
+                    { label: 'Destinations', href: '../index.html#destinations' },
+                    { label: data.name }
+                ],
+                action: { label: 'Explore the guide', href: '#overview', toc: 'overview' }
+            };
+        },
         render: function(data) {
             const isSubfolder = window.location.pathname.includes('/destinations/');
             const pathPrefix = isSubfolder ? '../' : '';
@@ -13,26 +30,9 @@
 
             if (window.SecondaryHeroModule) {
                 var existingHero = document.getElementById('dest-hero') || document.querySelector('[data-secondary-destination-hero]');
-                window.SecondaryHeroModule.renderInto(existingHero, {
-                    id: 'dest-hero',
-                    imageId: 'dest-hero-bg-img',
-                    image: heroImage,
-                    imageAlt: data.heroImageAlt || data.name + ' landscape in Sri Lanka',
-                    eyebrow: data.region || 'Sri Lankan destination',
-                    titleId: 'dest-hero-title',
-                    title: data.name + ' Travel Guide',
-                    descriptionId: 'dest-excerpt',
-                    description: data.tagline + '. ' + data.excerpt,
-                    noteId: 'dest-readtime',
-                    note: data.readTime || '6 Min Read',
-                    showNoteDetail: false,
-                    breadcrumbs: [
-                        { label: 'Home', href: '../index.html' },
-                        { label: 'Destinations', href: '../index.html#destinations' },
-                        { label: data.name }
-                    ],
-                    action: { label: 'Explore the guide', href: '#overview', toc: 'overview' }
-                });
+                if (!existingHero || existingHero.dataset.prerenderedRoute !== data.slug) {
+                    window.SecondaryHeroModule.renderInto(existingHero, this.heroConfig(data, heroImage));
+                }
             }
 
             // Document Title

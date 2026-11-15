@@ -38,6 +38,26 @@ test('production build contains only deployable site files and compiled Tailwind
         ['.pt-2', '.pt-4', '.md\\:pl-6'].forEach(function(selector) {
             assert.ok(css.includes(selector), 'missing generated utility: ' + selector);
         });
+
+        // Include lazy images and CSS fonts that a route smoke check may not request.
+        function checkAssets(directory) {
+            for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+                const file = path.join(directory, entry.name);
+                if (entry.isDirectory()) { checkAssets(file); continue; }
+                if (!/\.(?:html|css)$/.test(file)) continue;
+                const text = fs.readFileSync(file, 'utf8');
+                const references = file.endsWith('.css')
+                    ? [...text.matchAll(/url\((?:"([^"]*)"|'([^']*)'|([^)'"\s]+))\)/g)]
+                    : [...text.matchAll(/(?:src|href)="([^"]+)"/g)];
+                for (const match of references) {
+                    const url = new URL(match[1] || match[2] || match[3], 'https://local.test/' + path.relative(outputRoot, file));
+                    if (url.origin !== 'https://local.test' || !url.pathname.startsWith('/assets/')) continue;
+                    const asset = path.join(outputRoot, decodeURIComponent(url.pathname));
+                    assert.ok(fs.existsSync(asset), file + ' references missing ' + url.pathname);
+                }
+            }
+        }
+        checkAssets(outputRoot);
     } finally {
         fs.rmSync(outputRoot, { recursive: true, force: true });
     }

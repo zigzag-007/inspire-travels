@@ -21,8 +21,8 @@
         var title = escapeHtml(config.title);
         var image = escapeHtml(config.image);
         var responsive = window.ImageAssetsModule;
-        var backgroundAttributes = responsive ? responsive.attributes(config.image, '100vw') : '';
-        var portraitAttributes = responsive ? responsive.attributes(config.image, '(max-width: 640px) 80vw, 33vw') : '';
+        var backgroundAttributes = responsive ? responsive.attributes(config.image, '100vw') : ' sizes="100vw"';
+        var portraitAttributes = responsive ? responsive.attributes(config.image, '(max-width: 640px) 80vw, 33vw') : ' sizes="(max-width: 640px) 80vw, 33vw"';
         var imageAlt = escapeHtml(config.imageAlt || config.title);
         var eyebrow = escapeHtml(config.eyebrow);
         var description = escapeHtml(config.description);
@@ -75,11 +75,9 @@
         return hero;
     }
 
-    function renderGallery() {
-        var target = document.querySelector('[data-secondary-gallery-hero]');
-        if (!target) return;
-
-        var hero = renderInto(target, {
+    // The build and browser use the same hero content and layout.
+    function galleryConfig() {
+        return {
             id: 'gallery-hero',
             image: 'assets/img/gallery/main/tea-plantation-tour.jpeg',
             imageAlt: 'Tea country guest experience in Sri Lanka',
@@ -94,10 +92,17 @@
                 { label: 'Photo archive' }
             ],
             action: { label: 'Explore the archive', href: '#dynamic-gallery-grid' }
-        });
+        };
+    }
+
+    function renderGallery() {
+        var target = document.querySelector('[data-secondary-gallery-hero]');
+        if (!target) return;
+        if (target.hasAttribute('data-prerendered-hero')) return;
+        var factsDock = document.querySelector('.secondary-facts-dock[aria-label="Gallery quick facts"]');
+        var hero = renderInto(target, galleryConfig());
 
         // The facts belong to the hero so the lower space stays exact on every screen.
-        var factsDock = document.querySelector('.secondary-facts-dock[aria-label="Gallery quick facts"]');
         if (hero && factsDock && factsDock.parentElement !== hero) {
             hero.appendChild(factsDock);
         }
@@ -105,6 +110,7 @@
 
     window.SecondaryHeroModule = {
         render: render,
+        galleryConfig: galleryConfig,
         renderInto: renderInto,
         renderGallery: renderGallery
     };

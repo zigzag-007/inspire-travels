@@ -9,7 +9,7 @@ const source = fs.readFileSync(
     'utf8'
 );
 const galleryHtml = fs.readFileSync(path.join(projectRoot, 'gallery.html'), 'utf8');
-const target = { outerHTML: '' };
+const target = { outerHTML: '', hasAttribute: () => false };
 const factsDock = { parentElement: {} };
 const hero = {
     nextElementSibling: null,

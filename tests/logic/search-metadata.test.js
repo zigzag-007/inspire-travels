@@ -94,8 +94,9 @@ test('build creates crawlable route pages with unique metadata and itinerary con
         assert.match(tour, /<title>Sri Lanka Highlights Escape \| Inspire Travels &amp; Tours<\/title>/);
         assert.match(tour, /rel="canonical" href="https:\/\/inspiretraveltours\.com\/tours\/highlights-escape\.html"/);
         assert.doesNotMatch(tour, /property="og:image:(?:width|height)"/);
-        assert.match(tour, /<nav class="text-sm text-emerald-800" aria-label="Breadcrumb"><a href="\.\.\/index\.html">Home<\/a> \/ <a href="collection-family\.html">Family Tours<\/a>/);
-        assert.match(tour, /Day by day Sri Lanka tour itinerary/);
+        assert.match(tour, /<nav class="secondary-hero-breadcrumb" aria-label="Breadcrumb"><a href="\.\.\/index\.html">Home<\/a>/);
+        assert.match(tour, /href="collection-family\.html">Family Tours<\/a>/);
+        assert.match(tour, /Day by Day Itinerary/);
         assert.match(tour, /Kandy and Pinnawala/);
         assert.doesNotMatch(tour, /Loading tour details/);
         assert.doesNotMatch(tour, /Route:\s+[A-Z]/);
@@ -137,10 +138,15 @@ test('build creates crawlable route pages with unique metadata and itinerary con
             else if (entry.name.endsWith('.html')) pages.push(file);
         });
         collect(output);
-        assert.equal(pages.length, 29);
+        assert.equal(pages.length, 30);
         for (const file of pages) {
             const html = fs.readFileSync(file, 'utf8');
             assert.doesNotMatch(html, /id="loading"/, file);
+            if (path.basename(file) === 'gallery.html') {
+                assert.match(html, /data-prerendered-hero/);
+                assert.match(html, /id="gallery-facts-dock"/);
+                continue;
+            }
             const structuredData = html.match(/<script id="page-search-data" type="application\/ld\+json">([\s\S]*?)<\/script>/);
             assert.ok(structuredData, file);
             assert.ok(JSON.parse(structuredData[1])['@graph'].length >= 2, file);

@@ -122,12 +122,12 @@ test('reduced motion draws a still canvas without scheduling frames', function()
 
 test('gallery sliders keep autoplay paused while hover or focus remains active', function() {
     for (const file of ['gallery/gallery.js', 'shared/site-shell.js']) {
-    const source = fs.readFileSync(path.join(root, 'assets/js', file), 'utf8');
+    const source = fs.readFileSync(path.join(root, 'assets/js', file), 'utf8').replace(/\r\n/g, '\n');
     const start = file === 'gallery/gallery.js'
         ? source.indexOf('initGallerySlider: function() {')
         : source.indexOf('    function initFooterSlider()');
     const end = file === 'gallery/gallery.js'
-        ? source.indexOf('\r\n        }\r\n    };', start) + '\r\n        }'.length
+        ? source.indexOf('\n        }\n    };', start) + '\n        }'.length
         : source.indexOf('\n    function renderFooter()', start);
     const intervals = new Map();
     const handlers = {};

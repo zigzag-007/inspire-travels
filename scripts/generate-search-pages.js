@@ -14,7 +14,7 @@ function readProjectFile(relativePath) {
 }
 
 function loadBrowserData(relativePath, moduleName) {
-    const context = { window: {}, URL: URL };
+    const context = { window: {}, URL: URL, document: { readyState: 'loading', addEventListener() {} } };
     vm.runInNewContext(readProjectFile(relativePath), context, { filename: relativePath });
     if (!context.window[moduleName]) {
         throw new Error('Could not load ' + moduleName + ' from ' + relativePath);
@@ -23,6 +23,28 @@ function loadBrowserData(relativePath, moduleName) {
 }
 
 const searchMetadata = loadBrowserData('assets/js/shared/search-metadata.js', 'SearchMetadataModule');
+const secondaryHero = loadBrowserData('assets/js/shared/secondary-hero.js', 'SecondaryHeroModule');
+const destinationRenderer = loadBrowserData('assets/js/destinations/destination-renderer.js', 'DestinationRendererModule');
+
+// Render pure browser templates in one shared context during the build.
+const templates = { window: { SecondaryHeroModule: secondaryHero } };
+for (const name of ['tour-data', 'tour-collection-data', 'tour-gallery-data', 'tour-shell-template', 'tour-content-template', 'tour-media-template', 'tour-collection-template']) {
+    vm.runInNewContext(readProjectFile('assets/js/tours/' + name + '.js'), templates);
+}
+
+// Replace the whole fallback element while retaining the surrounding document.
+function replaceElement(html, id, markup) {
+    const pattern = new RegExp('<([a-z][a-z0-9:-]*)\\b(?=[^>]*\\bid=["\']' + escapeRegExp(id) + '["\'])[^>]*>', 'i');
+    const opening = pattern.exec(html);
+    if (!opening) throw new Error('Missing initial layout element ' + id);
+    const removed = removeElement(html, id);
+    return removed.slice(0, opening.index) + markup + removed.slice(opening.index);
+}
+
+// Initial layout classes must match the classes added by the page renderer.
+function setBodyClass(html, className) {
+    return html.replace(/(<body\b[^>]*\bclass=")([^"]*)"/i, '$1$2 ' + className + '"');
+}
 
 function escapeHtml(value) {
     return String(value == null ? '' : value).replace(/[&<>"']/g, function(character) {
@@ -340,7 +362,35 @@ function renderDestinationPage(data) {
     return html;
 }
 
-function writeRoute(relativePath, html) {
+function writeRoute(relativePath, html, record) {
+    // Use the same templates on both sides, keeping the initial screen stable.
+    if (relativePath.startsWith('tours' + path.sep) && record) {
+        let markup;
+        if (path.basename(relativePath).startsWith('collection-')) {
+            markup = templates.window.TourCollectionTemplateModule.render(record, templates.window.TourDataModule.getByCollection(record.slug));
+            html = setBodyClass(html, 'tour-collection-view').replace('<body ', '<body data-collection-accent="' + escapeHtml(record.accent) + '" ');
+        } else {
+            const context = {
+                galleryImages: templates.window.TourGalleryDataModule.getByTour(record.slug),
+                otherTours: templates.window.TourDataModule.getRelated(record, 3)
+            };
+            markup = templates.window.TourShellTemplateModule.render(record) + templates.window.TourContentTemplateModule.render(record, context) + templates.window.TourMediaTemplateModule.render(record, context);
+            html = setBodyClass(html, 'tour-detail-view');
+        }
+        html = replaceElement(html, 'tour-content', '<div id="tour-content" data-prerendered-route="' + escapeHtml(record.slug) + '">' + markup + '</div>');
+    } else if (record && relativePath.startsWith('destinations' + path.sep)) {
+        const hero = secondaryHero.render(destinationRenderer.heroConfig(record, '../' + record.heroImage))
+            .replace('<header ', '<header data-prerendered-route="' + escapeHtml(record.slug) + '" ');
+        html = replaceElement(html, 'dest-hero', hero);
+    } else if (relativePath === 'gallery.html') {
+        const withoutFacts = removeElement(html, 'gallery-facts-dock');
+        const start = html.lastIndexOf('<div', html.indexOf('id="gallery-facts-dock"'));
+        const facts = html.slice(start, start + html.length - withoutFacts.length);
+        const hero = secondaryHero.render(secondaryHero.galleryConfig())
+            .replace('<header ', '<header data-secondary-gallery-hero data-prerendered-hero ')
+            .replace('</header>', facts + '</header>');
+        html = replaceElement(withoutFacts, 'gallery-hero', hero);
+    }
     const filePath = path.resolve(outputRoot, relativePath);
     if (!filePath.startsWith(outputRoot + path.sep)) throw new Error('Invalid generated route path: ' + relativePath);
     fs.mkdirSync(path.dirname(filePath), { recursive: true });
@@ -359,7 +409,7 @@ function main() {
     let tourCount = 0;
     tours.forEach(function(tour) {
         requireSlug(tour.slug, 'tour');
-        writeRoute(path.join('tours', tour.slug + '.html'), renderTourPage(tour, collectionData));
+        writeRoute(path.join('tours', tour.slug + '.html'), renderTourPage(tour, collectionData), tour);
         tourCount += 1;
     });
 
@@ -370,7 +420,7 @@ function main() {
             return (tour.collections || []).indexOf(collection.slug) !== -1;
         });
         if (!relatedTours.length) throw new Error('Collection has no tour routes: ' + collection.slug);
-        writeRoute(path.join('tours', 'collection-' + collection.slug + '.html'), renderCollectionPage(collection, relatedTours));
+        writeRoute(path.join('tours', 'collection-' + collection.slug + '.html'), renderCollectionPage(collection, relatedTours), collection);
         collectionCount += 1;
     });
 
@@ -379,10 +429,11 @@ function main() {
         const destination = destinations[slug];
         requireSlug(destination.slug, 'destination');
         if (slug !== destination.slug) throw new Error('Destination data key does not match its slug: ' + slug);
-        writeRoute(path.join('destinations', destination.slug + '.html'), renderDestinationPage(destination));
+        writeRoute(path.join('destinations', destination.slug + '.html'), renderDestinationPage(destination), destination);
         destinationCount += 1;
     });
 
+    if (outputRoot !== projectRoot) writeRoute('gallery.html', readProjectFile('gallery.html'));
     console.log('Generated ' + tourCount + ' tour pages, ' + collectionCount + ' tour collections, and ' + destinationCount + ' destination guides.');
 }
 

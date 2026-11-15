@@ -13,7 +13,10 @@
             var container = document.getElementById('tour-content');
             if (!container || !tours.length) return false;
 
-            container.outerHTML = window.TourCollectionTemplateModule.render(collection, tours);
+            // The build already rendered this route using the same template.
+            if (container.dataset.prerenderedRoute !== collection.slug) {
+                container.outerHTML = window.TourCollectionTemplateModule.render(collection, tours);
+            }
             document.title = collection.navLabel + ' in Sri Lanka | Inspire Travels & Tours';
             if (window.SearchMetadataModule) window.SearchMetadataModule.update({
                 title: document.title,
