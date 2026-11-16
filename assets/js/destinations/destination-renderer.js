@@ -9,7 +9,7 @@
         // Keep the initial build hero identical to the browser's live hero.
         heroConfig: function(data, heroImage) {
             return {
-                id: 'dest-hero', imageId: 'dest-hero-bg-img', image: heroImage,
+                id: 'dest-hero', imageId: 'dest-hero-bg-img', image: heroImage, singleImage: true,
                 imageAlt: data.heroImageAlt || data.name + ' landscape in Sri Lanka',
                 eyebrow: data.region || 'Sri Lankan destination',
                 titleId: 'dest-hero-title', title: data.name + ' Travel Guide',
@@ -109,11 +109,9 @@
 
             const tipsListContainer = document.getElementById('dest-tips-list');
             if (tipsListContainer && art.tips) {
-                tipsListContainer.innerHTML = art.tips.map(function(tip, index) {
-                    const numStr = index < 9 ? '0' + (index + 1) : '' + (index + 1);
+                tipsListContainer.innerHTML = art.tips.map(function(tip) {
                     return '' +
                         '<li class="destination-tip-item">' +
-                        '  <span class="destination-tip-number">' + numStr + '</span>' +
                         '  <span>' + tip + '</span>' +
                         '</li>';
                 }).join('');
@@ -142,13 +140,11 @@
             // Activities Grid
             const activitiesContainer = document.getElementById('dest-activities-container');
             if (activitiesContainer && data.activities) {
-                activitiesContainer.innerHTML = data.activities.map(function(act, index) {
+                activitiesContainer.innerHTML = data.activities.map(function(act) {
                     const imgPath = act.image.startsWith('assets/') ? pathPrefix + act.image : act.image;
-                    const numStr = index < 9 ? '0' + (index + 1) : '' + (index + 1);
                     return '' +
                         '<article class="destination-activity group">' +
                         '  <div class="destination-activity-copy">' +
-                        '    <span class="destination-activity-number">' + numStr + '</span>' +
                         '    <div>' +
                         '      <h4 class="destination-activity-title text-2xl leading-tight text-slate-950 sm:text-3xl">' + act.title + '</h4>' +
                         '      <p class="destination-activity-description">' + act.description + '</p>' +
@@ -156,7 +152,7 @@
                         '    </div>' +
                         '  </div>' +
                         '  <div class="overflow-hidden">' +
-                        '    <img src="' + imgPath + '" alt="' + act.title + '" class="destination-activity-image" loading="lazy">' +
+                        '    <img src="' + imgPath + '" alt="' + (act.imageAlt || act.title) + '" class="destination-activity-image" loading="lazy">' +
                         '  </div>' +
                         '</article>';
                 }).join('');

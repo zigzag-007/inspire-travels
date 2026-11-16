@@ -32,9 +32,13 @@
             : '<small id="' + escapeHtml(config.noteDetailId || '') + '">' + escapeHtml(config.noteDetail || 'Designed around real travellers') + '</small>';
         var actionToc = config.action && config.action.toc ? ' data-destination-toc="' + escapeHtml(config.action.toc) + '"' : '';
         var action = config.action ? '<a href="' + escapeHtml(config.action.href) + '" class="secondary-hero-action"' + actionToc + '><span>' + escapeHtml(config.action.label) + '</span><i class="ph ph-arrow-down-right"></i></a>' : '';
+        var portraitImage = config.singleImage ? '' : '<span class="secondary-hero-portrait-frame"><img src="' + image + '" alt="' + imageAlt + '" decoding="async"' + portraitAttributes + '></span>';
+        var noteText = '<span id="' + escapeHtml(config.noteId || '') + '">' + note + '</span>' + noteDetail;
+        // A background only hero keeps its note in the normal reading flow.
+        var portrait = config.singleImage ? '' : '<figure class="secondary-hero-portrait">' + portraitImage + '<figcaption>' + noteText + '</figcaption></figure>';
 
-        return '<header id="' + escapeHtml(config.id) + '" class="secondary-editorial-hero">' +
-            '<div class="secondary-hero-background" aria-hidden="true"><img id="' + escapeHtml(config.imageId || '') + '" src="' + image + '" alt="" fetchpriority="high"' + backgroundAttributes + '></div>' +
+        return '<header id="' + escapeHtml(config.id) + '" class="secondary-editorial-hero' + (config.singleImage ? ' secondary-single-image' : '') + '">' +
+            '<div class="secondary-hero-background"' + (config.singleImage ? '' : ' aria-hidden="true"') + '><img id="' + escapeHtml(config.imageId || '') + '" src="' + image + '" alt="' + (config.singleImage ? imageAlt : '') + '" fetchpriority="high"' + backgroundAttributes + '></div>' +
             '<div class="secondary-hero-grain" aria-hidden="true"></div>' +
             '<nav class="secondary-hero-breadcrumb" aria-label="Breadcrumb">' + renderBreadcrumbs(config.breadcrumbs || []) + '</nav>' +
             '<div class="secondary-hero-layout">' +
@@ -43,11 +47,9 @@
                     '<h1 id="' + escapeHtml(config.titleId || '') + '">' + title + '</h1>' +
                     '<p id="' + escapeHtml(config.descriptionId || '') + '">' + description + '</p>' +
                     action +
+                    (config.singleImage ? '<p class="secondary-hero-note">' + noteText + '</p>' : '') +
                 '</div>' +
-                '<figure class="secondary-hero-portrait">' +
-                    '<span class="secondary-hero-portrait-frame"><img src="' + image + '" alt="' + imageAlt + '" decoding="async"' + portraitAttributes + '></span>' +
-                    '<figcaption><span id="' + escapeHtml(config.noteId || '') + '">' + note + '</span>' + noteDetail + '</figcaption>' +
-                '</figure>' +
+                portrait +
             '</div>' +
         '</header>';
     }

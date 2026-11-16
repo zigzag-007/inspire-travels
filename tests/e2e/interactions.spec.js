@@ -1,5 +1,118 @@
 const { test, expect } = require('@playwright/test');
 
+// The footer gradient should span the section without repeating in small tiles.
+test('dark brand sections use a continuous background', async ({ page }) => {
+    await page.goto('/');
+    const background = await page.locator('.gowilds-footer').first().evaluate(element => ({
+        size: getComputedStyle(element).backgroundSize,
+        repeat: getComputedStyle(element).backgroundRepeat
+    }));
+    expect(background).toEqual({ size: '100% 100%', repeat: 'no-repeat' });
+});
+
+// A historic cannon is a museum subject, and its photo must work by keyboard.
+test('footer photo labels describe the actual subjects', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.getByText('Experience thrilling cannon cart rides through scenic landscapes.', { exact: true })).toHaveCount(0);
+    const cannon = page.getByRole('button', { name: 'Open photo: Historic cannon', exact: true }).first();
+    await cannon.scrollIntoViewIfNeeded();
+    await cannon.evaluate(element => element.focus());
+    await page.keyboard.press('Enter');
+    await expect(page.locator('.pswp')).toBeVisible();
+    await expect(page.locator('.pswp h4')).toHaveText('Historic cannon');
+});
+
+// Reduced motion removes entry delays as well as movement.
+test('reduced motion shows hero copy without animation delays', async ({ page }) => {
+    await page.setViewportSize({ width: 768, height: 1024 });
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.goto('/');
+    await expect(page.locator('h1')).toHaveCSS('transition-delay', '0s');
+    await expect(page.locator('h1')).toHaveCSS('opacity', '1');
+});
+
+// Removing decorative numbering must leave the guide's text column full width.
+test('destination history keeps a readable column', async ({ page }) => {
+    for (const width of [768, 1440]) {
+        await page.setViewportSize({ width, height: 1024 });
+        await page.goto('/destinations/ella.html');
+        const widths = await page.evaluate(() => ({
+            history: document.querySelector('#dest-history-text').getBoundingClientRect().width,
+            story: document.querySelector('#overview').getBoundingClientRect().width
+        }));
+        expect(widths.history).toBeGreaterThan(widths.story * 0.6);
+    }
+});
+
+// A photo that opens with a pointer must also open with Enter.
+test('home and archive photos open from the keyboard', async ({ page }) => {
+    for (const route of ['/', '/gallery.html']) {
+        await page.goto(route);
+        const card = page.locator('#gallery .single-blog-post:visible, #dynamic-gallery-grid .single-blog-post:visible').first();
+        await card.scrollIntoViewIfNeeded();
+        await card.evaluate(element => element.focus());
+        expect(await card.evaluate(element => getComputedStyle(element).outlineStyle)).not.toBe('none');
+        await page.keyboard.press('Enter');
+        await expect(page.locator('.pswp')).toBeVisible();
+        // PhotoSwipe ignores Escape until its opening transition has finished.
+        await expect.poll(() => page.evaluate(() => Boolean(window.GalleryModule.pswp && window.GalleryModule.pswp.opener.isOpen))).toBe(true);
+        await page.keyboard.press('Escape');
+        await expect(page.locator('.pswp')).toHaveCount(0);
+    }
+});
+
+// A single background photo needs no empty portrait frame over its action.
+test('single image heroes keep captions below their actions', async ({ page }) => {
+    for (const width of [390, 768, 1440]) {
+        await page.setViewportSize({ width, height: 900 });
+        for (const route of ['/tours/highlights-escape.html', '/destinations/ella.html', '/destinations/arugambay.html', '/destinations/colombo.html']) {
+            await page.goto(route);
+            await expect(page.locator('.secondary-hero-portrait')).toHaveCount(0);
+            const action = await page.locator('.secondary-hero-action').boundingBox();
+            const note = await page.locator('.secondary-hero-note').boundingBox();
+            expect(note.y).toBeGreaterThanOrEqual(action.y + action.height);
+            const facts = await page.locator('.secondary-facts-dock').boundingBox();
+            expect(note.y + note.height, route + ' note clears quick facts').toBeLessThanOrEqual(facts.y);
+        }
+    }
+});
+
+// The closed drawer stays outside keyboard navigation, and Escape returns focus.
+test('mobile navigation contains keyboard focus while open', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    for (const route of ['/', '/tours/highlights-escape.html', '/destinations/ella.html', '/gallery.html']) {
+        await page.goto(route);
+        const menu = page.locator('#mobile-menu');
+        const opener = page.getByRole('button', { name: 'Open mobile menu', exact: true });
+        const closer = page.locator('#mobile-menu-close');
+        await closer.evaluate(element => element.focus());
+        await expect(closer).not.toBeFocused();
+        await opener.click();
+        await expect(closer).toBeFocused();
+        await page.keyboard.press('Tab');
+        await expect.poll(() => menu.evaluate(element => element.contains(document.activeElement))).toBe(true);
+        await page.keyboard.press('Escape');
+        await expect(opener).toBeFocused();
+        await expect(menu).toHaveAttribute('aria-hidden', 'true');
+    }
+});
+
+// The brand palette must stay readable when a visitor's system uses dark mode.
+test('light sections retain their brand palette in dark system mode', async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'light' });
+    await page.goto('/');
+    const light = await page.locator('#offers').evaluate(element => getComputedStyle(element).backgroundColor);
+    await page.emulateMedia({ colorScheme: 'dark' });
+    await expect.poll(() => page.locator('#offers').evaluate(element => getComputedStyle(element).backgroundColor)).toBe(light);
+});
+
+// Photos must not promise a stop missing from this five day route.
+test('Highlights photos do not add Sigiriya to its itinerary', async ({ page }) => {
+    await page.goto('/tours/highlights-escape.html');
+    await expect(page.locator('#tour-gallery img[alt*="Sigiriya"]')).toHaveCount(0);
+    await expect(page.getByText('Real guest moments and iconic landmarks included in this itinerary', { exact: true })).toHaveCount(0);
+});
+
 // The video action must open a reel rather than the account profile.
 test('the hero video action opens the verified guest reel', async ({ page, context }) => {
     await context.route('https://www.instagram.com/**', route => route.fulfill({ status: 200, body: 'Instagram video destination' }));
@@ -33,7 +146,7 @@ test('safari offers show the poster for their named park', async ({ page }) => {
 test('a failed modern image source falls back to its original format', async ({ page }) => {
     await page.route(/\.webp(?:\?|$)/, route => route.abort());
     await page.goto('/');
-    const image = page.getByRole('img', { name: 'Sri Lanka Highlights Escape', exact: true });
+    const image = page.locator('.home-tour-comparison-card').filter({ has: page.getByRole('heading', { name: 'Sri Lanka Highlights Escape', exact: true }) }).getByRole('img');
     await image.scrollIntoViewIfNeeded();
     await expect.poll(() => image.evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
     await expect(image).not.toHaveAttribute('srcset');

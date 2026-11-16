@@ -19,7 +19,7 @@
             "region": "Cultural Triangle",
             "excerpt": "Rising nearly 200 meters above central dry zone plains, Sigiriya is an awe-inspiring 5th-century mountain fortress created by King Kashyapa, blending colossal engineering, ancient frescoes, and lush water gardens.",
             "article": {
-                "introTitle": "The Ancient Engineering Marvel of King Kashyapa",
+                "introTitle": "Sigiriya's rock fortress and gardens",
                 "introParagraphs": [
                     "Rising dramatically 200 meters above the central plains of Sri Lanka, Sigiriya (Lion Rock) is a mesmerizing UNESCO World Heritage site that blends architectural genius, ancient art, and raw geological beauty. Constructed during the 5th century by King Kashyapa (477-495 AD), this sheer granite monolith served as both a formidable fortress and an extravagant royal palace.",
                     "What makes Sigiriya truly legendary is its sophisticated urban planning. Long before modern hydraulic engineering, Kashyapa's artisans engineered gravity-fed water fountains, symmetrical lotus ponds, and underground pressure pipes in the Water Gardens that still function during the rainy season today."
@@ -118,15 +118,15 @@
             "region": "Central Highlands",
             "excerpt": "Tucked into Sri Lanka's central highlands, Ella is a picturesque mountain village framed by cloud-capped peaks, cascading waterfalls, tea gardens, and iconic colonial railway bridges.",
             "article": {
-                "introTitle": "The Enchanting Mountain Sanctuary of Sri Lanka",
+                "introTitle": "Walking and tea country around Ella",
                 "introParagraphs": [
                     "Perched amidst pine forests, cascading waterfalls, and sprawling emerald tea estates at an elevation of over 1,000 meters, Ella captivates mountain lovers and adventurous travelers alike. The air is crisp and cool, providing a refreshing climate after exploring the island's tropical coastline.",
-                    "From the gentle slopes of Little Adam's Peak to the formidable vertical drop of Ella Rock, this hill country enclave offers world-class trekking routes, scenic railway journeys, and unforgettable highland vistas."
+                    "Ella is a base for walks to Little Adam's Peak and Ella Rock, visits to tea country and journeys on the hill country railway. Choose walks that suit your experience and allow time to check local conditions."
                 ],
                 "historyTitle": "The Colonial Demodara Loop & Ravana Legend",
                 "historyParagraphs": [
                     "Ella is steeped in ancient Indian epic folklore, believed to be the mythical land where King Ravana hid Princess Sita in secret mountain caves behind cascading waterfalls.",
-                    "In the British colonial era of the early 20th century, brilliant Scottish and Sri Lankan railway engineers constructed the Nine Arch Bridge without using a single piece of steel, creating one of Asia's most photogenic railway structures."
+                    "The hill country railway is part of Ella's appeal. The Nine Arch Bridge and nearby Demodara Loop are well known stops for visitors interested in its railway history."
                 ],
                 "tipsTitle": "Insider Travel Tips for Ella",
                 "tips": [
@@ -157,7 +157,8 @@
                     "title": "Nine Arch Bridge Railway Walk",
                     "description": "Witness trains crossing the iconic 99-foot colonial stone bridge hidden amidst dense jungle valleys.",
                     "category": "Heritage",
-                    "image": "assets/img/gallery/main/03-hill-country-group-viewpoint.jpeg",
+                    "image": "assets/img/heroes/Ella_Nine_Arch_Bridge_Sri_Lanka_4K.jpg",
+                    "imageAlt": "A train crossing the Nine Arch Bridge in Ella, with a visitor in the foreground.",
                     "icon": "train"
                 },
                 {
@@ -217,14 +218,14 @@
             "region": "Central Province",
             "excerpt": "Surrounded by forested hills and set around a serene central lake, Kandy is Sri Lanka's spiritual heartland, home to the revered Temple of the Sacred Tooth Relic and royal botanical gardens.",
             "article": {
-                "introTitle": "The Spiritual & Royal Heart of the Kingdom",
+                "introTitle": "Kandy's temples and royal history",
                 "introParagraphs": [
                     "As the last independent royal kingdom of Sri Lanka before British colonization in 1815, Kandy holds a sacred place in the hearts of islanders. Nestled in a lush amphitheater of hills around Kandy Lake, this UNESCO World Heritage city exudes timeless spiritual reverence.",
                     "The focal point of Kandy is the Sri Dalada Maligawa (Temple of the Sacred Tooth Relic), which houses the sacred left canine tooth of the Lord Buddha, attracting pilgrims from across the global Buddhist world."
                 ],
                 "historyTitle": "Kingdom Architecture & Royal Botanical Legacy",
                 "historyParagraphs": [
-                    "The Kandyan Kingdom defied European colonial powers for over 300 years, preserving unique Kandyan art forms, drumming rhythms, traditional brasscraft, and distinct wooden roof architecture.",
+                    "Kandy was the last capital of the Sinhala kings until British occupation in 1815. The city remains known for Kandyan dance, drumming, crafts and temple architecture.",
                     "Just outside the city lies the Royal Botanical Gardens at Peradeniya, originally created as a royal pleasure garden for Kandyan kings, renowned for its giant orchid collection and grand avenue of royal palms."
                 ],
                 "tipsTitle": "Insider Travel Tips for Kandy",
@@ -264,6 +265,7 @@
                     "description": "Explore 147 acres of lush tropical flora, giant orchid houses, and majestic palm avenues.",
                     "category": "Nature",
                     "image": "assets/img/gallery/main/royal-botanical-gardens-peradeniya.jpeg",
+                    "imageAlt": "Visitors riding in a small open cart along a tree-lined path.",
                     "icon": "trees"
                 },
                 {
@@ -314,11 +316,11 @@
             "idealDuration": "1-2 Days",
             "vibe": "Metropolitan Energy & Oceanfront Luxury",
             "region": "Western Province",
-            "excerpt": "Sri Lanka's bustling capital blends Portuguese, Dutch, and British colonial monuments with futuristic skyscrapers, seaside promenades, atmospheric bazaars, and world-class dining.",
+            "excerpt": "Colombo is Sri Lanka's commercial hub, with colonial buildings, markets, modern towers and an Indian Ocean waterfront.",
             "article": {
-                "introTitle": "The Dynamic Oceanfront Capital",
+                "introTitle": "Markets, temples and Colombo's waterfront",
                 "introParagraphs": [
-                    "Colombo is a captivating city of contrasts where centuries of maritime history meet modern urban sophistication. Sprawled along the Indian Ocean coastline, the capital offers visitors a vibrant introduction to contemporary Sri Lankan life.",
+                    "Colombo is Sri Lanka's commercial hub on the Indian Ocean coast. Its markets, temples, civic buildings and waterfront offer an introduction to city life on the island.",
                     "From the aromatic spices of Pettah Market to the sleek architectural presence of Lotus Tower and Port City Colombo, this metropolis provides endless avenues for cultural exploration, luxury shopping, and seaside relaxation."
                 ],
                 "historyTitle": "Colonial Trading Post to Modern Port City",
@@ -370,6 +372,7 @@
                     "description": "Immerse yourself in bustling street markets selling spices, textiles, jewelry, and local handicrafts.",
                     "category": "Shopping",
                     "image": "assets/img/gallery/main/pettah-floating-market.png",
+                    "imageAlt": "People walking along a busy market street lined with shops.",
                     "icon": "shopping-bag"
                 },
                 {
@@ -413,23 +416,23 @@
             "idealDuration": "2-3 Days",
             "vibe": "Unspoiled Ocean Paradise & Marine Wildlife",
             "region": "Eastern Province",
-            "excerpt": "Located on Sri Lanka's east coast, Trincomalee boasts world-class natural harbors, crystal-clear blue waters, coral reef snorkeling at Pigeon Island, and ancient cliffside Hindu temples.",
+            "excerpt": "Trincomalee on Sri Lanka's east coast has beaches, Hindu temples and boat trips to Pigeon Island. Check sea conditions and operator arrangements when planning water activities.",
             "article": {
-                "introTitle": "The Jewel of Sri Lanka's Eastern Coastline",
+                "introTitle": "Beaches and temples around Trincomalee",
                 "introParagraphs": [
-                    "Trincomalee (Trinco) is famed for having one of the finest natural deep-water harbors in the world. Its serene coastline features powder-white sands, calm turquoise sea waters, and healthy coral reefs ideal for underwater exploration.",
-                    "Unlike the busier southern beaches, Trincomalee maintains a relaxed coastal charm where wild deer freely roam city streets and blue whales pass by close to the deep offshore trench."
+                    "Trincomalee is an east coast port city with beaches, temples and access to boat trips around the coast.",
+                    "Whale watching trips operate off Trincomalee. Sightings and sea conditions vary, so confirm arrangements with the operator rather than planning around a promised encounter."
                 ],
                 "historyTitle": "Koneswaram Temple of a Thousand Pillars",
                 "historyParagraphs": [
-                    "Perched high on Swami Rock cliff overlooking the Indian Ocean stands Koneswaram Temple, a revered Hindu shrine dedicated to Lord Shiva with origins dating back over two millennia.",
+                    "Koneswaram Temple stands on Swami Rock above the Indian Ocean. This Hindu temple is dedicated to Lord Shiva and has a long history of worship, destruction and rebuilding.",
                     "Below the cliff edge lies Lover's Leap, a dramatic rock precipice with a romantic local legend overlooking the sapphire sea."
                 ],
                 "tipsTitle": "Insider Travel Tips for Trincomalee",
                 "tips": [
-                    "Take an early morning boat trip to Pigeon Island National Park for the best underwater clarity.",
+                    "Ask the operator about sea conditions, park access and snorkeling arrangements before a Pigeon Island trip.",
                     "Visit Koneswaram Temple during morning or evening prayer times for devotional music.",
-                    "Go on a whale watching boat excursion between May and August to spot blue whales and dolphins.",
+                    "Check current whale watching departures with a responsible operator. Wildlife sightings cannot be guaranteed.",
                     "Relax at Nilaveli Beach for gentle waves and peaceful tropical sunbathing."
                 ],
                 "foodTitle": "East Coast Seafood & Tamil Flavors",
@@ -452,9 +455,10 @@
             "activities": [
                 {
                     "title": "Pigeon Island Snorkeling Expedition",
-                    "description": "Swim alongside blacktip reef sharks, sea turtles, and colorful live corals in a marine national park.",
+                    "description": "Ask about a snorkeling trip to Pigeon Island National Park. Sea conditions, access and wildlife sightings vary.",
                     "category": "Marine",
                     "image": "assets/img/gallery/main/pigeon-island-snorkeling.jpeg",
+                    "imageAlt": "Travelers wearing life jackets taking a selfie aboard a boat.",
                     "icon": "fish"
                 },
                 {
@@ -473,7 +477,7 @@
                 },
                 {
                     "title": "Whale & Dolphin Watching Boat Tour",
-                    "description": "Embark on an oceanic safari to observe majestic blue whales and spinner dolphins in their wild habitat.",
+                    "description": "Ask about boat departures and sea conditions for whale and dolphin watching. Sightings are not guaranteed.",
                     "category": "Wildlife",
                     "image": "assets/img/gallery/main/whale-dolphin-watching.jpeg",
                     "icon": "anchor"
@@ -512,9 +516,9 @@
             "idealDuration": "2-3 Days",
             "vibe": "Tropical Surf Culture & Eco Adventures",
             "region": "Southeastern Coast",
-            "excerpt": "Renowned as one of the world's top surfing destinations, Arugam Bay offers world-class point breaks, serene eco-lagoons, wildlife safaris in Kumana, and bohemian beachside living.",
+            "excerpt": "Arugam Bay on Sri Lanka's southeast coast is known for surfing, with nearby lagoons and routes to Kumana National Park.",
             "article": {
-                "introTitle": "The Surfing Capital of Sri Lanka",
+                "introTitle": "Surfing and coastal stays in Arugam Bay",
                 "introParagraphs": [
                     "Situated on the sunny southeastern coast, Arugam Bay is a crescent-shaped bay famed for its consistent right-hand point breaks that attract surf enthusiasts from across the globe.",
                     "Beyond the waves, Arugam Bay delivers a delightfully relaxed atmosphere where beachfront cafes, vibrant evening bonfires, and surrounding wild sanctuaries create an irresistible tropical escape."
@@ -550,7 +554,7 @@
             },
             "activities": [
                 {
-                    "title": "World-Class Point Break Surfing",
+                    "title": "Point Break Surfing",
                     "description": "Ride legendary right-hand point break waves at Main Point, Whiskey Point, or Peanut Farm Beach.",
                     "category": "Surfing",
                     "image": "assets/img/gallery/main/surfing-class.jpeg",
@@ -612,9 +616,9 @@
             "idealDuration": "2 Days",
             "vibe": "Tropical Resort Luxury & Aquatic Adventures",
             "region": "Southwestern Coast",
-            "excerpt": "Bentota is Sri Lanka's capital of water sports and luxury resort living, famous for golden beaches, tranquil mangrove river boat safaris, sea turtle hatcheries, and lush tropical gardens.",
+            "excerpt": "Bentota is known for beaches and water activities, with river boat trips, gardens and coastal stays to consider for your itinerary.",
             "article": {
-                "introTitle": "The Premier Beach & Water Sports Paradise",
+                "introTitle": "Beaches and river trips around Bentota",
                 "introParagraphs": [
                     "Located along the southwest coast where the Bentota River meets the Indian Ocean, Bentota is a golden haven for beach lovers, water sports enthusiasts, and luxury travelers.",
                     "With calm coastal lagoons on one side and turquoise ocean waves on the other, Bentota offers a versatile aquatic playground surrounded by coconut palms and high-end boutique resorts."
@@ -628,7 +632,7 @@
                 "tips": [
                     "Book a private jet ski or banana boat session early in the morning when lagoon waters are mirror-calm.",
                     "Take a two-hour boat safari on the Madu River to visit Cinnamon Island and fish therapy spas.",
-                    "Visit Kosgoda Sea Turtle Hatchery in the late afternoon to assist with releasing newborn hatchlings.",
+                    "Ask a turtle centre about its current visitor programme and conservation practices. Do not assume handling or releases are part of a visit.",
                     "Schedule a guided walk through Brief Garden to admire rare tropical plants and modernist sculptures."
                 ],
                 "foodTitle": "South Coast Seafood & Coconut Specialties",
@@ -654,6 +658,7 @@
                     "description": "Experience thrilling jet skiing, banana boat rides, wakeboarding, and tube rides on Bentota lagoon.",
                     "category": "Water Sports",
                     "image": "assets/img/gallery/main/water-rafting.jpg",
+                    "imageAlt": "Travelers wearing life jackets and holding paddles beside a red raft mounted on a vehicle.",
                     "icon": "waves"
                 },
                 {
@@ -665,7 +670,7 @@
                 },
                 {
                     "title": "Kosgoda Sea Turtle Hatchery Visit",
-                    "description": "Learn about sea turtle conservation and hold newborn hatchlings at a dedicated sanctuary.",
+                    "description": "Ask the centre about its visitor programme and conservation work before arranging a visit. Handling and releases are not promised.",
                     "category": "Conservation",
                     "image": "assets/img/gallery/main/turtle-hatchery-visit.jpg",
                     "icon": "heart"

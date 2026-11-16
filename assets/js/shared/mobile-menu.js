@@ -22,7 +22,10 @@
             this.mobileSubmenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
 
             if (this.mobileMenuBtn) this.mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            if (this.mobileMenu) this.mobileMenu.setAttribute('aria-hidden', 'true');
+            if (this.mobileMenu) {
+                this.mobileMenu.setAttribute('aria-hidden', 'true');
+                this.mobileMenu.inert = true;
+            }
 
             this.initEventListeners();
         },
@@ -79,6 +82,7 @@
 
         openMobileMenu: function() {
             if (this.mobileMenu) {
+                this.mobileMenu.inert = false;
                 // Force hardware acceleration with translate3d
                 this.mobileMenu.style.transform = 'translate3d(0, 0, 0)';
                 this.mobileMenu.classList.remove('-translate-x-full');
@@ -94,6 +98,7 @@
             document.body.style.overflow = 'hidden'; // Prevent scrolling
             if (this.mobileMenuBtn) this.mobileMenuBtn.setAttribute('aria-expanded', 'true');
             if (this.mobileMenu) this.mobileMenu.setAttribute('aria-hidden', 'false');
+            if (this.mobileMenuClose) this.mobileMenuClose.focus();
         },
 
         toggleSubmenu: function(toggle) {
@@ -135,7 +140,11 @@
         },
 
         closeMobileMenu: function() {
+            const wasOpen = this.isMenuOpen();
+            // Return focus before hiding the drawer from assistive tools.
+            if (wasOpen && this.mobileMenuBtn) this.mobileMenuBtn.focus();
             if (this.mobileMenu) {
+                this.mobileMenu.inert = true;
                 // Force hardware acceleration with translate3d
                 this.mobileMenu.style.transform = 'translate3d(-100%, 0, 0)';
                 this.mobileMenu.classList.remove('translate-x-0');
@@ -159,8 +168,24 @@
         // Keyboard navigation support
         initKeyboardSupport: function() {
             document.addEventListener('keydown', (e) => {
+                if (!this.isMenuOpen()) return;
+                // Keep Tab within the open drawer, including expanded submenus.
+                if (e.key === 'Tab') {
+                    const items = Array.from(this.mobileMenu.querySelectorAll('a[href], button:not([disabled]), [tabindex="0"]'))
+                        .filter(element => element.getClientRects().length > 0);
+                    const first = items[0];
+                    const last = items[items.length - 1];
+                    if (e.shiftKey && document.activeElement === first) {
+                        e.preventDefault();
+                        last.focus();
+                    } else if (!e.shiftKey && document.activeElement === last) {
+                        e.preventDefault();
+                        first.focus();
+                    }
+                }
                 // Close mobile menu with Escape key
                 if (e.key === 'Escape' && this.mobileMenu && !this.mobileMenu.classList.contains('-translate-x-full')) {
+                    e.preventDefault();
                     this.closeMobileMenu();
                 }
             });

@@ -73,6 +73,14 @@
     --fly-ty: 0px;
 }
 
+/* Keep the dark brand sections calm so photos and useful content stay first. */
+.gowilds-footer {
+    background-color: #1D231F;
+    background-image: linear-gradient(160deg, #2a3a2e, #1D231F 60%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
 /* Animated tropical leaf overlay — gentle sway with depth (positioned in left/right margins) */
 .gowilds-footer::before {
     content: '';
@@ -88,6 +96,12 @@
     z-index: 0;
     animation: footer-sway 20s ease-in-out infinite;
     will-change: transform;
+}
+
+.gowilds-footer::before {
+    opacity: 0.28;
+    animation: none;
+    will-change: auto;
 }
 
 /* Firefly particles — depth float effect (distributed in left/right margins) */
@@ -110,6 +124,12 @@
     z-index: 0;
     animation: footer-fireflies 12s ease-in-out infinite;
     will-change: transform, opacity;
+}
+
+.gowilds-footer::after {
+    opacity: 0.14;
+    animation: none;
+    will-change: auto;
 }
 /* Ensure footer content stays above decorative layers */
 /* Ensure footer content stays above decorative layers */
@@ -241,7 +261,7 @@
 
 /* Light Background Section — Tropical Canopy */
 .tour-light-canopy {
-    background-color: #fbf9f4;
+    background-color: var(--background-color, #f7f8f2);
     /* Soft transitional vertical gradient + grain + noise texture */
     background-image:
         /* Subtle Film Grain Noise Texture */
@@ -288,6 +308,10 @@
     --fly-ty: 0px;
 }
 
+.tour-light-canopy {
+    background-image: none;
+}
+
 /* Light canopy animated overlays (positioned in left/right margins) */
 .tour-light-canopy::before {
     content: '';
@@ -303,6 +327,10 @@
     z-index: 0;
     animation: footer-sway 22s ease-in-out infinite;
     will-change: transform;
+}
+
+.tour-light-canopy::before {
+    display: none;
 }
 
 .tour-light-canopy::after {
@@ -322,6 +350,11 @@
     z-index: 0;
     animation: footer-fireflies 14s ease-in-out infinite;
     will-change: transform, opacity;
+}
+
+.tour-light-canopy::after {
+    content: none;
+    display: none;
 }
 
 /* Ensure content stays above overlays */
@@ -469,7 +502,7 @@
     .gowilds-footer::after,
     .tour-light-canopy::after,
     #home::after {
-        opacity: 0.55 !important;
+        opacity: 0.22 !important;
     }
 
 }
@@ -486,7 +519,7 @@
     .gowilds-footer::after,
     .tour-light-canopy::after,
     #home::after {
-        opacity: 0.75 !important;
+        opacity: 0.3 !important;
     }
 }
 
@@ -633,4 +666,11 @@
     #home p {
         font-size: 0.8rem;
     }
+}
+
+/* Keep the approved home tour comparison focused on route photos and facts. */
+#tours::after {
+    background-image: none;
+    animation: none !important;
+    opacity: 0;
 }

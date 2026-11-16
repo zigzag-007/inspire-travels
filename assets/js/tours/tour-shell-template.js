@@ -32,12 +32,13 @@
 
             var hero = window.SecondaryHeroModule ? window.SecondaryHeroModule.render({
                 id: 'tour-hero',
+                singleImage: true,
                 image: '../' + tour.image,
                 imageAlt: tour.title + ' in Sri Lanka',
-                eyebrow: collectionName,
+                eyebrow: tour.duration + ' · ' + tour.nights,
                 title: tour.title,
-                description: tour.description,
-                note: tour.duration + ' · ' + tour.nights,
+                description: tour.location.toLowerCase().replace(/\b[a-z]/g, function(character) { return character.toUpperCase(); }) + '.',
+                note: isGroup ? 'Shared group journey' : 'Private tour',
                 showNoteDetail: false,
                 breadcrumbs: [
                     { label: 'Home', href: '../index.html' },

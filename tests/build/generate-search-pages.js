@@ -293,7 +293,7 @@ function renderDestinationContents(data) {
 
     return {
         'dest-exp-count': 'Things to do in ' + escapeHtml(data.name),
-        'dest-exp-subtitle': 'Explore ' + (data.activities || []).length + ' local sights and experiences in ' + escapeHtml(data.name) + ', Sri Lanka.',
+        'dest-exp-subtitle': 'Explore ' + (data.activities || []).length + ' local sights and experiences in ' + escapeHtml(data.name) + '. Guest photos may illustrate a different Sri Lanka stop. Confirm planned visits in your final itinerary.',
         'dest-intro-title': escapeHtml(article.introTitle || ('Discovering ' + data.name)),
         'dest-intro-text': paragraphs(article.introParagraphs, true),
         'dest-history-title': escapeHtml(article.historyTitle || 'History & Cultural Heritage'),
@@ -317,7 +317,7 @@ function renderDestinationContents(data) {
                 '<h4 class="destination-activity-title text-2xl leading-tight text-slate-950 sm:text-3xl">' + escapeHtml(activity.title) + '</h4>' +
                 '<p class="destination-activity-description">' + escapeHtml(activity.description) + '</p>' +
                 '<span class="destination-activity-meta">' + escapeHtml(activity.category || 'Highlight') + '</span></div></div>' +
-                '<div class="overflow-hidden"><img src="../' + escapeHtml(activity.image) + '" alt="' + escapeHtml(activity.title) + '" class="destination-activity-image" loading="lazy"></div></article>';
+                '<div class="overflow-hidden"><img src="../' + escapeHtml(activity.image) + '" alt="' + escapeHtml(activity.imageAlt || activity.title) + '" class="destination-activity-image" loading="lazy"></div></article>';
         }).join(''),
         'dest-itinerary-container': (data.itinerary || []).map(function(item) {
             return '<article class="destination-itinerary-item"><span class="destination-itinerary-day">' + escapeHtml(item.day) + '</span><div>' +

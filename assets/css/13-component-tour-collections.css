@@ -1627,9 +1627,9 @@ body.tour-collection-view .tour-collection-breadcrumb {
     }
 
     .tour-collection-hero h1 {
-        max-width: 8.8ch;
-        font-size: clamp(3.35rem, 15.5vw, 4.65rem);
-        line-height: 0.9;
+        max-width: 9.8ch;
+        font-size: clamp(3.1rem, 13vw, 4.1rem);
+        line-height: 0.94;
     }
 
     .tour-collection-hero-copy > p {

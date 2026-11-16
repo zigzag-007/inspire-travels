@@ -43,16 +43,15 @@
     *::before,
     *::after {
         animation-duration: 0.01ms !important;
+        animation-delay: 0s !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+        transition-delay: 0s !important;
     }
 }
 
-/* Dark Mode Support (for future implementation) */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background-color: oklch(0.08 0.02 45);
-        --text-color: oklch(0.95 0.01 85);
-        --muted-color: oklch(0.65 0.02 45);
-    }
+/* Keep the existing brand palette until a complete dark theme is designed.
+   Changing only these tokens leaves the light cards with unreadable text. */
+:root {
+    color-scheme: light;
 }

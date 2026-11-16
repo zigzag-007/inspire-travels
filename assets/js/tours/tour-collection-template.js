@@ -12,12 +12,11 @@
     }
 
     function renderCollectionDock(activeSlug) {
-        return window.TourCollectionDataModule.collections.map(function(collection, index) {
+        return window.TourCollectionDataModule.collections.map(function(collection) {
             var activeClass = collection.slug === activeSlug ? ' is-active' : '';
             var current = collection.slug === activeSlug ? ' aria-current="page"' : '';
 
             return '<a href="collection-' + collection.slug + '.html" class="tour-collection-dock-link' + activeClass + '"' + current + '>' +
-                '<span class="tour-collection-dock-number">0' + (index + 1) + '</span>' +
                 '<span class="tour-collection-dock-copy"><strong>' + collection.navLabel + '</strong><small>' + collection.eyebrow + '</small></span>' +
                 '<span class="tour-collection-dock-arrow"><i class="ph ph-arrow-up-right"></i></span>' +
             '</a>';
@@ -35,7 +34,6 @@
                     '<img src="../' + image + '" alt="' + tour.title + '" loading="lazy" decoding="async">' +
                 '</span>' +
                 '<span class="tour-atlas-shade" aria-hidden="true"></span>' +
-                '<span class="tour-atlas-index">0' + (index + 1) + '</span>' +
                 '<span class="tour-atlas-copy">' +
                     '<span class="tour-atlas-meta">' + tour.duration + ' <span aria-hidden="true">•</span> ' + tour.nights + '</span>' +
                     '<strong>' + tour.title + '</strong>' +
@@ -52,7 +50,6 @@
             return '<article class="tour-story-card" style="--story-index: ' + index + '; --story-offset: ' + (index * 0.7) + 'rem" data-story-card>' +
                 '<img src="../' + panel.image + '" alt="' + panel.imageAlt + '" loading="lazy" decoding="async">' +
                 '<span class="tour-story-card-shade" aria-hidden="true"></span>' +
-                '<span class="tour-story-card-number">' + panel.number + '</span>' +
                 '<div class="tour-story-card-copy">' +
                     '<h3>' + panel.title + '</h3>' +
                     '<p>' + panel.description + '</p>' +
@@ -62,14 +59,13 @@
     }
 
     function renderCollectionLinks(activeSlug) {
-        return window.TourCollectionDataModule.collections.map(function(collection, index) {
+        return window.TourCollectionDataModule.collections.map(function(collection) {
             var activeClass = collection.slug === activeSlug ? ' is-active' : '';
             var current = collection.slug === activeSlug ? ' aria-current="page"' : '';
 
             return '<a href="collection-' + collection.slug + '.html" class="tour-collection-link' + activeClass + '"' + current + '>' +
                 '<img src="../' + collection.heroImage + '" alt="" loading="lazy" decoding="async">' +
                 '<span class="tour-collection-link-shade" aria-hidden="true"></span>' +
-                '<span class="tour-collection-link-index">0' + (index + 1) + '</span>' +
                 '<span class="tour-collection-link-copy"><strong>' + collection.navLabel + '</strong><small>' + collection.note + '</small></span>' +
                 '<i class="ph ph-arrow-up-right"></i>' +
             '</a>';
@@ -80,16 +76,12 @@
         render: function(collection, tours) {
             return '<main id="tour-collection" class="tour-collection-page" data-collection-accent="' + collection.accent + '">' +
                 '<section class="tour-collection-hero" data-collection-hero>' +
-                    '<div class="tour-collection-hero-background" aria-hidden="true">' +
-                        '<img src="../' + collection.heroImage + '" alt="">' +
-                    '</div>' +
-                    '<div class="tour-collection-hero-grain" aria-hidden="true"></div>' +
+                    '<div class="tour-collection-hero-background" aria-hidden="true"><img src="../' + collection.heroImage + '" alt=""></div>' +
                     '<nav class="tour-collection-breadcrumb" aria-label="Breadcrumb">' +
                         '<a href="../index.html">Home</a><i class="ph ph-caret-right"></i><a href="../index.html#tours">Tours</a><i class="ph ph-caret-right"></i><a href="collection-' + collection.slug + '.html" aria-current="page">' + collection.navLabel + '</a>' +
                     '</nav>' +
                     '<div class="tour-collection-hero-layout">' +
                         '<div class="tour-collection-hero-copy">' +
-                            '<span class="tour-collection-eyebrow"><span></span>' + collection.eyebrow + '</span>' +
                             '<h1>' + renderWords(collection.title, 'tour-hero-word') + '</h1>' +
                             '<p>' + collection.description + '</p>' +
                             '<a href="#collection-routes" class="tour-collection-primary-action">' +
@@ -98,9 +90,9 @@
                         '</div>' +
                         '<figure class="tour-collection-hero-portrait" data-hero-portrait>' +
                             '<span class="tour-collection-portrait-frame">' +
-                                '<img src="../' + collection.portraitImage + '" alt="' + collection.portraitImageAlt + '" decoding="async">' +
+                                '<img src="../' + collection.heroImage + '" alt="' + collection.heroImageAlt + '" decoding="async">' +
                             '</span>' +
-                            '<figcaption><span>' + collection.note + '</span><small>Designed around real travellers</small></figcaption>' +
+                            '<figcaption><span>' + collection.note + '</span></figcaption>' +
                         '</figure>' +
                     '</div>' +
                     '<div class="tour-collection-dock" aria-label="Tour collections">' + renderCollectionDock(collection.slug) + '</div>' +
@@ -116,9 +108,8 @@
                 '</div>' +
                 '<section id="collection-routes" class="tour-route-atlas section-curve-receiver section-curve-drift" aria-labelledby="collection-packages-heading">' +
                     '<div class="tour-route-atlas-heading" data-collection-reveal>' +
-                        '<span>Route atlas <b>0' + tours.length + '</b></span>' +
                         '<h2 id="collection-packages-heading">Choose the journey that fits.</h2>' +
-                        '<p>Every route is complete. The pace, dates, and personal details stay open to you.</p>' +
+                        '<p>Compare durations and planned stops. Ask us to confirm dates, hotels, prices and inclusions before booking.</p>' +
                     '</div>' +
                     '<div class="tour-atlas-grid" data-tour-count="' + tours.length + '">' + tours.map(function(tour, index) { return renderTourCard(tour, index, collection); }).join('') + '</div>' +
                 '</section>' +
@@ -132,8 +123,8 @@
                 '</section>' +
                 '<section class="tour-collection-switch section-curve-receiver" aria-labelledby="collection-switch-heading">' +
                     '<div class="tour-collection-switch-copy" data-collection-reveal>' +
-                        '<span>Five ways into Sri Lanka</span>' +
-                        '<h2 id="collection-switch-heading">Change the pace. Keep the sense of discovery.</h2>' +
+                        '<span>Other tour collections</span>' +
+                        '<h2 id="collection-switch-heading">Explore another travel style.</h2>' +
                         '<p>Move between family travel, group journeys, the northern coast, living heritage, and active adventure.</p>' +
                     '</div>' +
                     '<div class="tour-collection-links">' + renderCollectionLinks(collection.slug) + '</div>' +

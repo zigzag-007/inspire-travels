@@ -10,16 +10,16 @@
             slug: 'family',
             navLabel: 'Family Tours',
             eyebrow: 'Family Tours',
-            title: 'Travel deeper. Together.',
-            description: 'Private family journeys with room for wonder, rest, and the moments nobody planned.',
+            title: 'Family tours in Sri Lanka',
+            description: 'Compare four private routes from 5 to 14 days. Plan the pace, stops and hotels around your family.',
             heroImage: 'assets/img/gallery/main/hill-country-family-viewpoint-sri-lanka.jpg',
             heroImageAlt: 'A family enjoying the green Sri Lankan hill country',
             portraitImage: 'assets/img/gallery/main/04-family-by-tour-van-sri-lanka.jpeg',
             portraitImageAlt: 'Family guests beside an Inspire Travels tour van in Sri Lanka',
             note: 'Four routes from 5 to 14 days',
             accent: 'family',
-            storyTitle: 'A family holiday should feel easy before it feels impressive.',
-            storyDescription: 'We shape the pace around your family, then leave enough space for Sri Lanka to surprise everyone.',
+            storyTitle: 'Plan around the people travelling.',
+            storyDescription: 'Tell us the ages in your group, your interests and how much time you want on the road each day.',
             storyPanels: [
                 {
                     number: '01',
@@ -48,8 +48,8 @@
             slug: 'group',
             navLabel: 'Group Tours',
             eyebrow: 'Group Journeys',
-            title: 'The island is better shared.',
-            description: 'Planned group journeys that turn Sri Lanka into a story everyone carries home.',
+            title: 'Group tours in Sri Lanka',
+            description: 'Choose a shared journey from 5 to 14 days. Ask our team about departure dates, available seats and confirmed inclusions.',
             heroImage: 'assets/img/gallery/main/03-hill-country-group-viewpoint.jpeg',
             heroImageAlt: 'A group of travellers overlooking the Sri Lankan hill country',
             portraitImage: 'assets/img/gallery/main/group_arrival_fuso.jpg',
@@ -61,8 +61,8 @@
                 'discover-ceylon-group': 'assets/img/gallery/main/02-pekoe-trail-start-point-group-photo.jpeg',
                 'grand-island-journey-group': 'assets/img/gallery/main/12-jeep-safari-group-tour.jpeg'
             },
-            storyTitle: 'The best group journeys make every traveller feel included.',
-            storyDescription: 'Clear planning brings everyone together. Flexible moments make the experience feel like your own.',
+            storyTitle: 'Know the plan before you join.',
+            storyDescription: 'Confirm the departure, daily programme, transport and inclusions with our team before booking a group journey.',
             storyPanels: [
                 {
                     number: '01',
@@ -91,8 +91,8 @@
             slug: 'northern-shores',
             navLabel: 'Northern Shores',
             eyebrow: 'North and East Coast',
-            title: 'Follow the coast less travelled.',
-            description: 'A rare route through Jaffna, Trincomalee, Batticaloa, Arugam Bay, and the ancient heartlands.',
+            title: 'North and east coast tours',
+            description: 'Compare three routes from 9 to 14 days, with different combinations of Jaffna, Trincomalee, Arugam Bay and the Cultural Triangle.',
             heroImage: 'assets/img/destinations/trincomalee_beach.png',
             heroImageAlt: 'The clear blue coast of Trincomalee in eastern Sri Lanka',
             portraitImage: 'assets/img/destinations/arugam-bay-hero.jpg',
@@ -104,8 +104,8 @@
                 'north-east-coast-explorer': 'assets/img/gallery/main/koneswaram-temple.jpeg',
                 'northern-shores-eastern-wonders': 'assets/img/destinations/arugam-bay-hero.jpg'
             },
-            storyTitle: 'Some routes reward the traveller who keeps going.',
-            storyDescription: 'Move through living culture, quiet beaches, ancient cities, and a side of the island few journeys connect.',
+            storyTitle: 'Choose how far along the coast to go.',
+            storyDescription: 'Read each itinerary for its coastal stops and inland journeys. The three routes cover different parts of the north and east.',
             storyPanels: [
                 {
                     number: '01',
@@ -126,7 +126,7 @@
                     title: 'Ancient roads home',
                     description: 'The return journey crosses the Cultural Triangle and ties the island into one remarkable story.',
                     image: 'assets/img/gallery/main/sigiriya-lion-rock.jpg',
-                    imageAlt: 'Sigiriya Lion Rock rising above the surrounding landscape'
+                    imageAlt: 'Guests and their guide beside Sri Lankan heritage ruins'
                 }
             ]
         },
@@ -134,7 +134,7 @@
             slug: 'cultural-heritage',
             navLabel: 'Culture & Heritage',
             eyebrow: 'Culture and Heritage',
-            title: 'Walk through living history.',
+            title: 'Culture and heritage tours',
             description: 'Sacred cities, ancient kingdoms, and traditions that still shape the island today.',
             heroImage: 'assets/img/destinations/sigiriya_lion_rock.png',
             heroImageAlt: 'Sigiriya Lion Rock rising above Sri Lanka\'s Cultural Triangle',
@@ -147,8 +147,8 @@
                 'ramayanaya-tour': 'assets/img/gallery/main/koneswaram-temple.jpeg',
                 'unesco-heritage-tour': 'assets/img/gallery/main/dambulla-cave-temple.jpeg'
             },
-            storyTitle: 'History here is not behind glass. It is part of everyday life.',
-            storyDescription: 'Travel with context, local guidance, and time to understand the places that have shaped Sri Lanka for centuries.',
+            storyTitle: 'Find the heritage route that interests you.',
+            storyDescription: 'Compare the cultural journey, Ramayanaya route and UNESCO heritage tour. Their planned stops are listed day by day.',
             storyPanels: [
                 {
                     number: '01',
@@ -177,8 +177,8 @@
             slug: 'adventure',
             navLabel: 'Adventure Tours',
             eyebrow: 'Adventure Routes',
-            title: 'Go where the island gets wild.',
-            description: 'Mountain trails, white water, wildlife, and the freedom to earn every unforgettable view.',
+            title: 'Sri Lanka adventure tours',
+            description: 'Compare active routes from 8 to 21 days, combining mountain trails, rafting, wildlife and the coast.',
             heroImage: 'assets/img/gallery/main/hiking-rock.jpeg',
             heroImageAlt: 'Travellers watching sunset from a high rocky viewpoint in Sri Lanka',
             portraitImage: 'assets/img/gallery/main/flying-ravana-ella-zipline-adventure.jpg',
@@ -190,8 +190,8 @@
                 'epic-adventure-journey': 'assets/img/gallery/main/surfing-class.jpeg',
                 'ultimate-adventure': 'assets/img/gallery/main/wild-life-adventure.jpeg'
             },
-            storyTitle: 'The best adventures leave room for awe.',
-            storyDescription: 'Each challenge is balanced with expert local support, natural beauty, and enough time to take the moment in.',
+            storyTitle: 'Match the activities to your pace.',
+            storyDescription: 'Tell us about your experience and interests. Confirm activity arrangements and any requirements with the team before booking.',
             storyPanels: [
                 {
                     number: '01',

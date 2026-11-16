@@ -74,8 +74,8 @@ test('reviews section links to the current Google business listing', () => {
     const reviewLinks = [...html.matchAll(/<a\b(?=[^>]*href="https:\/\/www\.google\.com\/maps\?cid=7768607141437312317")[^>]*>([\s\S]*?)<\/a>/g)];
 
     assert.equal(reviewLinks.length, 2);
-    assert.match(reviewLinks[0][1], /<span>Add your review<\/span>/);
-    assert.match(reviewLinks[1][1], /<span>Google Review<\/span>/);
+    assert.match(reviewLinks[0][1], /<span>Review us on Google Maps<\/span>/);
+    assert.match(reviewLinks[1][1], /<span>Read reviews on Google Maps<\/span>/);
 });
 
 test('next story button advances and a right swipe returns to the previous review', () => {

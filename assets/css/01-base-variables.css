@@ -12,12 +12,12 @@
 
 :root {
     /* Sri Lankan-inspired color palette */
-    --primary-color: oklch(0.35 0.15 195); /* Deep teal */
+    --primary-color: oklch(0.38 0.105 153); /* Forest green */
     --secondary-color: oklch(0.65 0.12 35); /* Terracotta */
-    --accent-color: oklch(0.75 0.15 75); /* Golden yellow */
-    --background-color: oklch(0.99 0.005 85); /* Luxury alabaster off-white */
-    --text-color: oklch(0.15 0.02 45); /* Deep charcoal */
-    --muted-color: oklch(0.45 0.02 45); /* Muted text */
+    --accent-color: #edb75b; /* Warm gold */
+    --background-color: #f7f8f2; /* Warm paper */
+    --text-color: #183b30; /* Deep forest ink */
+    --muted-color: #526257; /* Muted sage ink */
 
     /* Type roles. These match the names in tailwind-config.js on purpose,
        so CSS and Tailwind always pull the same fonts. */

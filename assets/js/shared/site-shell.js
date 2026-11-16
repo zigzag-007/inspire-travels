@@ -96,9 +96,9 @@
         },
         {
                 "src": "assets/img/gallery/footer/cannon-cart.jpg",
-                "title": "Cannon Cart Adventure",
+                "title": "Historic cannon",
                 "loc": "Sri Lanka",
-                "desc": "Experience thrilling cannon cart rides through scenic landscapes."
+                "desc": "A historic cannon beside a stone fort wall."
         },
         {
                 "src": "assets/img/gallery/footer/thank-you-collage.jpg",
@@ -108,9 +108,9 @@
         },
         {
                 "src": "assets/img/gallery/footer/lotus-tower.jpg",
-                "title": "Lotus Tower View",
+                "title": "Lotus Tower at night",
                 "loc": "Colombo",
-                "desc": "Stunning panoramic views from the iconic Lotus Tower."
+                "desc": "The illuminated entrance to Colombo Lotus Tower."
         },
         {
                 "src": "assets/img/gallery/footer/mirissa-treehill.jpg",
@@ -120,9 +120,9 @@
         },
         {
                 "src": "assets/img/gallery/footer/turtle-sea.jpg",
-                "title": "Turtle Sea Conservation",
+                "title": "Turtles at a hatchery",
                 "loc": "Coastal Sri Lanka",
-                "desc": "Witness turtle hatching and sea turtle conservation efforts."
+                "desc": "Sea turtles in a hatchery pool."
         },
         {
                 "src": "assets/img/gallery/footer/holy-statue.jpg",

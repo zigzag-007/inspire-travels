@@ -80,7 +80,7 @@ test('every footer keeps its original straight entrance', () => {
 });
 
 test('mobile drawer uses a lighter paper and slightly stronger quiet labels', () => {
-    assert.match(navigationCss, /linear-gradient\(155deg, rgba\(255, 255, 253, 0\.992\), rgba\(252, 250, 246, 0\.992\)\)/);
+    assert.match(navigationCss, /\.mobile-menu\s*\{[^}]*background:\s*#f7f8f2\s*!important;/s);
     assert.match(navigationCss, /\.mobile-menu \.secondary-mobile-brand img\s*\{[^}]*transform:\s*scale\(1\.58\)\s*!important;/s);
     assert.match(navigationCss, /\.secondary-mobile-brand-copy small\s*\{[^}]*color:\s*rgba\(19, 38, 29, 0\.56\);/s);
     assert.match(navigationCss, /\.mobile-menu \.mobile-nav-link,[\s\S]*?color:\s*rgba\(19, 38, 29, 0\.78\)\s*!important;/);

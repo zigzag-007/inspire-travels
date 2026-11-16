@@ -16,12 +16,12 @@
                 <div class="pt-8 border-t border-slate-200">
                     <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
                         <div>
-                            <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Visual Highlights</span>
-                            <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900 mt-1">Featured Destination Photos</h2>
-                            <p class="text-slate-500 text-sm mt-1">Real guest moments and iconic landmarks included in this itinerary</p>
+                            <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Tour photos</span>
+                            <h2 class="font-display text-2xl sm:text-3xl font-bold text-slate-900 mt-1">Sri Lanka travel photos</h2>
+                            <p class="text-slate-500 text-sm mt-1">A selection from our journeys. See the day by day itinerary for this tour’s planned stops.</p>
                         </div>
                         <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-full self-start md:self-auto">
-                            7 Highlight Photos
+                            ${galleryImages.length} Photos
                         </span>
                     </div>
 
@@ -38,7 +38,6 @@
                                 </div>
                             </div>
                             <div class="absolute bottom-5 left-5 right-5 text-white">
-                                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/70 backdrop-blur-md px-2.5 py-0.5 rounded-full inline-block mb-1.5 border border-emerald-500/30">Highlight 1</span>
                                 <h4 class="font-display text-lg sm:text-xl font-bold text-white leading-snug drop-shadow">${galleryImages[0].title}</h4>
                             </div>
                         </div>
@@ -56,7 +55,6 @@
                                     </div>
                                 </div>
                                 <div class="absolute bottom-4 left-4 right-4 text-white">
-                                    <span class="text-[9px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/70 backdrop-blur-md px-2 py-0.5 rounded-md inline-block mb-1 border border-emerald-500/30">Highlight 2</span>
                                     <h4 class="font-display text-sm font-bold text-white leading-tight drop-shadow truncate">${galleryImages[1].title}</h4>
                                 </div>
                             </div>
@@ -131,7 +129,6 @@
                                     </div>
                                 </div>
                                 <div class="absolute bottom-4 left-4 right-4 text-white">
-                                    <span class="text-[9px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/70 backdrop-blur-md px-2 py-0.5 rounded-md inline-block mb-1 border border-emerald-500/30">Highlight 3</span>
                                     <h4 class="font-display text-sm font-bold text-white leading-tight drop-shadow truncate">${galleryImages[6].title}</h4>
                                 </div>
                             </div>
@@ -157,7 +154,6 @@
                             <div class="relative h-48 overflow-hidden">
                                 <img src="../${ot.image}" alt="${ot.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
-                                ${ot.rating ? `<div class="absolute top-3 left-3 bg-white/90 backdrop-blur-md text-slate-800 text-xs font-bold px-3 py-1 rounded-full shadow-sm flex items-center gap-1"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-500 fill-current"></i>${ot.rating}</div>` : ''}
                                 <div class="absolute top-3 right-3 bg-emerald-600 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
                                     ${ot.duration}
                                 </div>

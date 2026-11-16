@@ -142,7 +142,7 @@ window.GalleryData = [
         src: "assets/img/gallery/main/waterfall-selfie-tour-sri-lanka.jpg",
         category: "nature",
         title: "Waterfall Selfie During a Sri Lanka Tour",
-        location: "Waterfall Nature Park",
+        location: "Sri Lanka",
         date: "July 11, 2026",
         description: "Guests enjoy a scenic waterfall visit and a cheerful selfie during a guided Sri Lanka tour.",
         position: "top"
@@ -360,11 +360,11 @@ window.GalleryData = [
     },
     {
         src: "assets/img/gallery/main/18-tea-estate-view-with-waterfall.jpeg",
-        category: "scenic",
-        title: "Tea Estate View with Waterfall",
-        location: "Tea Estate",
+        category: "nature",
+        title: "Tea Picking with Guests",
+        location: "Sri Lanka",
         date: "July 11, 2026",
-        description: "A scenic tea estate portrait with a waterfall visible in the background."
+        description: "Guests visit a tea-growing area in Sri Lanka."
     },
     {
         src: "assets/img/gallery/main/19-airport-group-selfie-with-guests.jpeg",
@@ -376,9 +376,9 @@ window.GalleryData = [
     },
     {
         src: "assets/img/gallery/main/pidurangala-rock.jpg",
-        category: "cultural",
-        title: "Pidurangala Rock",
-        location: "Kandy",
+        category: "scenic",
+        title: "Hilltop View with Guests",
+        location: "Sri Lanka",
         date: "September 06, 2025",
         youtube: "https://www.youtube.com/shorts/lmT40k1FPn4?feature=share"
     },
@@ -386,14 +386,14 @@ window.GalleryData = [
         src: "assets/img/gallery/main/historic-galle-fort.jpg",
         category: "nature",
         title: "Tea Plantation Visit",
-        location: "Galle",
+        location: "Hill Country",
         date: "July 20, 2025",
         youtube: "https://www.youtube.com/shorts/lmT40k1FPn4?feature=share"
     },
     {
         src: "assets/img/gallery/main/yala-leopard-safari.jpg",
-        category: "wildlife",
-        title: "Yala Leopard Safari",
+        category: "experience",
+        title: "Guests on a Safari in Yala",
         location: "Yala",
         date: "July 22, 2025",
         youtube: "https://www.youtube.com/shorts/Eb1FAMZq410?feature=share"
@@ -448,9 +448,9 @@ window.GalleryData = [
     },
     {
         src: "assets/img/gallery/main/horton-plains-national-park.jpg",
-        category: "nature",
-        title: "Horton Plains National Park",
-        location: "Horton Plains",
+        category: "experience",
+        title: "Guest Portrait in Sri Lanka",
+        location: "Sri Lanka",
         date: "October 10, 2024",
         youtube: "https://www.youtube.com/shorts/Eb1FAMZq410?feature=share"
     },
@@ -464,9 +464,9 @@ window.GalleryData = [
     },
     {
         src: "assets/img/gallery/main/waterfall-tour.jpg",
-        category: "adventure",
+        category: "nature",
         title: "Waterfall Tour",
-        location: "Ella",
+        location: "Sri Lanka",
         date: "August 10, 2025",
         youtube: "https://www.youtube.com/shorts/LO7vF7flWGE?feature=share"
     },
@@ -537,8 +537,8 @@ window.GalleryData = [
     {
         src: "assets/img/gallery/main/wild-life-adventure.jpeg",
         category: "wildlife",
-        title: "Wildlife Adventure",
-        location: "National Parks",
+        title: "Wildlife Watching from a Tour Vehicle",
+        location: "Sri Lanka",
         date: "October 29, 2025",
         youtube: "https://www.youtube.com/shorts/lmT40k1FPn4?feature=share"
     }

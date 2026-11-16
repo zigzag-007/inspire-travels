@@ -16,11 +16,11 @@
         // Slider images (hardcoded for maintenance - new filenames)
         sliderImages: [
             { src: 'assets/img/gallery/footer/sunset-group-photo.jpg', title: 'Sunset Group Adventure', location: 'Sri Lanka', description: 'Unforgettable moments with friends at a scenic sunset viewpoint.' },
-            { src: 'assets/img/gallery/footer/cannon-cart.jpg', title: 'Cannon Cart Adventure', location: 'Sri Lanka', description: 'Experience thrilling cannon cart rides through scenic landscapes.' },
+            { src: 'assets/img/gallery/footer/cannon-cart.jpg', title: 'Historic cannon', location: 'Sri Lanka', description: 'A historic cannon beside a stone fort wall.' },
             { src: 'assets/img/gallery/footer/thank-you-collage.jpg', title: 'Thank You for Visit Sri Lanka', location: 'Sri Lanka', description: 'Treasured memories and happy moments from our tour experiences.' },
-            { src: 'assets/img/gallery/footer/lotus-tower.jpg', title: 'Lotus Tower View', location: 'Colombo', description: 'Stunning panoramic views from the iconic Lotus Tower.' },
+            { src: 'assets/img/gallery/footer/lotus-tower.jpg', title: 'Lotus Tower at night', location: 'Colombo', description: 'The illuminated entrance to Colombo Lotus Tower.' },
             { src: 'assets/img/gallery/footer/mirissa-treehill.jpg', title: 'Mirissa Tree Hill', location: 'Mirissa', description: 'Breathtaking views from the famous Mirissa tree hill.' },
-            { src: 'assets/img/gallery/footer/turtle-sea.jpg', title: 'Turtle Sea Conservation', location: 'Coastal Sri Lanka', description: 'Witness turtle hatching and sea turtle conservation efforts.' },
+            { src: 'assets/img/gallery/footer/turtle-sea.jpg', title: 'Turtles at a hatchery', location: 'Coastal Sri Lanka', description: 'Sea turtles in a hatchery pool.' },
             { src: 'assets/img/gallery/footer/holy-statue.jpg', title: 'Holy Statue Shrine', location: 'Sri Lanka', description: 'Sacred statues and spiritual sites across the island.' },
             { src: 'assets/img/gallery/footer/holy-temple.jpg', title: 'Holy Temple Visit', location: 'Sri Lanka', description: 'Ancient temples and religious architecture.' },
             { src: 'assets/img/gallery/footer/temple-entrance.jpg', title: 'Temple Entrance', location: 'Sri Lanka', description: 'Beautiful entrances to historic temples.' },
@@ -34,6 +34,19 @@
             this.initGalleryFiltering();
             this.initSliderItems();
             if (!document.body.classList.contains('secondary-page-theme')) this.initGallerySlider();
+
+            // Give the existing photo action the same access from a keyboard.
+            document.querySelectorAll('#gallery .single-blog-post, #dynamic-gallery-grid .single-blog-post, #gallery-slider .single-gallery-item').forEach(card => {
+                const image = card.querySelector('img');
+                card.setAttribute('role', 'button');
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('aria-label', 'Open photo: ' + (image ? image.alt : 'Sri Lanka travel'));
+                card.addEventListener('keydown', event => {
+                    if (event.target !== card || !['Enter', ' '].includes(event.key)) return;
+                    event.preventDefault();
+                    card.click();
+                });
+            });
 
             // Prevent nested links in gallery cards from bubbling click event and launching PhotoSwipe
             document.querySelectorAll('.single-blog-post a').forEach(link => {

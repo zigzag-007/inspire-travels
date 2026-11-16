@@ -89,8 +89,8 @@
 /* Premium Fade Down with Fluid Blur */
 [data-aos="fade-down-blur"] {
     opacity: 0;
-    transform: translateY(-35px) scale(0.975);
-    filter: blur(12px);
+    transform: translateY(-18px);
+    filter: blur(3px);
     transition-property: opacity, transform, filter;
     will-change: opacity, transform, filter;
 }
@@ -104,8 +104,8 @@
 /* Premium Fade Up with Fluid Blur */
 [data-aos="fade-up-blur"] {
     opacity: 0;
-    transform: translateY(35px) scale(0.975);
-    filter: blur(12px);
+    transform: translateY(18px);
+    filter: blur(3px);
     transition-property: opacity, transform, filter;
     will-change: opacity, transform, filter;
 }
@@ -119,8 +119,8 @@
 /* Premium Scale Up with Fluid Blur */
 [data-aos="scale-up-blur"] {
     opacity: 0;
-    transform: scale(0.92) translateY(15px);
-    filter: blur(8px);
+    transform: scale(0.98) translateY(8px);
+    filter: blur(3px);
     transition-property: opacity, transform, filter;
     will-change: opacity, transform, filter;
 }
@@ -134,7 +134,7 @@
 /* Pure Blur Reveal */
 [data-aos="blur-in"] {
     opacity: 0;
-    filter: blur(15px);
+    filter: blur(4px);
     transition-property: opacity, filter;
     will-change: opacity, filter;
 }

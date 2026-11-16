@@ -50,7 +50,7 @@ a[class*="hover:scale"]:active {
 /* Keyboard users need to see where they are. */
 a:focus-visible,
 button:focus-visible {
-    outline: 2px solid var(--accent-color);
+    outline: 3px solid currentColor;
     outline-offset: 3px;
     border-radius: 4px;
 }
@@ -77,8 +77,8 @@ button:focus-visible {
     z-index: 1;
     opacity: 0;
     transition: opacity 0.35s ease;
-    background: radial-gradient(circle 220px at var(--spot-x, 50%) var(--spot-y, 50%),
-            rgba(255, 255, 255, 0.14),
+    background: radial-gradient(circle 160px at var(--spot-x, 50%) var(--spot-y, 50%),
+            rgba(255, 255, 255, 0.06),
             transparent 70%);
 }
 
@@ -97,7 +97,7 @@ button:focus-visible {
 .liquid-glass[data-spotlight]:hover::before {
     background-image:
         radial-gradient(circle 130px at var(--spot-x, 50%) var(--spot-y, 50%),
-            rgba(255, 255, 255, 0.10),
+            rgba(255, 255, 255, 0.05),
             transparent 68%),
         linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.2) 40%, rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0.2) 60%, transparent 70%);
     background-size: 100% 100%, 250% 100%;
@@ -138,21 +138,20 @@ button:focus-visible {
     height: 100%;
     border-radius: 50%;
     background-color: #25D366;
-    opacity: 0.7;
+    opacity: 0;
     z-index: -1;
-    animation: pulse-ring 2s infinite;
-    /* Smoother 2s loop */
+    animation: none;
 }
 
 .whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.04);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
 }
 
 .whatsapp-float.is-dragging {
     cursor: grabbing;
     transform: scale(1.04) !important;
-    box-shadow: 0 16px 35px rgba(0, 77, 64, 0.32);
+    box-shadow: 0 10px 24px rgba(0, 77, 64, 0.24);
     transition: box-shadow 0.15s ease, transform 0.15s ease;
 }
 
@@ -195,7 +194,7 @@ button:focus-visible {
     transform: translateX(15px);
     transition: all 0.3s ease;
     pointer-events: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(24, 59, 48, 0.1);
 }
 
 .whatsapp-float:hover::after {
@@ -234,10 +233,9 @@ button:focus-visible {
 /* Explicit back-to-top contrast overrides to ensure Tailwind classes don't conflict */
 .back-to-top,
 .back-to-top:focus,
-.back-to-top:focus-visible,
 .back-to-top:active {
     outline: none !important;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 4px 16px rgba(24, 59, 48, 0.12) !important;
     -webkit-tap-highlight-color: transparent !important;
 }
 
@@ -257,6 +255,11 @@ button:focus-visible {
         visibility 0.22s ease,
         transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
         background-color 0.25s ease;
+}
+
+.back-to-top:focus-visible {
+    outline: 3px solid currentColor !important;
+    outline-offset: 3px;
 }
 
 .back-to-top.is-visible {

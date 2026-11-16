@@ -35,6 +35,17 @@ p {
     text-wrap: pretty;
 }
 
+/* Keep the compiled utility colors in step with the shared paper and forest tokens. */
+.bg-background { background-color: var(--background-color); }
+.text-foreground { color: var(--text-color); }
+.text-muted-foreground { color: var(--muted-color); }
+.bg-primary { background-color: var(--primary-color); }
+.text-primary { color: var(--primary-color); }
+.border-primary { border-color: var(--primary-color); }
+.bg-accent { background-color: var(--accent-color); }
+.text-accent { color: var(--accent-color); }
+.text-accent-foreground { color: var(--text-color); }
+
 /* Numbers that count up should not jiggle, so lock the digit width. */
 .tabular,
 [data-counter] {
@@ -72,20 +83,19 @@ h2 span.italic:not(.block) {
 
 /* Make navigation text bolder when in dark mode (black text on light backgrounds) */
 .nav-link.text-foreground {
-    font-weight: 900 !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    font-weight: 750 !important;
 }
 /* Active state styling - same golden color for both dark and light sections */
 .nav-link.text-accent,
 .nav-link.text-primary {
-    color: #FFB347 !important;
+    color: var(--accent-color, #edb75b) !important;
     /* Fallback hex color for golden yellow */
     font-weight: 900 !important;
 }
 
 /* Ensure hover colors use the orange accent color */
 .nav-link:hover {
-    color: #FFB347 !important;
+    color: var(--accent-color, #edb75b) !important;
     /* Fallback hex color for golden yellow */
 }
 
@@ -104,9 +114,9 @@ h2 span.italic:not(.block) {
     padding: 5px 10px;
     border-radius: 6px;
     background: rgba(251, 250, 224, 0.75);
-    backdrop-filter: blur(4px);
+    backdrop-filter: none;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    box-shadow: none;
 }
 
 /* Subtle vertical grid lines for structured design */
@@ -124,8 +134,8 @@ h2 span.italic:not(.block) {
 @media (max-width: 767px) {
     /* Adjust padding for mobile layout readability */
     section {
-        padding-top: 3.5rem !important;
-        padding-bottom: 3.5rem !important;
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
     }
 }
 @media (max-width: 375px) {
