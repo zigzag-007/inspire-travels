@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Isolated native scrolling and Lenis comparison prototype.">
+    <title>Scroll feel study · Inspire Travels</title>
+    <link rel="stylesheet" href="vendor/lenis-1.3.27.css">
+    <style>
+        :root { color-scheme: light; --ink: #183b32; --muted: #64756e; --line: #d9e2dc; --paper: #f5f6f1; --green: #1b624d; --pale: #e6eee7; }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: auto; }
+        body { margin: 0; color: var(--ink); background: var(--paper); font: 16px/1.6 system-ui, sans-serif; }
+        button, a { font: inherit; }
+        a { color: var(--green); }
+        button { color: inherit; }
+        .topbar { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .8rem max(1.2rem, calc((100% - 1080px)/2)); background: rgb(245 246 241 / 94%); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); }
+        .brand { font-weight: 750; letter-spacing: -.03em; text-decoration: none; }
+        .mode { display: flex; align-items: center; gap: .6rem; font-size: .9rem; }
+        .mode select { border: 1px solid #aebfb4; border-radius: 999px; padding: .45rem 2rem .45rem .8rem; background: white; color: var(--ink); }
+        main { max-width: 1080px; margin: auto; padding: 4rem 1.4rem 5rem; }
+        .eyebrow { color: var(--green); font-size: .76rem; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
+        h1, h2 { line-height: 1.08; letter-spacing: -.04em; }
+        h1 { max-width: 760px; margin: .7rem 0 1rem; font-size: clamp(2.6rem, 7vw, 5.7rem); }
+        h2 { font-size: clamp(1.8rem, 4vw, 3rem); }
+        p { max-width: 68ch; }
+        .intro { color: #425a50; font-size: 1.12rem; }
+        .note { margin: 2rem 0 0; padding: 1rem 1.2rem; border-left: 3px solid var(--green); background: white; color: #43584f; }
+        .jumpnav { display: flex; flex-wrap: wrap; gap: .6rem; margin: 2rem 0 0; }
+        .jumpnav a, .action { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; padding: .55rem 1rem; border: 1px solid #b6c9bd; border-radius: 999px; background: white; text-decoration: none; cursor: pointer; }
+        .jumpnav a:hover, .action:hover { background: var(--pale); }
+        :focus-visible { outline: 3px solid #aa641b; outline-offset: 3px; }
+        section.demo-section { min-height: 82vh; margin-top: 4rem; padding: clamp(1.5rem, 5vw, 3.5rem); border: 1px solid var(--line); border-radius: 2rem; background: white; scroll-margin-top: var(--anchor-gap, 4.75rem); }
+        .section-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1rem; }
+        .section-head p { margin-bottom: .3rem; color: var(--muted); }
+        .columns { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(1.5rem, 5vw, 4rem); margin-top: 2.5rem; }
+        .columns p { color: #52665d; }
+        .landscape { min-height: 270px; display: grid; place-items: center; border-radius: 1.4rem; background: linear-gradient(140deg, #dce8dc, #b9d2c2 55%, #8aaf9b); color: #234b3a; font-size: .9rem; text-align: center; }
+        .controls { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.5rem; }
+        .panel { max-height: 230px; overflow: auto; overscroll-behavior: contain; padding: 1rem 1.2rem; border: 1px solid var(--line); border-radius: 1rem; background: #f7f8f4; }
+        .panel p { margin: .4rem 0; }
+        footer { max-width: 1080px; margin: auto; padding: 2rem 1.4rem 4rem; color: var(--muted); }
+        dialog { width: min(500px, calc(100% - 2rem)); max-height: 80vh; border: 1px solid var(--line); border-radius: 1.3rem; padding: 1.5rem; color: var(--ink); box-shadow: 0 24px 80px #16382c35; }
+        dialog::backdrop { background: #10281f88; }
+        dialog[open] { animation: appear .18s ease-out; }
+        @keyframes appear { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+        @media (max-width: 680px) { .topbar { align-items: flex-start; flex-direction: column; } main { padding-top: 2.4rem; } .columns { grid-template-columns: 1fr; } section.demo-section { min-height: auto; } }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="#top">Inspire Travels · Scroll study</a>
+        <label class="mode">Scrolling mode
+            <select id="scroll-mode" aria-describedby="mode-help">
+                <option value="native" selected>Native (default)</option>
+                <option value="lenis">Lenis</option>
+            </select>
+        </label>
+    </header>
+    <main id="top">
+        <span class="eyebrow">Isolated interaction prototype</span>
+        <h1>Does eased wheel scrolling help this page?</h1>
+        <p class="intro">Compare the browser’s native movement with Lenis on the same content. Use the links, keyboard, scrollbar, nested panel, and dialog in both modes. This demo does not change the live site.</p>
+        <p class="note" id="mode-help"><strong>What changes:</strong> Lenis smooths wheel and programmatic anchor movement. Touch input stays native. Native scrolling is usually more direct; smoothing can feel calmer on a mouse wheel, but adds a scroll owner and needs careful checks on mobile and assistive input.</p>
+        <nav class="jumpnav" aria-label="Demo sections">
+            <a href="#coast">Coast</a><a href="#highlands">Highlands</a><a href="#wildlife">Wildlife</a><a href="#interaction">Controls</a>
+        </nav>
+
+        <section class="demo-section" id="coast" aria-labelledby="coast-title">
+            <div class="section-head"><div><span class="eyebrow">01 · South coast</span><h2 id="coast-title">A slower shoreline</h2></div><p>Anchor jump target with a stable sticky header offset.</p></div>
+            <div class="columns"><div><p>Travel days feel different from a list of stops. A clear route lets guests pause, look around, and decide what deserves more time.</p><p>Compare a plain wheel gesture, a short link jump, and scrolling with the keyboard. Hash links update the address so this section can be bookmarked and opened directly.</p><a href="#highlands">Continue to the highlands ↓</a></div><div class="landscape" role="img" aria-label="Abstract green coastline illustration">Coastline study · placeholder artwork</div></div>
+        </section>
+
+        <section class="demo-section" id="highlands" aria-labelledby="highlands-title">
+            <div class="section-head"><div><span class="eyebrow">02 · Hill country</span><h2 id="highlands-title">Mist above the tea fields</h2></div><p>Use Page Down, Space, or the scrollbar thumb here.</p></div>
+            <div class="columns"><div><p>Movement should stay under the visitor’s control. A smooth animation can add a gentle finish to wheel input, while native scrolling keeps direct tracking and familiar browser behaviour.</p><p>Try moving the scrollbar during a jump, then use Back and Forward. Check whether the position feels predictable at each stop.</p><a href="#wildlife">Continue to wildlife ↓</a></div><div class="landscape" role="img" aria-label="Abstract green hill country illustration">Hill country study · placeholder artwork</div></div>
+        </section>
+
+        <section class="demo-section" id="wildlife" aria-labelledby="wildlife-title">
+            <div class="section-head"><div><span class="eyebrow">03 · Dry zone</span><h2 id="wildlife-title">Room to watch and wait</h2></div><p>Reduced motion should make programmatic movement instant.</p></div>
+            <div class="columns"><div><p>Prefer-reduced-motion is enabled in Lenis. The page also keeps CSS motion short and restrained. Toggle your operating system’s reduced motion setting and compare the same anchor jump.</p><p>Use the mode switch at the top to rebuild the scroll owner. The selected mode is reflected in the URL so a comparison can be shared.</p><a href="#interaction">Continue to interaction checks ↓</a></div><div class="landscape" role="img" aria-label="Abstract green wildlife landscape illustration">Dry zone study · placeholder artwork</div></div>
+        </section>
+
+        <section class="demo-section" id="interaction" aria-labelledby="interaction-title">
+            <div class="section-head"><div><span class="eyebrow">04 · Interaction checks</span><h2 id="interaction-title">Keep other controls usable</h2></div><p>Scroll lock and nested movement can expose integration issues.</p></div>
+            <div class="controls"><button class="action" id="open-dialog" type="button">Open planning panel</button><a href="#top">Back to top ↑</a></div>
+            <h3>Nested reading panel</h3>
+            <div class="panel" data-lenis-prevent tabindex="0" aria-label="Scrollable trip planning notes">
+                <p>Inside this box, scrolling should move the notes without pulling the whole page along.</p><p>Ask about the pace that suits your group.</p><p>Leave time for a meal and a walk.</p><p>Check road times before adding another stop.</p><p>Keep a free afternoon for weather changes.</p><p>Use the close button or Escape to leave the planning panel.</p>
+            </div>
+        </section>
+    </main>
+    <footer>This page is a throwaway prototype. Lenis v1.3.27 is pinned locally for this comparison. No framework or production dependency is involved.</footer>
+
+    <dialog id="planning-dialog" aria-labelledby="dialog-title">
+        <h2 id="dialog-title">A small planning panel</h2>
+        <p>This dialog stands in for a drawer or image viewer. The page scroll is locked while it is open. Close it with the button or Escape, then check that scrolling resumes.</p>
+        <button class="action" id="close-dialog" type="button">Close panel</button>
+    </dialog>
+
+    <script src="vendor/lenis-1.3.27.min.js"></script>
+    <script>
+        const modePicker = document.getElementById('scroll-mode');
+        const dialog = document.getElementById('planning-dialog');
+        const openDialog = document.getElementById('open-dialog');
+        const closeDialog = document.getElementById('close-dialog');
+        let lenis = null;
+        let returnFocus = null;
+
+        // Keep browser anchor spacing matched to the sticky header at each width.
+        function updateAnchorGap() {
+            const headerHeight = document.querySelector('.topbar').getBoundingClientRect().height;
+            document.documentElement.style.setProperty('--anchor-gap', `${headerHeight + 16}px`);
+        }
+
+        // One observer keeps native and Lenis targets aligned without another frame loop.
+        const headerObserver = new ResizeObserver(updateAnchorGap);
+        headerObserver.observe(document.querySelector('.topbar'));
+        updateAnchorGap();
+
+        // Rebuild the selected scroll owner while preserving one anchor offset source.
+        function applyMode(mode) {
+            if (lenis) {
+                lenis.destroy();
+                lenis = null;
+            }
+            document.documentElement.classList.remove('lenis', 'lenis-smooth');
+            if (mode === 'lenis') {
+                lenis = new Lenis({
+                    autoRaf: true,
+                    anchors: true,
+                    syncTouch: false,
+                    respectReducedMotion: true,
+                    prevent: node => Boolean(node.closest('[data-lenis-prevent], dialog'))
+                });
+            }
+        }
+
+        modePicker.addEventListener('change', () => {
+            const mode = modePicker.value;
+            const nextUrl = new URL(window.location.href);
+            if (mode === 'native') nextUrl.searchParams.delete('mode');
+            else nextUrl.searchParams.set('mode', mode);
+            history.replaceState(null, '', nextUrl);
+            applyMode(mode);
+        });
+
+        const requestedMode = new URLSearchParams(location.search).get('mode');
+        if (requestedMode === 'lenis') modePicker.value = 'lenis';
+        applyMode(modePicker.value);
+
+        openDialog.addEventListener('click', () => {
+            returnFocus = document.activeElement;
+            modePicker.disabled = true;
+            if (lenis) lenis.stop();
+            else document.body.style.overflow = 'hidden';
+            dialog.showModal();
+            closeDialog.focus();
+        });
+
+        function dismissDialog() {
+            if (!dialog.open) return;
+            dialog.close();
+            modePicker.disabled = false;
+            if (lenis) lenis.start();
+            else document.body.style.overflow = '';
+            if (returnFocus) returnFocus.focus();
+        }
+
+        closeDialog.addEventListener('click', dismissDialog);
+        dialog.addEventListener('cancel', event => {
+            event.preventDefault();
+            dismissDialog();
+        });
+    </script>
+</body>
+</html>
