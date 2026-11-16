@@ -92,6 +92,7 @@
                 <p id="form-notes-validation" aria-live="polite" class="mt-1.5 text-xs font-medium text-slate-400">Optional. Up to 500 characters.</p>
             </div>
             <button type="submit" class="tour-inquiry-button"><i class="ph-fill ph-whatsapp-logo text-xl" aria-hidden="true"></i><span>${isGroup ? 'Ask About Group Departures' : 'Request a Private Tour Quote'}</span></button>
+            <p class="text-sm text-slate-600">This opens a WhatsApp draft. Review your details, then send when you are ready.</p>
         </form>`;
     }
 
@@ -128,14 +129,14 @@
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 items-start">
                     <div class="tour-detail-main-column lg:col-span-2 space-y-10">
                         <div class="tour-detail-tabs border-b border-slate-200 bg-white/70 backdrop-blur-md rounded-2xl px-4 pt-3 shadow-sm border border-slate-200/80">
-                            <div class="tour-detail-tabs-list flex items-center gap-6 sm:gap-10 overflow-x-auto no-scrollbar">
-                                <button id="tab-btn-overview" type="button" data-tour-tab="overview" class="tour-tab-btn pb-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-emerald-700 border-b-2 border-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="compass" class="w-4 h-4"></i>Overview</button>
-                                <button id="tab-btn-options" type="button" data-tour-tab="options" class="tour-tab-btn pb-3 text-xs sm:text-sm font-semibold uppercase tracking-wider text-slate-500 hover:text-emerald-700 border-b-2 border-transparent transition-colors flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="message-square-text" class="w-4 h-4"></i>Enquire</button>
-                                <button id="tab-btn-details" type="button" data-tour-tab="details" class="tour-tab-btn pb-3 text-xs sm:text-sm font-semibold uppercase tracking-wider text-slate-500 hover:text-emerald-700 border-b-2 border-transparent transition-colors flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="file-text" class="w-4 h-4"></i>Details</button>
+                            <div class="tour-detail-tabs-list flex items-center gap-6 sm:gap-10 overflow-x-auto no-scrollbar" role="tablist" aria-label="Tour details">
+                                <button id="tab-btn-overview" type="button" role="tab" aria-selected="true" aria-controls="tour-tab-panel-overview" tabindex="0" data-tour-tab="overview" class="tour-tab-btn pb-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-emerald-700 border-b-2 border-emerald-700 transition-colors flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="compass" class="w-4 h-4"></i>Overview</button>
+                                <button id="tab-btn-options" type="button" role="tab" aria-selected="false" aria-controls="tour-tab-panel-options" tabindex="-1" data-tour-tab="options" class="tour-tab-btn pb-3 text-xs sm:text-sm font-semibold uppercase tracking-wider text-slate-500 hover:text-emerald-700 border-b-2 border-transparent transition-colors flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="message-square-text" class="w-4 h-4"></i>Enquire</button>
+                                <button id="tab-btn-details" type="button" role="tab" aria-selected="false" aria-controls="tour-tab-panel-details" tabindex="-1" data-tour-tab="details" class="tour-tab-btn pb-3 text-xs sm:text-sm font-semibold uppercase tracking-wider text-slate-500 hover:text-emerald-700 border-b-2 border-transparent transition-colors flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="file-text" class="w-4 h-4"></i>Details</button>
                             </div>
                         </div>
 
-                        <div id="tour-tab-panel-overview" class="space-y-12">
+                        <div id="tour-tab-panel-overview" class="space-y-12" role="tabpanel" aria-labelledby="tab-btn-overview" tabindex="0">
                             <div class="tour-route-intro bg-gradient-to-r from-emerald-50 via-teal-50/50 to-white rounded-3xl p-6 sm:p-8 border border-emerald-100 shadow-sm">
                                 <span class="text-xs font-bold text-emerald-800 uppercase tracking-wider flex items-center gap-1.5 mb-2"><i data-lucide="route" class="w-4 h-4 text-emerald-600"></i>${isGroup ? 'Shared Group Route' : 'Private Journey'}</span>
                                 <p class="text-slate-700 text-base leading-relaxed font-medium">${tour.description} ${isGroup ? 'Departure dates, group size, price, and final inclusions are confirmed by inquiry.' : 'Your final route, hotels, price, and inclusions are confirmed with the team before booking.'}</p>
@@ -150,7 +151,7 @@
                             </section>
                         </div>
 
-                        <div id="tour-tab-panel-options" class="hidden space-y-8">
+                        <div id="tour-tab-panel-options" class="hidden space-y-8" role="tabpanel" aria-labelledby="tab-btn-options" tabindex="0">
                             <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-lg">
                                 <div class="border-b border-slate-200 pb-6 mb-6">
                                     <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider">Direct WhatsApp Inquiry</span>
@@ -161,7 +162,7 @@
                             </div>
                         </div>
 
-                        <div id="tour-tab-panel-details" class="hidden space-y-8">
+                        <div id="tour-tab-panel-details" class="hidden space-y-8" role="tabpanel" aria-labelledby="tab-btn-details" tabindex="0">
                             <div class="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-md">
                                 <div class="mb-4">
                                     <h3 class="font-display text-xl font-bold text-slate-900 flex items-center gap-2"><i data-lucide="map-pin" class="w-5 h-5 text-emerald-600"></i>Tour Route Map</h3>

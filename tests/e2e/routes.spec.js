@@ -24,6 +24,15 @@ test(`every sitemap route opens and reloads with assets at ${width}px`, async ({
         await expect(page.locator('footer .footer-registration')).toContainText('PV-00379338');
         expect(await page.reload({ waitUntil: 'load' }).then(response => response.status()), route).toBe(200);
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), route).toBe(true);
+        await page.locator('footer').scrollIntoViewIfNeeded();
+        const backToTop = page.getByRole('link', { name: 'Back to top', exact: true });
+        await expect(backToTop, route).toHaveClass(/is-visible/);
+        await expect(backToTop, route).toHaveCSS('background-color', 'rgb(244, 240, 230)');
+        expect(await backToTop.evaluate(element => {
+            const box = element.getBoundingClientRect();
+            const hit = document.elementFromPoint(box.x + box.width / 2, box.y + box.height / 2);
+            return element.contains(hit) && box.left >= 0 && box.bottom <= innerHeight;
+        }), route).toBe(true);
     }
     expect(failures).toEqual([]);
 });

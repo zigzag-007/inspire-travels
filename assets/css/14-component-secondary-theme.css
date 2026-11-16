@@ -103,10 +103,6 @@ body.secondary-page-theme.tour-detail-view > .secondary-site-footer {
     z-index: 40;
 }
 
-body.secondary-page-theme .back-to-top {
-    z-index: 45 !important;
-}
-
 .secondary-ambient-contours {
     position: absolute;
     z-index: 0;
@@ -1960,7 +1956,7 @@ body.mobile-menu-open .secondary-mobile-socials { animation-delay: 235ms; }
             radial-gradient(circle at 24% 14%, rgba(234, 176, 91, 0.22), transparent 2.2rem),
             rgba(3, 16, 11, 0.66);
         box-shadow: 0 0.85rem 2rem rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.12);
-        transition: border-color 180ms ease, background-color 180ms ease, opacity 160ms ease, visibility 160ms ease, transform 160ms ease;
+        transition: border-color 180ms ease, background-color 180ms ease, opacity 160ms ease, transform 160ms ease;
     }
 
     body.mobile-menu-open.secondary-page-theme #mobile-menu-btn {

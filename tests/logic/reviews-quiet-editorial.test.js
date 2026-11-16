@@ -80,7 +80,7 @@ test('reviews section links to the current Google business listing', () => {
     assert.match(reviewLinks[1][1], /<span>Read reviews on Google Maps<\/span>/);
 });
 
-test('carousel contains only the three verified Google review excerpts and profiles', () => {
+test('carousel preserves verified excerpts and expands to 27 sourced reviews', () => {
     const source = fs.readFileSync(reviewsModulePath, 'utf8');
     const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
     const expectedReviews = [
@@ -102,8 +102,8 @@ test('carousel contains only the three verified Google review excerpts and profi
     ];
 
     assert.match(source, /var reviews = \[/);
-    assert.equal((source.match(/["']?rating["']?\s*:\s*5/g) || []).length, 3);
-    assert.doesNotMatch(source, /Vivaan Shenoy|Zeeshan Ahmed|Mandars Backup|Sarah & Mike Johnson|Priya & Raj Patel/);
+    assert.equal((source.match(/["']?rating["']?\s*:\s*5/g) || []).length, 27);
+    assert.doesNotMatch(source, /Zeeshan Ahmed|Mandars Backup|Sarah & Mike Johnson|Priya & Raj Patel/);
     for (const review of expectedReviews) {
         assert.ok(source.includes(review.name), `missing verified reviewer: ${review.name}`);
         assert.ok(source.includes(review.profile), `missing source profile: ${review.name}`);
@@ -113,9 +113,32 @@ test('carousel contains only the three verified Google review excerpts and profi
         assert.ok(source.includes(sourceExcerpt), `missing verified excerpt: ${review.name}`);
     }
     assert.match(html, /id="review-name"[^>]*>manish kundu<\/cite>/);
-    assert.match(html, /id="review-status" class="sr-only" aria-live="polite">Review 1 of 3<\/span>/);
+    assert.match(html, /id="review-status" class="sr-only" aria-live="polite">Review 1 of 27<\/span>/);
     assert.match(html, /id="review-source"[^>]*href="https:\/\/www\.google\.com\/maps\/contrib\/114010618743342096318\/reviews\?hl=en-GB"/);
     assert.match(html, /Verified on Google Maps · 16 November 2026/);
+});
+
+test('all 27 reviews are reachable, uniquely sourced and wrap correctly', () => {
+    const elements = loadReviewsModule();
+    const names = new Set();
+    const profiles = new Set();
+    for (let index = 0; index < 27; index += 1) {
+        names.add(elements['review-name'].textContent);
+        profiles.add(elements['review-source'].href);
+        assert.match(elements['review-source'].href, /^https:\/\/www\.google\.com\/maps\/contrib\/\d+\/reviews\?/);
+        assert.match(elements['review-avatar'].src, /^https:\/\/lh3\.googleusercontent\.com\//);
+        assert.ok(elements['review-quote'].textContent.length > 50);
+        if (elements['review-name'].textContent === 'Sandra') {
+            assert.match(elements['review-label'].textContent, /translated by Google/);
+        }
+        if (elements['review-next-name'].textContent === 'Sandra') {
+            assert.match(elements['review-next-label'].textContent, /translated by Google/);
+        }
+        elements['review-next-preview'].click();
+    }
+    assert.equal(names.size, 27);
+    assert.equal(profiles.size, 27);
+    assert.equal(elements['review-status'].textContent, 'Review 1 of 27');
 });
 
 test('next story button advances and a right swipe returns to the previous review', () => {

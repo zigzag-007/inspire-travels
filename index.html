@@ -142,6 +142,7 @@
 
 	</head>
 	<body class="font-sans antialiased bg-background text-foreground" data-nav-base="">
+		<a class="skip-link" href="#main-content" data-skip-link>Skip to main content</a>
 		<!-- Ambient Drifting Insects & Firefly Particles -->
 		<canvas class="secondary-ambient-particles" aria-hidden="true"></canvas>
 		<!-- Loading Animation Preloader -->
@@ -303,6 +304,7 @@
 			</div>
 		</div>
 		<!-- Hero Section (arrow back, sentinel kept, dots removed; mobile buttons balanced) -->
+		<main id="main-content" tabindex="-1">
 		<section id="home" class="relative isolate min-h-[100svh] flex items-center justify-center overflow-hidden pt-24 pb-16 sm:pt-28 sm:pb-20">
 			<!-- Background wrapper to isolate scroll transforms from Ken Burns transitions -->
 			<div id="hero-bg-wrapper" class="absolute inset-0 overflow-hidden z-0">
@@ -892,8 +894,8 @@
 					<div data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
 						<!-- Tabs -->
 						<div class="flex gap-4 mb-8 justify-center sm:justify-start" role="tablist" aria-label="About Inspire Travels">
-							<button type="button" id="story-tab" class="tab-btn is-active liquid-glass text-white rounded-full px-6 py-2 transition-all duration-300 hover:scale-105" role="tab" aria-selected="true" aria-controls="story-content">Our Story</button>
-							<button type="button" id="mission-tab" class="tab-btn liquid-glass text-white rounded-full px-6 py-2 transition-all duration-300 hover:scale-105" role="tab" aria-selected="false" aria-controls="mission-content">Our Mission</button>
+							<button type="button" id="story-tab" class="tab-btn is-active liquid-glass text-white rounded-full px-6 py-2 transition-all duration-300 hover:scale-105" role="tab" aria-selected="true" aria-controls="story-content" tabindex="0">Our Story</button>
+							<button type="button" id="mission-tab" class="tab-btn liquid-glass text-white rounded-full px-6 py-2 transition-all duration-300 hover:scale-105" role="tab" aria-selected="false" aria-controls="mission-content" tabindex="-1">Our Mission</button>
 						</div>
 						<!-- Story Tab -->
 						<div id="story-content" class="tab-content space-y-4 sm:space-y-6" role="tabpanel" aria-labelledby="story-tab">
@@ -1190,7 +1192,7 @@
 								</div>
 							</button>
 						</div>
-						<span id="review-status" class="sr-only" aria-live="polite">Review 1 of 3</span>
+						<span id="review-status" class="sr-only" aria-live="polite">Review 1 of 27</span>
 					</div>
 				</div>
 			</div>
@@ -1231,6 +1233,7 @@
 			</div>
 		</section>
 		<!-- Unified Luxury Footer with Continuous Carousel -->
+		</main>
 		<footer id="footer" class="main-footer gowilds-footer secondary-site-footer pt-16 md:pt-20">
 			<!-- Integrated Footer Photo Slider -->
 			<div class="w-full mb-12 sm:mb-16 overflow-hidden">
@@ -1470,7 +1473,7 @@
 		   <img src="assets/img/icons/whatsapp.svg" class="whatsapp-brand-icon" alt="" aria-hidden="true">
 		</a>
 		<!-- Back to Top Button -->
-		<a href="#" class="back-to-top fixed bottom-6 right-6 z-30 bg-white/20 backdrop-blur-md border border-[#005f73]/20 text-primary hover:bg-white/30 w-12 h-12 md:w-14 md:h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center focus:outline-none focus:ring-0 active:outline-none" aria-label="Back to top" aria-hidden="true" title="Back to top">
+		<a href="#" class="back-to-top" aria-label="Back to top" aria-hidden="true" title="Back to top">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 				<path d="m18 15-6-6-6 6" />
 			</svg>

@@ -1,4 +1,146 @@
 const { test, expect } = require('@playwright/test');
+const fs = require('node:fs');
+const path = require('node:path');
+
+// Long guest excerpts must fit each layout and keep their original source link.
+test('all verified guest excerpts remain readable across screen sizes', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    for (const width of [390, 768, 1920]) {
+        await page.setViewportSize({ width, height: 1000 });
+        await page.goto('/');
+        const names = new Set();
+        for (let index = 0; index < 27; index += 1) {
+            const name = await page.locator('#review-name').textContent();
+            expect(names.has(name), `${width}px duplicate ${name}`).toBe(false);
+            names.add(name);
+            await expect(page.locator('#review-quote')).not.toBeEmpty();
+            await expect(page.locator('#review-source')).toHaveAttribute('href', /google\.com\/maps\/contrib\//);
+            expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+            await page.locator('#review-next-preview').click();
+        }
+        await expect(page.locator('#review-name')).toHaveText('manish kundu');
+    }
+});
+
+// Each generated tour must wire the shared keyboard controller, not just its markup.
+test('every individual tour exposes all tabs through the keyboard', async ({ page }) => {
+    const sitemap = fs.readFileSync(path.join(__dirname, '../../public/sitemap.xml'), 'utf8');
+    const routes = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(match => new URL(match[1]).pathname)
+        .filter(route => route.startsWith('/tours/') && !route.includes('/collection-'));
+    for (const route of routes) {
+        await page.goto(route);
+        await page.locator('#tab-btn-overview').focus();
+        await page.keyboard.press('ArrowRight');
+        await expect(page.locator('#tab-btn-options'), route).toBeFocused();
+        await expect(page.locator('#tour-tab-panel-options'), route).toBeVisible();
+        await page.keyboard.press('ArrowRight');
+        await expect(page.locator('#tab-btn-details'), route).toBeFocused();
+        await expect(page.locator('#tour-tab-panel-details'), route).toBeVisible();
+        await page.keyboard.press('Tab');
+        await expect(page.locator('#tour-tab-panel-details'), route).toBeFocused();
+    }
+});
+
+// Section links remain shareable and keep the browser's Back button useful.
+test('section navigation records its anchor in browser history', async ({ page }) => {
+    await page.goto('/');
+    await page.locator('#navbar a[href="#tours"]').click();
+    await expect(page).toHaveURL(/#tours$/);
+    await page.locator('#navbar a[href="#about"]').click();
+    await expect(page).toHaveURL(/#about$/);
+    await page.goBack();
+    await expect(page).toHaveURL(/#tours$/);
+});
+
+// Arrow keys change tabs without moving focus into unrelated enquiry buttons.
+test('about and tour tabs support roving keyboard selection', async ({ page }) => {
+    await page.goto('/');
+    const mission = page.getByRole('tab', { name: 'Our Mission', exact: true });
+    await page.getByRole('tab', { name: 'Our Story', exact: true }).focus();
+    await page.keyboard.press('ArrowRight');
+    await expect(mission).toBeFocused();
+    await expect(mission).toHaveAttribute('aria-selected', 'true');
+    await page.keyboard.press('Home');
+    await expect(page.getByRole('tab', { name: 'Our Story', exact: true })).toBeFocused();
+    await page.goto('/tours/highlights-escape.html');
+    await page.locator('#tab-btn-overview').focus();
+    await page.keyboard.press('ArrowLeft');
+    await expect(page.locator('#tab-btn-details')).toBeFocused();
+    await expect(page.locator('#tour-tab-panel-details')).toBeVisible();
+    await page.keyboard.press('ArrowRight');
+    await expect(page.locator('#tab-btn-overview')).toBeFocused();
+    await expect(page.locator('#tour-tab-panel-overview')).toBeVisible();
+});
+
+// Wheel input should take control back immediately, on first and repeated returns.
+test('back to top preserves its return and stops for user input', async ({ page }) => {
+    await page.goto('/');
+    for (let attempt = 0; attempt < 2; attempt += 1) {
+        await page.locator('footer').scrollIntoViewIfNeeded();
+        await page.getByRole('link', { name: 'Back to top', exact: true }).click();
+        await page.waitForTimeout(400);
+        await expect.poll(() => page.evaluate(() => window.NavigationModule.scrollAnimationFrame)).not.toBeNull();
+        await page.mouse.wheel(0, 100);
+        await expect.poll(() => page.evaluate(() => window.NavigationModule.scrollAnimationFrame)).toBeNull();
+    }
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.getByRole('link', { name: 'Back to top', exact: true }).click();
+    await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(5);
+});
+
+// Keyboard visitors can bypass the repeated navigation and reach the page itself.
+test('home and gallery offer a working skip link', async ({ page }) => {
+    for (const route of ['/', '/gallery.html']) {
+        await page.goto(route);
+        const skip = page.getByRole('link', { name: 'Skip to main content', exact: true });
+        await skip.focus();
+        await page.keyboard.press('Enter');
+        await expect(page.getByRole('main')).toBeFocused();
+    }
+});
+
+// An empty filter combination should explain the result and offer a way back.
+test('gallery empty filters offer a clear reset and selected state', async ({ page }) => {
+    await page.goto('/gallery.html');
+    await page.locator('.gallery-filter-btn[data-category="offers"]').click();
+    await page.locator('.gallery-year-btn[data-year="2025"]').click();
+    await expect(page.locator('#gallery-filter-status')).toHaveText('No photos match these filters.');
+    await expect(page.locator('.gallery-filter-btn[data-category="offers"]')).toHaveAttribute('aria-pressed', 'true');
+    await page.getByRole('button', { name: 'Reset photo filters', exact: true }).click();
+    await expect(page.locator('#gallery-filter-status')).toContainText(/\d+ photos/);
+    await expect(page.locator('.gallery-filter-btn[data-category="all"]')).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('.gallery-year-btn[data-year="all"]')).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('.gallery-filter-btn[data-category="all"]')).toBeFocused();
+});
+
+// A delayed close must not hide a drawer that the visitor has already reopened.
+test('rapid drawer reversal keeps its overlay visible', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+    await page.getByRole('button', { name: 'Open mobile menu', exact: true }).click();
+    await page.evaluate(() => {
+        window.MobileMenuModule.closeMobileMenu();
+        window.MobileMenuModule.openMobileMenu();
+    });
+    await page.waitForTimeout(700);
+    await expect(page.locator('#blur-overlay')).toBeVisible();
+    await expect(page.locator('#mobile-menu-close')).toBeFocused();
+    await page.keyboard.press('Escape');
+    await expect(page.locator('#mobile-menu-btn')).toBeFocused();
+});
+
+// The arrow needs the same solid contrast over photos, paper and the footer.
+test('back to top keeps a solid surface and a visible keyboard focus', async ({ page }) => {
+    await page.goto('/');
+    await page.locator('footer').scrollIntoViewIfNeeded();
+    const control = page.getByRole('link', { name: 'Back to top', exact: true });
+    await expect(control).toHaveClass(/is-visible/);
+    await expect(control).toHaveCSS('background-color', 'rgb(244, 240, 230)');
+    await expect(control).toHaveCSS('color', 'rgb(23, 62, 50)');
+    await control.focus();
+    await expect(control).toHaveCSS('outline-style', 'solid');
+    expect(await control.evaluate(element => parseFloat(getComputedStyle(element).outlineWidth))).toBeGreaterThanOrEqual(3);
+});
 
 // Logo motion stays continuous under a pointer, while keyboard users can stop it.
 test('hotel partners use two continuous rows with visible light logos', async ({ page }) => {

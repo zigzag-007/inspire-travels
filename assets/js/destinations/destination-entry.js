@@ -19,6 +19,9 @@
 
     function switchDestination(slug, scrollToHero) {
         if (!window.DestinationRouteModule.get(slug) || slug === currentSlug) return;
+        if (window.NavigationModule && typeof window.NavigationModule.stopSmoothScroll === 'function') {
+            window.NavigationModule.stopSmoothScroll();
+        }
         var article = document.getElementById('destination-article-main');
         currentSlug = slug;
         window.DestinationRouteModule.updateUrl(slug);
@@ -35,7 +38,14 @@
             }
             if (scrollToHero !== false) {
                 var hero = document.getElementById('dest-hero');
-                if (hero) hero.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (hero && window.NavigationModule && typeof window.NavigationModule.smoothScrollTo === 'function') {
+                    var top = window.NavigationModule.getScrollTargetY
+                        ? window.NavigationModule.getScrollTargetY(hero)
+                        : Math.max(0, hero.getBoundingClientRect().top + window.scrollY - 100);
+                    window.NavigationModule.smoothScrollTo(top, 1000);
+                } else if (hero) {
+                    hero.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             }
         }, 250);
     }

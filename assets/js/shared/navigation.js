@@ -10,6 +10,7 @@
         scrollProgress: null,
         scrollAnimationFrame: null,
         restoreScrollBehavior: null,
+        scrollInputHandlers: null,
 
         init: function() {
             this.navbar = document.getElementById('navbar');
@@ -58,10 +59,24 @@
             this.scrollProgress.style.width = scrollPercent + '%';
         },
 
+        // Keep section targets clear of the sticky navigation bar.
+        getScrollTargetY: function(targetElement) {
+            const navbar = document.getElementById('navbar');
+            const headerOffset = navbar ? navbar.getBoundingClientRect().height + 16 : 100;
+            return Math.max(0, targetElement.getBoundingClientRect().top + window.scrollY - headerOffset);
+        },
+
         stopSmoothScroll: function() {
             if (this.scrollAnimationFrame) {
                 window.cancelAnimationFrame(this.scrollAnimationFrame);
                 this.scrollAnimationFrame = null;
+            }
+
+            if (this.scrollInputHandlers) {
+                this.scrollInputHandlers.forEach(function(handler) {
+                    window.removeEventListener(handler.type, handler.callback, handler.options);
+                });
+                this.scrollInputHandlers = null;
             }
 
             if (this.restoreScrollBehavior !== null) {
@@ -91,6 +106,28 @@
             this.restoreScrollBehavior = root.style.scrollBehavior;
             root.style.scrollBehavior = 'auto';
 
+            // Stop automatic movement before the browser handles the visitor's scroll input.
+            const stopForScrollKey = (event) => {
+                const scrollKeys = ['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' ', 'Spacebar'];
+                if (event.type === 'keydown' && !scrollKeys.includes(event.key)) return;
+                if (event.type === 'keydown' && (event.ctrlKey || event.metaKey || event.altKey)) return;
+                const target = event.target;
+                if (event.type === 'keydown' && target && (
+                    target.isContentEditable ||
+                    /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)
+                )) return;
+                this.stopSmoothScroll();
+            };
+            this.scrollInputHandlers = [
+                { type: 'wheel', callback: stopForScrollKey, options: { passive: true } },
+                { type: 'touchstart', callback: stopForScrollKey, options: { passive: true } },
+                { type: 'pointerdown', callback: stopForScrollKey, options: { passive: true } },
+                { type: 'keydown', callback: stopForScrollKey, options: true }
+            ];
+            this.scrollInputHandlers.forEach((handler) => {
+                window.addEventListener(handler.type, handler.callback, handler.options);
+            });
+
             let startTime = null;
 
             const easeInOutCubic = (t) => {
@@ -103,7 +140,7 @@
             const easing = easingName === 'back-to-top-rush' ? easeBackToTopRush : easeInOutCubic;
 
             const step = (currentTime) => {
-                if (!startTime) startTime = currentTime;
+                if (startTime === null) startTime = currentTime;
                 const elapsed = currentTime - startTime;
                 const progress = Math.min(elapsed / duration, 1);
                 const ease = easing(progress);
@@ -119,8 +156,7 @@
                 } else {
                     window.scrollTo({ top: destinationY, left: 0, behavior: 'auto' });
                     this.scrollAnimationFrame = null;
-                    root.style.scrollBehavior = this.restoreScrollBehavior;
-                    this.restoreScrollBehavior = null;
+                    this.stopSmoothScroll();
                     window.dispatchEvent(new Event('scroll'));
                 }
             };
@@ -136,33 +172,25 @@
                     return;
                 }
 
-                const sectionHeight = targetElement.offsetHeight;
-                const scrollPercentages = {
-                    '#home': 0.00,
-                    '#tours': 0.06,
-                    '#about': 0.08,
-                    '#gallery': 0.05,
-                    '#adventure': 0.15,
-                    '#reviews': 0.06,
-                    '#contact': 0.00,
-                    '#footer': 0.00
-                };
-
-                const scrollPercentage = scrollPercentages[targetId] || 0;
-                const offsetTop = Math.max(0, targetElement.offsetTop - 100 + (sectionHeight * scrollPercentage));
+                const offsetTop = this.getScrollTargetY(targetElement);
                 this.smoothScrollTo(offsetTop, 1000);
             }
         },
 
         // Initialize smooth scrolling
         initSmoothScrolling: function() {
+            // Browser history takes over without an old animation pulling it away.
+            window.addEventListener('popstate', () => this.stopSmoothScroll());
+            window.addEventListener('hashchange', () => this.stopSmoothScroll());
             // Handle navigation clicks (ignore '#' and '.back-to-top' so back-to-top works cleanly)
             document.querySelectorAll('a[href^="#"]').forEach(link => {
                 const href = link.getAttribute('href');
-                if (!href || href === '#' || link.classList.contains('back-to-top')) return;
+                if (!href || href === '#' || link.classList.contains('back-to-top') || link.hasAttribute('data-skip-link')) return;
 
                 link.addEventListener('click', (e) => {
+                    if (!document.querySelector(href)) return;
                     e.preventDefault();
+                    if (window.location.hash !== href) window.history.pushState(null, '', href);
                     this.smoothScroll(href);
                 });
             });

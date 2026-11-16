@@ -714,7 +714,7 @@ body.mobile-menu-open .secondary-mobile-socials { animation-delay: 235ms; }
         background:
             rgba(17, 50, 39, 0.88);
         box-shadow: 0 0.35rem 1rem rgba(0, 0, 0, 0.2);
-        transition: border-color 180ms ease, background-color 180ms ease, opacity 160ms ease, visibility 160ms ease, transform 160ms ease;
+        transition: border-color 180ms ease, background-color 180ms ease, opacity 160ms ease, transform 160ms ease;
     }
 
     body.mobile-menu-open #mobile-menu-btn {

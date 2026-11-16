@@ -12,6 +12,7 @@
         blurOverlay: null,
         mobileNavLinks: null,
         mobileSubmenuToggles: null,
+        overlayHideTimer: null,
 
         init: function() {
             this.mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -81,6 +82,9 @@
         },
 
         openMobileMenu: function() {
+            // A previous close must not hide an overlay that has reopened.
+            clearTimeout(this.overlayHideTimer);
+            this.overlayHideTimer = null;
             if (this.mobileMenu) {
                 this.mobileMenu.inert = false;
                 // Force hardware acceleration with translate3d
@@ -141,6 +145,8 @@
 
         closeMobileMenu: function() {
             const wasOpen = this.isMenuOpen();
+            // Reveal the outside trigger before returning keyboard focus to it.
+            document.body.classList.remove('mobile-menu-open');
             // Return focus before hiding the drawer from assistive tools.
             if (wasOpen && this.mobileMenuBtn) this.mobileMenuBtn.focus();
             if (this.mobileMenu) {
@@ -153,12 +159,13 @@
             if (this.blurOverlay) {
                 this.blurOverlay.classList.remove('opacity-100');
                 this.blurOverlay.classList.add('opacity-0');
-                // Delay hiding to match new 600ms transition duration
-                setTimeout(() => {
+                // Keep the element until its fade ends, unless the drawer reopens.
+                clearTimeout(this.overlayHideTimer);
+                this.overlayHideTimer = setTimeout(() => {
                     this.blurOverlay.classList.add('hidden');
+                    this.overlayHideTimer = null;
                 }, 600);
             }
-            document.body.classList.remove('mobile-menu-open');
             document.body.style.overflow = ''; // Restore scrolling
             if (this.mobileMenuBtn) this.mobileMenuBtn.setAttribute('aria-expanded', 'false');
             if (this.mobileMenu) this.mobileMenu.setAttribute('aria-hidden', 'true');

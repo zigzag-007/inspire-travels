@@ -230,15 +230,6 @@ button:focus-visible {
     will-change: transform, opacity, box-shadow;
 }
 
-/* Explicit back-to-top contrast overrides to ensure Tailwind classes don't conflict */
-.back-to-top,
-.back-to-top:focus,
-.back-to-top:active {
-    outline: none !important;
-    box-shadow: 0 4px 16px rgba(24, 59, 48, 0.12) !important;
-    -webkit-tap-highlight-color: transparent !important;
-}
-
 .back-to-top {
     position: fixed !important;
     right: max(1rem, env(safe-area-inset-right)) !important;
@@ -246,6 +237,17 @@ button:focus-visible {
     /* Stay above the shared footer at 40 and below navigation at 50. */
     z-index: 45 !important;
     display: flex !important;
+    width: 56px;
+    height: 56px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #173e32;
+    border-radius: 50%;
+    background-color: #f4f0e6;
+    color: #173e32;
+    box-shadow: 0 3px 12px rgba(23, 62, 50, 0.2);
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -254,12 +256,20 @@ button:focus-visible {
         opacity 0.22s ease,
         visibility 0.22s ease,
         transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-        background-color 0.25s ease;
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.back-to-top svg {
+    width: 24px;
+    height: 24px;
 }
 
 .back-to-top:focus-visible {
-    outline: 3px solid currentColor !important;
+    outline: 3px solid #173e32 !important;
     outline-offset: 3px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #f4f0e6, 0 3px 12px rgba(23, 62, 50, 0.2);
 }
 
 .back-to-top.is-visible {
@@ -269,15 +279,46 @@ button:focus-visible {
     transform: translateY(0) scale(1);
 }
 
-.back-to-top.is-visible:hover {
-    transform: translateY(-2px) scale(1.08);
-}
-
 .mobile-menu-open .whatsapp-float,
 .mobile-menu-open .back-to-top {
     opacity: 0 !important;
+    visibility: hidden !important;
     pointer-events: none !important;
     transform: scale(0.85) !important;
+}
+
+.back-to-top.is-visible:active {
+    transform: scale(0.97);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .back-to-top.is-visible:hover {
+        background-color: #fffaf0;
+        box-shadow: 0 5px 14px rgba(23, 62, 50, 0.24);
+        transform: translateY(-2px);
+    }
+
+}
+
+@media (min-width: 768px) {
+    .back-to-top svg {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .back-to-top {
+        transition: none;
+        transform: none;
+    }
+
+    .back-to-top.is-visible,
+    .back-to-top.is-visible:hover,
+    .back-to-top:active,
+    .mobile-menu-open .back-to-top {
+        transform: none !important;
+    }
 }
 
 @media (max-width: 1023px) {

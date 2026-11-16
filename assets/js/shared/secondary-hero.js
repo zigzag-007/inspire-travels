@@ -65,10 +65,13 @@
                 if (!targetSection) return;
                 event.preventDefault();
                 event.stopImmediatePropagation();
-                var top = Math.max(0, targetSection.getBoundingClientRect().top + window.scrollY - 92);
                 if (window.NavigationModule && typeof window.NavigationModule.smoothScrollTo === 'function') {
+                    var top = window.NavigationModule.getScrollTargetY
+                        ? window.NavigationModule.getScrollTargetY(targetSection)
+                        : Math.max(0, targetSection.getBoundingClientRect().top + window.scrollY - 92);
                     window.NavigationModule.smoothScrollTo(top, 850);
                 } else {
+                    var top = Math.max(0, targetSection.getBoundingClientRect().top + window.scrollY - 92);
                     window.scrollTo({ top: top, behavior: 'smooth' });
                 }
             });

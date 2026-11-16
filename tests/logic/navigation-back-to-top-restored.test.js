@@ -41,6 +41,8 @@ const windowStub = {
     pageYOffset: 10000,
     innerHeight: 1000,
     matchMedia: () => ({ matches: false }),
+    addEventListener: () => {},
+    removeEventListener: () => {},
     requestAnimationFrame: (callback) => {
         frameQueue.push(callback);
         return frameQueue.length;

@@ -42,11 +42,13 @@
                     if (!target) return;
                     event.preventDefault();
                     event.stopImmediatePropagation();
-                    var headerOffset = 92;
-                    var top = Math.max(0, target.getBoundingClientRect().top + window.scrollY - headerOffset);
                     if (window.NavigationModule && typeof window.NavigationModule.smoothScrollTo === 'function') {
+                        var top = window.NavigationModule.getScrollTargetY
+                            ? window.NavigationModule.getScrollTargetY(target)
+                            : Math.max(0, target.getBoundingClientRect().top + window.scrollY - 92);
                         window.NavigationModule.smoothScrollTo(top, 850);
                     } else {
+                        var top = Math.max(0, target.getBoundingClientRect().top + window.scrollY - 92);
                         window.scrollTo({ top: top, behavior: 'smooth' });
                     }
                 });

@@ -16,6 +16,26 @@
    -----------------------------------------------------------------------------
 */
 
+/* The first keyboard stop lets visitors bypass the repeated navigation. */
+.skip-link {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 100;
+    padding: 0.85rem 1.2rem;
+    border-radius: 0.3rem;
+    background: #f4f0e6;
+    color: #173e32;
+    font-weight: 650;
+    transform: translateY(-200%);
+}
+
+.skip-link:focus {
+    transform: none;
+    outline: 3px solid #173e32;
+    outline-offset: 3px;
+}
+
 /* Print Styles */
 @media print {
     .no-print {

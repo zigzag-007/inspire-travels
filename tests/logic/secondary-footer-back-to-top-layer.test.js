@@ -24,13 +24,11 @@ const secondaryPages = [
     'tours/index.html'
 ];
 
-const layerRule = secondaryCss.match(
-    /body\.secondary-page-theme\s+\.back-to-top\s*\{[^}]*z-index:\s*(\d+)\s*!important;/
+assert.doesNotMatch(
+    secondaryCss,
+    /body\.secondary-page-theme\s+\.back-to-top\s*\{/,
+    'secondary pages should use the shared back to top layer rule'
 );
-
-assert.ok(layerRule, 'secondary pages should give back to top its own layer');
-assert.ok(Number(layerRule[1]) > 40, 'back to top should sit above the secondary footer');
-assert.ok(Number(layerRule[1]) < 50, 'back to top should stay below the main navigation');
 assert.ok(
     !/<body[^>]*class="[^"]*secondary-page-theme/.test(indexHtml),
     'the index page should stay outside the secondary footer layer rule'

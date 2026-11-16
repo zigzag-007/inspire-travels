@@ -101,12 +101,17 @@
         initGalleryFiltering: function() {
             const categoryBtns = document.querySelectorAll('.gallery-filter-btn');
             const yearBtns = document.querySelectorAll('.gallery-year-btn');
+            const filterStatus = document.getElementById('gallery-filter-status');
+            const resetBtn = document.getElementById('gallery-filter-reset');
 
             if (!categoryBtns && !yearBtns) return;
 
             const applyCombinedFilters = () => {
                 // Dynamically fetch items inside click handler to resolve timing race conditions
-                const galleryItems = document.querySelectorAll('#dynamic-gallery-grid .single-blog-post, .single-gallery-item');
+                const galleryGrid = document.getElementById('dynamic-gallery-grid');
+                const galleryItems = galleryGrid
+                    ? galleryGrid.querySelectorAll('.single-blog-post')
+                    : document.querySelectorAll('.single-gallery-item');
                 
                 galleryItems.forEach(item => {
                     // Check category match
@@ -130,6 +135,16 @@
                     item.style.opacity = show ? '1' : '0';
                     item.style.transform = show ? 'translateY(0)' : 'translateY(20px)';
                 });
+
+                const visibleCount = Array.from(galleryItems).filter(item => item.style.display !== 'none').length;
+                if (filterStatus) {
+                    filterStatus.textContent = visibleCount === 0
+                        ? 'No photos match these filters.'
+                        : `Showing ${visibleCount} ${visibleCount === 1 ? 'photo' : 'photos'}.`;
+                }
+                if (resetBtn) {
+                    resetBtn.hidden = this.activeCategory === 'all' && this.activeYear === 'all';
+                }
             };
 
             const syncButtonStates = () => {
@@ -143,6 +158,7 @@
                         btn.classList.toggle('font-bold', isMatch);
                         btn.classList.toggle('text-slate-700', !isMatch);
                         btn.classList.toggle('font-semibold', !isMatch);
+                        btn.setAttribute('aria-pressed', String(isMatch));
                         if (isMatch) {
                             btn.classList.remove('hover:bg-emerald-50', 'hover:text-emerald-800');
                         } else {
@@ -161,6 +177,7 @@
                         btn.classList.toggle('font-bold', isMatch);
                         btn.classList.toggle('text-slate-600', !isMatch);
                         btn.classList.toggle('font-semibold', !isMatch);
+                        btn.setAttribute('aria-pressed', String(isMatch));
                     });
                 }
             };
@@ -181,6 +198,21 @@
                 }));
             }
 
+            if (resetBtn) {
+                resetBtn.addEventListener('click', () => {
+                    this.activeCategory = 'all';
+                    this.activeYear = 'all';
+                    syncButtonStates();
+                    // Reset disappears, so keep the keyboard at the selected filter.
+                    const allPhotos = document.querySelector('.gallery-filter-btn[data-category="all"]');
+                    if (allPhotos) allPhotos.focus({ preventScroll: true });
+                    applyCombinedFilters();
+                });
+            }
+
+            syncButtonStates();
+            applyCombinedFilters();
+
             // Automatically trigger filter from query parameter (e.g. gallery.html?filter=offers)
             const urlParams = new URLSearchParams(window.location.search);
             const filterParam = urlParams.get('filter');
@@ -191,8 +223,6 @@
                         matchingBtn.click();
                     }, 100);
                 }
-            } else {
-                applyCombinedFilters();
             }
         },
 

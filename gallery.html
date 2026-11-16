@@ -99,6 +99,7 @@
 
     </head>
     <body class="secondary-page-theme font-sans antialiased bg-background text-foreground" data-nav-base="" data-current-nav="gallery">
+        <a class="skip-link" href="#main-content" data-skip-link>Skip to main content</a>
         <!-- Loading Animation Preloader -->
         <div id="loading" class="fixed inset-0 z-[100] transition-all duration-700">
             <!-- Canvas for interactive organic particles (Fireflies) -->
@@ -393,6 +394,7 @@
             </div>
         </div>
         <!-- Gallery Grid Section (Light Biophilic Fluid Exhibition) -->
+        <main id="main-content" tabindex="-1">
         <section class="secondary-gallery-canvas gallery-archive py-20 sm:py-28 relative z-20">
             <div class="max-w-[1450px] mx-auto px-4 sm:px-6 lg:px-8">
                 <header class="gallery-archive-intro" data-aos="fade-up" data-aos-duration="700">
@@ -443,6 +445,10 @@
                 </div>
 
                 <!-- Dynamic Image Grid (Pinterest-style Column Masonry) -->
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-6 text-sm text-[#183b30]">
+                    <p id="gallery-filter-status" role="status" aria-live="polite" aria-atomic="true"></p>
+                    <button id="gallery-filter-reset" type="button" hidden class="underline underline-offset-4 min-h-11 font-semibold">Reset photo filters</button>
+                </div>
                 <div id="dynamic-gallery-grid" class="columns-1 sm:columns-2 xl:columns-3 2xl:columns-4 gap-4 sm:gap-5 xl:gap-6 space-y-4 sm:space-y-5 xl:space-y-6 mb-16">
                     <!-- Dynamically injected via assets/js/gallery/gallery-grid.js -->
                 </div>
@@ -450,6 +456,7 @@
         </section>
 
         <!-- Footer -->
+        </main>
         <footer id="footer" class="main-footer gowilds-footer pt-20 relative z-20">
             <div class="max-w-[1800px] mx-auto px-6 md:px-8 lg:px-12 xl:px-16">
                 <!-- Footer Top Info -->
@@ -587,7 +594,7 @@
         </a>
 
         <!-- Back to Top Button -->
-        <a href="#" class="back-to-top fixed bottom-6 right-6 z-30 bg-white/20 backdrop-blur-md border border-[#005f73]/20 text-primary hover:bg-white/30 w-12 h-12 md:w-14 md:h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center focus:outline-none focus:ring-0 active:outline-none" aria-label="Back to top" aria-hidden="true" title="Back to top">
+        <a href="#" class="back-to-top" aria-label="Back to top" aria-hidden="true" title="Back to top">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="m18 15-6-6-6 6" />
             </svg>
