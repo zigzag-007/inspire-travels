@@ -26,7 +26,7 @@
                 { label: 'Sigiriya', meta: 'Cultural Triangle', path: 'destinations/sigiriya.html' },
                 { label: 'Ella', meta: 'Hill Country', path: 'destinations/ella.html' },
                 { label: 'Kandy', meta: 'Royal Heritage', path: 'destinations/kandy.html' },
-                { label: 'Colombo', meta: 'Capital City', path: 'destinations/colombo.html' },
+                { label: 'Colombo', meta: 'Commercial Capital', path: 'destinations/colombo.html' },
                 { label: 'Trincomalee', meta: 'East Coast', path: 'destinations/trincomalee.html' },
                 { label: 'Arugam Bay', meta: 'Surf Coast', path: 'destinations/arugambay.html' },
                 { label: 'Bentota', meta: 'Southwest Coast', path: 'destinations/bentota.html' }

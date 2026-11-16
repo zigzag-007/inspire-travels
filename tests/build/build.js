@@ -199,7 +199,7 @@ function prepareResponsiveMarkup(outputRoot, manifest) {
             return asset ? 'url(' + quote + asset.src + quote + ')' : value;
         });
         // Start the visible secondary hero before parser blocking page scripts.
-        const secondaryHero = html.match(/<div class="secondary-hero-background"[^>]*><img\b[^>]*\bsrc="([^"]+)"/);
+        const secondaryHero = html.match(/<div class="(?:secondary-hero-background|tour-collection-hero-background)"[^>]*><img\b[^>]*\bsrc="([^"]+)"/);
         if (secondaryHero) {
             const heroUrl = new URL(secondaryHero[1], 'https://local.test/' + path.relative(outputRoot, file).replace(/\\/g, '/'));
             const hero = heroUrl.origin === 'https://local.test' && manifest.get(heroUrl.pathname);

@@ -1225,7 +1225,7 @@ body.tour-collection-view .tour-collection-breadcrumb {
     position: relative;
     min-height: 0;
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) auto;
     align-content: end;
     align-items: end;
     gap: 0.8rem;
@@ -1812,7 +1812,7 @@ body.tour-collection-view .tour-collection-breadcrumb {
 
     .tour-collection-link {
         min-height: 10.5rem;
-        grid-template-columns: 2.2rem minmax(0, 1fr) auto;
+        grid-template-columns: minmax(0, 1fr) auto;
         gap: 0.85rem;
     }
 

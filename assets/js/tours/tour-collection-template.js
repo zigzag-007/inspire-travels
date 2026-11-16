@@ -76,7 +76,7 @@
         render: function(collection, tours) {
             return '<main id="tour-collection" class="tour-collection-page" data-collection-accent="' + collection.accent + '">' +
                 '<section class="tour-collection-hero" data-collection-hero>' +
-                    '<div class="tour-collection-hero-background" aria-hidden="true"><img src="../' + collection.heroImage + '" alt=""></div>' +
+                    '<div class="tour-collection-hero-background" aria-hidden="true"><img src="../' + collection.heroImage + '" alt="" sizes="100vw" fetchpriority="high"></div>' +
                     '<nav class="tour-collection-breadcrumb" aria-label="Breadcrumb">' +
                         '<a href="../index.html">Home</a><i class="ph ph-caret-right"></i><a href="../index.html#tours">Tours</a><i class="ph ph-caret-right"></i><a href="collection-' + collection.slug + '.html" aria-current="page">' + collection.navLabel + '</a>' +
                     '</nav>' +
@@ -90,7 +90,7 @@
                         '</div>' +
                         '<figure class="tour-collection-hero-portrait" data-hero-portrait>' +
                             '<span class="tour-collection-portrait-frame">' +
-                                '<img src="../' + collection.heroImage + '" alt="' + collection.heroImageAlt + '" decoding="async">' +
+                                '<img src="../' + collection.portraitImage + '" alt="' + collection.portraitImageAlt + '" decoding="async">' +
                             '</span>' +
                             '<figcaption><span>' + collection.note + '</span></figcaption>' +
                         '</figure>' +

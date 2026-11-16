@@ -1,5 +1,27 @@
 const { test, expect } = require('@playwright/test');
 
+// Removing decorative numbers must leave enough room for collection names.
+test('collection links keep a readable text column', async ({ page }) => {
+    for (const width of [390, 768, 1440]) {
+        await page.setViewportSize({ width, height: 900 });
+        await page.goto('/tours/collection-family.html');
+        const sizes = await page.locator('.tour-collection-link').first().evaluate(element => ({
+            card: element.getBoundingClientRect().width,
+            copy: element.querySelector('.tour-collection-link-copy').getBoundingClientRect().width
+        }));
+        expect(sizes.copy).toBeGreaterThan(sizes.card * 0.55);
+    }
+});
+
+// A blocked profile photo must not leave a broken image beside the guest's name.
+test('review names remain usable when external avatars fail', async ({ page }) => {
+    await page.route('https://lh3.googleusercontent.com/**', route => route.abort());
+    await page.goto('/');
+    await page.locator('#review-card').scrollIntoViewIfNeeded();
+    await expect(page.locator('#review-avatar')).toBeHidden();
+    await expect(page.locator('#review-name')).toHaveText('Vivaan Shenoy');
+});
+
 // The footer gradient should span the section without repeating in small tiles.
 test('dark brand sections use a continuous background', async ({ page }) => {
     await page.goto('/');

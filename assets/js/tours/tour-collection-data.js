@@ -119,7 +119,7 @@
                     title: 'Clear water, quiet shores',
                     description: 'Snorkel, swim, or simply slow down where the east coast feels wonderfully unhurried.',
                     image: 'assets/img/gallery/main/pigeon-island-snorkeling.jpeg',
-                    imageAlt: 'Clear water around Pigeon Island near Trincomalee'
+                    imageAlt: 'Guests together aboard a covered boat'
                 },
                 {
                     number: '03',
@@ -212,7 +212,7 @@
                     title: 'End where the wild begins',
                     description: 'Trade the mountain trail for a safari track and a night close to the landscapes of Yala.',
                     image: 'assets/img/gallery/main/yala-leopard-safari.jpg',
-                    imageAlt: 'A leopard in Yala National Park'
+                    imageAlt: 'Travellers seated inside a safari vehicle'
                 }
             ]
         }

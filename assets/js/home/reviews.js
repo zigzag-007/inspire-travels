@@ -163,6 +163,8 @@
                 status: document.getElementById('review-status'),
                 toggle: document.getElementById('review-toggle')
             };
+            // External profile photos can expire while the review stays useful.
+            this.elements.avatar.onerror = function () { this.hidden = true; };
         },
 
         bindControls: function () {
@@ -224,6 +226,7 @@
                 self.elements.stars.textContent = '\u2605'.repeat(review.rating);
                 self.elements.stars.setAttribute('aria-label', review.rating + ' out of 5 stars');
                 self.elements.quote.textContent = '\u201c' + self.getQuoteSnippet(review.quote) + '\u201d';
+                self.elements.avatar.hidden = false;
                 self.elements.avatar.src = review.image;
                 self.elements.avatar.alt = '';
                 self.elements.name.textContent = review.name;
