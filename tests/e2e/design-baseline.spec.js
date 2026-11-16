@@ -5,7 +5,7 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '../..');
 const routes = [...fs.readFileSync(path.join(root, 'public/sitemap.xml'), 'utf8').matchAll(/<loc>(.*?)<\/loc>/g)]
     .map(match => new URL(match[1]).pathname);
-const output = path.join(root, 'tests/local/design-baseline');
+const output = path.join(root, 'tests/local', process.env.DESIGN_CAPTURE_LABEL || 'design-baseline');
 
 // Save the same first screen and useful geometry for every current public route.
 for (const width of [390, 768, 1440]) {

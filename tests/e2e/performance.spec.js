@@ -20,7 +20,11 @@ for (const mobile of [true, false]) {
             for (const type of ['largest-contentful-paint', 'layout-shift', 'longtask', 'event']) {
                 new PerformanceObserver(list => {
                     for (const entry of list.getEntries()) {
-                        if (type === 'largest-contentful-paint') window.__pageMetrics.lcp = entry.startTime;
+                        if (type === 'largest-contentful-paint') {
+                            window.__pageMetrics.lcp = entry.startTime;
+                            window.__pageMetrics.lcpElement = entry.element?.id || entry.element?.tagName;
+                            window.__pageMetrics.lcpUrl = entry.url;
+                        }
                         if (type === 'layout-shift' && !entry.hadRecentInput) window.__pageMetrics.cls += entry.value;
                         if (type === 'longtask') {
                             window.__pageMetrics.longTasks++;
