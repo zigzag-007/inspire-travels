@@ -2358,3 +2358,72 @@ body.mobile-menu-open .secondary-mobile-socials { animation-delay: 235ms; }
         color: #10271d !important;
     }
 }
+
+/* A wider paper header makes navigation clear after leaving the photograph. */
+@media (min-width: 1024px) {
+    body.secondary-shell-scrolled #navbar.secondary-site-header {
+        height: 5rem;
+        color: #183b30;
+        background: #fffdf7 !important;
+        border-bottom: 1px solid rgba(24, 59, 48, 0.14) !important;
+        box-shadow: 0 3px 12px rgba(24, 59, 48, 0.08) !important;
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
+    }
+
+    body.secondary-shell-scrolled #navbar .secondary-header-inner {
+        width: 100%;
+        max-width: none;
+        padding-inline: clamp(1.5rem, 5vw, 7.5rem);
+    }
+
+    body.secondary-shell-scrolled #navbar.secondary-site-header .nav-logo {
+        filter: brightness(0);
+    }
+
+    body.secondary-shell-scrolled #navbar .desktop-primary-nav {
+        position: static;
+        margin-left: auto;
+        margin-right: clamp(1rem, 2vw, 3rem);
+        gap: clamp(0.15rem, 0.6vw, 0.8rem);
+        transform: none;
+    }
+
+    body.secondary-shell-scrolled #navbar.secondary-site-header .nav-link {
+        font-size: clamp(0.95rem, 0.85rem + 0.2vw, 1.1rem);
+        font-weight: 550;
+        letter-spacing: 0.055em;
+        text-transform: uppercase;
+        padding-inline: clamp(0.4rem, 0.65vw, 0.9rem);
+        border-radius: 0;
+    }
+
+    /* Page specific active links also need dark ink on the paper header. */
+    body.secondary-shell-scrolled #navbar.secondary-site-header .desktop-primary-nav .nav-link {
+        color: #183b30 !important;
+    }
+
+    body.secondary-shell-scrolled #navbar.secondary-site-header .desktop-primary-nav .nav-link:hover,
+    body.secondary-shell-scrolled #navbar.secondary-site-header .desktop-primary-nav .nav-link:focus-visible {
+        color: #0c7562 !important;
+        background: rgba(24, 59, 48, 0.06);
+    }
+
+    body.secondary-shell-scrolled #navbar.secondary-site-header .secondary-contact-action {
+        min-height: 3.2rem;
+        padding-inline: 1.6rem;
+        border: 1px solid #91713e;
+        border-radius: 0;
+        color: #183b30;
+        background: transparent;
+        font-weight: 550;
+        letter-spacing: 0.065em;
+        text-transform: uppercase;
+    }
+
+    body.secondary-shell-scrolled #navbar.secondary-site-header .secondary-contact-action:hover,
+    body.secondary-shell-scrolled #navbar.secondary-site-header .secondary-contact-action:focus-visible {
+        color: #fffdf7;
+        background: #183b30;
+    }
+}
