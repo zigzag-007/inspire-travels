@@ -10,7 +10,10 @@
     position: relative;
     isolation: isolate;
     color: var(--secondary-paper-ink, #13261d);
-    background: #f7f8f2 !important;
+    background:
+        radial-gradient(ellipse at 12% 18%, rgba(234, 192, 120, 0.16), transparent 34rem),
+        radial-gradient(ellipse at 88% 82%, rgba(110, 150, 130, 0.11), transparent 38rem),
+        linear-gradient(155deg, #fbf9f4, #f4efe5) !important;
 }
 
 /* Layer 1: Enhanced Grid Texture & Topographic Contours */
@@ -20,9 +23,12 @@
     inset: 0;
     content: "";
     pointer-events: none;
-    opacity: 0;
-    background-image: none;
-    mask-image: none;
+    opacity: 0.4;
+    background-image:
+        repeating-radial-gradient(ellipse at 12% 20%, transparent 0 3.7rem, rgba(29, 79, 55, 0.05) 3.74rem 3.8rem, transparent 3.84rem 7.2rem),
+        linear-gradient(rgba(19, 38, 29, 0.04) 1px, transparent 1px);
+    background-size: 82rem 68rem, 6rem 6rem;
+    mask-image: linear-gradient(180deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
 }
 
 /* Layer 2: Tactile Fine Paper Grain & Spores */
@@ -32,19 +38,20 @@
     inset: 0;
     content: "";
     pointer-events: none;
-    opacity: 0;
-    background-image: none;
-    mix-blend-mode: normal;
+    opacity: 0.12;
+    background-image: radial-gradient(rgba(19, 38, 29, 0.16) 0.035rem, transparent 0.045rem);
+    background-size: 0.35rem 0.35rem;
+    mix-blend-mode: multiply;
 }
 
 /* Review Card Shell */
 .review-card-shell {
     position: relative;
-    border: 1px solid rgba(24, 59, 48, 0.16) !important;
-    border-radius: 0.75rem !important;
-    background: #fff !important;
-    box-shadow: 0 8px 24px rgba(24, 59, 48, 0.07) !important;
-    backdrop-filter: none !important;
+    border: 1px solid rgba(255, 255, 255, 0.9) !important;
+    border-radius: 2.25rem !important;
+    background: rgba(255, 252, 240, 0.88) !important;
+    box-shadow: 0 24px 65px rgba(22, 53, 40, 0.12), inset 0 1.5px rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(12px) !important;
     min-height: 20rem;
 }
 
@@ -91,7 +98,7 @@
 @media (max-width: 639px) {
     .review-card-shell {
         min-height: 0;
-        border-radius: 0.75rem !important;
+        border-radius: 1.75rem !important;
         padding: 1.25rem 1rem !important;
     }
 }
@@ -99,5 +106,12 @@
 @media (prefers-reduced-motion: reduce) {
     .review-card-content {
         transition-duration: 0.01ms !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reviews-showcase::before,
+    .reviews-showcase::after {
+        opacity: 0.08;
     }
 }

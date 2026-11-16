@@ -36,9 +36,11 @@ test('homepage partners use eight local logos with accessible names and reserved
     const brands = ['Cinnamon Hotels &amp; Resorts', 'Jetwing Hotels', 'Hilton', 'Shangri-La',
         'Aitken Spence Hotels', 'Uga Resorts', 'Browns Hotels &amp; Resorts', 'Resplendent Ceylon'];
     const images = [...section.matchAll(/<img\b[^>]*>/g)].map(match => match[0]);
+    const links = [...section.matchAll(/<a\b[^>]*>/g)].map(match => match[0]);
     assert.equal(images.length, brands.length);
     for (const [index, image] of images.entries()) {
-        assert.ok(image.includes('alt="' + brands[index] + '"'), brands[index]);
+        assert.ok(links[index].includes('aria-label="' + brands[index] + '"'), brands[index]);
+        assert.ok(image.includes('alt=""'), 'the named link already describes the logo');
         assert.match(image, /width="\d+"/);
         assert.match(image, /height="\d+"/);
         assert.match(image, /loading="lazy"/);

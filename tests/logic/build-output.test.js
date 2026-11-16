@@ -34,7 +34,6 @@ test('production build contains only deployable site files and compiled Tailwind
 
         const css = fs.readFileSync(path.join(outputRoot, 'assets/css/generated/tailwind.css'), 'utf8');
         assert.doesNotMatch(css, /url\(['"]?assets\//);
-        assert.match(css, /url\(['"]?\/assets\/img\//);
         ['.pt-2', '.pt-4', '.md\\:pl-6'].forEach(function(selector) {
             assert.ok(css.includes(selector), 'missing generated utility: ' + selector);
         });

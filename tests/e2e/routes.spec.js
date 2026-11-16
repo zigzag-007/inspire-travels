@@ -6,7 +6,7 @@ const root = path.resolve(__dirname, '../..');
 const routes = [...fs.readFileSync(path.join(root, 'public/sitemap.xml'), 'utf8').matchAll(/<loc>(.*?)<\/loc>/g)]
     .map(match => new URL(match[1]).pathname);
 
-for (const width of [390, 768, 1440]) {
+for (const width of [390, 768, 1440, 1920]) {
 test(`every sitemap route opens and reloads with assets at ${width}px`, async ({ page, baseURL }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.route(/googletagmanager\.com|google-analytics\.com/, route => route.abort());

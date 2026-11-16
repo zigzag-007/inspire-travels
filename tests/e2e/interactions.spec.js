@@ -1,6 +1,47 @@
 const { test, expect } = require('@playwright/test');
 
-// Removing decorative numbers must leave enough room for collection names.
+// Logo motion stays continuous under a pointer, while keyboard users can stop it.
+test('hotel partners use two continuous rows with visible light logos', async ({ page }) => {
+    await page.goto('/');
+    const section = page.locator('#hotel-partners');
+    await section.scrollIntoViewIfNeeded();
+    await expect(section.locator('[data-partner-row]')).toHaveCount(2);
+    await expect(section.getByRole('button', { name: /pause/i })).toHaveCount(0);
+    await expect(section.getByRole('link')).toHaveCount(8);
+    await section.hover();
+    await expect(section.locator('.hotel-partner-track').first()).toHaveCSS('animation-play-state', 'running');
+    for (const logo of ['cinnamon.svg', 'jetwing.svg']) {
+        const image = section.locator('img[src$="' + logo + '"]').first();
+        await expect.poll(() => image.evaluate(element => element.complete && element.naturalWidth > 0)).toBe(true);
+        await expect(image).toHaveCSS('filter', 'brightness(0)');
+    }
+    await section.getByRole('link').first().focus();
+    await expect(section.locator('.hotel-partner-track').first()).toHaveCSS('animation-play-state', 'paused');
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await expect(section.locator('.hotel-partner-track').first()).toHaveCSS('animation-name', 'none');
+    await expect(section.getByRole('link')).toHaveCount(8);
+});
+
+// Planning should help guests start an enquiry without moving decoration.
+test('planning section offers useful enquiry paths without decorative motion', async ({ page }) => {
+    await page.goto('/');
+    const section = page.locator('#adventure');
+    const photo = section.locator('.planning-photo img');
+    await photo.scrollIntoViewIfNeeded();
+    await expect.poll(() => photo.evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
+    await expect(section.locator('h3')).toHaveCount(3);
+    await expect(section.getByRole('link', { name: /Plan with us on WhatsApp/ })).toHaveAttribute('href', /phone=94785959333&text=/);
+    await expect(section.getByRole('link', { name: /info@inspiretraveltours.com/ })).toHaveAttribute('href', /^mailto:info@inspiretraveltours.com/);
+    await expect(section.locator('canvas, .grid-guide-line, #adventure-bg-parallax')).toHaveCount(0);
+    for (const pseudo of ['::before', '::after']) {
+        expect(await section.evaluate((element, value) => getComputedStyle(element, value).content, pseudo)).toBe('none');
+    }
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    const action = section.getByRole('link', { name: /Plan with us on WhatsApp/ });
+    await action.hover();
+    await expect(action).toHaveCSS('transform', 'none');
+});
+
 test('collection links keep a readable text column', async ({ page }) => {
     for (const width of [390, 768, 1440]) {
         await page.setViewportSize({ width, height: 900 });
@@ -19,7 +60,7 @@ test('review names remain usable when external avatars fail', async ({ page }) =
     await page.goto('/');
     await page.locator('#review-card').scrollIntoViewIfNeeded();
     await expect(page.locator('#review-avatar')).toBeHidden();
-    await expect(page.locator('#review-name')).toHaveText('Vivaan Shenoy');
+    await expect(page.locator('#review-name')).toHaveText('manish kundu');
 });
 
 // The footer gradient should span the section without repeating in small tiles.
@@ -216,7 +257,7 @@ for (const width of [390, 768, 1440]) {
         await page.locator('#closePromoModal').click();
         await expect(page.locator('#promoModal')).toBeHidden();
         await page.locator('#hotel-partners').scrollIntoViewIfNeeded();
-        await expect(page.locator('#hotel-partners img')).toHaveCount(8);
+        await expect(page.locator('#hotel-partners').getByRole('link')).toHaveCount(8);
         await page.locator('footer').scrollIntoViewIfNeeded();
         await expect(page.locator('footer .footer-registration')).toBeVisible();
         await page.locator('.back-to-top').click();

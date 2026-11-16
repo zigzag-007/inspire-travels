@@ -219,38 +219,579 @@
     opacity: 0.38;
 }
 
-/* The approved tour comparison keeps the photos clear and lets the route details lead. */
+/* Package cards bring back the original photo led treatment with clear route facts. */
 .home-tour-comparison {
     background-color: var(--background-color, #f7f8f2);
-    background-image: none;
+    background-image:
+        radial-gradient(ellipse at 12% 8%, rgba(205, 162, 82, 0.1), transparent 35%),
+        linear-gradient(180deg, #fffdf7 0%, #f5f2e9 100%);
 }
 
-.home-tour-comparison-card,
-.home-tour-comparison .liquid-glass-tile {
-    border: 1px solid rgba(24, 59, 48, 0.14);
-    border-radius: 0.5rem;
-    background: transparent;
-    box-shadow: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    transition: border-color 180ms ease, transform 180ms ease;
+.home-tour-comparison-card {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid rgba(24, 59, 48, 0.1);
+    border-radius: 1.2rem;
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow: 0 14px 38px rgba(24, 59, 48, 0.09);
+    transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 280ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.home-tour-comparison-card::before,
-.home-tour-comparison-card::after,
-.home-tour-comparison .liquid-glass-tile::before,
-.home-tour-comparison .liquid-glass-tile::after {
-    content: none;
-    display: none;
+.home-tour-card-image-wrap {
+    position: relative;
+    overflow: hidden;
+    margin: 0.6rem 0.6rem 0;
+    border-radius: 0.85rem;
 }
 
-.home-tour-comparison-card:hover,
-.home-tour-comparison .liquid-glass-tile:hover {
+.home-tour-card-image {
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: #e7e0cf;
+}
+
+.home-tour-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-tour-card-image:hover img,
+.home-tour-card-image:focus-visible img {
+    transform: scale(1.045);
+}
+
+.home-tour-card-image-wrap > button {
+    position: absolute;
+    top: 0.85rem;
+    right: 0.85rem;
+    display: grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    background: rgba(255, 253, 247, 0.92);
+    color: #173b30;
+    box-shadow: 0 4px 16px rgba(18, 39, 31, 0.2);
+}
+
+.home-tour-card-image-wrap > button i {
+    font-size: 1.2rem;
+}
+
+.home-tour-card-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.15rem 1.25rem 1.3rem;
+}
+
+.home-tour-duration {
+    margin: 0 0 0.5rem;
+    color: #936b28;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.home-tour-card-body h3 {
+    margin: 0 0 0.7rem;
+    color: #173b30;
+    font-family: var(--font-display, Georgia, serif);
+    font-size: clamp(1.35rem, 2vw, 1.7rem);
+    line-height: 1.13;
+}
+
+.home-tour-route {
+    min-height: 3.2rem;
+    margin: 0 0 1rem;
+    color: rgba(19, 38, 29, 0.7);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.home-tour-action {
+    display: inline-flex;
+    min-height: 2.85rem;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: auto;
+    padding: 0.65rem 1.1rem;
+    border-radius: 999px;
+    background: #173b30;
+    color: #fffdf5;
+    font-size: 0.9rem;
+    font-weight: 650;
+    text-decoration: none;
+    transition: background-color 220ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-tour-action i {
+    font-size: 1rem;
+    transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-tour-action:hover {
     transform: translateY(-2px);
-    border-color: rgba(24, 59, 48, 0.3);
-    background: transparent;
-    box-shadow: none;
+    background: #0c7562;
 }
+
+.home-tour-action:hover i {
+    transform: translate(2px, -2px);
+}
+
+.home-tour-comparison-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 22px 48px rgba(24, 59, 48, 0.15);
+}
+
+.home-tour-comparison-card :focus-visible,
+.home-tour-comparison-card:focus-visible {
+    outline: 3px solid #c08c36;
+    outline-offset: 3px;
+}
+
+.home-tour-comparison .home-tour-card-body > a:focus-visible,
+.home-tour-comparison .home-tour-card-image-wrap > button:focus-visible {
+    outline: 3px solid #c08c36;
+    outline-offset: 3px;
+}
+
+@media (max-width: 639px) {
+    .home-tour-card-body {
+        padding: 1rem 1rem 1.15rem;
+    }
+
+    .home-tour-route {
+        min-height: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-tour-comparison-card,
+    .home-tour-card-image img,
+    .home-tour-action,
+    .home-tour-action i {
+        transition-duration: 0.01ms;
+    }
+}
+
+/* The hero keeps a measured editorial rhythm and room for the italic descenders. */
+.home-hero-title {
+    max-width: 15ch;
+    margin-right: auto;
+    margin-left: auto;
+    font-optical-sizing: auto;
+    font-kerning: normal;
+    font-synthesis: none;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+}
+
+.home-hero-title > span:first-child {
+    font-weight: 350;
+}
+
+.home-hero-title-accent {
+    padding: 0.03em 0.12em 0.16em;
+    font-weight: 450;
+    line-height: 1.12;
+}
+
+/* Keep the familiar rounded hero controls without changing glass elsewhere. */
+#home .liquid-glass {
+    border-radius: 999px;
+    transition: transform 160ms cubic-bezier(0.22, 1, 0.36, 1), background-color 160ms ease;
+}
+
+#home .liquid-glass.text-accent {
+    color: var(--accent-color, #e6a817);
+}
+
+/* Planning uses a clear photo and direct actions on a quiet forest surface. */
+.planning-section {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(4rem, 8vw, 8rem) 0;
+    background:
+        radial-gradient(ellipse at 12% 20%, rgba(161, 126, 73, 0.17), transparent 60%),
+        linear-gradient(115deg, #30362b 0%, #1d2b25 46%, #10241f 100%);
+    color: #fffdf5;
+}
+
+.planning-section::before,
+.planning-section::after {
+    content: none !important;
+    display: none !important;
+}
+
+.planning-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+    grid-template-areas: "photo copy";
+    align-items: center;
+    gap: clamp(3rem, 6vw, 6rem);
+}
+
+.planning-copy {
+    grid-area: copy;
+    max-width: 58rem;
+    padding: clamp(0rem, 1.2vw, 1.5rem) 0;
+}
+
+.planning-eyebrow {
+    margin: 0 0 1rem;
+    color: #edc47d;
+    font-family: var(--font-body, sans-serif);
+    font-size: 0.75rem;
+    font-weight: 650;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.planning-section h2 {
+    max-width: 12ch;
+    margin: 0;
+    color: #fffdf5;
+    font-weight: 450;
+    text-wrap: balance;
+}
+
+.planning-intro {
+    max-width: 50ch;
+    margin: 1.5rem 0 2.4rem;
+    color: rgba(255, 253, 245, 0.82);
+    font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+    line-height: 1.7;
+}
+
+.planning-prompts {
+    display: grid;
+    gap: 1.45rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.planning-prompts li {
+    padding-left: 1.1rem;
+    border-left: 2px solid rgba(237, 196, 125, 0.72);
+}
+
+.planning-prompts h3 {
+    margin: 0 0 0.35rem;
+    color: #fffdf5;
+    font-family: var(--font-display, Georgia, serif);
+    font-size: 1.35rem;
+    font-weight: 500;
+    line-height: 1.25;
+}
+
+.planning-prompts p {
+    margin: 0;
+    color: rgba(255, 253, 245, 0.72);
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.planning-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.planning-primary-action {
+    display: inline-flex;
+    min-height: 3.25rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.5rem;
+    border-radius: 999px;
+    background: #edc47d;
+    color: #173b30;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 180ms ease, transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .planning-primary-action:hover {
+        transform: translateY(-2px);
+        background: #f5d69e;
+    }
+}
+
+.planning-primary-action:active {
+    background: #e4b568;
+}
+
+.planning-email-action {
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+    color: #fffdf5;
+    font-size: 0.92rem;
+    text-decoration-line: underline;
+    text-decoration-color: rgba(255, 253, 245, 0.5);
+    text-underline-offset: 0.25em;
+}
+
+.planning-note {
+    margin: 1.1rem 0 0;
+    color: rgba(255, 253, 245, 0.62);
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+.planning-photo {
+    grid-area: photo;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    background: #28473d;
+    border: 1px solid rgba(237, 196, 125, 0.22);
+    box-shadow: 0 16px 40px rgba(3, 12, 8, 0.18);
+}
+
+.planning-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1139 / 1381;
+    object-fit: cover;
+}
+
+.planning-section a:focus-visible {
+    outline: 3px solid #f5d69e;
+    outline-offset: 4px;
+}
+
+@media (max-width: 767px) {
+    .planning-section {
+        padding: 4rem 0;
+    }
+
+    .planning-layout {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas: "copy" "photo";
+        gap: 2rem;
+    }
+
+    .planning-copy {
+        padding: 0;
+    }
+
+    .planning-intro {
+        margin: 1.1rem 0 1.8rem;
+    }
+
+    .planning-prompts {
+        gap: 1.15rem;
+    }
+
+    .planning-photo {
+        border-radius: 1.15rem;
+    }
+
+    .planning-photo img {
+        height: auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .planning-primary-action:hover {
+        transform: none;
+    }
+
+    .planning-primary-action {
+        transition-duration: 0.01ms;
+    }
+}
+
+/* Two slow logo lines create movement without turning partners into cards. */
+.hotel-partners {
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 8% 35%, rgba(209, 174, 104, 0.11), transparent 28rem),
+        linear-gradient(180deg, #fffdf7, #f7f4eb);
+}
+
+.hotel-partner-marquees {
+    display: grid;
+    gap: 0.15rem;
+    width: 100%;
+}
+
+.hotel-partner-viewport {
+    width: 100%;
+    overflow: hidden;
+    padding: 0.75rem 0;
+    mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+.hotel-partner-track {
+    display: flex;
+    width: max-content;
+    animation-name: hotel-partner-marquee;
+    animation-duration: 62s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
+}
+
+.hotel-partners.is-ready .hotel-partner-track {
+    animation-play-state: running;
+}
+
+.hotel-partner-track-reverse {
+    animation-direction: reverse;
+}
+
+.hotel-partner-band {
+    display: flex;
+    flex: none;
+}
+
+.hotel-partner-set {
+    display: flex;
+    flex: none;
+    align-items: center;
+    gap: clamp(2.5rem, 6vw, 6.5rem);
+    margin: 0;
+    padding: 0 clamp(1.25rem, 3vw, 3rem);
+    list-style: none;
+}
+
+.hotel-partner-set li {
+    display: grid;
+    width: clamp(8.5rem, 13vw, 12rem);
+    height: 6rem;
+    place-items: center;
+}
+
+.hotel-partner-set a {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+    border-radius: 0.8rem;
+    outline-offset: 0.4rem;
+}
+
+.hotel-partner-set a:focus-visible,
+.hotel-partner-marquees:focus-visible {
+    outline: 3px solid #a57428;
+    outline-offset: 4px;
+}
+
+.hotel-partner-set img {
+    display: block;
+    width: 100%;
+    max-width: 10.5rem;
+    max-height: 4.5rem;
+    object-fit: contain;
+    filter: grayscale(1) contrast(4);
+    opacity: 0.88;
+    transition: opacity 200ms ease;
+}
+
+/* White source marks need a dark silhouette, while coloured crests keep white detail. */
+.hotel-partner-set img[src$="cinnamon.svg"],
+.hotel-partner-set img[src$="jetwing.svg"],
+.hotel-partner-set img[src$="shangri-la.png"] {
+    filter: brightness(0);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .hotel-partner-set a:hover img,
+    .hotel-partner-set a:focus-visible img {
+        opacity: 1;
+    }
+}
+
+.hotel-partner-marquees:focus-within .hotel-partner-track,
+.hotel-partners.is-paused .hotel-partner-track {
+    animation-play-state: paused;
+}
+
+@keyframes hotel-partner-marquee {
+    to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hotel-partner-viewport {
+        overflow: hidden;
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+
+    .hotel-partner-track {
+        animation: none;
+        width: 100%;
+    }
+
+    .hotel-partner-band {
+        width: 100%;
+    }
+
+    .hotel-partner-band[data-partner-copy-band],
+    .hotel-partner-set[data-partner-copy] {
+        display: none;
+    }
+
+    .hotel-partner-set {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .hotel-partner-marquees { gap: 0.75rem; }
+    .home-hero-title-accent { padding-bottom: 0.2em; }
+}
+
+/* Use one wide editorial grid while keeping page gutters fluid. */
+.site-content-container {
+    width: calc(100% - clamp(3rem, 7vw, 8rem));
+    max-width: 1480px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Section titles regain weight and clear contrast without changing the display font. */
+#offers .site-content-container h2,
+#tours .site-content-container h2,
+#destinations .site-content-container h2,
+#gallery .site-content-container h2,
+#reviews .site-content-container h2,
+.hotel-partners h2 {
+    color: var(--text-color, #183b30);
+    font-weight: 450;
+}
+
+#offers .site-content-container h2 .text-primary {
+    color: var(--primary-color, #245d3f);
+}
+
+#about .site-content-container h2,
+#adventure .site-content-container h2 {
+    color: #fffdf5;
+    font-weight: 450;
+}
+
 @media (max-width: 375px) {
     /* Tour cards — reduce padding in card body */
     .liquid-glass-tile .p-6 {

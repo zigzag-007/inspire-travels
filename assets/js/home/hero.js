@@ -250,8 +250,6 @@
         initScrollDepthEffect: function() {
             if (!this.heroSection) return;
             const bgWrapper = document.getElementById('hero-bg-wrapper');
-            const adventureBg = document.getElementById('adventure-bg-parallax');
-            const adventureSection = document.getElementById('adventure');
             const parallaxSections = document.querySelectorAll('.gowilds-footer, .tour-light-canopy');
 
             let ticking = false;
@@ -260,9 +258,6 @@
                 const scrollY = window.scrollY;
                 const heroHeight = this.heroSection.offsetHeight;
                 const windowHeight = window.innerHeight;
-                const adventureRect = adventureSection && adventureBg
-                    ? adventureSection.getBoundingClientRect()
-                    : null;
                 const parallaxMeasurements = [];
                 parallaxSections.forEach(section => {
                     parallaxMeasurements.push({ section, rect: section.getBoundingClientRect() });
@@ -272,14 +267,6 @@
                 if (scrollY <= heroHeight + 100) {
                     if (bgWrapper) {
                         bgWrapper.style.transform = `translate3d(0, ${scrollY * 0.4}px, 0)`;
-                    }
-                }
-
-                // 2. Apply viewport-relative parallax translation to adventure section background
-                if (adventureRect) {
-                    if (adventureRect.top < windowHeight && adventureRect.bottom > 0) {
-                        const translateVal = (adventureRect.top - windowHeight) * 0.12;
-                        adventureBg.style.transform = `translate3d(0, ${translateVal}px, 0) scale(1.15)`;
                     }
                 }
 

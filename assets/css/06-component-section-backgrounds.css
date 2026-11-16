@@ -476,20 +476,6 @@
     animation: fireflies-path-c 18s ease-in-out infinite !important;
 }
 
-/* 4. Adventure (Ella - Amber Embers & Jungle Leaf Shapes) */
-#adventure::after {
-    background-image:
-        radial-gradient(circle 11px at 8% 20%, rgba(249, 115, 22, 0.95) 0%, rgba(249, 115, 22, 0.35) 40%, transparent 75%),
-        radial-gradient(circle 9px at 15% 70%, rgba(250, 204, 21, 0.95) 0%, rgba(250, 204, 21, 0.3) 50%, transparent 80%),
-        radial-gradient(circle 10px at 91% 40%, rgba(250, 204, 21, 0.9) 0%, rgba(250, 204, 21, 0.35) 40%, transparent 75%),
-        radial-gradient(circle 8px at 86% 75%, rgba(249, 115, 22, 0.95) 0%, rgba(249, 115, 22, 0.3) 50%, transparent 80%),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 40 40'%3E%3Cpath d='M20 10 C10 10 5 20 20 35 C35 20 30 10 20 10' fill='%23f97316' opacity='0.18'/%3E%3C/svg%3E");
-    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 90px 90px;
-    background-position: center, center, center, center, 8% 50%;
-    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
-    animation: fireflies-path-a 20s ease-in-out infinite !important;
-}
-
 /* Mobile Screen Sizes (< 768px) */
 @media (max-width: 767px) {
 

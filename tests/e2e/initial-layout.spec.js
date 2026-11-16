@@ -1,4 +1,103 @@
 const { test, expect } = require('@playwright/test');
+const path = require('node:path');
+
+// Wide desktop headers should open out after scrolling without losing their links.
+test('scrolled desktop header uses the wide boxed navigation layout', async ({ page }) => {
+    await page.setViewportSize({ width: 1920, height: 1080 });
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    for (const route of ['/', '/gallery.html', '/tours/collection-family.html', '/tours/highlights-escape.html', '/destinations/ella.html']) {
+        await page.goto(route);
+        const before = await page.locator('#navbar .secondary-brand').boundingBox();
+        await page.evaluate(() => window.scrollTo(0, 1100));
+        await expect(page.locator('body')).toHaveClass(/secondary-shell-scrolled/);
+        const after = await page.locator('#navbar .secondary-brand').boundingBox();
+        expect(after.x, route).toBeLessThan(160);
+        expect(after.x, route).toBeLessThan(before.x);
+        await expect(page.locator('#navbar')).toHaveCSS('background-color', 'rgb(255, 253, 247)');
+        await expect(page.locator('#navbar .secondary-contact-action')).toHaveCSS('border-radius', '0px');
+        await expect(page.locator('#navbar .nav-link').first()).toHaveCSS('text-transform', 'uppercase');
+        for (const link of await page.locator('#navbar .nav-link').all()) {
+            await expect(link).toHaveCSS('color', 'rgb(24, 59, 48)');
+        }
+        await page.locator('#navbar .desktop-nav-trigger').first().focus();
+        await expect(page.locator('#navbar .desktop-nav-dropdown').first()).toBeVisible();
+        await page.keyboard.press('Escape');
+        await page.evaluate(() => window.scrollTo(0, 0));
+        await expect(page.locator('body')).not.toHaveClass(/secondary-shell-scrolled/);
+    }
+});
+
+// Keep the wider layout useful at laptop widths as well as the owner's desktop.
+test('desktop content grid and navigation fit their intended widths', async ({ page }) => {
+    for (const width of [1024, 1440, 1920]) {
+        await page.setViewportSize({ width, height: 1080 });
+        await page.emulateMedia({ reducedMotion: 'reduce' });
+        await page.goto('/');
+        await page.evaluate(() => document.fonts.ready);
+        await page.locator('#offers').scrollIntoViewIfNeeded();
+        const layout = await page.evaluate(() => {
+            const box = selector => document.querySelector(selector).getBoundingClientRect().toJSON();
+            return { brand: box('#navbar .secondary-brand'), menu: box('#navbar .desktop-primary-nav'),
+                contact: box('#navbar .secondary-contact-action'),
+                containers: [...document.querySelectorAll('.site-content-container')].map(e => e.getBoundingClientRect().width),
+                width: document.documentElement.scrollWidth };
+        });
+        expect(layout.brand.right).toBeLessThanOrEqual(layout.menu.left);
+        expect(layout.menu.right).toBeLessThanOrEqual(layout.contact.left);
+        expect(layout.contact.right).toBeLessThan(width);
+        expect(layout.width).toBeLessThanOrEqual(width);
+        if (width === 1920) {
+            expect(layout.containers).toHaveLength(7);
+            for (const size of layout.containers) expect(size).toBe(1480);
+            for (const section of ['offers', 'about', 'gallery', 'tours']) {
+                await page.locator('#' + section).evaluate(element => window.scrollTo(0, element.offsetTop - 80));
+                // Let the scroll observer finish before recording the composed section.
+                await page.waitForTimeout(1500);
+                await expect.poll(() => page.evaluate(() => [...document.images].filter(image => {
+                    const box = image.getBoundingClientRect();
+                    return box.width && box.height && box.top < innerHeight && box.bottom > 0 && box.left < innerWidth && box.right > 0;
+                }).every(image => image.complete && image.naturalWidth > 0))).toBe(true);
+                await page.screenshot({ path: path.join(__dirname, '../../.zigzag-tmp/wide-' + section + '.png') });
+            }
+        }
+    }
+});
+
+// Check the restored homepage rhythm with the same phone, tablet and desktop sizes.
+test('homepage hero and partner rows stay balanced across widths', async ({ page }) => {
+    for (const [width, height] of [[320, 740], [390, 844], [768, 1024], [1440, 900]]) {
+        await page.setViewportSize({ width, height });
+        await page.emulateMedia({ reducedMotion: 'reduce' });
+        await page.goto('/');
+        await page.evaluate(() => document.fonts.ready);
+        const hero = page.locator('#home');
+        await expect(page.locator('.home-hero-title')).toBeVisible();
+        const geometry = await hero.evaluate(element => ({
+            height: element.getBoundingClientRect().height,
+            width: document.documentElement.scrollWidth,
+            heading: element.querySelector('h1').getBoundingClientRect().toJSON()
+        }));
+        expect(geometry.height).toBeGreaterThanOrEqual(height);
+        expect(geometry.width).toBeLessThanOrEqual(width);
+        expect(geometry.heading.left).toBeGreaterThanOrEqual(0);
+        expect(geometry.heading.right).toBeLessThanOrEqual(width);
+        for (const control of await hero.getByRole('button').all()) {
+            const bounds = await control.boundingBox();
+            expect(bounds.x).toBeGreaterThanOrEqual(0);
+            expect(bounds.x + bounds.width).toBeLessThanOrEqual(width);
+        }
+        await page.screenshot({ path: path.join(__dirname, '../../.zigzag-tmp/hero-' + width + '.png') });
+        for (const selector of ['#tours', '#adventure', '#hotel-partners']) {
+            await page.locator(selector).scrollIntoViewIfNeeded();
+            await page.locator(selector).screenshot({ path: path.join(__dirname, '../../.zigzag-tmp/' + selector.slice(1) + '-' + width + '.png') });
+        }
+        for (const image of await page.locator('#hotel-partners img').all()) {
+            await expect.poll(() => image.evaluate(element => element.complete && element.naturalWidth > 0)).toBe(true);
+            await expect(image).toHaveCSS('filter', /brightness\(0\)|grayscale\(1\) contrast\(4\)/);
+        }
+        await expect(page.locator('#hotel-partners').getByRole('link')).toHaveCount(8);
+    }
+});
 
 // Keep the separate guest portrait from being replaced by the backdrop.
 test('collection heroes retain their separate guest portrait', async ({ page }) => {

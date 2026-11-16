@@ -13,7 +13,7 @@ test('public page contacts and fallback footers use the business mailbox', () =>
     for (const file of pages) {
         const html = fs.readFileSync(path.join(root, file), 'utf8');
         const links = [...html.matchAll(/href="(mailto:[^"]+)"/g)].map(match => match[1]);
-        assert.equal(links.length, 2, file);
+        assert.equal(links.length, file === 'index.html' ? 3 : 2, file);
         assert.ok(links.every(link => link === 'mailto:' + email), file);
         assert.ok(html.includes('>' + email + '<') || html.includes('\n' + email), file);
         if (file !== 'index.html') {
