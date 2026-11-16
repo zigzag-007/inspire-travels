@@ -1,6 +1,21 @@
 const { test, expect } = require('@playwright/test');
 const path = require('node:path');
 
+// Breadcrumbs must have their own space above every collection heading.
+test('collection hero headings do not overlap their breadcrumbs', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    for (const width of [390, 768, 1366, 1920]) {
+        await page.setViewportSize({ width, height: 768 });
+        for (const slug of ['family', 'group', 'northern-shores', 'cultural-heritage', 'adventure']) {
+            await page.goto('/tours/collection-' + slug + '.html');
+            await page.evaluate(() => document.fonts.ready);
+            const title = await page.locator('h1').boundingBox();
+            const crumbs = await page.locator('.tour-collection-breadcrumb').boundingBox();
+            expect(title.y, width + 'px ' + slug).toBeGreaterThanOrEqual(crumbs.y + crumbs.height + 16);
+        }
+    }
+});
+
 // Wide desktop headers should open out after scrolling without losing their links.
 test('scrolled desktop header uses the wide boxed navigation layout', async ({ page }) => {
     await page.setViewportSize({ width: 1920, height: 1080 });
@@ -10,6 +25,8 @@ test('scrolled desktop header uses the wide boxed navigation layout', async ({ p
         const before = await page.locator('#navbar .secondary-brand').boundingBox();
         await page.evaluate(() => window.scrollTo(0, 1100));
         await expect(page.locator('body')).toHaveClass(/secondary-shell-scrolled/);
+        // The scroll observer and browser layout finish on separate frames.
+        await expect.poll(async () => (await page.locator('#navbar .secondary-brand').boundingBox()).x).toBeLessThan(160);
         const after = await page.locator('#navbar .secondary-brand').boundingBox();
         expect(after.x, route).toBeLessThan(160);
         expect(after.x, route).toBeLessThan(before.x);

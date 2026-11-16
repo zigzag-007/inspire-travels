@@ -421,6 +421,7 @@ body.tour-collection-view .tour-collection-breadcrumb {
     width: 100%;
     max-width: 82rem;
     margin: auto;
+    padding-top: 1.5rem;
     display: grid;
     grid-template-columns: minmax(0, 1.25fr) minmax(17rem, 0.52fr);
     align-items: center;
@@ -1619,6 +1620,7 @@ body.tour-collection-view .tour-collection-breadcrumb {
         grid-template-columns: 1fr;
         gap: 1.75rem;
         margin: 0;
+        padding-top: 0;
     }
 
     .tour-collection-eyebrow {
