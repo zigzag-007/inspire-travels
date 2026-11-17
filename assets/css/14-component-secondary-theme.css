@@ -2423,3 +2423,47 @@ body.mobile-menu-open .secondary-mobile-socials { animation-delay: 235ms; }
         background: #183b30;
     }
 }
+
+/* Keep the current location clear on both the hero and the paper header. */
+body #navbar.secondary-site-header .desktop-primary-nav .nav-link[aria-current] {
+    position: relative;
+    color: #edc777 !important;
+    font-weight: 750;
+    text-decoration: none;
+}
+
+body #navbar.secondary-site-header .desktop-primary-nav .nav-link[aria-current]::after {
+    content: '';
+    position: absolute;
+    right: 0.68rem;
+    bottom: 0.2rem;
+    left: 0.68rem;
+    height: 1px;
+    background: currentColor;
+    pointer-events: none;
+}
+
+body.secondary-shell-scrolled #navbar.secondary-site-header .desktop-primary-nav .nav-link[aria-current] {
+    color: #765b2b !important;
+}
+
+body.secondary-shell-scrolled #navbar .desktop-nav-dropdown {
+    border-color: rgba(24, 59, 48, 0.16);
+    background: #fffdf7;
+    box-shadow: 0 0.75rem 1.5rem rgba(24, 59, 48, 0.12);
+    backdrop-filter: none;
+}
+
+body.secondary-shell-scrolled #navbar .desktop-nav-dropdown-link {
+    color: #183b30;
+}
+
+body.secondary-shell-scrolled #navbar .desktop-nav-dropdown-meta {
+    color: #5b695f;
+}
+
+body.secondary-shell-scrolled #navbar .desktop-nav-dropdown-link:hover,
+body.secondary-shell-scrolled #navbar .desktop-nav-dropdown-link:focus-visible {
+    color: #183b30;
+    background: #e8eee5;
+}

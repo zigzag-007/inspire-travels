@@ -18,6 +18,7 @@
             this.scrollProgress = document.getElementById('scroll-progress');
 
             this.initLenis();
+            this.initActiveNavigation();
             this.initScrollEffects();
             this.initSmoothScrolling();
             this.initBackToTop();
@@ -89,6 +90,7 @@
                 document.body.classList.toggle('tour-collection-scrolled', isTourCollection && scrollY > 40);
 
                 this.updateScrollProgress();
+                this.updateActiveNavigation();
             };
 
             let ticking = false;
@@ -107,6 +109,42 @@
             updateNavigation();
             window.addEventListener('load', updateNavigation);
             window.addEventListener('resize', updateNavigation);
+        },
+
+        // Desktop and drawer controls share one section decision.
+        initActiveNavigation: function() {
+            this.navSections = ['home', 'tours', 'destinations', 'about', 'gallery', 'reviews', 'footer']
+                .map(id => document.getElementById(id)).filter(Boolean);
+            this.navItems = [...document.querySelectorAll('.desktop-primary-nav .nav-link, #navbar .secondary-contact-action, #mobile-menu [data-section]')]
+                .map(element => {
+                    const menu = element.closest('[data-desktop-menu]');
+                    const href = element.getAttribute('href') || '';
+                    const key = element.dataset.section || (menu && menu.dataset.desktopMenu) ||
+                        (href.includes('gallery.html') ? 'gallery' : href.split('#')[1]);
+                    return { element, key };
+                });
+        },
+
+        // Use real section positions so tall sections and image loading stay accurate.
+        updateActiveNavigation: function() {
+            if (!this.navItems) return;
+            const fixed = document.body.dataset.currentNav;
+            let active = fixed || 'home';
+            if (!fixed) {
+                const boundary = (this.navbar ? this.navbar.getBoundingClientRect().height : 80) + 24;
+                this.navSections.forEach(section => {
+                    if (section.getBoundingClientRect().top <= boundary) active = section.id;
+                });
+            }
+            if (this.activeNavSection === active) return;
+            this.activeNavSection = active;
+            this.navItems.forEach(({ element, key }) => {
+                const current = key === active;
+                element.classList.remove('text-accent');
+                element.classList.toggle('active-mobile-nav', current && element.closest('#mobile-menu') !== null);
+                if (current) element.setAttribute('aria-current', fixed ? 'page' : 'location');
+                else element.removeAttribute('aria-current');
+            });
         },
 
         updateScrollProgress: function() {

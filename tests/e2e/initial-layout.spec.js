@@ -34,7 +34,10 @@ test('scrolled desktop header uses the wide boxed navigation layout', async ({ p
         await expect(page.locator('#navbar .secondary-contact-action')).toHaveCSS('border-radius', '0px');
         await expect(page.locator('#navbar .nav-link').first()).toHaveCSS('text-transform', 'uppercase');
         for (const link of await page.locator('#navbar .nav-link').all()) {
-            await expect(link).toHaveCSS('color', 'rgb(24, 59, 48)');
+            const current = await link.getAttribute('aria-current');
+            await expect(link).toHaveCSS('color', current ? 'rgb(118, 91, 43)' : 'rgb(24, 59, 48)');
+            await expect(link).toHaveCSS('text-decoration-line', 'none');
+            if (current) expect(await link.evaluate(element => getComputedStyle(element, '::after').height)).toBe('1px');
         }
         await page.locator('#navbar .desktop-nav-trigger').first().focus();
         await expect(page.locator('#navbar .desktop-nav-dropdown').first()).toBeVisible();

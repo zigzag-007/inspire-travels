@@ -63,8 +63,6 @@
             // Keyboard navigation support
             this.initKeyboardSupport();
 
-            // Active section highlighting
-            this.initActiveSectionHighlighting();
         },
 
         // Check if menu is currently open
@@ -198,65 +196,5 @@
             });
         },
 
-        // Active section highlighting with optimized performance
-        initActiveSectionHighlighting: function() {
-            if (!this.mobileMenu) return;
-
-            const sections = ['home', 'tours', 'destinations', 'about', 'gallery', 'reviews', 'footer'];
-            const navLinks = this.mobileMenu.querySelectorAll('.mobile-menu-control[data-section], .mobile-nav-link[data-section]');
-            const fixedSection = document.body.dataset.currentNav;
-            let ticking = false; // RAF throttle flag
-
-            const highlightActiveSection = () => {
-                const scrollPosition = window.scrollY + 200; // Offset for better detection
-
-                // Remove active class from all links
-                navLinks.forEach(link => {
-                    link.classList.remove('active-mobile-nav', 'bg-gradient-to-r', 'from-emerald-500', 'to-emerald-600', 'text-white');
-                    link.classList.add('text-slate-700');
-                });
-
-                if (fixedSection) {
-                    const fixedLink = this.mobileMenu.querySelector(`[data-section="${fixedSection}"]`);
-                    if (fixedLink) {
-                        fixedLink.classList.add('active-mobile-nav', 'bg-gradient-to-r', 'from-emerald-500', 'to-emerald-600', 'text-white');
-                        fixedLink.classList.remove('text-slate-700');
-                    }
-                    ticking = false;
-                    return;
-                }
-
-                // Find which section is currently in view
-                sections.forEach(section => {
-                    const element = document.getElementById(section);
-                    if (element) {
-                        const elementTop = element.offsetTop;
-                        const elementBottom = elementTop + element.offsetHeight;
-
-                        if (scrollPosition >= elementTop && scrollPosition <= elementBottom) {
-                            const activeLink = this.mobileMenu.querySelector(`[data-section="${section}"]`);
-                            if (activeLink) {
-                                activeLink.classList.add('active-mobile-nav', 'bg-gradient-to-r', 'from-emerald-500', 'to-emerald-600', 'text-white');
-                                activeLink.classList.remove('text-slate-700');
-                            }
-                        }
-                    }
-                });
-                ticking = false;
-            };
-
-            // Add throttled scroll event listener using requestAnimationFrame
-            const onScroll = () => {
-                if (!ticking) {
-                    window.requestAnimationFrame(highlightActiveSection);
-                    ticking = true;
-                }
-            };
-
-            window.addEventListener('scroll', onScroll, { passive: true });
-
-            // Initial highlight on page load
-            highlightActiveSection();
-        }
     };
 })();

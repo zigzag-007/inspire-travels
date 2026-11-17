@@ -64,6 +64,40 @@
             var trigger = container.querySelector('.nav-link');
             if (trigger) trigger.classList.add('text-accent');
         }
+        bindDesktopMenu(container, panel);
+    }
+
+    // Keep visual disclosure, keyboard access and the spoken state together.
+    function bindDesktopMenu(container, panel) {
+        var trigger = container.querySelector('.nav-link');
+        if (!trigger) return;
+        // Hidden panels stay outside keyboard navigation until they are opened.
+        function setOpen(open) {
+            container.classList.toggle('is-open', open);
+            trigger.setAttribute('aria-expanded', String(open));
+            panel.inert = !open;
+        }
+        setOpen(false);
+        container.addEventListener('mouseenter', function() { setOpen(true); });
+        container.addEventListener('mouseleave', function() {
+            if (!container.contains(document.activeElement)) setOpen(false);
+        });
+        container.addEventListener('focusin', function() { setOpen(true); });
+        container.addEventListener('focusout', function(event) {
+            if (!container.contains(event.relatedTarget)) setOpen(false);
+        });
+        container.addEventListener('keydown', function(event) {
+            if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+            if (event.key === 'Escape') {
+                event.preventDefault();
+                trigger.focus();
+                setOpen(false);
+            } else if (event.key === 'ArrowDown' && event.target === trigger) {
+                event.preventDefault();
+                setOpen(true);
+                panel.querySelector('a').focus();
+            }
+        });
     }
 
     function renderMobileMenu(container, index) {
