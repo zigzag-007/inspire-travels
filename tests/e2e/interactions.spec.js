@@ -2,6 +2,79 @@ const { test, expect } = require('@playwright/test');
 const fs = require('node:fs');
 const path = require('node:path');
 
+// Input can arrive before Lenis has painted its first movement frame.
+test('pointer input cancels a page jump before its first frame', async ({ page }) => {
+    await page.goto('/');
+    await expect.poll(() => page.evaluate(() => window.NavigationModule.lenis.isStopped)).toBe(false);
+    const running = await page.evaluate(() => {
+        window.NavigationModule.smoothScrollTo(800);
+        document.body.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true }));
+        return window.NavigationModule.lenis.animate.isRunning;
+    });
+    expect(running).toBe(false);
+});
+
+// A blocked enhancement must leave ordinary browser navigation working.
+test('missing Lenis keeps native scrolling and section navigation usable', async ({ page }) => {
+    await page.route('**/assets/vendor/lenis/lenis.min.js', route => route.abort());
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.goto('/');
+    await page.getByRole('button', { name: 'Explore our tour packages', exact: true }).click();
+    await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(600);
+    await page.getByRole('link', { name: 'Back to top', exact: true }).click();
+    await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(5);
+});
+
+// Wheel input should ease toward its target on every shared page template.
+test('Lenis smooths wheel input without changing touch or reduced motion', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'no-preference' });
+    for (const route of ['/', '/gallery.html', '/tours/collection-family.html', '/tours/highlights-escape.html', '/destinations/ella.html']) {
+        await page.goto(route);
+        await expect(page.locator('html'), route).toHaveClass(/lenis/);
+        await expect.poll(() => page.evaluate(() => window.NavigationModule.lenis.isStopped)).toBe(false);
+        await page.mouse.move(300, 400);
+        await page.mouse.wheel(0, 900);
+        await expect.poll(() => page.evaluate(() => window.NavigationModule.lenis.isScrolling)).toBe('smooth');
+        await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(20);
+        await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(890);
+        expect(await page.evaluate(() => window.NavigationModule.lenis.options.syncTouch)).toBe(false);
+        expect(await page.evaluate(() => window.NavigationModule.lenis.options.lerp)).toBe(0.065);
+        await page.emulateMedia({ reducedMotion: 'reduce' });
+        await expect.poll(() => page.evaluate(() => window.NavigationModule.lenis.prefersReducedMotion)).toBe(true);
+        await page.getByRole('link', { name: 'Back to top', exact: true }).click();
+        await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(5);
+        await page.emulateMedia({ reducedMotion: 'no-preference' });
+    }
+});
+
+// A menu or photo viewer must stop the page, then release scrolling when closed.
+test('Lenis respects mobile drawer and gallery lightbox scroll locks', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+    await page.getByRole('button', { name: 'Open mobile menu', exact: true }).click();
+    await expect.poll(() => page.evaluate(() => window.NavigationModule.lenis?.isStopped)).toBe(true);
+    const menuY = await page.evaluate(() => scrollY);
+    await page.mouse.wheel(0, 500);
+    expect(await page.evaluate(() => scrollY)).toBe(menuY);
+    await page.keyboard.press('Escape');
+    await expect.poll(() => page.evaluate(() => window.NavigationModule.lenis.isStopped)).toBe(false);
+    await page.getByRole('button', { name: /View Promo Codes/ }).click();
+    await expect.poll(() => page.evaluate(() => window.NavigationModule.lenis.isStopped)).toBe(true);
+    await page.getByRole('button', { name: 'Close promo modal', exact: true }).click();
+    await expect.poll(() => page.evaluate(() => window.NavigationModule.lenis.isStopped)).toBe(false);
+    await page.goto('/gallery.html');
+    await page.locator('#dynamic-gallery-grid .single-blog-post:visible').first().click();
+    await expect(page.locator('.pswp')).toBeVisible();
+    await expect.poll(() => page.evaluate(() => window.GalleryModule.pswp.opener.isOpen)).toBe(true);
+    await expect.poll(() => page.evaluate(() => window.NavigationModule.lenis.isStopped)).toBe(true);
+    const photoY = await page.evaluate(() => scrollY);
+    await page.mouse.wheel(0, 500);
+    expect(await page.evaluate(() => scrollY)).toBe(photoY);
+    await page.keyboard.press('Escape');
+    await expect(page.locator('.pswp')).toHaveCount(0);
+    await expect.poll(() => page.evaluate(() => window.NavigationModule.lenis.isStopped)).toBe(false);
+});
+
 // Long guest excerpts must fit each layout and keep their original source link.
 test('all verified guest excerpts remain readable across screen sizes', async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
@@ -79,9 +152,12 @@ test('back to top preserves its return and stops for user input', async ({ page 
         await page.locator('footer').scrollIntoViewIfNeeded();
         await page.getByRole('link', { name: 'Back to top', exact: true }).click();
         await page.waitForTimeout(400);
-        await expect.poll(() => page.evaluate(() => window.NavigationModule.scrollAnimationFrame)).not.toBeNull();
+        await expect.poll(() => page.evaluate(() => window.NavigationModule.lenis.isScrolling)).toBe('smooth');
+        expect(await page.evaluate(() => window.NavigationModule.scrollAnimationFrame)).toBeNull();
+        expect(await page.evaluate(() => window.NavigationModule.lenis.animate.duration)).toBe(3.6);
+        expect(await page.evaluate(() => window.NavigationModule.lenis.animate.easing(0.5))).toBeCloseTo(Math.pow(0.5, 2.85), 8);
         await page.mouse.wheel(0, 100);
-        await expect.poll(() => page.evaluate(() => window.NavigationModule.scrollAnimationFrame)).toBeNull();
+        await expect.poll(() => page.evaluate(() => window.NavigationModule.scrollInputHandlers)).toBeNull();
     }
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.getByRole('link', { name: 'Back to top', exact: true }).click();

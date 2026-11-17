@@ -22,6 +22,8 @@ test(`every sitemap route opens and reloads with assets at ${width}px`, async ({
         expect(response.status(), route).toBe(200);
         await expect(page.locator('h1').first()).toBeVisible();
         await expect(page.locator('footer .footer-registration')).toContainText('PV-00379338');
+        await expect(page.locator('html'), route).toHaveClass(/lenis/);
+        await expect(page.locator('script[src$="vendor/lenis/lenis.min.js"]'), route).toHaveCount(1);
         expect(await page.reload({ waitUntil: 'load' }).then(response => response.status()), route).toBe(200);
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), route).toBe(true);
         await page.locator('footer').scrollIntoViewIfNeeded();

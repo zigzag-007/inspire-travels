@@ -11,14 +11,72 @@
         scrollAnimationFrame: null,
         restoreScrollBehavior: null,
         scrollInputHandlers: null,
+        lenis: null,
 
         init: function() {
             this.navbar = document.getElementById('navbar');
             this.scrollProgress = document.getElementById('scroll-progress');
 
+            this.initLenis();
             this.initScrollEffects();
             this.initSmoothScrolling();
             this.initBackToTop();
+        },
+
+        // One local scroll owner eases wheels while touch stays with the browser.
+        initLenis: function() {
+            if (!window.Lenis || this.lenis) return;
+            this.lenis = new window.Lenis({
+                autoRaf: true,
+                lerp: 0.065,
+                smoothWheel: true,
+                syncTouch: false,
+                anchors: false,
+                respectReducedMotion: true,
+                prevent: node => Boolean(node.closest('#mobile-menu, #promoModal, #tourModal, .pswp, [role="dialog"], textarea, select, [data-lenis-prevent]')),
+                virtualScroll: ({ event }) => {
+                    // Release a page jump before Lenis takes the next wheel gesture.
+                    if (this.scrollInputHandlers) this.stopSmoothScroll();
+                    return !event.ctrlKey && !event.shiftKey;
+                }
+            });
+            const syncLocks = () => {
+                if (this.isScrollLocked()) {
+                    this.stopSmoothScroll();
+                    this.lenis.stop();
+                } else {
+                    this.lenis.start();
+                }
+            };
+            // Watch the existing locks, including PhotoSwipe's direct body overlay.
+            const locks = new MutationObserver(syncLocks);
+            locks.observe(document.body, { attributes: true, attributeFilter: ['class', 'style'], childList: true });
+            locks.observe(document.documentElement, { attributes: true, attributeFilter: ['style'] });
+            document.addEventListener('visibilitychange', syncLocks);
+            window.addEventListener('keydown', event => this.stopForScrollInput(event), true);
+            window.addEventListener('pointerdown', event => this.stopForScrollInput(event), true);
+            syncLocks();
+        },
+
+        // Read the site's explicit locks, not the overflow class Lenis adds itself.
+        isScrollLocked: function() {
+            return document.hidden || document.body.classList.contains('mobile-menu-open') ||
+                document.body.classList.contains('overflow-hidden') ||
+                /hidden|clip/.test(document.body.style.overflow) ||
+                /hidden|clip/.test(document.documentElement.style.overflow) ||
+                Boolean(document.querySelector('.pswp'));
+        },
+
+        // Keyboard movement and pointer input must take control without fighting inertia.
+        stopForScrollInput: function(event) {
+            const scrollKeys = ['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' ', 'Spacebar'];
+            if (event.type === 'keydown' && !scrollKeys.includes(event.key)) return;
+            if (event.type === 'keydown' && (event.ctrlKey || event.metaKey || event.altKey)) return;
+            const target = event.target;
+            if (event.type === 'keydown' && target && (
+                target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)
+            )) return;
+            this.stopSmoothScroll();
         },
 
         // Initialize scroll effects (progress meter & scroll threshold toggle)
@@ -67,6 +125,11 @@
         },
 
         stopSmoothScroll: function() {
+            if (this.lenis && !this.lenis.isStopped) {
+                // Reset even when input arrives before the first movement frame.
+                this.lenis.stop();
+                this.lenis.start();
+            }
             if (this.scrollAnimationFrame) {
                 window.cancelAnimationFrame(this.scrollAnimationFrame);
                 this.scrollAnimationFrame = null;
@@ -90,6 +153,8 @@
         smoothScrollTo: function(targetY, duration = 1000, easingName = 'cubic') {
             this.stopSmoothScroll();
 
+            if (this.lenis && this.isScrollLocked()) return;
+
             const startY = window.scrollY || window.pageYOffset;
             const maxScrollY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
             const destinationY = Math.max(0, Math.min(targetY, maxScrollY));
@@ -98,7 +163,8 @@
             if (Math.abs(distance) < 5) return;
 
             if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                window.scrollTo({ top: destinationY, left: 0, behavior: 'auto' });
+                if (this.lenis) this.lenis.scrollTo(destinationY, { immediate: true });
+                else window.scrollTo({ top: destinationY, left: 0, behavior: 'auto' });
                 return;
             }
 
@@ -107,17 +173,7 @@
             root.style.scrollBehavior = 'auto';
 
             // Stop automatic movement before the browser handles the visitor's scroll input.
-            const stopForScrollKey = (event) => {
-                const scrollKeys = ['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' ', 'Spacebar'];
-                if (event.type === 'keydown' && !scrollKeys.includes(event.key)) return;
-                if (event.type === 'keydown' && (event.ctrlKey || event.metaKey || event.altKey)) return;
-                const target = event.target;
-                if (event.type === 'keydown' && target && (
-                    target.isContentEditable ||
-                    /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)
-                )) return;
-                this.stopSmoothScroll();
-            };
+            const stopForScrollKey = event => this.stopForScrollInput(event);
             this.scrollInputHandlers = [
                 { type: 'wheel', callback: stopForScrollKey, options: { passive: true } },
                 { type: 'touchstart', callback: stopForScrollKey, options: { passive: true } },
@@ -138,6 +194,20 @@
                 return Math.pow(t, 2.85);
             };
             const easing = easingName === 'back-to-top-rush' ? easeBackToTopRush : easeInOutCubic;
+
+            // Preserve the approved timing without running a second position animator.
+            if (this.lenis) {
+                this.lenis.scrollTo(destinationY, {
+                    duration: duration / 1000,
+                    lerp: 0,
+                    easing: easing,
+                    onComplete: () => {
+                        this.stopSmoothScroll();
+                        window.dispatchEvent(new Event('scroll'));
+                    }
+                });
+                return;
+            }
 
             const step = (currentTime) => {
                 if (startTime === null) startTime = currentTime;

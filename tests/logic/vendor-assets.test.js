@@ -8,6 +8,9 @@ test('public pages use local runtime libraries and fonts', () => {
     for (const file of ['index.html', 'gallery.html', 'tours/index.html', 'destinations/index.html']) {
         const html = fs.readFileSync(path.join(root, file), 'utf8');
         assert.doesNotMatch(html, /https:\/\/(?:unpkg\.com|cdn\.jsdelivr\.net|fonts\.googleapis\.com|fonts\.gstatic\.com)/);
+        assert.match(html, /assets\/vendor\/lenis\/lenis\.css/);
+        assert.match(html, /assets\/vendor\/lenis\/lenis\.min\.js/);
+        assert.ok(html.indexOf('assets/vendor/lenis/lenis.min.js') < html.indexOf('assets/js/shared/navigation.js'));
         for (const match of html.matchAll(/(?:src|href)="([^"]*assets\/vendor\/[^"?]+)[^"]*"/g)) {
             const asset = path.resolve(root, path.dirname(file), match[1]);
             assert.ok(fs.statSync(asset).size > 0, asset);
@@ -25,7 +28,7 @@ test('local font and icon styles resolve their font files', () => {
         }
     }
     const licenses = fs.readdirSync(path.join(root, 'assets/vendor/licenses'));
-    for (const name of ['aos', 'photoswipe', 'swiper', 'phosphor', 'geist', 'newsreader']) {
+    for (const name of ['aos', 'photoswipe', 'swiper', 'phosphor', 'geist', 'newsreader', 'lenis']) {
         assert.ok(licenses.some(file => file.includes(name)), name + ' license');
     }
 });
