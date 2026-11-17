@@ -9,19 +9,22 @@ test('offers autoplay stops outside its section and while the tab is hidden', ()
     let intersect;
     let running = true;
     let moves = 0;
+    let options;
     const elementListeners = {};
     const element = { addEventListener(name, callback) { elementListeners[name] = callback; }, contains: () => false, closest: () => null };
     const document = { readyState: 'complete', hidden: false,
         querySelector: selector => selector === '.offers-swiper' ? element : null, addEventListener: (name, callback) => { listeners[name] = callback; } };
-    const window = { matchMedia: () => ({ matches: false, addEventListener() {} }),
+    const window = { innerWidth: 1280, matchMedia: () => ({ matches: false, addEventListener() {} }),
         IntersectionObserver: class { constructor(callback) { intersect = callback; } observe() {} },
         addEventListener() {} };
     class Swiper {
-        constructor() { this.el = element; this.params = {}; this.autoplay = { start() { running = true; }, stop() { running = false; } }; }
+        constructor(selector, config) { options = config; this.el = element; this.params = {}; this.realIndex = 2; this.autoplay = { start() { running = true; }, stop() { running = false; } }; }
         slideNext() { moves += 1; }
         slidePrev() { moves -= 1; }
     }
     vm.runInNewContext(fs.readFileSync(path.resolve(__dirname, '../../assets/js/home/offers.js'), 'utf8'), { window, document, Swiper });
+    assert.equal(options.initialSlide, 2, 'start from the centered desktop offer');
+    assert.equal(options.loop, true, 'let Swiper initialize the loop edges');
     assert.equal(running, false, 'wait for section visibility');
     intersect([{ isIntersecting: true }]);
     assert.equal(running, true);

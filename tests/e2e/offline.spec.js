@@ -187,7 +187,7 @@ test('external links and WhatsApp controls explain why they cannot open offline'
         await page.locator('#offline-external-action').click();
         await expect(page.getByRole('status')).toContainText('This action needs an internet connection.');
         await expect(page).toHaveURL(new URL('/', baseURL).href);
-        const whatsappAction = page.locator('[data-whatsapp-message]').first();
+        const whatsappAction = page.locator('.offers-swiper .swiper-slide-active [data-whatsapp-message]');
         await whatsappAction.scrollIntoViewIfNeeded();
         await whatsappAction.click();
         await expect(page.getByRole('status')).toContainText('This action needs an internet connection.');

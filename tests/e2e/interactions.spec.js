@@ -154,16 +154,29 @@ test('offer carousel uses full width previews and tour cards keep Explore links'
         await page.setViewportSize({ width, height: 1080 });
         await page.goto('/');
         await page.locator('#offers').scrollIntoViewIfNeeded();
+        await expect.poll(() => page.locator('.offers-swiper').evaluate(element => element.swiper.autoplay.running)).toBe(false);
+        // Wait for the first painted loop position before measuring its edges.
+        await expect.poll(() => page.locator('.offers-swiper').evaluate(element => [...element.querySelectorAll('.swiper-slide')].filter(card => {
+            const box = card.getBoundingClientRect();
+            return box.right > 0 && box.left < document.documentElement.clientWidth;
+        }).length), { timeout: 8000 }).toBe(fullCards + 2);
         const geometry = await page.locator('.offers-swiper').evaluate(element => {
             const box = element.getBoundingClientRect();
             const cards = [...element.querySelectorAll('.swiper-slide')].map(card => card.getBoundingClientRect());
             return { width: box.width, viewport: document.documentElement.clientWidth,
                 full: cards.filter(card => card.left >= 0 && card.right <= document.documentElement.clientWidth).length,
-                visible: cards.filter(card => card.right > 0 && card.left < document.documentElement.clientWidth).length };
+                visible: cards.filter(card => card.right > 0 && card.left < document.documentElement.clientWidth).length,
+                edges: cards.map(card => [Math.round(card.left), Math.round(card.right)]),
+                active: element.swiper.activeIndex, real: element.swiper.realIndex,
+                centered: element.swiper.params.centeredSlides, initial: element.swiper.params.initialSlide,
+                translate: element.swiper.translate, wrapper: getComputedStyle(element.querySelector('.swiper-wrapper')).transform,
+                inlineTransform: element.querySelector('.swiper-wrapper').style.transform,
+                swiperInitialized: element.swiper.initialized,
+                grid: element.swiper.slidesGrid.slice(0, 7) };
         });
         expect(geometry.width / geometry.viewport).toBeCloseTo(width < 640 ? 0.86 : width < 992 ? 0.74 : 0.8, 1);
         expect(geometry.full, `${width}px complete cards`).toBe(fullCards);
-        expect(geometry.visible, `${width}px edge previews`).toBe(fullCards + 2);
+        expect(geometry.visible, `${width}px edge previews: ${JSON.stringify(geometry)}`).toBe(fullCards + 2);
         // Exercise both loop boundaries, not just the initial arrangement.
         for (let turn = 0; turn < 15; turn += 1) {
             await page.locator('.offers-swiper').evaluate(element => element.swiper.slideNext(0));
@@ -173,6 +186,20 @@ test('offer carousel uses full width previews and tour cards keep Explore links'
             }).length);
             expect(visible, `${width}px loop turn ${turn}`).toBe(fullCards + 2);
         }
+        for (const dot of [3, 2]) {
+            await page.locator('.offers-pagination button').nth(dot).click();
+            await expect.poll(() => page.locator('.offers-swiper').evaluate(element => element.swiper.realIndex)).toBe(dot);
+            await expect.poll(() => page.locator('.offers-swiper').evaluate(element => element.swiper.animating)).toBe(false);
+            await expect.poll(() => page.locator('.offers-swiper').evaluate(element => [...element.querySelectorAll('.swiper-slide')].filter(card => {
+                const box = card.getBoundingClientRect();
+                return box.right > 0 && box.left < document.documentElement.clientWidth;
+            }).length)).toBe(fullCards + 2);
+        }
+        await expect.poll(() => page.evaluate(() => {
+            const controls = document.querySelector('.offers-pagination').getBoundingClientRect();
+            const tours = document.querySelector('#tours');
+            return tours.getBoundingClientRect().top + scrollY + parseFloat(getComputedStyle(tours).paddingTop) - (controls.bottom + scrollY);
+        })).toBeLessThanOrEqual(80);
         await expect(page.getByRole('button', { name: /Show (previous|next) offer/ })).toHaveCount(0);
         await expect(page.locator('.home-tour-action')).toHaveText(Array(6).fill('Explore'));
         await expect(page.locator('.home-tour-card-image img')).toHaveCount(6);

@@ -540,8 +540,15 @@
     will-change: transform, opacity;
 }
 
-/* One shared gap replaces stacked padding around the customization note. */
+/* Keep the offers section close to the next heading on mobile. */
+#offers.home-offers {
+    padding-bottom: 2rem !important;
+}
+
+/* Tighten the transition after offers without stacking section padding. */
 #tours.home-tour-comparison {
+    --section-curve-height: clamp(16px, 1.5vw, 24px);
+    --section-curve-base-padding: 1.5rem;
     padding-bottom: 0;
 }
 

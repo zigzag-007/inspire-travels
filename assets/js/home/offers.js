@@ -21,14 +21,18 @@
                 return;
             }
 
+            // Match the starting card to the loop buffer used at this width.
+            const desktopLayout = window.innerWidth >= 1280;
+            const initialSlide = desktopLayout ? 2 : 1;
             this.swiper = new Swiper('.offers-swiper', {
                 slidesPerView: 1,
+                centeredSlides: true,
                 spaceBetween: 14,
                 grabCursor: true,
                 loop: true,
-                // Reserve another neighbour beyond each visible edge at wraparound.
+                // Small cards need extra loop buffer to keep both previews filled.
                 loopAdditionalSlides: 2,
-                initialSlide: 3,
+                initialSlide,
 
                 // Smooth physics transitions
                 speed: 1000,
@@ -36,6 +40,7 @@
 
                 // Leave time to read each offer before revealing its neighbour.
                 autoplay: {
+                    enabled: false,
                     delay: 2500,
                     disableOnInteraction: false,
                     pauseOnMouseEnter: true,
@@ -54,10 +59,14 @@
                 // Responsive dynamic grid extension based on screen space
                 breakpoints: {
                     992: {
+                        centeredSlides: false,
+                        loopAdditionalSlides: 2,
                         slidesPerView: 2,
                         spaceBetween: 20,
                     },
                     1280: {
+                        loopAdditionalSlides: 0,
+                        centeredSlides: true,
                         slidesPerView: 3,
                         spaceBetween: 20,
                     },

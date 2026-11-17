@@ -97,7 +97,7 @@ test('mobile drawer uses a lighter paper and slightly stronger quiet labels', ()
 test('changed curve and drawer assets use fresh immutable cache versions', () => {
     [html, galleryHtml, destinationHtml, toursHtml].forEach((page) => {
         assert.match(page, /04-component-navigation\.css\?v=20260824-drawer-polish/);
-        assert.match(page, /06-component-section-backgrounds\.css\?v=20261105-label-cleanup/);
+        assert.match(page, /06-component-section-backgrounds\.css\?v=20261118-home-section-spacing/);
         assert.match(page, /14-component-secondary-theme\.css\?v=20261105-label-cleanup/);
     });
     [galleryHtml, destinationHtml, toursHtml].forEach((page) => {
