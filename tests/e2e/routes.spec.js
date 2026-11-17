@@ -21,6 +21,7 @@ test(`every sitemap route opens and reloads with assets at ${width}px`, async ({
         const response = await page.goto(baseURL + route, { waitUntil: 'load' });
         expect(response.status(), route).toBe(200);
         await expect(page.locator('h1').first()).toBeVisible();
+        await expect(page.locator('body'), route).toHaveCSS('font-family', /Nunito/);
         await expect(page.locator('footer .footer-registration')).toContainText('PV-00379338');
         await expect(page.locator('html'), route).toHaveClass(/lenis/);
         await expect(page.locator('script[src$="vendor/lenis/lenis.min.js"]'), route).toHaveCount(1);

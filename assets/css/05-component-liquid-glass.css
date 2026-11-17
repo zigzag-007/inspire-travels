@@ -219,7 +219,270 @@
     opacity: 0.38;
 }
 
-/* Package cards bring back the original photo led treatment with clear route facts. */
+/* The carousel spills past its reading column so the next offers stay discoverable. */
+.offers-heading {
+    max-width: 48rem;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.offers-heading p {
+    margin-top: 1.25rem;
+    color: #506358;
+    font-size: clamp(1rem, 1.25vw, 1.2rem);
+    line-height: 1.65;
+}
+
+.home-offers .offers-swiper {
+    width: 86%;
+    overflow: visible;
+}
+
+.offers-swiper .swiper-slide {
+    height: auto;
+}
+
+.offers-card {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    background: #eff1eb;
+    color: #173b30;
+    cursor: pointer;
+}
+
+.offers-card > img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: contain;
+    background: #e7e9e0;
+}
+
+.offer-card-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 17rem;
+    padding: 1.5rem;
+}
+
+.offer-saving {
+    margin-bottom: 0.6rem;
+    color: #765b2b;
+    font-size: 0.75rem;
+    font-weight: 650;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.offer-card-body h3 {
+    margin-bottom: 0.75rem;
+    font-family: var(--font-display, Georgia, serif);
+    font-size: clamp(1.45rem, 1.5vw, 1.8rem);
+    font-weight: 500;
+    line-height: 1.15;
+}
+
+.offer-description {
+    margin-bottom: 1.75rem;
+    color: #506358;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.offer-card-actions {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.offer-code {
+    color: #506358;
+    font-size: 0.75rem;
+}
+
+.offer-code strong {
+    display: block;
+    margin-top: 0.3rem;
+    color: #173b30;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.offer-explore {
+    display: inline-flex;
+    min-height: 2.85rem;
+    align-items: center;
+    padding: 0.65rem 1.25rem;
+    border: 1px solid #8e7955;
+    color: #173b30;
+    font-size: 0.85rem;
+    font-weight: 550;
+    white-space: nowrap;
+    transition: background-color 180ms ease, color 180ms ease;
+}
+
+.offers-card:hover .offer-explore,
+.offers-card:focus-visible .offer-explore {
+    background: #173b30;
+    color: #fffdf7;
+}
+
+.offers-card:focus-visible,
+.offers-controls button:focus-visible {
+    outline: 3px solid #936b28;
+    outline-offset: 4px;
+}
+
+.offers-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.offers-controls .offers-pagination {
+    width: auto;
+}
+
+.offers-pagination .swiper-pagination-bullet {
+    width: 2rem;
+    height: 2.75rem;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    opacity: 1;
+}
+
+.offers-pagination .swiper-pagination-bullet::before {
+    content: '';
+    display: block;
+    width: 0.4rem;
+    height: 0.4rem;
+    margin: auto;
+    border-radius: 50%;
+    background: #849187;
+}
+
+.offers-pagination .swiper-pagination-bullet-active::before {
+    background: #173b30;
+}
+
+@media (min-width: 640px) {
+    .home-offers .offers-swiper { width: 74%; }
+    .offer-card-body { padding: 1.75rem; }
+}
+
+@media (min-width: 992px) {
+    .home-offers .offers-swiper { width: 80%; }
+}
+
+/* Keep the package grid and photos, with flat surfaces and clear route facts. */
+/* The note uses its own serif face without changing other display headings. */
+.home-tour-customization h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 600;
+}
+
+.home-tour-customization p {
+    font-family: 'Nunito', Arial, sans-serif;
+    font-weight: 400;
+}
+
+/* Flat tiles keep destination copy clear of the photographs. */
+.home-destination-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+}
+
+.home-destination-card {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    overflow: hidden;
+    background: #eff1eb;
+}
+
+.home-destination-card > img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.home-destination-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.75rem;
+}
+
+.home-destination-body h3 {
+    color: var(--text-color);
+    font-size: clamp(1.75rem, 2vw, 2.25rem);
+    font-weight: 450;
+    line-height: 1.2;
+}
+
+.home-destination-body p {
+    flex: 1;
+    margin-top: 0.75rem;
+    color: var(--muted-color);
+    line-height: 1.65;
+}
+
+.home-destination-body a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.85rem;
+    margin-top: 1.75rem;
+    padding: 0.6rem 1.4rem;
+    border: 1px solid #8e7955;
+    color: var(--text-color);
+    font-weight: 650;
+    transition: background-color 160ms ease, color 160ms ease;
+}
+
+.home-destination-body a:focus-visible {
+    outline: 2px solid var(--text-color);
+    outline-offset: 4px;
+}
+
+@media (hover: hover) {
+    .home-destination-body a:hover {
+        background: var(--text-color);
+        color: #fffdf7;
+    }
+}
+
+@media (min-width: 640px) {
+    .home-destination-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .home-destination-card[data-featured-destination] {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column: 1 / -1;
+        align-items: center;
+    }
+}
+
+@media (min-width: 1024px) {
+    .home-destination-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
 .home-tour-comparison {
     background-color: var(--background-color, #f7f8f2);
     background-image:
@@ -232,18 +495,12 @@
     min-width: 0;
     flex-direction: column;
     overflow: hidden;
-    border: 1px solid rgba(24, 59, 48, 0.1);
-    border-radius: 1.2rem;
-    background: rgba(255, 255, 255, 0.78);
-    box-shadow: 0 14px 38px rgba(24, 59, 48, 0.09);
-    transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 280ms cubic-bezier(0.22, 1, 0.36, 1);
+    background: #eff1eb;
 }
 
 .home-tour-card-image-wrap {
     position: relative;
     overflow: hidden;
-    margin: 0.6rem 0.6rem 0;
-    border-radius: 0.85rem;
 }
 
 .home-tour-card-image {
@@ -289,7 +546,7 @@
     flex: 1;
     flex-direction: column;
     align-items: flex-start;
-    padding: 1.15rem 1.25rem 1.3rem;
+    padding: 1.5rem 1.75rem 1.75rem;
 }
 
 .home-tour-duration {
@@ -324,13 +581,13 @@
     gap: 0.7rem;
     margin-top: auto;
     padding: 0.65rem 1.1rem;
-    border-radius: 999px;
-    background: #173b30;
-    color: #fffdf5;
+    border: 1px solid #8e7955;
+    color: #173b30;
     font-size: 0.9rem;
-    font-weight: 650;
+    font-weight: 550;
+    white-space: nowrap;
     text-decoration: none;
-    transition: background-color 220ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition: background-color 180ms ease, color 180ms ease;
 }
 
 .home-tour-action i {
@@ -339,17 +596,12 @@
 }
 
 .home-tour-action:hover {
-    transform: translateY(-2px);
-    background: #0c7562;
+    background: #173b30;
+    color: #fffdf7;
 }
 
 .home-tour-action:hover i {
     transform: translate(2px, -2px);
-}
-
-.home-tour-comparison-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 22px 48px rgba(24, 59, 48, 0.15);
 }
 
 .home-tour-comparison-card :focus-visible,

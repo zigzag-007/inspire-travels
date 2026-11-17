@@ -540,6 +540,15 @@
     will-change: transform, opacity;
 }
 
+/* One shared gap replaces stacked padding around the customization note. */
+#tours.home-tour-comparison {
+    padding-bottom: 0;
+}
+
+#destinations.section-curve-receiver {
+    --section-curve-base-padding: 2.5rem;
+}
+
 /* Organic Section Transition Curved Boundary */
 .section-curve-receiver {
     --section-curve-height: 20px;

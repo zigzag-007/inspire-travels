@@ -24,8 +24,8 @@ tailwind.config = {
 			   display = big headlines, sans = body text, mono = small labels. */
 			fontFamily: {
 				'display': ['Newsreader', 'Georgia', 'serif'],
-				'sans': ['Geist', 'system-ui', 'sans-serif'],
-				'mono': ['Geist Mono', 'ui-monospace', 'monospace'],
+				'sans': ['Nunito', 'system-ui', 'sans-serif'],
+				'mono': ['Nunito', 'system-ui', 'sans-serif'],
 				/* Legacy alias kept as a safety net for future external snippets. */
 				'serif': ['Newsreader', 'Georgia', 'serif']
 			},

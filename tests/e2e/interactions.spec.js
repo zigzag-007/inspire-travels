@@ -2,6 +2,184 @@ const { test, expect } = require('@playwright/test');
 const fs = require('node:fs');
 const path = require('node:path');
 
+// The note keeps its own serif heading while Nunito carries the body copy.
+test('customizable package typography stays scoped and readable', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    for (const width of [390, 768, 1920]) {
+        await page.setViewportSize({ width, height: 1080 });
+        await page.goto('/');
+        const heading = page.getByRole('heading', { name: 'Fully Customizable Packages', exact: true });
+        await heading.scrollIntoViewIfNeeded();
+        await expect(heading).toHaveCSS('font-family', /Cormorant Garamond/);
+        await expect(page.locator('.home-tour-customization p')).toHaveCSS('font-family', /Nunito/);
+        await page.evaluate(() => document.fonts.ready);
+        expect(await page.evaluate(() => document.fonts.check('600 36px "Cormorant Garamond"') && document.fonts.check('400 20px Nunito'))).toBe(true);
+        const note = await page.locator('.home-tour-customization').evaluate(element => ({ width: element.clientWidth, scroll: element.scrollWidth }));
+        expect(note.scroll).toBeLessThanOrEqual(note.width);
+        await expect(page.locator('#offers-heading')).not.toHaveCSS('font-family', /Cormorant Garamond|Nunito/);
+        await expect(page.locator('body')).toHaveCSS('font-family', /Nunito/);
+        await page.screenshot({ path: test.info().outputPath('customization-' + width + '.png') });
+        await page.locator('#destinations h2').scrollIntoViewIfNeeded();
+        // Measure settled content rather than the offscreen entrance offset.
+        await expect.poll(() => page.evaluate(() => {
+            const text = document.querySelector('.home-tour-customization p').getBoundingClientRect();
+            const next = document.querySelector('#destinations h2').getBoundingClientRect();
+            return next.top - text.bottom;
+        })).toBeLessThanOrEqual(145);
+    }
+});
+
+// Destination copy needs its own surface rather than competing with photographs.
+test('destination tiles keep readable copy and keyboard guide links', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    for (const width of [390, 768, 1920]) {
+        await page.setViewportSize({ width, height: 1080 });
+        await page.goto('/');
+        const cards = page.locator('#destinations .home-destination-card');
+        await expect(cards).toHaveCount(7);
+        for (const card of await cards.all()) {
+            await card.scrollIntoViewIfNeeded();
+            const image = await card.locator('img').boundingBox();
+            const title = await card.locator('h3').boundingBox();
+            expect(title.y >= image.y + image.height - 1 || title.x >= image.x + image.width - 1).toBe(true);
+            await expect(card.getByRole('link', { name: /Explore/ })).toHaveAttribute('href', /destinations\/.+\.html$/);
+            expect(await card.evaluate(element => element.scrollWidth <= element.clientWidth)).toBe(true);
+        }
+        await cards.first().scrollIntoViewIfNeeded();
+        await page.screenshot({ path: test.info().outputPath('destinations-' + width + '.png') });
+        await cards.first().getByRole('link', { name: /Explore/ }).focus();
+        await page.keyboard.press('Enter');
+        await expect(page).toHaveURL(/destinations\/sigiriya.html$/);
+        await expect(page.locator('h1')).toContainText('Sigiriya');
+    }
+});
+
+// A shared line must underline the label and chevron as one aligned control.
+test('current dropdown triggers keep one connected active indicator', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto('/tours/collection-family.html');
+    await page.evaluate(() => window.scrollTo(0, 1100));
+    const trigger = page.locator('[data-desktop-menu="tours"] > .nav-link');
+    await expect(trigger).toHaveAttribute('aria-current', 'page');
+    await expect(trigger).toHaveCSS('text-decoration-line', 'none');
+    const indicator = await trigger.evaluate(element => {
+        const line = getComputedStyle(element, '::after');
+        return { content: line.content, height: line.height, width: parseFloat(line.width) };
+    });
+    expect(indicator.content).toBe('""');
+    expect(indicator.height).toBe('1px');
+    expect(indicator.width).toBeGreaterThan(45);
+    await trigger.hover();
+    const panel = page.locator('[data-desktop-menu="tours"] .desktop-nav-dropdown');
+    await expect(panel).toBeVisible();
+    const header = await page.locator('#navbar').boundingBox();
+    const dropdown = await panel.boundingBox();
+    expect(dropdown.y).toBeGreaterThanOrEqual(header.y + header.height - 1);
+    await trigger.focus();
+    await page.keyboard.press('Escape');
+    await expect(panel).toBeHidden();
+    await expect(trigger).toHaveAttribute('aria-current', 'page');
+});
+
+// The current section must be shared by desktop links and the phone drawer.
+test('navigation follows visible sections and preserves secondary page categories', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto('/');
+    for (const section of ['tours', 'about', 'reviews', 'home']) {
+        await page.locator('#' + section).evaluate(element => window.scrollTo({ top: element.getBoundingClientRect().top + scrollY - 96, behavior: 'instant' }));
+        const link = page.locator('.desktop-primary-nav .nav-link').filter({ hasText: new RegExp('^\\s*' + section + '\\s*$', 'i') });
+        await expect(link).toHaveAttribute('aria-current', 'location');
+        await expect(page.locator('.desktop-primary-nav [aria-current]')).toHaveCount(1);
+    }
+    await page.getByRole('link', { name: 'About', exact: true }).first().click();
+    await expect(page.locator('.desktop-primary-nav a[href="#about"]')).toHaveAttribute('aria-current', 'location');
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.locator('#about').evaluate(element => window.scrollTo({ top: element.getBoundingClientRect().top + scrollY - 96, behavior: 'instant' }));
+    await page.getByRole('button', { name: 'Open mobile menu', exact: true }).click();
+    await expect(page.locator('#mobile-menu [data-section="about"]')).toHaveAttribute('aria-current', 'location');
+    await page.keyboard.press('Escape');
+    for (const [route, category] of [['/tours/highlights-escape.html', 'tours'], ['/destinations/ella.html', 'destinations'], ['/gallery.html', 'gallery']]) {
+        await page.goto(route);
+        await expect(page.locator(`[data-desktop-menu="${category}"] > a`)).toHaveAttribute('aria-current', 'page');
+    }
+});
+
+// Wide offers show their neighbours, while tour packages keep the existing grid.
+test('offer carousel uses full width previews and tour cards keep Explore links', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    for (const [width, fullCards] of [[390, 1], [768, 1], [1024, 2], [1920, 3]]) {
+        await page.setViewportSize({ width, height: 1080 });
+        await page.goto('/');
+        await page.locator('#offers').scrollIntoViewIfNeeded();
+        const geometry = await page.locator('.offers-swiper').evaluate(element => {
+            const box = element.getBoundingClientRect();
+            const cards = [...element.querySelectorAll('.swiper-slide')].map(card => card.getBoundingClientRect());
+            return { width: box.width, viewport: document.documentElement.clientWidth,
+                full: cards.filter(card => card.left >= 0 && card.right <= document.documentElement.clientWidth).length,
+                visible: cards.filter(card => card.right > 0 && card.left < document.documentElement.clientWidth).length };
+        });
+        expect(geometry.width / geometry.viewport).toBeCloseTo(width < 640 ? 0.86 : width < 992 ? 0.74 : 0.8, 1);
+        expect(geometry.full, `${width}px complete cards`).toBe(fullCards);
+        expect(geometry.visible, `${width}px edge previews`).toBe(fullCards + 2);
+        // Exercise both loop boundaries, not just the initial arrangement.
+        for (let turn = 0; turn < 15; turn += 1) {
+            await page.locator('.offers-swiper').evaluate(element => element.swiper.slideNext(0));
+            const visible = await page.locator('.offers-swiper').evaluate(element => [...element.querySelectorAll('.swiper-slide')].filter(card => {
+                const box = card.getBoundingClientRect();
+                return box.right > 0 && box.left < document.documentElement.clientWidth;
+            }).length);
+            expect(visible, `${width}px loop turn ${turn}`).toBe(fullCards + 2);
+        }
+        await expect(page.getByRole('button', { name: /Show (previous|next) offer/ })).toHaveCount(0);
+        await expect(page.locator('.home-tour-action')).toHaveText(Array(6).fill('Explore'));
+        await expect(page.locator('.home-tour-card-image img')).toHaveCount(6);
+        expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    }
+});
+
+// Dots share the pause boundary, and both enquiry inputs open one correct draft.
+test('offer pagination focus pauses autoplay and card actions open one enquiry', async ({ page, context }) => {
+    await context.route('https://api.whatsapp.com/**', route => route.fulfill({ status: 200, body: 'Enquiry draft' }));
+    await page.goto('/');
+    await page.locator('.offers-swiper').scrollIntoViewIfNeeded();
+    await page.mouse.move(10, 20);
+    await expect.poll(() => page.locator('.offers-swiper').evaluate(element => element.swiper.autoplay.running)).toBe(true);
+    await page.locator('.offers-pagination button').first().focus();
+    await expect.poll(() => page.locator('.offers-swiper').evaluate(element => element.swiper.autoplay.running)).toBe(false);
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.locator('.offers-swiper').evaluate(element => element.swiper.slideToLoop(2, 0));
+    const card = page.locator('.offers-card').filter({ has: page.getByRole('heading', { name: 'White Water Adventure', exact: true }) });
+    const opened = [];
+    page.on('popup', popup => opened.push(popup));
+    for (const activate of [() => card.locator('.offer-explore').click(), async () => { await card.focus(); await page.keyboard.press('Enter'); }]) {
+        const popupPromise = page.waitForEvent('popup');
+        await activate();
+        const popup = await popupPromise;
+        await expect(popup).toHaveURL(/api\.whatsapp\.com\/send\?phone=94785959333&text=.*Raft20/);
+        await popup.close();
+    }
+    expect(opened).toHaveLength(2);
+});
+
+// Real autoplay must keep the preview cards filled when it wraps around.
+test('offers autoplay keeps both edges filled through a complete cycle', async ({ page }) => {
+    await page.setViewportSize({ width: 1920, height: 1080 });
+    await page.goto('/');
+    await page.locator('.offers-swiper').scrollIntoViewIfNeeded();
+    await page.mouse.move(10, 20);
+    for (let turn = 0; turn < 8; turn += 1) {
+        const previous = await page.locator('.offers-swiper').evaluate(element => element.swiper.realIndex);
+        await expect.poll(() => page.locator('.offers-swiper').evaluate(element => element.swiper.realIndex), { timeout: 8000 }).not.toBe(previous);
+        await expect.poll(() => page.locator('.offers-swiper').evaluate(element => {
+            const cards = [...element.querySelectorAll('.swiper-slide')].map(card => card.getBoundingClientRect());
+            return Math.min(...cards.map(card => card.left)) <= 0 && Math.max(...cards.map(card => card.right)) >= document.documentElement.clientWidth;
+        })).toBe(true);
+    }
+    await expect(page.getByRole('button', { name: /Pause slideshow/ })).toHaveCount(0);
+});
+
 // Input can arrive before Lenis has painted its first movement frame.
 test('pointer input cancels a page jump before its first frame', async ({ page }) => {
     await page.goto('/');

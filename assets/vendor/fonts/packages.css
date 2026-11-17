@@ -1,0 +1,8 @@
+/* A local face keeps this homepage note independent of external font services. */
+@font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('./cormorant-garamond-latin-600.woff2') format('woff2');
+}

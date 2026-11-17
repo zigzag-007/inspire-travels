@@ -1,7 +1,7 @@
 /**
  * Offers Carousel Module
  * Premium Swiper carousel for the "Offers for You" section
- * Features: autoplay, spring-physics easing, touch-swipe, pause-on-hover
+ * Features: looping offers, touch swipe, keyboard controls and quiet autoplay
  */
 (function() {
     'use strict';
@@ -23,47 +23,43 @@
 
             this.swiper = new Swiper('.offers-swiper', {
                 slidesPerView: 1,
-                spaceBetween: 16,
+                spaceBetween: 14,
                 grabCursor: true,
                 loop: true,
+                // Reserve another neighbour beyond each visible edge at wraparound.
+                loopAdditionalSlides: 2,
+                initialSlide: 3,
 
                 // Smooth physics transitions
-                speed: 750,
+                speed: 1000,
                 cssMode: false,
 
-                // Autoplay — shifts every 4 seconds
+                // Leave time to read each offer before revealing its neighbour.
                 autoplay: {
-                    delay: 4000,
+                    delay: 2500,
                     disableOnInteraction: false,
                     pauseOnMouseEnter: true,
                 },
 
                 // Pagination
                 pagination: {
-                    el: '.swiper-pagination',
+                    el: '.offers-pagination',
                     clickable: true,
-                    dynamicBullets: true,
+                    bulletElement: 'button',
                 },
-
-                // Navigation arrows
-                navigation: {
-                    nextEl: '.offers-next',
-                    prevEl: '.offers-prev',
+                a11y: {
+                    paginationBulletMessage: 'Go to offer {{index}}',
                 },
 
                 // Responsive dynamic grid extension based on screen space
                 breakpoints: {
-                    320: {
-                        slidesPerView: 1,
-                        spaceBetween: 16,
-                    },
-                    640: {
+                    992: {
                         slidesPerView: 2,
-                        spaceBetween: 24,
+                        spaceBetween: 20,
                     },
                     1280: {
                         slidesPerView: 3,
-                        spaceBetween: 28,
+                        spaceBetween: 20,
                     },
                 },
             });
@@ -74,15 +70,25 @@
         bindVisibility: function() {
             const swiper = this.swiper;
             const section = swiper.el;
+            const focusBoundary = section.closest('#offers') || section;
             const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
             let visible = !window.IntersectionObserver;
             let focused = false;
             let hovered = false;
             let activePage = true;
             const sync = () => {
+                swiper.params.speed = motion.matches ? 0 : 1000;
                 if (visible && activePage && !document.hidden && !motion.matches && !focused && !hovered) swiper.autoplay.start();
                 else swiper.autoplay.stop();
             };
+            // Arrow keys work only inside this carousel, leaving page keys alone.
+            focusBoundary.addEventListener('keydown', event => {
+                if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+                if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+                event.preventDefault();
+                if (event.key === 'ArrowRight') swiper.slideNext();
+                else swiper.slidePrev();
+            });
             if (window.IntersectionObserver) {
                 new window.IntersectionObserver(entries => {
                     visible = Boolean(entries[0] && entries[0].isIntersecting);
@@ -91,8 +97,8 @@
             }
             section.addEventListener('mouseenter', () => { hovered = true; sync(); });
             section.addEventListener('mouseleave', () => { hovered = false; sync(); });
-            section.addEventListener('focusin', () => { focused = true; sync(); });
-            section.addEventListener('focusout', event => { focused = section.contains(event.relatedTarget); sync(); });
+            focusBoundary.addEventListener('focusin', () => { focused = true; sync(); });
+            focusBoundary.addEventListener('focusout', event => { focused = focusBoundary.contains(event.relatedTarget); sync(); });
             document.addEventListener('visibilitychange', sync);
             if (motion.addEventListener) motion.addEventListener('change', sync);
             window.addEventListener('pagehide', () => { activePage = false; sync(); });

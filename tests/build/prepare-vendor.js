@@ -30,7 +30,7 @@ for (const weight of ['regular', 'fill']) {
         copy('@phosphor-icons/web', `src/${weight}/${name}`, `phosphor/${weight}/${name}`);
     }
 }
-for (const family of ['geist', 'geist-mono', 'newsreader']) {
+for (const family of ['nunito', 'newsreader']) {
     const name = '@fontsource-variable/' + family;
     const files = fs.readdirSync(path.join(root, 'tests/node_modules', name, 'files'))
         .filter(file => file.includes('-latin-') && file.includes(family === 'newsreader' ? '-standard-' : '-wght-'));

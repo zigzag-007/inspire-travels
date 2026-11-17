@@ -115,6 +115,7 @@
 		<link rel="stylesheet" href="assets/css/generated/tailwind.css">
 		<!-- Google Fonts -->
 		<link href="assets/vendor/fonts/fonts.css" rel="stylesheet">
+		<link href="assets/vendor/fonts/packages.css" rel="stylesheet">
 		<!-- Phosphor Icons -->
 		<link rel="stylesheet" href="assets/vendor/phosphor/regular/style.css">
 		<link rel="stylesheet" href="assets/vendor/phosphor/fill/style.css">
@@ -238,7 +239,7 @@
 				</a>
 				<!-- Desktop Navigation - Center -->
 				<div class="desktop-primary-nav">
-					<a href="index.html#home" class="nav-link text-accent">Home</a>
+					<a href="index.html#home" class="nav-link">Home</a>
 					<div class="desktop-nav-menu" data-desktop-menu="tours">
 						<a href="#tours" class="nav-link desktop-nav-trigger" aria-haspopup="true">
 							Tours <i class="ph ph-caret-down desktop-nav-chevron"></i>
@@ -360,251 +361,118 @@
 			<!-- Sentinel (for observers) -->
 			<div id="home-end-sentinel" class="absolute bottom-0 left-0 w-px h-px"></div>
 		</section>
-		<!-- Offers For You Section (2026 Premium Swiper Carousel) -->
-		<section id="offers" class="py-12 md:py-16 tour-light-canopy relative overflow-hidden">
-			<!-- Decorative Background Elements -->
-			<div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-				<div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-emerald-500/10 rounded-full blur-[100px]"></div>
-				<div class="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-blue-500/10 rounded-full blur-[100px]"></div>
+		<!-- Full width offers keep neighbouring cards visible beyond the reading column. -->
+		<section id="offers" class="home-offers py-12 md:py-16 tour-light-canopy relative overflow-hidden" aria-labelledby="offers-heading">
+			<div class="site-content-container">
+				<div class="offers-heading">
+					<h2 id="offers-heading" class="font-display text-4xl sm:text-5xl md:text-6xl font-normal tracking-display leading-[1.08]">Offers for You</h2>
+					<p>Browse current hotel, tour and activity offers. Ask us to confirm the dates, inclusions and conditions for your booking.</p>
+				</div>
 			</div>
-			<div class="site-content-container relative z-10">
-				<div class="text-center mb-8" data-aos="fade-up" data-aos-duration="1000">
-						<div class="eyebrow text-primary/70 mb-3">Exclusive deals</div>
-					<h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-normal tracking-display leading-[1.08] mb-4">
-						<span>Offers for </span>
-						<span class="font-normal text-primary">You</span>
-					</h2>
-					<p class="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-						Browse current hotel, tour and activity offers. Ask us to confirm the dates, inclusions and conditions for your booking.
-					</p>
-					<!-- Desktop Navigation Arrows -->
-					<div class="hidden md:flex items-center justify-center gap-3 mt-6">
-						<button type="button" aria-label="Show previous offer" class="offers-prev w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-emerald-50 hover:text-emerald-600 hover:border-emerald-200 transition-all duration-300 shadow-sm z-10 relative cursor-pointer">
-							<i data-lucide="arrow-left" class="w-5 h-5"></i>
-						</button>
-						<button type="button" aria-label="Show next offer" class="offers-next w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-emerald-50 hover:text-emerald-600 hover:border-emerald-200 transition-all duration-300 shadow-sm z-10 relative cursor-pointer">
-							<i data-lucide="arrow-right" class="w-5 h-5"></i>
-						</button>
+			<div class="swiper offers-swiper" role="region" aria-label="Travel offers">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<article class="offers-card" role="link" tabindex="0" data-whatsapp-message="Hi! I am interested in booking a hotel together with a full tour package. Please apply the 15% discount code *InspireHotel15* to my inquiry!" aria-label="Ask about the Hotel Booking and Full Tour Package offer">
+							<img src="assets/img/promos/promo-flyer-5.png" alt="Hotel Booking + Full Tour Package Offer" loading="lazy" decoding="async" fetchpriority="low" width="1254" height="1254">
+							<div class="offer-card-body">
+								<p class="offer-saving">15% off</p>
+								<h3>Hotel + Full Tour</h3>
+								<p class="offer-description">Book a hotel together with a full tour package and get 15% off your entire inquiry.</p>
+								<div class="offer-card-actions">
+									<p class="offer-code">Promo code<strong>InspireHotel15</strong></p>
+									<span class="offer-explore" aria-hidden="true">Explore</span>
+								</div>
+							</div>
+						</article>
+					</div>
+					<div class="swiper-slide">
+						<article class="offers-card" role="link" tabindex="0" data-whatsapp-message="Hi! I am interested in booking the Mirissa Whale &amp; Dolphin Watching excursion. Please apply the 20% discount code *WHALE20* to my inquiry!" aria-label="Ask about the Mirissa Whale and Dolphin Watching offer">
+							<img src="assets/img/promos/promo-flyer-8.png" alt="Mirissa Whale & Dolphin Watching Offer" loading="lazy" decoding="async" fetchpriority="low" width="1254" height="1254">
+							<div class="offer-card-body">
+								<p class="offer-saving">20% off</p>
+								<h3>Whale &amp; Dolphin Watching</h3>
+								<p class="offer-description">Witness majestic whales and playful dolphins off the beautiful coast of Mirissa.</p>
+								<div class="offer-card-actions">
+									<p class="offer-code">Promo code<strong>WHALE20</strong></p>
+									<span class="offer-explore" aria-hidden="true">Explore</span>
+								</div>
+							</div>
+						</article>
+					</div>
+					<div class="swiper-slide">
+						<article class="offers-card" role="link" tabindex="0" data-whatsapp-message="Hi! I am interested in booking the White Water Adventure in Kitulgala. Please apply the 20% discount code *Raft20* to my inquiry!" aria-label="Ask about the White Water Adventure in Kitulgala offer">
+							<img src="assets/img/promos/promo-flyer-6.png" alt="White Water Adventure in Kitulgala Offer" loading="lazy" decoding="async" fetchpriority="low" width="1254" height="1254">
+							<div class="offer-card-body">
+								<p class="offer-saving">20% off</p>
+								<h3>White Water Adventure</h3>
+								<p class="offer-description">Book rafting, canyoning, and zipline adventures surrounded by Kitulgala nature.</p>
+								<div class="offer-card-actions">
+									<p class="offer-code">Promo code<strong>Raft20</strong></p>
+									<span class="offer-explore" aria-hidden="true">Explore</span>
+								</div>
+							</div>
+						</article>
+					</div>
+					<div class="swiper-slide">
+						<article class="offers-card" role="link" tabindex="0" data-whatsapp-message="Hi! I am interested in joining a Sri Lanka Group Tour. I would like to claim the 20% early bird discount for one of the first 7 seats." aria-label="Ask about the Sri Lanka Group Tours early bird offer">
+							<img src="assets/img/promos/promo-flyer-7.png" alt="Sri Lanka Group Tours Early Bird Offer" loading="lazy" decoding="async" fetchpriority="low" width="1254" height="1254">
+							<div class="offer-card-body">
+								<p class="offer-saving">20% off</p>
+								<h3>Sri Lanka Group Tours</h3>
+								<p class="offer-description">Reserve early and save 20% on one of the first seven seats on our group tour.</p>
+								<div class="offer-card-actions">
+									<p class="offer-code">Early bird offer<strong>First 7 Seats</strong></p>
+									<span class="offer-explore" aria-hidden="true">Explore</span>
+								</div>
+							</div>
+						</article>
+					</div>
+					<div class="swiper-slide">
+						<article class="offers-card" role="link" tabindex="0" data-whatsapp-message="Hi! I want to book the Elephant Safari. Please apply the 15% discount code *MinIns15* to my inquiry!" aria-label="Ask about the Elephant Safari offer">
+							<img src="assets/img/promos/promo-flyer-3.png" alt="Elephant Safari Offer" loading="lazy" decoding="async" fetchpriority="low" width="1254" height="1254">
+							<div class="offer-card-body">
+								<p class="offer-saving">15% off</p>
+								<h3>Elephant Gathering Safari</h3>
+								<p class="offer-description">Experience the famous wild elephant gathering in Minneriya, Kaudulla, or Hurulu.</p>
+								<div class="offer-card-actions">
+									<p class="offer-code">Promo code<strong>MinIns15</strong></p>
+									<span class="offer-explore" aria-hidden="true">Explore</span>
+								</div>
+							</div>
+						</article>
+					</div>
+					<div class="swiper-slide">
+						<article class="offers-card" role="link" tabindex="0" data-whatsapp-message="Hi! I want to book the Yala Leopard Safari. Please apply the 15% discount code *YalaIns15* to my Yala safari booking!" aria-label="Ask about the Yala Leopard Safari offer">
+							<img src="assets/img/promos/promo-flyer-2.png" alt="Yala Leopard Safari Offer" loading="lazy" decoding="async" fetchpriority="low" width="1254" height="1254">
+							<div class="offer-card-body">
+								<p class="offer-saving">15% off</p>
+								<h3>Yala Leopard Safari</h3>
+								<p class="offer-description">Spot Sri Lankan leopards, sloth bears, and exotic wildlife in Yala National Park.</p>
+								<div class="offer-card-actions">
+									<p class="offer-code">Promo code<strong>YalaIns15</strong></p>
+									<span class="offer-explore" aria-hidden="true">Explore</span>
+								</div>
+							</div>
+						</article>
+					</div>
+					<div class="swiper-slide">
+						<article class="offers-card" role="link" tabindex="0" data-whatsapp-message="Hi! I want to book the Udawalawa Elephant Safari. Please apply the 15% discount code *UdaIns15* to my Udawalawa safari booking!" aria-label="Ask about the Udawalawa Elephant Safari offer">
+							<img src="assets/img/promos/promo-flyer-1.png" alt="Udawalawe Elephant Safari Offer" loading="lazy" decoding="async" fetchpriority="low" width="1254" height="1254">
+							<div class="offer-card-body">
+								<p class="offer-saving">15% off</p>
+								<h3>Udawalawe Safari</h3>
+								<p class="offer-description">Explore Udawalawe by safari jeep. Ask us about timings, availability and the current offer conditions.</p>
+								<div class="offer-card-actions">
+									<p class="offer-code">Promo code<strong>UdaIns15</strong></p>
+									<span class="offer-explore" aria-hidden="true">Explore</span>
+								</div>
+							</div>
+						</article>
 					</div>
 				</div>
-
-				<!-- Swiper Container (Responsive 1-up / 2-up / 3-up Breakpoints) -->
-				<div class="swiper offers-swiper overflow-hidden w-full rounded-3xl">
-					<div class="swiper-wrapper pb-12 pt-4">
-						<!-- Card 1: Hotel + Full Tour Package Offer -->
-						<div class="swiper-slide">
-							<div class="offers-card group relative h-[420px] sm:h-[460px] md:h-[480px] w-full rounded-3xl overflow-hidden cursor-pointer shadow-[0_8px_30px_rgb(0,0,0,0.12)]" role="link" tabindex="0" data-whatsapp-message="Hi! I am interested in booking a hotel together with a full tour package. Please apply the 15% discount code *InspireHotel15* to my inquiry!" aria-label="Ask about the Hotel Booking and Full Tour Package offer">
-								<img src="assets/img/promos/promo-flyer-5.png" alt="Hotel Booking + Full Tour Package Offer" loading="lazy" decoding="async" fetchpriority="low" class="absolute inset-0 w-full h-full object-contain p-1 bg-[#07221e] transition-transform duration-700 group-hover:scale-105">
-								<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-								<div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-emerald-500/20 mix-blend-overlay"></div>
-
-								<div class="absolute top-4 left-4 flex gap-2">
-									<span class="liquid-glass px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">Hotel &amp; Tour</span>
-									<span class="bg-gradient-to-r from-red-500 to-orange-500 px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">15% OFF</span>
-								</div>
-
-								<div class="absolute bottom-0 left-0 w-full p-6 sm:p-8 transform transition-transform duration-500">
-									<div class="liquid-glass backdrop-blur-xl border border-white/20 rounded-2xl p-5 translate-y-4 group-hover:translate-y-0 transition-all duration-500" style="border-top: 1px solid rgba(255,255,255,0.4); box-shadow: 0 -4px 20px rgba(0,0,0,0.2);">
-										<h3 class="text-xl sm:text-2xl font-display font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">Hotel + Full Tour</h3>
-										<p class="text-white/80 text-sm mb-4 line-clamp-2">Book a hotel together with a full tour package and get 15% off your entire inquiry.</p>
-										<div class="flex items-center justify-between">
-											<div>
-												<span class="block text-xs text-white/60">Promo Code</span>
-												<span class="text-base font-mono font-bold text-emerald-400">InspireHotel15</span>
-											</div>
-											<div class="w-10 h-10 rounded-full bg-white text-slate-900 flex items-center justify-center transform group-hover:-rotate-45 transition-transform duration-300 shadow-[0_0_15px_rgba(255,255,255,0.5)]">
-												<i data-lucide="arrow-right" class="w-5 h-5"></i>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Card 2: Mirissa Whale Watching Offer -->
-						<div class="swiper-slide">
-							<div class="offers-card group relative h-[420px] sm:h-[460px] md:h-[480px] w-full rounded-3xl overflow-hidden cursor-pointer shadow-[0_8px_30px_rgb(0,0,0,0.12)]" role="link" tabindex="0" data-whatsapp-message="Hi! I am interested in booking the Mirissa Whale &amp; Dolphin Watching excursion. Please apply the 20% discount code *WHALE20* to my inquiry!" aria-label="Ask about the Mirissa Whale and Dolphin Watching offer">
-								<img src="assets/img/promos/promo-flyer-8.png" alt="Mirissa Whale & Dolphin Watching Offer" loading="lazy" decoding="async" fetchpriority="low" class="absolute inset-0 w-full h-full object-contain p-1 bg-[#07221e] transition-transform duration-700 group-hover:scale-105">
-								<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-								<div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-blue-500/20 mix-blend-overlay"></div>
-
-								<div class="absolute top-4 left-4 flex gap-2">
-									<span class="liquid-glass px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">Ocean Safari</span>
-									<span class="bg-gradient-to-r from-blue-500 to-cyan-500 px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">20% OFF</span>
-								</div>
-
-								<div class="absolute bottom-0 left-0 w-full p-6 sm:p-8 transform transition-transform duration-500">
-									<div class="liquid-glass backdrop-blur-xl border border-white/20 rounded-2xl p-5 translate-y-4 group-hover:translate-y-0 transition-all duration-500" style="border-top: 1px solid rgba(255,255,255,0.4); box-shadow: 0 -4px 20px rgba(0,0,0,0.2);">
-										<h3 class="text-xl sm:text-2xl font-display font-bold text-white mb-2 group-hover:text-blue-300 transition-colors">Whale &amp; Dolphin Watching</h3>
-										<p class="text-white/80 text-sm mb-4 line-clamp-2">Witness majestic whales and playful dolphins off the beautiful coast of Mirissa.</p>
-										<div class="flex items-center justify-between">
-											<div>
-												<span class="block text-xs text-white/60">Promo Code</span>
-												<span class="text-base font-mono font-bold text-cyan-400">WHALE20</span>
-											</div>
-											<div class="w-10 h-10 rounded-full bg-white text-slate-900 flex items-center justify-center transform group-hover:-rotate-45 transition-transform duration-300 shadow-[0_0_15px_rgba(255,255,255,0.5)]">
-												<i data-lucide="arrow-right" class="w-5 h-5"></i>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Card 3: Kitulgala White Water Adventure Offer -->
-						<div class="swiper-slide">
-							<div class="offers-card group relative h-[420px] sm:h-[460px] md:h-[480px] w-full rounded-3xl overflow-hidden cursor-pointer shadow-[0_8px_30px_rgb(0,0,0,0.12)]" role="link" tabindex="0" data-whatsapp-message="Hi! I am interested in booking the White Water Adventure in Kitulgala. Please apply the 20% discount code *Raft20* to my inquiry!" aria-label="Ask about the White Water Adventure in Kitulgala offer">
-								<img src="assets/img/promos/promo-flyer-6.png" alt="White Water Adventure in Kitulgala Offer" loading="lazy" decoding="async" fetchpriority="low" class="absolute inset-0 w-full h-full object-contain p-1 bg-[#07221e] transition-transform duration-700 group-hover:scale-105">
-								<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-								<div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-lime-500/20 mix-blend-overlay"></div>
-
-								<div class="absolute top-4 left-4 flex gap-2">
-									<span class="liquid-glass px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">River Adventure</span>
-									<span class="bg-gradient-to-r from-lime-500 to-green-600 px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">20% OFF</span>
-								</div>
-
-								<div class="absolute bottom-0 left-0 w-full p-6 sm:p-8 transform transition-transform duration-500">
-									<div class="liquid-glass backdrop-blur-xl border border-white/20 rounded-2xl p-5 translate-y-4 group-hover:translate-y-0 transition-all duration-500" style="border-top: 1px solid rgba(255,255,255,0.4); box-shadow: 0 -4px 20px rgba(0,0,0,0.2);">
-										<h3 class="text-xl sm:text-2xl font-display font-bold text-white mb-2 group-hover:text-lime-300 transition-colors">White Water Adventure</h3>
-										<p class="text-white/80 text-sm mb-4 line-clamp-2">Book rafting, canyoning, and zipline adventures surrounded by Kitulgala nature.</p>
-										<div class="flex items-center justify-between">
-											<div>
-												<span class="block text-xs text-white/60">Promo Code</span>
-												<span class="text-base font-mono font-bold text-lime-400">Raft20</span>
-											</div>
-											<div class="w-10 h-10 rounded-full bg-white text-slate-900 flex items-center justify-center transform group-hover:-rotate-45 transition-transform duration-300 shadow-[0_0_15px_rgba(255,255,255,0.5)]">
-												<i data-lucide="arrow-right" class="w-5 h-5"></i>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Card 4: Sri Lanka Group Tours Offer -->
-						<div class="swiper-slide">
-							<div class="offers-card group relative h-[420px] sm:h-[460px] md:h-[480px] w-full rounded-3xl overflow-hidden cursor-pointer shadow-[0_8px_30px_rgb(0,0,0,0.12)]" role="link" tabindex="0" data-whatsapp-message="Hi! I am interested in joining a Sri Lanka Group Tour. I would like to claim the 20% early bird discount for one of the first 7 seats." aria-label="Ask about the Sri Lanka Group Tours early bird offer">
-								<img src="assets/img/promos/promo-flyer-7.png" alt="Sri Lanka Group Tours Early Bird Offer" loading="lazy" decoding="async" fetchpriority="low" class="absolute inset-0 w-full h-full object-contain p-1 bg-[#07221e] transition-transform duration-700 group-hover:scale-105">
-								<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-								<div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-yellow-500/20 mix-blend-overlay"></div>
-
-								<div class="absolute top-4 left-4 flex gap-2">
-									<span class="liquid-glass px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">Group Tours</span>
-									<span class="bg-gradient-to-r from-yellow-500 to-orange-500 px-3 py-1 text-xs font-bold text-slate-950 rounded-full uppercase tracking-wider shadow-lg">20% OFF</span>
-								</div>
-
-								<div class="absolute bottom-0 left-0 w-full p-6 sm:p-8 transform transition-transform duration-500">
-									<div class="liquid-glass backdrop-blur-xl border border-white/20 rounded-2xl p-5 translate-y-4 group-hover:translate-y-0 transition-all duration-500" style="border-top: 1px solid rgba(255,255,255,0.4); box-shadow: 0 -4px 20px rgba(0,0,0,0.2);">
-										<h3 class="text-xl sm:text-2xl font-display font-bold text-white mb-2 group-hover:text-yellow-300 transition-colors">Sri Lanka Group Tours</h3>
-										<p class="text-white/80 text-sm mb-4 line-clamp-2">Reserve early and save 20% on one of the first seven seats on our group tour.</p>
-										<div class="flex items-center justify-between">
-											<div>
-												<span class="block text-xs text-white/60">Early Bird Offer</span>
-												<span class="text-base font-mono font-bold text-yellow-400">First 7 Seats</span>
-											</div>
-											<div class="w-10 h-10 rounded-full bg-white text-slate-900 flex items-center justify-center transform group-hover:-rotate-45 transition-transform duration-300 shadow-[0_0_15px_rgba(255,255,255,0.5)]">
-												<i data-lucide="arrow-right" class="w-5 h-5"></i>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Card 5: Minneriya / Kaudulla Elephant Safari Offer -->
-						<div class="swiper-slide">
-							<div class="offers-card group relative h-[420px] sm:h-[460px] md:h-[480px] w-full rounded-3xl overflow-hidden cursor-pointer shadow-[0_8px_30px_rgb(0,0,0,0.12)]" role="link" tabindex="0" data-whatsapp-message="Hi! I want to book the Elephant Safari. Please apply the 15% discount code *MinIns15* to my inquiry!" aria-label="Ask about the Elephant Safari offer">
-								<img src="assets/img/promos/promo-flyer-3.png" alt="Elephant Safari Offer" loading="lazy" decoding="async" fetchpriority="low" class="absolute inset-0 w-full h-full object-contain p-1 bg-[#07221e] transition-transform duration-700 group-hover:scale-105">
-								<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-								<div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-amber-500/20 mix-blend-overlay"></div>
-
-								<div class="absolute top-4 left-4 flex gap-2">
-									<span class="liquid-glass px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">Elephant Safari</span>
-									<span class="bg-gradient-to-r from-amber-500 to-yellow-500 px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">15% OFF</span>
-								</div>
-
-								<div class="absolute bottom-0 left-0 w-full p-6 sm:p-8 transform transition-transform duration-500">
-									<div class="liquid-glass backdrop-blur-xl border border-white/20 rounded-2xl p-5 translate-y-4 group-hover:translate-y-0 transition-all duration-500" style="border-top: 1px solid rgba(255,255,255,0.4); box-shadow: 0 -4px 20px rgba(0,0,0,0.2);">
-										<h3 class="text-xl sm:text-2xl font-display font-bold text-white mb-2 group-hover:text-amber-300 transition-colors">Elephant Gathering Safari</h3>
-										<p class="text-white/80 text-sm mb-4 line-clamp-2">Experience the famous wild elephant gathering in Minneriya, Kaudulla, or Hurulu.</p>
-										<div class="flex items-center justify-between">
-											<div>
-												<span class="block text-xs text-white/60">Promo Code</span>
-												<span class="text-base font-mono font-bold text-amber-400">MinIns15</span>
-											</div>
-											<div class="w-10 h-10 rounded-full bg-white text-slate-900 flex items-center justify-center transform group-hover:-rotate-45 transition-transform duration-300 shadow-[0_0_15px_rgba(255,255,255,0.5)]">
-												<i data-lucide="arrow-right" class="w-5 h-5"></i>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Card 6: Yala Leopard Safari Offer -->
-						<div class="swiper-slide">
-							<div class="offers-card group relative h-[420px] sm:h-[460px] md:h-[480px] w-full rounded-3xl overflow-hidden cursor-pointer shadow-[0_8px_30px_rgb(0,0,0,0.12)]" role="link" tabindex="0" data-whatsapp-message="Hi! I want to book the Yala Leopard Safari. Please apply the 15% discount code *YalaIns15* to my Yala safari booking!" aria-label="Ask about the Yala Leopard Safari offer">
-								<img src="assets/img/promos/promo-flyer-2.png" alt="Yala Leopard Safari Offer" loading="lazy" decoding="async" fetchpriority="low" class="absolute inset-0 w-full h-full object-contain p-1 bg-[#07221e] transition-transform duration-700 group-hover:scale-105">
-								<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-								<div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-orange-500/20 mix-blend-overlay"></div>
-
-								<div class="absolute top-4 left-4 flex gap-2">
-									<span class="liquid-glass px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">Leopard Safari</span>
-									<span class="bg-gradient-to-r from-orange-500 to-amber-600 px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">15% OFF</span>
-								</div>
-
-								<div class="absolute bottom-0 left-0 w-full p-6 sm:p-8 transform transition-transform duration-500">
-									<div class="liquid-glass backdrop-blur-xl border border-white/20 rounded-2xl p-5 translate-y-4 group-hover:translate-y-0 transition-all duration-500" style="border-top: 1px solid rgba(255,255,255,0.4); box-shadow: 0 -4px 20px rgba(0,0,0,0.2);">
-										<h3 class="text-xl sm:text-2xl font-display font-bold text-white mb-2 group-hover:text-orange-300 transition-colors">Yala Leopard Safari</h3>
-										<p class="text-white/80 text-sm mb-4 line-clamp-2">Spot Sri Lankan leopards, sloth bears, and exotic wildlife in Yala National Park.</p>
-										<div class="flex items-center justify-between">
-											<div>
-												<span class="block text-xs text-white/60">Promo Code</span>
-												<span class="text-base font-mono font-bold text-orange-400">YalaIns15</span>
-											</div>
-											<div class="w-10 h-10 rounded-full bg-white text-slate-900 flex items-center justify-center transform group-hover:-rotate-45 transition-transform duration-300 shadow-[0_0_15px_rgba(255,255,255,0.5)]">
-												<i data-lucide="arrow-right" class="w-5 h-5"></i>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Card 7: Udawalawe Elephant Safari Offer -->
-						<div class="swiper-slide">
-							<div class="offers-card group relative h-[420px] sm:h-[460px] md:h-[480px] w-full rounded-3xl overflow-hidden cursor-pointer shadow-[0_8px_30px_rgb(0,0,0,0.12)]" role="link" tabindex="0" data-whatsapp-message="Hi! I want to book the Udawalawa Elephant Safari. Please apply the 15% discount code *UdaIns15* to my Udawalawa safari booking!" aria-label="Ask about the Udawalawa Elephant Safari offer">
-								<img src="assets/img/promos/promo-flyer-1.png" alt="Udawalawe Elephant Safari Offer" loading="lazy" decoding="async" fetchpriority="low" class="absolute inset-0 w-full h-full object-contain p-1 bg-[#07221e] transition-transform duration-700 group-hover:scale-105">
-								<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-								<div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-teal-500/20 mix-blend-overlay"></div>
-
-								<div class="absolute top-4 left-4 flex gap-2">
-									<span class="liquid-glass px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">Wild Sanctuary</span>
-									<span class="bg-gradient-to-r from-teal-500 to-emerald-600 px-3 py-1 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-lg">15% OFF</span>
-								</div>
-
-								<div class="absolute bottom-0 left-0 w-full p-6 sm:p-8 transform transition-transform duration-500">
-									<div class="liquid-glass backdrop-blur-xl border border-white/20 rounded-2xl p-5 translate-y-4 group-hover:translate-y-0 transition-all duration-500" style="border-top: 1px solid rgba(255,255,255,0.4); box-shadow: 0 -4px 20px rgba(0,0,0,0.2);">
-										<h3 class="text-xl sm:text-2xl font-display font-bold text-white mb-2 group-hover:text-teal-300 transition-colors">Udawalawe Safari</h3>
-										<p class="text-white/80 text-sm mb-4 line-clamp-2">Explore Udawalawe by safari jeep. Ask us about timings, availability and the current offer conditions.</p>
-										<div class="flex items-center justify-between">
-											<div>
-												<span class="block text-xs text-white/60">Promo Code</span>
-												<span class="text-base font-mono font-bold text-teal-400">UdaIns15</span>
-											</div>
-											<div class="w-10 h-10 rounded-full bg-white text-slate-900 flex items-center justify-center transform group-hover:-rotate-45 transition-transform duration-300 shadow-[0_0_15px_rgba(255,255,255,0.5)]">
-												<i data-lucide="arrow-right" class="w-5 h-5"></i>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-					</div>
-					<!-- Mobile Pagination -->
-					<div class="swiper-pagination md:hidden mt-8 relative"></div>
-				</div>
+			</div>
+			<div class="offers-controls">
+				<div class="offers-pagination" aria-label="Choose an offer"></div>
 			</div>
 		</section>
 
@@ -646,7 +514,7 @@
 						<p class="home-tour-duration">5 days · 4 nights</p>
 						<h3>Sri Lanka Highlights Escape</h3>
 						<p class="home-tour-route">Colombo · Kandy · Nuwara Eliya · Bentota</p>
-						<a class="home-tour-action" href="tours/highlights-escape.html">View itinerary <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+						<a class="home-tour-action" href="tours/highlights-escape.html">Explore</a>
 					</div>
 				</article>
 				<article class="home-tour-comparison-card" data-aos="fade-up" data-aos-duration="600">
@@ -655,7 +523,7 @@
 						<p class="home-tour-duration">7 days · 6 nights</p>
 						<h3>Hills to Beach Escape</h3>
 						<p class="home-tour-route">Sigiriya · Trincomalee · Kandy · Ella · Mirissa</p>
-						<a class="home-tour-action" href="tours/hills-to-beach.html">View itinerary <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+						<a class="home-tour-action" href="tours/hills-to-beach.html">Explore</a>
 					</div>
 				</article>
 				<article class="home-tour-comparison-card" data-aos="fade-up" data-aos-duration="600">
@@ -664,7 +532,7 @@
 						<p class="home-tour-duration">7 days · 6 nights</p>
 						<h3>Golden Triangle &amp; Beyond</h3>
 						<p class="home-tour-route">Colombo · Kandy · Ella · Yala · Bentota</p>
-						<a class="home-tour-action" href="tours/golden-triangle.html">View itinerary <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+						<a class="home-tour-action" href="tours/golden-triangle.html">Explore</a>
 					</div>
 				</article>
 				<article class="home-tour-comparison-card" data-aos="fade-up" data-aos-duration="600">
@@ -673,7 +541,7 @@
 						<p class="home-tour-duration">8 days · 7 nights</p>
 						<h3>Ramayanaya Tour</h3>
 						<p class="home-tour-route">Anuradhapura · Trincomalee · Kandy · Nuwara Eliya · Kataragama</p>
-						<a class="home-tour-action" href="tours/ramayanaya-tour.html">View itinerary <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+						<a class="home-tour-action" href="tours/ramayanaya-tour.html">Explore</a>
 					</div>
 				</article>
 				<article class="home-tour-comparison-card" data-aos="fade-up" data-aos-duration="600">
@@ -682,7 +550,7 @@
 						<p class="home-tour-duration">10 days · 9 nights</p>
 						<h3>Pearl Of Asia Tour</h3>
 						<p class="home-tour-route">Sigiriya · Kandy · Ella · Udawalawe · Mirissa · Bentota · Colombo</p>
-						<a class="home-tour-action" href="tours/pearl-of-asia.html">View itinerary <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+						<a class="home-tour-action" href="tours/pearl-of-asia.html">Explore</a>
 					</div>
 				</article>
 				<article class="home-tour-comparison-card" data-aos="fade-up" data-aos-duration="600">
@@ -691,12 +559,12 @@
 						<p class="home-tour-duration">14 days · 13 nights</p>
 						<h3>Sri Lanka Grand Tour</h3>
 						<p class="home-tour-route">Ancient cities · East coast · Hill country · Wildlife · South coast</p>
-						<a class="home-tour-action" href="tours/grand-tour.html">View itinerary <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+						<a class="home-tour-action" href="tours/grand-tour.html">Explore</a>
 					</div>
 				</article>
 			</div>
 			<!-- Customization Notice -->
-			<div class="text-center bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-10 mb-12" data-aos="fade-up-blur" data-aos-duration="1000" data-aos-delay="300">
+			<div class="home-tour-customization text-center bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-10" data-aos="fade-up-blur" data-aos-duration="1000" data-aos-delay="300">
 				<h3 class="font-display text-3xl md:text-4xl font-bold mb-6 text-gray-800">Fully Customizable Packages</h3>
 				<p class="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
 					Our featured private tours can be adjusted around your interests, pace, and budget. For fixed group journeys, ask us about the next departure and confirmed inclusions.
@@ -717,156 +585,64 @@
 					</p>
 				</div>
 
-				<!-- 2026 Asymmetric Bento Grid (7 Curated Destinations) -->
-				<div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
-
-					<!-- 1. Sigiriya (Tall Hero Portrait - Top Left) -->
-					<div onclick="window.location.href='destinations/sigiriya.html'" class="group relative overflow-hidden rounded-3xl md:row-span-2 md:col-span-1 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="100">
-						<img src="assets/img/destinations/sigiriya_lion_rock.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Sigiriya Lion Rock fortress in Sri Lanka" loading="lazy" decoding="async">
-						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 pointer-events-none"></div>
-
-						<div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between z-10">
-							<div class="flex items-center justify-between w-full">
-								<div class="liquid-glass px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
-									Sigiriya
-								</div>
-							</div>
-							<div class="transform transition-transform duration-500 group-hover:translate-y-[-4px]">
-								<h3 class="text-2xl sm:text-3xl font-display font-bold text-white mb-2 leading-tight drop-shadow-md">Ascend the Lion Rock; find your peace</h3>
-								<div class="inline-flex items-center gap-1.5 text-xs text-emerald-300 font-semibold group-hover:text-white transition-colors">
-									<a href="destinations/sigiriya.html">Explore Sigiriya travel guide and activities</a>
-									<i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
-								</div>
-							</div>
+				<!-- Destination guides keep useful copy clear of the photographs. -->
+				<div class="home-destination-grid">
+					<article class="home-destination-card" data-aos="fade-up" data-aos-duration="600">
+						<img src="assets/img/destinations/sigiriya_lion_rock.png" alt="Sigiriya Lion Rock fortress in Sri Lanka" loading="lazy" decoding="async">
+						<div class="home-destination-body">
+							<h3>Sigiriya</h3>
+							<p>Ancient rock fortress and Cultural Triangle.</p>
+							<a href="destinations/sigiriya.html" aria-label="Explore Sigiriya travel guide and activities">Explore</a>
 						</div>
-					</div>
-
-					<!-- 2. Ella (Wide Landscape - Top Right) -->
-					<div onclick="window.location.href='destinations/ella.html'" class="group relative overflow-hidden rounded-3xl md:col-span-2 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="200">
-						<img src="assets/img/destinations/ella-hero.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Ella hill country and Nine Arch Bridge in Sri Lanka" loading="lazy" decoding="async">
-						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 pointer-events-none"></div>
-
-						<div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between z-10">
-							<div class="flex items-center justify-between w-full">
-								<div class="liquid-glass px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
-									Ella
-								</div>
-							</div>
-							<div class="transform transition-transform duration-500 group-hover:translate-y-[-4px]">
-								<h3 class="text-2xl sm:text-3xl font-display font-bold text-white mb-2 leading-tight drop-shadow-md">Journey over Nine Arch Bridge &amp; misty tea trails</h3>
-								<div class="inline-flex items-center gap-1.5 text-xs text-emerald-300 font-semibold group-hover:text-white transition-colors">
-									<a href="destinations/ella.html">Explore Ella travel guide and activities</a>
-									<i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
-								</div>
-							</div>
+					</article>
+					<article class="home-destination-card" data-aos="fade-up" data-aos-duration="600">
+						<img src="assets/img/destinations/ella-hero.png" alt="Ella hill country and Nine Arch Bridge in Sri Lanka" loading="lazy" decoding="async">
+						<div class="home-destination-body">
+							<h3>Ella</h3>
+							<p>Nine Arch Bridge, tea country and walking trails.</p>
+							<a href="destinations/ella.html" aria-label="Explore Ella travel guide and activities">Explore</a>
 						</div>
-					</div>
-
-					<!-- 3. Arugam Bay (Wide Landscape - Right Middle) -->
-					<div onclick="window.location.href='destinations/arugambay.html'" class="group relative overflow-hidden rounded-3xl md:col-span-2 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="300">
-						<img src="assets/img/destinations/arugam-bay-hero.jpg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Arugam Bay surf coast in Sri Lanka" loading="lazy" decoding="async">
-						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 pointer-events-none"></div>
-
-						<div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between z-10">
-							<div class="flex items-center justify-between w-full">
-								<div class="liquid-glass px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
-									Arugam Bay
-								</div>
-							</div>
-							<div class="transform transition-transform duration-500 group-hover:translate-y-[-4px]">
-								<h3 class="text-2xl sm:text-3xl font-display font-bold text-white mb-2 leading-tight drop-shadow-md">Plan a surf and coastal stay</h3>
-								<div class="inline-flex items-center gap-1.5 text-xs text-emerald-300 font-semibold group-hover:text-white transition-colors">
-									<a href="destinations/arugambay.html">Explore Arugam Bay surf and travel guide</a>
-									<i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
-								</div>
-							</div>
+					</article>
+					<article class="home-destination-card" data-aos="fade-up" data-aos-duration="600">
+						<img src="assets/img/destinations/arugam-bay-hero.jpg" alt="Arugam Bay surf coast in Sri Lanka" loading="lazy" decoding="async">
+						<div class="home-destination-body">
+							<h3>Arugam Bay</h3>
+							<p>Surf breaks and Sri Lanka’s east coast.</p>
+							<a href="destinations/arugambay.html" aria-label="Explore Arugam Bay surf and travel guide">Explore</a>
 						</div>
-					</div>
-
-					<!-- 4. Trincomalee (Balanced - Bottom Left) -->
-					<div onclick="window.location.href='destinations/trincomalee.html'" class="group relative overflow-hidden rounded-3xl md:col-span-1 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="400">
-						<img src="assets/img/destinations/trincomalee_beach.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Trincomalee beach on Sri Lanka's east coast" loading="lazy" decoding="async">
-						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20 pointer-events-none"></div>
-
-						<div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
-							<div class="flex items-center justify-between w-full">
-								<div class="liquid-glass px-3.5 py-1 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
-									Trincomalee
-								</div>
-							</div>
-							<div class="transform transition-transform duration-500 group-hover:translate-y-[-4px]">
-								<h3 class="text-xl font-display font-bold text-white mb-2 leading-tight drop-shadow-md">Whale watching &amp; Pigeon Island diving</h3>
-								<div class="inline-flex items-center gap-1.5 text-xs text-emerald-300 font-semibold group-hover:text-white transition-colors">
-									<a href="destinations/trincomalee.html">Explore Trincomalee travel guide</a>
-									<i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-								</div>
-							</div>
+					</article>
+					<article class="home-destination-card" data-aos="fade-up" data-aos-duration="600">
+						<img src="assets/img/destinations/trincomalee_beach.png" alt="Trincomalee beach on Sri Lanka's east coast" loading="lazy" decoding="async">
+						<div class="home-destination-body">
+							<h3>Trincomalee</h3>
+							<p>East coast beaches and Pigeon Island.</p>
+							<a href="destinations/trincomalee.html" aria-label="Explore Trincomalee travel guide">Explore</a>
 						</div>
-					</div>
-
-					<!-- 5. Colombo (Balanced - Bottom Middle) -->
-					<div onclick="window.location.href='destinations/colombo.html'" class="group relative overflow-hidden rounded-3xl md:col-span-1 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="500">
-						<img src="assets/img/destinations/colombo_city.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Colombo city and Indian Ocean waterfront in Sri Lanka" loading="lazy" decoding="async">
-						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20 pointer-events-none"></div>
-
-						<div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
-							<div class="flex items-center justify-between w-full">
-								<div class="liquid-glass px-3.5 py-1 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
-									Colombo
-								</div>
-							</div>
-							<div class="transform transition-transform duration-500 group-hover:translate-y-[-4px]">
-								<h3 class="text-xl font-display font-bold text-white mb-2 leading-tight drop-shadow-md">Colonial bazaars &amp; oceanfront dining</h3>
-								<div class="inline-flex items-center gap-1.5 text-xs text-emerald-300 font-semibold group-hover:text-white transition-colors">
-									<a href="destinations/colombo.html">Explore Colombo travel guide</a>
-									<i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-								</div>
-							</div>
+					</article>
+					<article class="home-destination-card" data-aos="fade-up" data-aos-duration="600">
+						<img src="assets/img/destinations/colombo_city.png" alt="Colombo city and Indian Ocean waterfront in Sri Lanka" loading="lazy" decoding="async">
+						<div class="home-destination-body">
+							<h3>Colombo</h3>
+							<p>City markets, heritage and the oceanfront.</p>
+							<a href="destinations/colombo.html" aria-label="Explore Colombo travel guide">Explore</a>
 						</div>
-					</div>
-
-					<!-- 6. Bentota (Balanced - Bottom Right) -->
-					<div onclick="window.location.href='destinations/bentota.html'" class="group relative overflow-hidden rounded-3xl md:col-span-1 shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.02] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="600">
-						<img src="assets/img/gallery/main/madu-river-safari.jpg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Travellers on a Sri Lankan mangrove river safari" loading="lazy" decoding="async">
-						<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20 pointer-events-none"></div>
-
-						<div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
-							<div class="flex items-center justify-between w-full">
-								<div class="liquid-glass px-3.5 py-1 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
-									Bentota
-								</div>
-							</div>
-							<div class="transform transition-transform duration-500 group-hover:translate-y-[-4px]">
-								<h3 class="text-xl font-display font-bold text-white mb-2 leading-tight drop-shadow-md">Golden beaches &amp; mangrove safaris</h3>
-								<div class="inline-flex items-center gap-1.5 text-xs text-emerald-300 font-semibold group-hover:text-white transition-colors">
-									<a href="destinations/bentota.html">Explore Bentota travel guide</a>
-									<i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-								</div>
-							</div>
+					</article>
+					<article class="home-destination-card" data-aos="fade-up" data-aos-duration="600">
+						<img src="assets/img/gallery/main/madu-river-safari.jpg" alt="Travellers on a Sri Lankan mangrove river safari" loading="lazy" decoding="async">
+						<div class="home-destination-body">
+							<h3>Bentota</h3>
+							<p>Golden beaches and mangrove river safaris.</p>
+							<a href="destinations/bentota.html" aria-label="Explore Bentota travel guide">Explore</a>
 						</div>
-					</div>
-
-					<!-- 7. Kandy (Full Width Feature Banner - Bottom) -->
-					<div onclick="window.location.href='destinations/kandy.html'" class="group relative overflow-hidden rounded-3xl md:col-span-3 h-[240px] shadow-lg cursor-pointer transition-all duration-[400ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.01] hover:shadow-2xl hover:z-10" data-aos="fade-up" data-aos-delay="700">
-						<img src="assets/img/gallery/main/temple-of-sacred-tooth-relic.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Temple of the Sacred Tooth Relic in Kandy at dusk" loading="lazy" decoding="async">
-						<div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/30 pointer-events-none"></div>
-
-						<div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between z-10 max-w-3xl">
-							<div class="flex items-center gap-3">
-								<div class="liquid-glass px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
-									Kandy
-								</div>
-							</div>
-							<div>
-								<h3 class="text-2xl sm:text-3xl font-display font-bold text-white mb-2 leading-tight drop-shadow-md">Explore Sri Lanka's sacred hill capital &amp; Temple of the Tooth Relic</h3>
-								<div class="inline-flex items-center gap-1.5 text-xs text-emerald-300 font-semibold group-hover:text-white transition-colors">
-									<a href="destinations/kandy.html">Explore Kandy travel guide</a>
-									<i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
-								</div>
-							</div>
+					</article>
+					<article class="home-destination-card" data-featured-destination data-aos="fade-up" data-aos-duration="600">
+						<img src="assets/img/gallery/main/temple-of-sacred-tooth-relic.png" alt="Temple of the Sacred Tooth Relic in Kandy at dusk" loading="lazy" decoding="async">
+						<div class="home-destination-body">
+							<h3>Kandy</h3>
+							<p>The sacred hill capital and Temple of the Tooth Relic.</p>
+							<a href="destinations/kandy.html" aria-label="Explore Kandy travel guide">Explore</a>
 						</div>
-					</div>
-
+					</article>
 				</div>
 			</div>
 		</section>

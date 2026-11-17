@@ -19,7 +19,7 @@ test('public pages use local runtime libraries and fonts', () => {
 });
 
 test('local font and icon styles resolve their font files', () => {
-    for (const file of ['fonts/fonts.css', 'phosphor/regular/style.css', 'phosphor/fill/style.css']) {
+    for (const file of ['fonts/fonts.css', 'fonts/packages.css', 'phosphor/regular/style.css', 'phosphor/fill/style.css']) {
         const cssPath = path.join(root, 'assets/vendor', file);
         const css = fs.readFileSync(cssPath, 'utf8');
         for (const match of css.matchAll(/url\(['"]?([^'"\)]+)['"]?\)/g)) {
@@ -28,7 +28,7 @@ test('local font and icon styles resolve their font files', () => {
         }
     }
     const licenses = fs.readdirSync(path.join(root, 'assets/vendor/licenses'));
-    for (const name of ['aos', 'photoswipe', 'swiper', 'phosphor', 'geist', 'newsreader', 'lenis']) {
+    for (const name of ['aos', 'photoswipe', 'swiper', 'phosphor', 'geist', 'newsreader', 'lenis', 'cormorant-garamond', 'nunito']) {
         assert.ok(licenses.some(file => file.includes(name)), name + ' license');
     }
 });

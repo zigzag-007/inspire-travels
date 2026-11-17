@@ -22,8 +22,8 @@
     /* Type roles. These match the names in tailwind-config.js on purpose,
        so CSS and Tailwind always pull the same fonts. */
     --font-display: 'Newsreader', Georgia, serif;
-    --font-body: 'Geist', system-ui, sans-serif;
-    --font-mono: 'Geist Mono', ui-monospace, monospace;
+    --font-body: 'Nunito', system-ui, sans-serif;
+    --font-mono: 'Nunito', system-ui, sans-serif;
 
     /* Warm shadows. Plain black looked dirty on the cream background. */
     --shadow-soft: 0 1px 2px oklch(0.35 0.05 60 / 0.04), 0 4px 12px oklch(0.35 0.05 60 / 0.05);
