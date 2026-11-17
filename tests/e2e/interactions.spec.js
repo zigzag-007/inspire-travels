@@ -2,6 +2,47 @@ const { test, expect } = require('@playwright/test');
 const fs = require('node:fs');
 const path = require('node:path');
 
+// A card surface changes before its button gets the stronger action treatment.
+test('card hover stays distinct from direct Explore hover', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.setViewportSize({ width: 1920, height: 1080 });
+    await page.goto('/');
+    const offer = page.locator('.offers-card').filter({ has: page.getByRole('heading', { name: 'Sri Lanka Group Tours', exact: true }) });
+    let example = 0;
+    for (const [card, button, filled] of [
+        [offer, offer.locator('.offer-explore'), 'rgb(23, 59, 48)'],
+        [page.locator('.home-tour-comparison-card').first(), page.locator('.home-tour-action').first(), 'rgb(23, 59, 48)'],
+        [page.locator('.home-destination-card').first(), page.locator('.home-destination-body a').first(), 'rgb(24, 59, 48)']
+    ]) {
+        await card.locator('h3').hover();
+        await expect(card).toHaveCSS('background-color', 'rgb(229, 233, 223)');
+        await expect(button).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+        const body = card.locator('.offer-card-body, .home-tour-card-body, .home-destination-body');
+        await body.screenshot({ path: test.info().outputPath('card-hover-' + example + '.png') });
+        await button.hover();
+        await expect(button).toHaveCSS('background-color', filled);
+        await expect(button).toHaveCSS('color', 'rgb(255, 253, 247)');
+        await body.screenshot({ path: test.info().outputPath('button-hover-' + example + '.png') });
+        example += 1;
+    }
+});
+
+// Touch visits keep neutral surfaces and activate the real guide link on tap.
+test('touch cards avoid sticky hover styling', async ({ browser, baseURL }) => {
+    for (const width of [390, 768]) {
+        const context = await browser.newContext({ viewport: { width, height: 1024 }, hasTouch: true, isMobile: true, reducedMotion: 'reduce', serviceWorkers: 'block' });
+        const page = await context.newPage();
+        await page.goto(baseURL + '/');
+        const card = page.locator('.home-destination-card').first();
+        await card.locator('h3').tap();
+        await expect(card).toHaveCSS('background-color', 'rgb(239, 241, 235)');
+        await expect(card.locator('a')).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+        await card.locator('a').tap();
+        await expect(page).toHaveURL(/destinations\/sigiriya.html$/);
+        await context.close();
+    }
+});
+
 // The note keeps its own serif heading while Nunito carries the body copy.
 test('customizable package typography stays scoped and readable', async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });

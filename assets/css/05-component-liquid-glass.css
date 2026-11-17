@@ -326,7 +326,6 @@
     transition: background-color 180ms ease, color 180ms ease;
 }
 
-.offers-card:hover .offer-explore,
 .offers-card:focus-visible .offer-explore {
     background: #173b30;
     color: #fffdf7;
@@ -496,6 +495,26 @@
     flex-direction: column;
     overflow: hidden;
     background: #eff1eb;
+}
+
+/* Surface feedback stays separate from the action under the pointer. */
+.offers-card,
+.home-tour-comparison-card,
+.home-destination-card {
+    transition: background-color 180ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .offers-card:hover,
+    .home-tour-comparison-card:hover,
+    .home-destination-card:hover {
+        background-color: #e5e9df;
+    }
+
+    .offer-explore:hover {
+        background: #173b30;
+        color: #fffdf7;
+    }
 }
 
 .home-tour-card-image-wrap {
